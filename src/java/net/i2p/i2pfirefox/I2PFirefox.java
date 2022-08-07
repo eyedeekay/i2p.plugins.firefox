@@ -9,6 +9,13 @@ public class I2PFirefox {
     private final String[] FIREFOX_SEARCH_PATHS = FIREFOX_FINDER();
     private final int DEFAULT_TIMEOUT = 200;
 
+    /*
+     * Construct an I2PFirefox class which manages an instance of Firefox and
+     * an accompanying Firefox profile. This version includes Firefox variants
+     * and forks.
+     * 
+     * @since 0.0.1
+     */
     I2PFirefox() {
         for (String path : FIREFOX_SEARCH_PATHS) {
             File f = new File(path);
@@ -80,7 +87,6 @@ public class I2PFirefox {
         }
         return exePath;
     }
-
     private static String[] FIND_FIREFOX_SEARCH_PATHS() {
         switch (getOperatingSystem()) {
             case "Windows":
@@ -95,7 +101,6 @@ public class I2PFirefox {
                 return FIND_ALL_FIREFOX_SEARCH_PATHS();
         }
     }
-
     private static String[] NEARBY_FIREFOX_SEARCH_PATHS() {
         // obtain the PLUGIN environment variable
         String plugin = System.getenv("PLUGIN");
@@ -140,7 +145,6 @@ public class I2PFirefox {
         }
         return new String[]{};
     }
-
     private static String[] FIREFOX_FINDER() {
         String[] nearby = NEARBY_FIREFOX_SEARCH_PATHS();
         String[] all = FIND_FIREFOX_SEARCH_PATHS();
@@ -153,7 +157,6 @@ public class I2PFirefox {
             return new String[]{};
         }
     }
-
     private static String getOperatingSystem() {
         String os = System.getProperty("os.name");
         if (os.startsWith("Windows")) {
@@ -168,6 +171,14 @@ public class I2PFirefox {
         return "Unknown";
     }
 
+    /*
+     * Check our list of firefox paths for a valid firefox binary.
+     * Just an existence check for now, but should check versions
+     * in the future.
+     * 
+     * @return a list of usable Firefoxes, or an empty list if none are found.
+     * @since 0.0.1
+     */
     public String[] onlyValidFirefoxes() {
         String[] firefoxes = FIREFOX_FINDER();
         ArrayList<String> validFirefoxes = new ArrayList<String>();
@@ -180,6 +191,12 @@ public class I2PFirefox {
         return validFirefoxes.toArray(new String[validFirefoxes.size()]);
     }
 
+    /*
+     * Return the best available Firefox from the list of Firefoxes we have.
+     * 
+     * @return the path to the best available Firefox, or null if none are found.
+     * @since 0.0.1
+     */
     public String topFirefox() {
         // get the FIREFOX environment variable
         String firefox = System.getenv("FIREFOX");
@@ -199,6 +216,16 @@ public class I2PFirefox {
             return "";
         }
     }
+
+    /*
+     * Return the best available Firefox from the list of Firefoxes we have.
+     * if override is passed it will be validated and if it validates, it will
+     * be used.
+     * 
+     * @param override the path to a valid Firefox binary to use.
+     * @return the path to the best available Firefox, or null if none are found.
+     * @since 0.0.1
+     */
     public String topFirefox(String overrideFirefox) {
         if (overrideFirefox != null && !overrideFirefox.isEmpty()) {
             File firefoxFile = new File(overrideFirefox);
@@ -209,10 +236,28 @@ public class I2PFirefox {
         return topFirefox();
     }
 
+    /*
+     * Build a ProcessBuilder for the top Firefox binary and
+     * the default profile.
+     * 
+     * @return a ProcessBuilder for the top Firefox binary and
+     * the default profile.
+     * @since 0.0.1
+     */
     public ProcessBuilder defaultProcessBuilder() {
         return processBuilder(new String[]{});
     }
 
+    /*
+     * Build a ProcessBuilder for the top Firefox binary and
+     * the default profile, with a specific set of extended
+     * arguments.
+     * 
+     * @param args the extended arguments to pass to the Firefox binary.
+     * @return a ProcessBuilder for the top Firefox binary and
+     * default profile, with a specific set of extended arguments.
+     * @since 0.0.1
+     */
     public ProcessBuilder processBuilder(String[] args) {
         String firefox = topFirefox();
         if (!firefox.isEmpty()) {
@@ -229,15 +274,50 @@ public class I2PFirefox {
         }
     }
 
+    /*
+     * Waits for an HTTP proxy on port 4444 to be ready.
+     * Returns false on timeout of 200 seconds.
+     * 
+     * @return true if the proxy is ready, false if it is not.
+     * @since 0.0.1
+     */
     public boolean waitForProxy() {
         return waitForProxy(DEFAULT_TIMEOUT);
     }
+
+    /* 
+     * Waits for an HTTP proxy on port 4444 to be ready.
+     * Returns false on timeout of the specified number of seconds.
+     * 
+     * @param timeout the number of seconds to wait for the proxy to be ready.
+     * @return true if the proxy is ready, false if it is not.
+     * @since 0.0.1
+     */
     public boolean waitForProxy(int timeout) {
         return waitForProxy(timeout, 4444);
     }
+    /*
+     * Waits for an HTTP proxy on the specified port to be ready.
+     * Returns false on timeout of the specified number of seconds.
+     * 
+     * @param timeout the number of seconds to wait for the proxy to be ready.
+     * @param port the port to wait for the proxy to be ready on.
+     * @return true if the proxy is ready, false if it is not.
+     * @since 0.0.1
+     */
     public boolean waitForProxy(int timeout, int port) {
         return waitForProxy(timeout, port, "localhost");
     }
+    /*
+     * Waits for an HTTP proxy on the specified port to be ready.
+     * Returns false on timeout of the specified number of seconds.
+     * 
+     * @param timeout the number of seconds to wait for the proxy to be ready.
+     * @param port the port to wait for the proxy to be ready on.
+     * @param host the host to wait for the proxy to be ready on.
+     * @return true if the proxy is ready, false if it is not.
+     * @since 0.0.1
+     */
     public boolean waitForProxy(int timeout, int port, String host) {
         for (int i = 0; i < timeout; i++) {
             if (checkifPortIsOccupied(port, host)) {
@@ -262,6 +342,13 @@ public class I2PFirefox {
     }
 
 
+    /*
+     * Populates a profile directory with a proxy configuration.
+     * Waits for an HTTP proxy on the port 4444 to be ready.
+     * Launches Firefox with the profile directory.
+     * 
+     * @since 0.0.1
+     */
     public void launch(){
         String profileDirectory = I2PFirefoxProfileBuilder.profileDirectory();
         if (I2PFirefoxProfileChecker.validateProfileDirectory(profileDirectory)) {

@@ -19,6 +19,11 @@ public class I2PFirefoxProfileBuilder {
         }
     }
 
+    /*
+     * get the profile directory, creating it if necessary
+     *
+     * @return the profile directory, or null if it could not be created
+     */
     public static String profileDirectory() {
         String pd = System.getenv("I2P_FIREFOX_PROFILE");
         if (pd != null && !pd.isEmpty()) {
@@ -43,6 +48,11 @@ public class I2PFirefoxProfileBuilder {
         }
     }
 
+    /*
+     * get the base profile directory, creating it if necessary
+     *
+     * @return the base profile directory, or null if it could not be created
+     */
     public static String baseProfileDirectory() {
         String pd = System.getenv("I2P_FIREFOX_BASE_PROFILE");
         if (pd != null && !pd.isEmpty()) {
@@ -55,6 +65,13 @@ public class I2PFirefoxProfileBuilder {
         return baseProfileDir(rtd);
     }
 
+    /*
+     * get the runtime directory, creating it if create=true
+     * 
+     * @param create if true, create the runtime directory if it does not exist
+     * @return the runtime directory, or null if it could not be created
+     * @since 0.0.1
+     */
     public static File runtimeDirectory(boolean create) {
         String rtd = runtimeDirectory();
         File rtdFile = new File(rtd);
@@ -66,6 +83,12 @@ public class I2PFirefoxProfileBuilder {
         return new File(rtd);
     }
 
+    /*
+     * get the correct runtime directory
+     * 
+     * @return the runtime directory, or null if it could not be created or found
+     * @since 0.0.1
+     */
     public static String runtimeDirectory() {
         // get the I2P_FIREFOX_DIR environment variable
         String rtd = System.getenv("I2P_FIREFOX_DIR");
