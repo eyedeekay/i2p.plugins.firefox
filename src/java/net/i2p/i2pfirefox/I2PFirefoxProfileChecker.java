@@ -1,4 +1,4 @@
-package net;
+package net.i2p.i2pfirefox;
 
 import java.io.File;
 
