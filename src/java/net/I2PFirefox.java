@@ -102,17 +102,21 @@ public class I2PFirefox {
         // search the plugin directory for anything named "firefox", "firefox-bin", "firefox-esr", "waterfox", "waterfox-bin", "librewolf"
         // up to a depth of 2 directories deep.
         // list the directories in the plugin directory
-        File pluginDir = new File(plugin);
-        if (pluginDir.exists()) {
-            File[] pluginDirs = pluginDir.listFiles();
-            // list the files in the plugin directory
-            for (File pluginDir1 : pluginDirs) {
-                File[] pluginFiles = pluginDir1.listFiles();
+        if (plugin != null && !plugin.isEmpty()){
+            File pluginDir = new File(plugin);
+            if (pluginDir.exists()) {
+                File[] pluginDirs = pluginDir.listFiles();
                 // list the files in the plugin directory
-                for (File pluginFile : pluginFiles) {
-                    if (pluginFile.getName().equals("firefox") || pluginFile.getName().equals("firefox-bin") || pluginFile.getName().equals("firefox-esr") || pluginFile.getName().equals("waterfox") || pluginFile.getName().equals("waterfox-bin") || pluginFile.getName().equals("librewolf")) {
-                        return new String[]{pluginFile.getAbsolutePath()};
-                    }
+                for (File pluginDir1 : pluginDirs) {
+                    File[] pluginFiles = pluginDir1.listFiles();
+                    // list the files in the plugin directory
+                    if (pluginFiles != null){
+                        for (File pluginFile : pluginFiles) {
+                            if (pluginFile.getName().equals("firefox") || pluginFile.getName().equals("firefox-bin") || pluginFile.getName().equals("firefox-esr") || pluginFile.getName().equals("waterfox") || pluginFile.getName().equals("waterfox-bin") || pluginFile.getName().equals("librewolf")) {
+                                return new String[]{pluginFile.getAbsolutePath()};
+                            }
+                        }
+                    }  
                 }
             }
         }
@@ -125,9 +129,11 @@ public class I2PFirefox {
             for (File userDir1 : userDirs) {
                 File[] userFiles = userDir1.listFiles();
                 // list the files in the user.dir directory
-                for (File userFile : userFiles) {
-                    if (userFile.getName().equals("firefox") || userFile.getName().equals("firefox-bin") || userFile.getName().equals("firefox-esr") || userFile.getName().equals("waterfox") || userFile.getName().equals("waterfox-bin") || userFile.getName().equals("librewolf")) {
-                        return new String[]{userFile.getAbsolutePath()};
+                if (userFiles != null){
+                    for (File userFile : userFiles) {
+                        if (userFile.getName().equals("firefox") || userFile.getName().equals("firefox-bin") || userFile.getName().equals("firefox-esr") || userFile.getName().equals("waterfox") || userFile.getName().equals("waterfox-bin") || userFile.getName().equals("librewolf")) {
+                            return new String[]{userFile.getAbsolutePath()};
+                        }
                     }
                 }
             }
@@ -138,9 +144,10 @@ public class I2PFirefox {
     private static String[] FIREFOX_FINDER() {
         String[] nearby = NEARBY_FIREFOX_SEARCH_PATHS();
         String[] all = FIND_FIREFOX_SEARCH_PATHS();
-        if (nearby.length > 0) {
+
+        if (nearby != null && nearby.length > 0) {
             return nearby;
-        } else if (all.length > 0) {
+        } else if (all != null && all.length > 0) {
             return all;
         } else {
             return new String[]{};
@@ -209,7 +216,7 @@ public class I2PFirefox {
     public ProcessBuilder processBuilder(String[] args) {
         String firefox = TopFirefox();
         if (!firefox.isEmpty()) {
-            String[] newArgs = new String[args.length+2];
+            String[] newArgs = new String[args.length+3];
             newArgs[0] = firefox;
             newArgs[1] = "--profile";
             newArgs[2] = I2PFirefoxProfileBuilder.profileDirectory();
