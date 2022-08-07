@@ -1,6 +1,11 @@
 package net.i2p.i2pfirefox;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
 
@@ -9,14 +14,7 @@ public class I2PFirefoxProfileBuilder {
 
     private static String profileDir(String file) {
         File profileDir = new File(file, "i2p.firefox.profile");
-        // make sure the directory exists
-        if (profileDir.exists()) {
-            return profileDir.getAbsolutePath();
-        } else {
-            // create the directory
-            profileDir.mkdir();
-            return profileDir.getAbsolutePath();
-        }
+        return profileDir.getAbsolutePath();
     }
 
     /*
@@ -43,7 +41,6 @@ public class I2PFirefoxProfileBuilder {
             return profileDir.getAbsolutePath();
         } else {
             // create the directory
-            //profileDir.mkdir();
             I2PFirefoxProfileUnpacker unpacker = new I2PFirefoxProfileUnpacker();
             if (!unpacker.unpackProfile(profileDir.getAbsolutePath())) {
                 return null;
@@ -63,6 +60,11 @@ public class I2PFirefoxProfileBuilder {
             File pdf = new File(pd);
             if (pdf.exists() && pdf.isDirectory()) {
                 return pd;
+            }else{
+                I2PFirefoxProfileUnpacker unpacker = new I2PFirefoxProfileUnpacker();
+                if (!unpacker.unpackProfile(pdf.getAbsolutePath())) {
+                    return null;
+                }
             }
         }
         String rtd = runtimeDirectory();
@@ -142,70 +144,60 @@ public class I2PFirefoxProfileBuilder {
     public static boolean copyBaseProfiletoProfile() {
         String baseProfile = baseProfileDirectory();
         String profile = profileDirectory();
+        System.out.println("Copying base profile to profile directory: " + baseProfile + " -> " + profile);
         if (baseProfile.isEmpty() || profile.isEmpty()) {
             return false;
         }
         File baseProfileDir = new File(baseProfile);
         File profileDir = new File(profile);
-        if (!baseProfileDir.exists() || profileDir.listFiles() == null ) {
-            File userJs = new File(baseProfileDir, "user.js");
-            File profileUserJs = new File(profileDir, "user.js");
-            if (userJs.exists() && !profileUserJs.exists()) {
-                try {
-                    Files.copy(userJs.toPath(), profileUserJs.toPath(), StandardCopyOption.REPLACE_EXISTING);
-                    return true;
-                } catch (Exception e) {
-                    if (strict) {
-                        throw new RuntimeException(e);
-                    } else {
-                        System.err.println("Could not copy user.js to profile directory: " + e.getMessage());
-                        return false;
-                    }
-                }
-            }
-            return false;
-        }
+        
         try {
-            Files.copy(baseProfileDir.toPath(), profileDir.toPath(), StandardCopyOption.REPLACE_EXISTING);
+            System.out.println("Copying base profile to profile directory");
+            copyDirectory(baseProfileDir, profileDir);
         } catch (Exception e) {
             System.out.println("Error copying base profile to profile"+e);
             return false;
         }
+        System.out.println("Copied base profile to profile directory");
         // if user.js does not exist yet, make an empty one.
-        if (!touch(profileDir.toString(), "user.js")) {
-            return false;
-        }
+        //if (!touch(profileDir.toString(), "user.js")) {
+            //return false;
+        //}
         // if extensions does not exist yet, make an empty one.
-        if (!mkExtensionsDir(profileDir.toString())){
-            return false;
-        }
+        //if (!mkExtensionsDir(profileDir.toString())){
+            //return false;
+        //}
 
         
         return copyStrictOptions();
     }
-    private static boolean touch(String dir, String file){
-        File f = new File(dir, file);
-        if (!f.exists()) {
-            try {
-                f.createNewFile();
-            } catch (Exception e) {
-                System.out.println("Error creating "+file+" in "+dir+" "+e);
-                return false;
-            }
+    private static void copyDirectory(File sourceDirectory, File destinationDirectory) throws IOException {
+        destinationDirectory = new File(destinationDirectory.toString().replace("i2p.firefox.base.profile", ""));
+        if (!destinationDirectory.exists()) {
+            destinationDirectory.mkdir();
         }
-        return true;
+        for (String f : sourceDirectory.list()) {
+            copyDirectoryCompatibityMode(new File(sourceDirectory, f), new File(destinationDirectory, f));
+        }
     }
-    private static boolean mkExtensionsDir(String dir) {
-        File f = new File(dir, "extensions");
-        if (!f.exists()) {
-            try {
-                f.mkdir();
-            } catch (Exception e) {
-                System.out.println("Error creating extensions directory in "+dir+" "+e);
-                return false;
+
+    public static void copyDirectoryCompatibityMode(File source, File destination) throws IOException {
+        if (source.isDirectory()) {
+            copyDirectory(source, destination);
+        } else {
+            copyFile(source, destination);
+        }
+    }
+
+    private static void copyFile(File sourceFile, File destinationFile) throws IOException {
+        try (InputStream in = new FileInputStream(sourceFile); 
+            OutputStream out = new FileOutputStream(destinationFile)) {
+            byte[] buf = new byte[1024];
+            int length;
+            while ((length = in.read(buf)) > 0) {
+                out.write(buf, 0, length);
             }
         }
-        return true;
     }
 
     /*
@@ -240,9 +232,9 @@ public class I2PFirefoxProfileBuilder {
             return false;
         }
         // if user-overrides.js does not exist yet, make an empty one.
-        if (!touch(profileDir.toString(), "user-overrides.js")) {
-            return false;
-        }
+        //if (!touch(profileDir.toString(), "user-overrides.js")) {
+            //return false;
+        //}
         return true;
     }
 
