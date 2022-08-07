@@ -93,6 +93,7 @@
         </delete>
         <delete dir="i2p.firefox.base.profile" />
         <delete dir="i2p.firefox.profile" />
+        <delete dir="src/i2p.firefox.profile.zip" />
         <delete file="plugin/i2ptunnel.config" />
         <delete file="plugin/plugin.config" />
         <delete file="plugin/i2pfirefox.config" />
