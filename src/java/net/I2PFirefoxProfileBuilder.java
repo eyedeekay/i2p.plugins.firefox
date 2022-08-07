@@ -20,6 +20,13 @@ public class I2PFirefoxProfileBuilder {
     }
 
     public static String profileDirectory() {
+        String pd = System.getenv("I2P_FIREFOX_PROFILE");
+        if (pd != null && !pd.isEmpty()) {
+            File pdf = new File(pd);
+            if (pdf.exists() && pdf.isDirectory()) {
+                return pd;
+            }
+        }
         String rtd = RuntimeDirectory();
         return profileDir(rtd);
     }
@@ -37,6 +44,13 @@ public class I2PFirefoxProfileBuilder {
     }
 
     public static String baseProfileDirectory() {
+        String pd = System.getenv("I2P_FIREFOX_BASE_PROFILE");
+        if (pd != null && !pd.isEmpty()) {
+            File pdf = new File(pd);
+            if (pdf.exists() && pdf.isDirectory()) {
+                return pd;
+            }
+        }
         String rtd = RuntimeDirectory();
         return baseProfileDir(rtd);
     }

@@ -1,10 +1,13 @@
 package net;
 
 import java.io.File;
+import java.io.IOException;
+import java.net.Socket;
 import java.util.ArrayList;
 
 public class I2PFirefox {
     private final String[] FIREFOX_SEARCH_PATHS = FIREFOX_FINDER();
+    private final int DEFAULT_TIMEOUT = 200;
 
     I2PFirefox() {
         for (String path : FIREFOX_SEARCH_PATHS) {
@@ -219,9 +222,40 @@ public class I2PFirefox {
         }
     }
 
-    public static void main(String[] args) {
-        System.out.println("I2PFirefox");
-        I2PFirefox i2pFirefox = new I2PFirefox();
+    public boolean waitForProxy() {
+        return waitForProxy(DEFAULT_TIMEOUT);
+    }
+    public boolean waitForProxy(int timeout) {
+        return waitForProxy(timeout, 4444);
+    }
+    public boolean waitForProxy(int timeout, int port) {
+        return waitForProxy(timeout, port, "localhost");
+    }
+    public boolean waitForProxy(int timeout, int port, String host) {
+        for (int i = 0; i < timeout; i++) {
+            if (checkifPortIsOccupied(port, host)) {
+                return true;
+            }
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        return false;
+    }
+    private boolean checkifPortIsOccupied(int port, String host) {
+        try {
+            Socket socket = new Socket(host, port);
+            socket.close();
+            return true;
+        } catch (IOException e) {
+            return false;
+        }
+    }
+
+
+    public void launch(){
         String profileDirectory = I2PFirefoxProfileBuilder.profileDirectory();
         if (I2PFirefoxProfileChecker.validateProfileDirectory(profileDirectory)) {
             System.out.println("Valid profile directory: "+profileDirectory);
@@ -234,13 +268,21 @@ public class I2PFirefox {
                 System.out.println("Rebuilt profile directory: "+profileDirectory);
             }
         }
-        ProcessBuilder pb = i2pFirefox.defaultProcessBuilder();
-        try{
-            pb.start();
-        }catch(Exception e){
-            System.out.println("Error: "+e.getMessage());
-        }finally{
-            System.out.println("I2PFirefox");
+        if (waitForProxy()){
+            ProcessBuilder pb = this.defaultProcessBuilder();
+            try{
+                pb.start();
+            }catch(Exception e){
+                System.out.println("Error: "+e.getMessage());
+            }finally{
+                System.out.println("I2PFirefox");
+            }
         }
+    }
+
+    public static void main(String[] args) {
+        System.out.println("I2PFirefox");
+        I2PFirefox i2pFirefox = new I2PFirefox();
+        i2pFirefox.launch();
     }    
 }
