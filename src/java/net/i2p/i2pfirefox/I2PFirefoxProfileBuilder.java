@@ -144,6 +144,21 @@ public class I2PFirefoxProfileBuilder {
         File baseProfileDir = new File(baseProfile);
         File profileDir = new File(profile);
         if (!baseProfileDir.exists() || profileDir.listFiles() == null ) {
+            File userJs = new File(baseProfileDir, "user.js");
+            File profileUserJs = new File(profileDir, "user.js");
+            if (userJs.exists() && !profileUserJs.exists()) {
+                try {
+                    Files.copy(userJs.toPath(), profileUserJs.toPath(), StandardCopyOption.REPLACE_EXISTING);
+                    return true;
+                } catch (Exception e) {
+                    if (strict) {
+                        throw new RuntimeException(e);
+                    } else {
+                        System.err.println("Could not copy user.js to profile directory: " + e.getMessage());
+                        return false;
+                    }
+                }
+            }
             return false;
         }
         try {
