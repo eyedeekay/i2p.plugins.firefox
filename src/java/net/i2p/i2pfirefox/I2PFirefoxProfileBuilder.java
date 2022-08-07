@@ -27,7 +27,7 @@ public class I2PFirefoxProfileBuilder {
                 return pd;
             }
         }
-        String rtd = RuntimeDirectory();
+        String rtd = runtimeDirectory();
         return profileDir(rtd);
     }
     
@@ -51,12 +51,12 @@ public class I2PFirefoxProfileBuilder {
                 return pd;
             }
         }
-        String rtd = RuntimeDirectory();
+        String rtd = runtimeDirectory();
         return baseProfileDir(rtd);
     }
 
-    public static File RuntimeDirectory(boolean create) {
-        String rtd = RuntimeDirectory();
+    public static File runtimeDirectory(boolean create) {
+        String rtd = runtimeDirectory();
         File rtdFile = new File(rtd);
         if (create) {
             if (!rtdFile.exists()) {
@@ -66,7 +66,7 @@ public class I2PFirefoxProfileBuilder {
         return new File(rtd);
     }
 
-    public static String RuntimeDirectory() {
+    public static String runtimeDirectory() {
         // get the I2P_FIREFOX_DIR environment variable
         String rtd = System.getenv("I2P_FIREFOX_DIR");
         // if it is not null and not empty
@@ -106,7 +106,13 @@ public class I2PFirefoxProfileBuilder {
         }
         return "";
     }
-    public static boolean CopyBaseProfiletoProfile() {
+
+    /*
+     * Copy the inert base profile directory to the runtime profile directory
+     *
+     * @since 0.0.1
+     */
+    public static boolean copyBaseProfiletoProfile() {
         String baseProfile = baseProfileDirectory();
         String profile = profileDirectory();
         if (baseProfile.isEmpty() || profile.isEmpty()) {
@@ -123,12 +129,16 @@ public class I2PFirefoxProfileBuilder {
             System.out.println("Error copying base profile to profile"+e);
             return false;
         }
-        if (!CopyStrictOptions()){
-            return false;
-        }
-        return true;
+        return copyStrictOptions();
     }
-    public static boolean CopyStrictOptions() {
+
+    /*
+     * Copy the strict options from the base profile to the profile
+     *
+     * @return true if successful, false otherwise
+     * @since 0.0.1
+     */
+    public static boolean copyStrictOptions() {
         if (!strict){
             return true;
         }
@@ -156,9 +166,21 @@ public class I2PFirefoxProfileBuilder {
         return true;
     }
 
+    /*
+     * Construct a new Profile Builder
+     * 
+     * @since 0.0.1
+     */
     I2PFirefoxProfileBuilder() {
         I2PFirefoxProfileBuilder.strict = false;
     }
+
+    /*
+     * Construct a new Profile Builder
+     * @param strict if true, the strict overrides will be copied to the profile
+     * 
+     * @since 0.0.1
+     */
     I2PFirefoxProfileBuilder(boolean strict) {
         I2PFirefoxProfileBuilder.strict = strict;
     }

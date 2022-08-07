@@ -168,7 +168,7 @@ public class I2PFirefox {
         return "Unknown";
     }
 
-    public String[] OnlyValidFirefoxes() {
+    public String[] onlyValidFirefoxes() {
         String[] firefoxes = FIREFOX_FINDER();
         ArrayList<String> validFirefoxes = new ArrayList<String>();
         for (String firefox : firefoxes) {
@@ -180,7 +180,7 @@ public class I2PFirefox {
         return validFirefoxes.toArray(new String[validFirefoxes.size()]);
     }
 
-    public String TopFirefox() {
+    public String topFirefox() {
         // get the FIREFOX environment variable
         String firefox = System.getenv("FIREFOX");
         // if it is not null and not empty
@@ -192,21 +192,21 @@ public class I2PFirefox {
                 return firefox;
             }
         }
-        String[] firefoxes = OnlyValidFirefoxes();
+        String[] firefoxes = onlyValidFirefoxes();
         if (firefoxes.length > 0) {
             return firefoxes[0];
         } else {
             return "";
         }
     }
-    public String TopFirefox(String overrideFirefox) {
+    public String topFirefox(String overrideFirefox) {
         if (overrideFirefox != null && !overrideFirefox.isEmpty()) {
             File firefoxFile = new File(overrideFirefox);
             if (firefoxFile.exists()) {
                 return overrideFirefox;
             }
         }
-        return TopFirefox();
+        return topFirefox();
     }
 
     public ProcessBuilder defaultProcessBuilder() {
@@ -214,7 +214,7 @@ public class I2PFirefox {
     }
 
     public ProcessBuilder processBuilder(String[] args) {
-        String firefox = TopFirefox();
+        String firefox = topFirefox();
         if (!firefox.isEmpty()) {
             String[] newArgs = new String[args.length+3];
             newArgs[0] = firefox;
@@ -223,7 +223,7 @@ public class I2PFirefox {
             for (int i = 0; i < args.length; i++) {
                 newArgs[i+3] = args[i];
             }
-            return new ProcessBuilder(newArgs).directory(I2PFirefoxProfileBuilder.RuntimeDirectory(true));
+            return new ProcessBuilder(newArgs).directory(I2PFirefoxProfileBuilder.runtimeDirectory(true));
         } else {
             return new ProcessBuilder(args);
         }
@@ -268,7 +268,7 @@ public class I2PFirefox {
             System.out.println("Valid profile directory: "+profileDirectory);
         } else {
             System.out.println("Invalid profile directory: "+profileDirectory+" rebuilding...");
-            if (!I2PFirefoxProfileBuilder.CopyBaseProfiletoProfile()) {
+            if (!I2PFirefoxProfileBuilder.copyBaseProfiletoProfile()) {
                 System.out.println("Failed to rebuild profile directory: "+profileDirectory);
                 return;
             } else {
