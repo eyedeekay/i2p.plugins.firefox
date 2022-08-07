@@ -143,7 +143,7 @@ public class I2PFirefoxProfileBuilder {
         }
         File baseProfileDir = new File(baseProfile);
         File profileDir = new File(profile);
-        if (!baseProfileDir.exists() || !profileDir.exists()) {
+        if (!baseProfileDir.exists() || profileDir.listFiles() == null ) {
             return false;
         }
         try {
@@ -152,7 +152,41 @@ public class I2PFirefoxProfileBuilder {
             System.out.println("Error copying base profile to profile"+e);
             return false;
         }
+        // if user.js does not exist yet, make an empty one.
+        if (!touch(profileDir.toString(), "user.js")) {
+            return false;
+        }
+        // if extensions does not exist yet, make an empty one.
+        if (!mkExtensionsDir(profileDir.toString())){
+            return false;
+        }
+
+        
         return copyStrictOptions();
+    }
+    private static boolean touch(String dir, String file){
+        File f = new File(dir, file);
+        if (!f.exists()) {
+            try {
+                f.createNewFile();
+            } catch (Exception e) {
+                System.out.println("Error creating "+file+" in "+dir+" "+e);
+                return false;
+            }
+        }
+        return true;
+    }
+    private static boolean mkExtensionsDir(String dir) {
+        File f = new File(dir, "extensions");
+        if (!f.exists()) {
+            try {
+                f.mkdir();
+            } catch (Exception e) {
+                System.out.println("Error creating extensions directory in "+dir+" "+e);
+                return false;
+            }
+        }
+        return true;
     }
 
     /*
@@ -184,6 +218,10 @@ public class I2PFirefoxProfileBuilder {
             Files.copy(baseOverrides.toPath(), userOverrides.toPath(), StandardCopyOption.REPLACE_EXISTING);
         } catch (Exception e) {
             System.out.println("Error copying base profile to profile"+e);
+            return false;
+        }
+        // if user-overrides.js does not exist yet, make an empty one.
+        if (!touch(profileDir.toString(), "user-overrides.js")) {
             return false;
         }
         return true;

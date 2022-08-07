@@ -43,10 +43,6 @@ public class I2PFirefoxProfileChecker {
             System.out.println("user.js is not valid");
             return false;
         }
-        if (!validateFile(profileDir+"/user-overrides.js")){
-            System.out.println("user-overrides.js is not valid");
-            return false;
-        }
         if (!validateExtensionDirectory(profileDir+"/extensions")){
             System.out.println("extensions directory is invalid");
             return false;
