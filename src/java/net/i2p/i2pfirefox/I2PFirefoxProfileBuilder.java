@@ -43,7 +43,11 @@ public class I2PFirefoxProfileBuilder {
             return profileDir.getAbsolutePath();
         } else {
             // create the directory
-            profileDir.mkdir();
+            //profileDir.mkdir();
+            I2PFirefoxProfileUnpacker unpacker = new I2PFirefoxProfileUnpacker();
+            if (!unpacker.unpackProfile(profileDir.getAbsolutePath())) {
+                return null;
+            }
             return profileDir.getAbsolutePath();
         }
     }
