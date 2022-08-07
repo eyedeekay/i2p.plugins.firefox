@@ -365,6 +365,7 @@ public class I2PFirefox {
         if (waitForProxy()){
             ProcessBuilder pb = this.defaultProcessBuilder();
             try{
+                System.out.println(pb.command());
                 pb.start();
             }catch(Exception e){
                 System.out.println("Error: "+e.getMessage());
