@@ -20,3 +20,5 @@ github-release upload --user "${GITHUB_USER}" \
     --name "i2pfirefox.jar" \
     --file "build/i2pfirefox.jar" \
     --replace
+cd ../
+zip -r i2pfirefox.zip src/build/i2pfirefox.jar i2pbrowser.cmd LICENSE.md README.md
