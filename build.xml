@@ -28,7 +28,7 @@
         <delete dir="plugin/eepsite/docroot/torrents/" />
         <!-- get version number -->
         <buildnumber file="scripts/build.number" />
-        <property name="release.number" value="0.0.3" />
+        <property name="release.number" value="0.0.4" />
 
         <!-- make the update xpi2p -->
         <!-- this contains everything except i2ptunnel.config -->
