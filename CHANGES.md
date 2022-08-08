@@ -7,6 +7,7 @@ Sun, August 7
  - Fix false positives in validation routine
  - Make constructors public
  - Wait on processbuilder to close
+ - Add Chromium support. You heard me. Chromium support.
 
 Saturday, August 6
 ------------------
