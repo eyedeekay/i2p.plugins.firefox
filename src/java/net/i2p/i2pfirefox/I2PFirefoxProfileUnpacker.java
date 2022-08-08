@@ -2,10 +2,8 @@ package net.i2p.i2pfirefox;
 
 import java.io.File;
 import java.io.InputStream;
-import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
-import java.util.Enumeration;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
@@ -20,6 +18,12 @@ public class I2PFirefoxProfileUnpacker {
         
     }
 
+    /*
+     * unpack the profile directory
+     * 
+     * @return true if the profile directory was successfully unpacked
+     * @since 0.0.1
+     */
     public boolean unpackProfile(String profileDirectory) {
         System.out.println("Unpacking base profile to " + profileDirectory);
         try {
