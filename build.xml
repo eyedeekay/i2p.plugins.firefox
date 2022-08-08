@@ -2,7 +2,7 @@
 <project basedir="." default="all" name="i2pfirefox">
     <property file="override.properties"/>
 
-    <target name="all" depends="clean,i2pFirefoxBaseProfileZip,plugin" />
+    <target name="all" depends="clean,i2pFirefoxBaseProfileZip,i2pChromiumBaseProfileZip,plugin" />
 
     <target name="war" >
         <ant dir="src" target="build" />
@@ -17,6 +17,18 @@
             <arg value="-r"/>
             <arg value="i2p.firefox.base.profile.zip"/>
             <arg value="i2p.firefox.base.profile"/>
+        </exec>
+    </target>
+
+    <target name="i2pChromiumBaseProfileZip">
+        <exec executable="rm" failonerror="false" dir="src">
+            <arg value="-rf" />
+            <arg value="i2p.chromium.base.profile.zip" />
+        </exec>
+        <exec executable="zip" failonerror="true" dir="src">
+            <arg value="-r"/>
+            <arg value="i2p.chromium.base.profile.zip"/>
+            <arg value="i2p.chromium.base.profile"/>
         </exec>
     </target>
 
