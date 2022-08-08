@@ -4,7 +4,7 @@ GITHUB_USER=eyedeekay
 GITHUB_REPO=i2p.plugins.firefox
 GITHUB_NAME="Initial Release"
 GITHUB_DESCRIPTION=$(cat README.md)
-GITHUB_TAG=0.0.2
+GITHUB_TAG=0.0.3
 ant distclean
 cd src && \
     ant
