@@ -5,31 +5,32 @@ import java.io.IOException;
 import java.net.Socket;
 import java.util.ArrayList;
 
-public class I2PFirefox {
-    private final String[] FIREFOX_SEARCH_PATHS = FIREFOX_FINDER();
+
+public class I2PChromium {
+    private final String[] CHROMIUM_SEARCH_PATHS = CHROMIUM_FINDER();
     private final int DEFAULT_TIMEOUT = 200;
 
     /*
-     * Construct an I2PFirefox class which manages an instance of Firefox and
-     * an accompanying Firefox profile. This version includes Firefox variants
+     * Construct an I2PChromium class which manages an instance of Chromium and
+     * an accompanying Chromium profile. This version includes Chromium variants
      * and forks.
      * 
      * @since 0.0.1
      */
-    public I2PFirefox() {
-        for (String path : FIREFOX_SEARCH_PATHS) {
+    public I2PChromium() {
+        for (String path : CHROMIUM_SEARCH_PATHS) {
             File f = new File(path);
             if (f.exists()) {
-                System.out.println("Found Firefox at " + path);
+                System.out.println("Found Chromium at " + path);
                 return;
             }
         }
 
     }
 
-    private static String[] FIND_FIREFOX_SEARCH_PATHS_UNIX(){
-        String[] path = new String[]{"/usr/bin", "/usr/local/bin", "/opt/firefox/bin","/snap/bin"};
-        String[] exes = new String[]{"firefox", "firefox-bin", "firefox-esr", "waterfox", "waterfox-bin", "librewolf"};
+    private static String[] FIND_CHROMIUM_SEARCH_PATHS_UNIX(){
+        String[] path = new String[]{"/usr/bin", "/usr/local/bin", "/opt/chrome/bin","/snap/bin"};
+        String[] exes = new String[]{"ungoogled-chromium", "chromium", "brave", "edge", "ungoogled-chromium", "chrome"};
         String[] exePath = new String[path.length * exes.length];
         int i = 0;
         for (String s : path) {
@@ -40,9 +41,9 @@ public class I2PFirefox {
         }
         return exePath;
     }
-    private static String[] FIND_FIREFOX_SEARCH_PATHS_OSX() {
-        String[] path = new String[]{"/Applications/Firefox.app/Contents/MacOS/", "/Applications/Waterfox.app/Contents/MacOS/", "/Applications/Librewolf.app/Contents/MacOS/"};
-        String[] exes = new String[]{"firefox", "firefox-bin", "firefox-esr", "waterfox", "waterfox-bin", "librewolf"};
+    private static String[] FIND_CHROMIUM_SEARCH_PATHS_OSX() {
+        String[] path = new String[]{"/Applications/Chromium.app/Contents/MacOS/", "/Applications/Waterfox.app/Contents/MacOS/", "/Applications/Librewolf.app/Contents/MacOS/"};
+        String[] exes = new String[]{"ungoogled-chromium", "chromium", "brave", "edge", "ungoogled-chromium", "chrome"};
         String[] exePath = new String[path.length * exes.length];
         int i = 0;
         for (String s : path) {
@@ -53,23 +54,25 @@ public class I2PFirefox {
         }
         return exePath;
     }
-    private static String[] FIND_FIREFOX_SEARCH_PATHS_WINDOWS() {
+    private static String[] FIND_CHROMIUM_SEARCH_PATHS_WINDOWS() {
         String userHome = System.getProperty("user.home");
         String programFiles = System.getenv("ProgramFiles");
-        //String localAppData = System.getenv("LOCALAPPDATA");
-        //Is there some way Mozilla does adminless installs to LocalAppData? Don't know for sure.
+        String localAppData = System.getenv("LOCALAPPDATA");
         String programFiles86 = System.getenv("ProgramFiles(x86)");
-
-        String[] tbPath = new String[]{new File(userHome, "/OneDrive/Desktop/Tor Browser/Browser/").toString(), new File(userHome, "/Desktop/Tor Browser/Browser/").toString()};
-        
         String[] path = new String[]{
-            new File(programFiles, "Mozilla Firefox/").toString(),
-            new File(programFiles86, "Mozilla Firefox/").toString(),
-            new File(programFiles, "Waterfox/").toString(),
-            new File(programFiles86, "Waterfox/").toString(),
-            new File(programFiles, "Librewolf/").toString(),
-            tbPath[0], tbPath[1]};
-        String[] exes = new String[]{"firefox.exe", "firefox-bin.exe", "firefox-esr.exe", "waterfox.exe", "waterfox-bin.exe", "librewolf.exe"};
+            new File(localAppData, "/Google/Chrome/Application/").toString(),
+            new File(programFiles, "/Google/Chrome/Application/").toString(),
+            new File(programFiles86, "/Google/Chrome/Application/").toString(),
+            new File(localAppData, "/Chromium/Application/").toString(),
+            new File(programFiles, "/Chromium/Application/").toString(),
+            new File(programFiles86, "/Chromium/Application/").toString(),
+            new File(localAppData, "/BraveSoftware/Brave Browser/Application/").toString(),
+            new File(programFiles, "/BraveSoftware/Brave Browser/Application/").toString(),
+            new File(programFiles86, "/BraveSoftware/Brave Browser/Application/").toString(),
+            new File(programFiles86, "/Microsoft/Edge/Application/").toString(),
+            new File(programFiles, "/Microsoft/Edge/Application/").toString(),
+        };
+        String[] exes = new String[]{"ungoogled-chromium.exe", "chromium.exe", "brave.exe", "edge.exe", "ungoogled-chromium.exe", "chrome.exe"};
         String[] exePath = new String[path.length * exes.length];
         int i = 0;
         for (String s : path) {
@@ -81,10 +84,10 @@ public class I2PFirefox {
         return exePath;
     }
 
-    private static String[] FIND_ALL_FIREFOX_SEARCH_PATHS() {
-        String[] Unix = FIND_FIREFOX_SEARCH_PATHS_UNIX();
-        String[] Windows = FIND_FIREFOX_SEARCH_PATHS_WINDOWS();
-        String[] Mac = FIND_FIREFOX_SEARCH_PATHS_OSX();
+    private static String[] FIND_ALL_CHROMIUM_SEARCH_PATHS() {
+        String[] Unix = FIND_CHROMIUM_SEARCH_PATHS_UNIX();
+        String[] Windows = FIND_CHROMIUM_SEARCH_PATHS_WINDOWS();
+        String[] Mac = FIND_CHROMIUM_SEARCH_PATHS_OSX();
         String[] exePath = new String[Unix.length + Windows.length + Mac.length];
         int i = 0;
         for (String s : Unix) {
@@ -101,24 +104,24 @@ public class I2PFirefox {
         }
         return exePath;
     }
-    private static String[] FIND_FIREFOX_SEARCH_PATHS() {
+    private static String[] FIND_CHROMIUM_SEARCH_PATHS() {
         switch (getOperatingSystem()) {
             case "Windows":
-                return FIND_FIREFOX_SEARCH_PATHS_WINDOWS();
+                return FIND_CHROMIUM_SEARCH_PATHS_WINDOWS();
             case "Linux":
-                return FIND_FIREFOX_SEARCH_PATHS_UNIX();
+                return FIND_CHROMIUM_SEARCH_PATHS_UNIX();
             case "Mac":
-                return FIND_FIREFOX_SEARCH_PATHS_OSX();
+                return FIND_CHROMIUM_SEARCH_PATHS_OSX();
             case "BSD":
-                return FIND_FIREFOX_SEARCH_PATHS_UNIX();
+                return FIND_CHROMIUM_SEARCH_PATHS_UNIX();
             default:
-                return FIND_ALL_FIREFOX_SEARCH_PATHS();
+                return FIND_ALL_CHROMIUM_SEARCH_PATHS();
         }
     }
-    private static String[] NEARBY_FIREFOX_SEARCH_PATHS() {
+    private static String[] NEARBY_CHROMIUM_SEARCH_PATHS() {
         // obtain the PLUGIN environment variable
         String plugin = System.getenv("PLUGIN");
-        // search the plugin directory for anything named "firefox", "firefox-bin", "firefox-esr", "waterfox", "waterfox-bin", "librewolf"
+        // search the plugin directory for anything named "ungoogled-chromium", "chromium", "brave", "edge", "ungoogled-chromium", "chrome"
         // up to a depth of 2 directories deep.
         // list the directories in the plugin directory
         if (plugin != null && !plugin.isEmpty()){
@@ -131,7 +134,7 @@ public class I2PFirefox {
                     // list the files in the plugin directory
                     if (pluginFiles != null){
                         for (File pluginFile : pluginFiles) {
-                            if (pluginFile.getName().equals("firefox") || pluginFile.getName().equals("firefox-bin") || pluginFile.getName().equals("firefox-esr") || pluginFile.getName().equals("waterfox") || pluginFile.getName().equals("waterfox-bin") || pluginFile.getName().equals("librewolf")) {
+                            if (pluginFile.getName().equals("ungoogled-chromium") || pluginFile.getName().equals("chromium") || pluginFile.getName().equals("brave") || pluginFile.getName().equals("edge") || pluginFile.getName().equals("ungoogled-chromium") || pluginFile.getName().equals("chrome")) {
                                 return new String[]{pluginFile.getAbsolutePath()};
                             }
                         }
@@ -150,7 +153,7 @@ public class I2PFirefox {
                 // list the files in the user.dir directory
                 if (userFiles != null){
                     for (File userFile : userFiles) {
-                        if (userFile.getName().equals("firefox") || userFile.getName().equals("firefox-bin") || userFile.getName().equals("firefox-esr") || userFile.getName().equals("waterfox") || userFile.getName().equals("waterfox-bin") || userFile.getName().equals("librewolf")) {
+                        if (userFile.getName().equals("ungoogled-chromium") || userFile.getName().equals("chromium") || userFile.getName().equals("brave") || userFile.getName().equals("edge") || userFile.getName().equals("ungoogled-chromium") || userFile.getName().equals("chrome")) {
                             return new String[]{userFile.getAbsolutePath()};
                         }
                     }
@@ -159,9 +162,9 @@ public class I2PFirefox {
         }
         return new String[]{};
     }
-    private static String[] FIREFOX_FINDER() {
-        String[] nearby = NEARBY_FIREFOX_SEARCH_PATHS();
-        String[] all = FIND_FIREFOX_SEARCH_PATHS();
+    private static String[] CHROMIUM_FINDER() {
+        String[] nearby = NEARBY_CHROMIUM_SEARCH_PATHS();
+        String[] all = FIND_CHROMIUM_SEARCH_PATHS();
 
         if (nearby != null && nearby.length > 0) {
             return nearby;
@@ -186,75 +189,75 @@ public class I2PFirefox {
     }
 
     /*
-     * Check our list of firefox paths for a valid firefox binary.
+     * Check our list of chrome paths for a valid chrome binary.
      * Just an existence check for now, but should check versions
      * in the future.
      * 
-     * @return a list of usable Firefoxes, or an empty list if none are found.
+     * @return a list of usable Chromiums, or an empty list if none are found.
      * @since 0.0.1
      */
-    public String[] onlyValidFirefoxes() {
-        String[] firefoxes = FIREFOX_FINDER();
-        ArrayList<String> validFirefoxes = new ArrayList<String>();
-        for (String firefox : firefoxes) {
-            File firefoxFile = new File(firefox);
-            if (firefoxFile.exists()) {
-                validFirefoxes.add(firefox);
+    public String[] onlyValidChromiums() {
+        String[] chromees = CHROMIUM_FINDER();
+        ArrayList<String> validChromiums = new ArrayList<String>();
+        for (String chrome : chromees) {
+            File chromeFile = new File(chrome);
+            if (chromeFile.exists()) {
+                validChromiums.add(chrome);
             }
         }
-        return validFirefoxes.toArray(new String[validFirefoxes.size()]);
+        return validChromiums.toArray(new String[validChromiums.size()]);
     }
 
     /*
-     * Return the best available Firefox from the list of Firefoxes we have.
+     * Return the best available Chromium from the list of Chromiums we have.
      * 
-     * @return the path to the best available Firefox, or null if none are found.
+     * @return the path to the best available Chromium, or null if none are found.
      * @since 0.0.1
      */
-    public String topFirefox() {
-        // get the FIREFOX environment variable
-        String firefox = System.getenv("FIREFOX");
+    public String topChromium() {
+        // get the CHROMIUM environment variable
+        String chrome = System.getenv("CHROMIUM");
         // if it is not null and not empty
-        if (firefox != null && !firefox.isEmpty()) {
+        if (chrome != null && !chrome.isEmpty()) {
             // check if the file exists
-            File firefoxFile = new File(firefox);
-            if (firefoxFile.exists()) {
+            File chromeFile = new File(chrome);
+            if (chromeFile.exists()) {
                 // if it does, return it
-                return firefox;
+                return chrome;
             }
         }
-        String[] firefoxes = onlyValidFirefoxes();
-        if (firefoxes.length > 0) {
-            return firefoxes[0];
+        String[] chromees = onlyValidChromiums();
+        if (chromees.length > 0) {
+            return chromees[0];
         } else {
             return "";
         }
     }
 
     /*
-     * Return the best available Firefox from the list of Firefoxes we have.
+     * Return the best available Chromium from the list of Chromiums we have.
      * if override is passed it will be validated and if it validates, it will
      * be used.
      * 
-     * @param override the path to a valid Firefox binary to use.
-     * @return the path to the best available Firefox, or null if none are found.
+     * @param override the path to a valid Chromium binary to use.
+     * @return the path to the best available Chromium, or null if none are found.
      * @since 0.0.1
      */
-    public String topFirefox(String overrideFirefox) {
-        if (overrideFirefox != null && !overrideFirefox.isEmpty()) {
-            File firefoxFile = new File(overrideFirefox);
-            if (firefoxFile.exists()) {
-                return overrideFirefox;
+    public String topChromium(String overrideChromium) {
+        if (overrideChromium != null && !overrideChromium.isEmpty()) {
+            File chromeFile = new File(overrideChromium);
+            if (chromeFile.exists()) {
+                return overrideChromium;
             }
         }
-        return topFirefox();
+        return topChromium();
     }
 
     /*
-     * Build a ProcessBuilder for the top Firefox binary and
+     * Build a ProcessBuilder for the top Chromium binary and
      * the default profile.
      * 
-     * @return a ProcessBuilder for the top Firefox binary and
+     * @return a ProcessBuilder for the top Chromium binary and
      * the default profile.
      * @since 0.0.1
      */
@@ -263,26 +266,65 @@ public class I2PFirefox {
     }
 
     /*
-     * Build a ProcessBuilder for the top Firefox binary and
+     1 --user-data-dir="$CHROMIUM_I2P" \
+     2 --proxy-server="http://127.0.0.1:4444" \
+     3 --proxy-bypass-list=127.0.0.1:7657 \
+     4 --user-data-dir=$HOME/WebApps/i2padmin \
+     5 --safebrowsing-disable-download-protection \
+     6 --disable-client-side-phishing-detection \
+     7 --disable-3d-apis \
+     8 --disable-accelerated-2d-canvas \
+     9 --disable-remote-fonts \
+     10 --disable-sync-preferences \
+     11 --disable-sync \
+     12 --disable-speech \
+     13 --disable-webgl \
+     14 --disable-reading-from-canvas \
+     15 --disable-gpu \
+     16 --disable-32-apis \
+     17 --disable-auto-reload \
+     18 --disable-background-networking \
+     19 --disable-d3d11 \
+     20 --disable-file-system \
+     */
+
+    /*
+     * Build a ProcessBuilder for the top Chromium binary and
      * the default profile, with a specific set of extended
      * arguments.
      * 
-     * @param args the extended arguments to pass to the Firefox binary.
-     * @return a ProcessBuilder for the top Firefox binary and
+     * @param args the extended arguments to pass to the Chromium binary.
+     * @return a ProcessBuilder for the top Chromium binary and
      * default profile, with a specific set of extended arguments.
      * @since 0.0.1
      */
     public ProcessBuilder processBuilder(String[] args) {
-        String firefox = topFirefox();
-        if (!firefox.isEmpty()) {
-            String[] newArgs = new String[args.length+3];
-            newArgs[0] = firefox;
-            newArgs[1] = "--profile";
-            newArgs[2] = I2PFirefoxProfileBuilder.profileDirectory();
+        String chrome = topChromium();
+        if (!chrome.isEmpty()) {
+            String[] newArgs = new String[args.length+19];
+            newArgs[0] = chrome;
+            newArgs[1] = "--user-data-dir="+I2PChromiumProfileBuilder.profileDirectory();
+            newArgs[2] = "--proxy-server=http://127.0.0.1:4444";
+            newArgs[3] = "--proxy-bypass-list=http://localhost:7657";
+            newArgs[4] = "--safebrowsing-disable-download-protection";
+            newArgs[5] = "--disable-client-side-phishing-detection";
+            newArgs[6] = "--disable-3d-apis";
+            newArgs[7] = "--disable-accelerated-2d-canvas";
+            newArgs[8] = "--disable-remote-fonts";
+            newArgs[9] = "--disable-sync-preferences";
+            newArgs[10] = "--disable-sync";
+            newArgs[11] = "--disable-speech";
+            newArgs[12] = "--disable-webgl";
+            newArgs[13] = "--disable-reading-from-canvas";
+            newArgs[14] = "--disable-gpu";
+            newArgs[15] = "--disable-auto-reload";
+            newArgs[16] = "--disable-background-networking";
+            newArgs[17] = "--disable-d3d11";
+            newArgs[18] = "--disable-file-system";
             for (int i = 0; i < args.length; i++) {
-                newArgs[i+3] = args[i];
+                newArgs[i+19] = args[i];
             }
-            return new ProcessBuilder(newArgs).directory(I2PFirefoxProfileBuilder.runtimeDirectory(true));
+            return new ProcessBuilder(newArgs).directory(I2PChromiumProfileBuilder.runtimeDirectory(true));
         } else {
             return new ProcessBuilder(args);
         }
@@ -359,17 +401,17 @@ public class I2PFirefox {
     /*
      * Populates a profile directory with a proxy configuration.
      * Waits for an HTTP proxy on the port 4444 to be ready.
-     * Launches Firefox with the profile directory.
+     * Launches Chromium with the profile directory.
      * 
      * @since 0.0.1
      */
     public void launch(){
-        String profileDirectory = I2PFirefoxProfileBuilder.profileDirectory();
-        if (I2PFirefoxProfileChecker.validateProfileDirectory(profileDirectory)) {
+        String profileDirectory = I2PChromiumProfileBuilder.profileDirectory();
+        if (I2PChromiumProfileChecker.validateProfileDirectory(profileDirectory)) {
             System.out.println("Valid profile directory: "+profileDirectory);
         } else {
             System.out.println("Invalid profile directory: "+profileDirectory+" rebuilding...");
-            if (!I2PFirefoxProfileBuilder.copyBaseProfiletoProfile()) {
+            if (!I2PChromiumProfileBuilder.copyBaseProfiletoProfile()) {
                 System.out.println("Failed to rebuild profile directory: "+profileDirectory);
                 return;
             } else {
@@ -385,9 +427,9 @@ public class I2PFirefox {
             }catch(Exception e){
                 System.out.println("Error: "+e.getMessage());
             }finally{
-                System.out.println("I2PFirefox");
+                System.out.println("I2PChromium");
                 try{
-                    System.out.println("Waiting for I2PFirefox to close...");
+                    System.out.println("Waiting for I2PChromium to close...");
                     p.waitFor();
                 }catch(Exception e){
                     System.out.println("Error: "+e.getMessage());
@@ -397,8 +439,8 @@ public class I2PFirefox {
     }
 
     public static void main(String[] args) {
-        System.out.println("I2PFirefox");
-        I2PFirefox i2pFirefox = new I2PFirefox();
-        i2pFirefox.launch();
+        System.out.println("I2PChromium");
+        I2PChromium i2pChromium = new I2PChromium();
+        i2pChromium.launch();
     }    
 }
