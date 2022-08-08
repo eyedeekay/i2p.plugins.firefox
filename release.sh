@@ -28,3 +28,5 @@ github-release upload --user "${GITHUB_USER}" \
     --name "i2pfirefox.zip" \
     --file "i2pfirefox.zip" \
     --replace   
+git pull github --tags
+git push --all
