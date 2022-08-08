@@ -54,7 +54,9 @@ public class I2PFirefox {
         return exePath;
     }
     private static String[] FIND_FIREFOX_SEARCH_PATHS_WINDOWS() {
-        String[] path = new String[]{"C:/Program Files/Mozilla Firefox/", "C:/Program Files (x86)/Mozilla Firefox/", "C:/Program Files/Waterfox/", "C:/Program Files (x86)/Waterfox/", "C:/Program Files/Librewolf/"};
+        String userHome = System.getProperty("user.home");
+        String[] tbPath = new String[]{userHome + "/OneDrive/Desktop/Tor Browser/Browser/", userHome + "/Desktop/Tor Browser/Browser/"};
+        String[] path = new String[]{"C:/Program Files/Mozilla Firefox/", "C:/Program Files (x86)/Mozilla Firefox/", "C:/Program Files/Waterfox/", "C:/Program Files (x86)/Waterfox/", "C:/Program Files/Librewolf/", tbPath[0], tbPath[1]};
         String[] exes = new String[]{"firefox.exe", "firefox-bin.exe", "firefox-esr.exe", "waterfox.exe", "waterfox-bin.exe", "librewolf.exe"};
         String[] exePath = new String[path.length * exes.length];
         int i = 0;
