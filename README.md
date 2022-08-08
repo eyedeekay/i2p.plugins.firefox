@@ -26,3 +26,17 @@ and a new Firefox instance comes up with a fresh profile. This is just a default
 profile, configuring it for I2P requires you to put a pre-configured Firefox profile into
 the `i2p.firefox.base.profile` directory or otherwise supply a static, pre-configured
 profile.
+
+The cooler thing you can do with it is add it to an I2P distribution and somewhere in it,
+add a UI element that triggers something along the lines of this:
+
+```java
+if (i2pIsRunning()) {
+    logger.warning("I2P is already running");
+    System.out.println("I2PFirefox");
+    I2PFirefox i2pFirefox = new I2PFirefox();
+    i2pFirefox.launch();
+}
+```
+
+to add a browser management tool to it.
