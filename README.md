@@ -24,10 +24,7 @@ To build just the jar. You'll know it worked if you can:
 java -cp ./src/build/i2pfirefox.jar net.i2p.i2pfirefox.I2PFirefox
 ```
 
-and a new Firefox instance comes up with a fresh profile. This is just a default Firefox
-profile, configuring it for I2P requires you to put a pre-configured Firefox profile into
-the `i2p.firefox.base.profile` directory or otherwise supply a static, pre-configured
-profile.
+and a new Firefox instance comes up with a fresh profile, ready-to-use for I2P browsing.
 
 The cooler thing you can do with it is add it to an I2P distribution and somewhere in it,
 add a UI element that triggers something along the lines of this:
