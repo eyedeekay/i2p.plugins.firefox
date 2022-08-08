@@ -6,6 +6,7 @@ Sun, August 7
  - re-added Tor Browser support on Windows
  - Fix false positives in validation routine
  - Make constructors public
+ - Wait on processbuilder to close
 
 Saturday, August 6
 ------------------
