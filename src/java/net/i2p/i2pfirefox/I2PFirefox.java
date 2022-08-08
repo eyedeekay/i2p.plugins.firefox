@@ -373,6 +373,11 @@ public class I2PFirefox {
                 System.out.println("Error: "+e.getMessage());
             }finally{
                 System.out.println("I2PFirefox");
+                try{
+                    pb.wait();
+                }catch(Exception e){
+                    System.out.println("Error: "+e.getMessage());
+                }
             }
         }
     }
