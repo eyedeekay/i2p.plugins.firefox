@@ -56,14 +56,16 @@
       To generate that, you can either generate the full plugin, which will not work but
       produces the jar as a by-product, or you can:
     </p>
-    <pre><code>cd src
+    <pre><code>
+cd src
 ant
-cd ...
+cd ..
 </code></pre>
     <p>
       To build just the jar. You’ll know it worked if you can:
     </p>
-    <pre><code>java -cp ./src/build/i2pfirefox.jar net.i2p.i2pfirefox.I2PFirefox
+    <pre><code>
+java -cp ./src/build/i2pfirefox.jar net.i2p.i2pfirefox.I2PFirefox
 </code></pre>
     <p>
       and a new Firefox instance comes up with a fresh profile. This is just a default Firefox
@@ -79,7 +81,8 @@ cd ...
       The cooler thing you can do with it is add it to an I2P distribution and somewhere in it,
       add a UI element that triggers something along the lines of this:
     </p>
-    <pre><code>if (i2pIsRunning()) {
+    <pre><code>
+if (i2pIsRunning()) {
     logger.warning(&#34;I2P is already running&#34;);
     System.out.println(&#34;I2PFirefox&#34;);
     I2PFirefox i2pFirefox = new I2PFirefox();
