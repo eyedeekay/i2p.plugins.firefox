@@ -11,14 +11,16 @@ To generate that, you can either generate the full plugin, which will not work b
 produces the jar as a by-product, or you can:
 
 ```sh
+
 cd src
 ant
-cd ...
+cd ..
 ```
 
 To build just the jar. You'll know it worked if you can:
 
 ```sh
+
 java -cp ./src/build/i2pfirefox.jar net.i2p.i2pfirefox.I2PFirefox
 ```
 
@@ -31,6 +33,7 @@ The cooler thing you can do with it is add it to an I2P distribution and somewhe
 add a UI element that triggers something along the lines of this:
 
 ```java
+
 if (i2pIsRunning()) {
     logger.warning("I2P is already running");
     System.out.println("I2PFirefox");
