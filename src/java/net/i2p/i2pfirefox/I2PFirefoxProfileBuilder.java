@@ -243,7 +243,7 @@ public class I2PFirefoxProfileBuilder {
      * 
      * @since 0.0.1
      */
-    I2PFirefoxProfileBuilder() {
+    public I2PFirefoxProfileBuilder() {
         I2PFirefoxProfileBuilder.strict = false;
     }
 
@@ -253,7 +253,7 @@ public class I2PFirefoxProfileBuilder {
      * 
      * @since 0.0.1
      */
-    I2PFirefoxProfileBuilder(boolean strict) {
+    public I2PFirefoxProfileBuilder(boolean strict) {
         I2PFirefoxProfileBuilder.strict = strict;
     }
 }

@@ -16,7 +16,7 @@ public class I2PFirefox {
      * 
      * @since 0.0.1
      */
-    I2PFirefox() {
+    public I2PFirefox() {
         for (String path : FIREFOX_SEARCH_PATHS) {
             File f = new File(path);
             if (f.exists()) {
