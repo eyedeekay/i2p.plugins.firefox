@@ -4,10 +4,9 @@ GITHUB_USER=eyedeekay
 GITHUB_REPO=i2p.plugins.firefox
 GITHUB_NAME="Initial Release"
 GITHUB_DESCRIPTION=$(cat CHANGES.md)
-GITHUB_TAG=0.0.5
+GITHUB_TAG=0.0.6
 ant distclean
-cd src && \
-    ant
+ant jar freeZip
 github-release release --user "${GITHUB_USER}" \
     --repo "${GITHUB_REPO}" \
     --name "${GITHUB_NAME}" \
@@ -18,10 +17,8 @@ github-release upload --user "${GITHUB_USER}" \
     --repo "${GITHUB_REPO}" \
     --tag "${GITHUB_TAG}" \
     --name "i2pfirefox.jar" \
-    --file "build/i2pfirefox.jar" \
+    --file "src/build/i2pfirefox.jar" \
     --replace
-cd ../
-zip -r i2pfirefox.zip src/build/i2pfirefox.jar i2pbrowser.cmd LICENSE.md README.md
 github-release upload --user "${GITHUB_USER}" \
     --repo "${GITHUB_REPO}" \
     --tag "${GITHUB_TAG}" \

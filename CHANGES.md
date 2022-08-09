@@ -2,6 +2,7 @@ Mon, August 8
 -------------
 
  - Add Chromium support. You heard me. Chromium support.
+ - Update launcher script so it self-discovers the location of the script and uses that to find the bundled jar.
 
 Sun, August 7
 -------------
