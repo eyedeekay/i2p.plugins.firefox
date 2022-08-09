@@ -2,7 +2,7 @@
 
 GITHUB_USER=eyedeekay
 GITHUB_REPO=i2p.plugins.firefox
-GITHUB_NAME="Initial Release"
+GITHUB_NAME="With a launcher script so you can run it without typing the full java command"
 GITHUB_DESCRIPTION=$(cat CHANGES.md)
 GITHUB_TAG=0.0.6
 ant distclean
