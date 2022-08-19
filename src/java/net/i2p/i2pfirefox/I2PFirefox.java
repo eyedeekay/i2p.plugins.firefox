@@ -419,7 +419,8 @@ public class I2PFirefox {
     /*
      * Populates a profile directory with a proxy configuration.
      * Waits for an HTTP proxy on the port 4444 to be ready.
-     * Launches Firefox with the profile directory.
+     * Launches Firefox with the profile directory. Uses a semi-permanent
+     * profile.
      * 
      * @since 0.0.1
      */

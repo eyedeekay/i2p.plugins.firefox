@@ -266,6 +266,19 @@ public class I2PChromium {
     }
 
     /*
+     * Build a ProcessBuilder for the top Chromium binary and
+     * the default profile.
+     * 
+     * @param args the arguments to pass to the Chromium binary.
+     * @return a ProcessBuilder for the top Chromium binary and
+     * the default profile. Always passes the --incognito flag.
+     * @since 0.0.1
+     */
+    public ProcessBuilder privateProcessBuilder() {
+        return processBuilder(new String[]{"--incognito"});
+    }
+
+    /*
      1 --user-data-dir="$CHROMIUM_I2P" \
      2 --proxy-server="http://127.0.0.1:4444" \
      3 --proxy-bypass-list=127.0.0.1:7657 \
@@ -403,9 +416,10 @@ public class I2PChromium {
      * Waits for an HTTP proxy on the port 4444 to be ready.
      * Launches Chromium with the profile directory.
      * 
+     * @param bool if true, the profile will be ephemeral(i.e. a --private-window profile).
      * @since 0.0.1
      */
-    public void launch(){
+    public void launch(boolean privateWindow){
         String profileDirectory = I2PChromiumProfileBuilder.profileDirectory();
         if (I2PChromiumProfileChecker.validateProfileDirectory(profileDirectory)) {
             System.out.println("Valid profile directory: "+profileDirectory);
@@ -419,7 +433,13 @@ public class I2PChromium {
             }
         }
         if (waitForProxy()){
-            ProcessBuilder pb = this.defaultProcessBuilder();
+            ProcessBuilder pb = null;
+            if (privateWindow) {
+                pb = this.privateProcessBuilder();
+            } else {
+                pb = this.defaultProcessBuilder();
+            }
+            
             Process p = null;
             try{
                 System.out.println(pb.command());
@@ -437,6 +457,16 @@ public class I2PChromium {
             }
         }
     }
+    /*
+     * Populates a profile directory with a proxy configuration.
+     * Waits for an HTTP proxy on the port 4444 to be ready.
+     * Launches Chromium with the profile directory.
+     * 
+     * @since 0.0.1
+     */
+    public void launch(){
+        launch(false);
+    }    
 
     public static void main(String[] args) {
         System.out.println("I2PChromium");
