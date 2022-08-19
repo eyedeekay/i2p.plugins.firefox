@@ -1,3 +1,8 @@
+Fri, August 19
+--------------
+
+ - Adds the ability to pass --private-window to Firefoxes and --incognito to Chromiums
+
 Mon, August 8
 -------------
 
