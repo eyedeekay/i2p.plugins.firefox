@@ -4,7 +4,7 @@ GITHUB_USER=eyedeekay
 GITHUB_REPO=i2p.plugins.firefox
 GITHUB_NAME="With Private Windows and Incognito support"
 GITHUB_DESCRIPTION=$(cat CHANGES.md)
-GITHUB_TAG=0.0.6
+GITHUB_TAG=0.0.7
 ant distclean
 ant jar freeZip
 github-release release --user "${GITHUB_USER}" \
