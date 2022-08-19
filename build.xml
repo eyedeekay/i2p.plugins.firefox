@@ -43,6 +43,7 @@
         </exec>
         <exec executable="zip" failonerror="true">
             <arg value="-r"/>
+            <arg value="i2pfirefox.zip"/>
             <arg value="src/build/i2pfirefox.jar"/>
             <arg value="i2pbrowser.cmd"/>
             <arg value="LICENSE.md"/>

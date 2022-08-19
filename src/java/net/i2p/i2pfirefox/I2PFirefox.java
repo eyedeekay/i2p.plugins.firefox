@@ -264,6 +264,20 @@ public class I2PFirefox {
 
     /*
      * Build a ProcessBuilder for the top Firefox binary and
+     * the default profile. Pass the --private-window flag to
+     * open a private window.
+     * 
+     * @param args the arguments to pass to the Firefox binary.
+     * @return a ProcessBuilder for the top Firefox binary and
+     * the default profile.
+     * @since 0.0.1
+     */
+    public ProcessBuilder privateProcessBuilder(String[] args) {
+        return processBuilder(new String[]{"--private-window"});
+    }
+
+    /*
+     * Build a ProcessBuilder for the top Firefox binary and
      * the default profile, with a specific set of extended
      * arguments.
      * 
@@ -361,9 +375,10 @@ public class I2PFirefox {
      * Waits for an HTTP proxy on the port 4444 to be ready.
      * Launches Firefox with the profile directory.
      * 
+     * @param bool if true, the profile will be ephemeral(i.e. a --private-window profile).
      * @since 0.0.1
      */
-    public void launch(){
+    public void launch(boolean privateWindow){
         String profileDirectory = I2PFirefoxProfileBuilder.profileDirectory();
         if (I2PFirefoxProfileChecker.validateProfileDirectory(profileDirectory)) {
             System.out.println("Valid profile directory: "+profileDirectory);
@@ -377,7 +392,12 @@ public class I2PFirefox {
             }
         }
         if (waitForProxy()){
-            ProcessBuilder pb = this.defaultProcessBuilder();
+            ProcessBuilder pb = null;
+            if (privateWindow) {
+                pb = privateProcessBuilder(new String[]{});
+            } else {
+                pb = defaultProcessBuilder();
+            }
             Process p = null;
             try{
                 System.out.println(pb.command());
@@ -394,6 +414,17 @@ public class I2PFirefox {
                 }
             }
         }
+    }
+
+    /*
+     * Populates a profile directory with a proxy configuration.
+     * Waits for an HTTP proxy on the port 4444 to be ready.
+     * Launches Firefox with the profile directory.
+     * 
+     * @since 0.0.1
+     */
+    public void launch(){
+        launch(false);
     }
 
     public static void main(String[] args) {
