@@ -22,29 +22,4 @@
         <url-pattern>/index.html</url-pattern>
     </servlet-mapping>
 
-    <servlet-mapping>
-        <servlet-name>net.i2p.i2pfirefox.announce_jsp</servlet-name>
-        <url-pattern>/announce.php</url-pattern>
-    </servlet-mapping>
-
-    <servlet-mapping>
-        <servlet-name>net.i2p.i2pfirefox.announce_jsp</servlet-name>
-        <url-pattern>/announce</url-pattern>
-    </servlet-mapping>
-
-    <servlet-mapping>
-        <servlet-name>net.i2p.i2pfirefox.announce_jsp</servlet-name>
-        <url-pattern>/a</url-pattern>
-    </servlet-mapping>
-
-    <servlet-mapping>
-        <servlet-name>net.i2p.i2pfirefox.scrape_jsp</servlet-name>
-        <url-pattern>/scrape</url-pattern>
-    </servlet-mapping>
-
-    <servlet-mapping>
-        <servlet-name>net.i2p.i2pfirefox.scrape_jsp</servlet-name>
-        <url-pattern>/scrape.php</url-pattern>
-    </servlet-mapping>
-
 </web-app>

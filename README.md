@@ -12,9 +12,7 @@ produces the jar as a by-product, or you can:
 
 ```sh
 
-cd src
-ant
-cd ..
+ant jar
 ```
 
 To build just the jar. You'll know it worked if you can:
