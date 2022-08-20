@@ -44,6 +44,9 @@
         <jar destfile="build/i2pfirefox.jar" basedir="./build/obj" includes="**/*.class" >
             <fileset file="i2p.firefox.base.profile.zip" />
         </jar>
+        <jar destfile="build/i2pfirefox.jar" basedir="./build/obj" includes="**/*.class" >
+            <fileset file="i2p.chromium.base.profile.zip" />
+        </jar>
     </target>    
 
     <target name="precompilejsp" depends="compile" >

@@ -8,7 +8,7 @@
         <ant dir="src" target="build" />
     </target>
 
-    <target name="jar" >
+    <target name="jar" depends="clean,i2pFirefoxBaseProfileZip,i2pChromiumBaseProfileZip">
         <ant dir="src" target="jar" />
     </target>
 
