@@ -1,0 +1,858 @@
+{
+   "appdescription": {
+      "description": "Regain control of the web and surf more securely.",
+      "message": "重掌網頁的控制權和更安全地瀏覽。"
+   },
+   "alldomains": {
+      "description": "On All Domains",
+      "message": "在所有網域"
+   },
+   "allow": {
+      "description": "Allow",
+      "message": "准許"
+   },
+   "alloweditems": {
+      "description": "Allowed Items",
+      "message": "已准許的項目"
+   },
+   "blockeditems": {
+      "description": "Blocked Items",
+      "message": "已封鎖的項目"
+   },
+   "allowallblocked": {
+      "description": "Allow All Blocked For Session",
+      "message": "為此段准許所有項目"
+   },
+   "annoyances": {
+      "description": "Block Unwanted Content:",
+      "message": "封鎖不需要的內容："
+   },
+   "annoyancesdesc": {
+      "description": "remove unwanted content from known ad / malware domains; domains gathered from MVPS HOSTS, hpHOSTS (ad / tracking servers), Peter Lowe's HOSTS Project, MalwareDomainList.com",
+      "message": "從以下類別移除不需要的內容：已知的廣告或有毒的網域、從MVPS HOSTS及hpHOSTS（廣告或追蹤伺服器）收集的網域、Peter Lowe的HOSTS習作及MalwareDomainList.com"
+   },
+   "annoyancesmode": {
+      "description": "Unwanted Content Mode:",
+      "message": "不需要的內容模式："
+   },
+   "annoyancesmodedesc": {
+      "description": "Relaxed = whitelisted domains will not be blocked; Strict = domains in the unwanted domain list will be blocked even if whitelisted",
+      "message": "寬鬆 = 列入允許名單的網域不會被封鎖; 嚴格 = 列入「不需要」名單的網域，就算列入允許名單也會被封鎖"
+   },
+   "antisocialpopup": {
+      "description": "Antisocial",
+      "message": "反社交網絡"
+   },
+   "antisocial": {
+      "description": "Antisocial Mode:",
+      "message": "反社交網絡模式："
+   },
+   "antisocialdesc": {
+      "description": "always remove social widgets/buttons, even if whitelisted",
+      "message": "永遠移除社交小工具或按鈕，即使已經列入允許名單"
+   },
+   "antisocialdesc2": {
+      "description": "For more comprehensive blocking, check out Privacy Badger, Disconnect, Blur, and/or uBlock Origin with all of the subscription lists on the Fanboy site",
+      "message": "如要更全面地封鎖，請尋找Privacy Badger, Disconnect, Blur, and/or uBlock Origin （所有在 Fanboy 網站的訂閱名單）"
+   },
+   "audioblock": {
+      "description": "Block Audio Fingerprinting:",
+      "message": "阻擋音頻指紋識別："
+   },
+   "audioblockdesc": {
+      "description": "prevent fingerprinting via the AudioContext API",
+      "message": "防止經由AudioContext API的指紋識別"
+   },
+   "battery": {
+      "description": "Block Battery Fingerprinting:",
+      "message": "阻擋電池指紋識別："
+   },
+   "batterydesc": {
+      "description": "prevent fingerprinting via the Battery API",
+      "message": "防止經由電池API的指紋識別"
+   },
+   "behavior": {
+      "description": "Behaviour Settings",
+      "message": "行為設定"
+   },
+   "blockrec": {
+      "description": "Block (recommended)",
+      "message": "封鎖（推薦）"
+   },
+   "block": {
+      "description": "Block",
+      "message": "封鎖"
+   },
+   "blocked": {
+      "description": "Blocked",
+      "message": "已封鎖"
+   },
+   "blockallallowed": {
+      "description": "Block All Allowed For Session",
+      "message": "封鎖所有於此段允許的項目"
+   },
+   "bluetooth": {
+      "description": "Block Bluetooth Enumeration:",
+      "message": "封鎖Bluetooth手柄計算："
+   },
+   "bluetoothdesc": {
+      "description": "prevent having devices detected via the Bluetooth API",
+      "message": "防止通過Bluetooth API檢測到裝置"
+   },
+   "bulkimport": {
+      "description": "bulk import",
+      "message": "大量匯入"
+   },
+   "bulkbtn": {
+      "description": "Import to List",
+      "message": "匯入到列表"
+   },
+   "bulkimportcap": {
+      "description": "Bulk Import",
+      "message": "大量匯入"
+   },
+   "bulkimportcapdesc": {
+      "description": "Copy and paste domains into the box below. Each domain should be on a separate line.",
+      "message": "複製和貼上網域到下面的空格。每個網域應該是獨立的一行。"
+   },
+   "canvas": {
+      "description": "Canvas Fingerprint Protection:",
+      "message": "Canvas 的指紋保護："
+   },
+   "cannotprocess": {
+      "description": "ScriptSafe cannot process this page. Please try visiting a website.",
+      "message": "ScriptSafe無法處理此頁面。請嘗試訪問一個網站。"
+   },
+   "canvasblank": {
+      "description": "Blank Readout",
+      "message": "空白讀出"
+   },
+   "canvasrandom": {
+      "description": "Random Readout",
+      "message": "隨機讀出"
+   },
+   "canvasblock": {
+      "description": "Completely Block Readout",
+      "message": "完全阻擋讀出"
+   },
+   "canvasdesc": {
+      "description": "protect against fingerprinting attempts through &lt;canvas&gt; elements",
+      "message": "防止嘗試於&lt;canvas&gt;元素套取指紋"
+   },
+   "canvasfont": {
+      "description": "Block Canvas Font Access:",
+      "message": "阻擋存取Canvas 字體："
+   },
+   "canvasfontdesc": {
+      "description": "prevent system fonts from being enumerated through &lt;canvas&gt; elements. May interfere with Google Docs.",
+      "message": "防止系統字體從&lt;canvas&gt;元素被列舉。可能干擾Google Document。"
+   },
+   "classicoptions": {
+      "description": "Classic Options Mode:",
+      "message": "經典選項模式："
+   },
+   "classicoptionsdesc": {
+      "description": "if ticked, closes tab options everytime an option is clicked",
+      "message": "如果勾選，每次選項被點擊關便閉標籤選項"
+   },
+   "clear": {
+      "description": "Clear",
+      "message": "清除"
+   },
+   "clearlow": {
+      "description": "clear",
+      "message": "清除"
+   },
+   "clientrects": {
+      "description": "Block Client Rectangles:",
+      "message": "封鎖瀏覽器用戶端的矩形座標："
+   },
+   "clientrectsdesc": {
+      "description": "prevent fingerprinting through calculating element rectangles. May interfere with some dropdowns.",
+      "message": "防止通過計算元素的矩形座標來套取指紋。可能干擾某些下拉表列。"
+   },
+   "clipboard": {
+      "description": "Prevent Clipboard Interference:",
+      "message": "防止剪貼板干擾："
+   },
+   "clipboarddesc": {
+      "description": "prevent pages from interfering with clipboard actions",
+      "message": "防止網頁干擾剪貼板的動作"
+   },
+   "close": {
+      "description": "Close",
+      "message": "關閉"
+   },
+   "cookies": {
+      "description": "Block Unwanted Cookies:",
+      "message": "封鎖不需要的Cookies："
+   },
+   "cookiesdesc": {
+      "description": "blocks cookies from known ad / malware domains; below mode applies to this as well",
+      "message": "從已知廣告/惡意軟件的網域封鎖Cookies;以下模式均適用"
+   },
+   "custom": {
+      "description": "Custom",
+      "message": "自訂"
+   },
+   "default": {
+      "description": "Default",
+      "message": "預設"
+   },
+   "default_public_interface_only": {
+      "description": "Protect Local IP",
+      "message": "保護本機IP"
+   },
+   "deny": {
+      "description": "Deny",
+      "message": "拒絕"
+   },
+   "disable_non_proxied_udp": {
+      "description": "Protect Local and Public IPs",
+      "message": "保護本機和公網IP"
+   },
+   "disable": {
+      "description": "Disable",
+      "message": "停用"
+   },
+   "disabled": {
+      "description": "disabled",
+      "message": "已停用"
+   },
+   "disabledcap": {
+      "description": "Disabled",
+      "message": "已停用"
+   },
+   "disabledsync": {
+      "description": "Syncing is disabled.\r\nFeel free to go to the Options page at any time to sync your settings (make a backup of your settings if necessary).",
+      "message": "同步已停用。\r\n隨意進入選項頁面，隨時將您的設定同步（如有必要，請備份您的設定）。"
+   },
+   "disableremove": {
+      "description": "Disable and Remove:",
+      "message": "停用並移除："
+   },
+   "distrust": {
+      "description": "Distrust",
+      "message": "不信任"
+   },
+   "distrustlow": {
+      "description": "distrust",
+      "message": "不信任"
+   },
+   "domain": {
+      "description": "Same Domain",
+      "message": "同一網域"
+   },
+   "domainsort": {
+      "description": "Sort by Domain:",
+      "message": "以網域排序："
+   },
+   "domaininfo": {
+      "description": "Help",
+      "message": "幫助"
+   },
+   "domaininvalid": {
+      "description": "Invalid domain/address",
+      "message": "無效網域或網址"
+   },
+   "domaininvalid2": {
+      "description": "The domain or address must contain some letters/numbers",
+      "message": "該網域或網址一定要包含一些字母或數字"
+   },
+   "domaininvalid3": {
+      "description": "Domain cannot be added as it is a provider of unwanted content (see Block Unwanted Content and/or Antisocial Mode)",
+      "message": "不能添加網域名因為這並非需要的內容供應者（請參閱封鎖不需要的內容和/或反社交網絡模式）"
+   },
+   "domainsortdesc": {
+      "description": "sorts URL lists by domains on this page and in the panel",
+      "message": "從此頁面網域及控制版面排列URL列表"
+   },
+   "domaintip": {
+      "description": "Tip: press CTRL+F to search the lists",
+      "message": "提示：按Ctrl + F來搜索列表"
+   },
+   "dontshowpage": {
+      "description": "Don't Show This Page Again",
+      "message": "不要再顯示此頁"
+   },
+   "enable": {
+      "description": "Enable:",
+      "message": "啟用："
+   },
+   "enabled": {
+      "description": "enabled",
+      "message": "已啟用"
+   },
+   "enabless": {
+      "description": "Enable ScriptSafe",
+      "message": "啟用ScriptSafe"
+   },
+   "enablesyncing": {
+      "description": "Enable Syncing:",
+      "message": "啟用同步："
+   },
+   "export": {
+      "description": "Export",
+      "message": "匯出"
+   },
+   "exportsuccess": {
+      "description": "Your settings have been successfully synced!",
+      "message": "您的設定已成功同步！"
+   },
+   "exportsuccesstitle": {
+      "description": "Settings Synced!",
+      "message": "設定已同步！"
+   },
+   "fingerprint": {
+      "description": "Fingerprint Protection",
+      "message": "指紋保護"
+   },
+   "fingerprintdesc": {
+      "description": "Fingerprint Protection (may break sites)",
+      "message": "指紋保護（可能會阻礙網站使用）"
+   },
+   "firstsync": {
+      "description": "It appears you haven't synced your settings to your Google account yet.\r\nScriptSafe is about to sync your current settings to your Google account.\r\nClick on 'OK' if you want to continue.\r\nIf not, click 'Cancel', and on the other device with your preferred settings, update ScriptSafe and click on OK when you are presented with this message.",
+      "message": "您似乎沒有同步您的設定到您的Google帳戶。\r\nScriptSafe將要同步您的設定到您的Google帳戶。\r\n如果您想繼續，請點擊“OK”。\r\n否則，請點擊“Cancel”，在其他裝置上使用你喜愛的設定，更新ScriptSafe，當您看到這段字，點擊OK。"
+   },
+   "forcesyncexport": {
+      "description": "Do you want to sync your current settings to your Google Account?\r\nNote: please do not press this frequently; there is a limit of 10 per minute and 1,000 per hour.",
+      "message": "您想同步當前設定到您的Google帳戶？\r\n注意：請不要頻密地按此鍵;有每分鐘10次和每小時1000次的限制。"
+   },
+   "forcesyncimport": {
+      "description": "Do you want to import the synced settings from your Google Account to this device?",
+      "message": "您想從您的Google賬戶匯入同步設定嗎？"
+   },
+   "forever": {
+      "description": "Forever",
+      "message": "Forever"
+   },
+   "hotkeys": {
+      "description": "Hotkeys:",
+      "message": "熱鍵："
+   },
+   "generalsettings": {
+      "description": "General Settings",
+      "message": "一般設定"
+   },
+   "gamepad": {
+      "description": "Block Gamepad Enumeration:",
+      "message": "封鎖遊戲手柄計算："
+   },
+   "gamepaddesc": {
+      "description": "prevent having devices detected via the Gamepad API",
+      "message": "防止通過遊戲手柄API檢測到裝置"
+   },
+   "availablehotkeys": {
+      "description": "Available hotkey actions",
+      "message": "可用熱鍵的操作"
+   },
+   "hotkeystoggle": {
+      "description": "Temporarily allow/block all resources for a current tab",
+      "message": "暫時允許或封鎖當前標籤頁的所有資源"
+   },
+   "hotkeysremove": {
+      "description": "Remove temporary permissions for a current tab",
+      "message": "移除當前標籤頁的臨時權限"
+   },
+   "hotkeysremoveall": {
+      "description": "Remove all temporary permissions",
+      "message": "移除所有臨時權限"
+   },
+   "hotkeyspage": {
+      "description": "Configure ScriptSafe hotkeys",
+      "message": "設置ScriptSafe熱鍵"
+   },
+   "hotkeysinst": {
+      "description": "click on Keyboard Shortcuts",
+      "message": "點擊快捷鍵"
+   },
+   "listallsettings": {
+      "description": "List All Settings",
+      "message": "列出所有設定"
+   },
+   "ignoredallow": {
+      "description": "Ignored Allow",
+      "message": "忽略允許"
+   },
+   "importsuccess": {
+      "description": "The latest settings have been successfully downloaded!",
+      "message": "最新的設定已成功下載！"
+   },
+   "importsuccesstitle": {
+      "description": "Settings Downloaded!",
+      "message": "設定已下載！"
+   },
+   "groupallsettings": {
+      "description": "Group All Settings",
+      "message": "組合所有設定"
+   },
+   "hashchecking": {
+      "description": "Remove Possible Hash Tracking:",
+      "message": "移除可能存在的雜湊追蹤："
+   },
+   "hashcheckingdesc": {
+      "description": "remove possible tracking tokens passed using hash, where there is an attribute and value (e.g. #xtor=RSS-1)",
+      "message": "移除使用雜湊的跟踪標記，這些標記有屬性和值（例如#xtor=RSS-1）"
+   },
+   "hide": {
+      "description": "Hide",
+      "message": "隱藏"
+   },
+   "import": {
+      "description": "Import",
+      "message": "匯入"
+   },
+   "importexport": {
+      "description": "Import / Restore Settings",
+      "message": "匯入/恢復設定"
+   },
+   "importsuccessoptions": {
+      "description": "Settings imported successfully",
+      "message": "設定成功匯入"
+   },
+   "importsuccesscond": {
+      "description": "Settings imported successfully, except the following (empty value or unrecognized name):",
+      "message": "設定成功匯入，除了以下（空值或無法識別的名稱）："
+   },
+   "importsuccesssync": {
+      "description": "Settings imported successfully and syncing in 10 seconds",
+      "message": "成功匯入並在10秒內同步設定"
+   },
+   "interval": {
+      "description": "Every x Minutes",
+      "message": "Every x Minutes"
+   },
+   "keyboard": {
+      "description": "Reduce Keyboard Fingerprinting (for advanced users):",
+      "message": "減少鍵盤指紋（進階用戶）："
+   },
+   "keyboarddesc": {
+      "description": "make keypress timings more random to increase anonymity (<strong>NOTE: adds a random delay between keypresses; disable this setting if unacceptable</strong>)",
+      "message": "令按鍵時序更隨機增加隱匿性<strong>（注意：增加了按鍵之間的隨機延遲;如不可接受，請停用此設定</strong>）"
+   },
+   "browserplugins": {
+      "description": "Block Browser Plugin Enumeration:",
+      "message": "Block Browser Plugin Enumeration:"
+   },
+   "browserpluginsdesc": {
+      "description": "prevent sites from reading your browser plugin details",
+      "message": "prevent sites from reading your browser plugin details"
+   },
+   "linktarget": {
+      "description": "Page Link Opening Behaviour:",
+      "message": "頁面連結的打開方式："
+   },
+   "linktargetdesc": {
+      "description": "modifies how all links are opened",
+      "message": "修改所有連結的打開方式"
+   },
+   "loosesamedomain": {
+      "description": "Loose - allow same domain and subdomains",
+      "message": "寬鬆 - 允許相同的網域和子網域"
+   },
+   "minutes": {
+      "description": "Minutes",
+      "message": "Minutes"
+   },
+   "mode": {
+      "description": "Default Mode",
+      "message": "預設模式"
+   },
+   "newtab": {
+      "description": "New Tab",
+      "message": "新頁面標籤"
+   },
+   "noexternal": {
+      "description": "This tab has loaded no external resources",
+      "message": "此頁面標籤並無加載任何外部資源"
+   },
+   "notfiltered": {
+      "description": "Not filtered",
+      "message": "未經過濾"
+   },
+   "nowebrtc": {
+      "description": "This browser does not support WebRTC protection",
+      "message": "這瀏覽器不支援WebRTC保護"
+   },
+   "off": {
+      "description": "-Off-",
+      "message": "-關閉-"
+   },
+   "onlyunwhitelisted": {
+      "description": "Only on Unwhitelisted Domains",
+      "message": "只有在未被列入允許名單的網域"
+   },
+   "options": {
+      "description": "Options",
+      "message": "選項"
+   },
+   "paranoia": {
+      "description": "Paranoia Mode:",
+      "message": "進取模式："
+   },
+   "paranoiadesc": {
+      "description": "block allowed domains on unlisted domains",
+      "message": "封鎖已允許但未列出的網域"
+   },
+   "pastesettings": {
+      "description": "Paste in settings and try again",
+      "message": "貼上設定，然後再試一次"
+   },
+   "preservesamedomain": {
+      "description": "Respect Same-Domain:",
+      "message": "保持同網域："
+   },
+   "preservesamedomaindesc": {
+      "description": "preserve same-domain elements",
+      "message": "保持同網域元素"
+   },
+   "privacy": {
+      "description": "Privacy Settings",
+      "message": "隱私設定"
+   },
+   "random": {
+      "description": "Random",
+      "message": "隨機"
+   },
+   "rating": {
+      "description": "Show Rating Button:",
+      "message": "顯示評分按鈕："
+   },
+   "ratingbtn": {
+      "description": "Rating",
+      "message": "評分"
+   },
+   "ratingdesc": {
+      "description": "if ticked, adds rating button under domains in tab popup",
+      "message": "如果勾選，增加評分按鈕彈在選項卡下的網域"
+   },
+   "recentlyupdated": {
+      "description": "ScriptSafe was recently updated/reloaded.You will need to either refresh this tab, create a new tab, or restart your browser in order for ScriptSafe to work.",
+      "message": "ScriptSafe最近已更新或重新載入。您將需要重新載入此標籤頁、開啟新的標籤頁，或重新啟動瀏覽器以令ScriptSafe正常運作。"
+   },
+   "referrer": {
+      "description": "Block Click-Through Referrer:",
+      "message": "封鎖點擊參照位址："
+   },
+   "referrerdesc": {
+      "description": "blocks referrer information when clicking on third-party links (note: setting this to On All Domains may cause issues (e.g. thumbnails in Tweetdeck))",
+      "message": "點擊第三方連結時封鎖參照位址資訊（注意：向所有網域作此設定，可能會引致問題（例如，在TweetDeck的縮圖））"
+   },
+   "referrerspoof": {
+      "description": "Referrer Spoof:",
+      "message": "假參照位址："
+   },
+   "referrerspoofdesc": {
+      "description": "warning: if enabled, may break some sites (e.g. logging in)",
+      "message": "警告：如果啟用，可能令一些網站無法正常運作（如登入）"
+   },
+   "refresh": {
+      "description": "Auto-Refresh Page:",
+      "message": "自動重新載入頁面："
+   },
+   "refreshdesc": {
+      "description": "auto-refresh page after list change",
+      "message": "名單變更後自動重新載入頁面"
+   },
+   "relaxed": {
+      "description": "Relaxed",
+      "message": "寬鬆"
+   },
+   "request": {
+      "description": "Every Request",
+      "message": "Every Request"
+   },
+   "restoredefault": {
+      "description": "Restore Default Settings",
+      "message": "Restore Default Settings"
+   },
+   "restoredefault2": {
+      "description": "Restore Default Settings + Clear All Lists",
+      "message": "Restore Default Settings + Clear All Lists"
+   },
+   "restoredefaultconfirm": {
+      "description": "Are you sure you want to restore the default settings? This will NOT clear your lists.",
+      "message": "Are you sure you want to restore the default settings? This will NOT clear your lists."
+   },
+   "restoredefaultconfirm2": {
+      "description": "Are you sure you want to restore the default settings AND clear all of your lists?",
+      "message": "Are you sure you want to restore the default settings AND clear all of your lists?"
+   },
+   "revoketemp": {
+      "description": "Revoke Page Temporary Permissions",
+      "message": "撤銷頁面的臨時權限"
+   },
+   "revoketempall": {
+      "description": "Revoke All Temporary",
+      "message": "撤銷所有臨時（權限）"
+   },
+   "same": {
+      "description": "Same Document",
+      "message": "同一HTML文本"
+   },
+   "sametab": {
+      "description": "Same Tab",
+      "message": "同一標籤頁"
+   },
+   "save": {
+      "description": "Save",
+      "message": "儲存"
+   },
+   "savetxt": {
+      "description": "Save as Text File",
+      "message": "另存為文字檔案"
+   },
+   "sections": {
+      "description": "Sections",
+      "message": "段"
+   },
+   "settingsall": {
+      "description": "select all",
+      "message": "全選"
+   },
+   "settingsimport": {
+      "description": "Copy and paste the settings you want to import into ScriptSafe into this box then click on the Import button.",
+      "message": "複製和貼上您想匯入到ScriptSafe的設定到此方格，然後按匯入按鈕。"
+   },
+   "settingssave": {
+      "description": "Settings saved",
+      "message": "儲存設定"
+   },
+   "settingssavesync": {
+      "description": "Settings saved and syncing in 10 seconds",
+      "message": "設定已儲存並會在10秒內同步"
+   },
+   "showcontext": {
+      "description": "Show in Context Menu:",
+      "message": "顯示在快顯功能表:"
+   },
+   "ssdisabled": {
+      "description": "ScriptSafe is disabled",
+      "message": "ScriptSafe被停用"
+   },
+   "strict": {
+      "description": "Strict",
+      "message": "嚴格"
+   },
+   "strictsamedomain": {
+      "description": "Strict - allow same domain only",
+      "message": "嚴格 - 只允許同一個網域"
+   },
+   "support": {
+      "description": "To support development, click the heart :)",
+      "message": "支持開發，點擊心心 :)"
+   },
+   "syncdisable": {
+      "description": "You have enabled auto-syncing. In order to prevent erasing your previously synced data (if any), please click on Sync Settings FROM Google Account.",
+      "message": "您已啟用自動同步。為了避免抹掉您之前同步的資料（如有），請從Google帳戶按同步設定。"
+   },
+   "syncimport": {
+      "description": "Sync Settings FROM Google Account",
+      "message": "從Google帳戶同步設定"
+   },
+   "syncexport": {
+      "description": "Sync Settings TO Google Account",
+      "message": "同步設定到Google帳戶"
+   },
+   "syncdetect": {
+      "description": "ScriptSafe has detected that you have settings synced on your Google account!\r\nClick on 'OK' if you want to import the settings from your Google Account.",
+      "message": "ScriptSafe已檢測到您已在Google帳戶同步您的設定！\r\n如果您想從您的Google帳戶匯入設定，請按“OK”。"
+   },
+   "syncdisabled": {
+      "description": "Syncing has been disabled to prevent overwriting your already synced data.\r\nFeel free to go to the Options page at any time to sync your settings (make a backup of your settings if necessary).",
+      "message": "同步已被停用以防止抹掉您已經同步的資料。\r\n隨意進入選項頁面，隨時同步您的設定（如有必要請設定備份）。"
+   },
+   "syncfromnotify": {
+      "description": "Show Import Sync Notification:",
+      "message": "顯示匯入同步通知："
+   },
+   "syncfromnotifydesc": {
+      "description": "show popup when settings synced from your Google Account",
+      "message": "當從您的Google賬戶同步設定時，顯示彈出框框"
+   },
+   "syncnotify": {
+      "description": "Show Sync Notification:",
+      "message": "顯示同步通知："
+   },
+   "syncnotifydesc": {
+      "description": "show popup when settings synced to your Google Account",
+      "message": "當設定同步到您的Google帳戶時，顯示彈出框框"
+   },
+   "syncnotsupported": {
+      "description": "Your current version of Google Chrome does not support settings syncing. Please try updating your Chrome version and try again.",
+      "message": "您當前的Google瀏覽器版本不支持設定同步。請嘗試更新您的Chrome瀏覽器版本，然後再試一次。"
+   },
+   "temp": {
+      "description": "Temporary",
+      "message": "臨時"
+   },
+   "timezone": {
+      "description": "Spoof Timezone:",
+      "message": "假時區："
+   },
+   "timezonedesc": {
+      "description": "spoof or randomize your timezone. NOTE: if enabled, it may interfere with replying to emails in Gmail.",
+      "message": "假或隨機的時區。注意：如果啟用，在Gmail回覆郵件可能會受干擾。"
+   },
+   "trust": {
+      "description": "Trust",
+      "message": "相信"
+   },
+   "trustlow": {
+      "description": "trust",
+      "message": "相信"
+   },
+   "uaspoofallow": {
+      "description": "Apply to whitelisted domains as well",
+      "message": "同時適用於列入允許名單的網域名"
+   },
+   "updatedisable": {
+      "description": "Are you sure you want to disable any future update notifications like this one from appearing?\r\nYou can always re-allow update notifications by going to the ScriptSafe Options page and ticking the box beside Show Update Popup.",
+      "message": "您確定之後要停用任何像今次的更新通知？\r\n只要在ScriptSafe的選項頁勾選旁邊的方格，您就可以隨時重新允許更新通知。"
+   },
+   "updatedisablemessage": {
+      "description": "Update notifications disabled",
+      "message": "停用更新通知"
+   },
+   "updatenotify": {
+      "description": "Show Changelog on Update:",
+      "message": "更新時顯示更新日誌："
+   },
+   "unwanted": {
+      "description": "Unwanted",
+      "message": "不需要"
+   },
+   "updatenotifydesc": {
+      "description": "show changelog page when ScriptSafe is updated",
+      "message": "當ScriptSafe已更新，顯示更新日誌"
+   },
+   "url": {
+      "description": "Domain",
+      "message": "網域"
+   },
+   "urldesc": {
+      "description": "Enter a domain or expression (click 'Help' for more info)",
+      "message": "輸入網域或公式（按「幫助」以獲更多資訊）"
+   },
+   "useragentspoof": {
+      "description": "User-Agent Spoof:",
+      "message": "假用戶代理："
+   },
+   "useragentspoofdesc": {
+      "description": "spoofs your user-agent (browser and OS)",
+      "message": "虛構您的用戶代理（瀏覽器和操作系統）"
+   },
+   "userref": {
+      "description": "Enter an address to set as your referrer value for all sites",
+      "message": "輸入網址設定為所有網站的參照位址"
+   },
+   "utm": {
+      "description": "Remove Google Analytics (UTM) Tracking:",
+      "message": "移除Google分析（UTM）追踪："
+   },
+   "utmdesc": {
+      "description": "remove Google Analytics (UTM) tracking tokens",
+      "message": "移除Google分析（UTM）跟踪標記"
+   },
+   "webbugs": {
+      "description": "Remove Webbugs:",
+      "message": "移除Webbugs："
+   },
+   "webbugsdesc": {
+      "description": "remove invisible third-party elements",
+      "message": "移除看不見的第三方元素"
+   },
+   "webgl": {
+      "description": "Block WebGL Fingerprinting:",
+      "message": "封鎖WebGL指紋識別："
+   },
+   "webgldesc": {
+      "description": "prevent fingerprinting via the WebGL API",
+      "message": "避免通過WebGL API的指紋識別"
+   },
+   "webrtcdevice": {
+      "description": "Block Device Enumeration:",
+      "message": "封鎖設備計算："
+   },
+   "webrtcdevicedesc": {
+      "description": "prevent having hardware devices detected via the WebRTC API",
+      "message": "避免通過WebRTC API檢測到硬件設備"
+   },
+   "webrtc": {
+      "description": "WebRTC Protection:",
+      "message": "WebRTC保護："
+   },
+   "webrtcdesc": {
+      "description": "prevent IP address leakage",
+      "message": "防止IP地址洩漏"
+   },
+   "webvr": {
+      "description": "Block WebVR Enumeration:",
+      "message": "封鎖WebVR手柄計算："
+   },
+   "webvrdesc": {
+      "description": "prevent having devices detected via the WebVR API",
+      "message": "防止通過WebVR API檢測到裝置"
+   },
+   "blackbind": {
+      "description": "+ Blacklist",
+      "message": "+ 黑名單"
+   },
+   "whitebind": {
+      "description": "+ Whitelist",
+      "message": "+ 允許名單"
+   },
+   "blacklist": {
+      "description": "Blacklist",
+      "message": "黑名單"
+   },
+   "whitelist": {
+      "description": "Whitelist",
+      "message": "允許名單"
+   },
+   "blacklisted": {
+      "description": "Blacklisted",
+      "message": "列入黑名單"
+   },
+   "whitelisted": {
+      "description": "Whitelisted",
+      "message": "列入允許名單"
+   },
+   "blacklistlow": {
+      "description": "blacklist",
+      "message": "黑名單"
+   },
+   "whitelistlow": {
+      "description": "whitelist",
+      "message": "允許名單"
+   },
+   "blacklistmove": {
+      "description": "Move to Blacklist",
+      "message": "移到黑名單"
+   },
+   "whitelistmove": {
+      "description": "Move to Whitelist",
+      "message": "移到允許名單"
+   },
+   "whitelistblacklist": {
+      "description": "Whitelist / Blacklist",
+      "message": "允許名單或黑名單"
+   },
+   "xml": {
+      "description": "XML HTTP Request Handling:",
+      "message": "XML HTTP請求處理："
+   },
+   "xmlall": {
+      "description": "Control All Requests",
+      "message": "控制所有請求"
+   },
+   "xmlcross": {
+      "description": "Control Cross-Domain Requests (allow Same-Domain)",
+      "message": "控制跨網域請求（允許同網域）"
+   },
+   "xmldesc": {
+      "description": "control XML HTTP Requests",
+      "message": "控制XML HTTP請求"
+   }
+}

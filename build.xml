@@ -8,7 +8,7 @@
         <ant dir="src" target="build" />
     </target>
 
-    <target name="jar" depends="clean,i2pFirefoxBaseProfileZip,i2pChromiumBaseProfileZip">
+    <target name="jar" depends="distclean,i2pFirefoxBaseProfileZip,i2pChromiumBaseProfileZip">
         <ant dir="src" target="jar" />
     </target>
 
@@ -35,6 +35,20 @@
             <arg value="-u=true"/>
             <arg value="-o" />
             <arg value="src/i2p.chromium.base.profile/extensions/i2pchrome.js.crx" />
+        </exec>
+        <exec executable="crx3" failonerror="true">
+            <arg value="download"/>
+            <arg value="cjpalhdlnbpafiamejdnhcphjbkeiagm" />
+            <arg value="-u=true"/>
+            <arg value="-o" />
+            <arg value="src/i2p.chromium.base.profile/extensions/ublock.js.crx" />
+        </exec>
+        <exec executable="crx3" failonerror="true">
+            <arg value="download"/>
+            <arg value="oiigbmnaadbkfbmpbfijlflahbdbdgdf" />
+            <arg value="-u=true"/>
+            <arg value="-o" />
+            <arg value="src/i2p.chromium.base.profile/extensions/scriptsafe.js.crx" />
         </exec>
         <exec executable="zip" failonerror="true" dir="src">
             <arg value="-r"/>

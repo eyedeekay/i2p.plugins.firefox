@@ -1,0 +1,858 @@
+{
+   "appdescription": {
+      "description": "Regain control of the web and surf more securely.",
+      "message": "Atgūt kontroli pār WEB, un sērfot drošāk."
+   },
+   "alldomains": {
+      "description": "On All Domains",
+      "message": "Uz Visiem Domēniem"
+   },
+   "allow": {
+      "description": "Allow",
+      "message": "Atļaut"
+   },
+   "alloweditems": {
+      "description": "Allowed Items",
+      "message": "Atļautie elementi"
+   },
+   "blockeditems": {
+      "description": "Blocked Items",
+      "message": "Bloķētie elementi"
+   },
+   "allowallblocked": {
+      "description": "Allow All Blocked For Session",
+      "message": "Atļaut visu bloķēto šajā sessijā"
+   },
+   "annoyances": {
+      "description": "Block Unwanted Content:",
+      "message": "Nevēlāmā satura bloķēšana:"
+   },
+   "annoyancesdesc": {
+      "description": "remove unwanted content from known ad/malware domains; domains gathered from <a href=http://winhelp2002.mvps.org/hosts.htm target=_blank>MVPS HOSTS</a>, <a href=http://hosts-file.net target=_blank>hpHOSTS (ad/tracking servers)</a>, <a href=http://pgl.yoyo.org/as/policy.php target=_blank>Peter Lowe's HOSTS Project</a>, <a href=http://www.malwaredomainlist.com/ target=_blank>MalwareDomainList.com</a>",
+      "message": "dzēš kaitīgo/reklāmas zināmo domēnu nevēlamo saturu; domēni savākti no <a href=http://winhelp2002.mvps.org/hosts.htm target=_blank>MVPS hosts</a>, <a href=http://hosts-file.net target=_blank>hpHOSTS ( ad/sekošanas serveri)</a>, <a href=http://pgl.yoyo.org/as/policy.php target=_blank>Peter Lowe hosts Project</a>, <a href=http://www.malwaredomainlist.com/ target=_blank>MalwareDomainList.com</a>"
+   },
+   "annoyancesmode": {
+      "description": "Unwanted Content Mode:",
+      "message": "Nevēlamā satura režīms:"
+   },
+   "annoyancesmodedesc": {
+      "description": "Relaxed = whitelisted domains will not be blocked; Strict = domains in the unwanted domain list will be blocked even if whitelisted",
+      "message": "Atvieglots = baltā saraksta domēni netiks bloķēti; Stingrs = domēni, nevēlamo domēnu sarakstā tiks bloķēti, pat ja neatrodas atļauto sarakstā"
+   },
+   "antisocialpopup": {
+      "description": "Antisocial",
+      "message": "Sociālie tīkli"
+   },
+   "antisocial": {
+      "description": "Antisocial Mode:",
+      "message": "Sociālo tīklu režīms:"
+   },
+   "antisocialdesc": {
+      "description": "always remove social widgets/buttons, even if whitelisted",
+      "message": "vienmēr dzēš sociālo tīklu tēmas/pogas, pat ja atrodas atļauto sarakstā"
+   },
+   "antisocialdesc2": {
+      "description": "For more comprehensive blocking, check out <a href=https://chrome.google.com/webstore/detail/privacy-badger/pkehgijcmpdhfbdbbnkijodmdjhbjlgp target=_blank>Privacy Badger</a>, <a href=https://chrome.google.com/webstore/detail/disconnect/jeoacafpbcihiomhlakheieifhpjdfeo target=_blank>Disconnect</a>, <a href=https://chrome.google.com/webstore/detail/blur/epanfjkfahimkgomnigadpkobaefekcd target=_blank>Blur</a>, and/or <a href=https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm target=_blank>uBlock Origin</a> with all of the subscription lists on the <a href=https://www.fanboy.co.nz/ target=_blank>Fanboy site</a>",
+      "message": "Pilnīgākai bloķēšanai, atslēdziet <a href=https://chrome.google.com/webstore/detail/privacy-badger/pkehgijcmpdhfbdbbnkijodmdjhbjlgp target=_blank>Privacy Badger</a>, <a href=https://chrome.google.com/webstore/detail/disconnect/jeoacafpbcihiomhlakheieifhpjdfeo target=_blank>Disconnect</a>, <a href=https://chrome.google.com/webstore/detail/blur/epanfjkfahimkgomnigadpkobaefekcd target=_blank>Blur</a>, un/vai <a href=https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm target=_blank>uBlock Origin</a> ar visiem abonešanas sarakstiem <a href=https://www.fanboy.co.nz/ target=_blank>Fanboy vietnē</a>"
+   },
+   "audioblock": {
+      "description": "Block Audio Fingerprinting:",
+      "message": "Bloķēt Audio izdrukas:"
+   },
+   "audioblockdesc": {
+      "description": "prevent fingerprinting via the AudioContext API",
+      "message": "novērš izdrukas, izmantojot AudioContext API"
+   },
+   "battery": {
+      "description": "Block Battery Fingerprinting:",
+      "message": "Bloķēt baterijas izdrukas:"
+   },
+   "batterydesc": {
+      "description": "prevent fingerprinting via the Battery API",
+      "message": "novērš izdrukas, izmantojot Battery API"
+   },
+   "behavior": {
+      "description": "Behaviour Settings",
+      "message": "Darbību iestatījumi"
+   },
+   "blockrec": {
+      "description": "Block (recommended)",
+      "message": "Bloķēt (ieteicams)"
+   },
+   "block": {
+      "description": "Block",
+      "message": "Bloķēt"
+   },
+   "blocked": {
+      "description": "Blocked",
+      "message": "bloķēts"
+   },
+   "blockallallowed": {
+      "description": "Block All Allowed For Session",
+      "message": "Bloķēt visu atļauto šajā sessijā"
+   },
+   "bluetooth": {
+      "description": "Block Bluetooth Enumeration:",
+      "message": "Bloķēt Bluetooth sarakstu:"
+   },
+   "bluetoothdesc": {
+      "description": "prevent having devices detected via the Bluetooth API",
+      "message": "novērš pieejamo ierīču saraksta iegūšanu, Bluetooth API izmantojot, atrastos"
+   },
+   "bulkimport": {
+      "description": "bulk import",
+      "message": "lielapjoma importēšana"
+   },
+   "bulkbtn": {
+      "description": "Import to List",
+      "message": "Importēt sarakstā"
+   },
+   "bulkimportcap": {
+      "description": "Bulk Import",
+      "message": "Lielapjoma importēšana"
+   },
+   "bulkimportcapdesc": {
+      "description": "Copy and paste domains into the box below. Each domain should be on a separate line.",
+      "message": "Kopējiet un ievietojiet domēnus lodziņā zemāk. Katrs domēns rakstās atsevišķā rindā."
+   },
+   "canvas": {
+      "description": "Canvas Fingerprint Protection:",
+      "message": "Aizsardzība pret Canvas izdrukām:"
+   },
+   "cannotprocess": {
+      "description": "<strong>ScriptSafe cannot process this page.</strong><br /><br />Please try visiting a website.",
+      "message": "<strong>ScriptSafe neizdodas apstrādāt šo lapu.</strong><br /><br />Lūdzu, meģiniet apmeklēt mājas lapu."
+   },
+   "canvasblank": {
+      "description": "Blank Readout",
+      "message": "Tukša skaita nolasīšana"
+   },
+   "canvasrandom": {
+      "description": "Random Readout",
+      "message": "Nejauša skaita nolasīšana"
+   },
+   "canvasblock": {
+      "description": "Completely Block Readout",
+      "message": "Pilnīga Bloka skaita nolasīšana"
+   },
+   "canvasdesc": {
+      "description": "protect against fingerprinting attempts through &lt;canvas&gt; elements",
+      "message": "aizsargā pret izdrukas &lt;canvas&gt; elementiem"
+   },
+   "canvasfont": {
+      "description": "Block Canvas Font Access:",
+      "message": "Bloķē Canvas piekļuvi fontiem:"
+   },
+   "canvasfontdesc": {
+      "description": "prevent system fonts from being enumerated through &lt;canvas&gt; elements. May interfere with Google Docs.",
+      "message": "novērš sistēmas fontu saraksta iegūšanu, izmantojot &lt;canvas&gt; elementus. Var traucēt Google Docs."
+   },
+   "classicoptions": {
+      "description": "Classic Options Mode:",
+      "message": "Klasiskie iestatījumi:"
+   },
+   "classicoptionsdesc": {
+      "description": "if ticked, closes tab options everytime an option is clicked",
+      "message": "ja ir iespējots, aizver cilnes iestatījumus ar klikšķi"
+   },
+   "clear": {
+      "description": "Clear",
+      "message": "Notīrīt"
+   },
+   "clearlow": {
+      "description": "clear",
+      "message": "notīrīt"
+   },
+   "clientrects": {
+      "description": "Block Client Rectangles:",
+      "message": "Bloķēt klienta taisnstūri:"
+   },
+   "clientrectsdesc": {
+      "description": "prevent fingerprinting through calculating element rectangles. May interfere with some dropdowns.",
+      "message": "novērš izdrukas, izmantojot taisnstūru elementu aprēķinus. Var radīt traucējumus izlecošo logu sarakstos"
+   },
+   "clipboard": {
+      "description": "Prevent Clipboard Interference:",
+      "message": "Starpliktuves traucējumu novēršana:"
+   },
+   "clipboarddesc": {
+      "description": "prevent pages from interfering with clipboard actions",
+      "message": "novērš lapu iejaukšanos starpliktuves darbībā"
+   },
+   "close": {
+      "description": "Close",
+      "message": "Aizvērt"
+   },
+   "cookies": {
+      "description": "Block Unwanted Cookies:",
+      "message": "Bloķēt nevēlamās Sīkdatnes:"
+   },
+   "cookiesdesc": {
+      "description": "blocks cookies from known ad/malware domains; below mode applies to this as well",
+      "message": "bloķē kaitīgo/reklāmas zināmo domēnu sīkdatnes; uz šo attiecas režīmi"
+   },
+   "custom": {
+      "description": "Custom",
+      "message": "Lietotāja režīms"
+   },
+   "default": {
+      "description": "Default",
+      "message": "Režīms Pēc noklusējuma"
+   },
+   "default_public_interface_only": {
+      "description": "Protect Local IP",
+      "message": "Lokālā IP aizsardzība"
+   },
+   "deny": {
+      "description": "Deny",
+      "message": "Aizliegt"
+   },
+   "disable_non_proxied_udp": {
+      "description": "Protect Local and Public IPs",
+      "message": "Aizsargā lokālās un publiskās IP"
+   },
+   "disable": {
+      "description": "Disable",
+      "message": "Atspējot"
+   },
+   "disabled": {
+      "description": "disabled",
+      "message": "atspējots"
+   },
+   "disabledcap": {
+      "description": "Disabled",
+      "message": "Atspējots"
+   },
+   "disabledsync": {
+      "description": "Syncing is disabled.\r\nFeel free to go to the Options page at any time to sync your settings (make a backup of your settings if necessary).",
+      "message": "Sinhronizācija ir atspējota.\r\nNekautrējieties doties jebkurā laikā sinhronizēt iestatījumus (nepieciešamības gadījumā veicot iestatījumu dublējumu)."
+   },
+   "disableremove": {
+      "description": "Disable and Remove:",
+      "message": "Atspējot un dzēst:"
+   },
+   "distrust": {
+      "description": "Distrust",
+      "message": "Neuzticams"
+   },
+   "distrustlow": {
+      "description": "distrust",
+      "message": "neuzticams"
+   },
+   "domain": {
+      "description": "Same Domain",
+      "message": "Tas pats domēns"
+   },
+   "domainsort": {
+      "description": "Sort by Domain:",
+      "message": "Kārtot pēc domēna:"
+   },
+   "domaininfo": {
+      "description": "Help",
+      "message": "Palīdzība"
+   },
+   "domaininvalid": {
+      "description": "Invalid domain/address",
+      "message": "Nederīgs domēns/Nederīga adrese"
+   },
+   "domaininvalid2": {
+      "description": "The domain or address must contain some letters/numbers",
+      "message": "Domēniem jeb adresēm ir jāsatur dažādus burtus/ciparus"
+   },
+   "domaininvalid3": {
+      "description": "Domain cannot be added as it is a provider of unwanted content (see Block Unwanted Content and/or Antisocial Mode)",
+      "message": "Domēnu nevar pievienot, jo tas nes nevēlamu saturu (sk. bloķēt nevēlamu saturu un/vai sociālo tīklu režīms)"
+   },
+   "domainsortdesc": {
+      "description": "sorts URL lists by domains on this page and in the panel",
+      "message": "kārto URL sarakstus pēc domēna šajā lapā un panelī"
+   },
+   "domaintip": {
+      "description": "Tip: press CTRL+F to search the lists",
+      "message": "Padoms: nospiediet CTRL+F, lai meklētu sarakstus"
+   },
+   "dontshowpage": {
+      "description": "Don't Show This Page Again",
+      "message": "Nerādīt šo lapu vēlreiz"
+   },
+   "enable": {
+      "description": "Enable:",
+      "message": "Ieslēgt:"
+   },
+   "enabled": {
+      "description": "enabled",
+      "message": "ieslēgts"
+   },
+   "enabless": {
+      "description": "Enable ScriptSafe",
+      "message": "Ieslēgt ScriptSafe"
+   },
+   "enablesyncing": {
+      "description": "Enable Syncing:",
+      "message": "Aktivizēt sinhronizāciju:"
+   },
+   "export": {
+      "description": "Export",
+      "message": "Eksports"
+   },
+   "exportsuccess": {
+      "description": "Your settings have been successfully synced!",
+      "message": "Jūsu iestatījumi tika veiksmīgi sinhronizēti!"
+   },
+   "exportsuccesstitle": {
+      "description": "Settings Synced!",
+      "message": "Iestatījumi sinhronizēti!"
+   },
+   "fingerprint": {
+      "description": "Fingerprint Protection",
+      "message": "Aizsardziba pret izdrukām"
+   },
+   "fingerprintdesc": {
+      "description": "Fingerprint Protection (may break sites)",
+      "message": "Aizsardziba pret izdrukām (var salauzt vietnes)"
+   },
+   "firstsync": {
+      "description": "It appears you haven't synced your settings to your Google account yet.\r\nScriptSafe is about to sync your current settings to your Google account.\r\nClick on 'OK' if you want to continue.\r\nIf not, click 'Cancel', and on the other device with your preferred settings, update ScriptSafe and click on OK when you are presented with this message.",
+      "message": "Škiet, vēl neesat sinhronizējis iestatījumus savā Google kontā.\r\nScriptSafe sinhronizē jūsu pašreizējos iestatījumus Google kontā.\r\nNoklikšķiniet \"OK\", ja vēlaties turpināt.\r\nJa nevēlaties, noklikšķiniet \"Atcelt\", un citā iericē ar vēlamajiem iestatījumiem, atjauninat ScriptSafe un noklikškiniet OK, kad saņemsiet šo ziņojumu."
+   },
+   "forcesyncexport": {
+      "description": "Do you want to sync your current settings to your Google Account?\r\nNote: please do not press this frequently; there is a limit of 10 per minute and 1,000 per hour.",
+      "message": "Vai vēlaties sinhronizēt savus pašreizējos iestatījumus savā Google kontā?\r\nPiezīme: lūdzu, neklikšķiniet te bieži; ir ierobežojums 10 reizes minūtē un 1000 reizes stundā."
+   },
+   "forcesyncimport": {
+      "description": "Do you want to import the synced settings from your Google Account to this device?",
+      "message": "Vai vēlaties importēt no jūsu Google konta sinhronizētos iestatījumus šajā iericē?"
+   },
+   "forever": {
+      "description": "Forever",
+      "message": "Forever"
+   },
+   "hotkeys": {
+      "description": "Hotkeys:",
+      "message": "Taustiņi:"
+   },
+   "generalsettings": {
+      "description": "General Settings",
+      "message": "Vispārīgie Iestatījumi"
+   },
+   "gamepad": {
+      "description": "Block Gamepad Enumeration:",
+      "message": "Bloķēt Gamepad sarakstu:"
+   },
+   "gamepaddesc": {
+      "description": "prevent having devices detected via the Gamepad API",
+      "message": "novērš pieejamo ierīču saraksta iegūšanu, Gamepad API izmantojot, atrastos"
+   },
+   "availablehotkeys": {
+      "description": "Available hotkey actions",
+      "message": "Pieejamās karsto taustiņu darbības"
+   },
+   "hotkeystoggle": {
+      "description": "Temporarily allow/block all resources for a current tab",
+      "message": "Īslaicīgi atļaut/bloķēt visus resursus pašreizējā cilnē"
+   },
+   "hotkeysremove": {
+      "description": "Remove temporary permissions for a current tab",
+      "message": "Dzēst visas pagaidu atļaujas pašreizējā cilnē"
+   },
+   "hotkeysremoveall": {
+      "description": "Remove all temporary permissions",
+      "message": "Dzēst visas pagaidu atļaujas"
+   },
+   "hotkeyspage": {
+      "description": "Configure ScriptSafe hotkeys",
+      "message": "ScriptSafe karsto taustiņu konfigurēšana"
+   },
+   "hotkeysinst": {
+      "description": "click on Keyboard Shortcuts",
+      "message": "noklikšķiniet karsto taustiņu"
+   },
+   "listallsettings": {
+      "description": "List All Settings",
+      "message": "Visi iestatījumi pēc saraksta"
+   },
+   "ignoredallow": {
+      "description": "Ignored Allow",
+      "message": "Ignorējas Atļautie"
+   },
+   "importsuccess": {
+      "description": "The latest settings have been successfully downloaded!",
+      "message": "Jaunākie iestatījumi tika veiksmīgi ielādēti!"
+   },
+   "importsuccesstitle": {
+      "description": "Settings Downloaded!",
+      "message": "Iestatījumi ielādēti!"
+   },
+   "groupallsettings": {
+      "description": "Group All Settings",
+      "message": "Visi iestatījumi pēc grupas"
+   },
+   "hashchecking": {
+      "description": "Remove Possible Hash Tracking:",
+      "message": "Novērš Hash Sekošanas Iespējāmību:"
+   },
+   "hashcheckingdesc": {
+      "description": "remove possible tracking tokens passed using hash, where there is an attribute and value (e.g. #xtor=RSS-1)",
+      "message": "iespējamās sekošanas novēršana, izmantojot hash, kur ir atribūts un vērtība (piemēram, #xtor=RSS-1)"
+   },
+   "hide": {
+      "description": "Hide",
+      "message": "Slēpt"
+   },
+   "import": {
+      "description": "Import",
+      "message": "Imports"
+   },
+   "importexport": {
+      "description": "Import/Restore Settings",
+      "message": "Iestatījumu Imports/Atjaunošana"
+   },
+   "importsuccessoptions": {
+      "description": "Settings imported successfully",
+      "message": "Iestatījumi ir veiksmīgi importēti"
+   },
+   "importsuccesscond": {
+      "description": "Settings imported successfully, except the following (empty value or unrecognized name):",
+      "message": "Iestatījumi ir veiksmīgi importēti, izņemot (tukša vērtība vai neatpazīts apzīmējums):"
+   },
+   "importsuccesssync": {
+      "description": "Settings imported successfully and syncing in 10 seconds",
+      "message": "Iestatījumi ir veiksmīgi importēti un sinhronizēti 10 sekunžu laikā"
+   },
+   "interval": {
+      "description": "Every x Minutes",
+      "message": "Every x Minutes"
+   },
+   "keyboard": {
+      "description": "Reduce Keyboard Fingerprinting (<strong>for advanced users</strong>):",
+      "message": "Samazināt tastatūraы izdrukas (<strong>pieredzējušiem lietotājiem</strong>):"
+   },
+   "keyboarddesc": {
+      "description": "make keypress timings more random to increase anonymity (<strong>NOTE: adds a random delay between keypresses; disable this setting if unacceptable</strong>)",
+      "message": "anonimitātes palielināšanai padarīt taustiņu nospiešanas secību nejaušīgāku (<strong>pievieno nejaušu taustiņu nospiešanas aizkavi; izslēdziet šo iestatījumu, ja tas nav pieņemams.</strong>)"
+   },
+   "browserplugins": {
+      "description": "Block Browser Plugin Enumeration:",
+      "message": "Block Browser Plugin Enumeration:"
+   },
+   "browserpluginsdesc": {
+      "description": "prevent sites from reading your browser plugin details",
+      "message": "prevent sites from reading your browser plugin details"
+   },
+   "linktarget": {
+      "description": "Page Link Opening Behaviour:",
+      "message": "Uzvedība saišu atvēršanā:"
+   },
+   "linktargetdesc": {
+      "description": "modifies how all links are opened",
+      "message": "mainīt, kā tiks atvērtas saites"
+   },
+   "loosesamedomain": {
+      "description": "Loose - allow same domain and subdomains",
+      "message": "Brīvs - atļaut to pašu domēnu un apakšdomēnus"
+   },
+   "minutes": {
+      "description": "Minutes",
+      "message": "Minutes"
+   },
+   "mode": {
+      "description": "Default Mode",
+      "message": "Režīms Pēc noklusējuma"
+   },
+   "newtab": {
+      "description": "New Tab",
+      "message": "Jauna Cilne"
+   },
+   "noexternal": {
+      "description": "This tab has loaded no external resources",
+      "message": "Ši cilne nelejupielādē nekādus ārējos resursus"
+   },
+   "notfiltered": {
+      "description": "Not filtered",
+      "message": "Bez filtriem"
+   },
+   "nowebrtc": {
+      "description": "This browser does not support WebRTC protection",
+      "message": "Šī pārlūkprogramma neatbalsta WebRTC aizsardzību"
+   },
+   "off": {
+      "description": "-Off-",
+      "message": "-Atspējots-"
+   },
+   "onlyunwhitelisted": {
+      "description": "Only on Unwhitelisted Domains",
+      "message": "Tikai no neatļauto domēnu saraksta"
+   },
+   "options": {
+      "description": "Options",
+      "message": "Iestatījumi"
+   },
+   "paranoia": {
+      "description": "Paranoia Mode:",
+      "message": "Paranoidālais režīms:"
+   },
+   "paranoiadesc": {
+      "description": "block allowed domains on unlisted domains",
+      "message": "atļauto domēnu bloķēšana nezināmās cilnēs"
+   },
+   "pastesettings": {
+      "description": "Paste in settings and try again",
+      "message": "Ievietojiet iestatījumus un mēģiniet vēlreiz"
+   },
+   "preservesamedomain": {
+      "description": "Respect Same-Domain:",
+      "message": "Uzticamie domēni:"
+   },
+   "preservesamedomaindesc": {
+      "description": "preserve same-domain elements",
+      "message": "attiecīgo domēnu elementu saglabāšana"
+   },
+   "privacy": {
+      "description": "Privacy Settings",
+      "message": "Konfidencialitātes iestatījumi"
+   },
+   "random": {
+      "description": "Random",
+      "message": "Nejaušs"
+   },
+   "rating": {
+      "description": "Show Rating Button:",
+      "message": "Rādit reitinga pogu:"
+   },
+   "ratingbtn": {
+      "description": "Rating",
+      "message": "Reitings"
+   },
+   "ratingdesc": {
+      "description": "if ticked, adds rating button under domains in tab popup",
+      "message": "ja ir iespējots, pievieno domēnu reitinga pogu izlecošā logā un ļauj pārlūkot tās vietnes reputāciju"
+   },
+   "recentlyupdated": {
+      "description": "<strong>ScriptSafe was recently updated/reloaded.</strong><br /><br />You will need to either refresh this tab, create a new tab, or restart your browser in order for ScriptSafe to work.",
+      "message": "<strong>ScriptSafe nesen tika atjaunināts/pārlādēts.</strong><br /><br />Jums būs nepieciešams vai nu atsvaidzināt šo cilni, izveidot jaunu cilni, vai restartēt parlūkprogrammu."
+   },
+   "referrer": {
+      "description": "Block Click-Through Referrer:",
+      "message": "Bloķēt Click-Through Referrer:"
+   },
+   "referrerdesc": {
+      "description": "blocks referrer information when clicking on third-party links (note: setting this to On All Domains may cause issues (e.g. thumbnails in Tweetdeck))",
+      "message": "klikšķinot uz ārējām saitēm, pārejot, nesaņems informāciju, no kurienes jūs nākat (piezime: uzstādot šo iestatījumu visos domēnos var rasties problēmas (piem. Tweetdeck sīktēli))"
+   },
+   "referrerspoof": {
+      "description": "Referrer Spoof:",
+      "message": "Nosūtīšanas avota maiņa:"
+   },
+   "referrerspoofdesc": {
+      "description": "<strong>warning</strong>: if enabled, may break some sites (e.g. logging in)",
+      "message": "<strong>brīdinājums</strong>: ja iestatījums ir iespējots, var nestrādāt dažas vietnes (piem. ielogoties)"
+   },
+   "refresh": {
+      "description": "Auto-Refresh Page:",
+      "message": "Lapas automātiskā atjaunināšana:"
+   },
+   "refreshdesc": {
+      "description": "auto-refresh page after list change",
+      "message": "Kad jūs izmainīsiet vietnes iestatījumus, lapa automātiski tiks atjaunināta"
+   },
+   "relaxed": {
+      "description": "Relaxed",
+      "message": "Atvieglots"
+   },
+   "request": {
+      "description": "Every Request",
+      "message": "Every Request"
+   },
+   "restoredefault": {
+      "description": "Restore Default Settings",
+      "message": "Restore Default Settings"
+   },
+   "restoredefault2": {
+      "description": "Restore Default Settings + Clear All Lists",
+      "message": "Restore Default Settings + Clear All Lists"
+   },
+   "restoredefaultconfirm": {
+      "description": "Are you sure you want to restore the default settings? This will NOT clear your lists.",
+      "message": "Are you sure you want to restore the default settings? This will NOT clear your lists."
+   },
+   "restoredefaultconfirm2": {
+      "description": "Are you sure you want to restore the default settings AND clear all of your lists?",
+      "message": "Are you sure you want to restore the default settings AND clear all of your lists?"
+   },
+   "revoketemp": {
+      "description": "Revoke Page Temporary Permissions",
+      "message": "Īslaicīgi atcelt visas atļaujas"
+   },
+   "revoketempall": {
+      "description": "Revoke All Temporary",
+      "message": "Īslaicīgi atcelt visas pagaidu atļaujas"
+   },
+   "same": {
+      "description": "Same Document",
+      "message": "Šis dokuments"
+   },
+   "sametab": {
+      "description": "Same Tab",
+      "message": "Šī cilne"
+   },
+   "save": {
+      "description": "Save",
+      "message": "Saglabāt"
+   },
+   "savetxt": {
+      "description": "Save as Text File",
+      "message": "Saglabāt kā Teksta Failu"
+   },
+   "sections": {
+      "description": "Sections",
+      "message": "Sadaļas"
+   },
+   "settingsall": {
+      "description": "select all",
+      "message": "atlasīt visus"
+   },
+   "settingsimport": {
+      "description": "Copy and paste the settings you want to import into ScriptSafe into this box then click on the Import button.",
+      "message": "Iestatījumus, kurus vēlaties importēt ScriptSafe, nokopējiet un ievietojiet šajā lodziņā, noklikšķiniet Importēt."
+   },
+   "settingssave": {
+      "description": "Settings saved",
+      "message": "Iestatījumi saglabāti"
+   },
+   "settingssavesync": {
+      "description": "Settings saved and syncing in 10 seconds",
+      "message": "Iestatījumi ir veiksmīgi saglabāti un sinhronizēti 10 sekunžu laikā"
+   },
+   "showcontext": {
+      "description": "Show in Context Menu:",
+      "message": "Show in Context Menu:"
+   },
+   "ssdisabled": {
+      "description": "ScriptSafe is disabled",
+      "message": "ScriptSafe ir atspējots"
+   },
+   "strict": {
+      "description": "Strict",
+      "message": "Stingrs"
+   },
+   "strictsamedomain": {
+      "description": "Strict - allow same domain only",
+      "message": "Stingrs - atļaut tikai šo domēnu"
+   },
+   "support": {
+      "description": "To support development, click the heart :)",
+      "message": "ScriptSafe attīstības atbalstīšana, noklikškiniet sirsniņu :)"
+   },
+   "syncdisable": {
+      "description": "You have enabled auto-syncing. In order to prevent erasing your previously synced data (if any), please click on Sync Settings FROM Google Account.",
+      "message": "Jus esat iespējojis automātisko sinhronizāciju. Lai novērstu savu iepriekš sinhronizēto datu (ja tādi ir) pazušanu, lūdzu, noklikšķiniet uz Sync iestatījumiem no Google konta."
+   },
+   "syncimport": {
+      "description": "Sync Settings FROM Google Account",
+      "message": "Iestatījumi ir sinhronizēti no Google konta"
+   },
+   "syncexport": {
+      "description": "Sync Settings TO Google Account",
+      "message": "Iestatījumi ir sinhronizēti Google kontā"
+   },
+   "syncdetect": {
+      "description": "ScriptSafe has detected that you have settings synced on your Google account!\r\nClick on 'OK' if you want to import the settings from your Google Account.",
+      "message": "ScriptSafe ir konstatējis, ka jums ir sinhronizēti iestatījumi Google kontā!\r\nNoklikšķiniet \"OK\", ja vēlaties importēt iestatījumus no sava Google konta."
+   },
+   "syncdisabled": {
+      "description": "Syncing has been disabled to prevent overwriting your already synced data.\r\nFeel free to go to the Options page at any time to sync your settings (make a backup of your settings if necessary).",
+      "message": "Sinhronizācija ir atspējota, lai novērstu jau sinhronizēto datu parrakstīšanu.\r\nNekautrējieties doties jebkurā laikā sinhronizēt iestatījumus (nepieciešamības gadījumā veicot iestatījumu dublējumu)."
+   },
+   "syncfromnotify": {
+      "description": "Show Import Sync Notification:",
+      "message": "Rādīt sinhronizācijas importēšanas paziņojumus:"
+   },
+   "syncfromnotifydesc": {
+      "description": "show popup when settings synced <strong>from</strong> your Google Account",
+      "message": "rāda izlecošā logā, kad iestatījumi <strong>tiks sinhronizēti no</strong> jūsu Google konta"
+   },
+   "syncnotify": {
+      "description": "Show Sync Notification:",
+      "message": "Rādīt sinhronizācijas paziņojumus:"
+   },
+   "syncnotifydesc": {
+      "description": "show popup when settings synced <strong>to</strong> your Google Account",
+      "message": "rāda izlecošā logā, kad iestatījumi <strong>tiks sinhronizēti</strong> jūsu Google kontā"
+   },
+   "syncnotsupported": {
+      "description": "Your current version of Google Chrome does not support settings syncing. Please try updating your Chrome version and try again.",
+      "message": "Jūsu pašreizejā Google Chrome versija neatbalsta sinhronizācijas iestatījumus. Lūdzu, meģiniet atjaunināt Chrome versiju un meģiniet vēlreiz."
+   },
+   "temp": {
+      "description": "Temporary",
+      "message": "Pagaidu"
+   },
+   "timezone": {
+      "description": "Spoof Timezone:",
+      "message": "Mainīt laika joslu:"
+   },
+   "timezonedesc": {
+      "description": "spoof or randomize your timezone. NOTE: if enabled, it may interfere with replying to emails in Gmail.",
+      "message": "Jūsu laika joslas maiņa vai randomizācija. PIEZĪME: ja iestatījums ir iespējots, var traucēt Gmail e-pastiem."
+   },
+   "trust": {
+      "description": "Trust",
+      "message": "Uzticēties"
+   },
+   "trustlow": {
+      "description": "trust",
+      "message": "uzticēties"
+   },
+   "uaspoofallow": {
+      "description": "Apply to whitelisted domains as well",
+      "message": "Pielietot ari baltā saraksta domēniem"
+   },
+   "updatedisable": {
+      "description": "Are you sure you want to disable any future update notifications like this one from appearing?\r\nYou can always re-allow update notifications by going to the ScriptSafe Options page and ticking the box beside Show Update Popup.",
+      "message": "Vai tiešām vēlaties atspējot jebkādus turpmākus atjaunināšanas paziņojumus?\r\nJūs vienmēr varat atkal atļaut nosūtīt paziņojumus par atjauninājumiem, pārejot ScriptSafe iestatījumos un atzimējot Rādīt paziņojumus par atjauninājumiem."
+   },
+   "updatedisablemessage": {
+      "description": "Update notifications disabled",
+      "message": "Paziņojums par atjauninājumiem ir atspējots"
+   },
+   "updatenotify": {
+      "description": "Show Changelog on Update:",
+      "message": "Atjaunojoties, rādīt izmaiņas sarakstā:"
+   },
+   "unwanted": {
+      "description": "Unwanted",
+      "message": "Nevēlams"
+   },
+   "updatenotifydesc": {
+      "description": "show changelog page when ScriptSafe is updated",
+      "message": "Kad ScriptSafe tiek atjaunināts, rādīt izmaiņas"
+   },
+   "url": {
+      "description": "Domain",
+      "message": "Domēns"
+   },
+   "urldesc": {
+      "description": "Enter a domain or expression (click 'Help' for more info)",
+      "message": "Ievadiet domēns (noklikšķiniet uz \"Palīdzība\", vairāk info)"
+   },
+   "useragentspoof": {
+      "description": "User-Agent Spoof:",
+      "message": "Mainīt User-Agent:"
+   },
+   "useragentspoofdesc": {
+      "description": "spoofs your user-agent (browser and OS)",
+      "message": "HTTP-Pieprasījuma virsraksta maiņa (maina informāciju Interneta pārlūkprogrammā un Operētājsistēmā)"
+   },
+   "userref": {
+      "description": "Enter an address to set as your referrer value for all sites",
+      "message": "Ievadiet adresi, lai uzstādītu referrer vērtību visām vietnēm"
+   },
+   "utm": {
+      "description": "Remove Google Analytics (UTM) Tracking:",
+      "message": "Dzēst Google Analytics sekošanu (UTM):"
+   },
+   "utmdesc": {
+      "description": "remove Google Analytics (UTM) tracking tokens",
+      "message": "Google Analytics sekošanas marķieru dzēšana (UTM)"
+   },
+   "webbugs": {
+      "description": "Remove Webbugs:",
+      "message": "Dzēst Webbugs:"
+   },
+   "webbugsdesc": {
+      "description": "remove invisible third-party elements",
+      "message": "dzēst iframe-s un citus lietotājam neredzamus elementus, kaitīgo kodu saturošus"
+   },
+   "webgl": {
+      "description": "Block WebGL Fingerprinting:",
+      "message": "Bloķēt WebGL izdrukas:"
+   },
+   "webgldesc": {
+      "description": "prevent fingerprinting via the WebGL API",
+      "message": "novērš izdrukas, izmantojot WebGL API"
+   },
+   "webrtcdevice": {
+      "description": "Block Device Enumeration:",
+      "message": "Bloķēt ierīču sarakstu:"
+   },
+   "webrtcdevicedesc": {
+      "description": "prevent having hardware devices detected via the WebRTC API",
+      "message": "ierīču pieejamības pārbaudes novēršana, WebRTC API izmantojot, atrastos"
+   },
+   "webrtc": {
+      "description": "WebRTC Protection:",
+      "message": "WebRTC Aizsardziba:"
+   },
+   "webrtcdesc": {
+      "description": "prevent IP address leakage",
+      "message": "novērš IP adreses noplūdi caur WebRTC"
+   },
+   "webvr": {
+      "description": "Block WebVR Enumeration:",
+      "message": "Bloķēt WebVR sarakstu:"
+   },
+   "webvrdesc": {
+      "description": "prevent having devices detected via the WebVR API",
+      "message": "novērš pieejamo ierīču saraksta iegūšanu, WebVR API izmantojot, atrastos"
+   },
+   "blackbind": {
+      "description": "+ Blacklist",
+      "message": "+ Melnais Saraksts"
+   },
+   "whitebind": {
+      "description": "+ Whitelist",
+      "message": "+ Baltais Saraksts"
+   },
+   "blacklist": {
+      "description": "Blacklist",
+      "message": "Melnais Saraksts"
+   },
+   "whitelist": {
+      "description": "Whitelist",
+      "message": "Baltais Saraksts"
+   },
+   "blacklisted": {
+      "description": "Blacklisted",
+      "message": "Pievienots melnajā sarakstā"
+   },
+   "whitelisted": {
+      "description": "Whitelisted",
+      "message": "Pievienots baltajā sarakstā"
+   },
+   "blacklistlow": {
+      "description": "blacklist",
+      "message": "melnais saraksts"
+   },
+   "whitelistlow": {
+      "description": "whitelist",
+      "message": "baltais saraksts"
+   },
+   "blacklistmove": {
+      "description": "Move to Blacklist",
+      "message": "Pārvietot melnajā sarakstā"
+   },
+   "whitelistmove": {
+      "description": "Move to Whitelist",
+      "message": "Pārvietot baltajā sarakstā"
+   },
+   "whitelistblacklist": {
+      "description": "Whitelist/Blacklist",
+      "message": "Baltais saraksts/Melnais saraksts"
+   },
+   "xml": {
+      "description": "XML HTTP Request Handling:",
+      "message": "XML HTTP pieprasījuma apstrāde:"
+   },
+   "xmlall": {
+      "description": "Control All Requests",
+      "message": "Kontrolēt visus pieprasījumus"
+   },
+   "xmlcross": {
+      "description": "Control Cross-Domain Requests (allow Same-Domain)",
+      "message": "Kontrolēt starpdomēnu pieprasījumus (atļaut to pašu domēnu)"
+   },
+   "xmldesc": {
+      "description": "control XML HTTP Requests",
+      "message": "Kontrolēt XML HTTP pieprasījumus"
+   }
+}

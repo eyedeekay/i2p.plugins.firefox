@@ -1,0 +1,858 @@
+{
+   "appdescription": {
+      "description": "Regain control of the web and surf more securely.",
+      "message": "Szerezd vissza az irányítást a web felett és böngéssz biztonságosan!"
+   },
+   "alldomains": {
+      "description": "On All Domains",
+      "message": "Minden domainen"
+   },
+   "allow": {
+      "description": "Allow",
+      "message": "Engedélyezés"
+   },
+   "alloweditems": {
+      "description": "Allowed Items",
+      "message": "Engedélyezett elemek"
+   },
+   "blockeditems": {
+      "description": "Blocked Items",
+      "message": "Blokkolt elemek"
+   },
+   "allowallblocked": {
+      "description": "Allow All Blocked For Session",
+      "message": "Mind engedélyezése ezen a munkameneten"
+   },
+   "annoyances": {
+      "description": "Block Unwanted Content:",
+      "message": "Kéretlen tartalom blokkolása:"
+   },
+   "annoyancesdesc": {
+      "description": "remove unwanted content from known ad / malware domains; domains gathered from <a href=http://winhelp2002.mvps.org/hosts.htm target=_blank>MVPS HOSTS</a>, <a href=http://hosts-file.net target=_blank>hpHOSTS (ad / tracking servers)</a>, <a href=http://pgl.yoyo.org/as/policy.php target=_blank>Peter Lowe's HOSTS Project</a>, <a href=http://www.malwaredomainlist.com/ target=_blank>MalwareDomainList.com</a>",
+      "message": "Kéretlen tartalom eltávolítása adware/malware domainekről; domainek ezekről a helyekről vesszük: <a href=http://winhelp2002.mvps.org/hosts.htm target=_blank>MVPS HOSTS</a>, <a href=http://hosts-file.net target=_blank>hpHOSTS ( ad / tracking szerverek)</a>, <a href=http://pgl.yoyo.org/as/policy.php target=_blank>Peter Lowe HOSTS Projekt</a>, <a href=http://www.malwaredomainlist.com/ target=_blank>MalwareDomainList.com</a>"
+   },
+   "annoyancesmode": {
+      "description": "Unwanted Content Mode:",
+      "message": "Kéretlen tartalom mód:"
+   },
+   "annoyancesmodedesc": {
+      "description": "Relaxed = whitelisted domains will not be blocked; Strict = domains in the unwanted domain list will be blocked even if whitelisted",
+      "message": "Mérsékelt = fehérlistás domain-eket nem blokkolja; Szigorú = A kéretlen listán lévő domainek az engedélyezés ellenére is blokkolva lesznek."
+   },
+   "antisocialpopup": {
+      "description": "Antisocial",
+      "message": "Antiszociális"
+   },
+   "antisocial": {
+      "description": "Antisocial Mode:",
+      "message": "Antiszociális Mód:"
+   },
+   "antisocialdesc": {
+      "description": "always remove social widgets/buttons, even if whitelisted",
+      "message": "mindig távolítsa el a közzösségi oldalak beépülő moduljait, még akkor is, ha fehérlistázva lettek."
+   },
+   "antisocialdesc2": {
+      "description": "For more comprehensive blocking, check out <a href=https://chrome.google.com/webstore/detail/privacy-badger/pkehgijcmpdhfbdbbnkijodmdjhbjlgp target=_blank>Privacy Badger</a>, <a href=https://chrome.google.com/webstore/detail/disconnect/jeoacafpbcihiomhlakheieifhpjdfeo target=_blank>Disconnect</a>, <a href=https://chrome.google.com/webstore/detail/blur/epanfjkfahimkgomnigadpkobaefekcd target=_blank>Blur</a>, and/or <a href=https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm target=_blank>uBlock Origin</a> with all of the subscription lists on the <a href=https://www.fanboy.co.nz/ target=_blank>Fanboy site</a>",
+      "message": "Átfogóbb blokkolóért, nézd meg a <a href=https://chrome.google.com/webstore/detail/privacy-badger/pkehgijcmpdhfbdbbnkijodmdjhbjlgp target=_blank>Privacy Badger</a>, <a href=https://chrome.google.com/webstore/detail/disconnect/jeoacafpbcihiomhlakheieifhpjdfeo target=_blank>Disconnect</a> <a href=https://chrome.google.com/webstore/detail/blur/epanfjkfahimkgomnigadpkobaefekcd target=_blank>a blur</a>, és / vagy a <a href=https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm target=_blank>uBlock Origin</a> és az összes listákat <a href=https://www.fanboy.co.nz/ target=_blank>fanboy site</a>"
+   },
+   "audioblock": {
+      "description": "Block Audio Fingerprinting:",
+      "message": "Audio fingerprinting blokkolása:"
+   },
+   "audioblockdesc": {
+      "description": "prevent fingerprinting via the AudioContext API",
+      "message": "Megakadályozza, hogy az AudioContext API-n keresztül azonosítsák a felhasználót"
+   },
+   "battery": {
+      "description": "Block Battery Fingerprinting:",
+      "message": "Akkumulátor Fingerprinting blokkolása:"
+   },
+   "batterydesc": {
+      "description": "prevent fingerprinting via the Battery API",
+      "message": "Megakadályozza, hogy Battery API-n keresztül azonosítsák a felhasználót."
+   },
+   "behavior": {
+      "description": "Behaviour Settings",
+      "message": "Viselkedés beállításai"
+   },
+   "blockrec": {
+      "description": "Block (recommended)",
+      "message": "Blokkolás (ajánlott)"
+   },
+   "block": {
+      "description": "Block",
+      "message": "Blokkolás"
+   },
+   "blocked": {
+      "description": "Blocked",
+      "message": "Blokkolt"
+   },
+   "blockallallowed": {
+      "description": "Block All Allowed For Session",
+      "message": "Ideiglenes jogosultságok visszavonása"
+   },
+   "bluetooth": {
+      "description": "Block Bluetooth Enumeration:",
+      "message": "Bluetooth enumeráció blokkolása:"
+   },
+   "bluetoothdesc": {
+      "description": "prevent having devices detected via the Bluetooth API",
+      "message": "megakadályozza, hogy a Bluetooth API-n keresztül eszközöket érszékeljenek az oldalak."
+   },
+   "bulkimport": {
+      "description": "bulk import",
+      "message": "tömeges import"
+   },
+   "bulkbtn": {
+      "description": "Import to List",
+      "message": "Import to List"
+   },
+   "bulkimportcap": {
+      "description": "Bulk Import",
+      "message": "Tömeges importálás"
+   },
+   "bulkimportcapdesc": {
+      "description": "Copy and paste domains into the box below. Each domain should be on a separate line.",
+      "message": "Másolj domaineket ebbe a dobozba. Minden domain külön sorban legyen!"
+   },
+   "canvas": {
+      "description": "Canvas Fingerprint Protection:",
+      "message": "Canvas fingerprint védelem:"
+   },
+   "cannotprocess": {
+      "description": "<strong>ScriptSafe cannot process this page.</strong><br /><br />Please try visiting a website.",
+      "message": "<strong>ScriptSafe nem tudja feldolgozni ezt az oldalt.</strong><br /><br />Keressen fel egy weboldalt."
+   },
+   "canvasblank": {
+      "description": "Blank Readout",
+      "message": "Üres kiolvasás"
+   },
+   "canvasrandom": {
+      "description": "Random Readout",
+      "message": "Véletlenszerű kiolvasás"
+   },
+   "canvasblock": {
+      "description": "Completely Block Readout",
+      "message": "Kiolvasás teljes blokkolása"
+   },
+   "canvasdesc": {
+      "description": "protect against fingerprinting attempts through &lt;canvas&gt; elements",
+      "message": "felhasználó azonosításának megakadályozása &lt;canvas&gt; elemen keresztül"
+   },
+   "canvasfont": {
+      "description": "Block Canvas Font Access:",
+      "message": "Canvas font elérésének a blokkolása:"
+   },
+   "canvasfontdesc": {
+      "description": "prevent system fonts from being enumerated through &lt;canvas&gt; elements. May interfere with Google Docs.",
+      "message": "rendszerfontok listázásának megakadályozása a &lt;canvas&gt; elemeken keresztül. (Google Docs lehet, hogy nem fog működni emiatt) "
+   },
+   "classicoptions": {
+      "description": "Classic Options Mode:",
+      "message": "Klasszikus nézet:"
+   },
+   "classicoptionsdesc": {
+      "description": "if ticked, closes tab options everytime an option is clicked",
+      "message": "ha be van jelölve, bezárja lap beállításait minden alkalommal, amikor lehetőséget kattintanak"
+   },
+   "clear": {
+      "description": "Clear",
+      "message": "Törlés"
+   },
+   "clearlow": {
+      "description": "clear",
+      "message": "törlés"
+   },
+   "clientrects": {
+      "description": "Block Client Rectangles:",
+      "message": "Kliens területek blokkolása:"
+   },
+   "clientrectsdesc": {
+      "description": "prevent fingerprinting through calculating element rectangles. May interfere with some dropdowns.",
+      "message": "Azonosítás megakadályozása elem téglalap meghatározásán keresztül. Némelyik legördölő menünél problémát okozhat."
+   },
+   "clipboard": {
+      "description": "Prevent Clipboard Interference:",
+      "message": "Vágólap piszkálásának megakadályozása:"
+   },
+   "clipboarddesc": {
+      "description": "prevent pages from interfering with clipboard actions",
+      "message": "Megakadályozza, hogy az oldalak zavarják a vágólap működését"
+   },
+   "close": {
+      "description": "Close",
+      "message": "Bezárás"
+   },
+   "cookies": {
+      "description": "Block Unwanted Cookies:",
+      "message": "Kéretlen sütik blokkolása:"
+   },
+   "cookiesdesc": {
+      "description": "blocks cookies from known ad / malware domains; below mode applies to this as well",
+      "message": "Blokkolja a sütiket adware és malware oldalakról; az alábbi mód erre is vonatkozik"
+   },
+   "custom": {
+      "description": "Custom",
+      "message": "Saját"
+   },
+   "default": {
+      "description": "Default",
+      "message": "Alapértelmezett"
+   },
+   "default_public_interface_only": {
+      "description": "Protect Local IP",
+      "message": "Helyi IP védelme"
+   },
+   "deny": {
+      "description": "Deny",
+      "message": "Letiltás"
+   },
+   "disable_non_proxied_udp": {
+      "description": "Protect Local and Public IPs",
+      "message": "Helyi és nyilvános IP-k védelme"
+   },
+   "disable": {
+      "description": "Disable",
+      "message": "Kikapcsolás"
+   },
+   "disabled": {
+      "description": "disabled",
+      "message": "tiltva"
+   },
+   "disabledcap": {
+      "description": "Disabled",
+      "message": "Tiltva"
+   },
+   "disabledsync": {
+      "description": "Syncing is disabled.\r\nFeel free to go to the Options page at any time to sync your settings (make a backup of your settings if necessary).",
+      "message": "A szinkronizálás le van tiltva.\r\nA beállítások oldalon bármikor szinkronizálhatsz.  (hogy egy biztonsági másolatot a beállításaidról, ha szükséges)."
+   },
+   "disableremove": {
+      "description": "Disable and Remove:",
+      "message": "Tiltás és eltávolítás:"
+   },
+   "distrust": {
+      "description": "Distrust",
+      "message": "Bizalom megtagadása"
+   },
+   "distrustlow": {
+      "description": "distrust",
+      "message": "bizalom megtagadása"
+   },
+   "domain": {
+      "description": "Same Domain",
+      "message": "Ugyanaz a domain"
+   },
+   "domainsort": {
+      "description": "Sort by Domain:",
+      "message": "Rendezés Domain Szerint:"
+   },
+   "domaininfo": {
+      "description": "Help",
+      "message": "Súgó"
+   },
+   "domaininvalid": {
+      "description": "Invalid domain/address",
+      "message": "Érvénytelen domain / cím"
+   },
+   "domaininvalid2": {
+      "description": "The domain or address must contain some letters/numbers",
+      "message": "A domainnek vagy címnek tartalmaznia kell néhány karaktert"
+   },
+   "domaininvalid3": {
+      "description": "Domain cannot be added as it is a provider of unwanted content (see Block Unwanted Content and/or Antisocial Mode)",
+      "message": "A domaint nem lehet hozzáadni, mert kéretlen tartalmat szolgáltat (lásd a kéretlen tartalom blokkolása vagy antiszociális mód)"
+   },
+   "domainsortdesc": {
+      "description": "sorts URL lists by domains on this page and in the panel",
+      "message": "rendezi a URL listát domain szerint ezen az oldalon és ebben a panelben."
+   },
+   "domaintip": {
+      "description": "Tip: press CTRL+F to search the lists",
+      "message": "Tipp: Ctrl+F, hogy keress a listában"
+   },
+   "dontshowpage": {
+      "description": "Don't Show This Page Again",
+      "message": "Ne mutasd ezt az oldalt mégegyszer."
+   },
+   "enable": {
+      "description": "Enable:",
+      "message": "Engedélyezés:"
+   },
+   "enabled": {
+      "description": "enabled",
+      "message": "engedélyezve"
+   },
+   "enabless": {
+      "description": "Enable ScriptSafe",
+      "message": "ScriptSafe engedélyezése"
+   },
+   "enablesyncing": {
+      "description": "Enable Syncing:",
+      "message": "Szinkronizálás engedélyezése:"
+   },
+   "export": {
+      "description": "Export",
+      "message": "Exportálás"
+   },
+   "exportsuccess": {
+      "description": "Your settings have been successfully synced!",
+      "message": "A beállítások sikeresen szinkronizálva!"
+   },
+   "exportsuccesstitle": {
+      "description": "Settings Synced!",
+      "message": "Beállítások Szinkronizálva!"
+   },
+   "fingerprint": {
+      "description": "Fingerprint Protection",
+      "message": "Ujjlenyomat védelem"
+   },
+   "fingerprintdesc": {
+      "description": "Fingerprint Protection (may break sites)",
+      "message": "Ujjlenyomat védelem (néhány weboldalt elronthat)"
+   },
+   "firstsync": {
+      "description": "It appears you haven't synced your settings to your Google account yet.\r\nScriptSafe is about to sync your current settings to your Google account.\r\nClick on 'OK' if you want to continue.\r\nIf not, click 'Cancel', and on the other device with your preferred settings, update ScriptSafe and click on OK when you are presented with this message.",
+      "message": "Úgy tunik, még nem szinkronizáltad a beállításaid a Google accountra.\r\nScriptSafe hamarosan szinkronizálja az aktuális beállításokat a Google-fiókjába.\r\nAz \"OK\", ha azt akarjuk, hogy továbbra is.\r\nHa nem kattintson a \"Mégse\" gombra, és azon az eszközön, amelyen a preferált beállítások vannak és kattints az OK-ra, amikor ez az üzenet megjelenik."
+   },
+   "forcesyncexport": {
+      "description": "Do you want to sync your current settings to your Google Account?\r\nNote: please do not press this frequently; there is a limit of 10 per minute and 1,000 per hour.",
+      "message": "Szeretné szinkronizálni az aktuális beállításokat a Google-fiókjába?\r\nMegjegyzés: kérjük, ne nyomja meg ezt gyakran; mert pecenként 10-szer óránként 1000-szer lehet szinronizálni."
+   },
+   "forcesyncimport": {
+      "description": "Do you want to import the synced settings from your Google Account to this device?",
+      "message": "Szeretné importálni a szinkronizált beállításokat a Google-fiókból erre az eszközre?"
+   },
+   "forever": {
+      "description": "Forever",
+      "message": "Forever"
+   },
+   "hotkeys": {
+      "description": "Hotkeys:",
+      "message": "Gyorsbillentyűk:"
+   },
+   "generalsettings": {
+      "description": "General Settings",
+      "message": "Általános Beállítások"
+   },
+   "gamepad": {
+      "description": "Block Gamepad Enumeration:",
+      "message": "Gamepad enumeráció blokkolása:"
+   },
+   "gamepaddesc": {
+      "description": "prevent having devices detected via the Gamepad API",
+      "message": "megakadályozza, hogy a Gamepad API-n keresztül eszközöket érszékeljenek az oldalak."
+   },
+   "availablehotkeys": {
+      "description": "Available hotkey actions",
+      "message": "Elérhető gyorsbillentyű műveletek"
+   },
+   "hotkeystoggle": {
+      "description": "Temporarily allow/block all resources for a current tab",
+      "message": "Minden engedélyezése/blokkolása ezen a lapon"
+   },
+   "hotkeysremove": {
+      "description": "Remove temporary permissions for a current tab",
+      "message": "Ideiglenes jogosultságok visszavonása az aktuális lapról"
+   },
+   "hotkeysremoveall": {
+      "description": "Remove all temporary permissions",
+      "message": "Minden ideiglenes jogosultság visszavonása"
+   },
+   "hotkeyspage": {
+      "description": "Configure ScriptSafe hotkeys",
+      "message": "Scriptsafe gyorsbillentyűk beállítása"
+   },
+   "hotkeysinst": {
+      "description": "click on Keyboard Shortcuts",
+      "message": "kattintson gyorsbillentyűkre"
+   },
+   "listallsettings": {
+      "description": "List All Settings",
+      "message": "Minden beállítás listázása"
+   },
+   "ignoredallow": {
+      "description": "Ignored Allow",
+      "message": "Ignored Allow"
+   },
+   "importsuccess": {
+      "description": "The latest settings have been successfully downloaded!",
+      "message": "Sikerült letölteni a legutobbi beállításokat!"
+   },
+   "importsuccesstitle": {
+      "description": "Settings Downloaded!",
+      "message": "Beállítások letöltve!"
+   },
+   "groupallsettings": {
+      "description": "Group All Settings",
+      "message": "Csoport nézet"
+   },
+   "hashchecking": {
+      "description": "Remove Possible Hash Tracking:",
+      "message": "Hash tracking eltávolítása:"
+   },
+   "hashcheckingdesc": {
+      "description": "remove possible tracking tokens passed using hash, where there is an attribute and value (e.g. #xtor=RSS-1)",
+      "message": "követő tokenek eltávolítása, amikor kulcs érték párként szerepelnek (például #xtor=RSS-1)"
+   },
+   "hide": {
+      "description": "Hide",
+      "message": "Elrejtés"
+   },
+   "import": {
+      "description": "Import",
+      "message": "Importálás"
+   },
+   "importexport": {
+      "description": "Import / Restore Settings",
+      "message": "Importálás / Beállítások Visszaállítása"
+   },
+   "importsuccessoptions": {
+      "description": "Settings imported successfully",
+      "message": "Beállítások importálása sikeres"
+   },
+   "importsuccesscond": {
+      "description": "Settings imported successfully, except the following (empty value or unrecognized name):",
+      "message": "Beállítások importálása sikeres, kivéve az alábbi (üres érték, vagy fel nem ismert név):"
+   },
+   "importsuccesssync": {
+      "description": "Settings imported successfully and syncing in 10 seconds",
+      "message": "Beállítások sikeresen importálva és 10 másodperc múlva szinkronizálva lesznek."
+   },
+   "interval": {
+      "description": "Every x Minutes",
+      "message": "Every x Minutes"
+   },
+   "keyboard": {
+      "description": "Reduce Keyboard Fingerprinting (<strong>for advanced users</strong>):",
+      "message": "Billentyűzet fingerprinting csökkentése (<strong>Haladó felhasználók számára</strong>):"
+   },
+   "keyboarddesc": {
+      "description": "make keypress timings more random to increase anonymity (<strong>NOTE: adds a random delay between keypresses; disable this setting if unacceptable</strong>)",
+      "message": "billentyűlenyomások időközeinek randomizálása (<strong>Megjegyzés: hozzáad egy véletlenszerű szünetet a billentyű lenyomások után, tiltsd le ha zavar</strong>)"
+   },
+   "browserplugins": {
+      "description": "Block Browser Plugin Enumeration:",
+      "message": "Block Browser Plugin Enumeration:"
+   },
+   "browserpluginsdesc": {
+      "description": "prevent sites from reading your browser plugin details",
+      "message": "prevent sites from reading your browser plugin details"
+   },
+   "linktarget": {
+      "description": "Page Link Opening Behaviour:",
+      "message": "Link nyitási viselkedés:"
+   },
+   "linktargetdesc": {
+      "description": "modifies how all links are opened",
+      "message": "Megadja, hogy hogyan nyissuk meg a linkeket"
+   },
+   "loosesamedomain": {
+      "description": "Loose - allow same domain and subdomains",
+      "message": "Laza - engedélyezi egy adott engedélyezett domain aldomainjeit is."
+   },
+   "minutes": {
+      "description": "Minutes",
+      "message": "Minutes"
+   },
+   "mode": {
+      "description": "Default Mode",
+      "message": "Alapértelmezett Mód"
+   },
+   "newtab": {
+      "description": "New Tab",
+      "message": "Új Lap"
+   },
+   "noexternal": {
+      "description": "This tab has loaded no external resources",
+      "message": "Ez a lap semmilyen külső erőforrást nem használ"
+   },
+   "notfiltered": {
+      "description": "Not filtered",
+      "message": "Nem szűrt"
+   },
+   "nowebrtc": {
+      "description": "This browser does not support WebRTC protection",
+      "message": "Ez a böngésző nem támogatja a WebRTC védelmet"
+   },
+   "off": {
+      "description": "-Off-",
+      "message": "-Ki-"
+   },
+   "onlyunwhitelisted": {
+      "description": "Only on Unwhitelisted Domains",
+      "message": "Csak nem fehérlistás domaineken"
+   },
+   "options": {
+      "description": "Options",
+      "message": "Lehetőségek"
+   },
+   "paranoia": {
+      "description": "Paranoia Mode:",
+      "message": "Paranoia Mód:"
+   },
+   "paranoiadesc": {
+      "description": "block allowed domains on unlisted domains",
+      "message": "engedélyezett domainek blokkolása nem listázott domaineken"
+   },
+   "pastesettings": {
+      "description": "Paste in settings and try again",
+      "message": "Illeszd be a beállításokat, és próbáld újra"
+   },
+   "preservesamedomain": {
+      "description": "Respect Same-Domain:",
+      "message": "Azonos Domain tisztelenben tartása:"
+   },
+   "preservesamedomaindesc": {
+      "description": "preserve same-domain elements",
+      "message": "azonos domainről származó elemek megtartása"
+   },
+   "privacy": {
+      "description": "Privacy Settings",
+      "message": "Adatvédelmi Beállítások"
+   },
+   "random": {
+      "description": "Random",
+      "message": "Véletlen"
+   },
+   "rating": {
+      "description": "Show Rating Button:",
+      "message": "Értékelés gomb mutatása:"
+   },
+   "ratingbtn": {
+      "description": "Rating",
+      "message": "Értékelés"
+   },
+   "ratingdesc": {
+      "description": "if ticked, adds rating button under domains in tab popup",
+      "message": "ha be van jelölve, hozzáad egy értékelési gombot a domainekhez lap csoportban"
+   },
+   "recentlyupdated": {
+      "description": "<strong>ScriptSafe was recently updated/reloaded.</strong><br /><br />You will need to either refresh this tab, create a new tab, or restart your browser in order for ScriptSafe to work.",
+      "message": "<strong>ScriptSafe nemrég frissül / újratöltődött.</strong><br /><br />Frissítsd a lapot, vagy indítsd újra a böngészőt, hogy működjön a ScriptSafe."
+   },
+   "referrer": {
+      "description": "Block Click-Through Referrer:",
+      "message": "Click-through referer blokkolása:"
+   },
+   "referrerdesc": {
+      "description": "blocks referrer information when clicking on third-party links (note: setting this to On All Domains may cause issues (e.g. thumbnails in Tweetdeck))",
+      "message": "referer blokkolása, amikor külső linkekre kattintanak (megjegyzés: ha mindenhol bekapcsolod, akkor problémát okozhat egyes helyeken (pl. Tweetdeck bélyegképek))"
+   },
+   "referrerspoof": {
+      "description": "Referrer Spoof:",
+      "message": "Referrer hamisítás:"
+   },
+   "referrerspoofdesc": {
+      "description": "<strong>warning</strong>: if enabled, may break some sites (e.g. logging in)",
+      "message": "<strong>figyelem</strong>: ha engedélyezve van, elromolhat néhány oldal (például bejelentkezés)"
+   },
+   "refresh": {
+      "description": "Auto-Refresh Page:",
+      "message": "Oldal automatikus frissítése:"
+   },
+   "refreshdesc": {
+      "description": "auto-refresh page after list change",
+      "message": "automatikusan frissül az oldal, hogyha változik valamelyik lista"
+   },
+   "relaxed": {
+      "description": "Relaxed",
+      "message": "Mérsékelt"
+   },
+   "request": {
+      "description": "Every Request",
+      "message": "Every Request"
+   },
+   "restoredefault": {
+      "description": "Restore Default Settings",
+      "message": "Restore Default Settings"
+   },
+   "restoredefault2": {
+      "description": "Restore Default Settings + Clear All Lists",
+      "message": "Restore Default Settings + Clear All Lists"
+   },
+   "restoredefaultconfirm": {
+      "description": "Are you sure you want to restore the default settings? This will NOT clear your lists.",
+      "message": "Are you sure you want to restore the default settings? This will NOT clear your lists."
+   },
+   "restoredefaultconfirm2": {
+      "description": "Are you sure you want to restore the default settings AND clear all of your lists?",
+      "message": "Are you sure you want to restore the default settings AND clear all of your lists?"
+   },
+   "revoketemp": {
+      "description": "Revoke Page Temporary Permissions",
+      "message": "Oldal ideiglenes engedélyeinek visszavonása"
+   },
+   "revoketempall": {
+      "description": "Revoke All Temporary",
+      "message": "Minden ideiglenes visszavonása"
+   },
+   "same": {
+      "description": "Same Document",
+      "message": "Azonos Dokumentum"
+   },
+   "sametab": {
+      "description": "Same Tab",
+      "message": "Ugyanaz a lap"
+   },
+   "save": {
+      "description": "Save",
+      "message": "Mentés"
+   },
+   "savetxt": {
+      "description": "Save as Text File",
+      "message": "Mentés szövegfájlként"
+   },
+   "sections": {
+      "description": "Sections",
+      "message": "Szekciók"
+   },
+   "settingsall": {
+      "description": "select all",
+      "message": "mind kiválasztása"
+   },
+   "settingsimport": {
+      "description": "Copy and paste the settings you want to import into ScriptSafe into this box then click on the Import button.",
+      "message": "Másolja be az importálni kívánt beállításokat ScriptSafe ebbe a mezőbe, majd kattintson az Importálás gombra."
+   },
+   "settingssave": {
+      "description": "Settings saved",
+      "message": "Beállítások elmentve"
+   },
+   "settingssavesync": {
+      "description": "Settings saved and syncing in 10 seconds",
+      "message": "Beállítások elmentve, szinkronizálás 10 másodpercen belül"
+   },
+   "showcontext": {
+      "description": "Show in Context Menu:",
+      "message": "Megjelenítés a Jobbgombos Menüben:"
+   },
+   "ssdisabled": {
+      "description": "ScriptSafe is disabled",
+      "message": "ScriptSafe le van tiltva"
+   },
+   "strict": {
+      "description": "Strict",
+      "message": "Szigorú"
+   },
+   "strictsamedomain": {
+      "description": "Strict - allow same domain only",
+      "message": "Szigorú - csak ugyanazon domainen"
+   },
+   "support": {
+      "description": "To support development, click the heart :)",
+      "message": "A fejlesztés támogatásának az érdekében kattints a szívre :)"
+   },
+   "syncdisable": {
+      "description": "You have enabled auto-syncing. In order to prevent erasing your previously synced data (if any), please click on Sync Settings FROM Google Account.",
+      "message": "Engedélyezted az automatikus szinkronizálást, ha el akarod kerülni, hogy a korábban szinkronziált beállítások felülíródjanak, először kattits a beéállítások letöltésére a Google-fiókból"
+   },
+   "syncimport": {
+      "description": "Sync Settings FROM Google Account",
+      "message": "Beállítások letöltése a Google-fiókból"
+   },
+   "syncexport": {
+      "description": "Sync Settings TO Google Account",
+      "message": "Beállítások feltöltése a Google-fiókba"
+   },
+   "syncdetect": {
+      "description": "ScriptSafe has detected that you have settings synced on your Google account!\r\nClick on 'OK' if you want to import the settings from your Google Account.",
+      "message": "ScriptSafe észlelte, hogy vannak már beállításaid feltöltve a Google-fiókodba!\r\nKattints az 'OK' gombra, ha importiálni szeretnéd a beállításokat a Google-fiókodból"
+   },
+   "syncdisabled": {
+      "description": "Syncing has been disabled to prevent overwriting your already synced data.\r\nFeel free to go to the Options page at any time to sync your settings (make a backup of your settings if necessary).",
+      "message": "A szinkronizálás le van tiltva, hogy elkerüljük a korábban szinkronizált adatok felülírását\r\n. A Beállítások oldalán bármikor szinkronizálhatod őket."
+   },
+   "syncfromnotify": {
+      "description": "Show Import Sync Notification:",
+      "message": "Letöltési értesítés megjelenítése:"
+   },
+   "syncfromnotifydesc": {
+      "description": "show popup when settings synced <strong>from</strong> your Google Account",
+      "message": "felugró ablak mutatása, amikor <strong>letöltjük</strong> a beállításokat Google-fiókból"
+   },
+   "syncnotify": {
+      "description": "Show Sync Notification:",
+      "message": "Feltöltési értesítés megjelenítése:"
+   },
+   "syncnotifydesc": {
+      "description": "show popup when settings synced <strong>to</strong> your Google Account",
+      "message": "felugró ablak mutatása, amikor <strong>feltöltjük</strong> a beállításokat Google-fiókból"
+   },
+   "syncnotsupported": {
+      "description": "Your current version of Google Chrome does not support settings syncing. Please try updating your Chrome version and try again.",
+      "message": "A jelenlegi Chrome verzió nem támogatja a beállítások szinkronizálását. Próbáld meg frissíteni a Chrome-osat, majd próbálkozz újra."
+   },
+   "temp": {
+      "description": "Temporary",
+      "message": "Ideiglenes"
+   },
+   "timezone": {
+      "description": "Spoof Timezone:",
+      "message": "Időzóna hamisítása:"
+   },
+   "timezonedesc": {
+      "description": "spoof or randomize your timezone. NOTE: if enabled, it may interfere with replying to emails in Gmail.",
+      "message": "Hamisítja vagy véletlenszerűvé teszi az időzonádat. Megjegyzés: ha engedélyezve van, akkor bezavarhat, amikor e-mailekre válaszolsz a Gmailen."
+   },
+   "trust": {
+      "description": "Trust",
+      "message": "Megbízuk benne"
+   },
+   "trustlow": {
+      "description": "trust",
+      "message": "megbízuk benne"
+   },
+   "uaspoofallow": {
+      "description": "Apply to whitelisted domains as well",
+      "message": "Alkalmazás az engedélyezett domainek esetén is"
+   },
+   "updatedisable": {
+      "description": "Are you sure you want to disable any future update notifications like this one from appearing?\r\nYou can always re-allow update notifications by going to the ScriptSafe Options page and ticking the box beside Show Update Popup.",
+      "message": "Biztos benne, hogy le akarja tiltani a jövőbeni értesítéseket?\r\nBármikor újra engedélyezheted, hogyha a Beállítások oldalán bepipálod a megfelelő mezőt."
+   },
+   "updatedisablemessage": {
+      "description": "Update notifications disabled",
+      "message": "Frissítési értesítések le vannak tiltva"
+   },
+   "updatenotify": {
+      "description": "Show Changelog on Update:",
+      "message": "Mutasd a Changelogot:"
+   },
+   "unwanted": {
+      "description": "Unwanted",
+      "message": "Kéretlen"
+   },
+   "updatenotifydesc": {
+      "description": "show changelog page when ScriptSafe is updated",
+      "message": "Changelog oldal megjelenítése, amikor a ScriptSafe frissül"
+   },
+   "url": {
+      "description": "Domain",
+      "message": "Domain"
+   },
+   "urldesc": {
+      "description": "Enter a domain or expression (click 'Help' for more info)",
+      "message": "Írd be a domaint vagy kifejezés (kattints a 'Súgó'-ra több információért)"
+   },
+   "useragentspoof": {
+      "description": "User-Agent Spoof:",
+      "message": "User-Agent hamisítás:"
+   },
+   "useragentspoofdesc": {
+      "description": "spoofs your user-agent (browser and OS)",
+      "message": "meghamísítja az User-Agent headert"
+   },
+   "userref": {
+      "description": "Enter an address to set as your referrer value for all sites",
+      "message": "Írd be a címet, amit majd refererként használunk minden oldalon."
+   },
+   "utm": {
+      "description": "Remove Google Analytics (UTM) Tracking:",
+      "message": "Google Analytics (UTM) tracking eltávolítása:"
+   },
+   "utmdesc": {
+      "description": "remove Google Analytics (UTM) tracking tokens",
+      "message": "Google Analytics (UTM) tracking tokenek eltávolítása"
+   },
+   "webbugs": {
+      "description": "Remove Webbugs:",
+      "message": "Webbugok eltávolítása:"
+   },
+   "webbugsdesc": {
+      "description": "remove invisible third-party elements",
+      "message": "láthatatlan külső elemek eltávolítása"
+   },
+   "webgl": {
+      "description": "Block WebGL Fingerprinting:",
+      "message": "WebGL fingerprinting blokkolása:"
+   },
+   "webgldesc": {
+      "description": "prevent fingerprinting via the WebGL API",
+      "message": "Megakadályozza az azonosítást WebGL API-n keresztül"
+   },
+   "webrtcdevice": {
+      "description": "Block Device Enumeration:",
+      "message": "Eszközenumeráció blokkolása:"
+   },
+   "webrtcdevicedesc": {
+      "description": "prevent having hardware devices detected via the WebRTC API",
+      "message": "Megakadályozza, hogy kilistázzák a hardvereket a WebRTC API-n keresztül"
+   },
+   "webrtc": {
+      "description": "WebRTC Protection:",
+      "message": "WebRTC Védelem:"
+   },
+   "webrtcdesc": {
+      "description": "prevent IP address leakage",
+      "message": "IP cím szivárgás megakadályozása"
+   },
+   "webvr": {
+      "description": "Block WebVR Enumeration:",
+      "message": "WebVR enumeráció blokkolása:"
+   },
+   "webvrdesc": {
+      "description": "prevent having devices detected via the WebVR API",
+      "message": "megakadályozza, hogy a WebVR API-n keresztül eszközöket érszékeljenek az oldalak."
+   },
+   "blackbind": {
+      "description": "+ Blacklist",
+      "message": "+ Tiltólista"
+   },
+   "whitebind": {
+      "description": "+ Whitelist",
+      "message": "+ Engedélyező lista"
+   },
+   "blacklist": {
+      "description": "Blacklist",
+      "message": "Tiltólista"
+   },
+   "whitelist": {
+      "description": "Whitelist",
+      "message": "Engedélyező lista"
+   },
+   "blacklisted": {
+      "description": "Blacklisted",
+      "message": "Tiltott"
+   },
+   "whitelisted": {
+      "description": "Whitelisted",
+      "message": "Engedélyezett"
+   },
+   "blacklistlow": {
+      "description": "blacklist",
+      "message": "tiltólista"
+   },
+   "whitelistlow": {
+      "description": "whitelist",
+      "message": "engedélyező lista"
+   },
+   "blacklistmove": {
+      "description": "Move to Blacklist",
+      "message": "Áthelyezés a tiltólistára"
+   },
+   "whitelistmove": {
+      "description": "Move to Whitelist",
+      "message": "Áthelyezés az engedélyező listára"
+   },
+   "whitelistblacklist": {
+      "description": "Whitelist / Blacklist",
+      "message": "Engedélyező lista / Tiltólista"
+   },
+   "xml": {
+      "description": "XML HTTP Request Handling:",
+      "message": "XML HTTP Kérés Kezelés:"
+   },
+   "xmlall": {
+      "description": "Control All Requests",
+      "message": "Összes lekérés irányítása"
+   },
+   "xmlcross": {
+      "description": "Control Cross-Domain Requests (allow Same-Domain)",
+      "message": "Cross-Domain lekérések kezelése (azonos domain engedélyezése)"
+   },
+   "xmldesc": {
+      "description": "control XML HTTP Requests",
+      "message": "XML HTTP lekérések kezelése"
+   }
+}

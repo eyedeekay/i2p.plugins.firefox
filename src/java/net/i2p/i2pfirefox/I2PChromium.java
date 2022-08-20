@@ -334,7 +334,11 @@ public class I2PChromium {
             newArgs[16] = "--disable-background-networking";
             newArgs[17] = "--disable-d3d11";
             newArgs[18] = "--disable-file-system";
-            newArgs[19] = "--load-extension="+new File(I2PChromiumProfileBuilder.profileDirectory(),"extensions/i2pchrome.js").getAbsolutePath();
+            newArgs[19] = "--load-extension="+new File(I2PChromiumProfileBuilder.profileDirectory(),"extensions/i2pchrome.js").getAbsolutePath()
+            +","+
+            new File(I2PChromiumProfileBuilder.profileDirectory(),"extensions/ublock.js").getAbsolutePath()
+            +","+
+            new File(I2PChromiumProfileBuilder.profileDirectory(),"extensions/scriptsafe.js").getAbsolutePath();
             for (int i = 0; i < args.length; i++) {
                 newArgs[i+19] = args[i];
             }
