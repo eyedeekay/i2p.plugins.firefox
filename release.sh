@@ -2,9 +2,9 @@
 
 GITHUB_USER=eyedeekay
 GITHUB_REPO=i2p.plugins.firefox
-GITHUB_NAME="With Private Windows and Incognito support"
+GITHUB_NAME="Which prioritizes Tor Browser if you have it installed and Firefox if you don't"
 GITHUB_DESCRIPTION=$(cat CHANGES.md)
-GITHUB_TAG=0.0.7
+GITHUB_TAG=0.0.8
 ant distclean
 ant jar freeZip
 github-release release --user "${GITHUB_USER}" \
