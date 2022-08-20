@@ -63,12 +63,13 @@ public class I2PFirefox {
         String[] tbPath = new String[]{new File(userHome, "/OneDrive/Desktop/Tor Browser/Browser/").toString(), new File(userHome, "/Desktop/Tor Browser/Browser/").toString()};
         
         String[] path = new String[]{
+            tbPath[0], tbPath[1],
             new File(programFiles, "Mozilla Firefox/").toString(),
             new File(programFiles86, "Mozilla Firefox/").toString(),
             new File(programFiles, "Waterfox/").toString(),
             new File(programFiles86, "Waterfox/").toString(),
             new File(programFiles, "Librewolf/").toString(),
-            tbPath[0], tbPath[1]};
+            };
         String[] exes = new String[]{"firefox.exe", "firefox-bin.exe", "firefox-esr.exe", "waterfox.exe", "waterfox-bin.exe", "librewolf.exe"};
         String[] exePath = new String[path.length * exes.length];
         int i = 0;
