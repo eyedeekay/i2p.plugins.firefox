@@ -1,0 +1,858 @@
+{
+   "appdescription": {
+      "description": "Regain control of the web and surf more securely.",
+      "message": "보다 안전하게 웹 서핑을 제어 합니다."
+   },
+   "alldomains": {
+      "description": "On All Domains",
+      "message": "모든 도메인에서"
+   },
+   "allow": {
+      "description": "Allow",
+      "message": "허용"
+   },
+   "alloweditems": {
+      "description": "Allowed Items",
+      "message": "허용 된 항목"
+   },
+   "blockeditems": {
+      "description": "Blocked Items",
+      "message": "차단 된 항목"
+   },
+   "allowallblocked": {
+      "description": "Allow All Blocked For Session",
+      "message": "차단 된 세션을 모두 허용"
+   },
+   "annoyances": {
+      "description": "Block Unwanted Content:",
+      "message": "불필요한 콘텐츠 차단 :"
+   },
+   "annoyancesdesc": {
+      "description": "remove unwanted content from known ad / malware domains; domains gathered from <a href=http://winhelp2002.mvps.org/hosts.htm target=_blank>MVPS HOSTS</a>, <a href=http://hosts-file.net target=_blank>hpHOSTS (ad / tracking servers)</a>, <a href=http://pgl.yoyo.org/as/policy.php target=_blank>Peter Lowe's HOSTS Project</a>, <a href=http://www.malwaredomainlist.com/ target=_blank>MalwareDomainList.com</a>",
+      "message": "원치 않는 광고 / 악성 도메인을 차단합니다; 차단 목록은 <a href=http://winhelp2002.mvps.org/hosts.htm target=_blank>MVPS HOSTS</a>, <a href=http://hosts-file.net target=_blank>hpHOSTS（광고 / 추적 서버）</a>, <a href=http://pgl.yoyo.org/as/policy.php target=_blank>Peter Lowe's HOSTS Project</a>, <a href=http://www.malwaredomainlist.com/ target=_blank>MalwareDomainList.com</a> 에서 가져옵니다."
+   },
+   "annoyancesmode": {
+      "description": "Unwanted Content Mode:",
+      "message": "불필요한 콘텐츠 모드 :"
+   },
+   "annoyancesmodedesc": {
+      "description": "Relaxed = whitelisted domains will not be blocked; Strict = domains in the unwanted domain list will be blocked even if whitelisted",
+      "message": "Relaxed = 화이트리스트에 등록 된 도메인은 차단되지 않습니다; Strict = 화이트리스트에 등록 된 도메인이라도 차단됩니다."
+   },
+   "antisocialpopup": {
+      "description": "Antisocial",
+      "message": "SNS 차단"
+   },
+   "antisocial": {
+      "description": "Antisocial Mode:",
+      "message": "SNS 차단 모드 :"
+   },
+   "antisocialdesc": {
+      "description": "always remove social widgets/buttons, even if whitelisted",
+      "message": "화이트리스트에 등록 된 경우라도 SNS 위젯 / 버튼은 항상 차단"
+   },
+   "antisocialdesc2": {
+      "description": "For more comprehensive blocking, check out <a href=\"https://chrome.google.com/webstore/detail/privacy-badger/pkehgijcmpdhfbdbbnkijodmdjhbjlgp\" target=\"_blank\">Privacy Badger</a>, <a href=\"https://chrome.google.com/webstore/detail/disconnect/jeoacafpbcihiomhlakheieifhpjdfeo\" target=\"_blank\">Disconnect</a>, <a href=\"https://chrome.google.com/webstore/detail/blur/epanfjkfahimkgomnigadpkobaefekcd\" target=\"_blank\">Blur</a>, and/or <a href=\"https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm\" target=\"_blank\">uBlock Origin</a> with all of the subscription lists on the <a href=\"https://www.fanboy.co.nz/\" target=_blank>Fanboy site</a>",
+      "message": "보다 자세한 차단 내용은<a href=\"https://chrome.google.com/webstore/detail/privacy-badger/pkehgijcmpdhfbdbbnkijodmdjhbjlgp\" target=\"_blank\">Privacy Badger</a>, <a href=\"https://chrome.google.com/webstore/detail/disconnect/jeoacafpbcihiomhlakheieifhpjdfeo\" target=\"_blank\">Disconnect</a>, <a href=\"https://chrome.google.com/webstore/detail/blur/epanfjkfahimkgomnigadpkobaefekcd\" target=\"_blank\">Blur</a>, <a href=\"https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm\" target=\"_blank\">uBlock Origin</a>의 구독목록과 <a href=\"https://www.fanboy.co.nz/\" target=_blank>Fanboy site</a>를 확인하세요."
+   },
+   "audioblock": {
+      "description": "Block Audio Fingerprinting:",
+      "message": "오디오 Fingerprinting 차단 :"
+   },
+   "audioblockdesc": {
+      "description": "prevent fingerprinting via the AudioContext API",
+      "message": "AudioContext API를 통한 fingerprinting을 방지합니다."
+   },
+   "battery": {
+      "description": "Block Battery Fingerprinting:",
+      "message": "배터리 Fingerprinting 차단 :"
+   },
+   "batterydesc": {
+      "description": "prevent fingerprinting via the Battery API",
+      "message": "Battery API를 통한 fingerprinting을 방지합니다."
+   },
+   "behavior": {
+      "description": "Behaviour Settings",
+      "message": "동작 설정"
+   },
+   "blockrec": {
+      "description": "Block (recommended)",
+      "message": "차단 (권장)"
+   },
+   "block": {
+      "description": "Block",
+      "message": "차단"
+   },
+   "blocked": {
+      "description": "Blocked",
+      "message": "차단 됨"
+   },
+   "blockallallowed": {
+      "description": "Block All Allowed For Session",
+      "message": "허용 된 모든 세션을 차단"
+   },
+   "bluetooth": {
+      "description": "Block Bluetooth Enumeration:",
+      "message": "Bluetooth Enumeration 차단 :"
+   },
+   "bluetoothdesc": {
+      "description": "prevent having devices detected via the Bluetooth API",
+      "message": "Bluetooth API를 통한 장치 감지를 방지합니다"
+   },
+   "bulkimport": {
+      "description": "bulk import",
+      "message": "대량 가져오기"
+   },
+   "bulkbtn": {
+      "description": "Import to List",
+      "message": "목록에서 가져오기"
+   },
+   "bulkimportcap": {
+      "description": "Bulk Import",
+      "message": "대량 가져오기"
+   },
+   "bulkimportcapdesc": {
+      "description": "Copy and paste domains into the box below. Each domain should be on a separate line.",
+      "message": "아래의 상자에 복사 및 붙여 넣으세요. 각 도메인은 별도의 행으로 분리되어야 합니다."
+   },
+   "canvas": {
+      "description": "Canvas Fingerprint Protection:",
+      "message": "Canvas Fingerprint 보호 :"
+   },
+   "cannotprocess": {
+      "description": "<strong>ScriptSafe cannot process this page.</strong><br /><br />Please try visiting a website.",
+      "message": "<strong>이 페이지에서는 ScriptSafe가 작동되지 않습니다.​​</strong><br /><br />웹 사이트를 방문해보세요."
+   },
+   "canvasblank": {
+      "description": "Blank Readout",
+      "message": "공백으로 표시"
+   },
+   "canvasrandom": {
+      "description": "Random Readout",
+      "message": "랜덤으로 표시"
+   },
+   "canvasblock": {
+      "description": "Completely Block Readout",
+      "message": "완전히 차단"
+   },
+   "canvasdesc": {
+      "description": "protect against fingerprinting attempts through &lt;canvas&gt; elements",
+      "message": "&lt;canvas&gt; 요소를 통한 fingerprinting 시도에 대한 보호"
+   },
+   "canvasfont": {
+      "description": "Block Canvas Font Access:",
+      "message": "글꼴 액세스 Canvas 차단:"
+   },
+   "canvasfontdesc": {
+      "description": "prevent system fonts from being enumerated through &lt;canvas&gt; elements. May interfere with Google Docs.",
+      "message": "&lt;canvas&gt;요소를 통해 열거되는 시스템 글꼴을 방지합니다. Google 문서 도구 사용시 문제가 생길 수 있습니다."
+   },
+   "classicoptions": {
+      "description": "Classic Options Mode:",
+      "message": "클래식 옵션 모드 :"
+   },
+   "classicoptionsdesc": {
+      "description": "if ticked, closes tab options everytime an option is clicked",
+      "message": "체크가 되어있는 경우, 옵션을 클릭할 때마다 아이콘 옵션탭이 닫힙니다."
+   },
+   "clear": {
+      "description": "Clear",
+      "message": "삭제"
+   },
+   "clearlow": {
+      "description": "clear",
+      "message": "삭제"
+   },
+   "clientrects": {
+      "description": "Block Client Rectangles:",
+      "message": "Client Rectangles 차단 :"
+   },
+   "clientrectsdesc": {
+      "description": "prevent fingerprinting through calculating element rectangles. May interfere with some dropdowns.",
+      "message": "요소의 사각형 계산을 통한 fingerprinting을 방지합니다. 일부 드롭다운 메뉴에 문제가 생길 수 있습니다."
+   },
+   "clipboard": {
+      "description": "Prevent Clipboard Interference:",
+      "message": "클립 보드의 간섭을 방지합니다:"
+   },
+   "clipboarddesc": {
+      "description": "prevent pages from interfering with clipboard actions",
+      "message": "페이지의 클립 보드 작업 간섭을 방지합니다"
+   },
+   "close": {
+      "description": "Close",
+      "message": "닫기"
+   },
+   "cookies": {
+      "description": "Block Unwanted Cookies:",
+      "message": "불필요한 쿠키 차단 :"
+   },
+   "cookiesdesc": {
+      "description": "blocks cookies from known ad / malware domains; below mode applies to this as well",
+      "message": "원치 않는 광고 / 악성 도메인의 쿠키를 차단합니다."
+   },
+   "custom": {
+      "description": "Custom",
+      "message": "사용자 정의"
+   },
+   "default": {
+      "description": "Default",
+      "message": "기본"
+   },
+   "default_public_interface_only": {
+      "description": "Protect Local IP",
+      "message": "로컬 IP를 보호합니다"
+   },
+   "deny": {
+      "description": "Deny",
+      "message": "거부"
+   },
+   "disable_non_proxied_udp": {
+      "description": "Protect Local and Public IPs",
+      "message": "로컬 및 공용 ​​IP를 보호합니다"
+   },
+   "disable": {
+      "description": "Disable",
+      "message": "사용 중지"
+   },
+   "disabled": {
+      "description": "disabled",
+      "message": "사용 중지"
+   },
+   "disabledcap": {
+      "description": "Disabled",
+      "message": "사용 중지"
+   },
+   "disabledsync": {
+      "description": "Syncing is disabled.\r\nFeel free to go to the Options page at any time to sync your settings (make a backup of your settings if necessary).",
+      "message": "동기화가 사용 중지 되어 있습니다. \r\n설정을 동기화 하려면 언제든 옵션 페이지에서 선택가능합니다. (필요한 경우 설정 백업 가능)"
+   },
+   "disableremove": {
+      "description": "Disable and Remove:",
+      "message": "사용 중지하고 삭제:"
+   },
+   "distrust": {
+      "description": "Distrust",
+      "message": "불신"
+   },
+   "distrustlow": {
+      "description": "distrust",
+      "message": "불신"
+   },
+   "domain": {
+      "description": "Same Domain",
+      "message": "동일한 도메인"
+   },
+   "domainsort": {
+      "description": "Sort by Domain:",
+      "message": "도메인 정렬 :"
+   },
+   "domaininfo": {
+      "description": "Help",
+      "message": "도움말"
+   },
+   "domaininvalid": {
+      "description": "Invalid domain/address",
+      "message": "잘못된 도메인 / 주소"
+   },
+   "domaininvalid2": {
+      "description": "The domain or address must contain some letters/numbers",
+      "message": "도메인 또는 주소는 일부 문자 / 숫자를 포함해야 합니다."
+   },
+   "domaininvalid3": {
+      "description": "Domain cannot be added as it is a provider of unwanted content (see Block Unwanted Content and/or Antisocial Mode)",
+      "message": "불필요한 컨텐츠 공급자이기 때문에 도메인을 추가 할 수 없습니다. (불필요한 콘텐츠 차단 / SNS 차단 모드 참조)"
+   },
+   "domainsortdesc": {
+      "description": "sorts URL lists by domains on this page and in the panel",
+      "message": "이 페이지에서 도메인을 통한 URL 목록으로 패널 정렬"
+   },
+   "domaintip": {
+      "description": "Tip: press CTRL+F to search the lists",
+      "message": "팁 : Ctrl + F를 눌러 목록을 검색합니다."
+   },
+   "dontshowpage": {
+      "description": "Don't Show This Page Again",
+      "message": "이 페이지는 다시 표시하지 않습니다."
+   },
+   "enable": {
+      "description": "Enable:",
+      "message": "사용 :"
+   },
+   "enabled": {
+      "description": "enabled",
+      "message": "사용"
+   },
+   "enabless": {
+      "description": "Enable ScriptSafe",
+      "message": "ScriptSafe 사용"
+   },
+   "enablesyncing": {
+      "description": "Enable Syncing:",
+      "message": "동기화 사용 :"
+   },
+   "export": {
+      "description": "Export",
+      "message": "내보내기"
+   },
+   "exportsuccess": {
+      "description": "Your settings have been successfully synced!",
+      "message": "설정이 성공적으로 동기화되어 있습니다!"
+   },
+   "exportsuccesstitle": {
+      "description": "Settings Synced!",
+      "message": "설정이 동기화 되었습니다!"
+   },
+   "fingerprint": {
+      "description": "Fingerprint Protection",
+      "message": "Fingerprint 보호"
+   },
+   "fingerprintdesc": {
+      "description": "Fingerprint Protection (may break sites)",
+      "message": "Fingerprint 보호 (일부 사이트가 작동되지 않을 수 있습니다)"
+   },
+   "firstsync": {
+      "description": "It appears you haven't synced your settings to your Google account yet.\r\nScriptSafe is about to sync your current settings to your Google account.\r\nClick on 'OK' if you want to continue.\r\nIf not, click 'Cancel', and on the other device with your preferred settings, update ScriptSafe and click on OK when you are presented with this message.",
+      "message": "아직 Google 계정에 설정을 동기화하지 않았습니다.\r\nScriptSafe는 Google 계정에 현재 설정을 동기화하려 합니다.\r\n계속하려면 'OK'를 취소하려면 'Cancel'을 클릭하세요.\r\n다른 장치에 ScriptSafe의 현재 설정을 적용하려면 이 메시지가 표시되었을때 OK를 클릭하세요."
+   },
+   "forcesyncexport": {
+      "description": "Do you want to sync your current settings to your Google Account?\r\nNote: please do not press this frequently; there is a limit of 10 per minute and 1,000 per hour.",
+      "message": "Google 계정에 현재 설정을 동기화하겠습니까?\r\n주의 : 이것을 자주 누르지 마세요; 분당 10번, 시간당 1,000번의 제한이 있습니다."
+   },
+   "forcesyncimport": {
+      "description": "Do you want to import the synced settings from your Google Account to this device?",
+      "message": "Google 계정에서 동기화 설정을 이 장치에 가져 오시겠습니까?"
+   },
+   "forever": {
+      "description": "Forever",
+      "message": "Forever"
+   },
+   "hotkeys": {
+      "description": "Hotkeys:",
+      "message": "단축키 :"
+   },
+   "generalsettings": {
+      "description": "General Settings",
+      "message": "일반 설정"
+   },
+   "gamepad": {
+      "description": "Block Gamepad Enumeration:",
+      "message": "Gamepad Enumeration 차단 :"
+   },
+   "gamepaddesc": {
+      "description": "prevent having devices detected via the Gamepad API",
+      "message": "Gamepad API를 통한 장치 감지를 방지합니다"
+   },
+   "availablehotkeys": {
+      "description": "Available hotkey actions",
+      "message": "사용 가능한 단축키 액션"
+   },
+   "hotkeystoggle": {
+      "description": "Temporarily allow/block all resources for a current tab",
+      "message": "일시적으로 현재 탭의 모든 리소스를 허용 / 차단"
+   },
+   "hotkeysremove": {
+      "description": "Remove temporary permissions for a current tab",
+      "message": "현재 탭에 대한 일시적 허용 제거"
+   },
+   "hotkeysremoveall": {
+      "description": "Remove all temporary permissions",
+      "message": "모든 일시적 허용 제거"
+   },
+   "hotkeyspage": {
+      "description": "Configure ScriptSafe hotkeys",
+      "message": "ScriptSafe 단축키 설정"
+   },
+   "hotkeysinst": {
+      "description": "click on Keyboard Shortcuts",
+      "message": "키보드 단축키를 클릭하세요"
+   },
+   "listallsettings": {
+      "description": "List All Settings",
+      "message": "모든 설정을 나열"
+   },
+   "ignoredallow": {
+      "description": "Ignored Allow",
+      "message": "허용을 무시"
+   },
+   "importsuccess": {
+      "description": "The latest settings have been successfully downloaded!",
+      "message": "최근 설정이 성공적으로 다운로드 되고 있습니다!"
+   },
+   "importsuccesstitle": {
+      "description": "Settings Downloaded!",
+      "message": "설정 다운로드!"
+   },
+   "groupallsettings": {
+      "description": "Group All Settings",
+      "message": "그룹의 모든 설정"
+   },
+   "hashchecking": {
+      "description": "Remove Possible Hash Tracking:",
+      "message": "추적이 가능한 해시 삭제 :"
+   },
+   "hashcheckingdesc": {
+      "description": "remove possible tracking tokens passed using hash, where there is an attribute and value (e.g. #xtor=RSS-1)",
+      "message": "해시를 사용하여 전달 한 속성 값 추적 토큰을 제거 (e.g.＃xtor=RSS-1)"
+   },
+   "hide": {
+      "description": "Hide",
+      "message": "숨기기"
+   },
+   "import": {
+      "description": "Import",
+      "message": "가져오기"
+   },
+   "importexport": {
+      "description": "Import / Restore Settings",
+      "message": "가져오기 / 복원 설정"
+   },
+   "importsuccessoptions": {
+      "description": "Settings imported successfully",
+      "message": "성공적으로 설정을 가져왔습니다."
+   },
+   "importsuccesscond": {
+      "description": "Settings imported successfully, except the following (empty value or unrecognized name):",
+      "message": "다음 값(비었거나 인식되지 않는 이름)을 제외하고 성공적으로 설정을 가져왔습니다:"
+   },
+   "importsuccesssync": {
+      "description": "Settings imported successfully and syncing in 10 seconds",
+      "message": "설정을 성공적으로 가져왔으며 10 초내로 동기화됩니다."
+   },
+   "interval": {
+      "description": "Every x Minutes",
+      "message": "Every x Minutes"
+   },
+   "keyboard": {
+      "description": "Reduce Keyboard Fingerprinting (<strong>for advanced users</strong>):",
+      "message": "키보드 Fingerprinting 방지 (<strong>고급 사용자 전용</strong>):"
+   },
+   "keyboarddesc": {
+      "description": "make keypress timings more random to increase anonymity (<strong>NOTE: adds a random delay between keypresses; disable this setting if unacceptable</strong>)",
+      "message": "익명성을 높이기 위해 키 입력 타이밍을 랜덤으로 합니다.(<strong>주의 : 키를 눌렀을때 임의의 지연을 추가합니다. 받아 들여지지 않는 경우 사용 중지 하세요</strong>)"
+   },
+   "browserplugins": {
+      "description": "Block Browser Plugin Enumeration:",
+      "message": "Block Browser Plugin Enumeration:"
+   },
+   "browserpluginsdesc": {
+      "description": "prevent sites from reading your browser plugin details",
+      "message": "prevent sites from reading your browser plugin details"
+   },
+   "linktarget": {
+      "description": "Page Link Opening Behaviour:",
+      "message": "페이지 링크를 열 때 동작 :"
+   },
+   "linktargetdesc": {
+      "description": "modifies how all links are opened",
+      "message": "모든 링크를 여는 방법 수정"
+   },
+   "loosesamedomain": {
+      "description": "Loose - allow same domain and subdomains",
+      "message": "Loose - 같은 도메인 및 하위 도메인을 허용"
+   },
+   "minutes": {
+      "description": "Minutes",
+      "message": "Minutes"
+   },
+   "mode": {
+      "description": "Default Mode",
+      "message": "기본 모드"
+   },
+   "newtab": {
+      "description": "New Tab",
+      "message": "새 탭"
+   },
+   "noexternal": {
+      "description": "This tab has loaded no external resources",
+      "message": "이 탭에서는 외부 리소스를 로드하지 않았습니다."
+   },
+   "notfiltered": {
+      "description": "Not filtered",
+      "message": "필터링되지 않았습니다"
+   },
+   "nowebrtc": {
+      "description": "This browser does not support WebRTC protection",
+      "message": "이 브라우저는 WebRTC 보호를 지원하지 않습니다."
+   },
+   "off": {
+      "description": "-Off-",
+      "message": "-끄기-"
+   },
+   "onlyunwhitelisted": {
+      "description": "Only on Unwhitelisted Domains",
+      "message": "Unwhitelisted 도메인에서만"
+   },
+   "options": {
+      "description": "Options",
+      "message": "옵션"
+   },
+   "paranoia": {
+      "description": "Paranoia Mode:",
+      "message": "Paranoia 모드 :"
+   },
+   "paranoiadesc": {
+      "description": "block allowed domains on unlisted domains",
+      "message": "목록에 없는 도메인에서는 허용된 도메인들도 차단"
+   },
+   "pastesettings": {
+      "description": "Paste in settings and try again",
+      "message": "설정에 붙여넣어 다시 시도하십시오"
+   },
+   "preservesamedomain": {
+      "description": "Respect Same-Domain:",
+      "message": "같은 도메인 관계 :"
+   },
+   "preservesamedomaindesc": {
+      "description": "preserve same-domain elements",
+      "message": "같은 도메인 요소를 유지합니다"
+   },
+   "privacy": {
+      "description": "Privacy Settings",
+      "message": "개인 정보 설정"
+   },
+   "random": {
+      "description": "Random",
+      "message": "랜덤"
+   },
+   "rating": {
+      "description": "Show Rating Button:",
+      "message": "평가 버튼을 표시 :"
+   },
+   "ratingbtn": {
+      "description": "Rating",
+      "message": "평가"
+   },
+   "ratingdesc": {
+      "description": "if ticked, adds rating button under domains in tab popup",
+      "message": "체크가 되어있는 경우 아이콘 팝업의 도메인 아래에 평가 버튼이 추가됩니다"
+   },
+   "recentlyupdated": {
+      "description": "<strong>ScriptSafe was recently updated/reloaded.</strong><br /><br />You will need to either refresh this tab, create a new tab, or restart your browser in order for ScriptSafe to work.",
+      "message": "<strong>ScriptSafe가 최근 업데이트 / 리로드 되었습니다.</strong><br /><br />ScriptSafe가 정상 작동하기 위해서는 탭을 새로고침 하거나 새 탭을 만들거나 브라우저를 다시 시작해야 합니다."
+   },
+   "referrer": {
+      "description": "Block Click-Through Referrer:",
+      "message": "클릭을 통한 Referrer 차단 :"
+   },
+   "referrerdesc": {
+      "description": "blocks referrer information when clicking on third-party links (note: setting this to On All Domains may cause issues (e.g. thumbnails in Tweetdeck))",
+      "message": "제 3자의 링크를 클릭할때 제공되는 referrer 정보 차단（주의 : 모든 도메인에 이를 설정하면 문제가 발생할 수 있습니다. (e.g. Tweetdeck에서 미리보기 등)"
+   },
+   "referrerspoof": {
+      "description": "Referrer Spoof:",
+      "message": "가짜 Referrer:"
+   },
+   "referrerspoofdesc": {
+      "description": "<strong>warning</strong>: if enabled, may break some sites (e.g. logging in)",
+      "message": "<strong>경고</strong> : 사용 설정 시 여러 사이트에서 문제가 생길 수 있습니다. (e.g. 로그인 등)"
+   },
+   "refresh": {
+      "description": "Auto-Refresh Page:",
+      "message": "페이지 자동 새로고침 :"
+   },
+   "refreshdesc": {
+      "description": "auto-refresh page after list change",
+      "message": "목록 변경 후 페이지 자동 새로고침"
+   },
+   "relaxed": {
+      "description": "Relaxed",
+      "message": "Relaxed"
+   },
+   "request": {
+      "description": "Every Request",
+      "message": "Every Request"
+   },
+   "restoredefault": {
+      "description": "Restore Default Settings",
+      "message": "Restore Default Settings"
+   },
+   "restoredefault2": {
+      "description": "Restore Default Settings + Clear All Lists",
+      "message": "Restore Default Settings + Clear All Lists"
+   },
+   "restoredefaultconfirm": {
+      "description": "Are you sure you want to restore the default settings? This will NOT clear your lists.",
+      "message": "Are you sure you want to restore the default settings? This will NOT clear your lists."
+   },
+   "restoredefaultconfirm2": {
+      "description": "Are you sure you want to restore the default settings AND clear all of your lists?",
+      "message": "Are you sure you want to restore the default settings AND clear all of your lists?"
+   },
+   "revoketemp": {
+      "description": "Revoke Page Temporary Permissions",
+      "message": "페이지의 일시적 허용을 취소"
+   },
+   "revoketempall": {
+      "description": "Revoke All Temporary",
+      "message": "모든 일시적 허용을 취소"
+   },
+   "same": {
+      "description": "Same Document",
+      "message": "동일한 문서"
+   },
+   "sametab": {
+      "description": "Same Tab",
+      "message": "동일한 탭"
+   },
+   "save": {
+      "description": "Save",
+      "message": "저장"
+   },
+   "savetxt": {
+      "description": "Save as Text File",
+      "message": "텍스트 파일로 저장합니다."
+   },
+   "sections": {
+      "description": "Sections",
+      "message": "섹션"
+   },
+   "settingsall": {
+      "description": "select all",
+      "message": "모두 선택"
+   },
+   "settingsimport": {
+      "description": "Copy and paste the settings you want to import into ScriptSafe into this box then click on the Import button.",
+      "message": "ScriptSafe로 가져올 설정을 이 상자에 복사 붙여넣기 한 다음 가져오기 버튼을 클릭합니다."
+   },
+   "settingssave": {
+      "description": "Settings saved",
+      "message": "설정이 저장되었습니다."
+   },
+   "settingssavesync": {
+      "description": "Settings saved and syncing in 10 seconds",
+      "message": "설정이 저장되었으며 10 초내에 동기화 됩니다."
+   },
+   "showcontext": {
+      "description": "Show in Context Menu:",
+      "message": "컨텍스트 메뉴에 표시:"
+   },
+   "ssdisabled": {
+      "description": "ScriptSafe is disabled",
+      "message": "ScriptSafe는 사용 중지 되어 있습니다."
+   },
+   "strict": {
+      "description": "Strict",
+      "message": "Strict"
+   },
+   "strictsamedomain": {
+      "description": "Strict - allow same domain only",
+      "message": "Strict - 같은 도메인만 허용"
+   },
+   "support": {
+      "description": "To support development, click the heart :)",
+      "message": "개발을 지원해 주시려면, 하트 아이콘을 클릭해주세요 :)"
+   },
+   "syncdisable": {
+      "description": "You have enabled auto-syncing. In order to prevent erasing your previously synced data (if any), please click on Sync Settings FROM Google Account.",
+      "message": "현재 자동 동기화를 사용하고 있습니다. 당신의 이전 동기화 된 데이터를 삭제하지 않도록 하려면 Google 계정의 동기화 설정을 클릭하세요."
+   },
+   "syncimport": {
+      "description": "Sync Settings FROM Google Account",
+      "message": "Google 계정에서 동기화 설정 가져오기"
+   },
+   "syncexport": {
+      "description": "Sync Settings TO Google Account",
+      "message": "Google 계정으로 동기화 설정 내보내기"
+   },
+   "syncdetect": {
+      "description": "ScriptSafe has detected that you have settings synced on your Google account!\r\nClick on 'OK' if you want to import the settings from your Google Account.",
+      "message": "Google 계정에서 ScriptSafe 동기화 설정을 발견했습니다!\r\nGoogle 계정에서 설정을 가져 오려면 'OK'를 클릭하세요."
+   },
+   "syncdisabled": {
+      "description": "Syncing has been disabled to prevent overwriting your already synced data.\r\nFeel free to go to the Options page at any time to sync your settings (make a backup of your settings if necessary).",
+      "message": "동기화는 이미 동기화 된 데이터를 덮어 쓰는 것을 방지하기 위해 사용 중지 되어 있습니다.\r\n동기화로 변경하려면 언제든지 옵션 페이지에서 설정 가능합니다. (필요한 경우 설정 백업 가능)"
+   },
+   "syncfromnotify": {
+      "description": "Show Import Sync Notification:",
+      "message": "가져오기 된 동기화 알림 표시 :"
+   },
+   "syncfromnotifydesc": {
+      "description": "show popup when settings synced <strong>from</strong> your Google Account",
+      "message": " 설정이 Google 계정에서 <strong>가져오기</strong> 된 경우 팝업 알림"
+   },
+   "syncnotify": {
+      "description": "Show Sync Notification:",
+      "message": "동기화 알림 표시 :"
+   },
+   "syncnotifydesc": {
+      "description": "show popup when settings synced <strong>to</strong> your Google Account",
+      "message": "설정이 Google 계정으로 <strong>내보내기</strong> 된 경우 팝업 알림"
+   },
+   "syncnotsupported": {
+      "description": "Your current version of Google Chrome does not support settings syncing. Please try updating your Chrome version and try again.",
+      "message": "Google Chrome의 현재 버전이 동기화 설정을 지원하지 않습니다. Chrome 버전을 업데이트하고 다시 시도하십시오."
+   },
+   "temp": {
+      "description": "Temporary",
+      "message": "일시적 허용"
+   },
+   "timezone": {
+      "description": "Spoof Timezone:",
+      "message": "가짜 시간대 :"
+   },
+   "timezonedesc": {
+      "description": "spoof or randomize your timezone. NOTE: if enabled, it may interfere with replying to emails in Gmail.",
+      "message": "현재 시간대를 속이거나 랜덤화 합니다. 주의 : 사용 설정 시 Gmail 등 이메일 답장에 문제가 생길 수 있습니다."
+   },
+   "trust": {
+      "description": "Trust",
+      "message": "신뢰"
+   },
+   "trustlow": {
+      "description": "trust",
+      "message": "신뢰"
+   },
+   "uaspoofallow": {
+      "description": "Apply to whitelisted domains as well",
+      "message": "화이트리스트에 등록 된 도메인에 적용됩니다."
+   },
+   "updatedisable": {
+      "description": "Are you sure you want to disable any future update notifications like this one from appearing?\r\nYou can always re-allow update notifications by going to the ScriptSafe Options page and ticking the box beside Show Update Popup.",
+      "message": "이 같은 향후 업데이트 알림을 해제 하시겠습니까?\r\n당신은 언제든지 ScriptSafe 옵션 페이지로 이동하여 업데이트 팝업 상자를 체크해 업데이트 알림을 다시 허용 할 수 있습니다."
+   },
+   "updatedisablemessage": {
+      "description": "Update notifications disabled",
+      "message": "업데이트 알림이 사용 중지 됨"
+   },
+   "updatenotify": {
+      "description": "Show Changelog on Update:",
+      "message": "업데이트 변경 내용 표시 :"
+   },
+   "unwanted": {
+      "description": "Unwanted",
+      "message": "불필요"
+   },
+   "updatenotifydesc": {
+      "description": "show changelog page when ScriptSafe is updated",
+      "message": "ScriptSafe가 업데이트 될 때 업데이트 내역 페이지를 표시"
+   },
+   "url": {
+      "description": "Domain",
+      "message": "도메인"
+   },
+   "urldesc": {
+      "description": "Enter a domain or expression (click 'Help' for more info)",
+      "message": "도메인 또는 수식을 입력합니다. (자세한 내용은 '도움말'을 클릭하세요)"
+   },
+   "useragentspoof": {
+      "description": "User-Agent Spoof:",
+      "message": "가짜 User-Agent :"
+   },
+   "useragentspoofdesc": {
+      "description": "spoofs your user-agent (browser and OS)",
+      "message": "User-Agent (브라우저와 OS)를 속입니다."
+   },
+   "userref": {
+      "description": "Enter an address to set as your referrer value for all sites",
+      "message": "모든 사이트의 referrer 값 설정 주소를 입력하세요"
+   },
+   "utm": {
+      "description": "Remove Google Analytics (UTM) Tracking:",
+      "message": "Google 웹 로그 분석 (UTM) 추적 삭제 :"
+   },
+   "utmdesc": {
+      "description": "remove Google Analytics (UTM) tracking tokens",
+      "message": "Google 웹 로그 분석 (UTM)의 추적 토큰을 삭제합니다."
+   },
+   "webbugs": {
+      "description": "Remove Webbugs:",
+      "message": "Webbugs 삭제 :"
+   },
+   "webbugsdesc": {
+      "description": "remove invisible third-party elements",
+      "message": "눈에 보이지 않는 제 3자 요소를 제거"
+   },
+   "webgl": {
+      "description": "Block WebGL Fingerprinting:",
+      "message": "WebGL Fingerprinting 차단 :"
+   },
+   "webgldesc": {
+      "description": "prevent fingerprinting via the WebGL API",
+      "message": "WebGL API를 통한 fingerprinting을 방지합니다."
+   },
+   "webrtcdevice": {
+      "description": "Block Device Enumeration:",
+      "message": "Device Enumeration 차단 :"
+   },
+   "webrtcdevicedesc": {
+      "description": "prevent having hardware devices detected via the WebRTC API",
+      "message": "WebRTC API를 통한 하드웨어 장치 감지를 방지합니다"
+   },
+   "webrtc": {
+      "description": "WebRTC Protection:",
+      "message": "WebRTC 보호 :"
+   },
+   "webrtcdesc": {
+      "description": "prevent IP address leakage",
+      "message": "IP 주소 누출을 방지"
+   },
+   "webvr": {
+      "description": "Block WebVR Enumeration:",
+      "message": "WebVR Enumeration 차단 :"
+   },
+   "webvrdesc": {
+      "description": "prevent having devices detected via the WebVR API",
+      "message": "WebVR API를 통한 장치 감지를 방지합니다"
+   },
+   "blackbind": {
+      "description": "+ Blacklist",
+      "message": "+ 블랙리스트"
+   },
+   "whitebind": {
+      "description": "+ Whitelist",
+      "message": "+ 화이트리스트"
+   },
+   "blacklist": {
+      "description": "Blacklist",
+      "message": "블랙리스트"
+   },
+   "whitelist": {
+      "description": "Whitelist",
+      "message": "화이트리스트"
+   },
+   "blacklisted": {
+      "description": "Blacklisted",
+      "message": "블랙리스트에 등록 됨"
+   },
+   "whitelisted": {
+      "description": "Whitelisted",
+      "message": "화이트리스트에 등록 됨"
+   },
+   "blacklistlow": {
+      "description": "blacklist",
+      "message": "블랙리스트"
+   },
+   "whitelistlow": {
+      "description": "whitelist",
+      "message": "화이트리스트"
+   },
+   "blacklistmove": {
+      "description": "Move to Blacklist",
+      "message": "블랙리스트로 이동"
+   },
+   "whitelistmove": {
+      "description": "Move to Whitelist",
+      "message": "화이트리스트로 이동"
+   },
+   "whitelistblacklist": {
+      "description": "Whitelist / Blacklist",
+      "message": "화이트리스트 / 블랙리스트"
+   },
+   "xml": {
+      "description": "XML HTTP Request Handling:",
+      "message": "XML HTTP 요청 처리 :"
+   },
+   "xmlall": {
+      "description": "Control All Requests",
+      "message": "모든 요청을 제어"
+   },
+   "xmlcross": {
+      "description": "Control Cross-Domain Requests (allow Same-Domain)",
+      "message": "Cross-Domain 요청 제어 (동일한 도메인 허용)"
+   },
+   "xmldesc": {
+      "description": "control XML HTTP Requests",
+      "message": "XML HTTP 요청을 제어합니다."
+   }
+}
