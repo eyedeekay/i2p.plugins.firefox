@@ -4,6 +4,20 @@ A port of the batch scripts from i2p.firefox to Java.
 
 ## Getting started
 
+### Using a Binary
+
+```sh
+
+mkdir ~/tmp-i2pfirefox && cd ~/tmp-i2pfirefox
+wget https://github.com/eyedeekay/i2p.plugins.firefox/releases/download/0.0.8/i2pfirefox.zip
+unzip i2pfirefox.zip
+./i2pbrowser.cmd
+
+#or if you want to use a Chromium
+
+./test-chromium.sh
+```
+
 ### Building
 
 This is not actually a plugin yet, but it will be soon. The important bit is the jar.
