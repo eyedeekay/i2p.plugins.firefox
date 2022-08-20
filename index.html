@@ -90,6 +90,19 @@
       Getting started
     </h2>
     <h3>
+      Using a Binary
+    </h3>
+    <pre><code>
+mkdir ~/tmp-i2pfirefox &amp;&amp; cd ~/tmp-i2pfirefox
+wget https://github.com/eyedeekay/i2p.plugins.firefox/releases/download/0.0.8/i2pfirefox.zip
+unzip i2pfirefox.zip
+./i2pbrowser.cmd
+
+#or if you want to use a Chromium
+
+./test-chromium.sh
+</code></pre>
+    <h3>
       Building
     </h3>
     <p>
@@ -98,9 +111,7 @@
       produces the jar as a by-product, or you can:
     </p>
     <pre><code>
-cd src
-ant
-cd ..
+ant jar
 </code></pre>
     <p>
       To build just the jar. You’ll know it worked if you can:
