@@ -2,6 +2,7 @@ Fri, August 19
 --------------
 
  - Adds the ability to pass --private-window to Firefoxes and --incognito to Chromiums
+ - Switch Tor Browser to the top of the order on Windows to match i2p.firefox behavior
 
 Mon, August 8
 -------------
