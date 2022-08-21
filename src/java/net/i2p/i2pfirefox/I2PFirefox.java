@@ -440,8 +440,16 @@ public class I2PFirefox {
     }
 
     public static void main(String[] args) {
+        boolean privateBrowsing = false;
+        if (args != null && args.length > 0) {
+            System.out.println("checking for private browsing");
+            if (args[0].equals("-private")) {
+                privateBrowsing = true;
+                System.out.println("private browsing is true, profile will be discarded at end of session");
+            }
+        }
         System.out.println("I2PFirefox");
         I2PFirefox i2pFirefox = new I2PFirefox();
-        i2pFirefox.launch();
+        i2pFirefox.launch(privateBrowsing);
     }    
 }
