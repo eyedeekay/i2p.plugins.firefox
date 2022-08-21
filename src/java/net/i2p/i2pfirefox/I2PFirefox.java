@@ -82,7 +82,7 @@ public class I2PFirefox {
         int i = 0;
         for (String s : path) {
             for (String exe : exes) {
-                exePath[i] = s + "/" + exe;
+                exePath[i] = s + "\\" + exe;
                 i++;
             }
         }
