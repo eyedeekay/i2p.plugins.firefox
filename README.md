@@ -43,11 +43,23 @@ add a UI element that triggers something along the lines of this:
 
 ```java
 
+// Firefox Example
 if (i2pIsRunning()) {
     logger.warning("I2P is already running");
     System.out.println("I2PFirefox");
     I2PFirefox i2pFirefox = new I2PFirefox();
     i2pFirefox.launch();
+}
+```
+
+```java
+
+// Chromium Example
+if (i2pIsRunning()) {
+    logger.warning("I2P is already running");
+    System.out.println("I2PChromium");
+    I2PChromium i2pChromium = new I2PChromium();
+    i2pChromium.launch();
 }
 ```
 
