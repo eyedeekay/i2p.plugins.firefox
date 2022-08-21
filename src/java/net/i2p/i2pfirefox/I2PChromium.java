@@ -476,8 +476,16 @@ public class I2PChromium {
     }    
 
     public static void main(String[] args) {
+        boolean privateBrowsing = false;
+        if (args != null && args.length > 0) {
+            System.out.println("checking for private browsing");
+            if (args[0].equals("-private")) {
+                privateBrowsing = true;
+                System.out.println("private browsing is true, profile will be discarded at end of session");
+            }
+        }
         System.out.println("I2PChromium");
         I2PChromium i2pChromium = new I2PChromium();
-        i2pChromium.launch();
+        i2pChromium.launch(privateBrowsing);
     }    
 }
