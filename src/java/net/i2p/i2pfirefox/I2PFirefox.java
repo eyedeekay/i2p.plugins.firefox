@@ -417,7 +417,8 @@ public class I2PFirefox {
                 System.out.println("I2PFirefox");
                 try{
                     System.out.println("Waiting for I2PFirefox to close...");
-                    p.waitFor();
+                    int exit = p.waitFor();
+                    System.out.println("I2PFirefox exited with value: "+exit);
                 }catch(Exception e){
                     System.out.println("Error: "+e.getMessage());
                 }

@@ -455,7 +455,8 @@ public class I2PChromium {
                 System.out.println("I2PChromium");
                 try{
                     System.out.println("Waiting for I2PChromium to close...");
-                    p.waitFor();
+                    int exit = p.waitFor();
+                    System.out.println("I2PChromium exited with value: "+exit);
                 }catch(Exception e){
                     System.out.println("Error: "+e.getMessage());
                 }
