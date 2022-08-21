@@ -339,8 +339,10 @@ public class I2PChromium {
             new File(I2PChromiumProfileBuilder.profileDirectory(),"extensions/ublock.js").getAbsolutePath()
             +","+
             new File(I2PChromiumProfileBuilder.profileDirectory(),"extensions/scriptsafe.js").getAbsolutePath();*/
-            for (int i = 0; i < args.length; i++) {
-                newArgs[i+20] = args[i];
+            if (args.length > 0) {
+                for (int i = 0; i < args.length; i++) {
+                    newArgs[i+20] = args[i];
+                }
             }
             return new ProcessBuilder(newArgs).directory(I2PChromiumProfileBuilder.runtimeDirectory(true));
         } else {

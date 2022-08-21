@@ -294,8 +294,10 @@ public class I2PFirefox {
             newArgs[0] = firefox;
             newArgs[1] = "--profile";
             newArgs[2] = I2PFirefoxProfileBuilder.profileDirectory();
-            for (int i = 0; i < args.length; i++) {
-                newArgs[i+3] = args[i];
+            if (args.length > 0) {
+                for (int i = 0; i < args.length; i++) {
+                    newArgs[i+3] = args[i];
+                }
             }
             return new ProcessBuilder(newArgs).directory(I2PFirefoxProfileBuilder.runtimeDirectory(true));
         } else {
