@@ -32,7 +32,16 @@
             <arg value="-o" />
             <arg value="src/i2p.chromium.base.profile/extensions/i2pchrome.js.crx" />
         </exec>
-        <!--<exec executable="crx3" failonerror="true">
+        <!--
+            TODO: I don't want to deal with licensing issues while on a headfull of cold
+            medicine and COVID. SO for now I'm only including a plugin written by a person
+            who I'm pretty sure isn't going to sue me for it(me). In order to more closely
+            mirror the behavior of the Firefox profile, we should at least include a script
+            blocking plugin, such as ScriptSafe. uBlock was also suggested and I tend to
+            agree. However, since we have to load extensions unpacked, they won't be updated
+            automatically. This is probably good for working against fingerprinting but it's
+            also more work should a plugin have a security vulnerability.
+            <exec executable="crx3" failonerror="true">
             <arg value="download"/>
             <arg value="cjpalhdlnbpafiamejdnhcphjbkeiagm" />
             <arg value="-u=true"/>
