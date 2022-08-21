@@ -301,6 +301,7 @@ public class I2PFirefox {
             }
             return new ProcessBuilder(newArgs).directory(I2PFirefoxProfileBuilder.runtimeDirectory(true));
         } else {
+            System.out.println("No Firefox found.");
             return new ProcessBuilder(args);
         }
     }

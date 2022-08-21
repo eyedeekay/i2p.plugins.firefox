@@ -346,6 +346,7 @@ public class I2PChromium {
             }
             return new ProcessBuilder(newArgs).directory(I2PChromiumProfileBuilder.runtimeDirectory(true));
         } else {
+            System.out.println("No Chromium found.");
             return new ProcessBuilder(args);
         }
     }
