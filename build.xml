@@ -24,11 +24,7 @@
         </exec>
     </target>
 
-    <target name="i2pChromiumBaseProfileZip">
-        <exec executable="rm" failonerror="false" dir="src">
-            <arg value="-rf" />
-            <arg value="i2p.chromium.base.profile.zip" />
-        </exec>
+    <target name="i2pChromiumBaseProfile">
         <exec executable="crx3" failonerror="true">
             <arg value="download"/>
             <arg value="ikdjcmomgldfciocnpekfndklkfgglpe" />
@@ -50,6 +46,13 @@
             <arg value="-o" />
             <arg value="src/i2p.chromium.base.profile/extensions/scriptsafe.js.crx" />
         </exec>-->
+    </target>
+
+    <target name="i2pChromiumBaseProfileZip">
+        <exec executable="rm" failonerror="false" dir="src">
+            <arg value="-rf" />
+            <arg value="i2p.chromium.base.profile.zip" />
+        </exec>
         <exec executable="zip" failonerror="true" dir="src">
             <arg value="-r"/>
             <arg value="i2p.chromium.base.profile.zip"/>
