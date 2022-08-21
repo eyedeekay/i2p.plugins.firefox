@@ -395,19 +395,15 @@ public class I2PFirefox {
             }
         }
         if (waitForProxy()){
-            ProcessBuilder pb = null;
+            ProcessBuilder pb;
             if (privateWindow) {
                 pb = privateProcessBuilder();
             } else {
                 pb = defaultProcessBuilder();
             }
-            Process p = null;
             try{
                 System.out.println(pb.command());
-                p = pb.start();
-            }catch(Exception e){
-                System.out.println("Error: "+e.getMessage());
-            }finally{
+                Process p = pb.start();
                 System.out.println("I2PFirefox");
                 try{
                     System.out.println("Waiting for I2PFirefox to close...");
@@ -415,6 +411,8 @@ public class I2PFirefox {
                 }catch(Exception e){
                     System.out.println("Error: "+e.getMessage());
                 }
+            }catch(Exception e){
+                System.out.println("Error: "+e.getMessage());
             }
         }
     }

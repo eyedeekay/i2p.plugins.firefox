@@ -41,7 +41,7 @@
             agree. However, since we have to load extensions unpacked, they won't be updated
             automatically. This is probably good for working against fingerprinting but it's
             also more work should a plugin have a security vulnerability.
-            <exec executable="crx3" failonerror="true">
+        <exec executable="crx3" failonerror="true">
             <arg value="download"/>
             <arg value="cjpalhdlnbpafiamejdnhcphjbkeiagm" />
             <arg value="-u=true"/>
