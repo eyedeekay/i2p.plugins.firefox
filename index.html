@@ -127,11 +127,21 @@ java -cp ./src/build/i2pfirefox.jar net.i2p.i2pfirefox.I2PFirefox
       add a UI element that triggers something along the lines of this:
     </p>
     <pre><code>
+// Firefox Example
 if (i2pIsRunning()) {
     logger.warning(&#34;I2P is already running&#34;);
     System.out.println(&#34;I2PFirefox&#34;);
     I2PFirefox i2pFirefox = new I2PFirefox();
     i2pFirefox.launch();
+}
+</code></pre>
+    <pre><code>
+// Chromium Example
+if (i2pIsRunning()) {
+    logger.warning(&#34;I2P is already running&#34;);
+    System.out.println(&#34;I2PChromium&#34;);
+    I2PChromium i2pChromium = new I2PChromium();
+    i2pChromium.launch();
 }
 </code></pre>
     <p>
