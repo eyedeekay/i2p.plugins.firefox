@@ -273,7 +273,7 @@ public class I2PFirefox {
      * the default profile.
      * @since 0.0.1
      */
-    public ProcessBuilder privateProcessBuilder(String[] args) {
+    public ProcessBuilder privateProcessBuilder()) {
         return processBuilder(new String[]{"--private-window"});
     }
 
@@ -397,7 +397,7 @@ public class I2PFirefox {
         if (waitForProxy()){
             ProcessBuilder pb = null;
             if (privateWindow) {
-                pb = privateProcessBuilder(new String[]{});
+                pb = privateProcessBuilder();
             } else {
                 pb = defaultProcessBuilder();
             }
