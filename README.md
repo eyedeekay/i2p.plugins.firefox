@@ -15,7 +15,7 @@ unzip i2pfirefox.zip
 
 #or if you want to use a Chromium
 
-./test-chromium.sh
+./i2pchromium.sh
 ```
 
 ### Building
