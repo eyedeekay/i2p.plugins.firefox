@@ -66,7 +66,8 @@
             <arg value="-r"/>
             <arg value="i2pfirefox.zip"/>
             <arg value="src/build/i2pfirefox.jar"/>
-            <arg value="i2pbrowser.cmd"/>
+            <arg value="i2pfirefox.cmd"/>
+            <arg value="i2pchromium.cmd"/>
             <arg value="LICENSE.md"/>
             <arg value="README.md"/>
         </exec>
