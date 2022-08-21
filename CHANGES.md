@@ -1,3 +1,8 @@
+Fri, August 20
+--------------
+
+ - Chromium is now a first-class citizen
+
 Fri, August 19
 --------------
 
