@@ -2,9 +2,9 @@
 
 GITHUB_USER=eyedeekay
 GITHUB_REPO=i2p.plugins.firefox
-GITHUB_NAME="Which fixes a bug in I2PFirefox.privateProcessBuilder"
+GITHUB_NAME="Which fixes a Windows-specific bug I think"
 GITHUB_DESCRIPTION=$(cat CHANGES.md)
-GITHUB_TAG=0.0.13
+GITHUB_TAG=0.0.14
 ant distclean
 ant jar freeZip
 github-release release --user "${GITHUB_USER}" \

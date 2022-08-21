@@ -202,8 +202,10 @@ public class I2PChromium {
         for (String chrome : chromees) {
             File chromeFile = new File(chrome);
             if (chromeFile.exists()) {
+                System.out.println("Found valid chromium at " + chrome);
                 validChromiums.add(chrome);
             }
+            System.out.println("chrome at " + chrome + "does not exist");
         }
         return validChromiums.toArray(new String[validChromiums.size()]);
     }
