@@ -4,7 +4,7 @@ GITHUB_USER=eyedeekay
 GITHUB_REPO=i2p.plugins.firefox
 GITHUB_NAME="Which fixes another tiny bug that was bothering me"
 GITHUB_DESCRIPTION=$(cat CHANGES.md)
-GITHUB_TAG=0.0.12
+GITHUB_TAG=0.0.13
 ant distclean
 ant jar freeZip
 github-release release --user "${GITHUB_USER}" \
