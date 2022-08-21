@@ -9,7 +9,7 @@ A port of the batch scripts from i2p.firefox to Java.
 ```sh
 
 mkdir ~/tmp-i2pfirefox && cd ~/tmp-i2pfirefox
-wget https://github.com/eyedeekay/i2p.plugins.firefox/releases/download/0.0.8/i2pfirefox.zip
+wget https://github.com/eyedeekay/i2p.plugins.firefox/releases/download/0.0.9/i2pfirefox.zip
 unzip i2pfirefox.zip
 ./i2pbrowser.cmd
 
