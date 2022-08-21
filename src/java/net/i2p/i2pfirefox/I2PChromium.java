@@ -446,14 +446,9 @@ public class I2PChromium {
             } else {
                 pb = this.defaultProcessBuilder();
             }
-            
-            Process p = null;
             try{
                 System.out.println(pb.command());
-                p = pb.start();
-            }catch(Exception e){
-                System.out.println("Error: "+e.getMessage());
-            }finally{
+                Process p = pb.start();
                 System.out.println("I2PChromium");
                 try{
                     System.out.println("Waiting for I2PChromium to close...");
@@ -461,6 +456,8 @@ public class I2PChromium {
                 }catch(Exception e){
                     System.out.println("Error: "+e.getMessage());
                 }
+            }catch(Exception e){
+                System.out.println("Error: "+e.getMessage());
             }
         }
     }
