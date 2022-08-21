@@ -13,6 +13,11 @@ github-release release --user "${GITHUB_USER}" \
     --description "${GITHUB_DESCRIPTION}" \
     --tag "${GITHUB_TAG}"; true
 sleep 2s
+github-release edit --user "${GITHUB_USER}" \
+    --repo "${GITHUB_REPO}" \
+    --name "${GITHUB_NAME}" \
+    --description "${GITHUB_DESCRIPTION}" \
+    --tag "${GITHUB_TAG}"; true
 github-release upload --user "${GITHUB_USER}" \
     --repo "${GITHUB_REPO}" \
     --tag "${GITHUB_TAG}" \
