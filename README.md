@@ -18,6 +18,27 @@ unzip i2pfirefox.zip
 ./i2pchromium.cmd
 ```
 
+### Build Dependencies
+
+You will need `ant`, `java` and for building the Chromium profile, a Go application
+called `crx3` which is used to interact with the Chrome app store. I've been using Java 17
+on Debian mostly, on Debian and Ubuntu, install the dependencies with:
+
+```sh
+sudo apt-get install openjdk-17* ant golang-go
+go install github.com/mediabuyerbot/go-crx3/crx3@latest
+```
+
+For Fedora, use Yum, for Arch use pacman or something else but make sure to tell everyone
+about it. Once you have that installed, when building, make sure to add `$GOPATH/bin/`
+to your `$PATH`.
+
+```sh
+export PATH=$PATH:$HOME/go/bin
+```
+
+Will almost always work.
+
 ### Building
 
 This is not actually a plugin yet, but it will be soon. The important bit is the jar.
