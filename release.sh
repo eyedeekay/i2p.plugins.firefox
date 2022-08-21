@@ -2,9 +2,9 @@
 
 GITHUB_USER=eyedeekay
 GITHUB_REPO=i2p.plugins.firefox
-GITHUB_NAME="Which fixes one tiny bug that was bothering me"
+GITHUB_NAME="Which fixes another tiny bug that was bothering me"
 GITHUB_DESCRIPTION=$(cat CHANGES.md)
-GITHUB_TAG=0.0.11
+GITHUB_TAG=0.0.12
 ant distclean
 ant jar freeZip
 github-release release --user "${GITHUB_USER}" \
