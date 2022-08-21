@@ -11,11 +11,11 @@ A port of the batch scripts from i2p.firefox to Java.
 mkdir ~/tmp-i2pfirefox && cd ~/tmp-i2pfirefox
 wget https://github.com/eyedeekay/i2p.plugins.firefox/releases/download/0.0.9/i2pfirefox.zip
 unzip i2pfirefox.zip
-./i2pbrowser.cmd
+./i2pfirefox.cmd
 
 #or if you want to use a Chromium
 
-./i2pchromium.sh
+./i2pchromium.cmd
 ```
 
 ### Building

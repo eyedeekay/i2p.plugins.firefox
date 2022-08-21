@@ -2,9 +2,9 @@
 
 GITHUB_USER=eyedeekay
 GITHUB_REPO=i2p.plugins.firefox
-GITHUB_NAME="Which prioritizes Tor Browser if you have it installed and Firefox if you don't"
+GITHUB_NAME="Which fixes some Chromium issues identified by xip"
 GITHUB_DESCRIPTION=$(cat CHANGES.md)
-GITHUB_TAG=0.0.8
+GITHUB_TAG=0.0.9
 ant distclean
 ant jar freeZip
 github-release release --user "${GITHUB_USER}" \
