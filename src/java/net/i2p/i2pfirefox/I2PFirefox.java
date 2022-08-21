@@ -70,7 +70,14 @@ public class I2PFirefox {
             new File(programFiles86, "Waterfox/").toString(),
             new File(programFiles, "Librewolf/").toString(),
             };
-        String[] exes = new String[]{"firefox.exe", "firefox-bin.exe", "firefox-esr.exe", "waterfox.exe", "waterfox-bin.exe", "librewolf.exe"};
+        String[] exes = new String[]{
+            "firefox.exe", 
+            "firefox-bin.exe", 
+            "firefox-esr.exe", 
+            "waterfox.exe", 
+            "waterfox-bin.exe",
+            "librewolf.exe",
+        };
         String[] exePath = new String[path.length * exes.length];
         int i = 0;
         for (String s : path) {
@@ -200,8 +207,10 @@ public class I2PFirefox {
         for (String firefox : firefoxes) {
             File firefoxFile = new File(firefox);
             if (firefoxFile.exists()) {
+                System.out.println("Found valid firefox at " + firefox);
                 validFirefoxes.add(firefox);
             }
+            System.out.println("firefox at " + firefox + "does not exist");
         }
         return validFirefoxes.toArray(new String[validFirefoxes.size()]);
     }
