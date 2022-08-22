@@ -11,7 +11,7 @@ package net.i2p.i2pfirefox;
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  *
- * I2PBrowser is a class that is used to open a browser window to the I2P network.
+ * @description I2PBrowser is a class that is used to open a browser window to the I2P network.
  * It automatically detects the operating system and available browsers, and selects
  * the best one to use, with Tor Browser at the top for Firefox and Brave at the top
  * for Chrome.
