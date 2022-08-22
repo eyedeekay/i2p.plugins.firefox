@@ -1,6 +1,6 @@
 # Class I2PChromiumProfileChecker [[src]](src/java/net/i2p/i2pfirefox/I2PChromiumProfileChecker.java)  
 
- >   
+ > */  
 
 Access: public  
 package: net.i2p.i2pfirefox  
@@ -20,7 +20,7 @@ package: net.i2p.i2pfirefox
 
 ## Methods
 
-### main [[src]](src/java/net/i2p/i2pfirefox/I2PChromiumProfileChecker.java#L6)
+### main [[src]](src/java/net/i2p/i2pfirefox/I2PChromiumProfileChecker.java#L22)
 
 + Description:   
 + Access: public  
@@ -32,7 +32,7 @@ package: net.i2p.i2pfirefox
 | args | String[] |  |  
 
 
-### validateProfileDirectory [[src]](src/java/net/i2p/i2pfirefox/I2PChromiumProfileChecker.java#L20)
+### validateProfileDirectory [[src]](src/java/net/i2p/i2pfirefox/I2PChromiumProfileChecker.java#L36)
 
 + Description:   
 + Access: public  
@@ -44,7 +44,7 @@ package: net.i2p.i2pfirefox
 | profileDirectory | String |  |  
 
 
-### validateFile [[src]](src/java/net/i2p/i2pfirefox/I2PChromiumProfileChecker.java#L44)
+### validateFile [[src]](src/java/net/i2p/i2pfirefox/I2PChromiumProfileChecker.java#L60)
 
 + Description:   
 + Access: public  
@@ -56,7 +56,7 @@ package: net.i2p.i2pfirefox
 | file | String |  |  
 
 
-### validateExtensionDirectory [[src]](src/java/net/i2p/i2pfirefox/I2PChromiumProfileChecker.java#L64)
+### validateExtensionDirectory [[src]](src/java/net/i2p/i2pfirefox/I2PChromiumProfileChecker.java#L80)
 
 + Description:   
 + Access: public  

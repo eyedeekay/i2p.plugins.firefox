@@ -28,6 +28,16 @@
               </a>
             </li>
             <li>
+              <a href="EXAMPLES.html">
+                EXAMPLES
+              </a>
+            </li>
+            <li>
+              <a href="I2PBrowser.html">
+                I2PBrowser
+              </a>
+            </li>
+            <li>
               <a href="I2PChromium.html">
                 I2PChromium
               </a>
@@ -70,6 +80,11 @@
             <li>
               <a href="LICENSE.html">
                 LICENSE
+              </a>
+            </li>
+            <li>
+              <a href="USAGE.html">
+                USAGE
               </a>
             </li>
           </ul>
@@ -182,6 +197,20 @@ if (i2pIsRunning()) {
     System.out.println(&#34;I2PChromium&#34;);
     I2PChromium i2pChromium = new I2PChromium();
     i2pChromium.launch();
+}
+</code></pre>
+    <pre><code>
+// Auto-Select Example, chooses Firefox first, then Chromium
+if (i2pIsRunning()) {
+    logger.warning(&#34;I2P is already running&#34;);
+    System.out.println(&#34;I2PBrowser&#34;);
+    I2PBrowser i2pBrowser = new I2PBrowser();
+    /*
+     * toggle chromium to the top of the order by doing:
+    I2PBrowser.chromiumFirst = true;
+     * 
+    */
+    i2pBrowser.launch(privateBrowsing);
 }
 </code></pre>
     <p>

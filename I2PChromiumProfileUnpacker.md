@@ -1,6 +1,6 @@
 # Class I2PChromiumProfileUnpacker [[src]](src/java/net/i2p/i2pfirefox/I2PChromiumProfileUnpacker.java)  
 
- >   
+ > */  
 
 Access: public  
 package: net.i2p.i2pfirefox  
@@ -25,7 +25,7 @@ package: net.i2p.i2pfirefox
 
 ## Methods
 
-### main [[src]](src/java/net/i2p/i2pfirefox/I2PChromiumProfileUnpacker.java#L12)
+### main [[src]](src/java/net/i2p/i2pfirefox/I2PChromiumProfileUnpacker.java#L29)
 
 + Description:   
 + Access: public  
@@ -37,7 +37,7 @@ package: net.i2p.i2pfirefox
 | args | String[] |  |  
 
 
-### unpackProfile [[src]](src/java/net/i2p/i2pfirefox/I2PChromiumProfileUnpacker.java#L27)
+### unpackProfile [[src]](src/java/net/i2p/i2pfirefox/I2PChromiumProfileUnpacker.java#L44)
 
 + Description:   
 + Access: public  
