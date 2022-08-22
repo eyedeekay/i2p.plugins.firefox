@@ -2,9 +2,9 @@
 
 GITHUB_USER=eyedeekay
 GITHUB_REPO=i2p.plugins.firefox
-GITHUB_NAME="Which adds the ability to pass the -private flag to the command line to launch a private browser instance."
+GITHUB_NAME="Which adds a launcher that automatically chooses the first available browser starting from Firefox"
 GITHUB_DESCRIPTION=$(cat CHANGES.md)
-GITHUB_TAG=0.0.15
+GITHUB_TAG=0.0.16
 ant distclean
 ant jar freeZip
 github-release release --user "${GITHUB_USER}" \
