@@ -84,4 +84,20 @@ if (i2pIsRunning()) {
 }
 ```
 
+```java
+
+// Auto-Select Example, chooses Firefox first, then Chromium
+if (i2pIsRunning()) {
+    logger.warning("I2P is already running");
+    System.out.println("I2PBrowser");
+    I2PBrowser i2pBrowser = new I2PBrowser();
+    /*
+     * toggle chromium to the top of the order by doing:
+    I2PBrowser.chromiumFirst = true;
+     * 
+    */
+    i2pBrowser.launch(privateBrowsing);
+}
+```
+
 to add a browser management tool to it.

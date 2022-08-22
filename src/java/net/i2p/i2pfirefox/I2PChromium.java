@@ -5,7 +5,20 @@ import java.io.IOException;
 import java.net.Socket;
 import java.util.ArrayList;
 
-
+/*
+ * I2PChromium.java
+ * Copyright (C) 2022 idk <hankhill19580@gmail.com>
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the MIT License. See LICENSE.md for details.
+ * 
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ *
+ * 
+ * @author idk
+ * @since 0.0.1
+ */
 public class I2PChromium {
     private final String[] CHROMIUM_SEARCH_PATHS = CHROMIUM_FINDER();
     private final int DEFAULT_TIMEOUT = 200;
