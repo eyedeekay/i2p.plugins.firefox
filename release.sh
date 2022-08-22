@@ -2,9 +2,9 @@
 
 GITHUB_USER=eyedeekay
 GITHUB_REPO=i2p.plugins.firefox
-GITHUB_NAME="Which fixes a Windows-specific bug"
+GITHUB_NAME="Which adds the ability to pass the -private flag to the command line to launch a private browser instance."
 GITHUB_DESCRIPTION=$(cat CHANGES.md)
-GITHUB_TAG=0.0.14
+GITHUB_TAG=0.0.15
 ant distclean
 ant jar freeZip
 github-release release --user "${GITHUB_USER}" \
