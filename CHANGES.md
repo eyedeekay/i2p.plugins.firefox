@@ -1,3 +1,8 @@
+Sat, August 21
+--------------
+
+ - Adds support for passing the -private flag to start Firefox with --private-window and Chromium --incognito
+
 Fri, August 20
 --------------
 
