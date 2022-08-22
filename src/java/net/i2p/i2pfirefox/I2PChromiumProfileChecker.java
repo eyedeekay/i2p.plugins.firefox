@@ -21,6 +21,7 @@ import java.io.File;
 public class I2PChromiumProfileChecker {
     /*
      * Output feedback if the profile directory is valid or invalid
+     * 
      * @description Output feedback if the profile directory is valid or invalid
      * @since 0.0.1
      */
