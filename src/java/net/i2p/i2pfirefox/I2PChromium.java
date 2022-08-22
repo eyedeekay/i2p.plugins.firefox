@@ -55,11 +55,10 @@ public class I2PChromium {
         return exePath;
     }
     private static String[] FIND_CHROMIUM_SEARCH_PATHS_WINDOWS() {
-        String userHome = System.getProperty("user.home");
         String programFiles = System.getenv("ProgramFiles");
         String localAppData = System.getenv("LOCALAPPDATA");
         String programFiles86 = System.getenv("ProgramFiles(x86)");
-        String[] path = new String[]{
+        String[] path = new String[] {
             new File(localAppData, "/Google/Chrome/Application/").toString(),
             new File(programFiles, "/Google/Chrome/Application/").toString(),
             new File(programFiles86, "/Google/Chrome/Application/").toString(),
