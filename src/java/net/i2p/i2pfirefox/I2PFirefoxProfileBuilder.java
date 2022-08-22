@@ -9,6 +9,24 @@ import java.io.OutputStream;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
 
+/*
+ * I2PFirefoxProfileBuilder.java
+ * Copyright (C) 2022 idk <hankhill19580@gmail.com>
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the MIT License. See LICENSE.md for details.
+ * 
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ *
+ * I2PFirefoxProfileBuilder is a class that builds a profile directory which
+ * contains the I2P browser profile for the Firefox browser family. It manages
+ * the base profile directory and copies it's contents to the active profile
+ * directory, which is actually used by Firefox.
+ * 
+ * @author idk
+ * @since 0.0.1
+ */
 public class I2PFirefoxProfileBuilder {
     private static boolean strict;
 

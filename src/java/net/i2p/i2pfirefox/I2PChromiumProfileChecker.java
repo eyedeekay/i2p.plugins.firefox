@@ -2,6 +2,22 @@ package net.i2p.i2pfirefox;
 
 import java.io.File;
 
+/*
+ * I2PChromiumProfileChecker.java
+ * Copyright (C) 2022 idk <hankhill19580@gmail.com>
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the MIT License. See LICENSE.md for details.
+ * 
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ *
+ * I2PChromiumProfileChecker is a class that checks if the Chromium profile directory
+ * exists and is valid.
+ * 
+ * @author idk
+ * @since 0.0.1
+ */
 public class I2PChromiumProfileChecker {
     public static void main(String[] args) {
         String profileDirectory = I2PChromiumProfileBuilder.profileDirectory();
