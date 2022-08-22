@@ -415,6 +415,7 @@ public class I2PFirefox {
                 System.out.println(pb.command());
                 Process p = pb.start();
                 System.out.println("I2PFirefox");
+                sleep(2000);
                 try{
                     System.out.println("Waiting for I2PFirefox to close...");
                     int exit = p.waitFor();
@@ -452,5 +453,14 @@ public class I2PFirefox {
         System.out.println("I2PFirefox");
         I2PFirefox i2pFirefox = new I2PFirefox();
         i2pFirefox.launch(privateBrowsing);
-    }    
+    }
+        
+    private static void sleep(int millis) {
+        try {
+            Thread.sleep(millis);
+        } catch (InterruptedException bad) {
+            bad.printStackTrace();
+            throw new RuntimeException(bad);
+        }
+    }
 }

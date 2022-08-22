@@ -452,6 +452,7 @@ public class I2PChromium {
             try{
                 System.out.println(pb.command());
                 Process p = pb.start();
+                sleep(2000);
                 System.out.println("I2PChromium");
                 try{
                     System.out.println("Waiting for I2PChromium to close...");
@@ -488,5 +489,13 @@ public class I2PChromium {
         System.out.println("I2PChromium");
         I2PChromium i2pChromium = new I2PChromium();
         i2pChromium.launch(privateBrowsing);
-    }    
+    }
+    private static void sleep(int millis) {
+        try {
+            Thread.sleep(millis);
+        } catch (InterruptedException bad) {
+            bad.printStackTrace();
+            throw new RuntimeException(bad);
+        }
+    }
 }
