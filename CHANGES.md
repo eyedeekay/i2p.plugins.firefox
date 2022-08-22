@@ -1,3 +1,8 @@
+Mon, August 22
+--------------
+
+ - Completes support for auto-selecting *either* a Firefox or Chrome instance, automatically
+
 Sat, August 21
 --------------
 
