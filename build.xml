@@ -8,6 +8,166 @@
         <ant dir="src" target="build" />
     </target>
 
+    <target name="examples" >
+        <exec executable="echo">
+            <redirector output="USAGE.md"/>
+            <arg value="Example Commands:" />
+        </exec>
+        <exec executable="echo">
+            <redirector output="USAGE.md" append="true"/>
+            <arg value="=================" />
+        </exec>
+        <exec executable="echo">
+            <redirector output="USAGE.md" append="true"/>
+            <arg value="" />
+        </exec>
+        <exec executable="printf">
+            <redirector output="USAGE.md" append="true"/>
+            <arg value="These scripts are designed so that they can be executed on both Windows and Unix.\n\nThe top command is for Unixes and should work on most POSIX shells. After it runs, the script will terminate preventing Windows commands from running.\n\nThe second and third command is for Windows and won't be reachable on
+Linux(because the top command will be run and the script will exit).\n\nBoth determine the path to the script, use it to find the jar file, and execute a single command.\n\n" />
+        </exec>
+        <exec executable="echo">
+            <redirector output="USAGE.md" append="true"/>
+            <arg value="Auto-Select in Persistent Mode" />
+        </exec>
+        <exec executable="echo">
+            <redirector output="USAGE.md" append="true"/>
+            <arg value="" />
+        </exec>
+        <exec executable="echo">
+            <redirector output="USAGE.md" append="true"/>
+            <arg value="```sh" />
+        </exec>
+        <exec executable="cat">
+            <redirector output="USAGE.md" append="true"/>
+            <arg value="i2pbrowser.cmd" />
+        </exec>
+        <exec executable="echo">
+            <redirector output="USAGE.md" append="true"/>
+            <arg value="```" />
+        </exec>
+        <exec executable="echo">
+            <redirector output="USAGE.md" append="true"/>
+            <arg value="" />
+        </exec>
+        <exec executable="echo">
+            <redirector output="USAGE.md" append="true"/>
+            <arg value="Auto-Select in Private Browsing Mode" />
+        </exec>
+        <exec executable="echo">
+            <redirector output="USAGE.md" append="true"/>
+            <arg value="" />
+        </exec>
+        <exec executable="echo">
+            <redirector output="USAGE.md" append="true"/>
+            <arg value="```sh" />
+        </exec>
+        <exec executable="cat">
+            <redirector output="USAGE.md" append="true"/>
+            <arg value="i2pbrowser-private.cmd" />
+        </exec>
+        <exec executable="echo">
+            <redirector output="USAGE.md" append="true"/>
+            <arg value="```" />
+        </exec>
+        <exec executable="echo">
+            <redirector output="USAGE.md" append="true"/>
+            <arg value="" />
+        </exec>
+        <exec executable="echo">
+            <redirector output="USAGE.md" append="true"/>
+            <arg value="Firefox in Persistent Mode" />
+        </exec>
+        <exec executable="echo">
+            <redirector output="USAGE.md" append="true"/>
+            <arg value="" />
+        </exec>
+        <exec executable="echo">
+            <redirector output="USAGE.md" append="true"/>
+            <arg value="```sh" />
+        </exec>
+        <exec executable="cat">
+            <redirector output="USAGE.md" append="true"/>
+            <arg value="i2pfirefox.cmd" />
+        </exec>
+        <exec executable="echo">
+            <redirector output="USAGE.md" append="true"/>
+            <arg value="```" />
+        </exec>
+        <exec executable="echo">
+            <redirector output="USAGE.md" append="true"/>
+            <arg value="" />
+        </exec>
+        <exec executable="echo">
+            <redirector output="USAGE.md" append="true"/>
+            <arg value="Firefox in Private Browsing Mode" />
+        </exec>
+        <exec executable="echo">
+            <redirector output="USAGE.md" append="true"/>
+            <arg value="" />
+        </exec>
+        <exec executable="echo">
+            <redirector output="USAGE.md" append="true"/>
+            <arg value="```sh" />
+        </exec>
+        <exec executable="cat">
+            <redirector output="USAGE.md" append="true"/>
+            <arg value="i2pfirefox-private.cmd" />
+        </exec>
+        <exec executable="echo">
+            <redirector output="USAGE.md" append="true"/>
+            <arg value="```" />
+        </exec>
+        <exec executable="echo">
+            <redirector output="USAGE.md" append="true"/>
+            <arg value="" />
+        </exec>
+        <exec executable="echo">
+            <redirector output="USAGE.md" append="true"/>
+            <arg value="Chromium in Persistent Mode" />
+        </exec>
+        <exec executable="echo">
+            <redirector output="USAGE.md" append="true"/>
+            <arg value="" />
+        </exec>
+        <exec executable="echo">
+            <redirector output="USAGE.md" append="true"/>
+            <arg value="```sh" />
+        </exec>
+        <exec executable="cat">
+            <redirector output="USAGE.md" append="true"/>
+            <arg value="i2pchromium.cmd" />
+        </exec>
+        <exec executable="echo">
+            <redirector output="USAGE.md" append="true"/>
+            <arg value="```" />
+        </exec>
+        <exec executable="echo">
+            <redirector output="USAGE.md" append="true"/>
+            <arg value="" />
+        </exec>
+        <exec executable="echo">
+            <redirector output="USAGE.md" append="true"/>
+            <arg value="Chromium in Private Browsing Mode" />
+        </exec>
+        <exec executable="echo">
+            <redirector output="USAGE.md" append="true"/>
+            <arg value="" />
+        </exec>
+        <exec executable="echo">
+            <redirector output="USAGE.md" append="true"/>
+            <arg value="```sh" />
+        </exec>
+        <exec executable="cat">
+            <redirector output="USAGE.md" append="true"/>
+            <arg value="i2pchromium-private.cmd" />
+        </exec>
+        <exec executable="echo">
+            <redirector output="USAGE.md" append="true"/>
+            <arg value="```" />
+        </exec>
+    </target>
+
     <target name="jar" depends="distclean,i2pFirefoxBaseProfileZip,i2pChromiumBaseProfileZip">
         <ant dir="src" target="jar" />
     </target>

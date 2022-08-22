@@ -1,6 +1,6 @@
 # Class I2PFirefoxProfileBuilder [[src]](src/java/net/i2p/i2pfirefox/I2PFirefoxProfileBuilder.java)  
 
- >   
+ > */  
 
 Access: public  
 package: net.i2p.i2pfirefox  
@@ -34,7 +34,7 @@ package: net.i2p.i2pfirefox
 
 ## Methods
 
-### profileDir [[src]](src/java/net/i2p/i2pfirefox/I2PFirefoxProfileBuilder.java#L15)
+### profileDir [[src]](src/java/net/i2p/i2pfirefox/I2PFirefoxProfileBuilder.java#L33)
 
 + Description:   
 + Access: private  
@@ -46,7 +46,7 @@ package: net.i2p.i2pfirefox
 | file | String |  |  
 
 
-### profileDirectory [[src]](src/java/net/i2p/i2pfirefox/I2PFirefoxProfileBuilder.java#L25)
+### profileDirectory [[src]](src/java/net/i2p/i2pfirefox/I2PFirefoxProfileBuilder.java#L43)
 
 + Description:   
 + Access: public  
@@ -56,7 +56,7 @@ package: net.i2p.i2pfirefox
 This method has no parameters.  
 
 
-### baseProfileDir [[src]](src/java/net/i2p/i2pfirefox/I2PFirefoxProfileBuilder.java#L37)
+### baseProfileDir [[src]](src/java/net/i2p/i2pfirefox/I2PFirefoxProfileBuilder.java#L55)
 
 + Description:   
 + Access: private  
@@ -68,7 +68,7 @@ This method has no parameters.
 | file | String |  |  
 
 
-### baseProfileDirectory [[src]](src/java/net/i2p/i2pfirefox/I2PFirefoxProfileBuilder.java#L57)
+### baseProfileDirectory [[src]](src/java/net/i2p/i2pfirefox/I2PFirefoxProfileBuilder.java#L75)
 
 + Description:   
 + Access: public  
@@ -78,7 +78,7 @@ This method has no parameters.
 This method has no parameters.  
 
 
-### runtimeDirectory [[src]](src/java/net/i2p/i2pfirefox/I2PFirefoxProfileBuilder.java#L81)
+### runtimeDirectory [[src]](src/java/net/i2p/i2pfirefox/I2PFirefoxProfileBuilder.java#L99)
 
 + Description:   
 + Access: public  
@@ -90,7 +90,7 @@ This method has no parameters.
 | create | boolean |  |  
 
 
-### runtimeDirectory [[src]](src/java/net/i2p/i2pfirefox/I2PFirefoxProfileBuilder.java#L98)
+### runtimeDirectory [[src]](src/java/net/i2p/i2pfirefox/I2PFirefoxProfileBuilder.java#L116)
 
 + Description:   
 + Access: public  
@@ -100,7 +100,7 @@ This method has no parameters.
 This method has no parameters.  
 
 
-### copyBaseProfiletoProfile [[src]](src/java/net/i2p/i2pfirefox/I2PFirefoxProfileBuilder.java#L144)
+### copyBaseProfiletoProfile [[src]](src/java/net/i2p/i2pfirefox/I2PFirefoxProfileBuilder.java#L162)
 
 + Description:   
 + Access: public  
@@ -110,7 +110,7 @@ This method has no parameters.
 This method has no parameters.  
 
 
-### copyDirectory [[src]](src/java/net/i2p/i2pfirefox/I2PFirefoxProfileBuilder.java#L174)
+### copyDirectory [[src]](src/java/net/i2p/i2pfirefox/I2PFirefoxProfileBuilder.java#L192)
 
 + Description:   
 + Access: private  
@@ -123,7 +123,7 @@ This method has no parameters.
 | destinationDirectory | File |  |  
 
 
-### copyDirectoryCompatibityMode [[src]](src/java/net/i2p/i2pfirefox/I2PFirefoxProfileBuilder.java#L184)
+### copyDirectoryCompatibityMode [[src]](src/java/net/i2p/i2pfirefox/I2PFirefoxProfileBuilder.java#L202)
 
 + Description:   
 + Access: public  
@@ -136,7 +136,7 @@ This method has no parameters.
 | destination | File |  |  
 
 
-### copyFile [[src]](src/java/net/i2p/i2pfirefox/I2PFirefoxProfileBuilder.java#L192)
+### copyFile [[src]](src/java/net/i2p/i2pfirefox/I2PFirefoxProfileBuilder.java#L210)
 
 + Description:   
 + Access: private  
@@ -149,7 +149,7 @@ This method has no parameters.
 | destinationFile | File |  |  
 
 
-### copyStrictOptions [[src]](src/java/net/i2p/i2pfirefox/I2PFirefoxProfileBuilder.java#L209)
+### copyStrictOptions [[src]](src/java/net/i2p/i2pfirefox/I2PFirefoxProfileBuilder.java#L227)
 
 + Description:   
 + Access: public  
