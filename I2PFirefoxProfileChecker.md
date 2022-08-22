@@ -32,7 +32,7 @@ package: net.i2p.i2pfirefox
 | args | String[] |  |  
 
 
-### validateProfileDirectory [[src]](src/java/net/i2p/i2pfirefox/I2PFirefoxProfileChecker.java#L36)
+### validateProfileDirectory [[src]](src/java/net/i2p/i2pfirefox/I2PFirefoxProfileChecker.java#L43)
 
 + Description:   
 + Access: public  
@@ -44,7 +44,7 @@ package: net.i2p.i2pfirefox
 | profileDirectory | String |  |  
 
 
-### validateFile [[src]](src/java/net/i2p/i2pfirefox/I2PFirefoxProfileChecker.java#L68)
+### validateFile [[src]](src/java/net/i2p/i2pfirefox/I2PFirefoxProfileChecker.java#L82)
 
 + Description:   
 + Access: public  
@@ -56,7 +56,7 @@ package: net.i2p.i2pfirefox
 | file | String |  |  
 
 
-### validateExtensionDirectory [[src]](src/java/net/i2p/i2pfirefox/I2PFirefoxProfileChecker.java#L88)
+### validateExtensionDirectory [[src]](src/java/net/i2p/i2pfirefox/I2PFirefoxProfileChecker.java#L109)
 
 + Description:   
 + Access: public  

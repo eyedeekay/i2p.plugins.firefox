@@ -3,25 +3,25 @@ Generating documentation from src/java/net/i2p/i2pfirefox/
 
 [1;32mJavadoc errors for class [0mI2PChromiumProfileChecker
 File: [34msrc/java/net/i2p/i2pfirefox/I2PChromiumProfileChecker.java[0m
-[33m	Missing description for method [0mmain (Line: 22)
-[33m	Javadoc parameter not found [0margs in method: main (Line: 22)
-[33m	Missing description for method [0mvalidateProfileDirectory (Line: 36)
-[33m	Javadoc parameter not found [0mprofileDirectory in method: validateProfileDirectory (Line: 36)
-[33m	Missing description for method [0mvalidateFile (Line: 60)
-[33m	Javadoc parameter not found [0mfile in method: validateFile (Line: 60)
-[33m	Missing description for method [0mvalidateExtensionDirectory (Line: 80)
-[33m	Javadoc parameter not found [0mextensionDirectory in method: validateExtensionDirectory (Line: 80)
+[33m	Missing description for method [0mmain (Line: 27)
+[33m	Javadoc parameter not found [0margs in method: main (Line: 27)
+[33m	Missing description for method [0mvalidateProfileDirectory (Line: 48)
+[33m	Javadoc parameter not found [0mprofileDirectory in method: validateProfileDirectory (Line: 48)
+[33m	Missing description for method [0mvalidateFile (Line: 79)
+[33m	Javadoc parameter not found [0mfile in method: validateFile (Line: 79)
+[33m	Missing description for method [0mvalidateExtensionDirectory (Line: 106)
+[33m	Javadoc parameter not found [0mextensionDirectory in method: validateExtensionDirectory (Line: 106)
 
 [1;32mJavadoc errors for class [0mI2PFirefoxProfileChecker
 File: [34msrc/java/net/i2p/i2pfirefox/I2PFirefoxProfileChecker.java[0m
 [33m	Missing description for method [0mmain (Line: 22)
 [33m	Javadoc parameter not found [0margs in method: main (Line: 22)
-[33m	Missing description for method [0mvalidateProfileDirectory (Line: 36)
-[33m	Javadoc parameter not found [0mprofileDirectory in method: validateProfileDirectory (Line: 36)
-[33m	Missing description for method [0mvalidateFile (Line: 68)
-[33m	Javadoc parameter not found [0mfile in method: validateFile (Line: 68)
-[33m	Missing description for method [0mvalidateExtensionDirectory (Line: 88)
-[33m	Javadoc parameter not found [0mextensionDirectory in method: validateExtensionDirectory (Line: 88)
+[33m	Missing description for method [0mvalidateProfileDirectory (Line: 43)
+[33m	Javadoc parameter not found [0mprofileDirectory in method: validateProfileDirectory (Line: 43)
+[33m	Missing description for method [0mvalidateFile (Line: 82)
+[33m	Javadoc parameter not found [0mfile in method: validateFile (Line: 82)
+[33m	Missing description for method [0mvalidateExtensionDirectory (Line: 109)
+[33m	Javadoc parameter not found [0mextensionDirectory in method: validateExtensionDirectory (Line: 109)
 
 [1;32mJavadoc errors for class [0mI2PBrowser
 File: [34msrc/java/net/i2p/i2pfirefox/I2PBrowser.java[0m

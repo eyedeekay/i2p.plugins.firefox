@@ -19,6 +19,11 @@ import java.io.File;
  * @since 0.0.1
  */
 public class I2PChromiumProfileChecker {
+    /*
+     * Output feedback if the profile directory is valid or invalid
+     * @description Output feedback if the profile directory is valid or invalid
+     * @since 0.0.1
+     */
     public static void main(String[] args) {
         String profileDirectory = I2PChromiumProfileBuilder.profileDirectory();
         if (profileDirectory == null) {
@@ -33,6 +38,13 @@ public class I2PChromiumProfileChecker {
             System.out.println("Profile directory is invalid");
         }
     }    
+    /*
+     * Return true if the profile directory is valid.
+     * 
+     * @param profileDirectory the profile directory to check
+     * @return true if the profile directory is valid, false otherwise
+     * @since 0.0.1
+     */
     public static boolean validateProfileDirectory(String profileDirectory) {
         File profileDir = new File(profileDirectory);
         if (!profileDir.exists()) {
@@ -57,6 +69,13 @@ public class I2PChromiumProfileChecker {
         }
         return true;
     }
+    /*
+     * Return true if the extension directory is valid.
+     * 
+     * @param extensionDirectory the extension directory to check
+     * @return true if the extension directory is valid, false otherwise
+     * @since 0.0.1
+     */
     public static boolean validateFile(String file) {
         File f = new File(file);
         if (!f.exists()) {
@@ -77,6 +96,13 @@ public class I2PChromiumProfileChecker {
         }
         return true;
     }
+    /*
+     * Return true if the extension directory is valid.
+     * 
+     * @param extensionDirectory the extension directory to check
+     * @return true if the extension directory is valid, false otherwise
+     * @since 0.0.1
+     */
     public static boolean validateExtensionDirectory(String extensionDirectory) {
         File extensionDir = new File(extensionDirectory);
         if (!extensionDir.exists()) {
