@@ -109,6 +109,17 @@
     <p>
       Access: public
       <br/>
+      Description:
+      <br/>
+      &gt; I2PBrowser.java Copyright C 2022 idk
+      <a href="mailto:hankhill19580@gmail.com" rel="nofollow">
+        hankhill19580@gmail.com
+      </a>
+      This program is free software: you can redistribute it and/or modify it under the terms of the MIT License. See LICENSE.md for details. This program is distributed in the hope that it will be useful but WITHOUT ANY WARRANTY without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. @description I2PBrowser is a that is used to open a browser window to the I2P network. It automatically detects the operating system and available browsers and selects the best one to use with Tor Browser at the top for Firefox and Brave at the top for Chrome.
+    </p>
+    <p>
+      Author: idk
+      <br/>
       package: net.i2p.i2pfirefox
     </p>
     <h2>
@@ -125,6 +136,9 @@
         <br/>
         <ul>
           <br/>
+          <li>
+            java.util.ArrayList
+          </li>
         </ul>
         <br/>
       </details>
@@ -208,7 +222,36 @@
     </h2>
     <h3>
       launchFirefox
-      <a href="src/java/net/i2p/i2pfirefox/I2PBrowser.java#L29" rel="nofollow">
+      <a href="src/java/net/i2p/i2pfirefox/I2PBrowser.java#L30" rel="nofollow">
+        [src]
+      </a>
+    </h3>
+    <ul>
+      <li>
+        Description:
+        <br/>
+      </li>
+      <li>
+        Access: private
+        <br/>
+      </li>
+      <li>
+        return: void
+        <br/>
+      </li>
+    </ul>
+    <p>
+      | Name | Type | Description |
+      <br/>
+      | —– | —– | —– |
+      <br/>
+      | privateWindow | boolean |  |
+      <br/>
+      | url | String[] |  |
+    </p>
+    <h3>
+      launchFirefox
+      <a href="src/java/net/i2p/i2pfirefox/I2PBrowser.java#L34" rel="nofollow">
         [src]
       </a>
     </h3>
@@ -235,7 +278,36 @@
     </p>
     <h3>
       launchChromium
-      <a href="src/java/net/i2p/i2pfirefox/I2PBrowser.java#L33" rel="nofollow">
+      <a href="src/java/net/i2p/i2pfirefox/I2PBrowser.java#L38" rel="nofollow">
+        [src]
+      </a>
+    </h3>
+    <ul>
+      <li>
+        Description:
+        <br/>
+      </li>
+      <li>
+        Access: private
+        <br/>
+      </li>
+      <li>
+        return: void
+        <br/>
+      </li>
+    </ul>
+    <p>
+      | Name | Type | Description |
+      <br/>
+      | —– | —– | —– |
+      <br/>
+      | privateWindow | boolean |  |
+      <br/>
+      | url | String[] |  |
+    </p>
+    <h3>
+      launchChromium
+      <a href="src/java/net/i2p/i2pfirefox/I2PBrowser.java#L42" rel="nofollow">
         [src]
       </a>
     </h3>
@@ -262,13 +334,13 @@
     </p>
     <h3>
       hasChromium
-      <a href="src/java/net/i2p/i2pfirefox/I2PBrowser.java#L52" rel="nofollow">
+      <a href="src/java/net/i2p/i2pfirefox/I2PBrowser.java#L61" rel="nofollow">
         [src]
       </a>
     </h3>
     <ul>
       <li>
-        Description:
+        Description: Return true if there is a Chromium available
         <br/>
       </li>
       <li>
@@ -276,7 +348,7 @@
         <br/>
       </li>
       <li>
-        return: boolean
+        return: true if Chromium is available false otherwise
         <br/>
       </li>
     </ul>
@@ -285,13 +357,13 @@
     </p>
     <h3>
       hasFirefox
-      <a href="src/java/net/i2p/i2pfirefox/I2PBrowser.java#L69" rel="nofollow">
+      <a href="src/java/net/i2p/i2pfirefox/I2PBrowser.java#L78" rel="nofollow">
         [src]
       </a>
     </h3>
     <ul>
       <li>
-        Description:
+        Description: Return true if there is a Firefox variant available
         <br/>
       </li>
       <li>
@@ -299,7 +371,7 @@
         <br/>
       </li>
       <li>
-        return: boolean
+        return: true if Firefox variant is available false otherwise
         <br/>
       </li>
     </ul>
@@ -308,13 +380,42 @@
     </p>
     <h3>
       launch
-      <a href="src/java/net/i2p/i2pfirefox/I2PBrowser.java#L88" rel="nofollow">
+      <a href="src/java/net/i2p/i2pfirefox/I2PBrowser.java#L97" rel="nofollow">
         [src]
       </a>
     </h3>
     <ul>
       <li>
-        Description:
+        Description: Populates a profile directory with a proxy configuration. Waits for an HTTP proxy on the port 4444 to be ready. Launches either Firefox or Chromium with the profile directory.
+        <br/>
+      </li>
+      <li>
+        Access: public
+        <br/>
+      </li>
+      <li>
+        return: void
+        <br/>
+      </li>
+    </ul>
+    <p>
+      | Name | Type | Description |
+      <br/>
+      | —– | —– | —– |
+      <br/>
+      | privateWindow | boolean |  |
+      <br/>
+      | url | String[] |  |
+    </p>
+    <h3>
+      launch
+      <a href="src/java/net/i2p/i2pfirefox/I2PBrowser.java#L130" rel="nofollow">
+        [src]
+      </a>
+    </h3>
+    <ul>
+      <li>
+        Description: Populates a profile directory with a proxy configuration. Waits for an HTTP proxy on the port 4444 to be ready. Launches either Firefox or Chromium with the profile directory.
         <br/>
       </li>
       <li>
@@ -335,13 +436,13 @@
     </p>
     <h3>
       launch
-      <a href="src/java/net/i2p/i2pfirefox/I2PBrowser.java#L120" rel="nofollow">
+      <a href="src/java/net/i2p/i2pfirefox/I2PBrowser.java#L141" rel="nofollow">
         [src]
       </a>
     </h3>
     <ul>
       <li>
-        Description:
+        Description: Populates a profile directory with a proxy configuration. Waits for an HTTP proxy on the port 4444 to be ready. Launches either Firefox or Chromium with the profile directory.
         <br/>
       </li>
       <li>
@@ -357,8 +458,38 @@
       This method has no parameters.
     </p>
     <h3>
+      ValidURL
+      <a href="src/java/net/i2p/i2pfirefox/I2PBrowser.java#L145" rel="nofollow">
+        [src]
+      </a>
+    </h3>
+    <ul>
+      <li>
+        Description:
+        <br/>
+      </li>
+      <li>
+        Access: private
+        <br/>
+      </li>
+      <li>
+        Modifiers: static
+      </li>
+      <li>
+        return: String
+        <br/>
+      </li>
+    </ul>
+    <p>
+      | Name | Type | Description |
+      <br/>
+      | —– | —– | —– |
+      <br/>
+      | inUrl | String |  |
+    </p>
+    <h3>
       main
-      <a href="src/java/net/i2p/i2pfirefox/I2PBrowser.java#L124" rel="nofollow">
+      <a href="src/java/net/i2p/i2pfirefox/I2PBrowser.java#L155" rel="nofollow">
         [src]
       </a>
     </h3>
