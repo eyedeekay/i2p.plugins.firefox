@@ -24,7 +24,7 @@ package: net.i2p.i2pfirefox
 
 ## Methods
 
-### main [[src]](src/java/net/i2p/i2pfirefox/I2PFirefoxProfileChecker.java#L22)
+### main [[src]](src/java/net/i2p/i2pfirefox/I2PFirefoxProfileChecker.java#L26)
 
 + Description:   
 + Access: public  
@@ -36,7 +36,7 @@ package: net.i2p.i2pfirefox
 | args | String[] |  |  
 
 
-### validateProfileDirectory [[src]](src/java/net/i2p/i2pfirefox/I2PFirefoxProfileChecker.java#L43)
+### validateProfileDirectory [[src]](src/java/net/i2p/i2pfirefox/I2PFirefoxProfileChecker.java#L47)
 
 + Description: Return true if the profile directory is valid.   
 + Access: public  
@@ -48,7 +48,7 @@ package: net.i2p.i2pfirefox
 | profileDirectory | String | the profile directory to check  |  
 
 
-### validateFile [[src]](src/java/net/i2p/i2pfirefox/I2PFirefoxProfileChecker.java#L82)
+### validateFile [[src]](src/java/net/i2p/i2pfirefox/I2PFirefoxProfileChecker.java#L86)
 
 + Description: Return true if the file is valid.   
 + Access: public  
@@ -60,7 +60,7 @@ package: net.i2p.i2pfirefox
 | file | String | the file to check  |  
 
 
-### validateExtensionDirectory [[src]](src/java/net/i2p/i2pfirefox/I2PFirefoxProfileChecker.java#L109)
+### validateExtensionDirectory [[src]](src/java/net/i2p/i2pfirefox/I2PFirefoxProfileChecker.java#L113)
 
 + Description: Return true if the extension directory is valid.   
 + Access: public  
