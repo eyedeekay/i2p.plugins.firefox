@@ -109,6 +109,17 @@
     <p>
       Access: public
       <br/>
+      Description:
+      <br/>
+      &gt; I2PFirefoxProfileBuilder.java Copyright C 2022 idk
+      <a href="mailto:hankhill19580@gmail.com" rel="nofollow">
+        hankhill19580@gmail.com
+      </a>
+      This program is free software: you can redistribute it and/or modify it under the terms of the MIT License. See LICENSE.md for details. This program is distributed in the hope that it will be useful but WITHOUT ANY WARRANTY without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. I2PFirefoxProfileBuilder is a that builds a profile directory which contains the I2P browser profile for the Firefox browser family. It manages the base profile directory and copies it’s contents to the active profile directory which is actually used by Firefox.
+    </p>
+    <p>
+      Author: idk
+      <br/>
       package: net.i2p.i2pfirefox
     </p>
     <h2>
@@ -213,7 +224,7 @@
     </h3>
     <ul>
       <li>
-        Description:
+        Description: get the profile directory creating it if necessary
         <br/>
       </li>
       <li>
@@ -269,7 +280,7 @@
     </h3>
     <ul>
       <li>
-        Description:
+        Description: get the base profile directory creating it if necessary
         <br/>
       </li>
       <li>
@@ -295,7 +306,7 @@
     </h3>
     <ul>
       <li>
-        Description:
+        Description: get the runtime directory creating it if create=true
         <br/>
       </li>
       <li>
@@ -306,7 +317,7 @@
         Modifiers: static
       </li>
       <li>
-        return: File
+        return: the runtime directory or null if it could not be created
         <br/>
       </li>
     </ul>
@@ -315,7 +326,7 @@
       <br/>
       | —– | —– | —– |
       <br/>
-      | create | boolean |  |
+      | create | boolean | if true create the runtime directory if it does not exist  |
     </p>
     <h3>
       runtimeDirectory
@@ -325,7 +336,7 @@
     </h3>
     <ul>
       <li>
-        Description:
+        Description: get the correct runtime directory
         <br/>
       </li>
       <li>
@@ -336,7 +347,7 @@
         Modifiers: static
       </li>
       <li>
-        return: String
+        return: the runtime directory or null if it could not be created or found
         <br/>
       </li>
     </ul>
@@ -351,7 +362,7 @@
     </h3>
     <ul>
       <li>
-        Description:
+        Description: Copy the inert base profile directory to the runtime profile directory
         <br/>
       </li>
       <li>
@@ -473,7 +484,7 @@
     </h3>
     <ul>
       <li>
-        Description:
+        Description: Copy the strict options from the base profile to the profile
         <br/>
       </li>
       <li>
@@ -484,7 +495,7 @@
         Modifiers: static
       </li>
       <li>
-        return: boolean
+        return: true if successful false otherwise
         <br/>
       </li>
     </ul>
