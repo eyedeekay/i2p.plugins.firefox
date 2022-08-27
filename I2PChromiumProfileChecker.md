@@ -3,6 +3,10 @@
  > */  
 
 Access: public  
+Description:  
+ > I2PChromiumProfileChecker.java Copyright C 2022 idk <hankhill19580@gmail.com> This program is free software: you can redistribute it and/or modify it under the terms of the MIT License. See LICENSE.md for details. This program is distributed in the hope that it will be useful but WITHOUT ANY WARRANTY without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. I2PChromiumProfileChecker is a that checks if the Chromium profile directory exists and is valid.  
+
+Author: idk   
 package: net.i2p.i2pfirefox  
 
 ## Dependencies
@@ -22,7 +26,7 @@ package: net.i2p.i2pfirefox
 
 ### main [[src]](src/java/net/i2p/i2pfirefox/I2PChromiumProfileChecker.java#L28)
 
-+ Description:   
++ Description: Output feedback if the profile directory is valid or invalid @description Output feedback if the profile directory is valid or invalid   
 + Access: public  
 + Modifiers: static 
 + return: void  
@@ -34,22 +38,22 @@ package: net.i2p.i2pfirefox
 
 ### validateProfileDirectory [[src]](src/java/net/i2p/i2pfirefox/I2PChromiumProfileChecker.java#L49)
 
-+ Description:   
++ Description: Return true if the profile directory is valid.   
 + Access: public  
 + Modifiers: static 
-+ return: boolean  
++ return: true if the profile directory is valid false otherwise   
 
 | Name | Type | Description |  
 | ----- | ----- | ----- |  
-| profileDirectory | String |  |  
+| profileDirectory | String | the profile directory to check  |  
 
 
 ### validateFile [[src]](src/java/net/i2p/i2pfirefox/I2PChromiumProfileChecker.java#L80)
 
-+ Description:   
++ Description: Return true if the extension directory is valid.   
 + Access: public  
 + Modifiers: static 
-+ return: boolean  
++ return: true if the extension directory is valid false otherwise   
 
 | Name | Type | Description |  
 | ----- | ----- | ----- |  
@@ -58,13 +62,13 @@ package: net.i2p.i2pfirefox
 
 ### validateExtensionDirectory [[src]](src/java/net/i2p/i2pfirefox/I2PChromiumProfileChecker.java#L107)
 
-+ Description:   
++ Description: Return true if the extension directory is valid.   
 + Access: public  
 + Modifiers: static 
-+ return: boolean  
++ return: true if the extension directory is valid false otherwise   
 
 | Name | Type | Description |  
 | ----- | ----- | ----- |  
-| extensionDirectory | String |  |  
+| extensionDirectory | String | the extension directory to check  |  
 
 

@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.net.Socket;
 import java.util.ArrayList;
 
-/*
+/**
  * I2PChromium.java
  * Copyright (C) 2022 idk <hankhill19580@gmail.com>
  * This program is free software: you can redistribute it and/or modify
@@ -23,7 +23,7 @@ public class I2PChromium {
     private final String[] CHROMIUM_SEARCH_PATHS = CHROMIUM_FINDER();
     private final int DEFAULT_TIMEOUT = 200;
 
-    /*
+    /**
      * Construct an I2PChromium class which manages an instance of Chromium and
      * an accompanying Chromium profile. This version includes Chromium variants
      * and forks.
@@ -200,7 +200,7 @@ public class I2PChromium {
         return "Unknown";
     }
 
-    /*
+    /**
      * Check our list of chrome paths for a valid chrome binary.
      * Just an existence check for now, but should check versions
      * in the future.
@@ -222,7 +222,7 @@ public class I2PChromium {
         return validChromiums.toArray(new String[validChromiums.size()]);
     }
 
-    /*
+    /**
      * Return the best available Chromium from the list of Chromiums we have.
      * 
      * @return the path to the best available Chromium, or null if none are found.
@@ -248,7 +248,7 @@ public class I2PChromium {
         }
     }
 
-    /*
+    /**
      * Return the best available Chromium from the list of Chromiums we have.
      * if override is passed it will be validated and if it validates, it will
      * be used.
@@ -267,7 +267,7 @@ public class I2PChromium {
         return topChromium();
     }
 
-    /*
+    /**
      * Build a ProcessBuilder for the top Chromium binary and
      * the default profile.
      * 
@@ -279,11 +279,24 @@ public class I2PChromium {
         return processBuilder(new String[]{});
     }
 
-    /*
+    /**
      * Build a ProcessBuilder for the top Chromium binary and
      * the default profile.
      * 
-     * @param args the arguments to pass to the Chromium binary.
+     * @args the arguments to pass to the Chromium binary
+     * @return a ProcessBuilder for the top Chromium binary and
+     * the default profile.
+     * @since 0.0.1
+     */
+    public ProcessBuilder defaultProcessBuilder(String[] args) {
+        return processBuilder(args);
+    }
+
+    
+    /**
+     * Build a ProcessBuilder for the top Chromium binary and
+     * the default profile.
+     * 
      * @return a ProcessBuilder for the top Chromium binary and
      * the default profile. Always passes the --incognito flag.
      * @since 0.0.1
@@ -292,7 +305,28 @@ public class I2PChromium {
         return processBuilder(new String[]{"--incognito"});
     }
 
-    /*
+    /**
+     * Build a ProcessBuilder for the top Chromium binary and
+     * the default profile.
+     * 
+     * @param args the arguments to pass to the Chromium binary.
+     * @return a ProcessBuilder for the top Chromium binary and
+     * the default profile. Always passes the --incognito flag.
+     * @since 0.0.1
+     */
+    public ProcessBuilder privateProcessBuilder(String[] args) {
+        //return processBuilder(new String[]{});
+        ArrayList<String> argList = new ArrayList<String>();
+        argList.add("--incognito");
+        if (args != null && args.length > 0) {
+            for (String arg : args) {
+                argList.add(arg);
+            }
+        }
+        return processBuilder(argList.toArray(new String[argList.size()]));
+    }
+
+    /**
      1 --user-data-dir="$CHROMIUM_I2P" \
      2 --proxy-server="http://127.0.0.1:4444" \
      3 --proxy-bypass-list=127.0.0.1:7657 \
@@ -315,7 +349,7 @@ public class I2PChromium {
      20 --disable-file-system \
      */
 
-    /*
+    /**
      * Build a ProcessBuilder for the top Chromium binary and
      * the default profile, with a specific set of extended
      * arguments.
@@ -349,7 +383,7 @@ public class I2PChromium {
             newArgs[17] = "--disable-d3d11";
             newArgs[18] = "--disable-file-system";
             newArgs[19] = "--load-extension="+new File(I2PChromiumProfileBuilder.profileDirectory(),"extensions/i2pchrome.js").getAbsolutePath();
-            /*+","+
+            /**+","+
             new File(I2PChromiumProfileBuilder.profileDirectory(),"extensions/ublock.js").getAbsolutePath()
             +","+
             new File(I2PChromiumProfileBuilder.profileDirectory(),"extensions/scriptsafe.js").getAbsolutePath();*/
@@ -365,7 +399,7 @@ public class I2PChromium {
         }
     }
 
-    /*
+    /**
      * Waits for an HTTP proxy on port 4444 to be ready.
      * Returns false on timeout of 200 seconds.
      * 
@@ -376,7 +410,7 @@ public class I2PChromium {
         return waitForProxy(DEFAULT_TIMEOUT);
     }
 
-    /* 
+    /** 
      * Waits for an HTTP proxy on port 4444 to be ready.
      * Returns false on timeout of the specified number of seconds.
      * 
@@ -387,7 +421,7 @@ public class I2PChromium {
     public boolean waitForProxy(int timeout) {
         return waitForProxy(timeout, 4444);
     }
-    /*
+    /**
      * Waits for an HTTP proxy on the specified port to be ready.
      * Returns false on timeout of the specified number of seconds.
      * 
@@ -399,7 +433,7 @@ public class I2PChromium {
     public boolean waitForProxy(int timeout, int port) {
         return waitForProxy(timeout, port, "localhost");
     }
-    /*
+    /**
      * Waits for an HTTP proxy on the specified port to be ready.
      * Returns false on timeout of the specified number of seconds.
      * 
@@ -433,15 +467,16 @@ public class I2PChromium {
     }
 
 
-    /*
+    /**
      * Populates a profile directory with a proxy configuration.
      * Waits for an HTTP proxy on the port 4444 to be ready.
      * Launches Chromium with the profile directory.
      * 
      * @param bool if true, the profile will be ephemeral(i.e. a --private-window profile).
-     * @since 0.0.1
+     * @param String[] a list of URL's to pass to the browser window
+     * @since 0.0.17
      */
-    public void launch(boolean privateWindow){
+    public void launch(boolean privateWindow, String[] url){
         String profileDirectory = I2PChromiumProfileBuilder.profileDirectory();
         if (I2PChromiumProfileChecker.validateProfileDirectory(profileDirectory)) {
             System.out.println("Valid profile directory: "+profileDirectory);
@@ -457,9 +492,9 @@ public class I2PChromium {
         if (waitForProxy()){
             ProcessBuilder pb = null;
             if (privateWindow) {
-                pb = this.privateProcessBuilder();
+                pb = this.privateProcessBuilder(url);
             } else {
-                pb = this.defaultProcessBuilder();
+                pb = this.defaultProcessBuilder(url);
             }
             try{
                 System.out.println(pb.command());
@@ -478,7 +513,19 @@ public class I2PChromium {
             }
         }
     }
-    /*
+    /**
+     * Populates a profile directory with a proxy configuration.
+     * Waits for an HTTP proxy on the port 4444 to be ready.
+     * Launches Chromium with the profile directory.
+     * 
+     * @param bool if true, the profile will be ephemeral(i.e. a --private-window profile).
+     * @since 0.0.1
+     */
+    public void launch(boolean privateWindow){
+        launch(privateWindow, null);
+    }
+    
+    /**
      * Populates a profile directory with a proxy configuration.
      * Waits for an HTTP proxy on the port 4444 to be ready.
      * Launches Chromium with the profile directory.
@@ -487,20 +534,37 @@ public class I2PChromium {
      */
     public void launch(){
         launch(false);
-    }    
+    }
+
+    private static String ValidURL(String inUrl){
+        String[] schemes = {"http", "https"};
+        for (String scheme: schemes) {
+            if (inUrl.startsWith(scheme)) {
+                return inUrl;
+            }
+        }
+        return "";
+    }
 
     public static void main(String[] args) {
         boolean privateBrowsing = false;
+        System.out.println("checking for private browsing");
+        ArrayList<String> visitURL = new ArrayList<String>();
         if (args != null && args.length > 0) {
-            System.out.println("checking for private browsing");
-            if (args[0].equals("-private")) {
-                privateBrowsing = true;
-                System.out.println("private browsing is true, profile will be discarded at end of session");
+            for (String arg : args) {
+                if (arg.equals("-private")) {
+                    privateBrowsing = true;
+                    System.out.println("private browsing is true, profile will be discarded at end of session");
+                }
+                if (!arg.startsWith("-")){
+                    // check if it's a URL
+                    visitURL.add(ValidURL(arg));
+                }
             }
         }
         System.out.println("I2PChromium");
         I2PChromium i2pChromium = new I2PChromium();
-        i2pChromium.launch(privateBrowsing);
+        i2pChromium.launch(privateBrowsing, visitURL.toArray(new String[visitURL.size()]));
     }
     private static void sleep(int millis) {
         try {

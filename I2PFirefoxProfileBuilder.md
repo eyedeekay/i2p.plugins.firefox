@@ -3,6 +3,10 @@
  > */  
 
 Access: public  
+Description:  
+ > I2PFirefoxProfileBuilder.java Copyright C 2022 idk <hankhill19580@gmail.com> This program is free software: you can redistribute it and/or modify it under the terms of the MIT License. See LICENSE.md for details. This program is distributed in the hope that it will be useful but WITHOUT ANY WARRANTY without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. I2PFirefoxProfileBuilder is a that builds a profile directory which contains the I2P browser profile for the Firefox browser family. It manages the base profile directory and copies it's contents to the active profile directory which is actually used by Firefox.  
+
+Author: idk   
 package: net.i2p.i2pfirefox  
 
 ## Dependencies
@@ -48,7 +52,7 @@ package: net.i2p.i2pfirefox
 
 ### profileDirectory [[src]](src/java/net/i2p/i2pfirefox/I2PFirefoxProfileBuilder.java#L43)
 
-+ Description:   
++ Description: get the profile directory creating it if necessary   
 + Access: public  
 + Modifiers: static 
 + return: String  
@@ -70,7 +74,7 @@ This method has no parameters.
 
 ### baseProfileDirectory [[src]](src/java/net/i2p/i2pfirefox/I2PFirefoxProfileBuilder.java#L75)
 
-+ Description:   
++ Description: get the base profile directory creating it if necessary   
 + Access: public  
 + Modifiers: static 
 + return: String  
@@ -80,29 +84,29 @@ This method has no parameters.
 
 ### runtimeDirectory [[src]](src/java/net/i2p/i2pfirefox/I2PFirefoxProfileBuilder.java#L99)
 
-+ Description:   
++ Description: get the runtime directory creating it if create=true   
 + Access: public  
 + Modifiers: static 
-+ return: File  
++ return: the runtime directory or null if it could not be created   
 
 | Name | Type | Description |  
 | ----- | ----- | ----- |  
-| create | boolean |  |  
+| create | boolean | if true create the runtime directory if it does not exist  |  
 
 
 ### runtimeDirectory [[src]](src/java/net/i2p/i2pfirefox/I2PFirefoxProfileBuilder.java#L116)
 
-+ Description:   
++ Description: get the correct runtime directory   
 + Access: public  
 + Modifiers: static 
-+ return: String  
++ return: the runtime directory or null if it could not be created or found   
 
 This method has no parameters.  
 
 
 ### copyBaseProfiletoProfile [[src]](src/java/net/i2p/i2pfirefox/I2PFirefoxProfileBuilder.java#L162)
 
-+ Description:   
++ Description: Copy the inert base profile directory to the runtime profile directory   
 + Access: public  
 + Modifiers: static 
 + return: boolean  
@@ -151,10 +155,10 @@ This method has no parameters.
 
 ### copyStrictOptions [[src]](src/java/net/i2p/i2pfirefox/I2PFirefoxProfileBuilder.java#L227)
 
-+ Description:   
++ Description: Copy the strict options from the base profile to the profile   
 + Access: public  
 + Modifiers: static 
-+ return: boolean  
++ return: true if successful false otherwise   
 
 This method has no parameters.  
 

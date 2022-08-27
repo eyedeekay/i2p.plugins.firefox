@@ -2,7 +2,7 @@ package net.i2p.i2pfirefox;
 
 import java.io.File;
 
-/*
+/**
  * I2PChromiumProfileChecker.java
  * Copyright (C) 2022 idk <hankhill19580@gmail.com>
  * This program is free software: you can redistribute it and/or modify
@@ -19,7 +19,7 @@ import java.io.File;
  * @since 0.0.1
  */
 public class I2PChromiumProfileChecker {
-    /*
+    /**
      * Output feedback if the profile directory is valid or invalid
      * 
      * @description Output feedback if the profile directory is valid or invalid
@@ -39,7 +39,7 @@ public class I2PChromiumProfileChecker {
             System.out.println("Profile directory is invalid");
         }
     }    
-    /*
+    /**
      * Return true if the profile directory is valid.
      * 
      * @param profileDirectory the profile directory to check
@@ -70,7 +70,7 @@ public class I2PChromiumProfileChecker {
         }
         return true;
     }
-    /*
+    /**
      * Return true if the extension directory is valid.
      * 
      * @param extensionDirectory the extension directory to check
@@ -97,7 +97,7 @@ public class I2PChromiumProfileChecker {
         }
         return true;
     }
-    /*
+    /**
      * Return true if the extension directory is valid.
      * 
      * @param extensionDirectory the extension directory to check

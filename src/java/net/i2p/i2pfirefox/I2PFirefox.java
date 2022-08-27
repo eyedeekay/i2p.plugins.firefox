@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.net.Socket;
 import java.util.ArrayList;
 
-/*
+/**
  * I2PFirefox.java
  * Copyright (C) 2022 idk <hankhill19580@gmail.com>
  * This program is free software: you can redistribute it and/or modify
@@ -23,7 +23,7 @@ public class I2PFirefox {
     private final String[] FIREFOX_SEARCH_PATHS = FIREFOX_FINDER();
     private final int DEFAULT_TIMEOUT = 200;
 
-    /*
+    /**
      * Construct an I2PFirefox class which manages an instance of Firefox and
      * an accompanying Firefox profile. This version includes Firefox variants
      * and forks.
@@ -207,7 +207,7 @@ public class I2PFirefox {
         return "Unknown";
     }
 
-    /*
+    /**
      * Check our list of firefox paths for a valid firefox binary.
      * Just an existence check for now, but should check versions
      * in the future.
@@ -229,7 +229,7 @@ public class I2PFirefox {
         return validFirefoxes.toArray(new String[validFirefoxes.size()]);
     }
 
-    /*
+    /**
      * Return the best available Firefox from the list of Firefoxes we have.
      * 
      * @return the path to the best available Firefox, or null if none are found.
@@ -255,7 +255,7 @@ public class I2PFirefox {
         }
     }
 
-    /*
+    /**
      * Return the best available Firefox from the list of Firefoxes we have.
      * if override is passed it will be validated and if it validates, it will
      * be used.
@@ -274,7 +274,7 @@ public class I2PFirefox {
         return topFirefox();
     }
 
-    /*
+    /**
      * Build a ProcessBuilder for the top Firefox binary and
      * the default profile.
      * 
@@ -286,7 +286,19 @@ public class I2PFirefox {
         return processBuilder(new String[]{});
     }
 
-    /*
+    /**
+     * * Build a ProcessBuilder for the top Firefox binary and
+     * the default profile.
+     * 
+     * @param args the args to pass to the Firefox binary
+     * @return a ProcessBuilder for the top Firefox binary and
+     * the default profile.
+     */
+    public ProcessBuilder defaultProcessBuilder(String[] args) {
+        return processBuilder(args);
+    }
+
+    /**
      * Build a ProcessBuilder for the top Firefox binary and
      * the default profile. Pass the --private-window flag to
      * open a private window.
@@ -300,7 +312,28 @@ public class I2PFirefox {
         return processBuilder(new String[]{"--private-window"});
     }
 
-    /*
+
+    /**
+     * * Build a ProcessBuilder for the top Firefox binary and
+     * the default profile. Pass the --private-window flag to
+     * open a private window.
+     * 
+     * @param args the arguments to pass to the Firefox binary
+     * @return a ProcessBuilder for the top Firefox binary and
+     * the default profile.
+     */
+    public ProcessBuilder privateProcessBuilder(String[] args) {
+        ArrayList<String> argList = new ArrayList<String>();
+        argList.add("--private-window");
+        if (args != null && args.length > 0) {
+            for (String arg : args) {
+                argList.add(arg);
+            }
+        }
+        return processBuilder(argList.toArray(new String[argList.size()]));
+    }
+
+    /**
      * Build a ProcessBuilder for the top Firefox binary and
      * the default profile, with a specific set of extended
      * arguments.
@@ -317,7 +350,7 @@ public class I2PFirefox {
             newArgs[0] = firefox;
             newArgs[1] = "--profile";
             newArgs[2] = I2PFirefoxProfileBuilder.profileDirectory();
-            if (args.length > 0) {
+            if (args != null && args.length > 0) {
                 for (int i = 0; i < args.length; i++) {
                     newArgs[i+3] = args[i];
                 }
@@ -329,7 +362,7 @@ public class I2PFirefox {
         }
     }
 
-    /*
+    /**
      * Waits for an HTTP proxy on port 4444 to be ready.
      * Returns false on timeout of 200 seconds.
      * 
@@ -340,7 +373,7 @@ public class I2PFirefox {
         return waitForProxy(DEFAULT_TIMEOUT);
     }
 
-    /* 
+    /** 
      * Waits for an HTTP proxy on port 4444 to be ready.
      * Returns false on timeout of the specified number of seconds.
      * 
@@ -351,7 +384,7 @@ public class I2PFirefox {
     public boolean waitForProxy(int timeout) {
         return waitForProxy(timeout, 4444);
     }
-    /*
+    /**
      * Waits for an HTTP proxy on the specified port to be ready.
      * Returns false on timeout of the specified number of seconds.
      * 
@@ -363,7 +396,7 @@ public class I2PFirefox {
     public boolean waitForProxy(int timeout, int port) {
         return waitForProxy(timeout, port, "localhost");
     }
-    /*
+    /**
      * Waits for an HTTP proxy on the specified port to be ready.
      * Returns false on timeout of the specified number of seconds.
      * 
@@ -396,16 +429,16 @@ public class I2PFirefox {
         }
     }
 
-
-    /*
+    /**
      * Populates a profile directory with a proxy configuration.
      * Waits for an HTTP proxy on the port 4444 to be ready.
      * Launches Firefox with the profile directory.
      * 
      * @param bool if true, the profile will be ephemeral(i.e. a --private-window profile).
-     * @since 0.0.1
+     * @param String[] a list of URL's to pass to the browser window
+     * @since 0.0.17
      */
-    public void launch(boolean privateWindow){
+    public void launch(boolean privateWindow, String[] url){
         String profileDirectory = I2PFirefoxProfileBuilder.profileDirectory();
         if (I2PFirefoxProfileChecker.validateProfileDirectory(profileDirectory)) {
             System.out.println("Valid profile directory: "+profileDirectory);
@@ -421,9 +454,9 @@ public class I2PFirefox {
         if (waitForProxy()){
             ProcessBuilder pb;
             if (privateWindow) {
-                pb = privateProcessBuilder();
+                pb = privateProcessBuilder(url);
             } else {
-                pb = defaultProcessBuilder();
+                pb = defaultProcessBuilder(url);
             }
             try{
                 System.out.println(pb.command());
@@ -443,7 +476,19 @@ public class I2PFirefox {
         }
     }
 
-    /*
+    /**
+     * Populates a profile directory with a proxy configuration.
+     * Waits for an HTTP proxy on the port 4444 to be ready.
+     * Launches Firefox with the profile directory.
+     * 
+     * @param bool if true, the profile will be ephemeral(i.e. a --private-window profile).
+     * @since 0.0.1
+     */
+    public void launch(boolean privateWindow){
+        launch(privateWindow, null);
+    }
+
+    /**
      * Populates a profile directory with a proxy configuration.
      * Waits for an HTTP proxy on the port 4444 to be ready.
      * Launches Firefox with the profile directory. Uses a semi-permanent
@@ -455,18 +500,36 @@ public class I2PFirefox {
         launch(false);
     }
 
+    private static String ValidURL(String inUrl){
+        String[] schemes = {"http", "https"};
+        for (String scheme: schemes) {
+            if (inUrl.startsWith(scheme)) {
+                System.out.println("Valid URL: " + inUrl);
+                return inUrl;
+            }
+        }
+        return "";
+    }
+
     public static void main(String[] args) {
         boolean privateBrowsing = false;
+        System.out.println("checking for private browsing");
+        ArrayList<String> visitURL = new ArrayList<String>();
         if (args != null && args.length > 0) {
-            System.out.println("checking for private browsing");
-            if (args[0].equals("-private")) {
-                privateBrowsing = true;
-                System.out.println("private browsing is true, profile will be discarded at end of session");
+            for (String arg : args) {
+                if (arg.equals("-private")) {
+                    privateBrowsing = true;
+                    System.out.println("private browsing is true, profile will be discarded at end of session");
+                }
+                if (!arg.startsWith("-")){
+                    // check if it's a URL
+                    visitURL.add(ValidURL(arg));
+                }
             }
         }
         System.out.println("I2PFirefox");
         I2PFirefox i2pFirefox = new I2PFirefox();
-        i2pFirefox.launch(privateBrowsing);
+        i2pFirefox.launch(privateBrowsing, visitURL.toArray(new String[visitURL.size()]));
     }
         
     private static void sleep(int millis) {
