@@ -19,6 +19,10 @@ import java.io.File;
  * @since 0.0.1
  */
 public class I2PFirefoxProfileChecker {
+    
+    /**
+     * @param args unused
+     */
     public static void main(String[] args) {
         String profileDirectory = I2PFirefoxProfileBuilder.profileDirectory();
         if (profileDirectory == null) {

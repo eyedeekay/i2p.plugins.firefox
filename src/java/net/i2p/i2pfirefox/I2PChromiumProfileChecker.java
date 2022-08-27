@@ -23,6 +23,7 @@ public class I2PChromiumProfileChecker {
      * Output feedback if the profile directory is valid or invalid
      * 
      * @description Output feedback if the profile directory is valid or invalid
+     * @args unused
      * @since 0.0.1
      */
     public static void main(String[] args) {
@@ -71,10 +72,10 @@ public class I2PChromiumProfileChecker {
         return true;
     }
     /**
-     * Return true if the extension directory is valid.
+     * Return true if the file is valid.
      * 
-     * @param extensionDirectory the extension directory to check
-     * @return true if the extension directory is valid, false otherwise
+     * @param file the file to check
+     * @return true if the file is valid, false otherwise
      * @since 0.0.1
      */
     public static boolean validateFile(String file) {
