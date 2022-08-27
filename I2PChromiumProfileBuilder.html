@@ -1,514 +1,563 @@
 <html>
-  <head>
-    <title>
-      i2p.plugins.fire...
-    </title>
-    <meta name="author" content="eyedeekay" />
-    <meta name="description" content="i2p.plugins.firefox" />
-    <meta name="keywords" content="main" />
-    <link rel="stylesheet" type="text/css" href="style.css" />
-    <link rel="stylesheet" type="text/css" href="showhider.css" />
-  </head>
-  <body>
-    <div id="navbar">
-      <a href="#shownav">
-        Show navigation
-      </a>
-      <div id="shownav">
-        <div id="hidenav">
-          <ul>
-            <li>
-              <a href="index.html">
-                index
-              </a>
-            </li>
-            <li>
-              <a href="CHANGES.html">
-                CHANGES
-              </a>
-            </li>
-            <li>
-              <a href="EXAMPLES.html">
-                EXAMPLES
-              </a>
-            </li>
-            <li>
-              <a href="I2PBrowser.html">
-                I2PBrowser
-              </a>
-            </li>
-            <li>
-              <a href="I2PChromium.html">
-                I2PChromium
-              </a>
-            </li>
-            <li>
-              <a href="I2PChromiumProfileBuilder.html">
-                I2PChromiumProfileBuilder
-              </a>
-            </li>
-            <li>
-              <a href="I2PChromiumProfileChecker.html">
-                I2PChromiumProfileChecker
-              </a>
-            </li>
-            <li>
-              <a href="I2PChromiumProfileUnpacker.html">
-                I2PChromiumProfileUnpacker
-              </a>
-            </li>
-            <li>
-              <a href="I2PFirefox.html">
-                I2PFirefox
-              </a>
-            </li>
-            <li>
-              <a href="I2PFirefoxProfileBuilder.html">
-                I2PFirefoxProfileBuilder
-              </a>
-            </li>
-            <li>
-              <a href="I2PFirefoxProfileChecker.html">
-                I2PFirefoxProfileChecker
-              </a>
-            </li>
-            <li>
-              <a href="I2PFirefoxProfileUnpacker.html">
-                I2PFirefoxProfileUnpacker
-              </a>
-            </li>
-            <li>
-              <a href="LICENSE.html">
-                LICENSE
-              </a>
-            </li>
-            <li>
-              <a href="USAGE.html">
-                USAGE
-              </a>
-            </li>
-          </ul>
-          <br>
-          <a href="#hidenav">
-            Hide Navigation
+<head>
+  <title>
+    i2p.plugins.fire...
+  </title>
+  <meta name="author" content="eyedeekay" />
+  <meta name="description" content="i2p.plugins.firefox" />
+  <meta name="keywords" content="main" />
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  <link rel="stylesheet" type="text/css" href="showhider.css" />
+</head>
+<body>
+<div id="navbar">
+  <a href="#shownav">
+    Show navigation
+  </a>
+  <div id="shownav">
+    <div id="hidenav">
+      <ul>
+        <li>
+          <a href="index.html">
+            index
           </a>
-        </div>
-      </div>
+        </li>
+        <li>
+          <a href="CHANGES.html">
+            CHANGES
+          </a>
+        </li>
+        <li>
+          <a href="EXAMPLES.html">
+            EXAMPLES
+          </a>
+        </li>
+        <li>
+          <a href="I2PBrowser.html">
+            I2PBrowser
+          </a>
+        </li>
+        <li>
+          <a href="I2PChromium.html">
+            I2PChromium
+          </a>
+        </li>
+        <li>
+          <a href="I2PChromiumProfileBuilder.html">
+            I2PChromiumProfileBuilder
+          </a>
+        </li>
+        <li>
+          <a href="I2PChromiumProfileChecker.html">
+            I2PChromiumProfileChecker
+          </a>
+        </li>
+        <li>
+          <a href="I2PChromiumProfileUnpacker.html">
+            I2PChromiumProfileUnpacker
+          </a>
+        </li>
+        <li>
+          <a href="I2PFirefox.html">
+            I2PFirefox
+          </a>
+        </li>
+        <li>
+          <a href="I2PFirefoxProfileBuilder.html">
+            I2PFirefoxProfileBuilder
+          </a>
+        </li>
+        <li>
+          <a href="I2PFirefoxProfileChecker.html">
+            I2PFirefoxProfileChecker
+          </a>
+        </li>
+        <li>
+          <a href="I2PFirefoxProfileUnpacker.html">
+            I2PFirefoxProfileUnpacker
+          </a>
+        </li>
+        <li>
+          <a href="LICENSE.html">
+            LICENSE
+          </a>
+        </li>
+        <li>
+          <a href="USAGE.html">
+            USAGE
+          </a>
+        </li>
+      </ul>
+      <br>
+      <a href="#hidenav">
+        Hide Navigation
+      </a>
     </div>
-    <h1>
-      Class I2PChromiumProfileBuilder
-      <a href="src/java/net/i2p/i2pfirefox/I2PChromiumProfileBuilder.java" rel="nofollow">
-        [src]
-      </a>
-    </h1>
-    <blockquote>
-      <p>
-        */
-      </p>
-    </blockquote>
-    <p>
-      Access: public
-      <br/>
-      Description:
-      <br/>
-      &gt; I2PChromiumProfileBuilder.java Copyright C 2022 idk
-      <a href="mailto:hankhill19580@gmail.com" rel="nofollow">
-        hankhill19580@gmail.com
-      </a>
-      This program is free software: you can redistribute it and/or modify it under the terms of the MIT License. See LICENSE.md for details. This program is distributed in the hope that it will be useful but WITHOUT ANY WARRANTY without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. I2PChromiumProfileBuilder is a that builds a profile directory which contains the I2P browser profile for the Chromium browser family. It manages the base profile directory and copies it’s contents to the active profile directory which is actually used by Chromium.
-    </p>
-    <p>
-      Author: idk
-      <br/>
-      package: net.i2p.i2pfirefox
-    </p>
-    <h2>
-      Dependencies
-    </h2>
-    <p>
-      <details>
-        <br/>
-        <summary>
-          <br/>
-          Show dependencies
-          <br/>
-        </summary>
-        <br/>
-        <ul>
-          <br/>
-          <li>
-            java.io.File
-          </li>
-          <li>
-            java.io.FileInputStream
-          </li>
-          <li>
-            java.io.FileOutputStream
-          </li>
-          <li>
-            java.io.IOException
-          </li>
-          <li>
-            java.io.InputStream
-          </li>
-          <li>
-            java.io.OutputStream
-          </li>
-          <li>
-            java.nio.file.Files
-          </li>
-          <li>
-            java.nio.file.StandardCopyOption
-          </li>
-        </ul>
-        <br/>
-      </details>
-    </p>
-    <h2>
-      Member Variables
-    </h2>
-    <h4>
-      boolean strict
-      <a href="src/java/net/i2p/i2pfirefox/I2PChromiumProfileBuilder.java#L" rel="nofollow">
-        [src]
-      </a>
-    </h4>
-    <blockquote></blockquote>
-    <ul>
-      <li>
-        Access: private
-        <br/>
-      </li>
-      <li>
-        Modifiers: static
-      </li>
-    </ul>
-    <h2>
-      Methods
-    </h2>
-    <h3>
-      profileDir
-      <a href="src/java/net/i2p/i2pfirefox/I2PChromiumProfileBuilder.java#L33" rel="nofollow">
-        [src]
-      </a>
-    </h3>
-    <ul>
-      <li>
-        Description:
-        <br/>
-      </li>
-      <li>
-        Access: private
-        <br/>
-      </li>
-      <li>
-        Modifiers: static
-      </li>
-      <li>
-        return: String
-        <br/>
-      </li>
-    </ul>
-    <p>
-      | Name | Type | Description |
-      <br/>
-      | —– | —– | —– |
-      <br/>
-      | file | String |  |
-    </p>
-    <h3>
-      profileDirectory
-      <a href="src/java/net/i2p/i2pfirefox/I2PChromiumProfileBuilder.java#L43" rel="nofollow">
-        [src]
-      </a>
-    </h3>
-    <ul>
-      <li>
-        Description: get the profile directory creating it if necessary
-        <br/>
-      </li>
-      <li>
-        Access: public
-        <br/>
-      </li>
-      <li>
-        Modifiers: static
-      </li>
-      <li>
-        return: String
-        <br/>
-      </li>
-    </ul>
-    <p>
-      This method has no parameters.
-    </p>
-    <h3>
-      baseProfileDir
-      <a href="src/java/net/i2p/i2pfirefox/I2PChromiumProfileBuilder.java#L55" rel="nofollow">
-        [src]
-      </a>
-    </h3>
-    <ul>
-      <li>
-        Description:
-        <br/>
-      </li>
-      <li>
-        Access: private
-        <br/>
-      </li>
-      <li>
-        Modifiers: static
-      </li>
-      <li>
-        return: String
-        <br/>
-      </li>
-    </ul>
-    <p>
-      | Name | Type | Description |
-      <br/>
-      | —– | —– | —– |
-      <br/>
-      | file | String |  |
-    </p>
-    <h3>
-      baseProfileDirectory
-      <a href="src/java/net/i2p/i2pfirefox/I2PChromiumProfileBuilder.java#L75" rel="nofollow">
-        [src]
-      </a>
-    </h3>
-    <ul>
-      <li>
-        Description: get the base profile directory creating it if necessary
-        <br/>
-      </li>
-      <li>
-        Access: public
-        <br/>
-      </li>
-      <li>
-        Modifiers: static
-      </li>
-      <li>
-        return: String
-        <br/>
-      </li>
-    </ul>
-    <p>
-      This method has no parameters.
-    </p>
-    <h3>
-      runtimeDirectory
-      <a href="src/java/net/i2p/i2pfirefox/I2PChromiumProfileBuilder.java#L99" rel="nofollow">
-        [src]
-      </a>
-    </h3>
-    <ul>
-      <li>
-        Description: get the runtime directory creating it if create=true
-        <br/>
-      </li>
-      <li>
-        Access: public
-        <br/>
-      </li>
-      <li>
-        Modifiers: static
-      </li>
-      <li>
-        return: the runtime directory or null if it could not be created
-        <br/>
-      </li>
-    </ul>
-    <p>
-      | Name | Type | Description |
-      <br/>
-      | —– | —– | —– |
-      <br/>
-      | create | boolean | if true create the runtime directory if it does not exist  |
-    </p>
-    <h3>
-      runtimeDirectory
-      <a href="src/java/net/i2p/i2pfirefox/I2PChromiumProfileBuilder.java#L116" rel="nofollow">
-        [src]
-      </a>
-    </h3>
-    <ul>
-      <li>
-        Description: get the correct runtime directory
-        <br/>
-      </li>
-      <li>
-        Access: public
-        <br/>
-      </li>
-      <li>
-        Modifiers: static
-      </li>
-      <li>
-        return: the runtime directory or null if it could not be created or found
-        <br/>
-      </li>
-    </ul>
-    <p>
-      This method has no parameters.
-    </p>
-    <h3>
-      copyBaseProfiletoProfile
-      <a href="src/java/net/i2p/i2pfirefox/I2PChromiumProfileBuilder.java#L162" rel="nofollow">
-        [src]
-      </a>
-    </h3>
-    <ul>
-      <li>
-        Description: Copy the inert base profile directory to the runtime profile directory
-        <br/>
-      </li>
-      <li>
-        Access: public
-        <br/>
-      </li>
-      <li>
-        Modifiers: static
-      </li>
-      <li>
-        return: boolean
-        <br/>
-      </li>
-    </ul>
-    <p>
-      This method has no parameters.
-    </p>
-    <h3>
-      copyDirectory
-      <a href="src/java/net/i2p/i2pfirefox/I2PChromiumProfileBuilder.java#L192" rel="nofollow">
-        [src]
-      </a>
-    </h3>
-    <ul>
-      <li>
-        Description:
-        <br/>
-      </li>
-      <li>
-        Access: private
-        <br/>
-      </li>
-      <li>
-        Modifiers: static
-      </li>
-      <li>
-        return: void
-        <br/>
-      </li>
-    </ul>
-    <p>
-      | Name | Type | Description |
-      <br/>
-      | —– | —– | —– |
-      <br/>
-      | sourceDirectory | File |  |
-      <br/>
-      | destinationDirectory | File |  |
-    </p>
-    <h3>
-      copyDirectoryCompatibityMode
-      <a href="src/java/net/i2p/i2pfirefox/I2PChromiumProfileBuilder.java#L202" rel="nofollow">
-        [src]
-      </a>
-    </h3>
-    <ul>
-      <li>
-        Description:
-        <br/>
-      </li>
-      <li>
-        Access: public
-        <br/>
-      </li>
-      <li>
-        Modifiers: static
-      </li>
-      <li>
-        return: void
-        <br/>
-      </li>
-    </ul>
-    <p>
-      | Name | Type | Description |
-      <br/>
-      | —– | —– | —– |
-      <br/>
-      | source | File |  |
-      <br/>
-      | destination | File |  |
-    </p>
-    <h3>
-      copyFile
-      <a href="src/java/net/i2p/i2pfirefox/I2PChromiumProfileBuilder.java#L210" rel="nofollow">
-        [src]
-      </a>
-    </h3>
-    <ul>
-      <li>
-        Description:
-        <br/>
-      </li>
-      <li>
-        Access: private
-        <br/>
-      </li>
-      <li>
-        Modifiers: static
-      </li>
-      <li>
-        return: void
-        <br/>
-      </li>
-    </ul>
-    <p>
-      | Name | Type | Description |
-      <br/>
-      | —– | —– | —– |
-      <br/>
-      | sourceFile | File |  |
-      <br/>
-      | destinationFile | File |  |
-    </p>
-    <h3>
-      copyStrictOptions
-      <a href="src/java/net/i2p/i2pfirefox/I2PChromiumProfileBuilder.java#L227" rel="nofollow">
-        [src]
-      </a>
-    </h3>
-    <ul>
-      <li>
-        Description: Copy the strict options from the base profile to the profile
-        <br/>
-      </li>
-      <li>
-        Access: public
-        <br/>
-      </li>
-      <li>
-        Modifiers: static
-      </li>
-      <li>
-        return: true if successful false otherwise
-        <br/>
-      </li>
-    </ul>
-    <p>
-      This method has no parameters.
-    </p>
-    <div>
-      <a href="#show">
-        Show license
-      </a>
-      <div id="show">
-        <div id="hide">
-          <pre><code>   Copyright 2022 idk (hankhill19580@gmail.com)
+  </div>
+</div>
+<h1>
+  <a href="#class-i2pchromiumprofilebuilder-src" rel="nofollow">
+    <span></span>
+  </a>
+  Class I2PChromiumProfileBuilder
+  <a href="src/java/net/i2p/i2pfirefox/I2PChromiumProfileBuilder.java" rel="nofollow">
+    [src]
+  </a>
+</h1>
+<blockquote>
+  <p>
+    */
+  </p>
+</blockquote>
+<p>
+  Access: public
+  <br>
+  Description:
+</p>
+<blockquote>
+  <p>
+    I2PChromiumProfileBuilder.java Copyright C 2022 idk
+    <a href="mailto:hankhill19580@gmail.com" rel="nofollow">
+      hankhill19580@gmail.com
+    </a>
+    This program is free software: you can redistribute it and/or modify it under the terms of the MIT License. See LICENSE.md for details. This program is distributed in the hope that it will be useful but WITHOUT ANY WARRANTY without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. I2PChromiumProfileBuilder is a that builds a profile directory which contains the I2P browser profile for the Chromium browser family. It manages the base profile directory and copies it&#39;s contents to the active profile directory which is actually used by Chromium.
+  </p>
+</blockquote>
+<p>
+  Author: idk
+  <br>
+  package: net.i2p.i2pfirefox
+</p>
+<h2>
+  <a href="#dependencies" rel="nofollow">
+    <span></span>
+  </a>
+  Dependencies
+</h2>
+<p>
+  <details>
+  <br>
+  <summary>
+</p>
+<pre><code>Show dependencies  
+</code></pre>
+<p>
+<br>
+<ul>
+  <br>
+  <li>
+    java.io.File
+  </li>
+  <li>
+    java.io.FileInputStream
+  </li>
+  <li>
+    java.io.FileOutputStream
+  </li>
+  <li>
+    java.io.IOException
+  </li>
+  <li>
+    java.io.InputStream
+  </li>
+  <li>
+    java.io.OutputStream
+  </li>
+  <li>
+    java.nio.file.Files
+  </li>
+  <li>
+    java.nio.file.StandardCopyOption
+  </li>
+</ul>
+<br>
+<h2>
+  <a href="#member-variables" rel="nofollow">
+    <span></span>
+  </a>
+  Member Variables
+</h2>
+<h4>
+  <a href="#boolean-strict-src" rel="nofollow">
+    <span></span>
+  </a>
+  boolean strict
+  <a href="src/java/net/i2p/i2pfirefox/I2PChromiumProfileBuilder.java#L" rel="nofollow">
+    [src]
+  </a>
+</h4>
+<blockquote></blockquote>
+<ul>
+  <li>
+    Access: private
+    <br>
+  </li>
+  <li>
+    Modifiers: static
+  </li>
+</ul>
+<h2>
+  <a href="#methods" rel="nofollow">
+    <span></span>
+  </a>
+  Methods
+</h2>
+<h3>
+  <a href="#profiledir-src" rel="nofollow">
+    <span></span>
+  </a>
+  profileDir
+  <a href="src/java/net/i2p/i2pfirefox/I2PChromiumProfileBuilder.java#L33" rel="nofollow">
+    [src]
+  </a>
+</h3>
+<ul>
+  <li>
+    Description:
+    <br>
+  </li>
+  <li>
+    Access: private
+    <br>
+  </li>
+  <li>
+    Modifiers: static
+  </li>
+  <li>
+    return: String
+    <br>
+  </li>
+</ul>
+<p>
+  | Name | Type | Description |
+  <br>
+  | ----- | ----- | ----- |
+  <br>
+  | file | String |  |
+</p>
+<h3>
+  <a href="#profiledirectory-src" rel="nofollow">
+    <span></span>
+  </a>
+  profileDirectory
+  <a href="src/java/net/i2p/i2pfirefox/I2PChromiumProfileBuilder.java#L43" rel="nofollow">
+    [src]
+  </a>
+</h3>
+<ul>
+  <li>
+    Description: get the profile directory creating it if necessary
+    <br>
+  </li>
+  <li>
+    Access: public
+    <br>
+  </li>
+  <li>
+    Modifiers: static
+  </li>
+  <li>
+    return: String
+    <br>
+  </li>
+</ul>
+<p>
+  This method has no parameters.
+</p>
+<h3>
+  <a href="#baseprofiledir-src" rel="nofollow">
+    <span></span>
+  </a>
+  baseProfileDir
+  <a href="src/java/net/i2p/i2pfirefox/I2PChromiumProfileBuilder.java#L55" rel="nofollow">
+    [src]
+  </a>
+</h3>
+<ul>
+  <li>
+    Description:
+    <br>
+  </li>
+  <li>
+    Access: private
+    <br>
+  </li>
+  <li>
+    Modifiers: static
+  </li>
+  <li>
+    return: String
+    <br>
+  </li>
+</ul>
+<p>
+  | Name | Type | Description |
+  <br>
+  | ----- | ----- | ----- |
+  <br>
+  | file | String |  |
+</p>
+<h3>
+  <a href="#baseprofiledirectory-src" rel="nofollow">
+    <span></span>
+  </a>
+  baseProfileDirectory
+  <a href="src/java/net/i2p/i2pfirefox/I2PChromiumProfileBuilder.java#L75" rel="nofollow">
+    [src]
+  </a>
+</h3>
+<ul>
+  <li>
+    Description: get the base profile directory creating it if necessary
+    <br>
+  </li>
+  <li>
+    Access: public
+    <br>
+  </li>
+  <li>
+    Modifiers: static
+  </li>
+  <li>
+    return: String
+    <br>
+  </li>
+</ul>
+<p>
+  This method has no parameters.
+</p>
+<h3>
+  <a href="#runtimedirectory-src" rel="nofollow">
+    <span></span>
+  </a>
+  runtimeDirectory
+  <a href="src/java/net/i2p/i2pfirefox/I2PChromiumProfileBuilder.java#L99" rel="nofollow">
+    [src]
+  </a>
+</h3>
+<ul>
+  <li>
+    Description: get the runtime directory creating it if create=true
+    <br>
+  </li>
+  <li>
+    Access: public
+    <br>
+  </li>
+  <li>
+    Modifiers: static
+  </li>
+  <li>
+    return: the runtime directory or null if it could not be created
+    <br>
+  </li>
+</ul>
+<p>
+  | Name | Type | Description |
+  <br>
+  | ----- | ----- | ----- |
+  <br>
+  | create | boolean | if true create the runtime directory if it does not exist  |
+</p>
+<h3>
+  <a href="#runtimedirectory-src" rel="nofollow">
+    <span></span>
+  </a>
+  runtimeDirectory
+  <a href="src/java/net/i2p/i2pfirefox/I2PChromiumProfileBuilder.java#L116" rel="nofollow">
+    [src]
+  </a>
+</h3>
+<ul>
+  <li>
+    Description: get the correct runtime directory
+    <br>
+  </li>
+  <li>
+    Access: public
+    <br>
+  </li>
+  <li>
+    Modifiers: static
+  </li>
+  <li>
+    return: the runtime directory or null if it could not be created or found
+    <br>
+  </li>
+</ul>
+<p>
+  This method has no parameters.
+</p>
+<h3>
+  <a href="#copybaseprofiletoprofile-src" rel="nofollow">
+    <span></span>
+  </a>
+  copyBaseProfiletoProfile
+  <a href="src/java/net/i2p/i2pfirefox/I2PChromiumProfileBuilder.java#L162" rel="nofollow">
+    [src]
+  </a>
+</h3>
+<ul>
+  <li>
+    Description: Copy the inert base profile directory to the runtime profile directory
+    <br>
+  </li>
+  <li>
+    Access: public
+    <br>
+  </li>
+  <li>
+    Modifiers: static
+  </li>
+  <li>
+    return: boolean
+    <br>
+  </li>
+</ul>
+<p>
+  This method has no parameters.
+</p>
+<h3>
+  <a href="#copydirectory-src" rel="nofollow">
+    <span></span>
+  </a>
+  copyDirectory
+  <a href="src/java/net/i2p/i2pfirefox/I2PChromiumProfileBuilder.java#L192" rel="nofollow">
+    [src]
+  </a>
+</h3>
+<ul>
+  <li>
+    Description:
+    <br>
+  </li>
+  <li>
+    Access: private
+    <br>
+  </li>
+  <li>
+    Modifiers: static
+  </li>
+  <li>
+    return: void
+    <br>
+  </li>
+</ul>
+<p>
+  | Name | Type | Description |
+  <br>
+  | ----- | ----- | ----- |
+  <br>
+  | sourceDirectory | File |  |
+  <br>
+  | destinationDirectory | File |  |
+</p>
+<h3>
+  <a href="#copydirectorycompatibitymode-src" rel="nofollow">
+    <span></span>
+  </a>
+  copyDirectoryCompatibityMode
+  <a href="src/java/net/i2p/i2pfirefox/I2PChromiumProfileBuilder.java#L202" rel="nofollow">
+    [src]
+  </a>
+</h3>
+<ul>
+  <li>
+    Description:
+    <br>
+  </li>
+  <li>
+    Access: public
+    <br>
+  </li>
+  <li>
+    Modifiers: static
+  </li>
+  <li>
+    return: void
+    <br>
+  </li>
+</ul>
+<p>
+  | Name | Type | Description |
+  <br>
+  | ----- | ----- | ----- |
+  <br>
+  | source | File |  |
+  <br>
+  | destination | File |  |
+</p>
+<h3>
+  <a href="#copyfile-src" rel="nofollow">
+    <span></span>
+  </a>
+  copyFile
+  <a href="src/java/net/i2p/i2pfirefox/I2PChromiumProfileBuilder.java#L210" rel="nofollow">
+    [src]
+  </a>
+</h3>
+<ul>
+  <li>
+    Description:
+    <br>
+  </li>
+  <li>
+    Access: private
+    <br>
+  </li>
+  <li>
+    Modifiers: static
+  </li>
+  <li>
+    return: void
+    <br>
+  </li>
+</ul>
+<p>
+  | Name | Type | Description |
+  <br>
+  | ----- | ----- | ----- |
+  <br>
+  | sourceFile | File |  |
+  <br>
+  | destinationFile | File |  |
+</p>
+<h3>
+  <a href="#copystrictoptions-src" rel="nofollow">
+    <span></span>
+  </a>
+  copyStrictOptions
+  <a href="src/java/net/i2p/i2pfirefox/I2PChromiumProfileBuilder.java#L227" rel="nofollow">
+    [src]
+  </a>
+</h3>
+<ul>
+  <li>
+    Description: Copy the strict options from the base profile to the profile
+    <br>
+  </li>
+  <li>
+    Access: public
+    <br>
+  </li>
+  <li>
+    Modifiers: static
+  </li>
+  <li>
+    return: true if successful false otherwise
+    <br>
+  </li>
+</ul>
+<p>
+  This method has no parameters.
+</p>
+<div>
+  <a href="#show">
+    Show license
+  </a>
+  <div id="show">
+    <div id="hide">
+      <pre><code>   Copyright 2022 idk (hankhill19580@gmail.com)
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -1351,20 +1400,18 @@ consider it more useful to permit linking proprietary applications with the
 library.  If this is what you want to do, use the GNU Library General
 Public License instead of this License.
 </code></pre>
-          <a href="#hide">
-            Hide license
-          </a>
-        </div>
-      </div>
-    </div>
-    <div>
-      <iframe src="https://snowflake.torproject.org/embed.html" width="320" height="240" frameborder="0" scrolling="no"></iframe>
-    </div>
-    <div>
-      <a href="https://geti2p.net/">
-        <img src="i2plogo.png"></img>
-        I2P
+      <a href="#hide">
+        Hide license
       </a>
     </div>
-  </body>
-</html>
+  </div>
+</div>
+<div>
+  <iframe src="https://snowflake.torproject.org/embed.html" width="320" height="240" frameborder="0" scrolling="no"></iframe>
+</div>
+<div>
+  <a href="https://geti2p.net/">
+    <img src="i2plogo.png"></img>
+    I2P
+  </a>
+</div>
