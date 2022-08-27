@@ -96,18 +96,28 @@
       </div>
     </div>
     <h1>
+      <a href="#i2p-plugins-firefox" rel="nofollow">
+        <span></span>
+      </a>
       i2p.plugins.firefox
     </h1>
     <p>
       A port of the batch scripts from i2p.firefox to Java.
     </p>
     <h2>
+      <a href="#getting-started" rel="nofollow">
+        <span></span>
+      </a>
       Getting started
     </h2>
     <h3>
+      <a href="#using-a-binary" rel="nofollow">
+        <span></span>
+      </a>
       Using a Binary
     </h3>
-    <pre><code>
+    <div>
+      <pre>
 mkdir ~/tmp-i2pfirefox &amp;&amp; cd ~/tmp-i2pfirefox
 wget https://github.com/eyedeekay/i2p.plugins.firefox/releases/download/0.0.10/i2pfirefox.zip
 unzip i2pfirefox.zip
@@ -116,8 +126,12 @@ unzip i2pfirefox.zip
 #or if you want to use a Chromium
 
 ./i2pchromium.cmd
-</code></pre>
+</pre>
+    </div>
     <h3>
+      <a href="#build-dependencies" rel="nofollow">
+        <span></span>
+      </a>
       Build Dependencies
     </h3>
     <p>
@@ -134,12 +148,14 @@ unzip i2pfirefox.zip
       <code>
         crx3
       </code>
-      which is used to interact with the Chrome app store. I’ve been using Java 17
+      which is used to interact with the Chrome app store. I&#39;ve been using Java 17
       on Debian mostly, on Debian and Ubuntu, install the dependencies with:
     </p>
-    <pre><code>sudo apt-get install openjdk-17* ant golang-go
+    <div>
+      <pre>sudo apt-get install openjdk-17* ant golang-go
 go install github.com/mediabuyerbot/go-crx3/crx3@latest
-</code></pre>
+</pre>
+    </div>
     <p>
       For Fedora, use Yum, for Arch use pacman or something else but make sure to tell everyone
       about it. Once you have that installed, when building, make sure to add
@@ -152,12 +168,17 @@ go install github.com/mediabuyerbot/go-crx3/crx3@latest
       </code>
       .
     </p>
-    <pre><code>export PATH=$PATH:$HOME/go/bin
-</code></pre>
+    <div>
+      <pre>export PATH=$PATH:$HOME/go/bin
+</pre>
+    </div>
     <p>
       Will almost always work.
     </p>
     <h3>
+      <a href="#building" rel="nofollow">
+        <span></span>
+      </a>
       Building
     </h3>
     <p>
@@ -165,15 +186,19 @@ go install github.com/mediabuyerbot/go-crx3/crx3@latest
       To generate that, you can either generate the full plugin, which will not work but
       produces the jar as a by-product, or you can:
     </p>
-    <pre><code>
+    <div>
+      <pre>
 ant jar
-</code></pre>
+</pre>
+    </div>
     <p>
-      To build just the jar. You’ll know it worked if you can:
+      To build just the jar. You&#39;ll know it worked if you can:
     </p>
-    <pre><code>
+    <div>
+      <pre>
 java -cp ./src/build/i2pfirefox.jar net.i2p.i2pfirefox.I2PFirefox
-</code></pre>
+</pre>
+    </div>
     <p>
       and a new Firefox instance comes up with a fresh profile, ready-to-use for I2P browsing.
     </p>
@@ -181,7 +206,8 @@ java -cp ./src/build/i2pfirefox.jar net.i2p.i2pfirefox.I2PFirefox
       The cooler thing you can do with it is add it to an I2P distribution and somewhere in it,
       add a UI element that triggers something along the lines of this:
     </p>
-    <pre><code>
+    <div>
+      <pre>
 // Firefox Example
 if (i2pIsRunning()) {
     logger.warning(&#34;I2P is already running&#34;);
@@ -189,8 +215,10 @@ if (i2pIsRunning()) {
     I2PFirefox i2pFirefox = new I2PFirefox();
     i2pFirefox.launch();
 }
-</code></pre>
-    <pre><code>
+</pre>
+    </div>
+    <div>
+      <pre>
 // Chromium Example
 if (i2pIsRunning()) {
     logger.warning(&#34;I2P is already running&#34;);
@@ -198,8 +226,10 @@ if (i2pIsRunning()) {
     I2PChromium i2pChromium = new I2PChromium();
     i2pChromium.launch();
 }
-</code></pre>
-    <pre><code>
+</pre>
+    </div>
+    <div>
+      <pre>
 // Auto-Select Example, chooses Firefox first, then Chromium
 if (i2pIsRunning()) {
     logger.warning(&#34;I2P is already running&#34;);
@@ -212,7 +242,8 @@ if (i2pIsRunning()) {
     */
     i2pBrowser.launch(privateBrowsing);
 }
-</code></pre>
+</pre>
+    </div>
     <p>
       to add a browser management tool to it.
     </p>
