@@ -31,17 +31,9 @@ public class I2PBrowser {
         System.out.println("I2PFirefox");
         i2pFirefox.launch(privateWindow, url);
     }
-    private void launchFirefox(boolean privateWindow) {
-        System.out.println("I2PFirefox");
-        i2pFirefox.launch(privateWindow);
-    }
     private void launchChromium(boolean privateWindow, String[] url) {
         System.out.println("I2PChromium");
         i2pChromium.launch(privateWindow, url);
-    }
-    private void launchChromium(boolean privateWindow) {
-        System.out.println("I2PChromium");
-        i2pChromium.launch(privateWindow);
     }
  
     /**

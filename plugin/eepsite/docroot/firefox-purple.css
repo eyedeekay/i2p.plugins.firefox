@@ -1,0 +1,235 @@
+/* I2P Firefox theme (purrrrple) */
+/* Author: dr|z3d 2019 */
+
+html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    color: #fef;
+    background: #111;
+    font-size: 14pt;
+    font-family: "Droid Sans", "Open Sans", "Noto Sans", Ubuntu, "Segoe UI", "Lucida Grande", Verdana, Helvetica, sans-serif;
+
+}
+
+@supports (background-blend-mode: overlay) {
+    html, body {
+        background: repeating-linear-gradient(45deg, #313, #000 2px, #000 3px), repeating-linear-gradient(135deg, #414, #313 2px, #212 3px);
+        background-blend-mode: overlay, normal;
+        background-size: 100% 100%, 100% 100%;
+        background-attachment: fixed;
+    }
+}
+
+#container {
+    padding: 2%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: table;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+#panel {
+    padding: 20px;
+    position: relative;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    border: 1px solid #535;
+    box-shadow: inset 0 0 0 1px #111, inset 0 0 2px 1px #444, 0 0 2px 2px #000;
+    background: #180618;
+    background: repeating-linear-gradient(to right, rgba(255, 200, 255, .05), rgba(0, 0, 0, .08) 2px), repeating-linear-gradient(to bottom, #212, #101 2px); /* purple */
+    background-blend-mode: overlay;
+    will-change: transform;
+}
+
+code {
+    font-family: "Droid Sans Mono", "Noto Mono", "DejaVu Sans Mono", "Lucida Console", monospace;
+}
+
+#sitename, #sitename:hover, #sitename:focus {
+    margin: 0 auto;
+    font-size: 10em;
+    font-weight: bold;
+    text-transform: uppercase;
+    line-height: 1;
+    letter-spacing: .05em;
+    transition: ease background .3s;
+    color: #731;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+#stats #sitename, #stats #sitename:hover, #stats #sitename:focus {
+    font-size: 8em;
+}
+
+#sitename:hover, #sitename:focus {
+    color: #951;
+}
+
+@supports (-webkit-text-stroke-width: 1px) {
+    #sitename, #sitename:hover, #sitename:focus {
+        background: #731;
+        background: repeating-linear-gradient(to bottom, rgba(0, 0, 0, .2), rgba(0, 0, 0, .5) 2px), linear-gradient(to bottom, rgba(255, 96, 0, .2), rgba(0, 0, 0, .9) 100%), linear-gradient(to bottom, #414, #313 15%, #fff 50%, #313 80%);
+        -moz-background-clip: text !important;
+        -webkit-background-clip: text !important;
+        background-clip: text !important;
+        -moz-text-fill-color: transparent !important;
+        -webkit-text-fill-color: transparent !important;
+        text-fill-color: transparent !important;
+        filter: hue-rotate(0) drop-shadow(0 0 2px #181818) drop-shadow(0 3px 0.01em #000);
+        -webkit-text-stroke-color: #fef;
+        -webkit-text-stroke-width: 0.02em;
+        animation: ease-in-out spinwash 120s alternate infinite;
+        mix-blend-mode: soft-light;
+    }
+
+    #sitename:hover, #sitename:focus {
+        background: #951;
+        background: repeating-linear-gradient(to bottom, rgba(0, 0, 0, .2), rgba(0, 0, 0, .3) 2px), linear-gradient(to bottom, rgba(255, 255, 255, .2), rgba(0, 0, 0, .95)), linear-gradient(to bottom, #d59, #a39 15%, #fff 50%, #839 70%, #000);
+        filter: drop-shadow(0 0 0.02em #f00);
+        -webkit-text-stroke-color: #fef;
+        opacity: .5;
+        mix-blend-mode: normal;
+        background-blend-mode: overlay;
+        animation: none;
+    }
+}
+
+@keyframes spinwash {
+   from {
+       background: repeating-linear-gradient(to bottom, rgba(0, 0, 0, .2), rgba(0, 0, 0, .3) 2px), linear-gradient(45deg, rgba(64,16,64,.1), rgba(16,0,16,.2)), linear-gradient(to bottom, rgba(255, 255, 255, .2), rgba(0, 0, 0, .7) 100%), linear-gradient(to bottom, #930, #d50 15%, #fff 50%, #930 80%, #000 100%, #ff0 150%);
+       filter: sepia(0) hue-rotate(0) drop-shadow(0 0 2px #181818) drop-shadow(0 3px 0.01em #000);
+   }
+   to {
+       background: repeating-linear-gradient(to bottom, rgba(0, 0, 0, .2), rgba(0, 0, 0, .3) 2px), linear-gradient(45deg, rgba(16,0,16,.1), rgba(64,16,64,.2)), linear-gradient(to bottom, rgba(255, 255, 255, .2), rgba(0, 0, 0, .7) 100%), linear-gradient(to bottom, #930, #d50 15%, #fff 50%, #930 80%, #000 100%, #ff0 150%);
+       filter: sepia(0) hue-rotate(1440deg) drop-shadow(0 0 2px #181818) drop-shadow(0 3px 0.01em #000);
+   }
+}
+
+a, a:visited {
+    color: #f60;
+    text-decoration: none;
+    outline: none;
+}
+
+a:hover, a:focus {
+    color: #f90;
+}
+
+hr {
+    margin: 20px 10px;
+    height: 1px;
+    color: transparent;
+    border: none;
+    background: #555;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0), #535, rgba(0, 0, 0, 0));
+}
+
+::selection,
+::-moz-selection {
+    text-shadow: none;
+    background: #515;
+    color: #fff;
+}
+
+#totals {
+    padding-top: 6px;
+    line-height: 140%;
+    text-shadow: 0 1px 1px #000;
+}
+
+#footer {
+    padding: 4px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    font-size: 11pt;
+    font-weight: bold;
+    border-top: 1px solid #535;
+    box-shadow: inset 0 0 0 1px #000, inset 0 0 2px 1px #333;
+    background: rgba(16, 0, 16, .5);
+    -moz-user-select: all;
+    -webkit-user-select: all;
+    user-select: all;
+}
+
+#footer.version {
+    font-size: 9.5pt;
+}
+
+#footer.version a {
+    margin: 0 1px 0 2px;
+}
+
+#footer.version::before {
+    margin-left: -10px;
+    content: "";
+    display: inline-block;
+    margin-top: 1px;
+    width: 20px;
+    height: 18px;
+    vertical-align: middle;
+    background: url(/favicon.png) left top no-repeat;
+    background-size: 16px 16px;
+    filter: hue-rotate(-110deg) saturate(.4) brightness(1.4);
+}
+
+#initializing::before {
+    margin-left: -20px;
+    content: "";
+    display: inline-block;
+    width: 28px;
+    height: 24px;
+    vertical-align: text-bottom;
+    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAABRhJREFUeNq0Vd1vk1UYP+f9bruPrmu70W1lrLKJzE0o+BEFt4yLRZJpgl4YZ6IXhiuT/Slcqlw6QyIauNEYIhHlAgMrJDjUDQejdF3Xj7Xv24/3+xyf01LWOpArTvLr6XnOOc/X7znPiyml6HkOgf28+cXDxwLMcYgDsBljHAS8AeJjgDFAGMAByoAk4Ddw8GdAihKCmLMcz7N7s7CXu/JpOCE8xbAXMC0KaGYwLMeG9yj7ujuEPkXmAiDnDZNYasUx1jeNqVTWOG3Z6CLIzwK2AfNgaOGRniNPMtADB+ZiEXl8Yn9nTOD4AcMgnXoVydUy4R4FKXtFQT482tU98YIvcvtuuf+fhzUW6RXiuvMfn4zEv/4hnXicIhA209MlYDrz6rg/Gu33BlWViLbtPDW/lQpBoojlw2Pdw8Fu0Xd9uRh9/8TAIU0jiDjODgcuLCBvEqY0fnQyEOzrUXybmzZqFgDsMUWI53F97boU2Tat71sWQrUaRn0BJXRqJhJKpy3U3S3AGXfHAAGCQEn0xeFOPyj3bm5a9ctMsSxjkteqhdRWNV8qWyxFnL9TUgb7fIFgl7fXNCnPzqbTO5FacMxtjQBSJMsSHz4w4vekUnrdQ6Zc8WDnxp+5B4WSsQqCH+HoHRZQxrQnMrnKh71+5fgro6GYoVOptdwtC7cbcGy7JzbUIWsli9drdqOMfDxZupNNbavGZSi975nBJl9w+VdYD23l7COel/sktWi0cWOZHNPZxkHXUL9Pym2V4T+lmMNORrdT2Xx5GRTVlZt6DYJohM7z/DwsFk4eG4kn10u7yDcNuisCiSOE08t19/OixOfXN0oaHPqdUoKqmlo/LCkeNs06jrMwNx2Lq0WoXWl3dVHi/CcCWDimqVpGTW2sOVRUa1XXJduu20KeriNBFHMs3xcu/Z14RpdItEbw+cXLq/Fn9RVK6GkovwSk7EhTBpyIHIdfOjDY6WvKIgM96NK1da2Vg/hHHxz6XwPfnL/FPAoxkiVFqZMNqQKjJNDhk4dtjLtY9cGwq7arurajtUaAdIugm8vpXYoPj0fQt98tMa/PQBP8yTZNVCmVkCBJjGz2+o+HwsFxmxd4m7oFxmFZtwnotNo4qDoUGbzYpnxyfxCdO3ctAX6dgeWiY1moJTUICvdUj987HR7slZPZSg7xHPbKAtpIFyzISksEEGqFYKQL8mMFPkVAEJTlD/i8+az6FqSC9fTbjArAQSD6HdgbfW3qoLyypRead30y56aSOdOxnWJbBJrLI13cMaBDKyEqlV6fjY9m7m323l/deLuU19iLIv5gF9k3OoD7R/aQv7JmfhvuIpFHHTKP0itrulHVs5BSs63ZlVHDQCwgoZTmINMhaAMyks+4/N7IQDg+ujfcIXH17FQsUs5UnOLVjF0wHZDBPVngkJHZqKVXH5SAl2Tz5TcMQD41JKJQQEQ3Fy/c6j06OYijwyGd8cLyojKw7ui2MAQKMLwyoM0jQO9JrldTN/7IU1bGlFqo1QDr3RUsoNTZxQRsLG5dvT7lGytMipMTewzFK0MwT/7egvOKUbP1pdv56spaEu5eBu815O44gtmrFN/9aulR42eluAiyAJD6GZbl9+ThaB8fGwlQf49CPR7WGFys69u4VNxy1+7dN9eTa9Q0meJfADX2uWsO4/wnDQPC3JdxmEOsztlHm8lYGcI8COdOAI4DooBOFjAgC1gBXAVcg3znucabQE808DzHvwIMALq5vhJjsCXwAAAAAElFTkSuQmCC") center center no-repeat;
+    background-size: 16px 16px;
+    filter: hue-rotate(90deg) saturate(.6);
+    animation: spin linear 3s forwards infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0)
+    }
+    to {
+        transform: rotate(360deg)
+    }
+}
+
+@media screen and (max-height: 600px) {
+    #container {
+        padding: 1%;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    html, body {
+        font-size: 12pt;
+    }
+    #container {
+        padding: 1%;
+    }
+    #sitename, #sitename:hover, #sitename:focus {
+        font-size: 8em;
+    }
+    #stats #sitename, #stats #sitename:hover, #stas #sitename:focus {
+        font-size: 6em;
+    }
+    #footer.b32 {
+        font-size: 10pt;
+    }
+    #footer.version {
+        font-size: 8.5pt;
+    }
+    #initializing::before {
+        height: 20px;
+    }
+}
