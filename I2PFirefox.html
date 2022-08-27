@@ -109,6 +109,17 @@
     <p>
       Access: public
       <br/>
+      Description:
+      <br/>
+      &gt; I2PFirefox.java Copyright C 2022 idk
+      <a href="mailto:hankhill19580@gmail.com" rel="nofollow">
+        hankhill19580@gmail.com
+      </a>
+      This program is free software: you can redistribute it and/or modify it under the terms of the MIT License. See LICENSE.md for details. This program is distributed in the hope that it will be useful but WITHOUT ANY WARRANTY without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+    </p>
+    <p>
+      Author: idk
+      <br/>
       package: net.i2p.i2pfirefox
     </p>
     <h2>
@@ -395,7 +406,7 @@
     </h3>
     <ul>
       <li>
-        Description:
+        Description: Check our list of firefox paths for a valid firefox binary. Just an existence check for now but should check versions in the future.
         <br/>
       </li>
       <li>
@@ -403,7 +414,7 @@
         <br/>
       </li>
       <li>
-        return: String[]
+        return: a list of usable Firefoxes or an empty list if none are found.
         <br/>
       </li>
     </ul>
@@ -418,7 +429,7 @@
     </h3>
     <ul>
       <li>
-        Description:
+        Description: Return the best available Firefox from the list of Firefoxes we have.
         <br/>
       </li>
       <li>
@@ -426,7 +437,7 @@
         <br/>
       </li>
       <li>
-        return: String
+        return: the path to the best available Firefox or null if none are found.
         <br/>
       </li>
     </ul>
@@ -441,7 +452,7 @@
     </h3>
     <ul>
       <li>
-        Description:
+        Description: Return the best available Firefox from the list of Firefoxes we have. if override is passed it will be validated and if it validates it will be used.
         <br/>
       </li>
       <li>
@@ -449,7 +460,7 @@
         <br/>
       </li>
       <li>
-        return: String
+        return: the path to the best available Firefox or null if none are found.
         <br/>
       </li>
     </ul>
@@ -468,7 +479,30 @@
     </h3>
     <ul>
       <li>
-        Description:
+        Description: Build a ProcessBuilder for the top Firefox binary and the default profile.
+        <br/>
+      </li>
+      <li>
+        Access: public
+        <br/>
+      </li>
+      <li>
+        return: a ProcessBuilder for the top Firefox binary and the default profile.
+        <br/>
+      </li>
+    </ul>
+    <p>
+      This method has no parameters.
+    </p>
+    <h3>
+      defaultProcessBuilder
+      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L297" rel="nofollow">
+        [src]
+      </a>
+    </h3>
+    <ul>
+      <li>
+        Description: Build a ProcessBuilder for the top Firefox binary and the default profile.
         <br/>
       </li>
       <li>
@@ -477,6 +511,33 @@
       </li>
       <li>
         return: ProcessBuilder
+        <br/>
+      </li>
+    </ul>
+    <p>
+      | Name | Type | Description |
+      <br/>
+      | —– | —– | —– |
+      <br/>
+      | args | String[] | the args to pass to the Firefox binary  |
+    </p>
+    <h3>
+      privateProcessBuilder
+      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L311" rel="nofollow">
+        [src]
+      </a>
+    </h3>
+    <ul>
+      <li>
+        Description: Build a ProcessBuilder for the top Firefox binary and the default profile. Pass the –private-window flag to open a window.
+        <br/>
+      </li>
+      <li>
+        Access: public
+        <br/>
+      </li>
+      <li>
+        return: a ProcessBuilder for the top Firefox binary and the default profile.
         <br/>
       </li>
     </ul>
@@ -485,13 +546,13 @@
     </p>
     <h3>
       privateProcessBuilder
-      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L299" rel="nofollow">
+      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L325" rel="nofollow">
         [src]
       </a>
     </h3>
     <ul>
       <li>
-        Description:
+        Description: Build a ProcessBuilder for the top Firefox binary and the default profile. Pass the –private-window flag to open a window.
         <br/>
       </li>
       <li>
@@ -504,17 +565,21 @@
       </li>
     </ul>
     <p>
-      This method has no parameters.
+      | Name | Type | Description |
+      <br/>
+      | —– | —– | —– |
+      <br/>
+      | args | String[] | the arguments to pass to the Firefox binary  |
     </p>
     <h3>
       processBuilder
-      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L313" rel="nofollow">
+      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L346" rel="nofollow">
         [src]
       </a>
     </h3>
     <ul>
       <li>
-        Description:
+        Description: Build a ProcessBuilder for the top Firefox binary and the default profile with a specific set of extended arguments.
         <br/>
       </li>
       <li>
@@ -522,7 +587,7 @@
         <br/>
       </li>
       <li>
-        return: ProcessBuilder
+        return: a ProcessBuilder for the top Firefox binary and default profile with a specific set of extended arguments.
         <br/>
       </li>
     </ul>
@@ -531,17 +596,17 @@
       <br/>
       | —– | —– | —– |
       <br/>
-      | args | String[] |  |
+      | args | String[] | the extended arguments to pass to the Firefox binary.  |
     </p>
     <h3>
       waitForProxy
-      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L339" rel="nofollow">
+      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L372" rel="nofollow">
         [src]
       </a>
     </h3>
     <ul>
       <li>
-        Description:
+        Description: Waits for an HTTP proxy on port 4444 to be ready. Returns false on timeout of 200 seconds.
         <br/>
       </li>
       <li>
@@ -549,7 +614,7 @@
         <br/>
       </li>
       <li>
-        return: boolean
+        return: true if the proxy is ready false if it is not.
         <br/>
       </li>
     </ul>
@@ -558,13 +623,13 @@
     </p>
     <h3>
       waitForProxy
-      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L351" rel="nofollow">
+      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L384" rel="nofollow">
         [src]
       </a>
     </h3>
     <ul>
       <li>
-        Description:
+        Description: Waits for an HTTP proxy on port 4444 to be ready. Returns false on timeout of the specified number of seconds.
         <br/>
       </li>
       <li>
@@ -572,7 +637,7 @@
         <br/>
       </li>
       <li>
-        return: boolean
+        return: true if the proxy is ready false if it is not.
         <br/>
       </li>
     </ul>
@@ -581,17 +646,17 @@
       <br/>
       | —– | —– | —– |
       <br/>
-      | timeout | int |  |
+      | timeout | int | the number of seconds to wait for the proxy to be ready.  |
     </p>
     <h3>
       waitForProxy
-      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L363" rel="nofollow">
+      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L396" rel="nofollow">
         [src]
       </a>
     </h3>
     <ul>
       <li>
-        Description:
+        Description: Waits for an HTTP proxy on the specified port to be ready. Returns false on timeout of the specified number of seconds.
         <br/>
       </li>
       <li>
@@ -599,7 +664,7 @@
         <br/>
       </li>
       <li>
-        return: boolean
+        return: true if the proxy is ready false if it is not.
         <br/>
       </li>
     </ul>
@@ -608,19 +673,19 @@
       <br/>
       | —– | —– | —– |
       <br/>
-      | timeout | int |  |
+      | timeout | int | the number of seconds to wait for the proxy to be ready.  |
       <br/>
-      | port | int |  |
+      | port | int | the port to wait for the proxy to be ready on.  |
     </p>
     <h3>
       waitForProxy
-      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L376" rel="nofollow">
+      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L409" rel="nofollow">
         [src]
       </a>
     </h3>
     <ul>
       <li>
-        Description:
+        Description: Waits for an HTTP proxy on the specified port to be ready. Returns false on timeout of the specified number of seconds.
         <br/>
       </li>
       <li>
@@ -628,7 +693,7 @@
         <br/>
       </li>
       <li>
-        return: boolean
+        return: true if the proxy is ready false if it is not.
         <br/>
       </li>
     </ul>
@@ -637,15 +702,15 @@
       <br/>
       | —– | —– | —– |
       <br/>
-      | timeout | int |  |
+      | timeout | int | the number of seconds to wait for the proxy to be ready.  |
       <br/>
-      | port | int |  |
+      | port | int | the port to wait for the proxy to be ready on.  |
       <br/>
-      | host | String |  |
+      | host | String | the host to wait for the proxy to be ready on.  |
     </p>
     <h3>
       checkifPortIsOccupied
-      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L389" rel="nofollow">
+      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L422" rel="nofollow">
         [src]
       </a>
     </h3>
@@ -674,13 +739,42 @@
     </p>
     <h3>
       launch
-      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L408" rel="nofollow">
+      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L441" rel="nofollow">
         [src]
       </a>
     </h3>
     <ul>
       <li>
-        Description:
+        Description: Populates a profile directory with a proxy configuration. Waits for an HTTP proxy on the port 4444 to be ready. Launches Firefox with the profile directory.
+        <br/>
+      </li>
+      <li>
+        Access: public
+        <br/>
+      </li>
+      <li>
+        return: void
+        <br/>
+      </li>
+    </ul>
+    <p>
+      | Name | Type | Description |
+      <br/>
+      | —– | —– | —– |
+      <br/>
+      | privateWindow | boolean |  |
+      <br/>
+      | url | String[] |  |
+    </p>
+    <h3>
+      launch
+      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L487" rel="nofollow">
+        [src]
+      </a>
+    </h3>
+    <ul>
+      <li>
+        Description: Populates a profile directory with a proxy configuration. Waits for an HTTP proxy on the port 4444 to be ready. Launches Firefox with the profile directory.
         <br/>
       </li>
       <li>
@@ -701,13 +795,13 @@
     </p>
     <h3>
       launch
-      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L454" rel="nofollow">
+      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L499" rel="nofollow">
         [src]
       </a>
     </h3>
     <ul>
       <li>
-        Description:
+        Description: Populates a profile directory with a proxy configuration. Waits for an HTTP proxy on the port 4444 to be ready. Launches Firefox with the profile directory. Uses a semi-permanent profile.
         <br/>
       </li>
       <li>
@@ -723,8 +817,38 @@
       This method has no parameters.
     </p>
     <h3>
+      ValidURL
+      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L503" rel="nofollow">
+        [src]
+      </a>
+    </h3>
+    <ul>
+      <li>
+        Description:
+        <br/>
+      </li>
+      <li>
+        Access: private
+        <br/>
+      </li>
+      <li>
+        Modifiers: static
+      </li>
+      <li>
+        return: String
+        <br/>
+      </li>
+    </ul>
+    <p>
+      | Name | Type | Description |
+      <br/>
+      | —– | —– | —– |
+      <br/>
+      | inUrl | String |  |
+    </p>
+    <h3>
       main
-      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L458" rel="nofollow">
+      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L514" rel="nofollow">
         [src]
       </a>
     </h3>
@@ -754,7 +878,7 @@
     </p>
     <h3>
       sleep
-      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L472" rel="nofollow">
+      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L535" rel="nofollow">
         [src]
       </a>
     </h3>
