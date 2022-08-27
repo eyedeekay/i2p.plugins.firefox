@@ -1,3 +1,9 @@
+Sat, August 27
+--------------
+
+ - Added support for passing a URL as a parameter to the cli's
+ - revised test.sh
+
 Mon, August 22
 --------------
 
