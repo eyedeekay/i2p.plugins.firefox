@@ -2,7 +2,7 @@ package net.i2p.i2pfirefox;
 
 import java.io.File;
 
-/*
+/**
  * I2PFirefoxProfileChecker.java
  * Copyright (C) 2022 idk <hankhill19580@gmail.com>
  * This program is free software: you can redistribute it and/or modify
@@ -33,7 +33,7 @@ public class I2PFirefoxProfileChecker {
             System.out.println("Profile directory is invalid");
         }
     }
-    /*
+    /**
      * Return true if the profile directory is valid.
      * 
      * @param profileDirectory the profile directory to check
@@ -72,7 +72,7 @@ public class I2PFirefoxProfileChecker {
         }
         return true;
     }
-    /*
+    /**
      * Return true if the file is valid.
      * 
      * @param file the file to check
@@ -99,7 +99,7 @@ public class I2PFirefoxProfileChecker {
         }
         return true;
     }
-    /*
+    /**
      * Return true if the extension directory is valid.
      * 
      * @param extensionDirectory the extension directory to check

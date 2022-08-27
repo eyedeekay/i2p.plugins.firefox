@@ -3,6 +3,10 @@
  > */  
 
 Access: public  
+Description:  
+ > I2PBrowser.java Copyright C 2022 idk <hankhill19580@gmail.com> This program is free software: you can redistribute it and/or modify it under the terms of the MIT License. See LICENSE.md for details. This program is distributed in the hope that it will be useful but WITHOUT ANY WARRANTY without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. @description I2PBrowser is a that is used to open a browser window to the I2P network. It automatically detects the operating system and available browsers and selects the best one to use with Tor Browser at the top for Firefox and Brave at the top for Chrome.  
+
+Author: idk   
 package: net.i2p.i2pfirefox  
 
 ## Dependencies
@@ -12,6 +16,7 @@ package: net.i2p.i2pfirefox
     Show dependencies  
   </summary>  
   <ul>  
+<li>java.util.ArrayList</li>
   </ul>  
 </details>  
 
@@ -51,7 +56,19 @@ package: net.i2p.i2pfirefox
 
 ## Methods
 
-### launchFirefox [[src]](src/java/net/i2p/i2pfirefox/I2PBrowser.java#L29)
+### launchFirefox [[src]](src/java/net/i2p/i2pfirefox/I2PBrowser.java#L30)
+
++ Description:   
++ Access: private  
++ return: void  
+
+| Name | Type | Description |  
+| ----- | ----- | ----- |  
+| privateWindow | boolean |  |  
+| url | String[] |  |  
+
+
+### launchFirefox [[src]](src/java/net/i2p/i2pfirefox/I2PBrowser.java#L34)
 
 + Description:   
 + Access: private  
@@ -62,7 +79,19 @@ package: net.i2p.i2pfirefox
 | privateWindow | boolean |  |  
 
 
-### launchChromium [[src]](src/java/net/i2p/i2pfirefox/I2PBrowser.java#L33)
+### launchChromium [[src]](src/java/net/i2p/i2pfirefox/I2PBrowser.java#L38)
+
++ Description:   
++ Access: private  
++ return: void  
+
+| Name | Type | Description |  
+| ----- | ----- | ----- |  
+| privateWindow | boolean |  |  
+| url | String[] |  |  
+
+
+### launchChromium [[src]](src/java/net/i2p/i2pfirefox/I2PBrowser.java#L42)
 
 + Description:   
 + Access: private  
@@ -73,27 +102,39 @@ package: net.i2p.i2pfirefox
 | privateWindow | boolean |  |  
 
 
-### hasChromium [[src]](src/java/net/i2p/i2pfirefox/I2PBrowser.java#L52)
+### hasChromium [[src]](src/java/net/i2p/i2pfirefox/I2PBrowser.java#L61)
 
-+ Description:   
++ Description: Return true if there is a Chromium available   
 + Access: public  
-+ return: boolean  
++ return: true if Chromium is available false otherwise   
 
 This method has no parameters.  
 
 
-### hasFirefox [[src]](src/java/net/i2p/i2pfirefox/I2PBrowser.java#L69)
+### hasFirefox [[src]](src/java/net/i2p/i2pfirefox/I2PBrowser.java#L78)
 
-+ Description:   
++ Description: Return true if there is a Firefox variant available   
 + Access: public  
-+ return: boolean  
++ return: true if Firefox variant is available false otherwise   
 
 This method has no parameters.  
 
 
-### launch [[src]](src/java/net/i2p/i2pfirefox/I2PBrowser.java#L88)
+### launch [[src]](src/java/net/i2p/i2pfirefox/I2PBrowser.java#L97)
 
-+ Description:   
++ Description: Populates a profile directory with a proxy configuration. Waits for an HTTP proxy on the port 4444 to be ready. Launches either Firefox or Chromium with the profile directory.   
++ Access: public  
++ return: void  
+
+| Name | Type | Description |  
+| ----- | ----- | ----- |  
+| privateWindow | boolean |  |  
+| url | String[] |  |  
+
+
+### launch [[src]](src/java/net/i2p/i2pfirefox/I2PBrowser.java#L130)
+
++ Description: Populates a profile directory with a proxy configuration. Waits for an HTTP proxy on the port 4444 to be ready. Launches either Firefox or Chromium with the profile directory.   
 + Access: public  
 + return: void  
 
@@ -102,16 +143,28 @@ This method has no parameters.
 | privateWindow | boolean |  |  
 
 
-### launch [[src]](src/java/net/i2p/i2pfirefox/I2PBrowser.java#L120)
+### launch [[src]](src/java/net/i2p/i2pfirefox/I2PBrowser.java#L141)
 
-+ Description:   
++ Description: Populates a profile directory with a proxy configuration. Waits for an HTTP proxy on the port 4444 to be ready. Launches either Firefox or Chromium with the profile directory.   
 + Access: public  
 + return: void  
 
 This method has no parameters.  
 
 
-### main [[src]](src/java/net/i2p/i2pfirefox/I2PBrowser.java#L124)
+### ValidURL [[src]](src/java/net/i2p/i2pfirefox/I2PBrowser.java#L145)
+
++ Description:   
++ Access: private  
++ Modifiers: static 
++ return: String  
+
+| Name | Type | Description |  
+| ----- | ----- | ----- |  
+| inUrl | String |  |  
+
+
+### main [[src]](src/java/net/i2p/i2pfirefox/I2PBrowser.java#L155)
 
 + Description:   
 + Access: public  

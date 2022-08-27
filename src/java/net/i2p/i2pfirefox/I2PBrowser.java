@@ -1,7 +1,8 @@
 package net.i2p.i2pfirefox;
 
+import java.util.ArrayList;
 
-/*
+/**
  * I2PBrowser.java
  * Copyright (C) 2022 idk <hankhill19580@gmail.com>
  * This program is free software: you can redistribute it and/or modify
@@ -26,16 +27,24 @@ public class I2PBrowser {
     public boolean chromium = false;
     public boolean chromiumFirst = false;
  
+    private void launchFirefox(boolean privateWindow, String[] url) {
+        System.out.println("I2PFirefox");
+        i2pFirefox.launch(privateWindow, url);
+    }
     private void launchFirefox(boolean privateWindow) {
         System.out.println("I2PFirefox");
         i2pFirefox.launch(privateWindow);
+    }
+    private void launchChromium(boolean privateWindow, String[] url) {
+        System.out.println("I2PChromium");
+        i2pChromium.launch(privateWindow, url);
     }
     private void launchChromium(boolean privateWindow) {
         System.out.println("I2PChromium");
         i2pChromium.launch(privateWindow);
     }
  
-    /*
+    /**
      * Construct an I2PBrowser class which automatically determines which browser to use.
      * 
      * @since 0.0.16
@@ -43,7 +52,7 @@ public class I2PBrowser {
     public I2PBrowser() {
     }
 
-    /*
+    /**
      * Return true if there is a Chromium available
      * 
      * @return true if Chromium is available, false otherwise
@@ -60,7 +69,7 @@ public class I2PBrowser {
         return true;
     }
 
-    /*
+    /**
      * Return true if there is a Firefox variant available
      * 
      * @return true if Firefox variant is available, false otherwise
@@ -77,7 +86,40 @@ public class I2PBrowser {
         return true;
     }
 
-    /*
+    /**
+     * Populates a profile directory with a proxy configuration.
+     * Waits for an HTTP proxy on the port 4444 to be ready.
+     * Launches either Firefox or Chromium with the profile directory.
+     * 
+     * @param bool if true, the profile will be ephemeral(i.e. a --private-window profile).
+     * @since 0.0.17
+     */
+    public void launch(boolean privateWindow, String[] url){
+        if ((chromium && firefox) || (!chromium && !firefox)) {
+            if (this.hasFirefox()) {
+                this.launchFirefox(privateWindow, url);
+            } else if (this.hasChromium()) {
+                this.launchChromium(privateWindow, url);
+            }
+            return;
+        }
+        if (chromiumFirst){
+            if (chromium) {
+                this.launchChromium(privateWindow, url);
+            }else if (firefox) {
+                this.launchFirefox(privateWindow, url);
+            }
+            return;
+        }
+        if (firefox) {
+            this.launchFirefox(privateWindow, url);
+        }else if (chromium) {
+            this.launchChromium(privateWindow, url);
+        }
+        return;
+    }
+
+/**
      * Populates a profile directory with a proxy configuration.
      * Waits for an HTTP proxy on the port 4444 to be ready.
      * Launches either Firefox or Chromium with the profile directory.
@@ -86,31 +128,10 @@ public class I2PBrowser {
      * @since 0.0.16
      */
     public void launch(boolean privateWindow){
-        if ((chromium && firefox) || (!chromium && !firefox)) {
-            if (this.hasFirefox()) {
-                this.launchFirefox(privateWindow);
-            } else if (this.hasChromium()) {
-                this.launchChromium(privateWindow);
-            }
-            return;
-        }
-        if (chromiumFirst){
-            if (chromium) {
-                this.launchChromium(privateWindow);
-            }else if (firefox) {
-                this.launchFirefox(privateWindow);
-            }
-            return;
-        }
-        if (firefox) {
-            this.launchFirefox(privateWindow);
-        }else if (chromium) {
-            this.launchChromium(privateWindow);
-        }
-        return;
+        launch(privateWindow, null);
     }
 
-    /*
+    /**
      * Populates a profile directory with a proxy configuration.
      * Waits for an HTTP proxy on the port 4444 to be ready.
      * Launches either Firefox or Chromium with the profile directory.
@@ -119,12 +140,23 @@ public class I2PBrowser {
      */
     public void launch(){
         launch(false);
-    }    
+    }
+
+    private static String ValidURL(String inUrl){
+        String[] schemes = {"http", "https"};
+        for (String scheme: schemes) {
+            if (inUrl.startsWith(scheme)) {
+                return inUrl;
+            }
+        }
+        return "";
+    }
 
     public static void main(String[] args) {
         boolean privateBrowsing = false;
         System.out.println("I2PBrowser");
         I2PBrowser i2pBrowser = new I2PBrowser();
+        ArrayList<String> visitURL = new ArrayList<String>();
         if (args != null && args.length > 0) {
             for (String arg : args) {
                 if (arg.equals("-private")) {
@@ -136,9 +168,12 @@ public class I2PBrowser {
                 if (arg.equals("-firefox")) {
                     i2pBrowser.firefox = true;
                 }
+                if (!arg.startsWith("-")){
+                    visitURL.add(ValidURL(arg));
+                }
             }
         }
-        i2pBrowser.launch(privateBrowsing);
+        i2pBrowser.launch(privateBrowsing, visitURL.toArray(new String[visitURL.size()]));
     }
 
 }

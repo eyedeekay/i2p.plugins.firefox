@@ -9,7 +9,7 @@ import java.io.OutputStream;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
 
-/*
+/**
  * I2PChromiumProfileBuilder.java
  * Copyright (C) 2022 idk <hankhill19580@gmail.com>
  * This program is free software: you can redistribute it and/or modify
@@ -35,7 +35,7 @@ public class I2PChromiumProfileBuilder {
         return profileDir.getAbsolutePath();
     }
 
-    /*
+    /**
      * get the profile directory, creating it if necessary
      *
      * @return the profile directory, or null if it could not be created
@@ -67,7 +67,7 @@ public class I2PChromiumProfileBuilder {
         }
     }
 
-    /*
+    /**
      * get the base profile directory, creating it if necessary
      *
      * @return the base profile directory, or null if it could not be created
@@ -89,7 +89,7 @@ public class I2PChromiumProfileBuilder {
         return baseProfileDir(rtd);
     }
 
-    /*
+    /**
      * get the runtime directory, creating it if create=true
      * 
      * @param create if true, create the runtime directory if it does not exist
@@ -107,7 +107,7 @@ public class I2PChromiumProfileBuilder {
         return new File(rtd);
     }
 
-    /*
+    /**
      * get the correct runtime directory
      * 
      * @return the runtime directory, or null if it could not be created or found
@@ -154,7 +154,7 @@ public class I2PChromiumProfileBuilder {
         return "";
     }
 
-    /*
+    /**
      * Copy the inert base profile directory to the runtime profile directory
      *
      * @since 0.0.1
@@ -218,7 +218,7 @@ public class I2PChromiumProfileBuilder {
         }
     }
 
-    /*
+    /**
      * Copy the strict options from the base profile to the profile
      *
      * @return true if successful, false otherwise
@@ -256,7 +256,7 @@ public class I2PChromiumProfileBuilder {
         return true;
     }
 
-    /*
+    /**
      * Construct a new Profile Builder
      * 
      * @since 0.0.1
@@ -265,7 +265,7 @@ public class I2PChromiumProfileBuilder {
         I2PChromiumProfileBuilder.strict = false;
     }
 
-    /*
+    /**
      * Construct a new Profile Builder
      * @param strict if true, the strict overrides will be copied to the profile
      * 

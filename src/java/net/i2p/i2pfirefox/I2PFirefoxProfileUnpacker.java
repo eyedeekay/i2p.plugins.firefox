@@ -7,7 +7,7 @@ import java.nio.file.StandardCopyOption;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
-/*
+/**
  * I2PFirefoxProfileUnpacker.java
  * Copyright (C) 2022 idk <hankhill19580@gmail.com>
  * This program is free software: you can redistribute it and/or modify
@@ -36,7 +36,7 @@ public class I2PFirefoxProfileUnpacker {
         
     }
 
-    /*
+    /**
      * unpack the profile directory
      * 
      * @return true if the profile directory was successfully unpacked
