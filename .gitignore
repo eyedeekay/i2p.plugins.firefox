@@ -9,3 +9,5 @@ i2p.firefox.base.profile
 i2p.chromium.profile
 i2p.firefox.profile
 src/build
+*.err
+*.log
