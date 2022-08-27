@@ -96,6 +96,9 @@
       </div>
     </div>
     <h1>
+      <a href="#example-commands" rel="nofollow">
+        <span></span>
+      </a>
       Example Commands:
     </h1>
     <p>
@@ -105,7 +108,7 @@
       The top command is for Unixes and should work on most POSIX shells. After it runs, the script will terminate preventing Windows commands from running.
     </p>
     <p>
-      The second and third command is for Windows and won’t be reachable on Linux(because the top command will be run and the script will exit).
+      The second and third command is for Windows and won&#39;t be reachable on Linux(because the top command will be run and the script will exit).
     </p>
     <p>
       Both determine the path to the script, use it to find the jar file, and execute a single command.
@@ -113,45 +116,57 @@
     <p>
       Auto-Select in Persistent Mode
     </p>
-    <pre><code>:; dir=$(CDPATH= cd -- &#34;$(dirname -- &#34;$0&#34;)&#34; &amp;&amp; pwd); java -cp &#34;$dir&#34;/src/build/i2pfirefox.jar net.i2p.i2pfirefox.I2PBrowser; exit $?
+    <div>
+      <pre>:; dir=$(CDPATH= cd -- &#34;$(dirname -- &#34;$0&#34;)&#34; &amp;&amp; pwd); java -cp &#34;$dir&#34;/src/build/i2pfirefox.jar net.i2p.i2pfirefox.I2PBrowser; exit $?
 @ECHO OFF
 java -cp %cd%/src/build/i2pfirefox.jar net.i2p.i2pfirefox.I2PBrowser
-</code></pre>
+</pre>
+    </div>
     <p>
       Auto-Select in Private Browsing Mode
     </p>
-    <pre><code>:; dir=$(CDPATH= cd -- &#34;$(dirname -- &#34;$0&#34;)&#34; &amp;&amp; pwd); java -cp &#34;$dir&#34;/src/build/i2pfirefox.jar net.i2p.i2pfirefox.I2PBrowser -private; exit $?
+    <div>
+      <pre>:; dir=$(CDPATH= cd -- &#34;$(dirname -- &#34;$0&#34;)&#34; &amp;&amp; pwd); java -cp &#34;$dir&#34;/src/build/i2pfirefox.jar net.i2p.i2pfirefox.I2PBrowser -private; exit $?
 @ECHO OFF
 java -cp %cd%/src/build/i2pfirefox.jar net.i2p.i2pfirefox.I2PBrowser -private
-</code></pre>
+</pre>
+    </div>
     <p>
       Firefox in Persistent Mode
     </p>
-    <pre><code>:; dir=$(CDPATH= cd -- &#34;$(dirname -- &#34;$0&#34;)&#34; &amp;&amp; pwd); java -cp &#34;$dir&#34;/src/build/i2pfirefox.jar net.i2p.i2pfirefox.I2PFirefox; exit $?
+    <div>
+      <pre>:; dir=$(CDPATH= cd -- &#34;$(dirname -- &#34;$0&#34;)&#34; &amp;&amp; pwd); java -cp &#34;$dir&#34;/src/build/i2pfirefox.jar net.i2p.i2pfirefox.I2PFirefox; exit $?
 @ECHO OFF
 java -cp %cd%/src/build/i2pfirefox.jar net.i2p.i2pfirefox.I2PFirefox
-</code></pre>
+</pre>
+    </div>
     <p>
       Firefox in Private Browsing Mode
     </p>
-    <pre><code>:; dir=$(CDPATH= cd -- &#34;$(dirname -- &#34;$0&#34;)&#34; &amp;&amp; pwd); java -cp &#34;$dir&#34;/src/build/i2pfirefox.jar net.i2p.i2pfirefox.I2PFirefox -private; exit $?
+    <div>
+      <pre>:; dir=$(CDPATH= cd -- &#34;$(dirname -- &#34;$0&#34;)&#34; &amp;&amp; pwd); java -cp &#34;$dir&#34;/src/build/i2pfirefox.jar net.i2p.i2pfirefox.I2PFirefox -private; exit $?
 @ECHO OFF
 java -cp %cd%/src/build/i2pfirefox.jar net.i2p.i2pfirefox.I2PFirefox -private
-</code></pre>
+</pre>
+    </div>
     <p>
       Chromium in Persistent Mode
     </p>
-    <pre><code>:; dir=$(CDPATH= cd -- &#34;$(dirname -- &#34;$0&#34;)&#34; &amp;&amp; pwd); java -cp &#34;$dir&#34;/src/build/i2pfirefox.jar net.i2p.i2pfirefox.I2PChromium; exit $?
+    <div>
+      <pre>:; dir=$(CDPATH= cd -- &#34;$(dirname -- &#34;$0&#34;)&#34; &amp;&amp; pwd); java -cp &#34;$dir&#34;/src/build/i2pfirefox.jar net.i2p.i2pfirefox.I2PChromium; exit $?
 @ECHO OFF
 java -cp %cd%/src/build/i2pfirefox.jar net.i2p.i2pfirefox.I2PChromium
-</code></pre>
+</pre>
+    </div>
     <p>
       Chromium in Private Browsing Mode
     </p>
-    <pre><code>:; dir=$(CDPATH= cd -- &#34;$(dirname -- &#34;$0&#34;)&#34; &amp;&amp; pwd); java -cp &#34;$dir&#34;/src/build/i2pfirefox.jar net.i2p.i2pfirefox.I2PChromium -private; exit $?
+    <div>
+      <pre>:; dir=$(CDPATH= cd -- &#34;$(dirname -- &#34;$0&#34;)&#34; &amp;&amp; pwd); java -cp &#34;$dir&#34;/src/build/i2pfirefox.jar net.i2p.i2pfirefox.I2PChromium -private; exit $?
 @ECHO OFF
 java -cp %cd%/src/build/i2pfirefox.jar net.i2p.i2pfirefox.I2PChromium -private
-</code></pre>
+</pre>
+    </div>
     <div>
       <a href="#show">
         Show license
