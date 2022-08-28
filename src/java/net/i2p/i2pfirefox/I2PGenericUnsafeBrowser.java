@@ -59,9 +59,9 @@ public class I2PGenericUnsafeBrowser {
                     String line = kb.nextLine();
                     if (line.contains("(Default")){
                         String[] splitLine = line.split("\\s+");
-                        return splitLine[splitLine.length]
+                        kb.close();
+                        return splitLine[splitLine.length];
                     }
-
                 }
                 // Match wasn't found, still need to close Scanner
                 kb.close();
