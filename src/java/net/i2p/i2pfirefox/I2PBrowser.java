@@ -23,6 +23,7 @@ import java.util.ArrayList;
 public class I2PBrowser {
     private final I2PFirefox i2pFirefox = new I2PFirefox();
     private final I2PChromium i2pChromium = new I2PChromium();
+    private final I2PGenericUnsafeBrowser i2pGeneral = new I2PGenericUnsafeBrowser();
     public boolean firefox = false;
     public boolean chromium = false;
     public boolean chromiumFirst = false;
@@ -34,6 +35,10 @@ public class I2PBrowser {
     private void launchChromium(boolean privateWindow, String[] url) {
         System.out.println("I2PChromium");
         i2pChromium.launch(privateWindow, url);
+    }
+    private void launchGeneric(boolean privateWindow, String[] url) {
+        System.out.println("I2PChromium");
+        i2pGeneral.launch(privateWindow, url);
     }
  
     /**
@@ -92,6 +97,8 @@ public class I2PBrowser {
                 this.launchFirefox(privateWindow, url);
             } else if (this.hasChromium()) {
                 this.launchChromium(privateWindow, url);
+            }else{
+                this.launchGeneric(privateWindow, url);
             }
             return;
         }
@@ -100,6 +107,8 @@ public class I2PBrowser {
                 this.launchChromium(privateWindow, url);
             }else if (firefox) {
                 this.launchFirefox(privateWindow, url);
+            }else{
+                this.launchGeneric(privateWindow, url);
             }
             return;
         }
@@ -107,6 +116,8 @@ public class I2PBrowser {
             this.launchFirefox(privateWindow, url);
         }else if (chromium) {
             this.launchChromium(privateWindow, url);
+        }else{
+            this.launchGeneric(privateWindow, url);
         }
         return;
     }
