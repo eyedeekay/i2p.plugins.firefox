@@ -1,3 +1,10 @@
+Sun, August 28
+--------------
+
+ - Adds support for generically configuring a browser with environment variables.
+ - Bugfix for MSEdgium support
+ - Add detachable version of launchers
+
 Sat, August 27
 --------------
 
