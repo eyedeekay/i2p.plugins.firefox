@@ -29,7 +29,6 @@ import java.util.regex.Pattern;
  */
 
 public class I2PGenericUnsafeBrowser {
-    private final String unsafeBrowserPath = findUnsafeBrowserAnywhere();
     private final int DEFAULT_TIMEOUT = 200;
     // Ideally, EVERY browser in this list should honor http_proxy, https_proxy, ftp_proxy and no_proxy.
     // in practice, this is going to be hard to guarantee. For now, we're just assuming. So don't use this until
@@ -147,6 +146,11 @@ public class I2PGenericUnsafeBrowser {
         return "";
     }
 
+    /**
+     * Find any browser in our list within a UNIX path
+     * 
+     * @return
+    */
     public static String getAnyUnixBrowser() {
         // read the PATH environment variable and split it by ":"
         String[] path = System.getenv("PATH").split(":");
@@ -161,7 +165,11 @@ public class I2PGenericUnsafeBrowser {
         return "";
     }
 
-    //
+    /**
+     * Find any usable browser and output the whole path
+     * 
+     * @return
+    */
     public static String findUnsafeBrowserAnywhere() {
         if (getOperatingSystem() == "Windows"){
             return getDefaultWindowsBrowser();
@@ -196,6 +204,20 @@ public class I2PGenericUnsafeBrowser {
             System.out.println("No Browser found.");
             return new ProcessBuilder(args);
         }
+    }
+
+    /**
+     * delete the runtime directory
+     * 
+     * @return true if successful, false if not
+     */
+    public static boolean deleteRuntimeDirectory(){
+        File rtd = runtimeDirectory(true);
+        if (rtd.exists()) {
+            rtd.delete();
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -239,25 +261,25 @@ public class I2PGenericUnsafeBrowser {
         if (plugin != null && !plugin.isEmpty()) {
             File pluginDir = new File(plugin);
             if (pluginDir.exists()) {
-                return pluginDir.toString();
+                return pluginDir.toString()+"/i2pbrowser";
             }
         }
         String userDir = System.getProperty("user.dir");
         if (userDir != null && !userDir.isEmpty()) {
             File userDir1 = new File(userDir);
             if (userDir1.exists()) {
-                return userDir1.toString();
+                return userDir1.toString()+"/i2pbrowser";
             }
         }
         String homeDir = System.getProperty("user.home");
         if (homeDir != null && !homeDir.isEmpty()) {
             File homeDir1 = new File(homeDir+"/.i2p");
             if (homeDir1.exists()) {
-                return homeDir.toString();
+                return homeDir.toString()+"/i2pbrowser";
             }
             File homeDir2 = new File(homeDir+"/i2p");
             if (homeDir2.exists()) {
-                return homeDir2.toString();
+                return homeDir2.toString()+"/i2pbrowser";
             }
         }
         return "";
@@ -268,7 +290,7 @@ public class I2PGenericUnsafeBrowser {
      * Returns false on timeout of 200 seconds.
      * 
      * @return true if the proxy is ready, false if it is not.
-     * @since 0.0.1
+     * @since 0.0.18
      */
     public boolean waitForProxy() {
         return waitForProxy(DEFAULT_TIMEOUT);
@@ -280,7 +302,7 @@ public class I2PGenericUnsafeBrowser {
      * 
      * @param timeout the number of seconds to wait for the proxy to be ready.
      * @return true if the proxy is ready, false if it is not.
-     * @since 0.0.1
+     * @since 0.0.18
      */
     public boolean waitForProxy(int timeout) {
         return waitForProxy(timeout, 4444);
@@ -292,7 +314,7 @@ public class I2PGenericUnsafeBrowser {
      * @param timeout the number of seconds to wait for the proxy to be ready.
      * @param port the port to wait for the proxy to be ready on.
      * @return true if the proxy is ready, false if it is not.
-     * @since 0.0.1
+     * @since 0.0.18
      */
     public boolean waitForProxy(int timeout, int port) {
         return waitForProxy(timeout, port, "localhost");
@@ -306,7 +328,7 @@ public class I2PGenericUnsafeBrowser {
      * @param port the port to wait for the proxy to be ready on.
      * @param host the host to wait for the proxy to be ready on.
      * @return true if the proxy is ready, false if it is not.
-     * @since 0.0.1
+     * @since 0.0.18
      */
     public boolean waitForProxy(int timeout, int port, String host) {
         for (int i = 0; i < timeout; i++) {
@@ -321,15 +343,7 @@ public class I2PGenericUnsafeBrowser {
         }
         return false;
     }
-    private boolean checkifPortIsOccupied(int port, String host) {
-        try {
-            Socket socket = new Socket(host, port);
-            socket.close();
-            return true;
-        } catch (IOException e) {
-            return false;
-        }
-    }
+
 
     public void launch(boolean privateWindow, String[] url){
         if (waitForProxy()){
@@ -347,6 +361,10 @@ public class I2PGenericUnsafeBrowser {
                 try{
                     System.out.println("Waiting for I2PBrowser to close...");
                     int exit = p.waitFor();
+                    if (privateWindow){
+                        if (deleteRuntimeDirectory())
+                            System.out.println("Private browsing enforced, deleting runtime directory");
+                    }
                     System.out.println("I2PBrowser exited with value: "+exit);
                 }catch(Exception e){
                     System.out.println("Error: "+e.getMessage());
@@ -364,7 +382,6 @@ public class I2PGenericUnsafeBrowser {
             throw new RuntimeException(bad);
         }
     }
-
     private static String ValidURL(String inUrl){
         String[] schemes = {"http", "https"};
         for (String scheme: schemes) {
@@ -374,6 +391,15 @@ public class I2PGenericUnsafeBrowser {
             }
         }
         return "";
+    }
+    private boolean checkifPortIsOccupied(int port, String host) {
+        try {
+            Socket socket = new Socket(host, port);
+            socket.close();
+            return true;
+        } catch (IOException e) {
+            return false;
+        }
     }
 
     //
@@ -397,5 +423,4 @@ public class I2PGenericUnsafeBrowser {
         I2PGenericUnsafeBrowser i2pBrowser = new I2PGenericUnsafeBrowser();
         i2pBrowser.launch(privateBrowsing, visitURL.toArray(new String[visitURL.size()]));
     }
-    
 }
