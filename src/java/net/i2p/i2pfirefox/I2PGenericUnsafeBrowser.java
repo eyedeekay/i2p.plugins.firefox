@@ -64,9 +64,10 @@ public class I2PGenericUnsafeBrowser {
                     {
                         // Scanner is no longer needed if match is found, so close it
                         kb.close();
-                        String defaultBrowser = matcher.group(1);
+                        String defaultBrowser = matcher.toString();
+                        //group(1);
                         // Capitalize first letter and return String
-                        defaultBrowser = defaultBrowser.substring(0, 1).toUpperCase() + defaultBrowser.substring(1, defaultBrowser.length());
+                        //defaultBrowser = defaultBrowser.substring(0, 1).toUpperCase() + defaultBrowser.substring(1, defaultBrowser.length());
                         return defaultBrowser;
                     }
                 }
@@ -83,8 +84,13 @@ public class I2PGenericUnsafeBrowser {
         return getDefaultWindowsBrowser();
     }
 
-    public ProcessBuilder baseProcessBuilder(String[] args){
+    public ProcessBuilder baseProcessBuilder(String[] args) {
         return null;
+    }
+
+    public static void main(String[] args) {
+        String browser = findUnsafeBrowserAnywhere();
+        System.out.println(browser);
     }
     
 }
