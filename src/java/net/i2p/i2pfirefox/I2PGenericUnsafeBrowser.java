@@ -58,9 +58,9 @@ public class I2PGenericUnsafeBrowser {
                 while (kb.hasNextLine()) {
                     String line = kb.nextLine();
                     if (line.contains("(Default")){
-                        String[] splitLine = line.split("\\s+");
+                        String[] splitLine = line.split("\\t+");
                         kb.close();
-                        return splitLine[splitLine.length];
+                        return splitLine[splitLine.length-1];
                     }
                 }
                 // Match wasn't found, still need to close Scanner
