@@ -59,6 +59,9 @@ public class I2PBrowser {
         I2PGenericUnsafeBrowser.BROWSER = browserPath;
     }
 
+    public I2PBrowser(String browserPath) {
+        I2PGenericUnsafeBrowser.BROWSER = browserPath;
+    }
 
     /**
      * Return true if there is a Chromium available
