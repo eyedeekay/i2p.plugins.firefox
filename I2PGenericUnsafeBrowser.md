@@ -40,9 +40,15 @@ package: net.i2p.i2pfirefox
 + Access: public  
 + Modifiers: static 
 
+####  Process p  [[src]](src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L)
+
+ >   
+
++ Access: private  
+
 ## Methods
 
-### getDefaultWindowsBrowser [[src]](src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L91)
+### getDefaultWindowsBrowser [[src]](src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L92)
 
 + Description: Obtains the default browser for the Windows platform which by now should be Edgium in the worst-case scenario but in case it isn't we can use this function to figure it out. It can find: 1. The current user's HTTPS default browser if they configured it to be non-default 2. The current user's HTTP default browser if they configured it to be non-default 3. Edgium if it's available 4. iexplore if it's not and it will return the first one we find in exactly that order. Adapted from: and from:   
 + Access: public  
@@ -52,7 +58,7 @@ package: net.i2p.i2pfirefox
 This method has no parameters.  
 
 
-### getDefaultOutOfRegistry [[src]](src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L115)
+### getDefaultOutOfRegistry [[src]](src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L116)
 
 + Description: obtains information out of the Windows registry.   
 + Access: public  
@@ -64,7 +70,7 @@ This method has no parameters.
 | hkeyquery | String | registry entry to ask for.  |  
 
 
-### scanAPath [[src]](src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L138)
+### scanAPath [[src]](src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L139)
 
 + Description:   
 + Access: private  
@@ -76,7 +82,7 @@ This method has no parameters.
 | dir | String |  |  
 
 
-### getAnyUnixBrowser [[src]](src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L153)
+### getAnyUnixBrowser [[src]](src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L154)
 
 + Description: Find any browser in our list within a UNIX path   
 + Access: public  
@@ -86,7 +92,7 @@ This method has no parameters.
 This method has no parameters.  
 
 
-### findUnsafeBrowserAnywhere [[src]](src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L172)
+### findUnsafeBrowserAnywhere [[src]](src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L173)
 
 + Description: Find any usable browser and output the whole path   
 + Access: public  
@@ -96,7 +102,7 @@ This method has no parameters.
 This method has no parameters.  
 
 
-### deleteRuntimeDirectory [[src]](src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L219)
+### deleteRuntimeDirectory [[src]](src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L220)
 
 + Description: delete the runtime directory   
 + Access: public  
@@ -106,7 +112,7 @@ This method has no parameters.
 This method has no parameters.  
 
 
-### runtimeDirectory [[src]](src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L235)
+### runtimeDirectory [[src]](src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L236)
 
 + Description: get the runtime directory creating it if create=true   
 + Access: public  
@@ -118,7 +124,7 @@ This method has no parameters.
 | create | boolean | if true create the runtime directory if it does not exist  |  
 
 
-### runtimeDirectory [[src]](src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L252)
+### runtimeDirectory [[src]](src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L253)
 
 + Description: get the correct runtime directory   
 + Access: public  
@@ -128,7 +134,7 @@ This method has no parameters.
 This method has no parameters.  
 
 
-### waitForProxy [[src]](src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L300)
+### waitForProxy [[src]](src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L301)
 
 + Description: Waits for an HTTP proxy on port 4444 to be ready. Returns false on timeout of 200 seconds.   
 + Access: public  
@@ -137,7 +143,7 @@ This method has no parameters.
 This method has no parameters.  
 
 
-### waitForProxy [[src]](src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L312)
+### waitForProxy [[src]](src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L313)
 
 + Description: Waits for an HTTP proxy on port 4444 to be ready. Returns false on timeout of the specified number of seconds.   
 + Access: public  
@@ -148,7 +154,7 @@ This method has no parameters.
 | timeout | int | the number of seconds to wait for the proxy to be ready.  |  
 
 
-### waitForProxy [[src]](src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L324)
+### waitForProxy [[src]](src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L325)
 
 + Description: Waits for an HTTP proxy on the specified port to be ready. Returns false on timeout of the specified number of seconds.   
 + Access: public  
@@ -160,7 +166,7 @@ This method has no parameters.
 | port | int | the port to wait for the proxy to be ready on.  |  
 
 
-### waitForProxy [[src]](src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L338)
+### waitForProxy [[src]](src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L339)
 
 + Description: Waits for an HTTP proxy on the specified port to be ready. Returns false on timeout of the specified number of seconds.   
 + Access: public  
@@ -173,7 +179,19 @@ This method has no parameters.
 | host | String | the host to wait for the proxy to be ready on.  |  
 
 
-### launch [[src]](src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L353)
+### launchAndDetatch [[src]](src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L354)
+
++ Description:   
++ Access: public  
++ return: Process  
+
+| Name | Type | Description |  
+| ----- | ----- | ----- |  
+| privateWindow | boolean |  |  
+| url | String[] |  |  
+
+
+### launch [[src]](src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L375)
 
 + Description:   
 + Access: public  
@@ -185,7 +203,7 @@ This method has no parameters.
 | url | String[] |  |  
 
 
-### sleep [[src]](src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L382)
+### sleep [[src]](src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L392)
 
 + Description:   
 + Access: private  
@@ -197,7 +215,7 @@ This method has no parameters.
 | millis | int |  |  
 
 
-### ValidURL [[src]](src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L390)
+### ValidURL [[src]](src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L400)
 
 + Description:   
 + Access: private  
@@ -209,7 +227,7 @@ This method has no parameters.
 | inUrl | String |  |  
 
 
-### checkifPortIsOccupied [[src]](src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L400)
+### checkifPortIsOccupied [[src]](src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L410)
 
 + Description:   
 + Access: private  
