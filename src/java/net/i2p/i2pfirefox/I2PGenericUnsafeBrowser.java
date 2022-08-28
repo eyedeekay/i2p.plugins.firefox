@@ -79,7 +79,7 @@ public class I2PGenericUnsafeBrowser {
                 if (line.contains("(Default")){
                     String[] splitLine = line.split("  ");
                     kb.close();
-                    return splitLine[splitLine.length-1].replace("%1", "").replaceAll("\\s+$", "");
+                    return splitLine[splitLine.length-1].replace("%1", "").replaceAll("\\s+$", "").replaceAll("\"\"", "");
                 }
             }
             // Match wasn't found, still need to close Scanner
