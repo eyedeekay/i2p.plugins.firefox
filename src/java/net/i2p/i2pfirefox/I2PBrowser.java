@@ -26,6 +26,7 @@ public class I2PBrowser {
     private final I2PGenericUnsafeBrowser i2pGeneral = new I2PGenericUnsafeBrowser();
     public boolean firefox = false;
     public boolean chromium = false;
+    public boolean generic = false;
     public boolean chromiumFirst = false;
  
     private void launchFirefox(boolean privateWindow, String[] url) {
@@ -48,6 +49,16 @@ public class I2PBrowser {
      */
     public I2PBrowser() {
     }
+
+    /**
+     * Construct an I2PBrowser class which automatically determines which browser to use.
+     * 
+     * @since 0.0.18
+     */
+    public I2PBrowser(String browserPath) {
+        I2PGenericUnsafeBrowser.BROWSER = browserPath;
+    }
+
 
     /**
      * Return true if there is a Chromium available
@@ -92,6 +103,8 @@ public class I2PBrowser {
      * @since 0.0.17
      */
     public void launch(boolean privateWindow, String[] url){
+        if (generic)
+            this.launchGeneric(privateWindow, url);
         if ((chromium && firefox) || (!chromium && !firefox)) {
             if (this.hasFirefox()) {
                 this.launchFirefox(privateWindow, url);

@@ -28,6 +28,7 @@ import java.util.Scanner;
 
 public class I2PGenericUnsafeBrowser {
     private final int DEFAULT_TIMEOUT = 200;
+    public static String BROWSER = "";
     // Ideally, EVERY browser in this list should honor http_proxy, https_proxy, ftp_proxy and no_proxy.
     // in practice, this is going to be hard to guarantee. For now, we're just assuming. So don't use this until
     // I understand the situation better, unless you think you know better.
@@ -169,6 +170,12 @@ public class I2PGenericUnsafeBrowser {
      * @return
     */
     public static String findUnsafeBrowserAnywhere() {
+        if (BROWSER != ""){
+            File f = new File(BROWSER);
+            if (f.exists())
+                return f.getAbsolutePath();
+        }
+            
         if (getOperatingSystem() == "Windows"){
             return getDefaultWindowsBrowser();
         }
