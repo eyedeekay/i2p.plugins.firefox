@@ -46,32 +46,51 @@ public class I2PGenericUnsafeBrowser {
      * the worst-case scenario but in case it isn't, we can use this function to figure it out.
      * Adapted from:
      * https://stackoverflow.com/questions/15852885/method-returning-default-browser-as-a-string
+     * and from:
+     * https://github.com/i2p/i2p.i2p/blob/master/apps/systray/java/src/net/i2p/apps/systray/UrlLauncher.java
      * 
      * @return path to the default browser ready for execution. Empty string on Linux and OSX.
     */
     public static String getDefaultWindowsBrowser() {
         if (getOperatingSystem() == "Windows"){
-            try {
-                // Get registry where we find the default browser
-                Process process = Runtime.getRuntime().exec("REG QUERY HKEY_CLASSES_ROOT\\http\\shell\\open\\command");
-                Scanner kb = new Scanner(process.getInputStream());
-                while (kb.hasNextLine()) {
-                    String line = kb.nextLine();
-                    if (line.contains("(Default")){
-                        String[] splitLine = line.split("  ");
-                        kb.close();
-                        return splitLine[splitLine.length-1].replace("%1", "").replaceAll("\\s+$", "");
-                    }
-                }
-                // Match wasn't found, still need to close Scanner
-                kb.close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            String defaultBrowser = getDefaultOutOfRegistry("HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Windows\\Shell\\Associations\\URLAssociations\\https\\UserChoice") 
+            if (defaultBrowser != "")
+                return defaultBrowser;
+            defaultBrowser = getDefaultOutOfRegistry("HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Windows\\Shell\\Associations\\URLAssociations\\http\\UserChoice") 
+                if (defaultBrowser != "")
+                    return defaultBrowser;
+            defaultBrowser = getDefaultOutOfRegistry("HKEY_LOCAL_MACHINE\\SOFTWARE\\Classes\\microsoft-edge\\shell\\open\\command");
+            if (defaultBrowser != "")
+                return defaultBrowser;
+            defaultBrowser = getDefaultOutOfRegistry("HKEY_CLASSES_ROOT\\http\\shell\\open\\command");
+            if (defaultBrowser != "")
+                return defaultBrowser;
         }
         return "";
     }
 
+    public static String getDefaultOutOfRegistry(String hkeyquery){
+        try {
+            // Get registry where we find the default browser
+            Process process = Runtime.getRuntime().exec("REG QUERY " + hkeyquery);
+            Scanner kb = new Scanner(process.getInputStream());
+            while (kb.hasNextLine()) {
+                String line = kb.nextLine();
+                if (line.contains("(Default")){
+                    String[] splitLine = line.split("  ");
+                    kb.close();
+                    return splitLine[splitLine.length-1].replace("%1", "").replaceAll("\\s+$", "");
+                }
+            }
+            // Match wasn't found, still need to close Scanner
+            kb.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "";
+    }
+
+    //"HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\Shell\Associations\URLAssociations\(http|https)\UserChoice"
     public static String findUnsafeBrowserAnywhere() {
         return getDefaultWindowsBrowser();
     }
