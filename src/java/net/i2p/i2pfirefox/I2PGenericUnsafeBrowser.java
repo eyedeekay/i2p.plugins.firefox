@@ -53,10 +53,10 @@ public class I2PGenericUnsafeBrowser {
     */
     public static String getDefaultWindowsBrowser() {
         if (getOperatingSystem() == "Windows"){
-            String defaultBrowser = getDefaultOutOfRegistry("HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Windows\\Shell\\Associations\\URLAssociations\\https\\UserChoice") 
+            String defaultBrowser = getDefaultOutOfRegistry("HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Windows\\Shell\\Associations\\URLAssociations\\https\\UserChoice");
             if (defaultBrowser != "")
                 return defaultBrowser;
-            defaultBrowser = getDefaultOutOfRegistry("HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Windows\\Shell\\Associations\\URLAssociations\\http\\UserChoice") 
+            defaultBrowser = getDefaultOutOfRegistry("HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Windows\\Shell\\Associations\\URLAssociations\\http\\UserChoice");
                 if (defaultBrowser != "")
                     return defaultBrowser;
             defaultBrowser = getDefaultOutOfRegistry("HKEY_LOCAL_MACHINE\\SOFTWARE\\Classes\\microsoft-edge\\shell\\open\\command");
