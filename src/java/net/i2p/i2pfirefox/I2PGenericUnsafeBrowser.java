@@ -1,5 +1,9 @@
 package net.i2p.i2pfirefox;
 
+import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 /**
  * I2PChromiumProfileChecker.java
  * Copyright (C) 2022 idk <hankhill19580@gmail.com>
@@ -20,7 +24,67 @@ package net.i2p.i2pfirefox;
 public class I2PGenericUnsafeBrowser {
     private final String unsafeBrowserPath;
     I2PGenericUnsafeBrowser() {
-        unsafeBrowserPath = "";
+        unsafeBrowserPath = findUnsafeBrowserAnywhere();
+    }
+
+    private static String getOperatingSystem() {
+        String os = System.getProperty("os.name");
+        if (os.startsWith("Windows")) {
+            return "Windows";
+        } else if (os.contains("Linux")) {
+            return "Linux";
+        } else if (os.contains("BSD")) {
+            return "BSD";
+        } else if (os.contains("Mac")) {
+            return "Mac";
+        }
+        return "Unknown";
+    }
+
+    /**
+     * Obtains the default browser for the Windows platform, which by now should be Edgium in
+     * the worst-case scenario but in case it isn't, we can use this function to figure it out.
+     * Adapted from:
+     * https://stackoverflow.com/questions/15852885/method-returning-default-browser-as-a-string
+     * 
+     * @return path to the default browser ready for execution. Empty string on Linux and OSX.
+    */
+    public static String getDefaultWindowsBrowser() {
+        if (getOperatingSystem() == "Windows"){
+            try {
+                // Get registry where we find the default browser
+                Process process = Runtime.getRuntime().exec("REG QUERY HKEY_CLASSES_ROOT\\http\\shell\\open\\command");
+                Scanner kb = new Scanner(process.getInputStream());
+                while (kb.hasNextLine()) {
+                    // Get output from the terminal, and replace all '\' with '/' (makes regex a bit more manageable)
+                    String registry = (kb.nextLine()).replaceAll("\\\\", "/").trim();
+                    // Extract the default browser
+                    Matcher matcher = Pattern.compile("/(?=[^/]*$)(.+?)[.]").matcher(registry);
+                    if (matcher.find())
+                    {
+                        // Scanner is no longer needed if match is found, so close it
+                        kb.close();
+                        String defaultBrowser = matcher.group(1);
+                        // Capitalize first letter and return String
+                        defaultBrowser = defaultBrowser.substring(0, 1).toUpperCase() + defaultBrowser.substring(1, defaultBrowser.length());
+                        return defaultBrowser;
+                    }
+                }
+                // Match wasn't found, still need to close Scanner
+                kb.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return "";
+    }
+
+    public static String findUnsafeBrowserAnywhere() {
+        return getDefaultWindowsBrowser();
+    }
+
+    public ProcessBuilder baseProcessBuilder(String[] args){
+        return null;
     }
     
 }
