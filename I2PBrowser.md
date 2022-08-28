@@ -36,6 +36,13 @@ package: net.i2p.i2pfirefox
 + Access: private  
 + Modifiers: final 
 
+####  I2PGenericUnsafeBrowser i2pGeneral  [[src]](src/java/net/i2p/i2pfirefox/I2PBrowser.java#L)
+
+ >   
+
++ Access: private  
++ Modifiers: final 
+
 ####  boolean firefox  [[src]](src/java/net/i2p/i2pfirefox/I2PBrowser.java#L)
 
  >   
@@ -56,7 +63,7 @@ package: net.i2p.i2pfirefox
 
 ## Methods
 
-### launchFirefox [[src]](src/java/net/i2p/i2pfirefox/I2PBrowser.java#L30)
+### launchFirefox [[src]](src/java/net/i2p/i2pfirefox/I2PBrowser.java#L31)
 
 + Description:   
 + Access: private  
@@ -68,18 +75,7 @@ package: net.i2p.i2pfirefox
 | url | String[] |  |  
 
 
-### launchFirefox [[src]](src/java/net/i2p/i2pfirefox/I2PBrowser.java#L34)
-
-+ Description:   
-+ Access: private  
-+ return: void  
-
-| Name | Type | Description |  
-| ----- | ----- | ----- |  
-| privateWindow | boolean |  |  
-
-
-### launchChromium [[src]](src/java/net/i2p/i2pfirefox/I2PBrowser.java#L38)
+### launchChromium [[src]](src/java/net/i2p/i2pfirefox/I2PBrowser.java#L35)
 
 + Description:   
 + Access: private  
@@ -91,7 +87,7 @@ package: net.i2p.i2pfirefox
 | url | String[] |  |  
 
 
-### launchChromium [[src]](src/java/net/i2p/i2pfirefox/I2PBrowser.java#L42)
+### launchGeneric [[src]](src/java/net/i2p/i2pfirefox/I2PBrowser.java#L39)
 
 + Description:   
 + Access: private  
@@ -100,9 +96,10 @@ package: net.i2p.i2pfirefox
 | Name | Type | Description |  
 | ----- | ----- | ----- |  
 | privateWindow | boolean |  |  
+| url | String[] |  |  
 
 
-### hasChromium [[src]](src/java/net/i2p/i2pfirefox/I2PBrowser.java#L61)
+### hasChromium [[src]](src/java/net/i2p/i2pfirefox/I2PBrowser.java#L58)
 
 + Description: Return true if there is a Chromium available   
 + Access: public  
@@ -111,7 +108,7 @@ package: net.i2p.i2pfirefox
 This method has no parameters.  
 
 
-### hasFirefox [[src]](src/java/net/i2p/i2pfirefox/I2PBrowser.java#L78)
+### hasFirefox [[src]](src/java/net/i2p/i2pfirefox/I2PBrowser.java#L75)
 
 + Description: Return true if there is a Firefox variant available   
 + Access: public  
@@ -120,7 +117,7 @@ This method has no parameters.
 This method has no parameters.  
 
 
-### launch [[src]](src/java/net/i2p/i2pfirefox/I2PBrowser.java#L97)
+### launch [[src]](src/java/net/i2p/i2pfirefox/I2PBrowser.java#L94)
 
 + Description: Populates a profile directory with a proxy configuration. Waits for an HTTP proxy on the port 4444 to be ready. Launches either Firefox or Chromium with the profile directory.   
 + Access: public  
@@ -132,7 +129,7 @@ This method has no parameters.
 | url | String[] |  |  
 
 
-### launch [[src]](src/java/net/i2p/i2pfirefox/I2PBrowser.java#L130)
+### launch [[src]](src/java/net/i2p/i2pfirefox/I2PBrowser.java#L133)
 
 + Description: Populates a profile directory with a proxy configuration. Waits for an HTTP proxy on the port 4444 to be ready. Launches either Firefox or Chromium with the profile directory.   
 + Access: public  
@@ -143,7 +140,7 @@ This method has no parameters.
 | privateWindow | boolean |  |  
 
 
-### launch [[src]](src/java/net/i2p/i2pfirefox/I2PBrowser.java#L141)
+### launch [[src]](src/java/net/i2p/i2pfirefox/I2PBrowser.java#L144)
 
 + Description: Populates a profile directory with a proxy configuration. Waits for an HTTP proxy on the port 4444 to be ready. Launches either Firefox or Chromium with the profile directory.   
 + Access: public  
@@ -152,7 +149,7 @@ This method has no parameters.
 This method has no parameters.  
 
 
-### ValidURL [[src]](src/java/net/i2p/i2pfirefox/I2PBrowser.java#L145)
+### ValidURL [[src]](src/java/net/i2p/i2pfirefox/I2PBrowser.java#L148)
 
 + Description:   
 + Access: private  
@@ -164,7 +161,7 @@ This method has no parameters.
 | inUrl | String |  |  
 
 
-### main [[src]](src/java/net/i2p/i2pfirefox/I2PBrowser.java#L155)
+### main [[src]](src/java/net/i2p/i2pfirefox/I2PBrowser.java#L158)
 
 + Description:   
 + Access: public  
