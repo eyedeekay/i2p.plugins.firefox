@@ -64,7 +64,7 @@ public class I2PGenericUnsafeBrowser {
                     {
                         // Scanner is no longer needed if match is found, so close it
                         kb.close();
-                        String defaultBrowser = matcher.group(1);
+                        String defaultBrowser = matcher.toString();//group(1);
                         //group(1);
                         // Capitalize first letter and return String
                         //defaultBrowser = defaultBrowser.substring(0, 1).toUpperCase() + defaultBrowser.substring(1, defaultBrowser.length());
