@@ -4,7 +4,7 @@ GITHUB_USER=eyedeekay
 GITHUB_REPO=i2p.plugins.firefox
 GITHUB_NAME="That is capable of handling URL arguments passed on the terminal"
 GITHUB_DESCRIPTION=$(cat CHANGES.md)
-GITHUB_TAG=0.0.17
+GITHUB_TAG=0.0.18
 ant distclean
 ant jar freeZip
 ./javadoc.sh
