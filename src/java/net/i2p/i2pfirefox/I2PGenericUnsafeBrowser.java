@@ -59,7 +59,7 @@ public class I2PGenericUnsafeBrowser {
                     // Get output from the terminal, and replace all '\' with '/' (makes regex a bit more manageable)
                     String registry = (kb.nextLine()).replaceAll("\\\\", "/").trim();
                     // Extract the default browser
-                    Matcher matcher = Pattern.compile("/(?=[^/]*$)(.+?)[.]").matcher(registry);
+                    Matcher matcher = Pattern.compile("/(?=[^/]*$)(.+?)").matcher(registry);
                     if (matcher.find())
                     {
                         // Scanner is no longer needed if match is found, so close it
