@@ -85,7 +85,7 @@ public class I2PChromium {
             new File(programFiles86, "/Microsoft/Edge/Application/").toString(),
             new File(programFiles, "/Microsoft/Edge/Application/").toString(),
         };
-        String[] exes = new String[]{"ungoogled-chromium.exe", "chromium.exe", "brave.exe", "edge.exe", "ungoogled-chromium.exe", "chrome.exe"};
+        String[] exes = new String[]{"ungoogled-chromium.exe", "chromium.exe", "brave.exe", "msedge.exe", "edge.exe", "chrome.exe"};
         String[] exePath = new String[path.length * exes.length];
         int i = 0;
         for (String s : path) {
