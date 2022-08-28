@@ -6,8 +6,8 @@ GITHUB_NAME="That is capable of handling URL arguments passed on the terminal"
 GITHUB_DESCRIPTION=$(cat CHANGES.md)
 GITHUB_TAG=0.0.18
 ant distclean
-ant jar freeZip
 ./javadoc.sh
+ant jar freeZip
 github-release release --user "${GITHUB_USER}" \
     --repo "${GITHUB_REPO}" \
     --name "${GITHUB_NAME}" \
