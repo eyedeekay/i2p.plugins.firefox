@@ -59,7 +59,7 @@ public class I2PBrowser {
         I2PGenericUnsafeBrowser.BROWSER = browserPath;
     }
 
-    public I2PBrowser(String browserPath) {
+    public void setBrowser(String browserPath) {
         I2PGenericUnsafeBrowser.BROWSER = browserPath;
     }
 
