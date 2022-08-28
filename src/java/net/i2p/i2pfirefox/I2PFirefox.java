@@ -22,6 +22,7 @@ import java.util.ArrayList;
 public class I2PFirefox {
     private final String[] FIREFOX_SEARCH_PATHS = FIREFOX_FINDER();
     private final int DEFAULT_TIMEOUT = 200;
+    private Process p = null;
 
     /**
      * Construct an I2PFirefox class which manages an instance of Firefox and
@@ -429,6 +430,40 @@ public class I2PFirefox {
         }
     }
 
+
+    public Process launchAndDetatch(boolean privateWindow, String[] url){
+        if (waitForProxy()){
+            String profileDirectory = I2PFirefoxProfileBuilder.profileDirectory();
+            if (I2PFirefoxProfileChecker.validateProfileDirectory(profileDirectory)) {
+                System.out.println("Valid profile directory: "+profileDirectory);
+            } else {
+                System.out.println("Invalid profile directory: "+profileDirectory+" rebuilding...");
+                if (!I2PFirefoxProfileBuilder.copyBaseProfiletoProfile()) {
+                    System.out.println("Failed to rebuild profile directory: "+profileDirectory);
+                    return null;
+                } else {
+                    System.out.println("Rebuilt profile directory: "+profileDirectory);
+                }
+            }
+            ProcessBuilder pb;
+            if (privateWindow) {
+                pb = privateProcessBuilder(url);
+            } else {
+                pb = defaultProcessBuilder(url);
+            }
+            try{
+                System.out.println(pb.command());
+                p = pb.start();
+                System.out.println("I2PFirefox");
+                sleep(2000);
+                return p;
+            }catch(Throwable e){
+                System.out.println(e);
+            }
+        }
+        return null;
+    }
+
     /**
      * Populates a profile directory with a proxy configuration.
      * Waits for an HTTP proxy on the port 4444 to be ready.
@@ -439,37 +474,12 @@ public class I2PFirefox {
      * @since 0.0.17
      */
     public void launch(boolean privateWindow, String[] url){
-        String profileDirectory = I2PFirefoxProfileBuilder.profileDirectory();
-        if (I2PFirefoxProfileChecker.validateProfileDirectory(profileDirectory)) {
-            System.out.println("Valid profile directory: "+profileDirectory);
-        } else {
-            System.out.println("Invalid profile directory: "+profileDirectory+" rebuilding...");
-            if (!I2PFirefoxProfileBuilder.copyBaseProfiletoProfile()) {
-                System.out.println("Failed to rebuild profile directory: "+profileDirectory);
-                return;
-            } else {
-                System.out.println("Rebuilt profile directory: "+profileDirectory);
-            }
-        }
         if (waitForProxy()){
-            ProcessBuilder pb;
-            if (privateWindow) {
-                pb = privateProcessBuilder(url);
-            } else {
-                pb = defaultProcessBuilder(url);
-            }
+            p = launchAndDetatch(privateWindow, url);
             try{
-                System.out.println(pb.command());
-                Process p = pb.start();
-                System.out.println("I2PFirefox");
-                sleep(2000);
-                try{
-                    System.out.println("Waiting for I2PFirefox to close...");
-                    int exit = p.waitFor();
-                    System.out.println("I2PFirefox exited with value: "+exit);
-                }catch(Exception e){
-                    System.out.println("Error: "+e.getMessage());
-                }
+                System.out.println("Waiting for I2PFirefox to close...");
+                int exit = p.waitFor();
+                System.out.println("I2PFirefox exited with value: "+exit);
             }catch(Exception e){
                 System.out.println("Error: "+e.getMessage());
             }

@@ -22,6 +22,7 @@ import java.util.ArrayList;
 public class I2PChromium {
     private final String[] CHROMIUM_SEARCH_PATHS = CHROMIUM_FINDER();
     private final int DEFAULT_TIMEOUT = 200;
+    private Process p =  null;
 
     /**
      * Construct an I2PChromium class which manages an instance of Chromium and
@@ -467,6 +468,38 @@ public class I2PChromium {
     }
 
 
+    public Process launchAndDetatch(boolean privateWindow, String[] url){
+        if (waitForProxy()) {
+            String profileDirectory = I2PChromiumProfileBuilder.profileDirectory();
+            if (I2PChromiumProfileChecker.validateProfileDirectory(profileDirectory)) {
+                System.out.println("Valid profile directory: "+profileDirectory);
+            } else {
+                System.out.println("Invalid profile directory: "+profileDirectory+" rebuilding...");
+                if (!I2PChromiumProfileBuilder.copyBaseProfiletoProfile()) {
+                    System.out.println("Failed to rebuild profile directory: "+profileDirectory);
+                    return null;
+                } else {
+                    System.out.println("Rebuilt profile directory: "+profileDirectory);
+                }
+            }
+            ProcessBuilder pb = null;
+            if (privateWindow) {
+                pb = this.privateProcessBuilder(url);
+            } else {
+                pb = this.defaultProcessBuilder(url);
+            }
+            try{
+                System.out.println(pb.command());
+                p = pb.start();
+                sleep(2000);
+                return p;
+            }catch(Throwable e){
+                System.out.println(e);
+            }
+        }
+        return null;
+    }
+
     /**
      * Populates a profile directory with a proxy configuration.
      * Waits for an HTTP proxy on the port 4444 to be ready.
@@ -477,42 +510,19 @@ public class I2PChromium {
      * @since 0.0.17
      */
     public void launch(boolean privateWindow, String[] url){
-        String profileDirectory = I2PChromiumProfileBuilder.profileDirectory();
-        if (I2PChromiumProfileChecker.validateProfileDirectory(profileDirectory)) {
-            System.out.println("Valid profile directory: "+profileDirectory);
-        } else {
-            System.out.println("Invalid profile directory: "+profileDirectory+" rebuilding...");
-            if (!I2PChromiumProfileBuilder.copyBaseProfiletoProfile()) {
-                System.out.println("Failed to rebuild profile directory: "+profileDirectory);
-                return;
-            } else {
-                System.out.println("Rebuilt profile directory: "+profileDirectory);
-            }
-        }
-        if (waitForProxy()){
-            ProcessBuilder pb = null;
-            if (privateWindow) {
-                pb = this.privateProcessBuilder(url);
-            } else {
-                pb = this.defaultProcessBuilder(url);
-            }
+        if (waitForProxy()) {
+            p = launchAndDetatch(privateWindow, url);
+            System.out.println("I2PChromium");
             try{
-                System.out.println(pb.command());
-                Process p = pb.start();
-                sleep(2000);
-                System.out.println("I2PChromium");
-                try{
-                    System.out.println("Waiting for I2PChromium to close...");
-                    int exit = p.waitFor();
-                    System.out.println("I2PChromium exited with value: "+exit);
-                }catch(Exception e){
-                    System.out.println("Error: "+e.getMessage());
-                }
+                System.out.println("Waiting for I2PChromium to close...");
+                int exit = p.waitFor();
+                System.out.println("I2PChromium exited with value: "+exit);
             }catch(Exception e){
                 System.out.println("Error: "+e.getMessage());
             }
         }
     }
+
     /**
      * Populates a profile directory with a proxy configuration.
      * Waits for an HTTP proxy on the port 4444 to be ready.

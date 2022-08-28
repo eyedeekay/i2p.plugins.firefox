@@ -29,6 +29,7 @@ import java.util.Scanner;
 public class I2PGenericUnsafeBrowser {
     private final int DEFAULT_TIMEOUT = 200;
     public static String BROWSER = "";
+    private Process p = null;
     // Ideally, EVERY browser in this list should honor http_proxy, https_proxy, ftp_proxy and no_proxy.
     // in practice, this is going to be hard to guarantee. For now, we're just assuming. So don't use this until
     // I understand the situation better, unless you think you know better.
@@ -350,7 +351,7 @@ public class I2PGenericUnsafeBrowser {
     }
 
 
-    public void launch(boolean privateWindow, String[] url){
+    public Process launchAndDetatch(boolean privateWindow, String[] url){
         if (waitForProxy()){
             ProcessBuilder pb;
             if (privateWindow) {
@@ -360,25 +361,34 @@ public class I2PGenericUnsafeBrowser {
             }
             try{
                 System.out.println(pb.command());
-                Process p = pb.start();
+                p = pb.start();
                 System.out.println("I2PBrowser");
                 sleep(2000);
-                try{
-                    System.out.println("Waiting for I2PBrowser to close...");
-                    int exit = p.waitFor();
-                    if (privateWindow){
-                        if (deleteRuntimeDirectory())
-                            System.out.println("Private browsing enforced, deleting runtime directory");
-                    }
-                    System.out.println("I2PBrowser exited with value: "+exit);
-                }catch(Exception e){
-                    System.out.println("Error: "+e.getMessage());
+                return p;
+            }catch(Throwable e) {
+                System.out.println(e);
+            }
+        }
+        return null;
+    }
+
+    public void launch(boolean privateWindow, String[] url){
+        if (waitForProxy()){
+            p = launchAndDetatch(privateWindow, url);
+            try{
+                System.out.println("Waiting for I2PBrowser to close...");
+                int exit = p.waitFor();
+                if (privateWindow){
+                    if (deleteRuntimeDirectory())
+                        System.out.println("Private browsing enforced, deleting runtime directory");
                 }
+                System.out.println("I2PBrowser exited with value: "+exit);
             }catch(Exception e){
                 System.out.println("Error: "+e.getMessage());
             }
         }
     }
+    
     private static void sleep(int millis) {
         try {
             Thread.sleep(millis);
