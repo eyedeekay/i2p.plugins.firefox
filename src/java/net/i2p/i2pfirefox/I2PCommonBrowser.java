@@ -38,7 +38,7 @@ public class I2PCommonBrowser {
    * @since 0.0.19
    */
   protected static String runtimeDirectory(String override) {
-    // get the I2P_FIREFOX_DIR environment variable
+    // get the I2P_BROWSER_DIR environment variable
     String rtd = System.getenv(override);
     // if it is not null and not empty
     if (rtd != null && !rtd.isEmpty()) {
@@ -148,23 +148,24 @@ public class I2PCommonBrowser {
   }
 
   protected static void copyDirectory(File sourceDirectory,
-                                      File destinationDirectory)
+                                      File destinationDirectory, String browser)
       throws IOException {
     destinationDirectory = new File(destinationDirectory.toString().replace(
-        "i2p.chromium.base.profile", ""));
+        "i2p." + browser + ".base.profile", ""));
     if (!destinationDirectory.exists()) {
       destinationDirectory.mkdir();
     }
     for (String f : sourceDirectory.list()) {
       copyDirectoryCompatibityMode(new File(sourceDirectory, f),
-                                   new File(destinationDirectory, f));
+                                   new File(destinationDirectory, f), browser);
     }
   }
 
-  public static void copyDirectoryCompatibityMode(File source, File destination)
+  private static void
+  copyDirectoryCompatibityMode(File source, File destination, String browser)
       throws IOException {
     if (source.isDirectory()) {
-      copyDirectory(source, destination);
+      copyDirectory(source, destination, browser);
     } else {
       copyFile(source, destination);
     }
