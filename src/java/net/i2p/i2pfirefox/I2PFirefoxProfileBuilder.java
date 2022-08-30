@@ -27,7 +27,7 @@ import java.nio.file.StandardCopyOption;
  * @author idk
  * @since 0.0.1
  */
-public class I2PFirefoxProfileBuilder {
+public class I2PFirefoxProfileBuilder extends I2PCommonBrowser {
     private static boolean strict;
 
     private static String profileDir(String file) {
@@ -98,13 +98,7 @@ public class I2PFirefoxProfileBuilder {
      */
     public static File runtimeDirectory(boolean create) {
         String rtd = runtimeDirectory();
-        File rtdFile = new File(rtd);
-        if (create) {
-            if (!rtdFile.exists()) {
-                rtdFile.mkdir();
-            }
-        }
-        return new File(rtd);
+        return runtimeDirectory(create, rtd);
     }
 
     /**
@@ -122,36 +116,10 @@ public class I2PFirefoxProfileBuilder {
             File rtdFile = new File(rtd);
             if (rtdFile.exists()) {
                 // if it does, return it
-                return rtd;
+                return runtimeDirectory(rtd);
             }
         }
-        // obtain the PLUGIN environment variable
-        String plugin = System.getenv("PLUGIN");
-        if (plugin != null && !plugin.isEmpty()) {
-            File pluginDir = new File(plugin);
-            if (pluginDir.exists()) {
-                return pluginDir.toString();
-            }
-        }
-        String userDir = System.getProperty("user.dir");
-        if (userDir != null && !userDir.isEmpty()) {
-            File userDir1 = new File(userDir);
-            if (userDir1.exists()) {
-                return userDir1.toString();
-            }
-        }
-        String homeDir = System.getProperty("user.home");
-        if (homeDir != null && !homeDir.isEmpty()) {
-            File homeDir1 = new File(homeDir+"/.i2p");
-            if (homeDir1.exists()) {
-                return homeDir.toString();
-            }
-            File homeDir2 = new File(homeDir+"/i2p");
-            if (homeDir2.exists()) {
-                return homeDir2.toString();
-            }
-        }
-        return "";
+        return runtimeDirectory("");
     }
 
     /**
