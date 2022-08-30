@@ -172,7 +172,7 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
         <ant dir="src" target="jar" />
     </target>
 
-    <target name="i2pFirefoxBaseProfileZip">
+    <target name="i2pFirefoxBaseProfileZip" depends="i2pFirefoxUsabilityProfileZip">
         <exec executable="rm" failonerror="false" dir="src">
             <arg value="-rf" />
             <arg value="i2p.firefox.base.profile.zip" />
@@ -181,6 +181,17 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
             <arg value="-r"/>
             <arg value="i2p.firefox.base.profile.zip"/>
             <arg value="i2p.firefox.base.profile"/>
+        </exec>
+    </target>
+    <target name="i2pFirefoxUsabilityProfileZip">
+        <exec executable="rm" failonerror="false" dir="src">
+            <arg value="-rf" />
+            <arg value="i2p.firefox.usability.profile.zip" />
+        </exec>
+        <exec executable="zip" failonerror="true" dir="src">
+            <arg value="-r"/>
+            <arg value="i2p.firefox.usability.profile.zip"/>
+            <arg value="i2p.firefox.usability.profile"/>
         </exec>
     </target>
 
