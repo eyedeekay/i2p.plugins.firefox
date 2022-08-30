@@ -63,6 +63,11 @@
           </a>
         </li>
         <li>
+          <a href="I2PCommonBrowser.html">
+            I2PCommonBrowser
+          </a>
+        </li>
+        <li>
           <a href="I2PFirefox.html">
             I2PFirefox
           </a>
@@ -141,6 +146,8 @@
 <p>
   Author: idk
   <br>
+  Parent class: I2PCommonBrowser
+  <br>
   package: net.i2p.i2pfirefox
 </p>
 <h2>
@@ -162,21 +169,6 @@
   <br>
   <li>
     java.io.File
-  </li>
-  <li>
-    java.io.FileInputStream
-  </li>
-  <li>
-    java.io.FileOutputStream
-  </li>
-  <li>
-    java.io.IOException
-  </li>
-  <li>
-    java.io.InputStream
-  </li>
-  <li>
-    java.io.OutputStream
   </li>
   <li>
     java.nio.file.Files
@@ -218,44 +210,11 @@
   Methods
 </h2>
 <h3>
-  <a href="#profiledir-src" rel="nofollow">
-    <span></span>
-  </a>
-  profileDir
-  <a href="src/java/net/i2p/i2pfirefox/I2PFirefoxProfileBuilder.java#L33" rel="nofollow">
-    [src]
-  </a>
-</h3>
-<ul>
-  <li>
-    Description:
-    <br>
-  </li>
-  <li>
-    Access: private
-    <br>
-  </li>
-  <li>
-    Modifiers: static
-  </li>
-  <li>
-    return: String
-    <br>
-  </li>
-</ul>
-<p>
-  | Name | Type | Description |
-  <br>
-  | ----- | ----- | ----- |
-  <br>
-  | file | String |  |
-</p>
-<h3>
   <a href="#profiledirectory-src" rel="nofollow">
     <span></span>
   </a>
   profileDirectory
-  <a href="src/java/net/i2p/i2pfirefox/I2PFirefoxProfileBuilder.java#L43" rel="nofollow">
+  <a href="src/java/net/i2p/i2pfirefox/I2PFirefoxProfileBuilder.java#L33" rel="nofollow">
     [src]
   </a>
 </h3>
@@ -284,7 +243,7 @@
     <span></span>
   </a>
   baseProfileDir
-  <a href="src/java/net/i2p/i2pfirefox/I2PFirefoxProfileBuilder.java#L55" rel="nofollow">
+  <a href="src/java/net/i2p/i2pfirefox/I2PFirefoxProfileBuilder.java#L37" rel="nofollow">
     [src]
   </a>
 </h3>
@@ -317,7 +276,7 @@
     <span></span>
   </a>
   baseProfileDirectory
-  <a href="src/java/net/i2p/i2pfirefox/I2PFirefoxProfileBuilder.java#L75" rel="nofollow">
+  <a href="src/java/net/i2p/i2pfirefox/I2PFirefoxProfileBuilder.java#L57" rel="nofollow">
     [src]
   </a>
 </h3>
@@ -346,7 +305,7 @@
     <span></span>
   </a>
   runtimeDirectory
-  <a href="src/java/net/i2p/i2pfirefox/I2PFirefoxProfileBuilder.java#L99" rel="nofollow">
+  <a href="src/java/net/i2p/i2pfirefox/I2PFirefoxProfileBuilder.java#L81" rel="nofollow">
     [src]
   </a>
 </h3>
@@ -379,7 +338,7 @@
     <span></span>
   </a>
   runtimeDirectory
-  <a href="src/java/net/i2p/i2pfirefox/I2PFirefoxProfileBuilder.java#L116" rel="nofollow">
+  <a href="src/java/net/i2p/i2pfirefox/I2PFirefoxProfileBuilder.java#L92" rel="nofollow">
     [src]
   </a>
 </h3>
@@ -408,7 +367,7 @@
     <span></span>
   </a>
   copyBaseProfiletoProfile
-  <a href="src/java/net/i2p/i2pfirefox/I2PFirefoxProfileBuilder.java#L162" rel="nofollow">
+  <a href="src/java/net/i2p/i2pfirefox/I2PFirefoxProfileBuilder.java#L112" rel="nofollow">
     [src]
   </a>
 </h3>
@@ -433,116 +392,11 @@
   This method has no parameters.
 </p>
 <h3>
-  <a href="#copydirectory-src" rel="nofollow">
-    <span></span>
-  </a>
-  copyDirectory
-  <a href="src/java/net/i2p/i2pfirefox/I2PFirefoxProfileBuilder.java#L192" rel="nofollow">
-    [src]
-  </a>
-</h3>
-<ul>
-  <li>
-    Description:
-    <br>
-  </li>
-  <li>
-    Access: private
-    <br>
-  </li>
-  <li>
-    Modifiers: static
-  </li>
-  <li>
-    return: void
-    <br>
-  </li>
-</ul>
-<p>
-  | Name | Type | Description |
-  <br>
-  | ----- | ----- | ----- |
-  <br>
-  | sourceDirectory | File |  |
-  <br>
-  | destinationDirectory | File |  |
-</p>
-<h3>
-  <a href="#copydirectorycompatibitymode-src" rel="nofollow">
-    <span></span>
-  </a>
-  copyDirectoryCompatibityMode
-  <a href="src/java/net/i2p/i2pfirefox/I2PFirefoxProfileBuilder.java#L202" rel="nofollow">
-    [src]
-  </a>
-</h3>
-<ul>
-  <li>
-    Description:
-    <br>
-  </li>
-  <li>
-    Access: public
-    <br>
-  </li>
-  <li>
-    Modifiers: static
-  </li>
-  <li>
-    return: void
-    <br>
-  </li>
-</ul>
-<p>
-  | Name | Type | Description |
-  <br>
-  | ----- | ----- | ----- |
-  <br>
-  | source | File |  |
-  <br>
-  | destination | File |  |
-</p>
-<h3>
-  <a href="#copyfile-src" rel="nofollow">
-    <span></span>
-  </a>
-  copyFile
-  <a href="src/java/net/i2p/i2pfirefox/I2PFirefoxProfileBuilder.java#L210" rel="nofollow">
-    [src]
-  </a>
-</h3>
-<ul>
-  <li>
-    Description:
-    <br>
-  </li>
-  <li>
-    Access: private
-    <br>
-  </li>
-  <li>
-    Modifiers: static
-  </li>
-  <li>
-    return: void
-    <br>
-  </li>
-</ul>
-<p>
-  | Name | Type | Description |
-  <br>
-  | ----- | ----- | ----- |
-  <br>
-  | sourceFile | File |  |
-  <br>
-  | destinationFile | File |  |
-</p>
-<h3>
   <a href="#copystrictoptions-src" rel="nofollow">
     <span></span>
   </a>
   copyStrictOptions
-  <a href="src/java/net/i2p/i2pfirefox/I2PFirefoxProfileBuilder.java#L227" rel="nofollow">
+  <a href="src/java/net/i2p/i2pfirefox/I2PFirefoxProfileBuilder.java#L149" rel="nofollow">
     [src]
   </a>
 </h3>
