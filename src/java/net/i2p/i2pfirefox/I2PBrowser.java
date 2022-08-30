@@ -29,13 +29,16 @@ public class I2PBrowser {
   public boolean chromium = false;
   public boolean generic = false;
   public boolean chromiumFirst = false;
+  public boolean usability = false;
 
   private void launchFirefox(boolean privateWindow, String[] url) {
     System.out.println("I2PFirefox");
+    I2PFirefox.usability = usability;
     i2pFirefox.launch(privateWindow, url);
   }
   private void launchChromium(boolean privateWindow, String[] url) {
     System.out.println("I2PChromium");
+    I2PChromium.usability = usability;
     i2pChromium.launch(privateWindow, url);
   }
   private void launchGeneric(boolean privateWindow, String[] url) {
@@ -186,6 +189,9 @@ public class I2PBrowser {
         }
         if (arg.equals("-firefox")) {
           i2pBrowser.firefox = true;
+        }
+        if (arg.equals("-usability")) {
+          i2pBrowser.usability = true;
         }
         if (!arg.startsWith("-")) {
           visitURL.add(ValidURL(arg));
