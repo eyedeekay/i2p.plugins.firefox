@@ -319,7 +319,24 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
         </exec>
     </target>
 
-    <target name="distclean" depends="clean" />
+    <target name="distclean" depends="clean,clangFmt" />
+
+    <target name="clangFmt">
+        <exec executable="clang-format">
+            <arg value="-i"/>
+            <arg value="src/java/net/i2p/i2pfirefox/I2PBrowser.java"/>
+            <arg value="src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java"/>
+            <arg value="src/java/net/i2p/i2pfirefox/I2PChromium.java"/>
+            <arg value="src/java/net/i2p/i2pfirefox/I2PChromiumProfileBuilder.java"/>
+            <arg value="src/java/net/i2p/i2pfirefox/I2PChromiumProfileChecker.java"/>
+            <arg value="src/java/net/i2p/i2pfirefox/I2PChromiumProfileUnpacker.java"/>
+            <arg value="src/java/net/i2p/i2pfirefox/I2PFirefox.java"/>
+            <arg value="src/java/net/i2p/i2pfirefox/I2PFirefoxProfileBuilder.java"/>
+            <arg value="src/java/net/i2p/i2pfirefox/I2PFirefoxProfileChecker.java"/>
+            <arg value="src/java/net/i2p/i2pfirefox/I2PFirefoxProfileUnpacker.java"/>
+            <arg value="src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java"/>
+        </exec>
+    </target>
 
     <target name="clean" >
         <ant dir="src" target="clean" />
