@@ -120,7 +120,7 @@ public class I2PChromiumProfileBuilder extends I2PCommonBrowser {
 
     try {
       System.out.println("Copying base profile to profile directory");
-      copyDirectory(baseProfileDir, profileDir);
+      copyDirectory(baseProfileDir, profileDir, "chromium");
     } catch (Exception e) {
       System.out.println("Error copying base profile to profile" + e);
       return false;

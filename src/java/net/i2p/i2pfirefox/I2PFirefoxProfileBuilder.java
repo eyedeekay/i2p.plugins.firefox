@@ -122,7 +122,7 @@ public class I2PFirefoxProfileBuilder extends I2PCommonBrowser {
 
     try {
       System.out.println("Copying base profile to profile directory");
-      copyDirectory(baseProfileDir, profileDir);
+      copyDirectory(baseProfileDir, profileDir, "firefox");
     } catch (Exception e) {
       System.out.println("Error copying base profile to profile" + e);
       return false;
