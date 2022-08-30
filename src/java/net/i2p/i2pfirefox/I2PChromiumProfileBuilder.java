@@ -27,7 +27,7 @@ import java.nio.file.StandardCopyOption;
  * @author idk
  * @since 0.0.1
  */
-public class I2PChromiumProfileBuilder {
+public class I2PChromiumProfileBuilder extends I2PCommonBrowser {
     private static boolean strict;
 
     private static String profileDir(String file) {
@@ -98,13 +98,7 @@ public class I2PChromiumProfileBuilder {
      */
     public static File runtimeDirectory(boolean create) {
         String rtd = runtimeDirectory();
-        File rtdFile = new File(rtd);
-        if (create) {
-            if (!rtdFile.exists()) {
-                rtdFile.mkdir();
-            }
-        }
-        return new File(rtd);
+        return runtimeDirectory(create, rtd);
     }
 
     /**
@@ -122,36 +116,10 @@ public class I2PChromiumProfileBuilder {
             File rtdFile = new File(rtd);
             if (rtdFile.exists()) {
                 // if it does, return it
-                return rtd;
+                return runtimeDirectory(rtd)
             }
         }
-        // obtain the PLUGIN environment variable
-        String plugin = System.getenv("PLUGIN");
-        if (plugin != null && !plugin.isEmpty()) {
-            File pluginDir = new File(plugin);
-            if (pluginDir.exists()) {
-                return pluginDir.toString();
-            }
-        }
-        String userDir = System.getProperty("user.dir");
-        if (userDir != null && !userDir.isEmpty()) {
-            File userDir1 = new File(userDir);
-            if (userDir1.exists()) {
-                return userDir1.toString();
-            }
-        }
-        String homeDir = System.getProperty("user.home");
-        if (homeDir != null && !homeDir.isEmpty()) {
-            File homeDir1 = new File(homeDir+"/.i2p");
-            if (homeDir1.exists()) {
-                return homeDir.toString();
-            }
-            File homeDir2 = new File(homeDir+"/i2p");
-            if (homeDir2.exists()) {
-                return homeDir2.toString();
-            }
-        }
-        return "";
+        return runtimeDirectory("")
     }
 
     /**
@@ -176,17 +144,7 @@ public class I2PChromiumProfileBuilder {
             System.out.println("Error copying base profile to profile"+e);
             return false;
         }
-        System.out.println("Copied base profile to profile directory");
-        // if user.js does not exist yet, make an empty one.
-        //if (!touch(profileDir.toString(), "user.js")) {
-            //return false;
-        //}
-        // if extensions does not exist yet, make an empty one.
-        //if (!mkExtensionsDir(profileDir.toString())){
-            //return false;
-        //}
-
-        
+        System.out.println("Copied base profile to profile directory");        
         return copyStrictOptions();
     }
     private static void copyDirectory(File sourceDirectory, File destinationDirectory) throws IOException {
