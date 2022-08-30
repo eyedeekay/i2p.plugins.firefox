@@ -101,3 +101,35 @@ if (i2pIsRunning()) {
 ```
 
 to add a browser management tool to it.
+
+### Browser Discovery Methods
+
+This tool looks for browsers on the host system, creates a workspace to use for I2P
+purposes, and launches the browser inside of that workspace. The details of the
+workspace vary from browser to browser but roughly corresponds to a browser profile.
+In order to be successful this tool uses 3 main types of browser discovery methods,
+in this order:
+
+ 1. "Local" discovery, where a browser is in a subdirectory of the directory where you
+ ran the launcher. This will only happen if the user unpacked a portable browser into
+ the same directory where they ran the launcher.
+ 2. "Path-Based" discovery, where it scans common browser installation directories
+ until it finds one which it can use. On Unix, it simply scans the directories on the
+ `PATH` for a browser it knows about. On Windows, default paths to browser install
+ directories are hard-coded and included in the binary. This is what usually happens.
+ 3. "System-Based" discovery, where it defers to the host system to make a choice
+ about the browser and counts on browser vendors to honor the system proxy environment
+ variables. This is a catch-all solution which works with most browsers, but does
+ not apply any customizations.
+
+There is a little subtlety here though.
+
+- The path to Edgium on Windows will **always** resolve during path-based discovery,
+resulting in a positive test for Chromium when launching the browser in auto-select
+mode. So Windows will never reach stage 3 unless expressly forced to. If Firefox or
+a variant is installed, it will be chosen before Edgium unless directed otherwise.
+- Linux is unaware of a Tor Browser path because Tor Browser is rarely, if ever,
+installed on-path. What is on path is virtually always a wrapper for Tor Browser
+which is installed either as the main user or it's own user. Linux will only use
+Tor Browser if it's discovered in "Local" mode.
+- The above is also true of OSX for now but doesn't have to remain so.

@@ -31,8 +31,7 @@ public class I2PFirefoxProfileBuilder extends I2PCommonBrowser {
     private static boolean strict;
 
     private static String profileDir(String file) {
-        File profileDir = new File(file, "i2p.firefox.profile");
-        return profileDir.getAbsolutePath();
+        return profileDir(file, "firefox");
     }
 
     /**
@@ -41,15 +40,7 @@ public class I2PFirefoxProfileBuilder extends I2PCommonBrowser {
      * @return the profile directory, or null if it could not be created
      */
     public static String profileDirectory() {
-        String pd = System.getenv("I2P_FIREFOX_PROFILE");
-        if (pd != null && !pd.isEmpty()) {
-            File pdf = new File(pd);
-            if (pdf.exists() && pdf.isDirectory()) {
-                return pd;
-            }
-        }
-        String rtd = runtimeDirectory();
-        return profileDir(rtd);
+        return profileDirectory("I2P_FIREFOX_PROFILE", "firefox");
     }
     
     private static String baseProfileDir(String file) {

@@ -14,9 +14,9 @@ public class I2PCommonBrowser {
      * 
      * @param create if true, create the runtime directory if it does not exist
      * @return the runtime directory, or null if it could not be created
-     * @since 0.0.1
+     * @since 0.0.19
      */
-    public static File runtimeDirectory(boolean create, String override) {
+    protected static File runtimeDirectory(boolean create, String override) {
         String rtd = runtimeDirectory(override);
         File rtdFile = new File(rtd);
         if (create) {
@@ -31,9 +31,9 @@ public class I2PCommonBrowser {
      * get the correct runtime directory
      * 
      * @return the runtime directory, or null if it could not be created or found
-     * @since 0.0.1
+     * @since 0.0.19
      */
-    public static String runtimeDirectory(String override) {
+    protected static String runtimeDirectory(String override) {
         // get the I2P_FIREFOX_DIR environment variable
         String rtd = System.getenv(override);
         // if it is not null and not empty
@@ -73,8 +73,31 @@ public class I2PCommonBrowser {
         }
         return "";
     }
-    
-    public boolean unpackProfile(String profileDirectory, String browser, String base) {
+
+    /**
+     * get the profile directory, creating it if necessary
+     *
+     * @return the profile directory, or null if it could not be created
+     * @since 0.0.19
+     */
+    protected static String profileDirectory(String envVar, String browser) {
+        String pd = System.getenv(envVar);
+        if (pd != null && !pd.isEmpty()) {
+            File pdf = new File(pd);
+            if (pdf.exists() && pdf.isDirectory()) {
+                return pd;
+            }
+        }
+        String rtd = runtimeDirectory("");
+        return profileDir(rtd, browser);
+    }
+
+    protected static String profileDir(String file, String browser) {
+        File profileDir = new File(file, "i2p."+browser+"profile");
+        return profileDir.getAbsolutePath();
+    }
+
+    protected boolean unpackProfile(String profileDirectory, String browser, String base) {
         System.out.println("Unpacking base profile to " + profileDirectory);
         try {
             final InputStream resources = this.getClass().getClassLoader().getResourceAsStream("i2p."+browser+"."+base+".profile.zip");
