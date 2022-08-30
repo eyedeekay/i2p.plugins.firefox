@@ -134,7 +134,7 @@ which is installed either as the main user or it's own user. Linux will only use
 Tor Browser if it's discovered in "Local" mode.
 - The above is also true of OSX for now but doesn't have to remain so.
 
-### Usability vs Strict.
+### Usability vs Strict
 
 This is basically a profile-management tool geared toward minimizing the
 differences between browser users which are passively discernible while
