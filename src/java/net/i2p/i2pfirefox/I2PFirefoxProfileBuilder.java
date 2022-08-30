@@ -34,15 +34,15 @@ public class I2PFirefoxProfileBuilder extends I2PCommonBrowser {
     return profileDirectory("I2P_FIREFOX_PROFILE", "firefox");
   }
 
-  private static String baseProfileDir(String file) {
-    File profileDir = new File(file, "i2p.firefox.base.profile");
+  private static String baseProfileDir(String file, String base) {
+    File profileDir = new File(file, "i2p.firefox." + base + ".profile");
     // make sure the directory exists
     if (profileDir.exists()) {
       return profileDir.getAbsolutePath();
     } else {
       // create the directory
       I2PFirefoxProfileUnpacker unpacker = new I2PFirefoxProfileUnpacker();
-      if (!unpacker.unpackProfile(profileDir.getAbsolutePath())) {
+      if (!unpacker.unpackProfile(profileDir.getAbsolutePath(), base)) {
         return null;
       }
       return profileDir.getAbsolutePath();
@@ -54,7 +54,7 @@ public class I2PFirefoxProfileBuilder extends I2PCommonBrowser {
    *
    * @return the base profile directory, or null if it could not be created
    */
-  public static String baseProfileDirectory() {
+  public static String baseProfileDirectory(String base) {
     String pd = System.getenv("I2P_FIREFOX_BASE_PROFILE");
     if (pd != null && !pd.isEmpty()) {
       File pdf = new File(pd);
@@ -62,13 +62,13 @@ public class I2PFirefoxProfileBuilder extends I2PCommonBrowser {
         return pd;
       } else {
         I2PFirefoxProfileUnpacker unpacker = new I2PFirefoxProfileUnpacker();
-        if (!unpacker.unpackProfile(pdf.getAbsolutePath())) {
+        if (!unpacker.unpackProfile(pdf.getAbsolutePath(), base)) {
           return null;
         }
       }
     }
     String rtd = runtimeDirectory();
-    return baseProfileDir(rtd);
+    return baseProfileDir(rtd, base);
   }
 
   /**
@@ -109,8 +109,8 @@ public class I2PFirefoxProfileBuilder extends I2PCommonBrowser {
    *
    * @since 0.0.1
    */
-  public static boolean copyBaseProfiletoProfile() {
-    String baseProfile = baseProfileDirectory();
+  public static boolean copyBaseProfiletoProfile(String base) {
+    String baseProfile = baseProfileDirectory(base);
     String profile = profileDirectory();
     System.out.println("Copying base profile to profile directory: " +
                        baseProfile + " -> " + profile);
@@ -122,7 +122,7 @@ public class I2PFirefoxProfileBuilder extends I2PCommonBrowser {
 
     try {
       System.out.println("Copying base profile to profile directory");
-      copyDirectory(baseProfileDir, profileDir, "firefox");
+      copyDirectory(baseProfileDir, profileDir, "firefox", base);
     } catch (Exception e) {
       System.out.println("Error copying base profile to profile" + e);
       return false;
@@ -137,7 +137,7 @@ public class I2PFirefoxProfileBuilder extends I2PCommonBrowser {
     // return false;
     //}
 
-    return copyStrictOptions();
+    return copyStrictOptions(base);
   }
 
   /**
@@ -146,11 +146,11 @@ public class I2PFirefoxProfileBuilder extends I2PCommonBrowser {
    * @return true if successful, false otherwise
    * @since 0.0.1
    */
-  public static boolean copyStrictOptions() {
+  public static boolean copyStrictOptions(String base) {
     if (!strict) {
       return true;
     }
-    String baseProfile = baseProfileDirectory();
+    String baseProfile = baseProfileDirectory(base);
     String profile = profileDirectory();
     if (baseProfile.isEmpty() || profile.isEmpty()) {
       return false;

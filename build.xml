@@ -345,6 +345,7 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
             <fileset dir="." includes="*/*.~ **/*.*~ */**/*.*~ *.*~" />
         </delete>
         <delete dir="i2p.firefox.base.profile" />
+        <delete dir="i2p.firefox.usability.profile" />
         <delete dir="i2p.firefox.profile" />
         <delete dir="src/i2p.firefox.profile.zip" />
         <delete dir="i2p.chromium.base.profile" />

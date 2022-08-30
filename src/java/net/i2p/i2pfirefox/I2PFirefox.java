@@ -23,6 +23,7 @@ public class I2PFirefox {
   private final String[] FIREFOX_SEARCH_PATHS = FIREFOX_FINDER();
   private final int DEFAULT_TIMEOUT = 200;
   private Process p = null;
+  private static boolean usability = false;
 
   /**
    * Construct an I2PFirefox class which manages an instance of Firefox and
@@ -443,6 +444,13 @@ public class I2PFirefox {
     }
   }
 
+  private String usabilityMode() {
+    if (usability) {
+      return "usability";
+    }
+    return "base";
+  }
+
   public Process launchAndDetatch(boolean privateWindow, String[] url) {
     if (waitForProxy()) {
       String profileDirectory = I2PFirefoxProfileBuilder.profileDirectory();
@@ -451,7 +459,8 @@ public class I2PFirefox {
       } else {
         System.out.println("Invalid profile directory: " + profileDirectory +
                            " rebuilding...");
-        if (!I2PFirefoxProfileBuilder.copyBaseProfiletoProfile()) {
+        if (!I2PFirefoxProfileBuilder.copyBaseProfiletoProfile(
+                usabilityMode())) {
           System.out.println("Failed to rebuild profile directory: " +
                              profileDirectory);
           return null;
@@ -543,6 +552,9 @@ public class I2PFirefox {
           privateBrowsing = true;
           System.out.println(
               "private browsing is true, profile will be discarded at end of session");
+        }
+        if (arg.equals("-usability")) {
+          usability = true;
         }
         if (!arg.startsWith("-")) {
           // check if it's a URL

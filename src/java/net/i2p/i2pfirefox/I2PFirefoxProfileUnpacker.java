@@ -34,7 +34,7 @@ public class I2PFirefoxProfileUnpacker extends I2PCommonBrowser {
    * @return true if the profile directory was successfully unpacked
    * @since 0.0.1
    */
-  public boolean unpackProfile(String profileDirectory) {
-    return unpackProfile(profileDirectory, "firefox", "base");
+  public boolean unpackProfile(String profileDirectory, String base) {
+    return unpackProfile(profileDirectory, "firefox", base);
   }
 }
