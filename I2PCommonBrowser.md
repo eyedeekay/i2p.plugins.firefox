@@ -105,9 +105,10 @@ package: net.i2p.i2pfirefox
 | sourceDirectory | File |  |  
 | destinationDirectory | File |  |  
 | browser | String |  |  
+| base | String |  |  
 
 
-### copyDirectoryCompatibityMode [[src]](src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L166)
+### copyDirectoryCompatibityMode [[src]](src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L168)
 
 + Description:   
 + Access: private  
@@ -119,9 +120,10 @@ package: net.i2p.i2pfirefox
 | source | File |  |  
 | destination | File |  |  
 | browser | String |  |  
+| base | String |  |  
 
 
-### copyFile [[src]](src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L175)
+### copyFile [[src]](src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L177)
 
 + Description:   
 + Access: private  
