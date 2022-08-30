@@ -148,24 +148,26 @@ public class I2PCommonBrowser {
   }
 
   protected static void copyDirectory(File sourceDirectory,
-                                      File destinationDirectory, String browser)
-      throws IOException {
+                                      File destinationDirectory, String browser,
+                                      String base) throws IOException {
     destinationDirectory = new File(destinationDirectory.toString().replace(
-        "i2p." + browser + ".base.profile", ""));
+        "i2p." + browser + "." + base + ".profile", ""));
     if (!destinationDirectory.exists()) {
       destinationDirectory.mkdir();
     }
     for (String f : sourceDirectory.list()) {
       copyDirectoryCompatibityMode(new File(sourceDirectory, f),
-                                   new File(destinationDirectory, f), browser);
+                                   new File(destinationDirectory, f), browser,
+                                   base);
     }
   }
 
-  private static void
-  copyDirectoryCompatibityMode(File source, File destination, String browser)
+  private static void copyDirectoryCompatibityMode(File source,
+                                                   File destination,
+                                                   String browser, String base)
       throws IOException {
     if (source.isDirectory()) {
-      copyDirectory(source, destination, browser);
+      copyDirectory(source, destination, browser, base);
     } else {
       copyFile(source, destination);
     }
