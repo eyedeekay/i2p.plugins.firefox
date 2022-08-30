@@ -26,7 +26,7 @@ import java.util.Scanner;
  * @since 0.0.18
  */
 
-public class I2PGenericUnsafeBrowser {
+public class I2PGenericUnsafeBrowser extends I2PCommonBrowser {
     private final int DEFAULT_TIMEOUT = 200;
     public static String BROWSER = "";
     private Process p = null;
@@ -235,13 +235,7 @@ public class I2PGenericUnsafeBrowser {
      */
     public static File runtimeDirectory(boolean create) {
         String rtd = runtimeDirectory();
-        File rtdFile = new File(rtd);
-        if (create) {
-            if (!rtdFile.exists()) {
-                rtdFile.mkdir();
-            }
-        }
-        return new File(rtd);
+        return runtimeDirectory(create, rtd);
     }
 
     /**
@@ -262,33 +256,7 @@ public class I2PGenericUnsafeBrowser {
                 return rtd;
             }
         }
-        // obtain the PLUGIN environment variable
-        String plugin = System.getenv("PLUGIN");
-        if (plugin != null && !plugin.isEmpty()) {
-            File pluginDir = new File(plugin);
-            if (pluginDir.exists()) {
-                return pluginDir.toString()+"/i2pbrowser";
-            }
-        }
-        String userDir = System.getProperty("user.dir");
-        if (userDir != null && !userDir.isEmpty()) {
-            File userDir1 = new File(userDir);
-            if (userDir1.exists()) {
-                return userDir1.toString()+"/i2pbrowser";
-            }
-        }
-        String homeDir = System.getProperty("user.home");
-        if (homeDir != null && !homeDir.isEmpty()) {
-            File homeDir1 = new File(homeDir+"/.i2p");
-            if (homeDir1.exists()) {
-                return homeDir.toString()+"/i2pbrowser";
-            }
-            File homeDir2 = new File(homeDir+"/i2p");
-            if (homeDir2.exists()) {
-                return homeDir2.toString()+"/i2pbrowser";
-            }
-        }
-        return "";
+        return runtimeDirectory("");
     }
 
     /**
