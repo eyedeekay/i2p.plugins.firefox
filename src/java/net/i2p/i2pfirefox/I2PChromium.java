@@ -23,6 +23,7 @@ public class I2PChromium {
   private final String[] CHROMIUM_SEARCH_PATHS = CHROMIUM_FINDER();
   private final int DEFAULT_TIMEOUT = 200;
   private Process p = null;
+  public static boolean usability = false;
 
   /**
    * Construct an I2PChromium class which manages an instance of Chromium and

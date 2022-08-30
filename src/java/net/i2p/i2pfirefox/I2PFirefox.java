@@ -23,7 +23,7 @@ public class I2PFirefox {
   private final String[] FIREFOX_SEARCH_PATHS = FIREFOX_FINDER();
   private final int DEFAULT_TIMEOUT = 200;
   private Process p = null;
-  private static boolean usability = false;
+  public static boolean usability = false;
 
   /**
    * Construct an I2PFirefox class which manages an instance of Firefox and
