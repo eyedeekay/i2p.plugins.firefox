@@ -97,7 +97,7 @@ public class I2PCommonBrowser {
     }
 
     protected static String profileDir(String file, String browser) {
-        File profileDir = new File(file, "i2p."+browser+"profile");
+        File profileDir = new File(file, "i2p."+browser+".profile");
         return profileDir.getAbsolutePath();
     }
 
