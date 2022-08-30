@@ -41,7 +41,7 @@ public class I2PChromiumProfileBuilder extends I2PCommonBrowser {
      * @return the profile directory, or null if it could not be created
      */
     public static String profileDirectory() {
-        String pd = System.getenv("I2P_FIREFOX_PROFILE");
+        String pd = System.getenv("I2P_CHROMIUM_PROFILE");
         if (pd != null && !pd.isEmpty()) {
             File pdf = new File(pd);
             if (pdf.exists() && pdf.isDirectory()) {
@@ -73,7 +73,7 @@ public class I2PChromiumProfileBuilder extends I2PCommonBrowser {
      * @return the base profile directory, or null if it could not be created
      */
     public static String baseProfileDirectory() {
-        String pd = System.getenv("I2P_FIREFOX_BASE_PROFILE");
+        String pd = System.getenv("I2P_CHROMIUM_BASE_PROFILE");
         if (pd != null && !pd.isEmpty()) {
             File pdf = new File(pd);
             if (pdf.exists() && pdf.isDirectory()) {
@@ -108,18 +108,18 @@ public class I2PChromiumProfileBuilder extends I2PCommonBrowser {
      * @since 0.0.1
      */
     public static String runtimeDirectory() {
-        // get the I2P_FIREFOX_DIR environment variable
-        String rtd = System.getenv("I2P_FIREFOX_DIR");
+        // get the I2P_CHROMIUM_DIR environment variable
+        String rtd = System.getenv("I2P_CHROMIUM_DIR");
         // if it is not null and not empty
         if (rtd != null && !rtd.isEmpty()) {
             // check if the file exists
             File rtdFile = new File(rtd);
             if (rtdFile.exists()) {
                 // if it does, return it
-                return runtimeDirectory(rtd)
+                return runtimeDirectory(rtd);
             }
         }
-        return runtimeDirectory("")
+        return runtimeDirectory("");
     }
 
     /**
@@ -147,6 +147,7 @@ public class I2PChromiumProfileBuilder extends I2PCommonBrowser {
         System.out.println("Copied base profile to profile directory");        
         return copyStrictOptions();
     }
+
     private static void copyDirectory(File sourceDirectory, File destinationDirectory) throws IOException {
         destinationDirectory = new File(destinationDirectory.toString().replace("i2p.chromium.base.profile", ""));
         if (!destinationDirectory.exists()) {

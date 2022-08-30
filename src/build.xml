@@ -43,6 +43,7 @@
     <target name="jar" depends="builddep, compile">
         <jar destfile="build/i2pfirefox.jar" basedir="./build/obj" includes="**/*.class" >
             <fileset file="i2p.firefox.base.profile.zip" />
+            <fileset file="i2p.firefox.usability.profile.zip" />
             <fileset file="i2p.chromium.base.profile.zip" />
         </jar>
     </target>    
