@@ -1,12 +1,5 @@
 package net.i2p.i2pfirefox;
 
-import java.io.File;
-import java.io.InputStream;
-import java.nio.file.Files;
-import java.nio.file.StandardCopyOption;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipInputStream;
-
 /**
  * I2PChromiumProfileUnpacker.java
  * Copyright (C) 2022 idk <hankhill19580@gmail.com>

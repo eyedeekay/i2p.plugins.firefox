@@ -1,11 +1,6 @@
 package net.i2p.i2pfirefox;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
 
@@ -29,10 +24,6 @@ import java.nio.file.StandardCopyOption;
  */
 public class I2PFirefoxProfileBuilder extends I2PCommonBrowser {
     private static boolean strict;
-
-    private static String profileDir(String file) {
-        return profileDir(file, "firefox");
-    }
 
     /**
      * get the profile directory, creating it if necessary
@@ -148,34 +139,7 @@ public class I2PFirefoxProfileBuilder extends I2PCommonBrowser {
         
         return copyStrictOptions();
     }
-    private static void copyDirectory(File sourceDirectory, File destinationDirectory) throws IOException {
-        destinationDirectory = new File(destinationDirectory.toString().replace("i2p.firefox.base.profile", ""));
-        if (!destinationDirectory.exists()) {
-            destinationDirectory.mkdir();
-        }
-        for (String f : sourceDirectory.list()) {
-            copyDirectoryCompatibityMode(new File(sourceDirectory, f), new File(destinationDirectory, f));
-        }
-    }
-
-    public static void copyDirectoryCompatibityMode(File source, File destination) throws IOException {
-        if (source.isDirectory()) {
-            copyDirectory(source, destination);
-        } else {
-            copyFile(source, destination);
-        }
-    }
-
-    private static void copyFile(File sourceFile, File destinationFile) throws IOException {
-        try (InputStream in = new FileInputStream(sourceFile); 
-            OutputStream out = new FileOutputStream(destinationFile)) {
-            byte[] buf = new byte[1024];
-            int length;
-            while ((length = in.read(buf)) > 0) {
-                out.write(buf, 0, length);
-            }
-        }
-    }
+    
 
     /**
      * Copy the strict options from the base profile to the profile
