@@ -54,6 +54,7 @@ This method has no parameters.
 | Name | Type | Description |  
 | ----- | ----- | ----- |  
 | file | String |  |  
+| base | String |  |  
 
 
 ### baseProfileDirectory [[src]](src/java/net/i2p/i2pfirefox/I2PFirefoxProfileBuilder.java#L57)
@@ -63,7 +64,9 @@ This method has no parameters.
 + Modifiers: static 
 + return: String  
 
-This method has no parameters.  
+| Name | Type | Description |  
+| ----- | ----- | ----- |  
+| base | String |  |  
 
 
 ### runtimeDirectory [[src]](src/java/net/i2p/i2pfirefox/I2PFirefoxProfileBuilder.java#L81)
@@ -95,7 +98,9 @@ This method has no parameters.
 + Modifiers: static 
 + return: boolean  
 
-This method has no parameters.  
+| Name | Type | Description |  
+| ----- | ----- | ----- |  
+| base | String |  |  
 
 
 ### copyStrictOptions [[src]](src/java/net/i2p/i2pfirefox/I2PFirefoxProfileBuilder.java#L149)
@@ -105,6 +110,8 @@ This method has no parameters.
 + Modifiers: static 
 + return: true if successful false otherwise   
 
-This method has no parameters.  
+| Name | Type | Description |  
+| ----- | ----- | ----- |  
+| base | String |  |  
 
 
