@@ -8,3 +8,5 @@ To-Do List:
  - Launch $firefox_variant in I2P Mode
  - Launch $chromium_variant in I2P Mode
  - Launch system default browser in I2P Mode(Potentially Unsafe!)
+4. Registry-based discovery of Firefox variants
+5. Registry-based discovery of Chrome variants
