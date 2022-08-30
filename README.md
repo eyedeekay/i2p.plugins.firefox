@@ -133,3 +133,58 @@ installed on-path. What is on path is virtually always a wrapper for Tor Browser
 which is installed either as the main user or it's own user. Linux will only use
 Tor Browser if it's discovered in "Local" mode.
 - The above is also true of OSX for now but doesn't have to remain so.
+
+### Usability vs Strict.
+
+This is basically a profile-management tool geared toward minimizing the
+differences between browser users which are passively discernible while
+they are browsing I2P. It assumes that they are part of a highly fragmented
+browsing environment where they are already unique, and therefore consolidation
+on configuration is a goal. However, this goal sometimes also conflicts with
+usability. To allow users a safe set of choices, we offer "Coarse" configuration
+in 2 modes. We recommend that you do not deviate from these configurations if
+you have browser application fingerprinting as a concern.
+
+#### Usability Mode
+
+TODO: description
+
+Pros: Allows a restricted subset of Javascript
+Pros: Less likely to try and reach the clearnet
+
+Cons: Looks very different from Tor Browser
+Cons: Plugin updates can create temporary uniqueness
+
+##### Usability Extension Set
+
+- **I2P In Private Browsing**
+- **uMatrix**
+- **jsRestrictor**
+- **LocalCDN**
+- **Onion in Container Tabs**
+- **HTTPS EveryWhere** in some configurations
+
+##### Usability user.js characteristics
+
+TODO: Summarize differences
+
+#### Strict Mode
+
+TODO: description
+
+Pros: Does not allow Javascript by default
+Pros: Looks a lot like Tor Browser especially if you're using Tor Browser
+
+Cons: More work to use
+Cons: Temporary uniqueness can be created by enabling Javascript for specific sites
+Cons: More likely to try and reach the clearnet
+
+##### Strict Extension Set
+
+- **NoScript**
+- **I2P In Private Browsing**
+- **HTTPS EveryWhere** in some configurations
+
+##### Strict user.js characteristics
+
+TODO: Summarize differences

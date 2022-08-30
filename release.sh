@@ -7,6 +7,7 @@ GITHUB_DESCRIPTION=$(cat CHANGES.md)
 GITHUB_TAG=0.0.18
 ant distclean
 ./javadoc.sh
+edgar && git push --all
 ant jar freeZip
 github-release release --user "${GITHUB_USER}" \
     --repo "${GITHUB_REPO}" \
