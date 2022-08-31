@@ -388,7 +388,7 @@ public class I2PChromium {
   public ProcessBuilder processBuilder(String[] args) {
     String chrome = topChromium();
     if (!chrome.isEmpty()) {
-      String[] newArgs = new String[args.length + 20];
+      String[] newArgs = new String[args.length + 21];
       newArgs[0] = chrome;
       newArgs[1] =
           "--user-data-dir=" + I2PChromiumProfileBuilder.profileDirectory();
@@ -409,7 +409,8 @@ public class I2PChromium {
       newArgs[16] = "--disable-background-networking";
       newArgs[17] = "--disable-d3d11";
       newArgs[18] = "--disable-file-system";
-      newArgs[19] = "--load-extension=" +
+      newArgs[19] = "--reset-variation-state";
+      newArgs[20] = "--load-extension=" +
                     new File(I2PChromiumProfileBuilder.profileDirectory(),
                              "extensions/i2pchrome.js")
                         .getAbsolutePath();
@@ -421,7 +422,7 @@ public class I2PChromium {
       File(I2PChromiumProfileBuilder.profileDirectory(),"extensions/scriptsafe.js").getAbsolutePath();*/
       if (args.length > 0) {
         for (int i = 0; i < args.length; i++) {
-          newArgs[i + 20] = args[i];
+          newArgs[i + 21] = args[i];
         }
       }
       return new ProcessBuilder(newArgs).directory(
