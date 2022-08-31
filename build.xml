@@ -319,7 +319,7 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
         </exec>
     </target>
 
-    <target name="distclean" depends="clean,clangFmt" />
+    <target name="distclean" depends="clean" />
 
     <target name="clangFmt">
         <exec executable="clang-format">
