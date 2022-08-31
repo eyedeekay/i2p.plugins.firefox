@@ -230,7 +230,7 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
             <arg value="ikdjcmomgldfciocnpekfndklkfgglpe" />
             <arg value="-u=true"/>
             <arg value="-o" />
-            <arg value="src/i2p.chromium.base.profile/extensions/i2pchrome.js.crx" />
+            <arg value="src/i2p.chromium.usability.profile/extensions/i2pchrome.js.crx" />
         </exec>
         <!--
             TODO: I don't want to deal with licensing issues while on a headfull of cold
@@ -248,21 +248,21 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
             <arg value="cjpalhdlnbpafiamejdnhcphjbkeiagm" />
             <arg value="-u=true"/>
             <arg value="-o" />
-            <arg value="src/i2p.chromium.base.profile/extensions/ublock.js.crx" />
+            <arg value="src/i2p.chromium.usability.profile/extensions/ublock.js.crx" />
         </exec>
         <exec executable="crx3" failonerror="true">
             <arg value="download"/>
             <arg value="ammoloihpcbognfddfjcljgembpibcmb" />
             <arg value="-u=true"/>
             <arg value="-o" />
-            <arg value="src/i2p.chromium.base.profile/extensions/jshelter.js.crx" />
+            <arg value="src/i2p.chromium.usability.profile/extensions/jshelter.js.crx" />
         </exec>
         <exec executable="crx3" failonerror="true">
             <arg value="download"/>
             <arg value="njdfdhgcmkocbgbhcioffdbicglldapd" />
             <arg value="-u=true"/>
             <arg value="-o" />
-            <arg value="src/i2p.chromium.base.profile/extensions/localcdn.js.crx" />
+            <arg value="src/i2p.chromium.usability.profile/extensions/localcdn.js.crx" />
         </exec>
         -->
     </target>
