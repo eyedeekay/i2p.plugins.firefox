@@ -1,3 +1,9 @@
+Tue, August 30
+--------------
+
+ - Add Usability/Strict mode switching for Firefox
+ - Factor out common functions to own class
+
 Sun, August 28
 --------------
 

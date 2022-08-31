@@ -3,7 +3,7 @@
 ant distclean
 ant jar
 
-rm -rf i2p.chromium.base.profile i2p.chromium.profile i2p.firefox.base.profile i2p.firefox.profile
+rm -rf i2p.chromium.base.profile i2p.chromium.profile i2p.firefox.base.profile i2p.firefox.profile i2p.firefox.usability.profile
 
 echo "Testing auto-selector with no private and no URL parameters."
 java -cp ./src/build/i2pfirefox.jar net.i2p.i2pfirefox.I2PBrowser 2> auto.0.err 1> auto.0.log
@@ -48,7 +48,7 @@ java -cp ./src/build/i2pfirefox.jar net.i2p.i2pfirefox.I2PBrowser -firefox -priv
 
 echo "Firefox tests completed"
 sleep 2s
-rm -rf i2p.firefox.base.profile i2p.firefox.profile
+rm -rf i2p.firefox.usability.profile i2p.firefox.profile
 
 echo "Testing Firefox with no private and no URL parameters."
 java -cp ./src/build/i2pfirefox.jar net.i2p.i2pfirefox.I2PBrowser -firefox -usability 2> fox.0.err 1> fox.0.log
@@ -77,3 +77,5 @@ echo "Testing UNSAFE auto-selector with private browsing parameter"
 java -cp ./src/build/i2pfirefox.jar net.i2p.i2pfirefox.I2PGenericUnsafeBrowser -private "http://127.0.0.1:7657" 2> gen.4.err 1> gen.4.log
 
 echo "UNSAFE browser tests complete"
+
+rm -rf i2p.chromium.base.profile i2p.chromium.profile i2p.firefox.base.profile i2p.firefox.profile i2p.firefox.usability.profile
