@@ -388,6 +388,7 @@ public class I2PChromium {
   public ProcessBuilder processBuilder(String[] args) {
     String chrome = topChromium();
     if (!chrome.isEmpty()) {
+      //// TODO: evaluate and implement: https://github.com/ungoogled-software/ungoogled-chromium/blob/master/docs/flags.md
       String[] newArgs = new String[args.length + 21];
       newArgs[0] = chrome;
       newArgs[1] =
