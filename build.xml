@@ -311,7 +311,7 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
         <delete dir="plugin/eepsite/docroot/torrents/" />
         <!-- get version number -->
         <buildnumber file="scripts/build.number" />
-        <property name="release.number" value="0.0.6" />
+        <property name="release.number" value="0.0.19" />
 
         <!-- make the update xpi2p -->
         <!-- this contains everything except i2ptunnel.config -->
@@ -328,16 +328,6 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
         <exec executable="echo" osfamily="unix" failonerror="true" output="plugin/plugin.config" append="true">
             <arg value="version=${release.number}-b${build.number}" />
         </exec>
-        <!--<exec executable="pack200" failonerror="true">
-            <arg value="-r" />
-            <arg value="plugin/lib/i2pfirefox.jar" />
-            <arg value="src/build/i2pfirefox.jar" />
-        </exec>
-        <exec executable="pack200" failonerror="true">
-            <arg value="-r" />
-            <arg value="plugin/eepsite/webapps/firefox.war" />
-            <arg value="src/build/firefox.war.jar" />
-        </exec>-->
         <input message="Enter su3 signing key password:" addproperty="release.password.su3" />
         <fail message="You must enter a password." >
             <condition>
@@ -418,5 +408,23 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
         <delete file="plugin.zip" />
         <delete dir="plugin/eepsite/docroot/torrents/" />
     </target>
-
+    <target name="jpackage" depends="jar">
+        <exec executable="jpackage" failonerror="true">
+            <arg value="--type"/> <arg value="app-image"/>
+            <arg value="--name"/> <arg value="i2pbrowser"/>
+            <arg value="--app-version"/> <arg value="${release_number}"/>
+            <arg value="--input"/> <arg value="src/build"/>
+            <arg value="--main-jar"/> <arg value="i2pfirefox.jar"/>
+            <arg value="--main-class"/> <arg value="net.i2p.i2pfirefox.I2PBrowser"/>
+        </exec>
+        <exec executable="rm" failonerror="true" dir="src">
+            <arg value="-rf" />
+            <arg value="i2pbrowser.zip" />
+        </exec>
+        <exec executable="zip" failonerror="true" dir="src">
+            <arg value="-r"/>
+            <arg value="i2pbrowser.zip"/>
+            <arg value="i2pbrowser"/>
+        </exec>        
+    </target>
 </project>
