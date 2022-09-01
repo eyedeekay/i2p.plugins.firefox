@@ -418,11 +418,11 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
             <arg value="--main-jar"/> <arg value="i2pfirefox.jar"/>
             <arg value="--main-class"/> <arg value="net.i2p.i2pfirefox.I2PBrowser"/>
         </exec>
-        <exec executable="rm" failonerror="true" dir="src">
+        <exec executable="rm" failonerror="true">
             <arg value="-rf" />
             <arg value="i2pbrowser.zip" />
         </exec>
-        <exec executable="zip" failonerror="true" dir="src">
+        <exec executable="zip" failonerror="true">
             <arg value="-r"/>
             <arg value="i2pbrowser.zip"/>
             <arg value="i2pbrowser"/>
