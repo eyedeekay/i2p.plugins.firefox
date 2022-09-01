@@ -42,8 +42,8 @@ echo "Uploaded freestanding zip"
 github-release upload --user "${GITHUB_USER}" \
     --repo "${GITHUB_REPO}" \
     --tag "${GITHUB_TAG}" \
-    --name "i2pbrowser-nojava.zip" \
     --label "I2P Browser launcher as a Jpackage, does not require a JVM, Linux Only for now unless you BYO." \
+    --name "i2pbrowser.zip" \
     --file "i2pbrowser.zip" \
     --replace  
 echo "Uploaded jpackage zip"
