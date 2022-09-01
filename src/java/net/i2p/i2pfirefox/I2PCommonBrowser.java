@@ -11,6 +11,21 @@ import java.nio.file.StandardCopyOption;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
+/**
+ * I2PCommonBrowser.java
+ * Copyright (C) 2022 idk <hankhill19580@gmail.com>
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the MIT License. See LICENSE.md for details.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ *
+ *
+ * @author idk
+ * @since 0.0.19
+ */
+
 public class I2PCommonBrowser {
 
   /**
