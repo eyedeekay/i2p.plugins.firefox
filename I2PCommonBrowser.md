@@ -3,6 +3,10 @@
  >   
 
 Access: public  
+Description:  
+ > I2PCommonBrowser.java Copyright C 2022 idk <hankhill19580@gmail.com> This program is free software: you can redistribute it and/or modify it under the terms of the MIT License. See LICENSE.md for details. This program is distributed in the hope that it will be useful but WITHOUT ANY WARRANTY without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
+
+Author: idk   
 package: net.i2p.i2pfirefox  
 
 ## Dependencies
@@ -29,7 +33,7 @@ package: net.i2p.i2pfirefox
 
 ## Methods
 
-### runtimeDirectory [[src]](src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L23)
+### runtimeDirectory [[src]](src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L38)
 
 + Description: get the runtime directory creating it if create=true   
 + Access: protected  
@@ -42,7 +46,7 @@ package: net.i2p.i2pfirefox
 | override | String |  |  
 
 
-### runtimeDirectory [[src]](src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L40)
+### runtimeDirectory [[src]](src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L55)
 
 + Description: get the correct runtime directory   
 + Access: protected  
@@ -54,7 +58,7 @@ package: net.i2p.i2pfirefox
 | override | String |  |  
 
 
-### profileDirectory [[src]](src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L87)
+### profileDirectory [[src]](src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L102)
 
 + Description: get the profile directory creating it if necessary   
 + Access: protected  
@@ -67,7 +71,7 @@ package: net.i2p.i2pfirefox
 | browser | String |  |  
 
 
-### profileDir [[src]](src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L99)
+### profileDir [[src]](src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L114)
 
 + Description:   
 + Access: protected  
@@ -80,7 +84,7 @@ package: net.i2p.i2pfirefox
 | browser | String |  |  
 
 
-### unpackProfile [[src]](src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L105)
+### unpackProfile [[src]](src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L120)
 
 + Description:   
 + Access: protected  
@@ -93,7 +97,7 @@ package: net.i2p.i2pfirefox
 | base | String |  |  
 
 
-### copyDirectory [[src]](src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L152)
+### copyDirectory [[src]](src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L167)
 
 + Description:   
 + Access: protected  
@@ -108,7 +112,7 @@ package: net.i2p.i2pfirefox
 | base | String |  |  
 
 
-### copyDirectoryCompatibityMode [[src]](src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L168)
+### copyDirectoryCompatibityMode [[src]](src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L183)
 
 + Description:   
 + Access: private  
@@ -123,7 +127,7 @@ package: net.i2p.i2pfirefox
 | base | String |  |  
 
 
-### copyFile [[src]](src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L177)
+### copyFile [[src]](src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L192)
 
 + Description:   
 + Access: private  
