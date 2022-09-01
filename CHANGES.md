@@ -1,3 +1,10 @@
+Wed, August 32
+--------------
+
+ - Add unpacked extensions for Chromium profiles
+ - Add Chromium flags from Ungoogled-Chromium documentation
+ - Add Usability/Strict mode switching for Chromium
+
 Tue, August 30
 --------------
 

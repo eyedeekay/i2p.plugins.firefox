@@ -21,7 +21,7 @@ import java.io.File;
  * @since 0.0.1
  */
 public class I2PChromiumProfileBuilder extends I2PCommonBrowser {
-  // private static boolean strict;
+  public static boolean usability;
 
   /**
    * get the profile directory, creating it if necessary
@@ -32,15 +32,15 @@ public class I2PChromiumProfileBuilder extends I2PCommonBrowser {
     return profileDirectory("I2P_CHROMIUM_PROFILE", "chromium");
   }
 
-  private static String baseProfileDir(String file) {
-    File profileDir = new File(file, "i2p.chromium.base.profile");
+  private static String baseProfileDir(String file, String mode) {
+    File profileDir = new File(file, "i2p.chromium." + mode + ".profile");
     // make sure the directory exists
     if (profileDir.exists()) {
       return profileDir.getAbsolutePath();
     } else {
       // create the directory
       I2PChromiumProfileUnpacker unpacker = new I2PChromiumProfileUnpacker();
-      if (!unpacker.unpackProfile(profileDir.getAbsolutePath())) {
+      if (!unpacker.unpackProfile(profileDir.getAbsolutePath(), mode)) {
         return null;
       }
       return profileDir.getAbsolutePath();
@@ -52,7 +52,11 @@ public class I2PChromiumProfileBuilder extends I2PCommonBrowser {
    *
    * @return the base profile directory, or null if it could not be created
    */
-  public static String baseProfileDirectory() {
+  /*public static String baseProfileDirectory() {
+    return baseProfileDirectory("base");
+  }*/
+
+  public static String baseProfileDirectory(String mode) {
     String pd = System.getenv("I2P_CHROMIUM_BASE_PROFILE");
     if (pd != null && !pd.isEmpty()) {
       File pdf = new File(pd);
@@ -60,13 +64,13 @@ public class I2PChromiumProfileBuilder extends I2PCommonBrowser {
         return pd;
       } else {
         I2PChromiumProfileUnpacker unpacker = new I2PChromiumProfileUnpacker();
-        if (!unpacker.unpackProfile(pdf.getAbsolutePath())) {
+        if (!unpacker.unpackProfile(pdf.getAbsolutePath(), mode)) {
           return null;
         }
       }
     }
     String rtd = runtimeDirectory();
-    return baseProfileDir(rtd);
+    return baseProfileDir(rtd, mode);
   }
 
   /**
@@ -102,13 +106,19 @@ public class I2PChromiumProfileBuilder extends I2PCommonBrowser {
     return runtimeDirectory("");
   }
 
+  private static String usabilityMode() {
+    if (usability)
+      return "usability";
+    return "base";
+  }
+
   /**
    * Copy the inert base profile directory to the runtime profile directory
    *
    * @since 0.0.1
    */
   public static boolean copyBaseProfiletoProfile() {
-    String baseProfile = baseProfileDirectory();
+    String baseProfile = baseProfileDirectory(usabilityMode());
     String profile = profileDirectory();
     System.out.println("Copying base profile to profile directory: " +
                        baseProfile + " -> " + profile);
@@ -120,7 +130,7 @@ public class I2PChromiumProfileBuilder extends I2PCommonBrowser {
 
     try {
       System.out.println("Copying base profile to profile directory");
-      copyDirectory(baseProfileDir, profileDir, "chromium", "base");
+      copyDirectory(baseProfileDir, profileDir, "chromium", usabilityMode());
     } catch (Exception e) {
       System.out.println("Error copying base profile to profile" + e);
       return false;

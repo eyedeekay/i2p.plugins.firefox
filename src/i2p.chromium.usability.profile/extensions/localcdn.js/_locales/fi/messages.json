@@ -1,0 +1,486 @@
+{
+    "extensionDescription": {
+        "message": "Suojaa sinua CDN:ien (sisällön jakeluverkkojen) jäljitykseltä uudelleenohjaamalla pyynnöt paikallisiin resursseihin.",
+        "description": "Protects you against tracking through CDNs (Content Delivery Networks) by redirecting to local resources."
+    },
+    "amountInjectedDescription": {
+        "message": "Korvatut resurssipyynnöt lisäosan asennuksen jälkeen.",
+        "description": "Amount injected description."
+    },
+    "optionsTitle": {
+        "message": "Asetukset",
+        "description": "Options title"
+    },
+    "showIconBadgeTitle": {
+        "message": "Näytä korvattujen resurssien määrä kuvakkeessa",
+        "description": "Show icon badge title"
+    },
+    "showIconBadgeDescription": {
+        "message": "Näytä korvattujen kohteiden määrä lisäosan kuvakkeessa.",
+        "description": "Show icon badge description."
+    },
+    "blockMissingTitle": {
+        "message": "Estä pyynnöt puuttuviin resursseihin",
+        "description": "Block requests for missing resources title"
+    },
+    "blockMissingDescription": {
+        "message": "Estää pyynnöt jos paikallista sisältöä ei ole saatavilla.",
+        "description": "Block requests for missing resources description."
+    },
+    "disablePrefetchTitle": {
+        "message": "Estä linkkien esihaku",
+        "description": "Disable prefetch title"
+    },
+    "disablePrefetchDescription": {
+        "message": "Estä kiellettyjä sisältöpyyntöjä vuotamasta keskitettyihin jakeluverkkoihin.",
+        "description": "Disable prefetch description."
+    },
+    "stripMetadataTitle": {
+        "message": "Poista metatiedot sallituista sisältöpyynnöistä",
+        "description": "Strip metadata title"
+    },
+    "stripMetadataDescription": {
+        "message": "Poista arkaluontoiset tiedot jakeluverkkojen sisältöpyynnöistä yksityisyyden parantamiseksi.",
+        "description": "Strip metadata description."
+    },
+    "allowlistedDomainsTitle": {
+        "message": "Poista LocalCDN käytöstä näillä verkkosivuilla:",
+        "description": "Deactivate LocalCDN for these domains:"
+    },
+    "allowlistedDomainsDescription": {
+        "message": "Syötä verkkotunnukset, joilta haluat poistaa LocalCDN:n käytöstä. Yksi verkkotunnus per rivi.",
+        "description": "Enter domains to disable LocalCDN there. One entry per line."
+    },
+    "advancedLabel": {
+        "message": "Edistynyt",
+        "description": "Advanced label"
+    },
+    "generateRuleSetTitle": {
+        "message": "Luo säännöt mainostenestäjällesi",
+        "description": "Generate rule sets for your adblocker"
+    },
+    "generateRuleSetDescription": {
+        "message": "Jos käytät mainostenestäjää, voit luoda säännöt täällä. Sinun täytyy lisätä nämä säännöt manuaalisesti mainostenestäjään.",
+        "description": "In case you are using an adblocker you can generate the rules here. You have to add these rules manually in your adblocker."
+    },
+    "lastUpdate": {
+        "message": "Edellinen päivitys:",
+        "description": "Last update:"
+    },
+    "copyRuleSet": {
+        "message": "Kopioi",
+        "description": "Text of button to copy ruleset"
+    },
+    "loggingTitle": {
+        "message": "Ota lokitus käyttöön",
+        "description": "Enable logging"
+    },
+    "loggingDescription": {
+        "message": "Voit avata lokin valikosta löytyvällä kuvakkeella. Loki poistetaan kun suljet selaimen tai otat lokituksen pois käytöstä.",
+        "description": "You can open the log with the icon in the menu. The log will be deleted when you close the browser or disable logging."
+    },
+    "featureBreaksWebsitesDescription": {
+        "message": "Tämä ominaisuus rikkoo verkkosivuja. Älä jätä tätä päälle, ellet ole varautunut manuaalisesti sallimaan verkkotunnuksia, joihin tämä vaikuttaa.",
+        "description": "This feature breaks websites. Do not leave it enabled, unless you are prepared to manually add affected domains to the allow list."
+    },
+    "featureBreaksWebsitesButton": {
+        "message": "Poista käytöstä",
+        "description": "Disable"
+    },
+    "labelManipulateDOM": {
+        "message": "Suodata HTML-lähdekoodi",
+        "description": "Filter HTML source code"
+    },
+    "labelDonate": {
+        "message": "Lahjoita",
+        "description": "Donate"
+    },
+    "negateHtmlFilterListTitle": {
+        "message": "Käännä HTML-suodatin",
+        "description": "Invert HTML filter"
+    },
+    "negateHtmlFilterListDescription": {
+        "message": "Ota tämä asetus käyttöön, jos haluat aina käyttää HTML-suodatinta. Listan verkkotunnukset jätetään huomioimatta. Jos tämä valinta on pois päältä, HTML-suodatin on vain käytössä listan verkkotunnuksiin.",
+        "description": "Enable this option to always apply the HTML filter. The domains in the list will be ignored then. If this option is disabled, the HTML filter is only applied to domains in the list."
+    },
+    "negateHtmlFilterListWarning": {
+        "message": "Tämä toiminto voi rikkoa verkkosivuja. Lisätietoja Wikisivulta.",
+        "description": "This function can break websites. Please note the information on the Wiki page."
+    },
+    "htmlFilterDomainsTitleExclude": {
+        "message": "Älä käytä HTML-suodatinta näille verkkotunnuksille:",
+        "description": "Do not apply HTML filter to these domains:"
+    },
+    "htmlFilterDomainsDescription": {
+        "message": "Anna verkkotunnukset, joita HTML-suodatin käsittelee tai jättää huomiotta. Yksi verkkotunnus per rivi.",
+        "description": "Enter the domains to be handled or ignored by the HTML filter. One entry per line."
+    },
+    "htmlFilterDomainsTitleInclude": {
+        "message": "Aseta HTML-suodatin näille verkkotunnuksille:",
+        "description": "Apply HTML filter for these domains:"
+    },
+    "blockGoogleFontsTitle": {
+        "message": "Estä Google Fonts",
+        "description": "Block Google Fonts"
+    },
+    "blockGoogleFontsDescription": {
+        "message": "Jos puuttuvien resurssien pyytäminen sallitaan, yhteyksiä \"fonts.googleapis.com\" -palveluun ei estetä. Ota tämä vaihtoehto käyttöön, jos haluat estää nämä pyynnöt.",
+        "description": "If requests for missing resources are allowed, connections to \"fonts.googleapis.com\" are not blocked. Enable this option to block these requests."
+    },
+    "chooseIconStyle": {
+        "message": "Valitse ikoni tälle lisäosalle",
+        "description": "Choose an icon for this extension"
+    },
+    "internalStatisticsTitle": {
+        "message": "Sisäiset tilastot",
+        "description": "Internal statistics"
+    },
+    "internalStatisticsDescription": {
+        "message": "Tämä toiminta on tällä hetkellä kokeilullisessa vaiheessa. Ei tiedonsiirtoa. Kaikki on paikallista sinun laitteellasi.",
+        "description": "No data transmission. It’s all local on your device."
+    },
+    "headerStatistics": {
+        "message": "Tilastot",
+        "description": "Statistics. The header of a statistics page."
+    },
+    "labelToday": {
+        "message": "Tänään",
+        "description": "Statistics view for today."
+    },
+    "labelPastWeek": {
+        "message": "Viime viikko",
+        "description": "Statistics view for past week."
+    },
+    "labelPastMonth": {
+        "message": "Viime kuukausi",
+        "description": "Statistics view for past month."
+    },
+    "labelPastYear": {
+        "message": "Viime vuosi",
+        "description": "Statistics view for past year."
+    },
+    "labelDelete": {
+        "message": "Poista",
+        "description": "Button to delete all statistics data."
+    },
+    "labelAvg": {
+        "message": "Keskiarvo (Korvaavia päivässä)",
+        "description": "Followed by a number of average injections per day within a specific period."
+    },
+    "labelInjectedFrameworks": {
+        "message": "Korvatut puitteet",
+        "description": "Followed by a number of injections within a specific period."
+    },
+    "dialogConfirmDeleteStatistics": {
+        "message": "Oletko varma että haluat poistaa kaikki tilastot?",
+        "description": "Are you sure you want to delete all the statistics?"
+    },
+    "labelDomainsAllowlistGoogleFonts": {
+        "message": "Nämä verkkotunnukset saavat ladata Google Fonts:eja. Yksi verkkotunnus per rivi.",
+        "description": "These domains are allowed to load Google Fonts. One entry per line."
+    },
+    "btnGeneral": {
+        "message": "Perus",
+        "description": "Basic"
+    },
+    "btnAdvanced": {
+        "message": "Kehittynyt",
+        "description": "Advanced"
+    },
+    "btnOther": {
+        "message": "Muu",
+        "description": "Other"
+    },
+    "btnInfo": {
+        "message": "Tiedot",
+        "description": "Info"
+    },
+    "headerStorageType": {
+        "message": "Tallenustyyppi",
+        "description": "Storage type"
+    },
+    "labelStorageTypeLocal": {
+        "message": "Paikallinen",
+        "description": "Local"
+    },
+    "labelStorageTypeSync": {
+        "message": "Synkronoi",
+        "description": "Sync"
+    },
+    "headerImportExport": {
+        "message": "Tuonti/Vienti",
+        "description": "Import/Export"
+    },
+    "labelExportData": {
+        "message": "Varmuuskopio tiedostoon",
+        "description": "Back up to file"
+    },
+    "labelImportData": {
+        "message": "Palauta tiedostosta",
+        "description": "Restore from file"
+    },
+    "dialogImportSuccessful": {
+        "message": "Tuonti onnistui",
+        "description": "Import successful"
+    },
+    "dialogImportFailed": {
+        "message": "Tuonti epäonnistui",
+        "description": "Import failed"
+    },
+    "updateNotificationTitle": {
+        "message": "Ilmoitus päivityksen jälkeen",
+        "description": "Notification after an update"
+    },
+    "updateNotificationNever": {
+        "message": "Ei koskaan (Hiljaiset Päivitykset)",
+        "description": "Never (Silent Updates)"
+    },
+    "updateNotificationOnlyRules": {
+        "message": "Vain jos uusia CDN:ia ja sääntöjä",
+        "description": "Only if new CDNs and rules"
+    },
+    "updateNotificationAlways": {
+        "message": "Aina",
+        "description": "Always"
+    },
+    "websiteBroken": {
+        "message": "Verkkosivu rikki?",
+        "description": "Website broken?"
+    },
+    "hideDonationButton": {
+        "message": "Piiloita lahjoitus nappi",
+        "description": "Hide donation button"
+    },
+    "betaLabel": {
+        "message": "Beta",
+        "description": "beta"
+    },
+    "changeBadgeColorMissingResourcesTitle": {
+        "message": "Ilmoita puuttuvia resursseja kuvakkessa",
+        "description": "Indicate missing resources on the icon"
+    },
+    "changeBadgeColorMissingResourcesDescription": {
+        "message": "Vaihda merkin väri jos resursseja puuttuu.",
+        "description": "Change the badge color if resources are missing."
+    },
+    "titleHelp": {
+        "message": "Apua",
+        "description": "Help"
+    },
+    "helpIntroductionTitle": {
+        "message": "Esittely",
+        "description": "Introduction"
+    },
+    "helpHtmlFilterTitle": {
+        "message": "Mikä on HTML-suodatin?",
+        "description": "What is »HTML filter«?"
+    },
+    "helpRuleGeneratorTitle": {
+        "message": "Sääntöjen luonti",
+        "description": "Rule generator"
+    },
+    "helpWebsiteIssuesTitle": {
+        "message": "Jotkut verkkosivut saattavat näyttää oudoilta tai eivät ole helppoja käyttää",
+        "description": "Some websites look strange or are not easy to use"
+    },
+    "helpBlockGoogleFontsTitle": {
+        "message": "Miksi \"Block Google Fonts\" -valinta on olemassa?",
+        "description": "Why is there a »Block Google Fonts« option?"
+    },
+    "helpStatisticsTitle": {
+        "message": "Entä tilastotiedot? Siirretäänkö mitään tietoa millekään palvelimelle?",
+        "description": "What about the statistics? Is anything transferred to any servers?"
+    },
+    "helpWhatWillBeSynchronizedTitle": {
+        "message": "Mitä synkronoidaan, kun valitsen Sync:n tallennustavaksi?",
+        "description": "What will be synchronized when I select »sync« as storage type?"
+    },
+    "helpBrowserCompatibilityTitle": {
+        "message": "Selainyhteensopivuus",
+        "description": "Browser compatibility"
+    },
+    "helpIntroductionDescription": {
+        "message": "LocalCDN on selaimen lisäosa, joka jäljittelee sisällönjakeluverkkoja parantaakseen sinun yksityisyyttäsi verkossa. Se pysäyttää liikenteen, etsii tuetut kehykset/kirjastot paikallisesti, ja syöttää ne verkkosivustolle. Kokeile vapaasti testityökalua kokeillaksesi, oletko asianmukaisesti suojattu. Lue lisätietoja ohjekirjasta tai Wiki-sivuiltamme.",
+        "description": "LocalCDN is a web browser extension that emulates Content Delivery Networks to improve your online privacy. It intercepts traffic, finds supported frameworks/libraries locally, and injects them into the website. Feel free to use the following testing utility to find out if you are properly protected. For more information read the tutorial or our Wiki pages."
+    },
+    "helpLinkTestUtility": {
+        "message": "Testityökalu",
+        "description": "Testing utility"
+    },
+    "helpLinkTutorial": {
+        "message": "Ohjekirja",
+        "description": "Tutorial"
+    },
+    "helpLinkWikiPages": {
+        "message": "Wiki-sivut",
+        "description": "Wiki pages"
+    },
+    "helpHtmlFilterDescription": {
+        "message": "Suurimmassa osassa tapauksista LocalCDN voi helposti korvata sulautetut kehykset ja parantaa yksityisyyttä. Joissain tapauksissa verkkosivu voi yrittää estää tämän asettamalla tiettyjä vaihtoehtoja HTML-lähdekoodiin. LocalCDN lukee HTML-lähdekoodin ennen kuin se näytetään verkkoselaimessa ja poistaa nämä (punaisella).",
+        "description": "In most cases LocalCDN can easily replace embedded frameworks and improves privacy. In some cases the website may try to prevent this by setting certain options in the HTML source code. LocalCDN reads the HTML source code before it is displayed in the browser and removes these part (red)."
+    },
+    "helpHtmlFilterBefore": {
+        "message": "HTML-suodatin poistaa punaiset merkit tästä esimerkistä:",
+        "description": "The HTML filter removes the red characters from this example:"
+    },
+    "helpHtmlFilterAfter": {
+        "message": "Tulos näyttää sen jälkeen tältä:",
+        "description": "The result then looks like this:"
+    },
+    "helpHtmlFilterWhyTitle": {
+        "message": "Miksi on välttämätöntä poistaa crossorigin- ja eheysattribuutit?",
+        "description": "Why is it necessary to remove crossorigin and integrity attributes?"
+    },
+    "helpHtmlFilterCrossorigin": {
+        "message": "Crossorigin-attribuutti estää korvaamisen, koska kohde ei ole yhteensopiva pyydetyn kanssa.",
+        "description": "The crossorigin attribute prevents the replacement because the destination does not match the requested one."
+    },
+    "helpHtmlFilterIntegrity": {
+        "message": "Säästääkseen levytilaa ja toimittaakseen enemmän kehyksiä LocalCDN päivittää kehyksen. Eheystunniste on tiedoston tiivistearvo. Jos tarkastus epäonnistuu, selain ei sisällytä kehystä. Eheystarkastus epäonnistuu, koska tiivistearvot esimerkiksi jQuery 1.10.1:lle sekä jQuery 1.12.4:lle ovat erilaisia.",
+        "description": "To save disk space and to deliver more frameworks LocalCDN upgrades a framework. An integrity tag is the hash value of a file. If the check fails, the browser won‘t include a framework. The integrity check will fail because the hash values for e.g. jQuery 1.10.1 and jQuery 1.12.4 are different."
+    },
+    "helpHtmlFilterErrors": {
+        "message": "Valitettavasti joskus erikoismerkit näkyvät väärin. Tässä tapauksessa voit deaktivoida asetukset uudelleen, jotta kirjainten yläpuolella olevat pisteet näkyvät oikein.",
+        "description": "Unfortunately, it sometimes happens that special characters are then displayed incorrectly. In this case you can deactivate the setting again, to display the umlauts correctly."
+    },
+    "helpRuleGeneratorDescription": {
+        "message": "Jos haluat automaattisesti ohjata kaikki tuetut CDN-yhteydet LocalCDN:ään, voit lisätä nämä säännöt mainostenesto-ohjelmaasi salliaksesi nämä uudelleenohjaukset. Jos et halua lisätä näitä sääntöjä, sinun täytyy sallia jokainen CDN-yhteys yksitellen joka verkkosivustolle.",
+        "description": "If you want to automatically redirect all supported CDN connections to LocalCDN, you can add these rules to your adblocker to allow these redirections. If you do not want to add these rules, you must allow each CDN connection individually for each website."
+    },
+    "helpRuleGeneratorUblockTitle": {
+        "message": "Vain uBlock Origin:",
+        "description": "Only uBlock Origin:"
+    },
+    "helpRuleGeneratorUblockDescription": {
+        "message": "Nämä säännöt ovat relevantteja vain \"medium\" tai \"hard\" tilassa, koska se estää kaikki kolmannen osapuolen resurssit. Ne eivät ole välttämättä \"default\", \"easy\" tai \"very-easy\" tiloissa. Lisätietoja varten tutustu uBlock Origin Wikiin.",
+        "description": "These rules are only relevant in »medium« or »hard« mode, because it blocks all 3rd-party resources. They are not necessary in »default«, »easy« or »very-easy« mode. For more information, please visit the uBlock Origin Wiki."
+    },
+    "helpRuleGeneratorUblockTableIcon": {
+        "message": "Kuvake",
+        "description": "Icon"
+    },
+    "helpRuleGeneratorUblockTableMode": {
+        "message": "Tila",
+        "description": "Mode"
+    },
+    "helpRuleGeneratorUblockTableUseful": {
+        "message": "Hyödyllisiä sääntöjä",
+        "description": "Rules useful"
+    },
+    "helpRuleGeneratorUblockTableDefaultEasy": {
+        "message": "Oletus/Kevyt",
+        "description": "Default/Easy"
+    },
+    "helpRuleGeneratorUblockTableMedium": {
+        "message": "Keskitaso",
+        "description": "Medium"
+    },
+    "helpRuleGeneratorUblockTableHard": {
+        "message": "Kova",
+        "description": "Hard"
+    },
+    "helpWebsiteIssuesDescription": {
+        "message": "On kaksi mahdollista syytä: Joko kehys/kirjasto on vaadittu, jota LocalCDN ei (vielä) toimita tai SOP (Same origin policy). Se on turvallisuusmekanismi, joka määrittelee, mitä dataa selain saa ladata. Se helpottaa eristämään haitalliset asiakirjat ja siten vähentämän mahdollisia hyökkäysvektoreita. Tämä linjaus estää selainta lataamasta LocalCDN:n ulkopuolisia kehyksiä. Valitettavasti tähän ei ole vielä kehitetty ratkaisua.",
+        "description": "There are two possible reasons: Either a framework/library is required that LocalCDN doesn‘t (yet) deliver or an SOP. A SOP (Same origin policy) is a security mechanism that determines what data the browser is allowed to load. It helps to isolate malicious documents and thus reduce possible attack vectors. This policy prevents the browser from loading the external frameworks of LocalCDN. Unfortunately there is no solution for this at the moment."
+    },
+    "helpBlockGoogleFontsDescription": {
+        "message": "LocalCDN voi korvata Google Material -ikonit. Napataksesi yhteyden mainostenesto-ohjelmasi (esim. uBlock Origin, uMatrix tai AdGuard) täytyy sallia pyyntö. LocalCDN kuuntelee näitä pyyntöjä, ja jos kysely sisältää maininnan \"Google Material Icons\", resurssi korvataan. Jos poissuljet valinnan, olemassaolemattomat resurssit sallitaan läpi ja Google-fontit ladataan, koska Google Material Icons ja Google Fonts käyttävät samaa domainia. Jos et halua tätä, voit estää Google-fontit LocalCDN:ssa.",
+        "description": "LocalCDN can replace »Google Material Icons«. To catch the connection your adblocker (e.g. uBlock Origin, uMatrix or AdGuard) must allow the request. LocalCDN listens on these requests and if the query contains »Google Material Icons«, the resource will be replaced. If you uncheck the »Block requests for missing content« option, non-existent resources will be allowed to pass and »Google Fonts« will be loaded, because »Google Material Icons« and »Google Fonts« use the same domain. If you don‘t want this, you can block »Google Fonts« on LocalCDN."
+    },
+    "helpStatisticsDescription": {
+        "message": "Ei hätää, mitään ei lähetetä eteenpäin. Se olisi vastoin kaikkia periaatteitani. Tilastotiedot (JSON-muodossa) sisältävät seuraavia tietoja: Päivämäärä, CDN+counter ja ohjelmistokehys+counter. Siinä kaikki. Minulla on tässä esimerkki:",
+        "description": "Don‘t panic, nothing will be transmitted. It would be against all my principles. The statistics (JSON format) contains the following information: Date, CDN+counter and framework+counter. That‘s all. I‘ve an example here:"
+    },
+    "helpStatisticsContent": {
+        "message": "Tilastot eivät sisällä mitään tietoa selaimesta, käyttöjärjestelmästä, verkkosivupyynnöistä, IP-osoitteista tai mistään muusta tiedosta. Pelkästään päivämäärä, CDN+counter ja ohjelmistokehys+counter. Se näyttää, mitkä ohjelmistokehykset LocalCDN on korvannut, kuinka usein, ja mitä sisältöjenjakeluverkkoja on pyydetty.",
+        "description": "The statistics contain no information about the browser, operating system, requesting website, IP addresses or any other information. Just date, CDN+counter and framework+counter. It shows you which frameworks are replaced by LocalCDNs how often and which CDNs were requested."
+    },
+    "helpStatisticsTruthTitle": {
+        "message": "Mistä tiedän, onko se totta?",
+        "description": "How do I know that‘s true?"
+    },
+    "helpStatisticsTruthDescription": {
+        "message": "Lisäosan tallennustilaa voi tarkastella suoraan Firefox-selaimesta. Avaa osoite »about:debugging«, siirry kohtaan »Tallennustila« ja valitse »Liitännäisten tallennustila«. Tunnuksen »internalStatisticsData« alta löydät kerätyt tiedot. Kopioi se ja lisää se JSON PrettyPrinteriin tehdäksesi siitä helpommin luettavan. Huomioithan, että sinun täytyy poistaa ensimmäinen ja viimeinen lainausmerkki ja avain siihen. Sinun tulisi nähdä tämä selkeästi tältä videolta.",
+        "description": "The extension storage can be viewed directly with the Firefox browser. Open the URL »about:debugging«, switch to »Storage« and select »Extension Storage«. Under the key »internalStatisticsData« you will find the collected data. Just copy it and put it into a JSON PrettyPrinter to make it more readable. Please note that you have to remove the first and last quotation mark and the key to it. You should be able to see this clearly in this video."
+    },
+    "helpSyncTitle": {
+        "message": "Mitä synkronoidaan, kun valitsen Sync:n tallennustavaksi?",
+        "description": "What will be synchronized when I select »sync« as storage type?"
+    },
+    "helpSyncDescription": {
+        "message": "Sync toimii vain, jos olet kirjautuneena Firefox-tilillä samassa laitteessa ja olet sallinut lisäosien synkronoida asetukset. Hallinnassasi oleva erillinen synkronointipalvelin toimii myös. Tämä synkronoi suurimman osan LocalCDN:n asetuksista kaikkiin laitteisiin.",
+        "description": "Sync will only work if you are logged in with a Firefox account on the device and have allowed add-ons to sync in the settings. A separate sync server under your control will also work. This will synchronize most of the settings of LocalCDN across all devices."
+    },
+    "helpSyncAccount": {
+        "message": "Jos sinulla ei ole Sync-tiliä, mitään ei voida synkronoida. Tässä tapauksessa ei ole merkitystä, minkä tallennustilan olet valinnut.",
+        "description": "If you don‘t have a sync account, nothing will be synchronized. In that case it makes no difference what type of storage you have selected."
+    },
+    "helpSyncContentNever": {
+        "message": "Asiat, joita ei koskaan synkronoida:",
+        "description": "Things that are never synchronized:"
+    },
+    "helpNumberOfInjections": {
+        "message": "Injektioiden määrä",
+        "description": "Numbers of injections"
+    },
+    "helpYes": {
+        "message": "Kyllä",
+        "description": "Yes"
+    },
+    "helpNo": {
+        "message": "Ei",
+        "description": "No"
+    },
+    "helpData": {
+        "message": "Data",
+        "description": "Data"
+    },
+    "helpSyncContentEver": {
+        "message": "Asetukset, jotka synkronoidaan:",
+        "description": "Settings that will be synchronized:"
+    },
+    "helpIcons": {
+        "message": "Oletus, Vaalea, Sininen/Harmaa",
+        "description": "Default, Light, Blue/Grey"
+    },
+    "helpSyncContentLinks": {
+        "message": "Lisätietoja Firefox Sync:sta:",
+        "description": "More information about Firefox Sync:"
+    },
+    "helpBrowserCompatibility": {
+        "message": "Selaimen yhteensopivuus",
+        "description": "Browser compatibility"
+    },
+    "helpReplace": {
+        "message": "Korvaa",
+        "description": "Replace"
+    },
+    "helpReplaceOther": {
+        "message": "Korvaa muut resurssit",
+        "description": "Replace other resources"
+    },
+    "helpUpgradeAllResources": {
+        "message": "Päivitä kaikki resurssit",
+        "description": "Upgrade all resources"
+    },
+    "helpExplanationChrome": {
+        "message": "Kaikki Chromium-pohjaiset selaimet",
+        "description": "All Chromium based Browser"
+    },
+    "helpLimitation": {
+        "message": "Tämä ei ole LocalCDN:n rajoitus, vaan rajapintatuen puuttuminen Chromium-pohjaisissa selaimissa.",
+        "description": "This is not a limitation of LocalCDN, but missing API support of Chromium based browsers."
+    },
+    "titleBadgeDefault": {
+        "message": "Oletuskuvake",
+        "description": "Default badge"
+    },
+    "titleBadgeHTMLFilter": {
+        "message": "HTML-suodattimen kuvake",
+        "description": "HTML filter badge"
+    },
+    "titleBadgeMissingResource": {
+        "message": "Puuttuvan resurssin kuvake",
+        "description": "Missing resource badge"
+    }
+}

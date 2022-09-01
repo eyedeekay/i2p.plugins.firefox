@@ -1,0 +1,486 @@
+{
+    "extensionDescription": {
+        "message": "Bảo vệ bạn khỏi sự theo dõi bằng các CDN (viết tắt của từ tiếng Anh \"Content Delivery Networks\", tiếng Việt nghĩa là \"Mạng phân phối nội dung\") bằng cách chuyển hướng về các tài nguyên có sẵn.",
+        "description": "Protects you against tracking through CDNs (Content Delivery Networks) by redirecting to local resources."
+    },
+    "amountInjectedDescription": {
+        "message": "Số lượng mạng phân phối nội dung nội địa được sử dụng kể từ khi lúc cài đặt.",
+        "description": "Amount injected description."
+    },
+    "optionsTitle": {
+        "message": "Cài đặt",
+        "description": "Options title"
+    },
+    "showIconBadgeTitle": {
+        "message": "Hiện số lần sử dụng trên biểu tượng",
+        "description": "Show icon badge title"
+    },
+    "showIconBadgeDescription": {
+        "message": "Hiện số lần đã sử dụng tài nguyên có sẵn trên biểu tượng của tiện ích mở rộng.",
+        "description": "Show icon badge description."
+    },
+    "blockMissingTitle": {
+        "message": "Chặn các yêu cầu với tài nguyên không có sẵn",
+        "description": "Block requests for missing resources title"
+    },
+    "blockMissingDescription": {
+        "message": "Huỷ bỏ yêu cầu bị chặn nếu tài nguyên cần thiết không có sẵn.",
+        "description": "Block requests for missing resources description."
+    },
+    "disablePrefetchTitle": {
+        "message": "Vô hiệu hoá nạp trước đường liên kết",
+        "description": "Disable prefetch title"
+    },
+    "disablePrefetchDescription": {
+        "message": "Ngăn những yêu cầu bị cấm không bị lộ ra cho các mạng phân phối.",
+        "description": "Disable prefetch description."
+    },
+    "stripMetadataTitle": {
+        "message": "Loại bỏ siêu dữ liệu từ những yêu cầu được cho phép",
+        "description": "Strip metadata title"
+    },
+    "stripMetadataDescription": {
+        "message": "Xoá bỏ dữ liệu nhạy cảm từ những yêu cầu tới mạng phân phối nội dung được cho phép để tăng cường riêng tư.",
+        "description": "Strip metadata description."
+    },
+    "allowlistedDomainsTitle": {
+        "message": "Không sử dụng LocalCDN đối với những tên miền sau:",
+        "description": "Deactivate LocalCDN for these domains:"
+    },
+    "allowlistedDomainsDescription": {
+        "message": "Nhập các tên miền không sử dụng LocalCDN. Mỗi dòng một tên.",
+        "description": "Enter domains to disable LocalCDN there. One entry per line."
+    },
+    "advancedLabel": {
+        "message": "Nâng cao",
+        "description": "Advanced label"
+    },
+    "generateRuleSetTitle": {
+        "message": "Tạo quy luật cho trình chặn quảng cáo của bạn",
+        "description": "Generate rule sets for your adblocker"
+    },
+    "generateRuleSetDescription": {
+        "message": "Trong trường hợp bạn sử dụng trình chặn quảng cáo thì có thể tạo các quy luật ở đây. Bạn phải thêm những quy luật này vào trình chặn quảng cáo một cách thủ công.",
+        "description": "In case you are using an adblocker you can generate the rules here. You have to add these rules manually in your adblocker."
+    },
+    "lastUpdate": {
+        "message": "Lần cập nhật cuối:",
+        "description": "Last update:"
+    },
+    "copyRuleSet": {
+        "message": "Sao chép",
+        "description": "Text of button to copy ruleset"
+    },
+    "loggingTitle": {
+        "message": "Kích hoạt ghi chép nhật ký",
+        "description": "Enable logging"
+    },
+    "loggingDescription": {
+        "message": "Bạn có thể mở nhật ký từ biểu tượng trong trình đơn. Nhật ký sẽ bị xoá khi bạn đóng trình duyệt hoặc tắt ghi chép nhật ký.",
+        "description": "You can open the log with the icon in the menu. The log will be deleted when you close the browser or disable logging."
+    },
+    "featureBreaksWebsitesDescription": {
+        "message": "Tính năng này có thể làm hỏng các trang web. Không nên bật, trừ khi bạn sẵn sàng thêm các tên miền bị ảnh hưởng vào danh sách cho phép.",
+        "description": "This feature breaks websites. Do not leave it enabled, unless you are prepared to manually add affected domains to the allow list."
+    },
+    "featureBreaksWebsitesButton": {
+        "message": "Tắt",
+        "description": "Disable"
+    },
+    "labelManipulateDOM": {
+        "message": "Lọc mã nguồn HTML",
+        "description": "Filter HTML source code"
+    },
+    "labelDonate": {
+        "message": "Quyên góp",
+        "description": "Donate"
+    },
+    "negateHtmlFilterListTitle": {
+        "message": "Đảo ngược bộ lọc HTML",
+        "description": "Invert HTML filter"
+    },
+    "negateHtmlFilterListDescription": {
+        "message": "Bật tính năng này để luôn sử dụng bộ lọc HTML. Các tên miền trong danh sách khi đó sẽ bị bỏ qua. Nếu tính năng này tắt, bộ lọc HTML chỉ được sử dụng đối với các tên miền trong danh sách.",
+        "description": "Enable this option to always apply the HTML filter. The domains in the list will be ignored then. If this option is disabled, the HTML filter is only applied to domains in the list."
+    },
+    "negateHtmlFilterListWarning": {
+        "message": "Tính năng này có thể làm hỏng các trang web. Xem thông tin ở trên trang Wiki.",
+        "description": "This function can break websites. Please note the information on the Wiki page."
+    },
+    "htmlFilterDomainsTitleExclude": {
+        "message": "Không sử dụng bộ lọc HTML đối với những tên miền sau:",
+        "description": "Do not apply HTML filter to these domains:"
+    },
+    "htmlFilterDomainsDescription": {
+        "message": "Nhập các tên miền để được bộ lọc HTML áp dụng hoặc bỏ qua. Mỗi dòng một tên.",
+        "description": "Enter the domains to be handled or ignored by the HTML filter. One entry per line."
+    },
+    "htmlFilterDomainsTitleInclude": {
+        "message": "Sử dụng bộ lọc HTML đối với các tên miền sau:",
+        "description": "Apply HTML filter for these domains:"
+    },
+    "blockGoogleFontsTitle": {
+        "message": "Chặn các phông chữ Google",
+        "description": "Block Google Fonts"
+    },
+    "blockGoogleFontsDescription": {
+        "message": "Nếu các yêu cầu tới tài nguyên không có sẵn được cho phép, các kết nối tới \"fonts.googleapis.com\" sẽ không bị chặn. Bật tính năng này để chặn các yêu cầu đó.",
+        "description": "If requests for missing resources are allowed, connections to \"fonts.googleapis.com\" are not blocked. Enable this option to block these requests."
+    },
+    "chooseIconStyle": {
+        "message": "Chọn biểu tượng cho phần mở rộng",
+        "description": "Choose an icon for this extension"
+    },
+    "internalStatisticsTitle": {
+        "message": "Thống kê nội bộ",
+        "description": "Internal statistics"
+    },
+    "internalStatisticsDescription": {
+        "message": "Chức năng này hiện đang được thử nghiệm. Không chuyển giao dữ liệu. Tất cả được lưu trên thiết bị của bạn.",
+        "description": "No data transmission. It’s all local on your device."
+    },
+    "headerStatistics": {
+        "message": "Số liệu",
+        "description": "Statistics. The header of a statistics page."
+    },
+    "labelToday": {
+        "message": "Hôm nay",
+        "description": "Statistics view for today."
+    },
+    "labelPastWeek": {
+        "message": "Tuần trước",
+        "description": "Statistics view for past week."
+    },
+    "labelPastMonth": {
+        "message": "Tháng trước",
+        "description": "Statistics view for past month."
+    },
+    "labelPastYear": {
+        "message": "Năm ngoái",
+        "description": "Statistics view for past year."
+    },
+    "labelDelete": {
+        "message": "Xoá",
+        "description": "Button to delete all statistics data."
+    },
+    "labelAvg": {
+        "message": "Trung bình (Số lần thay thế trong một ngày)",
+        "description": "Followed by a number of average injections per day within a specific period."
+    },
+    "labelInjectedFrameworks": {
+        "message": "Các bộ khung được thay thế",
+        "description": "Followed by a number of injections within a specific period."
+    },
+    "dialogConfirmDeleteStatistics": {
+        "message": "Bạn có chắc muốn xoá tất cả số liệu không?",
+        "description": "Are you sure you want to delete all the statistics?"
+    },
+    "labelDomainsAllowlistGoogleFonts": {
+        "message": "Những tên miền này được phép tải Google Fonts. Mỗi dòng một tên.",
+        "description": "These domains are allowed to load Google Fonts. One entry per line."
+    },
+    "btnGeneral": {
+        "message": "Cơ bản",
+        "description": "Basic"
+    },
+    "btnAdvanced": {
+        "message": "Nâng cao",
+        "description": "Advanced"
+    },
+    "btnOther": {
+        "message": "Khác",
+        "description": "Other"
+    },
+    "btnInfo": {
+        "message": "Thông tin",
+        "description": "Info"
+    },
+    "headerStorageType": {
+        "message": "Dạng lưu trữ",
+        "description": "Storage type"
+    },
+    "labelStorageTypeLocal": {
+        "message": "Có sẵn",
+        "description": "Local"
+    },
+    "labelStorageTypeSync": {
+        "message": "Đồng bộ hoá",
+        "description": "Sync"
+    },
+    "headerImportExport": {
+        "message": "Nhập/Xuất",
+        "description": "Import/Export"
+    },
+    "labelExportData": {
+        "message": "Lưu vào tệp",
+        "description": "Back up to file"
+    },
+    "labelImportData": {
+        "message": "Nhập từ tệp",
+        "description": "Restore from file"
+    },
+    "dialogImportSuccessful": {
+        "message": "Nhập thành công",
+        "description": "Import successful"
+    },
+    "dialogImportFailed": {
+        "message": "Nhập không thành công",
+        "description": "Import failed"
+    },
+    "updateNotificationTitle": {
+        "message": "Thông báo sau khi cập nhật",
+        "description": "Notification after an update"
+    },
+    "updateNotificationNever": {
+        "message": "Không bao giờ (Cập nhật câm)",
+        "description": "Never (Silent Updates)"
+    },
+    "updateNotificationOnlyRules": {
+        "message": "Chỉ khi có mạng phân phối nội dung và luật mới",
+        "description": "Only if new CDNs and rules"
+    },
+    "updateNotificationAlways": {
+        "message": "Luôn luôn",
+        "description": "Always"
+    },
+    "websiteBroken": {
+        "message": "Trang web bị hỏng?",
+        "description": "Website broken?"
+    },
+    "hideDonationButton": {
+        "message": "Ẩn nút quyên góp",
+        "description": "Hide donation button"
+    },
+    "betaLabel": {
+        "message": "Beta",
+        "description": "beta"
+    },
+    "changeBadgeColorMissingResourcesTitle": {
+        "message": "Hiện tài nguyên không có sẵn trên biểu tượng",
+        "description": "Indicate missing resources on the icon"
+    },
+    "changeBadgeColorMissingResourcesDescription": {
+        "message": "Thay đổi màu biểu tượng nếu tài nguyên không có sẵn.",
+        "description": "Change the badge color if resources are missing."
+    },
+    "titleHelp": {
+        "message": "Trợ giúp",
+        "description": "Help"
+    },
+    "helpIntroductionTitle": {
+        "message": "Giới thiệu",
+        "description": "Introduction"
+    },
+    "helpHtmlFilterTitle": {
+        "message": "Bộ lọc HTML là gì?",
+        "description": "What is »HTML filter«?"
+    },
+    "helpRuleGeneratorTitle": {
+        "message": "Tạo ra luật",
+        "description": "Rule generator"
+    },
+    "helpWebsiteIssuesTitle": {
+        "message": "Một vài trang web nhìn lạ hoặc khó sử dụng",
+        "description": "Some websites look strange or are not easy to use"
+    },
+    "helpBlockGoogleFontsTitle": {
+        "message": "Tại sao lại có tính năng chặn Google Fonts?",
+        "description": "Why is there a »Block Google Fonts« option?"
+    },
+    "helpStatisticsTitle": {
+        "message": "Vậy còn số liệu thì sao? Có cái gì được chuyển tới máy chủ nào không?",
+        "description": "What about the statistics? Is anything transferred to any servers?"
+    },
+    "helpWhatWillBeSynchronizedTitle": {
+        "message": "Những gì sẽ được đồng bộ hoá khi tôi chọn đồng bộ hoá làm loại lưu trữ?",
+        "description": "What will be synchronized when I select »sync« as storage type?"
+    },
+    "helpBrowserCompatibilityTitle": {
+        "message": "Tính tương thích trình duyệt",
+        "description": "Browser compatibility"
+    },
+    "helpIntroductionDescription": {
+        "message": "LocalCDN là một tiện ích mở rộng của trình duyệt web mô phỏng Mạng Cung cấp Nội dung để cải thiện quyền riêng tư trực tuyến của bạn. Nó chặn lưu lượng truy cập, tìm các khuôn khổ / thư viện được hỗ trợ cục bộ và đưa chúng vào trang web. Vui lòng sử dụng tiện ích kiểm tra sau đây để tìm hiểu xem bạn có được bảo vệ đúng cách hay không. Để biết thêm thông tin, hãy đọc hướng dẫn hoặc các trang Wiki của chúng tôi.",
+        "description": "LocalCDN is a web browser extension that emulates Content Delivery Networks to improve your online privacy. It intercepts traffic, finds supported frameworks/libraries locally, and injects them into the website. Feel free to use the following testing utility to find out if you are properly protected. For more information read the tutorial or our Wiki pages."
+    },
+    "helpLinkTestUtility": {
+        "message": "Kiểm tra tiện ích",
+        "description": "Testing utility"
+    },
+    "helpLinkTutorial": {
+        "message": "Hướng dẫn",
+        "description": "Tutorial"
+    },
+    "helpLinkWikiPages": {
+        "message": "Trang Wiki",
+        "description": "Wiki pages"
+    },
+    "helpHtmlFilterDescription": {
+        "message": "Trong hầu hết các trường hợp, LocalCDN có thể dễ dàng thay thế các khuôn khổ nhúng và cải thiện quyền riêng tư. Trong một số trường hợp, trang web có thể cố gắng ngăn chặn điều này bằng cách thiết lập các tùy chọn nhất định trong mã nguồn HTML. LocalCDN đọc mã nguồn HTML trước khi nó được hiển thị trong trình duyệt và loại bỏ phần này (màu đỏ).",
+        "description": "In most cases LocalCDN can easily replace embedded frameworks and improves privacy. In some cases the website may try to prevent this by setting certain options in the HTML source code. LocalCDN reads the HTML source code before it is displayed in the browser and removes these part (red)."
+    },
+    "helpHtmlFilterBefore": {
+        "message": "Bộ lọc HTML loại bỏ các ký tự màu đỏ khỏi ví dụ này:",
+        "description": "The HTML filter removes the red characters from this example:"
+    },
+    "helpHtmlFilterAfter": {
+        "message": "Kết quả sau đó trông như thế này:",
+        "description": "The result then looks like this:"
+    },
+    "helpHtmlFilterWhyTitle": {
+        "message": "Tại sao việc loại bỏ các thuộc tính crossorigin và toàn vẹn lại cần thiết?",
+        "description": "Why is it necessary to remove crossorigin and integrity attributes?"
+    },
+    "helpHtmlFilterCrossorigin": {
+        "message": "Thuộc tính crossorigin ngăn chặn sự thay thế vì mục tiêu không khớp với mục tiêu được yêu cầu.",
+        "description": "The crossorigin attribute prevents the replacement because the destination does not match the requested one."
+    },
+    "helpHtmlFilterIntegrity": {
+        "message": "Để tiết kiệm dung lượng đĩa và cung cấp nhiều khuôn khổ hơn, LocalCDN sẽ nâng cấp một khuôn khổ. Một thẻ toàn vẹn là hàm băm của tệp. Nếu kiểm tra không thành công, trình duyệt sẽ không bao gồm một khuôn khổ. Việc kiểm tra sự toàn vẹn sẽ không thành công vì ví dụ: hàm băm của jQuery 1.10.1 và jQuery 1.12.4 là khác nhau.",
+        "description": "To save disk space and to deliver more frameworks LocalCDN upgrades a framework. An integrity tag is the hash value of a file. If the check fails, the browser won‘t include a framework. The integrity check will fail because the hash values for e.g. jQuery 1.10.1 and jQuery 1.12.4 are different."
+    },
+    "helpHtmlFilterErrors": {
+        "message": "Không may thay, đôi khi các ký tự đặc biệt được hiển thị không chính xác. Trong trường hợp này, bạn có thể tắt cài đặt một lần nữa để hiển thị âm sắc một cách chính xác.",
+        "description": "Unfortunately, it sometimes happens that special characters are then displayed incorrectly. In this case you can deactivate the setting again, to display the umlauts correctly."
+    },
+    "helpRuleGeneratorDescription": {
+        "message": "Nếu bạn muốn tự động chuyển hướng tất cả các kết nối CDN được hỗ trợ sang LocalCDN, bạn có thể thêm các quy tắc này vào trình chặn quảng cáo của mình để cho phép các chuyển hướng này. Nếu bạn không muốn thêm các quy tắc này, bạn phải cho phép từng kết nối CDN riêng lẻ cho từng trang web.",
+        "description": "If you want to automatically redirect all supported CDN connections to LocalCDN, you can add these rules to your adblocker to allow these redirections. If you do not want to add these rules, you must allow each CDN connection individually for each website."
+    },
+    "helpRuleGeneratorUblockTitle": {
+        "message": "Chỉ uBlock Origin:",
+        "description": "Only uBlock Origin:"
+    },
+    "helpRuleGeneratorUblockDescription": {
+        "message": "Các quy tắc này chỉ có ý nghĩa trong chế độ »medium« hoặc »hard«, vì nó chặn tất cả các tài nguyên của bên thứ ba. Chúng không cần thiết trong chế độ »mặc định«, »easy« hoặc »very-easy«. Để biết thêm thông tin, hãy truy cập Wiki uBlock Origin.",
+        "description": "These rules are only relevant in »medium« or »hard« mode, because it blocks all 3rd-party resources. They are not necessary in »default«, »easy« or »very-easy« mode. For more information, please visit the uBlock Origin Wiki."
+    },
+    "helpRuleGeneratorUblockTableIcon": {
+        "message": "Biểu Tượng",
+        "description": "Icon"
+    },
+    "helpRuleGeneratorUblockTableMode": {
+        "message": "Chế Độ",
+        "description": "Mode"
+    },
+    "helpRuleGeneratorUblockTableUseful": {
+        "message": "Những quy luật hữu ích",
+        "description": "Rules useful"
+    },
+    "helpRuleGeneratorUblockTableDefaultEasy": {
+        "message": "Mặc định/Dễ dàng (Easy)",
+        "description": "Default/Easy"
+    },
+    "helpRuleGeneratorUblockTableMedium": {
+        "message": "Vừa (Medium)",
+        "description": "Medium"
+    },
+    "helpRuleGeneratorUblockTableHard": {
+        "message": "Nghiêm ngặt (Hard)",
+        "description": "Hard"
+    },
+    "helpWebsiteIssuesDescription": {
+        "message": "Có hai nguyên nhân có thể xảy ra: Hoặc do framework/thư viện được yêu cầu nhưng LocalCDN chưa phân phối hoặc do SOP. SOP (Viết tắt của từ tiếng Anh \"Same origin policy\" dịch tạm là \"Điều khoản đồng nguồn\") là một cơ chế bảo mật quyết định dữ liệu nào mà trình duyệt được phép tải. Nó giúp cách ly các tài liệu độc hại, từ đó làm giảm thiểu các nguy cơ tấn công có thể xảy ra. Điều khoản này ngăn chặn các trình duyệt tải các framework bên ngoài của LocalCDN. Không may, hiện nay chưa có giải pháp cho vấn đề này.",
+        "description": "There are two possible reasons: Either a framework/library is required that LocalCDN doesn‘t (yet) deliver or an SOP. A SOP (Same origin policy) is a security mechanism that determines what data the browser is allowed to load. It helps to isolate malicious documents and thus reduce possible attack vectors. This policy prevents the browser from loading the external frameworks of LocalCDN. Unfortunately there is no solution for this at the moment."
+    },
+    "helpBlockGoogleFontsDescription": {
+        "message": "LocalCDN có thể thay thế các »Biểu tượng Material của Google«. Để nắm bắt được kết nối, trình chặn quảng cáo của bạn (ví dụ: uBlock Origin, uMatrix hoặc AdGuard) phải cho phép yêu cầu. LocalCDN sẽ lắng nghe các yêu cầu này và nếu truy vấn chứa »Biểu tượng Material của Google«, tài nguyên sẽ được thay thế. Nếu bạn bỏ tuỳ chọn »Chặn các yêu cầu với tài nguyên không có sẵn«, các tài nguyên không tồn tại sẽ được phép thông qua và \"Google Fonts\" sẽ được tải vì \"Biểu tượng Material của Google\" và \"Google Fonts\" sử dụng cùng một miền. Nếu bạn không muốn điều này, bạn có thể chặn »Google Fonts« trên LocalCDN.",
+        "description": "LocalCDN can replace »Google Material Icons«. To catch the connection your adblocker (e.g. uBlock Origin, uMatrix or AdGuard) must allow the request. LocalCDN listens on these requests and if the query contains »Google Material Icons«, the resource will be replaced. If you uncheck the »Block requests for missing content« option, non-existent resources will be allowed to pass and »Google Fonts« will be loaded, because »Google Material Icons« and »Google Fonts« use the same domain. If you don‘t want this, you can block »Google Fonts« on LocalCDN."
+    },
+    "helpStatisticsDescription": {
+        "message": "Đừng lo, sẽ không có gì được truyền đi. Điều đó sẽ trái với tất cả các nguyên tắc của tôi. Thống kê (ở định dạng JSON) chứa các thông tin sau: Ngày tháng, CDN + bộ đếm framework + bộ đếm. Đó là tất cả. Tôi có một ví dụ dưới đây:",
+        "description": "Don‘t panic, nothing will be transmitted. It would be against all my principles. The statistics (JSON format) contains the following information: Date, CDN+counter and framework+counter. That‘s all. I‘ve an example here:"
+    },
+    "helpStatisticsContent": {
+        "message": "Thống kê không chứa thông tin về trình duyệt, hệ điều hành, trang web yêu cầu, địa chỉ IP hoặc bất kỳ thông tin nào khác. Chỉ có ngày tháng, CDN + bộ đếm và framework + bộ đếm. Nó cho bạn biết những framework nào đã được thay thế bởi LocalCDN, tần suất và những CDN nào được yêu cầu.",
+        "description": "The statistics contain no information about the browser, operating system, requesting website, IP addresses or any other information. Just date, CDN+counter and framework+counter. It shows you which frameworks are replaced by LocalCDNs how often and which CDNs were requested."
+    },
+    "helpStatisticsTruthTitle": {
+        "message": "Làm thế nào để tôi biết những gì bạn nói là sự thật?",
+        "description": "How do I know that‘s true?"
+    },
+    "helpStatisticsTruthDescription": {
+        "message": "Bộ nhớ của tiện ích mở rộng có thể được xem trực tiếp thông qua trình duyệt Firefox. Mở URL »about: debugging«, đi tới »Storage« và chọn »Extension Storage«. Trong khóa »internalStatisticsData« bạn sẽ tìm thấy dữ liệu được thu thập. Dữ liệu đó có thể được sao chép và đưa vào JSON PrettyPrinter để làm cho nó dễ đọc hơn. Lưu ý rằng bạn phải xóa dấu ngoặc kép đầu tiên và cuối cùng của dữ liệu và tên khóa của nó. Bạn sẽ có thể nhìn thấy chi tiết trong video này.",
+        "description": "The extension storage can be viewed directly with the Firefox browser. Open the URL »about:debugging«, switch to »Storage« and select »Extension Storage«. Under the key »internalStatisticsData« you will find the collected data. Just copy it and put it into a JSON PrettyPrinter to make it more readable. Please note that you have to remove the first and last quotation mark and the key to it. You should be able to see this clearly in this video."
+    },
+    "helpSyncTitle": {
+        "message": "Những gì sẽ được đồng bộ hoá khi tôi chọn »đồng bộ hoá« làm loại lưu trữ?",
+        "description": "What will be synchronized when I select »sync« as storage type?"
+    },
+    "helpSyncDescription": {
+        "message": "Đồng bộ hóa sẽ chỉ hoạt động nếu bạn đã đăng nhập bằng tài khoản Firefox của mình trên thiết bị và cho phép các tiện ích đồng bộ hóa trong cài đặt. Một máy chủ riêng mà bạn kiểm soát cũng có thể được sử dụng để đồng bộ hóa. Điều này sẽ đồng bộ hóa hầu hết các cài đặt của LocalCDN trên tất cả các thiết bị.",
+        "description": "Sync will only work if you are logged in with a Firefox account on the device and have allowed add-ons to sync in the settings. A separate sync server under your control will also work. This will synchronize most of the settings of LocalCDN across all devices."
+    },
+    "helpSyncAccount": {
+        "message": "Nếu bạn không có tài khoản đồng bộ hóa, sẽ không có gì được đồng bộ hóa. Trong trường hợp này, sẽ không có gì khác biệt so với loại lưu trữ được chọn.",
+        "description": "If you don‘t have a sync account, nothing will be synchronized. In that case it makes no difference what type of storage you have selected."
+    },
+    "helpSyncContentNever": {
+        "message": "Những thứ không bao giờ được đồng bộ hoá:",
+        "description": "Things that are never synchronized:"
+    },
+    "helpNumberOfInjections": {
+        "message": "Số lần sử dụng",
+        "description": "Numbers of injections"
+    },
+    "helpYes": {
+        "message": "Có",
+        "description": "Yes"
+    },
+    "helpNo": {
+        "message": "Không",
+        "description": "No"
+    },
+    "helpData": {
+        "message": "Dữ liệu",
+        "description": "Data"
+    },
+    "helpSyncContentEver": {
+        "message": "Các cài đặt sẽ được đồng bộ hóa:",
+        "description": "Settings that will be synchronized:"
+    },
+    "helpIcons": {
+        "message": "Mặc định, Sáng, Xanh lam/Xám",
+        "description": "Default, Light, Blue/Grey"
+    },
+    "helpSyncContentLinks": {
+        "message": "Thêm thông tin về Firefox Sync:",
+        "description": "More information about Firefox Sync:"
+    },
+    "helpBrowserCompatibility": {
+        "message": "Tính tương thích của trình duyệt",
+        "description": "Browser compatibility"
+    },
+    "helpReplace": {
+        "message": "Thay thế",
+        "description": "Replace"
+    },
+    "helpReplaceOther": {
+        "message": "Thay thế các tài nguyên khác",
+        "description": "Replace other resources"
+    },
+    "helpUpgradeAllResources": {
+        "message": "Nâng cấp toàn bộ các tài nguyên",
+        "description": "Upgrade all resources"
+    },
+    "helpExplanationChrome": {
+        "message": "Tất cả các trình duyệt dựa trên Chromium",
+        "description": "All Chromium based Browser"
+    },
+    "helpLimitation": {
+        "message": "Đây không phải là hạn chế của LocalCDN mà là do thiếu hỗ trợ API trong các trình duyệt dựa trên Chromium.",
+        "description": "This is not a limitation of LocalCDN, but missing API support of Chromium based browsers."
+    },
+    "titleBadgeDefault": {
+        "message": "Biểu tượng mặc định",
+        "description": "Default badge"
+    },
+    "titleBadgeHTMLFilter": {
+        "message": "Biểu tượng lọc HTML",
+        "description": "HTML filter badge"
+    },
+    "titleBadgeMissingResource": {
+        "message": "Biểu tượng cho tài nguyên bị thiếu",
+        "description": "Missing resource badge"
+    }
+}

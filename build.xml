@@ -168,7 +168,7 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
         </exec>
     </target>
 
-    <target name="jar" depends="distclean,i2pFirefoxBaseProfileZip,i2pChromiumBaseProfileZip">
+    <target name="jar" depends="distclean,i2pFirefoxBaseProfileZip,i2pFirefoxUsabilityProfileZip,i2pChromiumBaseProfileZip">
         <ant dir="src" target="jar" />
     </target>
 
@@ -213,7 +213,6 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
             automatically. This is probably good for working against fingerprinting but it's
             also more work should a plugin have a security vulnerability.
         -->
-        <!--
         <exec executable="crx3" failonerror="true">
             <arg value="download"/>
             <arg value="doojmbjmlfjjnbmnoijecmcbfeoakpjm" />
@@ -221,7 +220,6 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
             <arg value="-o" />
             <arg value="src/i2p.chromium.base.profile/extensions/noscript.js.crx" />
         </exec>
-        -->
     </target>
 
     <target name="i2pChromiumUsabilityProfile">
@@ -242,7 +240,6 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
             automatically. This is probably good for working against fingerprinting but it's
             also more work should a plugin have a security vulnerability.
         -->
-        <!--
         <exec executable="crx3" failonerror="true">
             <arg value="download"/>
             <arg value="cjpalhdlnbpafiamejdnhcphjbkeiagm" />
@@ -264,7 +261,6 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
             <arg value="-o" />
             <arg value="src/i2p.chromium.usability.profile/extensions/localcdn.js.crx" />
         </exec>
-        -->
     </target>
 
     <target name="i2pChromiumBaseProfileZip">
@@ -276,6 +272,18 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
             <arg value="-r"/>
             <arg value="i2p.chromium.base.profile.zip"/>
             <arg value="i2p.chromium.base.profile"/>
+        </exec>
+    </target>
+
+    <target name="i2pChromiumUsabilityProfileZip">
+        <exec executable="rm" failonerror="false" dir="src">
+            <arg value="-rf" />
+            <arg value="i2p.chromium.usability.profile.zip" />
+        </exec>
+        <exec executable="zip" failonerror="true" dir="src">
+            <arg value="-r"/>
+            <arg value="i2p.chromium.usability.profile.zip"/>
+            <arg value="i2p.chromium.usability.profile"/>
         </exec>
     </target>
 

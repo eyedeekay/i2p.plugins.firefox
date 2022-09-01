@@ -45,5 +45,6 @@ package: net.i2p.i2pfirefox
 | Name | Type | Description |  
 | ----- | ----- | ----- |  
 | profileDirectory | String |  |  
+| mode | String |  |  
 
 

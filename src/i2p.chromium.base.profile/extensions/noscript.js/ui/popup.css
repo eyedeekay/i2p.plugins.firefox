@@ -1,0 +1,300 @@
+/*
+ * Copyright (C) 2005-2021 Giorgio Maone <https://maone.net>
+ *
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ */
+
+html:not(.mobile) {
+  overflow: hidden;
+}
+
+body {
+  margin: 0.5em;
+  padding: 0;
+}
+
+html:not(.mobile) > body {
+  width: var(--popup-size);
+  padding: 0;
+}
+
+html:not(.mobile) #scrollable {
+  overflow: auto;
+  max-height: 550px;
+}
+
+#top {
+  font-size: 1em;
+  position: relative;
+  padding: 0 0 .3em 0;
+  margin: 0;
+  min-width: 18.75em;
+  display: flex;
+  -moz-user-select: none;
+  user-select: none;
+  background: linear-gradient(to bottom, transparent 0, transparent 95%, var(--form-color1) 100%) no-repeat;
+}
+
+.icon {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  cursor: pointer;
+  color: var(--accent-color);
+  background: transparent no-repeat left;
+  padding-left: 1.6em;
+  border: none;
+  font-size: 1.2em;
+  background-size: 1.2em;
+  margin: 0 1.2em 0 1.2em;
+}
+
+#top .icon {
+  width: var(--icon-size);
+  height: var(--icon-size);
+  margin: 0.25em;
+  cursor: pointer;
+  font-size: 1em;
+  font-family: sans-serif;
+  font-weight: bold;
+  background-size: contain;
+  background-position: center;
+  transform: unset;
+  transition: transform 0.3s;
+  border: none;
+  display: block;
+  top: 0;
+  padding: 0;
+  align-items: center;
+  line-height: 1em;
+  position: relative;
+  border-radius: 0;
+}
+
+#top .icon > div {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  top: 0;
+  left: 0;
+}
+
+.icon:after {
+  content: attr(title);
+}
+
+#top > .spacer {
+  flex-grow: 1;
+  display: block;
+  cursor: pointer;
+}
+
+#top > .hider.open  ~ .spacer {
+  display: none;
+}
+
+.hider {
+  background: var(--form-color1);
+  box-shadow: inset 0 1px 3px #444;
+  color: var(--text-color);
+  border-radius: 1em 1em 0 0;
+  display: none;
+  position: relative;
+  margin: .25em 1.5em;
+  padding: 0;
+  height: var(--icon-size);
+  overflow: hidden;
+  opacity: .5;
+}
+
+.hider.open {
+  display: flex;
+  flex-grow: 1;
+  opacity: 1;
+  padding-left: 2em;
+}
+.hider:hover {
+  opacity: 1;
+}
+.hider:not(.open):not(.empty) {
+  display: block;
+  text-align: right;
+  line-height: 1em;
+  overflow: hidden;
+  width: 2em;
+}
+
+
+.hider-close, .reveal {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  color: var(--fg--color1);
+  font-weight: bold;
+  display: block;
+}
+.hider-close:hover, .reveal:hover {
+  color: var(--accent-color);
+  text-shadow: 0 0 4px var(--focus-color);
+  cursor: pointer;
+}
+
+#top .hider .reveal {
+  font-size: 1.2em;
+  padding: .2em;
+  text-align: center;
+  margin: 0;
+}
+
+.hider-close {
+  padding: 0;
+  position: absolute;
+  left: .2em;
+  top: 0;
+  font-size: 1.5em;
+  z-index: 100;
+  vertical-align: middle;
+  padding: .2em;
+}
+
+.hider.open > .reveal, .hider:not(.open) > :not(.reveal) {
+  display: none !important;
+}
+
+.hider-label {
+  position: absolute;
+  z-index: 100;
+  top: .5em;
+  right: .5em;
+  text-align: right;
+  vertical-align: middle;
+  line-height: 100%;
+  font-size: 1em;
+  font-weight: bold;
+  pointer-events: none;
+}
+
+.hider > .icon {
+  opacity: .7;
+  margin: 0 .25em;
+  padding: 0;
+}
+
+#top .icon:hover:not(:disabled), #top > #top > .icon:active:not(:disabled) {
+  outline: 0;
+  filter: none;
+  transform: scale(1.2);
+}
+
+#top .icon {
+  text-indent: -500em;
+  color: transparent;
+}
+
+#top .icon.drag, #top .drag > .icon {
+  filter: none !important;
+  opacity: 0.6 !important;
+}
+
+#revoke-temp {
+  background-image: var(--img-ui-revoke-temp) !important;
+}
+#temp-trust-page {
+  background-image: var(--img-ui-temp-all) !important;
+}
+
+#enforce-tab {
+  background-image: var(--img-ui-tab-no) !important;
+}
+#enforce-tab[aria-pressed="true"] {
+  background-image: var(--img-ui-tab) !important;;
+}
+
+#enforce {
+  background-image: var(--img-ui-global-no) !important;
+}
+#enforce[aria-pressed="true"] {
+  background-image: var(--img-ui-global) !important;
+}
+
+#options {
+  background-image: var(--img-noscript-options) !important;
+}
+#close {
+  background-image: var(--img-ui-close) !important;
+}
+
+#reload {
+  background-image: var(--img-ui-reload) !important;;
+}
+
+#sites {
+  margin: 0;
+}
+
+#content {
+  text-align: center;
+}
+#buttons {
+  text-align: center;
+  margin: 0.5em;
+  display: flex;
+  justify-content: space-around;
+
+}
+#buttons button {
+  flex-grow: 1;
+  margin: .5em 2em;
+}
+
+.disabled .toggle.icon, .toggle.icon:disabled {
+  opacity: .4;
+  pointer-events: none;
+}
+
+#message {
+  height: auto;
+  margin: 1.5em 1em;
+  padding: .8em 0 0.8em 3em;
+  background-color: var(--bg-color1);
+  background-size: 2em;
+  background-position: .5em center;
+  background-repeat: no-repeat;
+  min-height: 2em;
+  font-size: 1.2em;
+  vertical-align: middle;
+  white-space: normal;
+  border-radius: 1em;
+  box-shadow: 0 0 3px 3px var(--hilite-color);
+}
+#message.hidden {
+  display: none;
+  height: 0;
+  min-height: 0;
+  overflow: hidden;
+}
+.warning {
+  background-image: var(--img-warning);
+}
+.error {
+  background-image: var(--img-error);
+}
+
+#incognito-ui-chooser, html.incognito #message:not(.hidden) ~ #incognito-ui-chooser {
+  display: none;
+}
+html.incognito #incognito-ui-chooser {
+  display: initial;
+}
+
+#incognito-ui-chooser label {
+  white-space: pre-wrap;
+}
+
+#incognito-ui-chooser input:checked + label {
+  background: var(--bg-color1);
+  color: var(--accent-color);
+}

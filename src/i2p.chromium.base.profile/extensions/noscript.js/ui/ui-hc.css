@@ -1,0 +1,115 @@
+/*
+ * Copyright (C) 2005-2021 Giorgio Maone <https://maone.net>
+ *
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ */
+
+input {
+  transform: none !important;
+  width: auto !important;
+  min-width: auto !important;
+  position: static !important;
+}
+
+input[type="radio"] {
+  appearance: radio !important;
+  -webkit-appearance: radio !important;
+  -moz-appearance:  radio !important;
+  padding-right: .2em !important;
+}
+
+input[type="checkbox"] {
+  appearance: checkbox !important;
+  -webkit-appearance: checkbox !important;
+  -moz-appearance:  checkbox !important;
+  display: initial !important;
+}
+
+
+input.preset {
+  margin: 0 .5em !important;
+  padding: 0 !important;
+}
+
+button {
+  text-indent: 0 !important;
+}
+
+label {
+  display: initial !important;
+  position: static !important;
+  transform: none !important;
+  opacity: 1 !important;
+  text-indent: 0 !Important;
+  position: static;
+  width: auto !important;
+  padding: 4px !important;
+}
+
+.full-address {
+  display: block;
+}
+
+.presets {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+span.preset, .url {
+  display: flex;
+  align-items: center;
+}
+
+input.temp {
+  position: static !important;
+  opacity: 1 !important;
+}
+
+.full-address {
+  font-size: 130%;
+}
+
+tr.site {
+  border-top: 1px solid #888;
+  display: flex;
+  align-items: center;
+}
+
+#top {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-around;
+  height: auto;
+}
+#top .icon  {
+  position: static;
+  width: auto;
+  appearance: initial !important;
+  -moz-appearance: initial !important;
+  width: auto;
+  height: auto;
+  display: inline-flex !important;
+  font-size: 12px !important;
+  font-family: sans-serif !important;
+  text-indent: 0;
+  color: var(--fg-color1) !important;
+  background: var(--bg-color2) !important;
+  background-image: none !important;
+  border-radius: .3em;
+  text-align: center;
+  border: 1px solid var(--fg-color1);
+  height: auto;
+  padding: .2em;
+}
+#top a.icon:hover {
+  transform: none;
+}
+
+#noscript-popup #high-contrast-chooser {
+  display: block;
+}
+
+:focus {
+  outline: max(2px, 0.15em) solid currentColor;
+  outline-offset: max(2px, 0.15em);
+}

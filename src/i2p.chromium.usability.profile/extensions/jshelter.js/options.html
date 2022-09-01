@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<!--
+SPDX-FileCopyrightText: 2021 2019 Libor Polčák
+SPDX-FileCopyrightText: 2021 2019 Martin Timko
+SPDX-FileCopyrightText: 2022 2021 Marek Saloň
+
+SPDX-License-Identifier: GPL-3.0-or-later
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link rel="icon" type="image/x-icon" href="/img/logo.svg">
+  <link rel="stylesheet" type="text/css" href="common.css">
+  <link rel="stylesheet" type="text/css" href="options.css">
+	<script src="/nscl/lib/browser-polyfill.js" type="text/javascript"></script>
+  <script src="levels_browser.js" type="text/javascript"></script>
+  <script src="levels.js" type="text/javascript"></script>
+  <script src="helpers.js" type="text/javascript" defer></script>
+  <script src="tweaks_gui.js" type="text/javascript" defer></script>
+  <script src="options.js" type="text/javascript" defer></script>
+	<title>JShelter options</title>
+</head>
+<body>
+			<section class="logo">
+				<img src="img/icon-128.png" alt="JShelter logo" id="logoimg">
+			</section>
+			<nav class="menu">
+				<ul>
+					<li><a href="options.html">Main settings</a></li>
+					<li><a href="options_domains.html">JS Shield details</a></li>
+					<li><a href="options_advanced.html">Advanced options</a></li>
+					<li>
+						<p>External links</p>
+						<ul>
+							<li><a href="https://JShelter.org/threatmodel/">Threat model</a></li>
+							<li><a href="https://JShelter.org/faq/">FAQ</a></li>
+							<li><a href="https://polcak.github.io/jsrestrictor/test/test.html">Test page</a></li>
+							<li><a href="https://JShelter.org/permissions/">Permissions</a></li>
+							<li><a href="https://pagure.io/JShelter/webextension/">Source code</a></li>
+							<li><a href="https://pagure.io/JShelter/webextension/issues">Issue tracker</a></li>
+							<li><a href="https://JShelter.org/credits/">Credits</a></li>
+						</ul>
+					</li>
+				</ul>
+			</nav>
+
+
+	<section class="content">
+
+    <h1>JShelter</h1>
+
+<section id="configuration_area">
+	<div id="levels-config">
+		<h2 id="set-default-level">JavaScript Shield</h2> 
+		<p class="jss_description">
+			JavaScript Shield modifies the behaviour of the JavaScript environment availble for the visited
+			webpage. JShelter provides fake information to confuse fingerprinters or make webpage triggered
+			attacks impossible or harder.
+		</p>
+		<p class="jss_description">
+			JavaScript Shield internally consists of wrappers, small pieces of code that modify the
+			original behaviour of a JavaScript API (a function or a property) defined by standards. The
+			behaviour of the most of the wrappers can be divided into several categories:
+		</p>
+		<ul class="jss_description">
+			<li><p>
+				Precision reduction: The original value is too precise and it is not necessary for most use
+				cases. JavaScript Shield modifies the values so that typical and benign use cases are not
+				affected.
+			</p></li>
+			<li><p>
+				Provide fake information: Some wrappers provide fake information mostly to confuse
+				fingerprinters. For example, canvas wrappers modifify the image so that the same instructions
+				produce different result in each session and for each domain.
+			</p></li>
+			<li><p>
+				Hide information: Some APIs provide information that is not generally needed and can be hidden
+				from most of the pages. Depending on the API, JavaScript Shield might return an error, an empty
+				value, or block the API completely.
+			</p></li>
+		</ul>
+		<p class="jss_description">
+			See our blog post for more information on <a href="https://jshelter.org/fingerprinting/">browser
+			fingerprinting counter-measures</a> and <a href="https://jshelter.org/farbling/">farbling</a>.
+		</p>
+		<ul id="levels-list">
+		</ul>
+		<fieldset>
+			<button id="new_level" class="jsr-button">Add custom level</button>
+		</fieldset>
+	</div>
+
+  	<div id="proxy-protection-config">
+		<div class="protection-title">
+			<label class="shield-onoff-label" for="nbs-switch"><h2>Network Boundary Shield</h2></label>
+			<label class="switch">
+				<input id="nbs-switch" type="checkbox" checked>
+				<span class="slider"></span>
+			</label>
+		</div>
+		<p class="nbs_description">
+			Network Boundary Shield prevents web pages to use the browser as a proxy between local network
+			and the public Internet. See our <a
+			href="https://jshelter.org/localportscanning/">
+				blog post</a> and
+			<a
+				href="https://www.forcepoint.com/sites/default/files/resources/files/report-attacking-internal-network-en_0.pdf">Force
+				Point report</a> for examples of attacks handled by the Network Boundary Shield.
+			The protection encapsulates the WebRequest API, so it captures all outgoing requests.
+		</p>
+		<p class="nbs_description">
+			Generally, you want Network Boundary Shield to block all suspicious requests. However, some pages can be
+			broken, because they require interaction between public Internet and local network, for example,
+			some Intranet information systems might be broken by the Network Boundary Shield. JShelter users
+			also reported increased number of false positives when using DNS-based filtering programs. If
+			you use one, make sure that DNS returns 0.0.0.0 for the blocked domains.
+		</p>
+		<p class="nbs_description">
+			Network Boundary Shield default behavior can be globally adjusted by the settings below. Network Boundary Shield can also be completely 
+			disabled on a per-domain basis using the whitelist. Domains can be whitelisted via <i>Network Boundary Shield switch</i> in the popup window 
+			or manually via <i>Manage whitelist</i> option. Keep in mind that whitelisting a domain will also whitelist its subdomains. To selectively 
+			deactivate the Network Boundary Shield, insert the domains to the whitelist (excluding "www", but including all other domains e.g. ".com").
+		</p>
+		<fieldset>
+			<div class="tweakgrid" id="nbs-settings">
+
+			</div>
+		</fieldset>
+		<fieldset>
+			<button id="nbs-whitelist-show" class="jsr-button">Manage whitelist ⤵</button>
+		</fieldset>
+		<fieldset id="nbs-whitelist-container" class="hidden">
+			<div>
+				<input id="nbs-whitelist-input" type="text" name="nbs-whitelist-hostname" placeholder="example.com">
+				<button id="nbs-whitelist-add-button" class="jsr-button"><strong>Disable</strong> for the domain</button>
+			</div>
+			<select id="nbs-whitelist-select" name="sometext" size="10" multiple>
+
+			</select>
+			<div>
+				<button id="nbs-whitelist-remove-button" class="jsr-button"><strong>Enable</strong> for the selected domains</button>
+				<p>
+					Please note, that these domain names are checked with domain hierarchy, so whitelisting
+					<strong>example.com</strong> does also whitelist <strong>news.example.com</strong>.
+				</p>
+			</div>
+		</fieldset>
+	</div>
+
+	<div id="fingerprinting-protection-config">
+		<div class="protection-title">
+			<label class="shield-onoff-label" for="fpd-switch"><h2>Fingerprint Detector</h2></label>
+			<label class="switch">
+				<input id="fpd-switch" type="checkbox" checked>
+				<span class="slider"></span>
+			</label>
+		</div>
+		<p class="fpd_description">
+			Fingerprint Detector provides a mechanism that informs users about fingerprinting activity on visited web pages. The detector also prevents 
+			web pages from extracting browser fingerprint, if a user chooses to do so. See our <a
+			href="https://jshelter.org/fpdetection/">
+				blog post</a> or
+			<a
+				href="https://arxiv.org/pdf/1905.01051.pdf">Browser Fingerprinting: A survey</a> for a closer description of browser fingerprinting.
+		<p class="fpd_description">
+			By enabling the detector, you will be notified whenever it detects fingerprinting behavior on a visited web page. The detector measure severity of
+			potential fingerprint with each page visit. Then, it assigns a likelihood of fingerprinting to the page according to our heuristic system. The likelihood is 
+			presented to you by badge color of JShelter icon and also in popup window. If a high likelihood of fingerprinting occurs, you will be notified by a separate notification. 
+			It's possible to show details about the fingerprint by generating a fingerprint report. You can access it via popup window or by clicking directly on the notification.
+		</p>
+		<p class="fpd_description">		
+			The default behavior of Fingerprint Detector can be adjusted to your liking. You can choose "blocking" behavior, which works as a countermeasure against leaking your fingerprint
+			to unwanted parties. In this case, every positive detection is followed by blocking all subsequent HTTP requests and cleaning browser storage. Take into account that <strong>this action
+			will probably result in a broken web page</strong> and we strongly recommend to use a whitelist for trusted domains. Switching off the detector for a domain in the popup window will add
+			the domain to the whitelist. This domain won't be evaluated or blocked in the future. You can manage all the whitelisted domains below.
+		</p>
+		<fieldset>
+			<div class="tweakgrid" id="fpd-settings">
+
+			</div>
+		</fieldset>
+		<fieldset>
+			<button id="fpd-whitelist-show" class="jsr-button">Manage whitelist ⤵</button>
+		</fieldset>
+		<fieldset id="fpd-whitelist-container" class="hidden">
+			<div>
+				<input id="fpd-whitelist-input" type="text" name="fpd-whitelist-hostname" placeholder="example.com">
+				<button id="fpd-whitelist-add-button" class="jsr-button"><strong>Disable</strong> for the domain</button>
+			</div>
+			<select id="fpd-whitelist-select" name="sometext" size="10" multiple>
+		
+			</select>
+			<div>
+				<button id="fpd-whitelist-remove-button" class="jsr-button"><strong>Enable</strong> for the selected domains</button>
+				<p>
+					Please note, that these domain names are checked with domain hierarchy, so whitelisting
+					<strong>example.com</strong> does also whitelist <strong>news.example.com</strong>.
+				</p>
+			</div>
+		</fieldset>
+	</div>
+
+</section>
+
+	</section>
+
+
+		<template id="tweak-head">
+		</template>
+		<template id="tweak-row">
+			<label>Wrapper group name</label>
+			<div class="tweak">
+				<input class="tlev" type="range" min="0" max="3" /><output></output>
+			</div>
+			<button class="help">⤵</button>
+			<div class="tweakfill"></div>
+			<div class="explainer hidden_descr">
+				<div class="status"></div>
+				<p>
+					<span class="description"></span>
+					<div class="more"></div>
+				</p>
+			</div>
+		</template>
+
+
+</body>
+</html>
