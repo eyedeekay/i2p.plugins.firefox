@@ -2,9 +2,9 @@
 
 GITHUB_USER=eyedeekay
 GITHUB_REPO=i2p.plugins.firefox
-GITHUB_NAME="That is capable of handling URL arguments passed on the terminal"
+GITHUB_NAME="That includes a -usability flag with an alternative extension loadout. Use with caution for now."
 GITHUB_DESCRIPTION=$(cat CHANGES.md)
-GITHUB_TAG=0.0.18
+GITHUB_TAG=0.0.19
 ant distclean
 ./javadoc.sh
 NUMLINE=`grep release.number build.xml | head -n 1`
