@@ -1,0 +1,486 @@
+{
+    "extensionDescription": {
+        "message": "Apsaugo tave nuo sekimo per „CDNs“ (Turinio Pervedimo Tinklą) kuris perveda į lokalius resursus.",
+        "description": "Protects you against tracking through CDNs (Content Delivery Networks) by redirecting to local resources."
+    },
+    "amountInjectedDescription": {
+        "message": "Kiekis lokalaus Turinio pristatymo tinklo resursai injekcijos nuo įdiegimo.",
+        "description": "Amount injected description."
+    },
+    "optionsTitle": {
+        "message": "Nustatymai",
+        "description": "Options title"
+    },
+    "showIconBadgeTitle": {
+        "message": "Rodyti injekcijos skaičių ant piktogramos",
+        "description": "Show icon badge title"
+    },
+    "showIconBadgeDescription": {
+        "message": "Rodyti numeri injekcijų resursų ant papildinio piktogramos.",
+        "description": "Show icon badge description."
+    },
+    "blockMissingTitle": {
+        "message": "Blokuoti prašymus dėl trūkstamų resursų",
+        "description": "Block requests for missing resources title"
+    },
+    "blockMissingDescription": {
+        "message": "Atšaukti sulaikyta prašymą, jei reikalingas resursas nėra lokaliai turimas.",
+        "description": "Block requests for missing resources description."
+    },
+    "disablePrefetchTitle": {
+        "message": "Išjungti nuorodų laikiną pasiruošimą",
+        "description": "Disable prefetch title"
+    },
+    "disablePrefetchDescription": {
+        "message": "Neleisti neleistinus prašymus iš nutekėjiančių į pristatymo tinklus.",
+        "description": "Disable prefetch description."
+    },
+    "stripMetadataTitle": {
+        "message": "Nuoginti metaduomenis iš priimtinų prašymų",
+        "description": "Strip metadata title"
+    },
+    "stripMetadataDescription": {
+        "message": "Išnaikinti sensityvią informacija iš leistinų „CDN-Prašymų“ dėl pagerinto privatumo.",
+        "description": "Strip metadata description."
+    },
+    "allowlistedDomainsTitle": {
+        "message": "Išjungti „LocalCDN“ šitiems Tinklapiams:",
+        "description": "Deactivate LocalCDN for these domains:"
+    },
+    "allowlistedDomainsDescription": {
+        "message": "Įveskite Tinklapius kuriuos norite, kad būtų išjungtą „LocalCDN“. Vienas įvedimas per liniją.",
+        "description": "Enter domains to disable LocalCDN there. One entry per line."
+    },
+    "advancedLabel": {
+        "message": "Išplėsti",
+        "description": "Advanced label"
+    },
+    "generateRuleSetTitle": {
+        "message": "Sugeneruoti taisyklių sąrašą jūsų Turinio blokatoriui",
+        "description": "Generate rule sets for your adblocker"
+    },
+    "generateRuleSetDescription": {
+        "message": "Jei naudojate skelbimų/reklamų blokatoriu jūs galite sugeneruoti taisyklės čia. Jus turėsite pridėti jas pats per jūsų skelbimų/reklamų blokatoriu.",
+        "description": "In case you are using an adblocker you can generate the rules here. You have to add these rules manually in your adblocker."
+    },
+    "lastUpdate": {
+        "message": "Paskutinis atnaujinimas:",
+        "description": "Last update:"
+    },
+    "copyRuleSet": {
+        "message": "Kopijuoti",
+        "description": "Text of button to copy ruleset"
+    },
+    "loggingTitle": {
+        "message": "Įjungti pranešimų/įvykių įrašymą",
+        "description": "Enable logging"
+    },
+    "loggingDescription": {
+        "message": "Jūs galite atidaryti pranešimų/įvykių žurnalą per meniu. Pranešimų/įvykių žurnalas bus ištrintas/pravalytas kai jūs uždarysite naršyklę ar savanoriškai išjungsite, kad laikytų tokį žurnalą.",
+        "description": "You can open the log with the icon in the menu. The log will be deleted when you close the browser or disable logging."
+    },
+    "featureBreaksWebsitesDescription": {
+        "message": "Šitą funkciją sunaikiną tinklapius. Nepalikite ją įjungtą, nebendrais jei esate pasiruošė savarankiškai įtraukinėti paveiktus tinklapius į leistinų sąrašą.",
+        "description": "This feature breaks websites. Do not leave it enabled, unless you are prepared to manually add affected domains to the allow list."
+    },
+    "featureBreaksWebsitesButton": {
+        "message": "Išjungti",
+        "description": "Disable"
+    },
+    "labelManipulateDOM": {
+        "message": "Filtruoti HTML Pagrindo kodą",
+        "description": "Filter HTML source code"
+    },
+    "labelDonate": {
+        "message": "Paaukoti",
+        "description": "Donate"
+    },
+    "negateHtmlFilterListTitle": {
+        "message": "Apversti HTML Filtrą",
+        "description": "Invert HTML filter"
+    },
+    "negateHtmlFilterListDescription": {
+        "message": "Įjunkite šita nustatymą, kad visada būtų įjungtas HTML filtras. Tinklapiai sąraše būs ignoruoti. Jei šitas nustatymas yra išjungtas, tada HTML filtras bus įjungtas tik tinklapiams sąraše.",
+        "description": "Enable this option to always apply the HTML filter. The domains in the list will be ignored then. If this option is disabled, the HTML filter is only applied to domains in the list."
+    },
+    "negateHtmlFilterListWarning": {
+        "message": "Šitą funkciją gali sunaikinti tinklapius. Prašome pasižiūrėti informaciją ant Informacijos puslapio.",
+        "description": "This function can break websites. Please note the information on the Wiki page."
+    },
+    "htmlFilterDomainsTitleExclude": {
+        "message": "Ne naudoti HTML filtrą ant šitų tinklapių:",
+        "description": "Do not apply HTML filter to these domains:"
+    },
+    "htmlFilterDomainsDescription": {
+        "message": "Įveskite tinklapius, kad būtų suvaldyti arba ignoruoti HTML filtrui. Vienas įvedimas per liniją.",
+        "description": "Enter the domains to be handled or ignored by the HTML filter. One entry per line."
+    },
+    "htmlFilterDomainsTitleInclude": {
+        "message": "Įjungti HTML filtrą šitiems tinklapiams:",
+        "description": "Apply HTML filter for these domains:"
+    },
+    "blockGoogleFontsTitle": {
+        "message": "Blokuoti „Google“ šriftus",
+        "description": "Block Google Fonts"
+    },
+    "blockGoogleFontsDescription": {
+        "message": "Jei prašymai dėl nerastų resursų yra leisti, prisijungimai prie „fonts.googleapis.com“ nebūs blokuojami. Įjunkite šitą nustatymą, kad blokuotumėte šituos prašymus.",
+        "description": "If requests for missing resources are allowed, connections to \"fonts.googleapis.com\" are not blocked. Enable this option to block these requests."
+    },
+    "chooseIconStyle": {
+        "message": "Pasirinkite piktograma šitam priedui",
+        "description": "Choose an icon for this extension"
+    },
+    "internalStatisticsTitle": {
+        "message": "Vidinė statistiką",
+        "description": "Internal statistics"
+    },
+    "internalStatisticsDescription": {
+        "message": "Šita funkciją yra eksperimentinė. Jokios Datos nebus siunčiamos. Viskas yra lokaliai ant jūsų įrenginio.",
+        "description": "No data transmission. It’s all local on your device."
+    },
+    "headerStatistics": {
+        "message": "Statistiką",
+        "description": "Statistics. The header of a statistics page."
+    },
+    "labelToday": {
+        "message": "Šiandien",
+        "description": "Statistics view for today."
+    },
+    "labelPastWeek": {
+        "message": "Paskutinė savaitė",
+        "description": "Statistics view for past week."
+    },
+    "labelPastMonth": {
+        "message": "Paskutinį mėnesi",
+        "description": "Statistics view for past month."
+    },
+    "labelPastYear": {
+        "message": "Praeitus Metus",
+        "description": "Statistics view for past year."
+    },
+    "labelDelete": {
+        "message": "Ištrinti",
+        "description": "Button to delete all statistics data."
+    },
+    "labelAvg": {
+        "message": "Vidutinis (Pakeitimai per dieną)",
+        "description": "Followed by a number of average injections per day within a specific period."
+    },
+    "labelInjectedFrameworks": {
+        "message": "Pakeisti „Frameworkai“",
+        "description": "Followed by a number of injections within a specific period."
+    },
+    "dialogConfirmDeleteStatistics": {
+        "message": "Ar jūs esate tikras/-ra, kad norite ištrinti visas statistikas?",
+        "description": "Are you sure you want to delete all the statistics?"
+    },
+    "labelDomainsAllowlistGoogleFonts": {
+        "message": "Šitie tinklapiai yra leistini, įjungti „Google šriftus“. Vienas įvedimas per liniją.",
+        "description": "These domains are allowed to load Google Fonts. One entry per line."
+    },
+    "btnGeneral": {
+        "message": "Pagrindinis",
+        "description": "Basic"
+    },
+    "btnAdvanced": {
+        "message": "Išplėstiniai nustatymai",
+        "description": "Advanced"
+    },
+    "btnOther": {
+        "message": "Kitas",
+        "description": "Other"
+    },
+    "btnInfo": {
+        "message": "Informaciją",
+        "description": "Info"
+    },
+    "headerStorageType": {
+        "message": "Laikymo Tipas",
+        "description": "Storage type"
+    },
+    "labelStorageTypeLocal": {
+        "message": "Vietinis",
+        "description": "Local"
+    },
+    "labelStorageTypeSync": {
+        "message": "Sinchronizaciją",
+        "description": "Sync"
+    },
+    "headerImportExport": {
+        "message": "Importuoti/Eksportuoti",
+        "description": "Import/Export"
+    },
+    "labelExportData": {
+        "message": "Sukurti Atsarginė kopiją failu",
+        "description": "Back up to file"
+    },
+    "labelImportData": {
+        "message": "Atkurti nuo failo",
+        "description": "Restore from file"
+    },
+    "dialogImportSuccessful": {
+        "message": "Importas sėkmingas",
+        "description": "Import successful"
+    },
+    "dialogImportFailed": {
+        "message": "Importas nepavyko",
+        "description": "Import failed"
+    },
+    "updateNotificationTitle": {
+        "message": "Pranešimas po atnaujinimo",
+        "description": "Notification after an update"
+    },
+    "updateNotificationNever": {
+        "message": "Niekada (Nutildyti atnaujinimai)",
+        "description": "Never (Silent Updates)"
+    },
+    "updateNotificationOnlyRules": {
+        "message": "Tik, jei nauji „CDNs“ ir taisyklės",
+        "description": "Only if new CDNs and rules"
+    },
+    "updateNotificationAlways": {
+        "message": "Visada",
+        "description": "Always"
+    },
+    "websiteBroken": {
+        "message": "Tinklapis sugedęs?",
+        "description": "Website broken?"
+    },
+    "hideDonationButton": {
+        "message": "Slėpti „Aukoti“ mygtuką",
+        "description": "Hide donation button"
+    },
+    "betaLabel": {
+        "message": "Beta",
+        "description": "beta"
+    },
+    "changeBadgeColorMissingResourcesTitle": {
+        "message": "Rodyti trūkstamus resursus (išteklius) ant piktogramos",
+        "description": "Indicate missing resources on the icon"
+    },
+    "changeBadgeColorMissingResourcesDescription": {
+        "message": "Pakeisti piktogramos skaičiuko spalvą, jei resursų (išteklių) nėra.",
+        "description": "Change the badge color if resources are missing."
+    },
+    "titleHelp": {
+        "message": "Pagalba",
+        "description": "Help"
+    },
+    "helpIntroductionTitle": {
+        "message": "Pristatymas",
+        "description": "Introduction"
+    },
+    "helpHtmlFilterTitle": {
+        "message": "Kas yra »HTML filtras«?",
+        "description": "What is »HTML filter«?"
+    },
+    "helpRuleGeneratorTitle": {
+        "message": "Taisyklių generatorius",
+        "description": "Rule generator"
+    },
+    "helpWebsiteIssuesTitle": {
+        "message": "Kai kurios interneto svetainės atrodo keistai arba nėra lengvos naudoti",
+        "description": "Some websites look strange or are not easy to use"
+    },
+    "helpBlockGoogleFontsTitle": {
+        "message": "Kodėl yra »Blokuoti Google šriftus« pasirinkimas?",
+        "description": "Why is there a »Block Google Fonts« option?"
+    },
+    "helpStatisticsTitle": {
+        "message": "Kas apie statistika? Ar kažkas yra perduodama į bet kokius serverius?",
+        "description": "What about the statistics? Is anything transferred to any servers?"
+    },
+    "helpWhatWillBeSynchronizedTitle": {
+        "message": "Kas bus sinchronizuota kai aš pasirinksiu »sinchronizacija« kaip saugyklos tipa?",
+        "description": "What will be synchronized when I select »sync« as storage type?"
+    },
+    "helpBrowserCompatibilityTitle": {
+        "message": "Interneto naršyklių palaikomumas",
+        "description": "Browser compatibility"
+    },
+    "helpIntroductionDescription": {
+        "message": "„LocalCDN“ yra naršyklės plėtinys/papildinys kuris emuliuoja „Turinio Pervedimo Tinklus“, kad patobulintų jūsų internetinį privatumą. Jis pertraukia eismą, kad rastų suderinamus „Frameworkus/Bibliotekas“ vietinėje ir įleidžia jas į tinklapius. Pasitikrinkite naudodami tikrinimo priemonę, kad sužinotumėte ar esate tinkamai apsaugotas. Daugiau informacijos rasite „Viki“ Informacijos tinklapyje.",
+        "description": "LocalCDN is a web browser extension that emulates Content Delivery Networks to improve your online privacy. It intercepts traffic, finds supported frameworks/libraries locally, and injects them into the website. Feel free to use the following testing utility to find out if you are properly protected. For more information read the tutorial or our Wiki pages."
+    },
+    "helpLinkTestUtility": {
+        "message": "Testavimo įrankis",
+        "description": "Testing utility"
+    },
+    "helpLinkTutorial": {
+        "message": "Pamokymas",
+        "description": "Tutorial"
+    },
+    "helpLinkWikiPages": {
+        "message": "Wiki puslapiai",
+        "description": "Wiki pages"
+    },
+    "helpHtmlFilterDescription": {
+        "message": "Daugumoje atvejų „LocalCDN“ gali lengvai pakeisti įterptus „Frameworkus“ ir patobulinti privatumą. Kai kuriuose atvejuose tinklapiai mėgina sustabdyti tai nustatę parinktys per „HTML“ pagrindo kodą. „LocalCDN“ skaito „HTML“ pagrindo kodą, prieš jo rodymą naršyklėje ir išimą šias dalis (Raudonai).",
+        "description": "In most cases LocalCDN can easily replace embedded frameworks and improves privacy. In some cases the website may try to prevent this by setting certain options in the HTML source code. LocalCDN reads the HTML source code before it is displayed in the browser and removes these part (red)."
+    },
+    "helpHtmlFilterBefore": {
+        "message": "HTML filtras pašalina raudonas raides iš šito pavyzdžio:",
+        "description": "The HTML filter removes the red characters from this example:"
+    },
+    "helpHtmlFilterAfter": {
+        "message": "Rezultatas atrodys taip:",
+        "description": "The result then looks like this:"
+    },
+    "helpHtmlFilterWhyTitle": {
+        "message": "Kodėl yra būtina išimti „crossorigin“ ir integralumo bruožus?",
+        "description": "Why is it necessary to remove crossorigin and integrity attributes?"
+    },
+    "helpHtmlFilterCrossorigin": {
+        "message": "„Crossorigin“ bruožai neleidžia pakeitimą, nes tikslas nėra toks koks buvo prašytas.",
+        "description": "The crossorigin attribute prevents the replacement because the destination does not match the requested one."
+    },
+    "helpHtmlFilterIntegrity": {
+        "message": "Kad išsaugoti vietoves ir persiųsti daugiau „Frameworkų“ „LocalCDN“ atnaujina „Frameworką“. Integralumo žymą yra „hašinė“ reikšmė failo. Jei patikra nepavyksta, naršyklė neįterps „Frameworko“. Integralumo patikra nepavyks, nes „hašo“ reikšmės „e.g. jQuery 1.10.1 ir jQuery 1.12.4“ yra skirtingos.",
+        "description": "To save disk space and to deliver more frameworks LocalCDN upgrades a framework. An integrity tag is the hash value of a file. If the check fails, the browser won‘t include a framework. The integrity check will fail because the hash values for e.g. jQuery 1.10.1 and jQuery 1.12.4 are different."
+    },
+    "helpHtmlFilterErrors": {
+        "message": "Dėja, kartais atsitinka, kad specialūs simboliai nėra teisingai rodomi. Šituose atvejuose jūs galite išjungti šį nustatymą vėl, kad rodytų teisingai.",
+        "description": "Unfortunately, it sometimes happens that special characters are then displayed incorrectly. In this case you can deactivate the setting again, to display the umlauts correctly."
+    },
+    "helpRuleGeneratorDescription": {
+        "message": "Jei jūs norite automatiškai persiųsti visus palaikomus „CDN“ jungimus į „LocalCDN“, jūs galite įvesti jas į savo turinio blokatorių, kad leistumėt šias persiuntimus. Jeigu nenorite pridėti, tada jūs turėtumėt leisti kiekvieną „CDN“ junginį atskirai kiekvienai svetainėj.",
+        "description": "If you want to automatically redirect all supported CDN connections to LocalCDN, you can add these rules to your adblocker to allow these redirections. If you do not want to add these rules, you must allow each CDN connection individually for each website."
+    },
+    "helpRuleGeneratorUblockTitle": {
+        "message": "Tik „uBlock Origin“:",
+        "description": "Only uBlock Origin:"
+    },
+    "helpRuleGeneratorUblockDescription": {
+        "message": "Šios taisyklės yra aktualios tik „vidutiniam“ arba „griežtam“ režimams, nes jie blokuoja visus trečiųjų šalių resursus. Jie nėra būtini „numatytajam“, „lengvam“ ar „lengviausiam“ režimams. Norėdami gauti daugiau informacijos, apsilankykite „uBlock Origin Wiki“.",
+        "description": "These rules are only relevant in »medium« or »hard« mode, because it blocks all 3rd-party resources. They are not necessary in »default«, »easy« or »very-easy« mode. For more information, please visit the uBlock Origin Wiki."
+    },
+    "helpRuleGeneratorUblockTableIcon": {
+        "message": "Piktograma",
+        "description": "Icon"
+    },
+    "helpRuleGeneratorUblockTableMode": {
+        "message": "Režimas",
+        "description": "Mode"
+    },
+    "helpRuleGeneratorUblockTableUseful": {
+        "message": "Naudingos taisyklės",
+        "description": "Rules useful"
+    },
+    "helpRuleGeneratorUblockTableDefaultEasy": {
+        "message": "Nustatytą/Lengvą",
+        "description": "Default/Easy"
+    },
+    "helpRuleGeneratorUblockTableMedium": {
+        "message": "Vidutinis",
+        "description": "Medium"
+    },
+    "helpRuleGeneratorUblockTableHard": {
+        "message": "Sunkus",
+        "description": "Hard"
+    },
+    "helpWebsiteIssuesDescription": {
+        "message": "Yra dvi galimos priežastys: reikalinga sistema / biblioteka, kurios „LocalCDN“ (dar) nepateikia, arba SOP. SOP (tos pačios kilmės politika) yra saugos mechanizmas, nustatantis, kokius duomenis naršyklei leidžiama įkelti. Tai padeda izoliuoti kenkėjiškus dokumentus ir taip sumažinti galimus atakų vektorius. Ši politika neleidžia naršyklei įkelti išorinių „LocalCDN“ rėmų (frameworks). Deja, šiuo metu tam sprendimų nėra.",
+        "description": "There are two possible reasons: Either a framework/library is required that LocalCDN doesn‘t (yet) deliver or an SOP. A SOP (Same origin policy) is a security mechanism that determines what data the browser is allowed to load. It helps to isolate malicious documents and thus reduce possible attack vectors. This policy prevents the browser from loading the external frameworks of LocalCDN. Unfortunately there is no solution for this at the moment."
+    },
+    "helpBlockGoogleFontsDescription": {
+        "message": "„LocalCDN“ gali pakeisti „Google Material Icons“. Norint pagauti ryšį, Jūsų turinio blokavimo programa (pvz., „UBlock Origin“, „uMatrix“ ar „AdGuard“) turi leisti užklausą. „LocalCDN“ klauso šių užklausų ir, jei užklausoje yra „Google Material Icons“, šaltinis bus pakeistas. Jei atžymėsite parinktį „Blokuoti trūkstamo turinio užklausas“, bus leidžiama perduoti neegzistuojančius išteklius ir bus įkelta „Google Fonts“, nes „Google Material Icons“ ir „Google Fonts“ naudoja tą patį domeną. Jei to nenorite, galite užblokuoti „Google“ šriftus „LocalCDN“.",
+        "description": "LocalCDN can replace »Google Material Icons«. To catch the connection your adblocker (e.g. uBlock Origin, uMatrix or AdGuard) must allow the request. LocalCDN listens on these requests and if the query contains »Google Material Icons«, the resource will be replaced. If you uncheck the »Block requests for missing content« option, non-existent resources will be allowed to pass and »Google Fonts« will be loaded, because »Google Material Icons« and »Google Fonts« use the same domain. If you don‘t want this, you can block »Google Fonts« on LocalCDN."
+    },
+    "helpStatisticsDescription": {
+        "message": "Neišsigąskite, niekas nebus perduota. Tai prieštarautų visiems mano principams. Statistikoje (JSON formatas) yra tokia informacija: data, CDN + skaitiklis ir karkasas (framework) + skaitiklis. Tai viskas. Pateikiu čia pavyzdį:",
+        "description": "Don‘t panic, nothing will be transmitted. It would be against all my principles. The statistics (JSON format) contains the following information: Date, CDN+counter and framework+counter. That‘s all. I‘ve an example here:"
+    },
+    "helpStatisticsContent": {
+        "message": "Statistikoje nėra jokios informacijos apie naršyklę, operacinę sistemą, tinklalapio užklausą, IP adresus ar kitą informaciją. Tiesiog data, CDN + skaitiklis ir karkasas (framework) + skaitiklis. Tai parodo, kurios sistemos yra pakeistos „LocalCDN“, kaip dažnai ir kokių CDN buvo prašoma.",
+        "description": "The statistics contain no information about the browser, operating system, requesting website, IP addresses or any other information. Just date, CDN+counter and framework+counter. It shows you which frameworks are replaced by LocalCDNs how often and which CDNs were requested."
+    },
+    "helpStatisticsTruthTitle": {
+        "message": "Kaip aš galiu žinote, ar tai yra tiesa?",
+        "description": "How do I know that‘s true?"
+    },
+    "helpStatisticsTruthDescription": {
+        "message": "Plėtinio saugyklą galima peržiūrėti tiesiogiai naudojant „Firefox“ naršyklę. Atidarykite URL 'about: debugging', pereikite į „Storage“ ir pasirinkite „Extension Storage“. Surinktus duomenis rasite po raktu „internalStatisticsData“. Tiesiog nukopijuokite ir įdėkite į „JSON PrettyPrinter“, kad būtų lengviau įskaityti. Atkreipkite dėmesį, kad turite pašalinti pirmą ir paskutinę kabutę bei jos raktą. Šiame vaizdo įraše turėtumėte tai aiškiai matyti.",
+        "description": "The extension storage can be viewed directly with the Firefox browser. Open the URL »about:debugging«, switch to »Storage« and select »Extension Storage«. Under the key »internalStatisticsData« you will find the collected data. Just copy it and put it into a JSON PrettyPrinter to make it more readable. Please note that you have to remove the first and last quotation mark and the key to it. You should be able to see this clearly in this video."
+    },
+    "helpSyncTitle": {
+        "message": "Kas bus sinchronizuojama, kai pasirenku 'sinchronizuoti' kaip saugyklos tipą?",
+        "description": "What will be synchronized when I select »sync« as storage type?"
+    },
+    "helpSyncDescription": {
+        "message": "Sinchronizavimas veiks tik tuo atveju, jei įrenginyje esate prisijungę prie „Firefox“ paskyros ir nustatymuose leidote sinchronizuoti priedus. Taip pat veiks atskiras jūsų valdomas sinchronizavimo serveris. Tai sinchronizuos daugumą „LocalCDN“ nustatymų visuose įrenginiuose.",
+        "description": "Sync will only work if you are logged in with a Firefox account on the device and have allowed add-ons to sync in the settings. A separate sync server under your control will also work. This will synchronize most of the settings of LocalCDN across all devices."
+    },
+    "helpSyncAccount": {
+        "message": "Jei neturite sinchronizavimo paskyros, niekas nebus sinchronizuojama. Tokiu atveju nėra jokio skirtumo, kokį saugyklos tipą pasirinkote.",
+        "description": "If you don‘t have a sync account, nothing will be synchronized. In that case it makes no difference what type of storage you have selected."
+    },
+    "helpSyncContentNever": {
+        "message": "Niekada nesinchronizuojami dalykai:",
+        "description": "Things that are never synchronized:"
+    },
+    "helpNumberOfInjections": {
+        "message": "Įterpimų skaičius",
+        "description": "Numbers of injections"
+    },
+    "helpYes": {
+        "message": "Taip",
+        "description": "Yes"
+    },
+    "helpNo": {
+        "message": "Ne",
+        "description": "No"
+    },
+    "helpData": {
+        "message": "Data",
+        "description": "Data"
+    },
+    "helpSyncContentEver": {
+        "message": "Sinchronizuojami nustatymai:",
+        "description": "Settings that will be synchronized:"
+    },
+    "helpIcons": {
+        "message": "Numatytasis, Šviesus, Mėlynas/Pilkas",
+        "description": "Default, Light, Blue/Grey"
+    },
+    "helpSyncContentLinks": {
+        "message": "Daugiau informacijos apie „Firefox Sync“:",
+        "description": "More information about Firefox Sync:"
+    },
+    "helpBrowserCompatibility": {
+        "message": "Naršyklių suderinamumas",
+        "description": "Browser compatibility"
+    },
+    "helpReplace": {
+        "message": "Pakeisti",
+        "description": "Replace"
+    },
+    "helpReplaceOther": {
+        "message": "Pakeisti kitus resursus",
+        "description": "Replace other resources"
+    },
+    "helpUpgradeAllResources": {
+        "message": "Atnaujinti visus resursus",
+        "description": "Upgrade all resources"
+    },
+    "helpExplanationChrome": {
+        "message": "Visos „Chromium“ tipo naršyklės",
+        "description": "All Chromium based Browser"
+    },
+    "helpLimitation": {
+        "message": "Tai nėra „LocalCDN“ apribojimas, tačiau trūksta API palaikymo „Chromium“ paremtose naršyklėse.",
+        "description": "This is not a limitation of LocalCDN, but missing API support of Chromium based browsers."
+    },
+    "titleBadgeDefault": {
+        "message": "Numatytasis ženklelis",
+        "description": "Default badge"
+    },
+    "titleBadgeHTMLFilter": {
+        "message": "HTML filtro ženklelis",
+        "description": "HTML filter badge"
+    },
+    "titleBadgeMissingResource": {
+        "message": "Trūksta ištekliaus ženklelio",
+        "description": "Missing resource badge"
+    }
+}

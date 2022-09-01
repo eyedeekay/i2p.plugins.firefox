@@ -38,7 +38,7 @@ public class I2PBrowser {
   }
   private void launchChromium(boolean privateWindow, String[] url) {
     System.out.println("I2PChromium");
-    I2PChromium.usability = usability;
+    I2PChromiumProfileBuilder.usability = usability;
     i2pChromium.launch(privateWindow, url);
   }
   private void launchGeneric(boolean privateWindow, String[] url) {

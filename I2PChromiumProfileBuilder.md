@@ -23,11 +23,11 @@ package: net.i2p.i2pfirefox
 
 ## Member Variables
 
-####   [[src]](src/java/net/i2p/i2pfirefox/I2PChromiumProfileBuilder.java#L24)
+#### boolean usability [[src]](src/java/net/i2p/i2pfirefox/I2PChromiumProfileBuilder.java#L)
 
- > public class I2PChromiumProfileBuilder extends I2PCommonBrowser {  
+ >   
 
-+ Access: private  
++ Access: public  
 + Modifiers: static 
 
 ## Methods
@@ -52,19 +52,22 @@ This method has no parameters.
 | Name | Type | Description |  
 | ----- | ----- | ----- |  
 | file | String |  |  
+| mode | String |  |  
 
 
-### baseProfileDirectory [[src]](src/java/net/i2p/i2pfirefox/I2PChromiumProfileBuilder.java#L55)
+### baseProfileDirectory [[src]](src/java/net/i2p/i2pfirefox/I2PChromiumProfileBuilder.java#L59)
 
-+ Description: get the base profile directory creating it if necessary   
++ Description:   
 + Access: public  
 + Modifiers: static 
 + return: String  
 
-This method has no parameters.  
+| Name | Type | Description |  
+| ----- | ----- | ----- |  
+| mode | String |  |  
 
 
-### runtimeDirectory [[src]](src/java/net/i2p/i2pfirefox/I2PChromiumProfileBuilder.java#L79)
+### runtimeDirectory [[src]](src/java/net/i2p/i2pfirefox/I2PChromiumProfileBuilder.java#L83)
 
 + Description: get the runtime directory creating it if create=true   
 + Access: public  
@@ -76,7 +79,7 @@ This method has no parameters.
 | create | boolean | if true create the runtime directory if it does not exist  |  
 
 
-### runtimeDirectory [[src]](src/java/net/i2p/i2pfirefox/I2PChromiumProfileBuilder.java#L90)
+### runtimeDirectory [[src]](src/java/net/i2p/i2pfirefox/I2PChromiumProfileBuilder.java#L94)
 
 + Description: get the correct runtime directory   
 + Access: public  
@@ -86,7 +89,17 @@ This method has no parameters.
 This method has no parameters.  
 
 
-### copyBaseProfiletoProfile [[src]](src/java/net/i2p/i2pfirefox/I2PChromiumProfileBuilder.java#L110)
+### usabilityMode [[src]](src/java/net/i2p/i2pfirefox/I2PChromiumProfileBuilder.java#L109)
+
++ Description:   
++ Access: private  
++ Modifiers: static 
++ return: String  
+
+This method has no parameters.  
+
+
+### copyBaseProfiletoProfile [[src]](src/java/net/i2p/i2pfirefox/I2PChromiumProfileBuilder.java#L120)
 
 + Description: Copy the inert base profile directory to the runtime profile directory   
 + Access: public  

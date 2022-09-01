@@ -1,0 +1,9 @@
+Zone,Description,Reference
+0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.IP6.ARPA,IPv6 Unspecified Address,[RFC6303]
+1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.IP6.ARPA,IPv6 Loopback Address,[RFC6303]
+D.F.IP6.ARPA,IPv6 Locally Assigned Local Address,[RFC6303]
+8.E.F.IP6.ARPA,IPv6 Link Local Address,[RFC6303]
+9.E.F.IP6.ARPA,IPv6 Link Local Address,[RFC6303]
+A.E.F.IP6.ARPA,IPv6 Link Local Address,[RFC6303]
+B.E.F.IP6.ARPA,IPv6 Link Local Address,[RFC6303]
+8.B.D.0.1.0.0.2.IP6.ARPA,IPv6 Example Prefix,[RFC6303]

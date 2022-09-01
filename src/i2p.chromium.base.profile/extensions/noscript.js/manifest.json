@@ -1,0 +1,157 @@
+{
+"update_url": "https://clients2.google.com/service/update2/crx",
+
+  "manifest_version": 2,
+  "default_locale": "en",
+  "name": "NoScript",
+  "version": "11.4.6",
+  "description": "__MSG_Description__",
+  "incognito": "spanning",
+
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'none'",
+
+  "icons": {
+    "48": "img/icon48.png",
+    "96": "img/icon96.png",
+    "256": "img/icon256.png"
+  },
+
+  "permissions": [
+      "contextMenus",
+      "storage",
+      "tabs",
+      "unlimitedStorage",
+      "webNavigation",
+      "webRequest",
+      "webRequestBlocking",
+      
+      "<all_urls>"
+  ],
+
+  "background": {
+    "persistent": true,
+    "scripts": [
+      "/nscl/lib/browser-polyfill.js",
+      "/nscl/lib/punycode.js",
+      "/nscl/lib/sha256.js",
+      "/nscl/common/UA.js",
+      "/nscl/common/uuid.js",
+      "/nscl/common/SyncMessage.js",
+      "/nscl/common/log.js",
+      "/nscl/common/tld.js",
+      "/nscl/common/Messages.js",
+      "/nscl/common/CSP.js",
+      "/nscl/common/NetCSP.js",
+      "/nscl/common/CapsCSP.js",
+      "/nscl/common/RequestKey.js",
+      "/nscl/common/Sites.js",
+      "/nscl/common/Permissions.js",
+      "/nscl/common/Policy.js",
+      "/nscl/common/locale.js",
+      "/nscl/common/Storage.js",
+      "/nscl/common/include.js",
+      "/nscl/common/DNS.js",
+      "/nscl/common/AddressMatcherWithDNS.js",
+      "/nscl/common/iputil.js",
+      "/nscl/service/DocStartInjection.js",
+      "/nscl/service/LastListener.js",
+      "/nscl/service/TabCache.js",
+      "ui/Prompts.js",
+      "xss/XSS.js",
+      "bg/ReportingCSP.js",
+      "bg/deferWebTraffic.js",
+      "bg/Defaults.js",
+      "bg/RequestGuard.js",
+      "bg/Settings.js",
+      "bg/main.js",
+      "common/themes.js"
+    ]
+  },
+
+  "content_scripts": [
+    {
+       "matches": ["<all_urls>"],
+       "match_origin_as_fallback": true,
+       "match_about_blank": true,
+       "all_frames": true,
+       "css": [
+         "/common/themes.css",
+         "/content/content.css"
+       ]
+    },
+    {
+      "run_at": "document_start",
+      "matches": ["<all_urls>"],
+      "match_origin_as_fallback": true,
+      "match_about_blank": true,
+      "all_frames": true,
+      "js": [
+        "/nscl/lib/browser-polyfill.js",
+        "/nscl/lib/sha256.js",
+        "/nscl/common/UA.js",
+        "/nscl/common/uuid.js",
+        "/nscl/common/log.js",
+        "/nscl/common/SyncMessage.js",
+        "/nscl/common/Messages.js",
+        "/nscl/common/CSP.js",
+        "/nscl/common/CapsCSP.js",
+        "/nscl/common/RequestKey.js",
+        "/nscl/content/patchWindow.js",
+        "/nscl/content/DocumentCSP.js",
+        "/nscl/content/NoscriptElements.js",
+        "/nscl/content/prefetchCSSResources.js",
+        "/nscl/content/PlaceHolder.js",
+        "/nscl/content/sanitizePaste.js",
+        "content/onScriptDisabled.js",
+        "content/staticNS.js",
+        "/nscl/content/media.js",
+        "/nscl/content/webglHook.js",
+        "content/content.js"
+      ]
+    },
+    {
+      "run_at": "document_start",
+      "matches": ["ftp://*/*"],
+      "js": [
+        "content/ftp.js"
+      ]
+    },
+    {
+      "run_at": "document_start",
+      "matches": ["file://*/*", "ftp://*/*"],
+      "all_frames": true,
+      "js": [
+        "lib/DocumentFreezer.js",
+        "content/syncFetchPolicy.js"
+      ]
+    }
+  ],
+
+  "options_ui": {
+    "page": "ui/options.html",
+    "open_in_tab": true
+  },
+
+  "browser_action": {
+    "default_area": "navbar",
+    "default_title": "NoScript",
+    "default_icon": {
+      "64": "img/ui-maybe64.png"
+    }
+  },
+
+  "commands": {
+    "_execute_browser_action": {
+      "description": "NoScript UI",
+      "suggested_key": {
+        "default": "Alt+Shift+N"
+      }
+    },
+    "togglePermissions": {
+      "description": "Toggle permissions",
+      "suggested_key": {
+        "default": "Ctrl+Shift+T"
+      }
+    }
+  }
+}

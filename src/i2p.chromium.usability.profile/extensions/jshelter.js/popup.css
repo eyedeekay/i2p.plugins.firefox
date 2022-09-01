@@ -1,0 +1,204 @@
+/*
+ * SPDX-FileCopyrightText: 2021 2019 Libor Polčák
+ * SPDX-FileCopyrightText: 2021 2019 Martin Timko
+ * SPDX-FileCopyrightText: 2022 2021 Giorgio Maone
+ *
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ */
+
+body {
+	padding: 0.5em;
+	margin: 0em;
+	min-width: 38em;
+}
+
+content {
+	padding: 0.5em;
+	margin: 0.5em;
+}
+
+header, footer, .section-header {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	font-size: large;
+}
+
+header {
+	margin-bottom: .5em;
+	border-bottom: 2px solid #aaa;
+}
+
+
+footer {
+	margin-top: .5em;
+	border-top: 2px solid #aaa;
+}
+
+label[for]:first-child {
+  flex: 5;
+  display: block;
+	cursor: pointer;
+	padding: .2em 0;
+}
+
+h3 {
+	font-size: 3ex;
+}
+
+.buttons {
+	text-align: end;
+	margin: 0 0 1em 0;
+}
+
+#logo {
+	width: 32px;
+	margin: 0 0.5em 0 0;
+	display: inline;
+}
+
+#titletext {
+	display: inline;
+	font-size: large;
+	text-align: left;
+}
+
+#site-settings, #site-settings:not(.enabled) ~ #globals {
+	display: none;
+}
+#site-settings.enabled {
+	display: initial;
+}
+
+
+#refresh-page, #global-settings, .js-toggle {
+	font-size: large;
+	font-weight: bold;
+	vertical-align: 50%;
+}
+
+#current-site {
+	font-size: large;
+	margin: 0 0.5em;
+}
+
+#level-select {
+	display: flex;
+	flex-flow: row;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.level {
+	font-size: large;
+	margin: 0.7ex;
+	padding: 0.7ex;
+}
+
+input#js-toggle {
+	position: absolute;
+	visibility: hidden;
+	opacity: 0;
+}
+
+label.js-toggle {
+	max-height: 34px;
+	padding: 3.5px;
+	cursor: pointer;
+	border: 1px var(--separator-color) solid;
+	background-color: var(--button-background-color);
+	color: var(--button-text-color);
+}
+
+label.js-toggle:hover {
+	background-color: var(--button-background-hover-color);
+	color: var(--button-text-hover-color);
+}
+
+input#js-toggle:checked + label {
+	background-color: var(--button-background-active-color);
+	color: var(--button-text-active-color);
+}
+
+input#js-toggle:checked + label:after {
+	content: " -";
+}
+
+label.js-toggle:after {
+	content: " ⤵"
+}
+
+.toggle:not(.toggled) ~ .section-body {
+	display: none;
+}
+
+.off_message{
+	font-size: large;
+	display: none;
+	margin: 0px;
+	height: 34px;
+	line-height: 34px;
+	vertical-align: middle;
+}
+
+.off > .off_message {
+	display: inline-block;
+}
+
+.off > .switch_wrapper {
+	display: none;
+}
+
+.switch_wrapper {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.switch_wrapper > label {
+	font-size: large;
+	white-space: nowrap;
+}
+
+#btn-tweak:disabled {
+	display: none;
+}
+
+#tweaks {
+	display: none;
+}
+
+.tweak {
+	display: flex;
+}
+
+.tweaking #tweaks {
+	display: grid;
+	grid: auto / auto auto 5ex 1fr;
+	gap: 1em;
+	align-items: center;
+}
+
+.head {
+	font-weight: bold;
+}
+
+.hidden {
+	display: none;
+}
+
+#severity_value {
+	color: #e8e6e3;
+	cursor: pointer;
+}
+
+#severity_value:hover {
+	color: #e8e6e3;
+	filter: brightness(110%);
+}
+
+#level_controls, #nbs_whitelist, #fpd_whitelist {
+	margin: 6px 0;
+}

@@ -1,0 +1,3268 @@
+:root {
+    /* Fonts */
+    --font-base: 'Karla', sans-serif;
+    --font-size-huge: 18px;
+    --font-size-large: 13px;
+    --font-size-medium: 12px;
+    --font-size-small: 11px;
+    --line-height: 1.2;
+    --color-black: #111;
+    --color-white: #fff;
+    --color-grey-5: #404040;
+    --color-grey-4: #8d8d8d;
+    --color-grey-3: #c6c6c6;
+    --color-grey-2: #e2e2e2;
+    --color-grey-1: #f3f3f3;
+    --color-yellow: #e9be57;
+    --color-red: #d0284b;
+    --color-blue: #3c74c5;
+    --facet-item-color: var(--color-black);
+    --facet-item-font-family: var(--font-base);
+    --facet-item-font-size: 1;
+    --components-cards-product-text-align-vertical: center;
+    --components-cards-product-text-align-horizontal: left;
+    --components-cards-product-title-font-size: 1;
+    --components-cards-product-title-font-family: var(--font-base);
+    --components-cards-product-title-text-transform: none;
+    --components-cards-product-description-font-size: 1;
+    --components-cards-product-description-color: #b2b2b2;
+    --components-cards-product-description-font-family: var(--font-base);
+    --components-autocomplete-blocktitle-font-size: 12px;
+    --components-cards-promo-title-font-size: var(--font-size-huge);
+    --components-pagination-height: 40px;
+    --components-pagination-text-transform: uppercase;
+    --components-cards-content-title-font-size: 1;
+    --components-cards-content-title-font-family: var(--font-base);
+    --components-cards-content-title-text-transform: none;
+    --components-cards-content-title-color: var(--color-black);
+    --components-cards-content-description-font-size: 1;
+    --components-cards-content-description-color: #b2b2b2;
+    --components-cards-content-description-font-family: var(--font-base);
+    --components-categoryfacet-item-font-size: var(--font-size-medium);
+    --components-categoryfacet-item-padding: 3px 0;
+    --components-search-desktopfacets-padding: 25px;
+    --components-search-desktopfacets-gutter: 40px;
+    --components-dropdown-padding: 10px 11px;
+    --components-dropdown-select-height: 40px;
+    --components-dropdown-dropdown-background: var(--color-white);
+    --components-dropdown-highlighted-background: var(--color-grey-1);
+    --components-autocomplete-suggestionitem-suggestion-color: var(--color-black);
+    --components-autocomplete-suggestionitem-suggestion-font-family: var(--font-base);
+    --components-autocomplete-suggestionitem-suggestion-font-size: 1;
+    --components-search-desktopactions-padding: 25px;
+    --components-checkboxfacet-search-padding-bottom: 11px;
+    --components-facet-min-width: 250px;
+    --components-facet-vertical-title-padding: 25px;
+    --components-facet-horizontal-title-padding: 10px 25px;
+    --components-facet-vertical-body-padding: 0 25px 25px 25px;
+    --components-facet-horizontal-body-padding: 10px 25px;
+    --components-facet-horizontal-background: #f3f3f3;
+    --components-facet-text-color: var(--color-black);
+    --components-facet-text-font-family: var(--font-base);
+    --components-facet-text-font-size: 1;
+    --components-cards-product-price-compare-color: var(--color-grey-4);
+    --components-cards-product-price-price-color: var(--color-black);
+    --components-cards-product-price-price-font-size: var(--font-size-medium);
+    --components-cards-product-price-sale-price-color: var(--color-red);
+    --components-cards-product-price-sale-price-font-size: var(--font-size-medium);
+    --swiper-theme-color: #333;
+    --swiper-navigation-size: 44px;
+    --components-rangefacet-height: 30px;
+    --components-rangefacet-input-width: 100%;
+    --components-rangefacet-currency-font-size: var(--font-size-medium);
+    --components-rangefacet-submit-font-size: var(--font-size-medium);
+    --components-common-checkbox-item-font-size: var(--font-size-medium);
+    --components-common-checkbox-item-padding: 3px 0;
+    --components-ratingfacet-height: 30px;
+    --components-ratingfacet-item-font-size: var(--font-size-medium);
+    --components-ratingfacet-item-padding: 3px 0;
+    --components-ratingfacet-input-width: 60px;
+    --components-ratingfacet-input-indent: 8px;
+    --components-ratingfacet-currency-font-size: var(--font-size-medium);
+    --components-ratingfacet-submit-font-size: var(--font-size-medium);
+    --layouts-autocomplete-dropdown-highlight-highlight-color: #404040;
+}
+
+/*  imported from styles.css  */
+
+.findify-components--button {
+    border: none;
+    outline: none;
+    background: transparent;
+    cursor: pointer;
+    -webkit-transition: background-color .1s ease-in;
+            transition: background-color .1s ease-in;
+    padding: 0;
+    margin: 0;
+    font-family: var(--font-base);
+}
+
+.findify-components--button__raw {
+    padding: 0;
+    margin: 0;
+    display: block;
+    text-align: left;
+    background: transparent;
+    height: auto;
+}
+
+.findify-components--button__link {
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+/*  imported from styles.css  */
+
+.findify-components--icon {
+    display: inline-block;
+    -webkit-box-sizing: content-box;
+            box-sizing: content-box;
+    /*color: inherit; FIXME: for whatever reason styles override each other while ignoring class order completely*/
+}
+
+/*  imported from styles.css  */
+
+.findify-components--text {
+    display: block;
+    padding: 0;
+    margin: 0;
+    color: var(--color-black);
+    font-size: var(--font-size-medium);
+    font-family: var(--font-base);
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+}
+
+.findify-components--text__primary-uppercase {
+    font-size: var(--font-size-small);
+    text-transform: uppercase;
+    font-weight: bold;
+    color: var(--color-black);
+    line-height: 17px;
+}
+
+.mobile .findify-components--text__primary-uppercase {
+    font-weight: normal;
+    line-height: 15px;
+}
+
+.findify-components--text__primary-lowercase {
+    font-size: var(--font-size-large);
+    text-transform: capitalize;
+    font-weight: normal;
+    color: var(--color-black);
+    line-height: 21px;
+}
+
+.mobile .findify-components--text__primary-lowercase {
+    font-size: var(--font-size-medium);
+}
+
+.findify-components--text__secondary-uppercase {
+    font-size: var(--font-size-small);
+    text-transform: uppercase;
+    font-weight: bold;
+    color: var(--color-grey-3);
+}
+
+.findify-components--text__secondary-lowercase {
+    font-size: var(--font-size-large);
+    text-transform: capitalize;
+    font-weight: normal;
+    color: var(--color-grey-3);
+}
+
+.mobile .findify-components--text__secondary-lowercase {
+    font-size: var(--font-size-small);
+}
+
+.findify-components--text__title {
+    font-size: var(--font-size-huge);
+    font-weight: normal;
+    color: var(--color-black);
+}
+
+.findify-components--text__bold {
+    font-weight: bold;
+}
+
+.findify-components--text__inlineBlock {
+    display: inline-block;
+}
+
+/*  imported from styles.css  */
+
+.findify-components-common--grid {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    list-style: none;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+        flex-direction: row;
+    margin: 0;
+    padding: 0;
+}
+
+.findify-components-common--grid__column,
+.findify-components-common--grid__placeholder {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    -ms-flex-preferred-size: auto;
+    flex-basis: auto;
+    list-style: none;
+}
+
+.findify-components-common--grid .findify-components-common--grid__column,
+.findify-components-common--grid .findify-components-common--grid__placeholder {
+    list-style: none;
+}
+
+.findify-components-common--grid__column-auto {
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    -ms-flex-preferred-size: 0%;
+    flex-basis: 0%;
+}
+
+.findify-components-common--grid__column-full {
+    -webkit-box-flex: 0;
+    -ms-flex-positive: 0;
+    flex-grow: 0;
+    -ms-flex-negative: 1;
+    flex-shrink: 1;
+    -ms-flex-preferred-size: 100%;
+    flex-basis: 100%;
+}
+
+.findify-components-common--grid__column-fit {
+    -webkit-box-flex: 0;
+    -ms-flex-positive: 0;
+    flex-grow: 0;
+    -ms-flex-negative: 1;
+    flex-shrink: 1;
+    -ms-flex-preferred-size: auto;
+    flex-basis: auto;
+}
+
+.findify-components-common--grid__column-1 {
+    -ms-flex-preferred-size: 8.33333%;
+    flex-basis: 8.33333%;
+}
+
+.findify-components-common--grid__column-2 {
+    -ms-flex-preferred-size: 16.66667%;
+    flex-basis: 16.66667%;
+}
+
+.findify-components-common--grid__column-3 {
+    -ms-flex-preferred-size: 25%;
+    flex-basis: 25%;
+}
+
+.findify-components-common--grid__column-4 {
+    -ms-flex-preferred-size: 33.33333%;
+    flex-basis: 33.33333%;
+}
+
+.findify-components-common--grid__column-5 {
+    -ms-flex-preferred-size: 41.66667%;
+    flex-basis: 41.66667%;
+}
+
+.findify-components-common--grid__column-6 {
+    -ms-flex-preferred-size: 50%;
+    flex-basis: 50%;
+}
+
+.findify-components-common--grid__column-7 {
+    -ms-flex-preferred-size: 58.33333%;
+    flex-basis: 58.33333%;
+}
+
+.findify-components-common--grid__column-8 {
+    -ms-flex-preferred-size: 66.66667%;
+    flex-basis: 66.66667%;
+}
+
+.findify-components-common--grid__column-9 {
+    -ms-flex-preferred-size: 75%;
+    flex-basis: 75%;
+}
+
+.findify-components-common--grid__column-10 {
+    -ms-flex-preferred-size: 83.33333%;
+    flex-basis: 83.33333%;
+}
+
+.findify-components-common--grid__column-11 {
+    -ms-flex-preferred-size: 91.66667%;
+    flex-basis: 91.66667%;
+}
+
+.findify-components-common--grid__column-12 {
+    -ms-flex-preferred-size: 100%;
+    flex-basis: 100%;
+}
+
+/*  imported from styles.css  */
+
+.findify-components--cards--product {
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    -webkit-transition: background-color .35s ease-in-out;
+            transition: background-color .35s ease-in-out;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    position: relative;
+}
+
+.findify-components--cards--product.findify-components--cards--product__vertical {
+    text-align: var(--components-cards-product-text-align-vertical);
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+        flex-direction: column;
+    padding-bottom: 50px;
+}
+
+.findify-components--cards--product.findify-components--cards--product__horizontal {
+    text-align: var(--components-cards-product-text-align-horizontal);
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+        flex-direction: row;
+    padding-bottom: 15px;
+}
+
+.findify-components--cards--product.findify-components--cards--product__autocomplete {
+    padding-bottom: 0;
+}
+
+.findify-components--cards--product.findify-components--cards--product__highlighted:after,
+.findify-components--cards--product:focus-within:after {
+    content: ' ';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    border: 2px solid Highlight;
+    border-color: -webkit-focus-ring-color;
+}
+
+.findify-components--cards--product.findify-components--cards--product__highlighted a:focus,
+.findify-components--cards--product:focus-within a:focus {
+    text-decoration: none;
+}
+
+.findify-components--cards--product__content {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+        flex-direction: column;
+    height: 100%;
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+        flex: 1 1 auto;
+}
+
+.findify-components--cards--product__image {
+    cursor: pointer;
+    margin-bottom: 12px;
+    -webkit-box-ordinal-group: 0;
+    -ms-flex-order: -1;
+    order: -1;
+}
+
+.findify-components--cards--product__horizontal .findify-components--cards--product__image {
+    min-width: 60px;
+    margin: 0 16px 0 0;
+}
+
+.findify-components--cards--product__divider {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 0 auto;
+        flex: 1 0 auto;
+}
+
+.findify-components--cards--product__content {
+    font-size: 14px;
+}
+
+.findify-components--cards--product__title {
+    color: var(--color);
+    font-family: var(--components-cards-product-title-font-family);
+    text-transform: var(--components-cards-product-title-text-transform);
+    font-size: calc(var(--font-size-medium) * var(--components-cards-product-title-font-size)) !important; /* FIXME: figure out issue with import order of styles */
+    line-height: calc(var(--font-size-medium) * var(--components-cards-product-title-font-size) * 1.6);
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.findify-components--cards--product__title-link {
+    color: currentColor;
+    text-decoration: none;
+}
+
+.findify-components--cards--product__title-link:after {
+    content: ' ';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+}
+
+.findify-components--cards--product__title-link:focus {
+    text-decoration: underline;
+}
+
+.findify-components--cards--product__description {
+    font-family: var(--components-cards-product-description-font-family);
+    font-size: calc(var(--font-size-medium) * var(--components-cards-product-description-font-size));
+    color: var(--components-cards-product-description-color);
+    margin: 5px 0;
+}
+
+.findify-components--cards--product__rating {
+    margin: 5px 0;
+    margin-bottom: 8px;
+    width: 100%;
+    text-align: center;
+}
+
+.findify-components--cards--product__color {
+    text-transform: none;
+    font-size: 13px;
+    color: #b2b2b2;
+    margin: 5px 0;
+}
+
+.findify-components--cards--product__out-of-stock {
+    margin: 0;
+    margin-top: -3px;
+    font-size: 13px;
+    color: #b2b2b2;
+}
+
+.findify-components--cards--product__discount-sticker {
+    position: absolute;
+    top: 4%;
+    right: 4%;
+    z-index: 50;
+}
+
+.findify-components--cards--product__variants {
+    color: var(--color-grey-3);
+    font-family: var(--font-base);
+    font-size: var(--font-size-large);
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/*  imported from styles.css  */
+
+.findify-components-search--lazy-results {
+    width: 100%;
+}
+
+.findify-components-search--lazy-results__button-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.findify-components-search--lazy-results__next-button {
+    margin: 50px auto 0 auto;
+    text-decoration: none;
+    padding: 0 85px;
+    height: 40px;
+    background: var(--color-grey-1);
+    -webkit-transition: background .1s linear;
+            transition: background .1s linear;
+}
+
+.findify-components-search--lazy-results__next-button:hover,
+.findify-components-search--lazy-results__next-button:focus {
+    background: var(--color-grey-2);
+}
+
+.findify-components-search--lazy-results__prev-button {
+    margin: 0 auto 50px auto;
+    text-decoration: none;
+    padding: 0 85px;
+    height: 40px;
+    background: var(--color-grey-1);
+    -webkit-transition: background .1s linear;
+            transition: background .1s linear;
+}
+
+.findify-components-search--lazy-results__prev-button:hover,
+.findify-components-search--lazy-results__prev-button:focus {
+    background: var(--color-grey-2);
+}
+
+/*  imported from styles.css  */
+
+.findify-components-autocomplete--layout__column {
+    vertical-align: top;
+    background: #fff;
+    padding: 0 32px;
+}
+
+/*  imported from styles.css  */
+
+.findify-components-autocomplete--block-title {
+    margin: 0;
+    margin-bottom: 15px;
+    margin-top: 32px;
+    color: var(--color-black);
+    font-size: var(--components-autocomplete-blocktitle-font-size);
+    line-height: var(--components-autocomplete-blocktitle-font-size);
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: var(--font-base);
+}
+
+/*  imported from styles.css  */
+
+.findify-components--cards--promo {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    height: 100%;
+    width: 100%;
+    padding-bottom: 50px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+        flex-direction: column;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    font-family: var(--font-base);
+    cursor: pointer;
+}
+
+.findify-components--cards--promo__content {
+    height: 100%;
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+        flex: 1;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+        flex-direction: column;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+}
+
+.findify-components--cards--promo__container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+        flex-direction: column;
+    color: white;
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+        flex: 1;
+    margin: 0 12%;
+}
+
+.findify-components--cards--promo__button {
+    display: block;
+    width: 100%;
+    border: none;
+    background: white;
+    padding: 10px;
+    border-radius: 20px;
+    text-transorm: uppercase;
+    font-size: var(--font-size-medium);
+    text-transform: uppercase;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.findify-components--cards--promo__button:hover,
+.findify-components--cards--promo__button:focus {
+    background-color: var(--color-grey-2);
+}
+
+.findify-components--cards--promo__button-container {
+    text-align: center;
+    padding: 30px 12% 12% 12%;
+}
+
+.findify-components--cards--promo__title {
+    margin: 0;
+    margin-bottom: 5px;
+    margin-top: 30px;
+    text-align: center;
+    font-size: var(--components-cards-promo-title-font-size);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.findify-components--cards--promo__description {
+    text-align: center;
+    margin: 0;
+    text-decoration: none;
+}
+
+.findify-components--cards--promo__footer {
+    margin: 0;
+    padding: 10px 12% 5px 12%;
+    font-size: var(--font-size-small);
+    text-decoration: none;
+}
+
+/*  imported from styles.css  */
+
+.findify-components--pagination {
+    padding-top: 30px;
+    border-top: 1px solid var(--color-grey-2);
+    margin-top: 22px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+.findify-components--pagination:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.findify-components--pagination__prev, .findify-components--pagination__next,
+.findify-components--pagination__first, .findify-components--pagination__last,
+.findify-components--pagination__page, .findify-components--pagination__dots {
+    height: var(--components-pagination-height);
+    padding: 0 16px;
+    color: var(--color-black);
+    font-size: var(--font-size-medium);
+    font-weight: normal;
+}
+
+.findify-components--pagination__prev:hover,
+.findify-components--pagination__prev:focus,
+.findify-components--pagination__next:hover,
+.findify-components--pagination__next:focus,
+.findify-components--pagination__first:hover,
+.findify-components--pagination__first:focus,
+.findify-components--pagination__last:hover,
+.findify-components--pagination__last:focus,
+.findify-components--pagination__page:hover,
+.findify-components--pagination__page:focus,
+.findify-components--pagination__dots:hover,
+.findify-components--pagination__dots:focus {
+    text-decoration: underline;
+}
+
+.findify-components--pagination__prev, .findify-components--pagination__next {
+    text-transform: var(--components-pagination-text-transform);
+}
+
+.findify-components--pagination__prev svg,
+.findify-components--pagination__next svg {
+    vertical-align: -3px;
+}
+
+.findify-components--pagination__dots {
+    cursor: default;
+    pointer-events: none;
+    padding: 0;
+}
+
+.findify-components--pagination__active,
+.findify-components--pagination__active:focus {
+    background-color: var(--color-grey-1);
+    text-decoration: none;
+}
+
+/*  imported from styles.css  */
+
+.findify-components--cards--content {
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    position: relative;
+}
+
+.findify-components--cards--content.findify-components--cards--content__vertical {
+    text-align: var(--text-align-vertical);
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+        flex-direction: column;
+    min-width: 100px;
+}
+
+.findify-components--cards--content.findify-components--cards--content__vertical.findify-components--cards--content__autocomplete {
+    margin-bottom: 20px;
+}
+
+.findify-components--cards--content.findify-components--cards--content__horizontal {
+    text-align: var(--text-align-horizontal);
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+        flex-direction: row;
+    border-radius: 2px;
+    padding: 10px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    margin-left: -10px;
+}
+
+.findify-components--cards--content.findify-components--cards--content__bubble {
+    padding: 8px 15px;
+    margin: 0 12px 12px 0;
+    background: var(--color-grey-1);
+    display: inline-block;
+    width: auto;
+    border-radius: 17px;
+}
+
+.findify-components--cards--content.findify-components--cards--content__bubble .findify-components--cards--content__title {
+    line-height: 1;
+}
+
+.findify-components--cards--content.findify-components--cards--content__highlighted:after,
+.findify-components--cards--content:focus-within:after {
+    content: ' ';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    border: 2px solid Highlight;
+    border-color: -webkit-focus-ring-color;
+}
+
+.findify-components--cards--content.findify-components--cards--content__highlighted a:focus,
+.findify-components--cards--content:focus-within a:focus {
+    text-decoration: none;
+}
+
+.findify-components--cards--content__content {
+    font-size: 14px;
+}
+
+.findify-components--cards--content__image {
+    cursor: pointer;
+    margin-bottom: 12px;
+    -webkit-box-ordinal-group: 0;
+    -ms-flex-order: -1;
+    order: -1;
+}
+
+.findify-components--cards--content__horizontal .findify-components--cards--content__image {
+    min-width: 60px;
+    margin: 0 16px 0 0;
+}
+
+.findify-components--cards--content__title {
+    color: var(--components-cards-content-title-color);
+    font-family: var(--components-cards-content-title-font-family);
+    text-transform: var(--components-cards-content-title-text-transform);
+    font-size: calc(var(--font-size-medium) * var(--components-cards-content-title-font-size)) !important; /* FIXME: figure out issue with import order of styles */
+    line-height: calc(var(--font-size-medium) * var(--components-cards-content-title-font-size) * 1.6);
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.findify-components--cards--content__title-link {
+    color: currentColor;
+    text-decoration: none;
+}
+
+.findify-components--cards--content__title-link:after {
+    content: ' ';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+}
+
+.findify-components--cards--content__title-link:focus {
+    text-decoration: underline;
+}
+
+.findify-components--cards--content__description {
+    font-family: var(--components-cards-content-description-font-family);
+    font-size: calc(var(--font-size-medium) * var(--components-cards-content-description-font-size));
+    color: var(--components-cards-content-description-color);
+    margin: 5px 0;
+}
+
+/*  imported from styles.css  */
+
+.findify-components--cards--product--rating__rating {
+    white-space: nowrap;
+}
+
+.findify-components--cards--product--rating__stars {
+    white-space: nowrap;
+    display: inline-block;
+}
+
+.findify-components--cards--product--rating__star {
+    margin-right: 3px;
+    width: 11px;
+    height: 11px;
+    display: inline-block;
+    vertical-align: -1px;
+    color: var(--color-black);
+}
+
+.findify-components--cards--product--rating__star.findify-components--cards--product--rating__filled {
+    color: #ffc000;
+}
+
+.findify-components--cards--product--rating__count {
+    display: inline-block;
+    vertical-align: 1px;
+}
+
+/*  imported from styles.css  */
+
+.findify-components--category-facet {
+    width: 100%;
+}
+
+.findify-components--category-facet__nested {
+    padding-left: 20px;
+}
+
+.findify-components--category-facet__content {
+    font-size: calc(var(--facet-item-font-size) * var(--font-size-medium));
+    font-family: var(--facet-item-font-family);
+    color: var(--facet-item-color);
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+        flex: 1 1 auto;
+}
+
+.findify-components--category-facet__item {
+    width: 100%;
+    border: 0;
+    background: transparent;
+    outline: 0;
+    font-size: var(--components-categoryfacet-item-font-size);
+    border-radius: 0;
+    text-align: left;
+    padding: var(--components-categoryfacet-item-padding);
+    height: auto;
+    cursor: pointer;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+        flex-direction: row;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.findify-components--category-facet__item svg {
+    vertical-align: -3px;
+    padding-left: 7px;
+}
+
+.findify-components--category-facet__item.findify-components--category-facet__mobile {
+    padding: 10px 0;
+}
+
+.findify-components--category-facet__active {
+    font-weight: bold;
+}
+
+.findify-components--category-facet__expand {
+    margin-top: 10px;
+    width: 100%;
+}
+
+.findify-components--category-facet__expand svg {
+    vertical-align: -3px;
+    padding-right: 5px;
+}
+
+/*  imported from styles.css  */
+
+.findify-components-search--desktop-facets {
+    width: 300px;
+    height: 100%;
+}
+
+.findify-components-search--desktop-facets .findify-components-search--desktop-facets__container {
+    overflow: hidden;
+    overflow-y: auto;
+    max-height: auto;
+    will-change: max-height;
+}
+
+.findify-components-search--desktop-facets.findify-components-search--desktop-facets__sticky {
+    position: sticky;
+    top: 0;
+}
+
+.findify-components-search--desktop-facets__horizontal {
+    background: var(--horizontal-background);
+    width: 100%;
+    position: relative;
+    max-width: 100vw;
+    margin-bottom: 10px;
+}
+
+.findify-components-search--desktop-facets__horizontal .findify-components-search--desktop-facets__container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+        flex-direction: row;
+    z-index: 3;
+    background: white;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+}
+
+.findify-components-search--desktop-facets__header {
+    padding: 13px var(--components-search-desktopfacets-padding) 20px var(--components-search-desktopfacets-padding);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+        flex-direction: row;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.findify-components-search--desktop-facets__horizontal .findify-components-search--desktop-facets__header {
+    display: none;
+}
+
+.findify-components-search--desktop-facets__icon {
+    float: left;
+    padding-right: 10px;
+}
+
+.findify-components-search--desktop-facets__reset {
+    float: right;
+    padding: 2px 0;
+}
+
+.findify-components-search--desktop-facets__reset:hover *,
+.findify-components-search--desktop-facets__reset:focus * {
+    color: var(--color-grey-4);
+}
+
+.findify-components-search--desktop-facets__hide {
+    margin-left: auto;
+    padding: 0;
+}
+
+.findify-components-search--desktop-facets__hide:hover *,
+.findify-components-search--desktop-facets__hide:focus * {
+    color: var(--color-grey-4);
+}
+
+.findify-components-search--desktop-facets__hide svg {
+    vertical-align: -3px;
+}
+
+/*  imported from styles.css  */
+
+.findify-components--dropdown {
+    position: relative;
+}
+
+.findify-components--dropdown__select {
+    position: relative;
+    border-radius: 0;
+    height: var(--components-dropdown-select-height);
+    padding: var(--components-dropdown-padding);
+    padding-right: 40px;
+    background: var(--color-grey-1);
+    text-align: left;
+    width: 100%;
+}
+
+.findify-components--dropdown__arrow {
+    position: absolute;
+    top: 50%;
+    right: 16px;
+    margin-top: -8px;
+}
+
+.findify-components--dropdown__dropdown {
+    position: absolute;
+    top: calc(100% - 1px);
+    left: 0;
+    width: 100%;
+    background: var(--components-dropdown-dropdown-background);
+    z-index: 9999;
+    border: 1px solid var(--color-grey-2);
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    -webkit-box-shadow: 0 5px 10px -4px rgba(0, 0, 0, .07);
+            box-shadow: 0 5px 10px -4px rgba(0, 0, 0, .07);
+    -webkit-transition: -webkit-transform .1s ease-in;
+            transition: -webkit-transform .1s ease-in;
+            transition: transform .1s ease-in;
+            transition: transform .1s ease-in, -webkit-transform .1s ease-in;
+    -webkit-transform-origin: center top;
+        -ms-transform-origin: center top;
+             transform-origin: center top;
+    -webkit-transform: scaleY(0);
+        -ms-transform: scaleY(0);
+            transform: scaleY(0);
+}
+
+.findify-components--dropdown__dropdown.findify-components--dropdown__open {
+    -webkit-transform: scaleY(1);
+        -ms-transform: scaleY(1);
+            transform: scaleY(1);
+}
+
+.findify-components--dropdown .findify-components--dropdown__dropdown {
+    margin: 1px 0 0 0;
+    padding: 0;
+}
+
+.findify-components--dropdown__option {
+    display: block;
+    text-align: left;
+    font-size: var(--font-size-medium);
+    background: transparent;
+    border: none;
+    margin: 0;
+    border-radius: 0;
+    height: var(--height);
+    width: 100%;
+    padding: var(--components-dropdown-padding);
+    cursor: pointer;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+.findify-components--dropdown__label {
+    position: absolute !important;
+    display: block;
+    visibility: visible;
+    overflow: hidden;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+}
+
+.findify-components--dropdown__highlighted {
+    background: var(--components-dropdown-highlighted-background);
+}
+
+/*  imported from styles.css  */
+
+.findify-components-autocomplete--suggestion-item__suggestion {
+    color: var(--components-autocomplete-suggestionitem-suggestion-color);
+    font-family: var(--components-autocomplete-suggestionitem-suggestion-font-family);
+    font-size: calc(var(--font-size-medium) * var(--components-autocomplete-suggestionitem-suggestion-font-size));
+    cursor: pointer;
+    border-radius: 2px;
+    text-align: left;
+    padding: 10px;
+    margin: 0 -10px;
+    text-transform: capitalize;
+    position: relative;
+}
+
+.findify-components-autocomplete--suggestion-item__suggestion.findify-components-autocomplete--suggestion-item__horizontal {
+    padding: 8px 15px;
+    margin: 0 22px 12px -10px;
+    background: var(--color-grey-1);
+    display: inline-block;
+    width: auto;
+    border-radius: 17px;
+}
+
+.findify-components-autocomplete--suggestion-item__suggestion.findify-components-autocomplete--suggestion-item__horizontal:hover,
+.findify-components-autocomplete--suggestion-item__suggestion.findify-components-autocomplete--suggestion-item__horizontal:focus {
+    background: var(--color-grey-2);
+}
+
+.findify-components-autocomplete--suggestion-item__suggestion:before {
+    content: ' ';
+    display: table;
+}
+
+.findify-components-autocomplete--suggestion-item__suggestion:hover,
+.findify-components-autocomplete--suggestion-item__suggestion:focus {
+    background: var(--color-grey-1);
+}
+
+.findify-components-autocomplete--suggestion-item__highlightedText {
+    font-weight: bolder;
+}
+
+.findify-components-autocomplete--suggestion-item__highlighted:after {
+    content: ' ';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    border: 2px solid Highlight;
+    border-color: -webkit-focus-ring-color;
+}
+
+.findify-components-autocomplete--suggestion-item__icon {
+    margin-right: 8px;
+    min-width: 14px;
+}
+
+.findify-components-autocomplete--suggestion-item__withIcon {
+    /*
+  padding-right: 3px;
+  padding-left: 3px;*/
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.findify-components-autocomplete--suggestion-item__trending {
+    font-style: italic;
+}
+
+/*  imported from styles.css  */
+
+.findify-components--cards--product--variants__variants {
+    color: var(--color-grey-3);
+    font-family: var(--font-base);
+    font-size: var(--font-size-large);
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/*  imported from styles.css  */
+
+.findify-components-search--desktop-actions__block {
+    padding-bottom: var(--components-search-desktopactions-padding);
+}
+
+.findify-components-search--desktop-actions__block-inner {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    height: 100%;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+        flex-direction: row;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+}
+
+.findify-components-search--desktop-actions__sorting {
+    margin-left: auto;
+    padding-bottom: var(--components-search-desktopactions-padding);
+}
+
+.findify-components-search--desktop-actions__query {
+    white-space: nowrap;
+    text-overflow: elipsis;
+}
+
+.findify-components-search--desktop-actions__show-facets {
+    margin-right: 60px;
+    position: relative;
+}
+
+.findify-components-search--desktop-actions__show-facets:after {
+    content: ' ';
+    position: absolute;
+    right: -30px;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: var(--color-grey-2);
+}
+
+.findify-components-search--desktop-actions__show-facets svg {
+    vertical-align: -4px;
+    margin-right: 3px;
+}
+
+.findify-components-search--desktop-actions__show-facets:hover *,
+.findify-components-search--desktop-actions__show-facets:focus * {
+    color: var(--color-grey-4);
+}
+
+/*  imported from styles.css  */
+
+p.findify-layouts--recommendation--grid__title {
+    margin-bottom: 30px;
+}
+
+/*  imported from styles.css  */
+
+.findify-components-common--sticky__container {
+    overflow: hidden;
+    overflow-y: auto;
+    max-height: auto;
+    will-change: max-height;
+}
+
+.findify-components-common--sticky__static {
+    position: static;
+}
+
+.findify-components-common--sticky__stuck {
+    bottom: 0;
+    position: absolute;
+}
+
+.findify-components-common--sticky__sticky {
+    position: fixed;
+    top: 0;
+}
+
+/*  imported from styles.css  */
+
+.findify-components-search--static-results {
+    padding-top: 0;
+}
+
+.findify-components-search--static-results__column {
+    display: table;
+}
+
+/*  imported from styles.css  */
+
+.findify-components--breadcrumbs {
+    white-space: nowrap;
+}
+
+.findify-components--breadcrumbs__breadcrumb {
+    display: inline-block;
+    font-size: var(--font-size-small);
+    white-space: nowrap;
+    padding: 0;
+    margin-left: 12px;
+    position: relative;
+    background: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: var(--color-grey-3);
+}
+
+.findify-components--breadcrumbs__breadcrumb:before {
+    content: '/';
+    color: var(--color-grey-3);
+    display: inline-block;
+    padding-right: 12px;
+    font-size: 16px;
+    vertical-align: -1px;
+    font-weight: normal;
+    font-family: var(--font-base);
+}
+
+.findify-components--breadcrumbs__breadcrumb .findify-components--breadcrumbs__title {
+    color: var(--color-grey-3);
+    position: relative;
+}
+
+.findify-components--breadcrumbs__breadcrumb:hover,
+.findify-components--breadcrumbs__breadcrumb:focus {
+    text-decoration: line-through;
+    -webkit-text-decoration-color: var(--color-black);
+            text-decoration-color: var(--color-black);
+    color: var(--color-black);
+}
+
+.findify-components--breadcrumbs__breadcrumb:hover .findify-components--breadcrumbs__title,
+.findify-components--breadcrumbs__breadcrumb:focus .findify-components--breadcrumbs__title {
+    color: var(--color-black);
+}
+
+.findify-components--breadcrumbs__breadcrumb:hover .findify-components--breadcrumbs__title:after,
+.findify-components--breadcrumbs__breadcrumb:focus .findify-components--breadcrumbs__title:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 50%;
+    border-bottom: 1px solid #000;
+}
+
+.findify-components--breadcrumbs__breadcrumb:hover:before,
+.findify-components--breadcrumbs__breadcrumb:focus:before {
+    color: var(--color-black);
+}
+
+.findify-components--breadcrumbs__breadcrumb:first-child:before {
+    color: var(--color-black);
+}
+
+.findify-components--breadcrumbs__breadcrumb .findify-components--breadcrumbs__title {
+    display: inline-block;
+}
+
+.findify-components--breadcrumbs__ball {
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    display: inline-block;
+    vertical-align: -1px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    background-size: cover !important;
+    position: relative;
+}
+
+.findify-components--breadcrumbs__ball span {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-radius: 50%;
+    background: transparent;
+    border: 1px solid currentColor;
+}
+
+.findify-components--breadcrumbs__cross {
+    vertical-align: -4px;
+    -webkit-transition: color .1s linear;
+            transition: color .1s linear;
+    padding-left: 5px;
+}
+
+.findify-components--breadcrumbs__star {
+    color: var(--color-yellow);
+}
+
+.findify-components--breadcrumbs__star.findify-components--breadcrumbs__unfilled {
+    color: var(--color-grey-3);
+}
+
+/*  imported from styles.css  */
+
+.findify-components-autocomplete--suggestions__list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: block;
+}
+
+.findify-components-autocomplete--suggestions__list li {
+    display: block;
+}
+
+.findify-components-autocomplete--suggestions__horizontal {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+}
+
+/*  imported from styles.css  */
+
+.findify-components--checkbox-facet {
+    width: 100%;
+}
+
+.findify-components--checkbox-facet__mobile {
+    height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+        flex-direction: column;
+}
+
+.findify-components--checkbox-facet__mobile > section {
+    height: calc(100% - 60px);
+}
+
+.findify-components--checkbox-facet__search {
+    position: relative;
+    width: 100%;
+    padding-bottom: var(--components-checkboxfacet-search-padding-bottom);
+}
+
+.findify-components--checkbox-facet__search .findify-components--checkbox-facet__icon {
+    position: absolute;
+    right: 11px;
+    top: 50%;
+    margin-top: -13px;
+    pointer-events: none;
+    color: var(--color-black);
+}
+
+.findify-components--checkbox-facet__input {
+    background: var(--color-white);
+    width: 100%;
+    height: 40px;
+    padding-right: 34px;
+    padding-left: 11px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    font-family: var(--font-base);
+    font-size: var(--font-size-large);
+    border: 1px solid var(--color-grey-2);
+    -webkit-transition: border-color .1s linear;
+            transition: border-color .1s linear;
+    outline: none;
+}
+
+.findify-components--checkbox-facet__input:placeholder {
+    color: var(--color-grey-1);
+}
+
+.findify-components--checkbox-facet__input:focus {
+    border-color: var(--color-grey-3);
+}
+
+.findify-components--checkbox-facet__expand {
+    margin-top: 20px;
+    width: 100%;
+}
+
+.findify-components--checkbox-facet__expand svg {
+    vertical-align: -3px;
+    padding-right: 5px;
+}
+
+/*  imported from styles.css  */
+
+.findify-components--facet {
+    border-top: 1px solid var(--color-grey-2);
+}
+
+.findify-components--facet:last-child {
+    margin-bottom: 0;
+}
+
+.findify-components--facet.findify-components--facet__horizontal {
+    border-top: none;
+    background: var(--components-facet-horizontal-background);
+    -webkit-box-flex: 0;
+    -ms-flex: 0 1 auto;
+        flex: 0 1 auto;
+    position: relative;
+}
+
+.findify-components--facet__title {
+    width: 100%;
+    text-align: left;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    padding: var(--components-facet-vertical-title-padding);
+}
+
+.findify-components--facet__horizontal .findify-components--facet__title {
+    background: var(--components-facet-horizontal-background);
+    padding: var(--components-facet-horizontal-title-padding);
+}
+
+.findify-components--facet__text {
+    font-size: calc(var(--font-size-small) * var(--components-facet-text-font-size));
+    font-family: var(--components-facet-text-font-family);
+    color: var(--components-facet-text-color);
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 0%;
+        flex: 1 1 0%;
+    padding-right: 10px;
+}
+
+.findify-components--facet__icon {
+    vertical-align: middle;
+}
+
+.findify-components--facet__body {
+    margin-top: -15px;
+    padding: var(--components-facet-vertical-body-padding);
+}
+
+.findify-components--facet__horizontal .findify-components--facet__body {
+    background: var(--components-facet-horizontal-background);
+    position: absolute;
+    z-index: 3;
+    padding: var(--components-facet-horizontal-body-padding);
+    min-width: var(--components-facet-min-width);
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    border: 1px solid var(--color-grey-2);
+    top: 100%;
+    margin: 0;
+    left: -1px;
+}
+
+.findify-components--facet__body[hidden] {
+    display: none;
+}
+
+.findify-components--facet__horizontal {
+    margin-right: 5px;
+}
+
+.findify-components--facet__horizontal.findify-components--facet__expanded {
+    outline: 1px solid var(--color-grey-2);
+}
+
+.findify-components--facet__horizontal.findify-components--facet__expanded .findify-components--facet__title:after {
+    content: ' ';
+    position: absolute;
+    top: 100%;
+    z-index: 4;
+    height: 5px;
+    background: var(--components-facet-horizontal-background);
+    left: 1px;
+    right: 1px;
+}
+
+/*  imported from styles.css  */
+
+.findify-components--banner {
+    display: block;
+    line-height: 1;
+}
+
+.findify-components--banner__image {
+    width: 100%;
+}
+
+/*  imported from styles.css  */
+
+.findify-components--cards--product--price__price-wrapper {
+    margin: 5px 0;
+    margin-top: 20px;
+    line-height: inherit;
+}
+
+.findify-components--cards--product--price__simple .findify-components--cards--product--price__price-wrapper {
+    margin: 0;
+}
+
+.findify-components--cards--product--price__price-wrapper:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.findify-components--cards--product--price__price {
+    display: inline-block;
+}
+
+.findify-components--cards--product--price__compare {
+    text-decoration: line-through;
+    color: var(--components-cards-product-price-compare-color);
+    font-size: var(--font-size);
+}
+
+.findify-components--cards--product--price__price,
+.findify-components--cards--product--price__compare {
+    font-family: var(--font-base);
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+}
+
+.findify-components--cards--product--price__price {
+    color: var(--components-cards-product-price-price-color);
+    font-size: var(--components-cards-product-price-price-font-size);
+    font-weight: bold;
+}
+
+.findify-components--cards--product--price__sale-price {
+    color: var(--components-cards-product-price-sale-price-color);
+    font-size: var(--components-cards-product-price-sale-price-font-size);
+    padding-right: 5px;
+}
+
+/*  imported from styles.css  */
+
+.findify-components-autocomplete--content__container {
+    margin: 0 -10px;
+}
+
+.findify-components-autocomplete--content__horizontal {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+}
+
+/*  imported from styles.css  */
+
+.findify-components-autocomplete--tip__tip {
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+    cursor: pointer;
+    text-align: center;
+    padding: 16px 20px;
+    font-family: var(--font-base);
+    font-size: var(--font-size-large);
+    color: #b2b2b2;
+    background: var(--color-grey-1);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.findify-components-autocomplete--tip__highlight {
+    color: #404040;
+}
+
+/*  imported from styles.css  */
+
+.findify-components-search--mobile-actions {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+        flex-direction: column;
+    margin-bottom: 32px;
+}
+
+.findify-components-search--mobile-actions__bottom-row {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+        flex-direction: row;
+}
+
+.findify-components-search--mobile-actions__icon {
+    -webkit-transform: scaleY(-1);
+        -ms-transform: scaleY(-1);
+            transform: scaleY(-1);
+}
+
+.findify-components-search--mobile-actions__button {
+    width: 100%;
+    padding: 8px 10px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    border: 1px solid var(--color-grey-2);
+}
+
+.findify-components-search--mobile-actions__button svg {
+    padding-right: 6px;
+    height: 11px;
+    width: 12px;
+    vertical-align: -2px;
+}
+
+.findify-components-search--mobile-actions__facet-count {
+    color: var(--color-grey-4);
+    padding-left: 3px;
+}
+
+.findify-components-search--mobile-actions__divider {
+    width: 7px;
+}
+
+.findify-components-search--mobile-actions__query {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 16px;
+    font-weight: normal !important;
+}
+
+/*  imported from styles.css  */
+
+.findify-components--color-facet__item {
+    display: inline-block;
+    border: none;
+    padding: 0;
+    margin-right: 5px;
+    line-height: 1;
+    cursor: pointer;
+    outline: none;
+    border-radius: 0;
+    position: relative;
+    background: none;
+}
+
+.findify-components--color-facet__ball {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-size: cover !important;
+    position: relative;
+}
+
+.findify-components--color-facet__ball span {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-radius: 50%;
+    background: transparent;
+    border: 1px solid currentColor;
+}
+
+.findify-components--color-facet__ball-mobile {
+    width: 40px;
+    height: 40px;
+}
+
+.findify-components--color-facet__check {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    color: currentColor;
+    margin-left: -6px;
+    margin-top: -6px;
+}
+
+/*  imported from styles.css  */
+
+p.findify-layouts--recommendation--slider__title {
+    margin-bottom: 30px;
+}
+
+/*  imported from styles.css  */
+
+/* Swiper */
+
+.findify-components--swiper .swiper-container {
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    overflow: hidden;
+    list-style: none;
+    padding: 0;
+    /* Fix of Webkit flickering */
+    z-index: 1;
+}
+
+.findify-components--swiper .swiper-container-vertical > .swiper-wrapper {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+        flex-direction: column;
+}
+
+.findify-components--swiper .swiper-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+    -webkit-transition-property: -webkit-transform;
+            transition-property: -webkit-transform;
+            transition-property: transform;
+            transition-property: transform, -webkit-transform;
+    -webkit-box-sizing: content-box;
+            box-sizing: content-box;
+}
+
+.findify-components--swiper .swiper-container-android .swiper-slide,
+.findify-components--swiper .swiper-wrapper {
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+}
+
+.findify-components--swiper .swiper-container-free-mode > .swiper-wrapper {
+    -webkit-transition-timing-function: ease-out;
+            transition-timing-function: ease-out;
+    margin: 0 auto;
+}
+
+.findify-components--swiper .swiper-slide {
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    width: 100%;
+    height: auto;
+    position: relative;
+    -webkit-transition-property: -webkit-transform;
+            transition-property: -webkit-transform;
+            transition-property: transform;
+            transition-property: transform, -webkit-transform;
+}
+
+.findify-components--swiper .swiper-slide-invisible-blank {
+    visibility: hidden;
+}
+
+.findify-components--swiper .swiper-button-disabled {
+    display: none !important;
+}
+
+.findify-components--swiper .findify-recommendation {
+    padding: 0 30px;
+}
+
+/* Component styles */
+
+.findify-components--swiper {
+    position: relative;
+}
+
+.findify-components--swiper__prev, .findify-components--swiper__next {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: 10;
+    cursor: pointer;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    padding: 0 10px;
+    background: transparent;
+    border: none;
+    height: 100%;
+    color: var(--color-black);
+}
+
+.findify-components--swiper__prev {
+    left: 0;
+    right: auto;
+    outline: none;
+    left: -30px;
+}
+
+.findify-components--swiper__next {
+    right: 0;
+    left: auto;
+    outline: none;
+    right: -30px;
+}
+
+/*  imported from styles.css  */
+
+.findify-components--sorting {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+        flex-direction: row;
+    -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.findify-components--sorting__icon {
+    min-width: 17px;
+    -webkit-transform: scaleY(-1);
+        -ms-transform: scaleY(-1);
+            transform: scaleY(-1);
+}
+
+.findify-components--sorting .findify-components--sorting__title {
+    white-space: nowrap;
+    padding: 0 10px;
+}
+
+.findify-components--sorting__dropdown {
+    width: 240px;
+    position: relative;
+    min-width: 240px;
+}
+
+/*  imported from styles.css  */
+
+.findify-components--range-facet {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+        flex-direction: column;
+}
+
+.findify-components--range-facet__input-block {
+    padding-top: 10px;
+}
+
+.findify-components--range-facet__input-wrap {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 0 8px;
+    cursor: text;
+    -webkit-transition: border-color .1s linear;
+            transition: border-color .1s linear;
+    border: 1px solid var(--color-grey-2);
+    background: white;
+}
+
+.findify-components--range-facet__input-wrap:focus-within {
+    border-color: var(--color-grey-3);
+}
+
+.findify-components--range-facet__input {
+    display: block;
+    width: var(--components-rangefacet-input-width);
+    margin: 0;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    height: var(--components-rangefacet-height);
+    line-height: var(--components-rangefacet-height);
+    padding-left: 8px;
+    background: transparent;
+    color: var(--color-black);
+    font-family: var(--font-base);
+    font-size: var(--font-size-large);
+    border: none;
+    outline: none;
+    z-index: 1;
+    -moz-appearance: textfield !important;
+}
+
+.findify-components--range-facet__input:placeholder {
+    color: var(--color-grey-1);
+}
+
+.findify-components--range-facet__input::-webkit-outer-spin-button,
+.findify-components--range-facet__input::-webkit-inner-spin-button {
+    -webkit-appearance: none !important;
+    margin: 0;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    .findify-components--range-facet__input {
+        font-size: 16px;
+    }
+}
+
+.findify-components--range-facet__currency {
+    font-size: var(--components-rangefacet-currency-font-size);
+    height: 100%;
+    z-index: 0;
+}
+
+.findify-components--range-facet__submit {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    border: 0;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    height: 100%;
+    background: transparent;
+    outline: 0;
+    font-size: var(--components-rangefacet-submit-font-size);
+    border-radius: 0;
+    width: 100%;
+    padding: 0 8px;
+    cursor: pointer;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+}
+
+.findify-components--range-facet__submit:hover,
+.findify-components--range-facet__submit:focus {
+    text-decoration: underline;
+}
+
+.findify-components--range-facet__submit span {
+    font-size: var(--font-size-small);
+}
+
+.findify-components--range-facet__divider {
+    padding: 0 6px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    height: 100%;
+}
+
+.findify-components--range-facet__slider {
+    width: 100%;
+    height: 20px;
+    margin-top: 20px;
+}
+
+.findify-components--range-facet__thumb {
+    top: 2px;
+    width: 18px;
+    height: 18px;
+    background-color: var(--color-grey-2);
+    cursor: pointer;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    border-radius: 50%;
+    border: 1px solid var(--color-grey-2);
+}
+
+.findify-components--range-facet__thumb:focus {
+    border-color: var(--color-grey-4);
+}
+
+.findify-components--range-facet__track {
+    position: relative;
+    background: var(--color-grey-1);
+    top: 10px;
+    height: 3px;
+    border-radius: 3px;
+}
+
+.findify-components--range-facet__track:nth-child(2) {
+    background-color: var(--color-grey-3);
+}
+
+/*  imported from styles.css  */
+
+.findify-layouts--content {
+    width: 100%;
+    display: table;
+    padding-top: 25px;
+    border-top: 1px solid var(--color-grey-2);
+}
+
+.findify-layouts--content__content {
+    display: table-cell;
+    width: 100%;
+}
+
+@supports (display: flex) {
+    .findify-layouts--content {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    }
+
+    .findify-layouts--content__content {
+        display: block;
+    }
+}
+
+/*  imported from styles.css  */
+
+body {
+    overflow-anchor: none;
+}
+
+.findify-layouts--search {
+    padding-top: 25px;
+}
+
+/*  imported from styles.css  */
+
+.findify-components-search--mobile-sorting {
+    width: 90vw;
+    height: 100%;
+    background: white;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+        flex-direction: column;
+}
+
+.findify-components-search--mobile-sorting__header {
+    height: 60px;
+    padding: 0 15px;
+    background: var(--color-grey-1);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+        flex-direction: row;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--color-grey-2);
+}
+
+.findify-components-search--mobile-sorting__header > * {
+    position: relative;
+    z-index: 2;
+}
+
+.findify-components-search--mobile-sorting__body {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+        flex: 1;
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+.findify-components-search--mobile-sorting__footer {
+    height: 60px;
+    padding: 0 15px;
+    background: var(--color-grey-5);
+    color: var(--color-white);
+    font-size: var(--font-size-medium);
+    text-transform: uppercase;
+}
+
+.findify-components-search--mobile-sorting__title {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    height: 60px;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    z-index: 1;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+}
+
+.findify-components-search--mobile-sorting__item {
+    width: 100%;
+    height: 50px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    padding: 0 17px;
+    border-bottom: 1px solid var(--color-grey-2);
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.findify-components-search--mobile-sorting__item svg {
+    vertical-align: -3px;
+    padding-right: 15px;
+}
+
+/*  imported from styles.css  */
+
+.findify-components-common--checkbox__item {
+    width: 100%;
+    border: 0;
+    background: transparent;
+    outline: 0;
+    font-size: var(--components-common-checkbox-item-font-size);
+    border-radius: 0;
+    text-align: left;
+    padding: var(--components-common-checkbox-item-padding);
+    height: auto;
+    cursor: pointer;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+        flex-direction: row;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.findify-components-common--checkbox__item.findify-components-common--checkbox__mobile {
+    padding: 10px 0;
+}
+
+.findify-components-common--checkbox__icon {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+        flex: 0 0 auto;
+}
+
+.findify-components-common--checkbox__content {
+    font-size: calc(var(--facet-item-font-size) * var(--font-size-medium));
+    font-family: var(--facet-item-font-family);
+    color: var(--facet-item-color);
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+        flex: 1 1 auto;
+    padding-left: 14px;
+}
+
+/*  imported from styles.css  */
+
+.findify-components--tabs__list {
+    list-style-type: none;
+    display: block;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.findify-components--tabs__tab {
+    display: inline-block;
+    margin-left: 16px;
+    margin-right: 16px;
+    cursor: pointer;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+    font-family: var(--font-base);
+    text-transform: uppercase;
+    font-size: var(--font-size-medium);
+}
+
+.findify-components--tabs__tab:after {
+    display: block;
+    height: 2px;
+    width: 22px;
+    margin-left: calc(50% - 11px);
+    margin-right: calc(50% - 11px);
+    margin-top: 8px;
+    content: ' ';
+}
+
+.findify-components--tabs__active {
+    cursor: default;
+}
+
+.findify-components--tabs__active:after {
+    background: black;
+}
+
+.findify-components--tabs__disabled {
+    opacity: .3;
+}
+
+/*  imported from styles.css  */
+
+.findify-components-autocomplete--products__view-all {
+    float: right;
+    color: var(--color-black);
+}
+
+.findify-components-autocomplete--products__list {
+    margin-top: 10px;
+}
+
+.findify-components-autocomplete--products__grid-column-class:not(:last-child):after {
+    content: ' ';
+    display: block;
+    width: 100%;
+    height: 1px;
+    background: var(--color-grey-2);
+    margin-bottom: 16px;
+}
+
+.findify-components-autocomplete--products__view-more-button {
+    margin: 0 auto 0 auto;
+    display: block;
+    padding: 0 85px;
+    height: 40px;
+    background: var(--color-grey-1);
+    -webkit-transition: background .1s linear;
+            transition: background .1s linear;
+    font-size: var(--font-size-small);
+    width: 300px;
+}
+
+.findify-components-autocomplete--products__view-more-button:hover,
+.findify-components-autocomplete--products__view-more-button:focus {
+    background: var(--color-grey-2);
+}
+
+/*  imported from styles.css  */
+
+.findify-components-common--announcement {
+    position: absolute !important;
+    display: block;
+    visibility: visible;
+    overflow: hidden;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    clip: rect(0, 0, 0, 0);
+    -webkit-clip-path: polygon(0 0, 0 0, 0 0, 0 0);
+            clip-path: polygon(0 0, 0 0, 0 0, 0 0);
+    white-space: nowrap;
+}
+
+/*  imported from style.css  */
+
+.findify-components-common--drawer__body-no-scroll {
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.findify-components-common--drawer__backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, .5);
+    z-index: 999;
+}
+
+.findify-components-common--drawer__content {
+    z-index: 999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+}
+
+/*  imported from styles.css  */
+
+.findify-components-search--query {
+    white-space: nowrap;
+}
+
+/*  imported from styles.css  */
+
+.findify-components--cards--product--stickers__discount-sticker {
+    width: 70px;
+    height: 70px;
+    border-radius: 70px;
+    background: rgba(208, 40, 75, .9);
+    display: table;
+}
+
+.findify-components--cards--product--stickers__discount-sticker span {
+    color: var(--color-white);
+    display: table-cell;
+    vertical-align: middle;
+    padding: 10px;
+    width: 100%;
+    height: 100%;
+}
+
+.findify-components--cards--product--stickers__out-of-stock-sticker {
+    width: 100%;
+}
+
+.findify-components--cards--product--stickers__out-of-stock-sticker span {
+    color: var(--color-grey-3);
+}
+
+/*  imported from styles.css  */
+
+/*  imported from styles.css  */
+
+.findify-layouts--autocomplete--sidebar {
+    width: 100%;
+    background: white;
+    height: 100%;
+    width: 90vw;
+    max-height: 100vh;
+}
+
+.findify-layouts--autocomplete--sidebar__backdrop {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: var(--color-white);
+    z-index: -1;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    .findify-layouts--autocomplete--sidebar__input {
+        font-size: 16px;
+    }
+}
+
+.findify-layouts--autocomplete--sidebar__icons {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding-right: 16px;
+    margin-top: 15px;
+    margin-bottom: 14px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+.findify-layouts--autocomplete--sidebar__icons .findify-layouts--autocomplete--sidebar__search-icon {
+    cursor: pointer;
+    color: var(--color-black);
+}
+
+.findify-layouts--autocomplete--sidebar__icons .findify-layouts--autocomplete--sidebar__search-icon path {
+    fill: var(--color-black);
+}
+
+.findify-layouts--autocomplete--sidebar__icons .findify-layouts--autocomplete--sidebar__x-icon {
+    cursor: pointer;
+}
+
+.findify-layouts--autocomplete--sidebar__icons .findify-layouts--autocomplete--sidebar__x-icon:hover,
+.findify-layouts--autocomplete--sidebar__icons .findify-layouts--autocomplete--sidebar__x-icon:focus {
+    color: red;
+}
+
+.findify-layouts--autocomplete--sidebar__icon-divider {
+    height: 18px;
+    width: 1px;
+    background: var(--color-grey-2);
+    display: inline-block;
+    margin-left: 12px;
+    margin-right: 12px;
+}
+
+.findify-layouts--autocomplete--sidebar__header {
+    position: relative;
+}
+
+.findify-layouts--autocomplete--sidebar__header input {
+    width: 100%;
+    height: 50px;
+    font-family: var(--font-base);
+    font-size: var(--font-size-large);
+    line-height: 50px;
+    color: var(--color-black);
+    padding-left: 13px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    border: 1px solid var(--color-grey-2);
+    -webkit-transition: border-color .1s linear;
+            transition: border-color .1s linear;
+    outline: none;
+    font-size: 16px;
+}
+
+.findify-layouts--autocomplete--sidebar__header input:placeholder {
+    color: var(--color-grey-3);
+}
+
+.findify-layouts--autocomplete--sidebar__header input:placeholder {
+    color: var(--color-grey-1);
+}
+
+.findify-layouts--autocomplete--sidebar__header input:focus {
+    border-color: var(--color-grey-3);
+    outline: none;
+}
+
+.findify-layouts--autocomplete--sidebar__content {
+    overflow: hidden;
+    overflow-y: auto;
+    max-height: calc(100vh - 120px);
+}
+
+.findify-layouts--autocomplete--sidebar__body-noscroll {
+    overflow: hidden;
+}
+
+/*  imported from styles.css  */
+
+.findify-components--rating-facet {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+        flex-direction: column;
+}
+
+.findify-components--rating-facet__item {
+    width: 100%;
+    border: 0;
+    background: transparent;
+    outline: 0;
+    font-size: var(--components-ratingfacet-item-font-size);
+    border-radius: 0;
+    text-align: left;
+    padding: var(--components-ratingfacet-item-padding);
+    height: auto;
+    cursor: pointer;
+    display: table;
+}
+
+.findify-components--rating-facet__item > span {
+    display: table-cell;
+    width: 100%;
+}
+
+.findify-components--rating-facet__item svg {
+    padding-right: 0;
+    vertical-align: -2px;
+}
+
+.findify-components--rating-facet__item .findify-components--rating-facet__star {
+    color: var(--color-yellow);
+}
+
+.findify-components--rating-facet__item .findify-components--rating-facet__star.findify-components--rating-facet__unfilled {
+    color: var(--color-grey-3);
+}
+
+.findify-components--rating-facet__item .findify-components--rating-facet__checkbox {
+    padding-right: 20px;
+}
+
+.findify-components--rating-facet__range {
+    display: table;
+    width: 1%;
+    padding-top: 10px;
+    padding-left: 25px;
+}
+
+.findify-components--rating-facet__input-wrap {
+    display: table-cell;
+    position: relative;
+    white-space: nowrap;
+}
+
+.findify-components--rating-facet__input-wrap .react-numeric-input {
+    display: inline-block;
+}
+
+.findify-components--rating-facet__input {
+    display: block;
+    width: var(--components-ratingfacet-input-width);
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    height: var(--components-ratingfacet-height);
+    padding: 0 8px;
+    padding-left: calc(8px + var(--components-ratingfacet-input-indent));
+    color: var(--color-black);
+    font-family: var(--font-base);
+    font-size: var(--font-size-small);
+    border: 1px solid var(--color-grey-2);
+    -webkit-transition: border-color .1s linear;
+            transition: border-color .1s linear;
+    outline: none;
+}
+
+.findify-components--rating-facet__input:placeholder {
+    color: var(--color-grey-1);
+}
+
+.findify-components--rating-facet__input:focus {
+    border-color: var(--color-grey-3);
+}
+
+.findify-components--rating-facet__currency {
+    display: inline-block;
+    position: relative;
+    font-size: var(--components-ratingfacet-currency-font-size);
+    left: 9px;
+    width: 0;
+}
+
+.findify-components--rating-facet__submit {
+    display: table-cell;
+    border: 0;
+    background: transparent;
+    outline: 0;
+    font-size: var(--components-ratingfacet-submit-font-size);
+    border-radius: 0;
+    width: 100%;
+    height: var(--components-ratingfacet-height);
+    padding: 0 8px;
+    cursor: pointer;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+}
+
+.findify-components--rating-facet__submit:hover,
+.findify-components--rating-facet__submit:focus {
+    text-decoration: underline;
+}
+
+.findify-components--rating-facet__submit span {
+    font-size: var(--font-size-large);
+}
+
+.findify-components--rating-facet__divider {
+    display: table-cell;
+    padding: 0 6px;
+    width: 1%;
+}
+
+/*  imported from styles.css  */
+
+.findify-layouts--zero-results__wrapper {
+    margin-bottom: 15px;
+}
+
+.findify-layouts--zero-results__sorry {
+    margin-right: 8px;
+}
+
+.findify-layouts--zero-results__suggestions-container {
+    margin-top: 28px;
+    margin-bottom: 28px;
+}
+
+/*  imported from styles.css  */
+
+.findify-layouts--tabs {
+    text-align: center;
+    margin: 10px 0 40px 0;
+    width: 100%;
+}
+
+.findify-layouts--tabs__item {
+    position: relative;
+    margin-right: 10px;
+    padding: 5px;
+    font-size: 12px;
+    text-transform: uppercase;
+    cursor: pointer;
+    color: var(--color-grey-5);
+}
+
+.findify-layouts--tabs__item:last-child {
+    margin-right: 0;
+}
+
+.findify-layouts--tabs__item:disabled {
+    opacity: .4;
+    pointer-events: none;
+    cursor: default;
+}
+
+.findify-layouts--tabs__item.findify-layouts--tabs__active {
+    pointer-events: none;
+    color: var(--color-black);
+    cursor: default;
+}
+
+.findify-layouts--tabs__item.findify-layouts--tabs__active:after {
+    content: ' ';
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    margin-left: -20px;
+    width: 40px;
+    height: 2px;
+    background: var(--color-black);
+}
+
+.findify-layouts--tabs__count {
+    display: inline-block;
+    margin-left: 5px;
+    border-radius: 5px / 5px;
+    background: var(--color-grey-2);
+    padding: 2px 4px;
+    font-size: 8px;
+    vertical-align: 1px;
+}
+
+/*  imported from styles.css  */
+
+/*  imported from styles.css  */
+
+.findify-layouts--autocomplete--fullscreen-with-input {
+    padding: 15px 10px;
+    background: white;
+    position: fixed;
+    left: 10px;
+    right: 10px;
+    z-index: 9999;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+.findify-layouts--autocomplete--fullscreen-with-input__type-title {
+    margin-top: 0;
+    margin-bottom: 17px;
+    color: var(--color-grey-3);
+    font-size: var(--font-size-small);
+    line-height: var(--font-size-small);
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: var(--font-base);
+}
+
+.findify-layouts--autocomplete--fullscreen-with-input__suggestions-title {
+    padding: 0 27px;
+    white-space: nowrap;
+}
+
+.findify-layouts--autocomplete--fullscreen-with-input__trending-title {
+    font-style: italic;
+}
+
+.findify-layouts--autocomplete--fullscreen-with-input__not-found,
+.findify-layouts--autocomplete--fullscreen-with-input__start-typing {
+    margin-top: 0;
+    color: var(--color-grey-3);
+    font-size: var(--font-size-small);
+    line-height: var(--font-size-small);
+    padding-top: 25px;
+    padding-bottom: 25px;
+    margin-bottom: 0;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: var(--font-base);
+    padding-left: 25px;
+}
+
+.findify-layouts--autocomplete--fullscreen-with-input__tip {
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+    text-align: center;
+    border-bottom: 1px solid #e2e2e2;
+}
+
+.findify-layouts--autocomplete--fullscreen-with-input__highlight {
+    color: #404040;
+}
+
+.findify-layouts--autocomplete--fullscreen-with-input__container {
+    padding: 10px 0;
+    vertical-align: top;
+    background: #fff;
+}
+
+.findify-layouts--autocomplete--fullscreen-with-input__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9998;
+    background: rgba(0, 0, 0, .3);
+}
+
+.findify-layouts--autocomplete--fullscreen-with-input__header {
+    position: relative;
+    padding-bottom: 20px;
+}
+
+.findify-layouts--autocomplete--fullscreen-with-input__header input {
+    width: 100%;
+    height: 50px;
+    font-family: var(--font-base);
+    font-size: var(--font-size-large);
+    line-height: 50px;
+    color: var(--color-black);
+    padding-left: 13px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    border: 1px solid var(--color-grey-2);
+    -webkit-transition: border-color .1s linear;
+            transition: border-color .1s linear;
+    outline: none;
+}
+
+.findify-layouts--autocomplete--fullscreen-with-input__header input:placeholder {
+    color: var(--color-grey-3);
+}
+
+.findify-layouts--autocomplete--fullscreen-with-input__header input:placeholder {
+    color: var(--color-grey-1);
+}
+
+.findify-layouts--autocomplete--fullscreen-with-input__header input:focus {
+    border-color: var(--color-grey-3);
+    outline: none;
+}
+
+.findify-layouts--autocomplete--fullscreen-with-input__icon-divider {
+    height: 18px;
+    width: 1px;
+    background: var(--color-grey-2);
+    display: inline-block;
+    margin-left: 12px;
+    margin-right: 12px;
+}
+
+.findify-layouts--autocomplete--fullscreen-with-input__icons {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding-right: 16px;
+    margin-top: 15px;
+    margin-bottom: 14px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+.findify-layouts--autocomplete--fullscreen-with-input__icons .findify-layouts--autocomplete--fullscreen-with-input__search-icon {
+    cursor: pointer;
+    color: var(--color-black);
+}
+
+.findify-layouts--autocomplete--fullscreen-with-input__icons .findify-layouts--autocomplete--fullscreen-with-input__search-icon path {
+    fill: var(--color-black);
+}
+
+.findify-layouts--autocomplete--fullscreen-with-input__icons .findify-layouts--autocomplete--fullscreen-with-input__x-icon {
+    cursor: pointer;
+}
+
+.findify-layouts--autocomplete--fullscreen-with-input__icons .findify-layouts--autocomplete--fullscreen-with-input__x-icon:hover,
+.findify-layouts--autocomplete--fullscreen-with-input__icons .findify-layouts--autocomplete--fullscreen-with-input__x-icon:focus {
+    color: red;
+}
+
+/*  imported from styles.css  */
+
+.findify-components-common--image {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    display: block !important;
+}
+
+.findify-components-common--image img {
+    display: block;
+    width: 100%;
+}
+
+.findify-components-common--image .findify-components-common--image__next {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    -o-object-fit: cover;
+       object-fit: cover;
+}
+
+.findify-components-common--image__aspect img {
+    width: auto;
+    position: absolute;
+    top: -9999px;
+    right: -9999px;
+    bottom: -9999px;
+    left: -9999px;
+    margin: auto;
+}
+
+@supports ((-o-object-fit: cover) or (object-fit: cover)) {
+    .findify-components-common--image__aspect img {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        -o-object-fit: cover;
+           object-fit: cover;
+    }
+}
+
+.findify-components-common--image__image {
+    opacity: 0;
+    -webkit-transition: opacity .3s ease-in-out;
+            transition: opacity .3s ease-in-out;
+    -webkit-transition-delay: .3s;
+              transition-delay: .3s;
+}
+
+.findify-components-common--image__image:first-child {
+    opacity: 1;
+}
+
+[data-element='card']:hover .findify-components-common--image__multiple .findify-components-common--image__image,
+[data-element='card']:active .findify-components-common--image__multiple .findify-components-common--image__image,
+[data-element='card']:focus .findify-components-common--image__multiple .findify-components-common--image__image {
+    opacity: 1;
+}
+
+[data-element='card']:hover .findify-components-common--image__multiple .findify-components-common--image__image:first-child,
+[data-element='card']:active .findify-components-common--image__multiple .findify-components-common--image__image:first-child,
+[data-element='card']:focus .findify-components-common--image__multiple .findify-components-common--image__image:first-child {
+    opacity: 0;
+}
+
+.findify-components-common--image__thumbnail {
+    opacity: .5;
+    -webkit-filter: blur(10px);
+            filter: blur(10px);
+    -webkit-transition: opacity .1s ease-in;
+            transition: opacity .1s ease-in;
+    z-index: 2;
+}
+
+.findify-components-common--image__ready .findify-components-common--image__thumbnail {
+    opacity: 0;
+}
+
+.findify-components-common--image__static .findify-components-common--image__thumbnail {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+/*  imported from styles.css  */
+
+.findify-components-search--mobile-facets__modal {
+    width: 90vw;
+    height: 100%;
+    background: white;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+        flex-direction: column;
+}
+
+.findify-components-search--mobile-facets__filter-count {
+    margin-left: 3px;
+}
+
+.findify-components-search--mobile-facets__back-button {
+    height: 20px;
+}
+
+.findify-components-search--mobile-facets__header {
+    height: 60px;
+    padding: 0 15px;
+    background: var(--color-grey-1);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+        flex-direction: row;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--color-grey-2);
+}
+
+.findify-components-search--mobile-facets__header > * {
+    position: relative;
+    z-index: 2;
+}
+
+.findify-components-search--mobile-facets__body {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+        flex: 1;
+    /* This is due to iOS 10 flexbox bug */
+    height: calc(100% - 60px);
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+.findify-components-search--mobile-facets__footer {
+    height: 60px;
+    padding: 0 15px;
+    background: var(--color-grey-5);
+    color: var(--color-white);
+    font-size: var(--font-size-medium);
+    text-transform: uppercase;
+}
+
+.findify-components-search--mobile-facets__title {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    height: 60px;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    z-index: 1;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+}
+
+.findify-components-search--mobile-facets__facet-title {
+    padding: 20px 17px;
+    width: 100%;
+    border-top: 1px solid var(--color-grey-2);
+}
+
+.findify-components-search--mobile-facets__facet-title:first-child {
+    border-top: 0;
+}
+
+.findify-components-search--mobile-facets__facet-title:last-child {
+    border-bottom: 1px solid var(--color-grey-2);
+}
+
+.findify-components-search--mobile-facets__flex-fix {
+    width: 100%;
+    height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.findify-components-search--mobile-facets__selected-values {
+    padding-left: 16px;
+    font-size: var(--font-size-small);
+    color: var(--color-grey-4);
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    line-height: 15px;
+}
+
+.findify-components-search--mobile-facets__container {
+    padding: 17px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    height: 100%;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+.findify-components-search--mobile-facets__rating {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+        flex-direction: column;
+}
+
+.findify-components-search--mobile-facets__expand {
+    display: none;
+}
+
+.findify-components-search--mobile-facets__expanded-list {
+    height: 100%;
+}
+
+.findify-components-search--mobile-facets__range {
+    width: 100%;
+}
+
+.findify-components-search--mobile-facets__facet-root {
+    width: 100%;
+}
+
+/*  imported from styles.css  */
+
+.findify-layouts--autocomplete--dropdown {
+    background: white;
+    position: absolute;
+    z-index: 9999;
+    width: 860px;
+    max-width: 100vw;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+.findify-layouts--autocomplete--dropdown__wrapper {
+    position: relative;
+}
+
+.findify-layouts--autocomplete--dropdown__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9998;
+    background: rgba(0, 0, 0, .3);
+}
+
+.findify-layouts--autocomplete--dropdown__not-found,
+.findify-layouts--autocomplete--dropdown__start-typing {
+    margin-top: 0;
+    color: var(--color-grey-3);
+    font-size: var(--font-size-small);
+    line-height: var(--font-size-small);
+    padding-top: 25px;
+    padding-bottom: 25px;
+    margin-bottom: 0;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: var(--font-base);
+    padding-left: 25px;
+}
+
+.findify-layouts--autocomplete--dropdown__highlight {
+    color: var(--layouts-autocomplete-dropdown-highlight-highlight-color);
+}
+
+.findify-layouts--autocomplete--dropdown__container {
+    margin-bottom: 32px;
+}
+
+.findify-layouts--autocomplete--dropdown__fullscreen {
+    left: 0 !important;
+    right: 0 !important;
+    width: auto !important;
+}
+
+.findify-layouts--autocomplete--dropdown__fullscreen .findify-layouts--autocomplete--dropdown {
+    width: 100%;
+}

@@ -34,8 +34,8 @@ public class I2PChromiumProfileUnpacker extends I2PCommonBrowser {
    * @return true if the profile directory was successfully unpacked
    * @since 0.0.1
    */
-  public boolean unpackProfile(String profileDirectory) {
+  public boolean unpackProfile(String profileDirectory, String mode) {
     System.out.println("Unpacking base profile to " + profileDirectory);
-    return unpackProfile(profileDirectory, "chromium", "base");
+    return unpackProfile(profileDirectory, "chromium", mode);
   }
 }

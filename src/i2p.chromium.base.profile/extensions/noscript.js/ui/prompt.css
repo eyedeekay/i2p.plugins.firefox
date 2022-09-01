@@ -1,0 +1,124 @@
+/*
+ * Copyright (C) 2005-2021 Giorgio Maone <https://maone.net>
+ *
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ */
+
+
+@import url("./common.css");
+
+html {
+  background: linear-gradient(to bottom, var(--form-color1) 0, var(--bg-color2) 41%, var(--bg-color1) 94%, var(--hilite-color) 100%) no-repeat;
+  background-color: var(--bg-color1);
+}
+
+body {
+  bottom: .8em;
+  margin: 0px;
+  padding: .8em;
+  background-color: transparent;
+}
+
+html.mobile > body {
+  font-family: Inter, sans-serif;
+  font-size: 4vmin;
+  min-width: auto;
+  min-height: 90vh;
+  padding-bottom: 72px; /* clear Fenix's navbar */
+}
+
+#header {
+  text-align: left;
+  margin: 0;
+  line-height: 2em;
+  color: var(--accent-color);
+  z-index: 500;
+  padding: .8em .8em 0 .8em;
+  display: block;
+  background: var(--img-logo) no-repeat top right;
+  background-size: contain;
+  min-height: 5em;
+}
+
+#title {
+  margin-right: 4em;
+  text-shadow: 0.06em 0.06em 0.06em rgba(0,0,0,.5);
+  font-size: 2em;
+  bottom: 0;
+  top: 0;
+}
+
+#main {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 0 1.6em;
+  top: 0;
+  left: 0;
+  right:0;
+  bottom: 0;
+  justify-content: center;
+  overflow: auto;
+}
+#message {
+  flex-grow: 1;
+  max-height: 28em;
+  padding: .8em;
+  text-align: center;
+}
+#message.multiline {
+  overflow: auto;
+  font-size: 1em;
+  text-align: justify;
+  margin-bottom: 1.2em;
+  background: var(--focus-color);
+}
+#message.multiline p {
+  margin: .1em;
+  padding: 0;
+}
+#options {
+  display: flex;
+  flex-grow: 2;
+  flex-direction: column;
+  text-align: left;
+  align-items:baseline;
+  justify-content: center;
+}
+
+
+#checks {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  text-align: left;
+}
+
+.choices div {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+}
+.choices label {
+  display: block;
+  word-break: break-all;
+}
+
+#buttons {
+  display: flex;
+  flex-grow: 0;
+  flex-direction: row;
+  align-items: center;
+  margin: .8em;
+  justify-content: space-around;
+}
+#buttons button {
+ min-width: 6em;
+ font-size: 1em;
+}
+
+input[type="checkbox"], input[type="radio"] {
+  min-width: 1em;
+  min-height: 1em;
+  font-size: 1em;
+}

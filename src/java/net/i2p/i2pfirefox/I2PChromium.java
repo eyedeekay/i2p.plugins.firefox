@@ -23,7 +23,6 @@ public class I2PChromium {
   private final String[] CHROMIUM_SEARCH_PATHS = CHROMIUM_FINDER();
   private final int DEFAULT_TIMEOUT = 200;
   private Process p = null;
-  public static boolean usability = false;
 
   /**
    * Construct an I2PChromium class which manages an instance of Chromium and
@@ -40,6 +39,16 @@ public class I2PChromium {
         return;
       }
     }
+  }
+  public I2PChromium(boolean usability) {
+    for (String path : CHROMIUM_SEARCH_PATHS) {
+      File f = new File(path);
+      if (f.exists()) {
+        System.out.println("Found Chromium at " + path);
+        return;
+      }
+    }
+    I2PChromiumProfileBuilder.usability = true;
   }
 
   private static String[] FIND_CHROMIUM_SEARCH_PATHS_UNIX() {
@@ -388,8 +397,7 @@ public class I2PChromium {
   public ProcessBuilder processBuilder(String[] args) {
     String chrome = topChromium();
     if (!chrome.isEmpty()) {
-      //// TODO: evaluate and implement: https://github.com/ungoogled-software/ungoogled-chromium/blob/master/docs/flags.md
-      String[] newArgs = new String[args.length + 21];
+      String[] newArgs = new String[args.length + 32];
       newArgs[0] = chrome;
       newArgs[1] =
           "--user-data-dir=" + I2PChromiumProfileBuilder.profileDirectory();
@@ -411,10 +419,44 @@ public class I2PChromium {
       newArgs[17] = "--disable-d3d11";
       newArgs[18] = "--disable-file-system";
       newArgs[19] = "--reset-variation-state";
-      newArgs[20] = "--load-extension=" +
-                    new File(I2PChromiumProfileBuilder.profileDirectory(),
-                             "extensions/i2pchrome.js")
-                        .getAbsolutePath();
+      newArgs[20] = "--disable-beforeunload";
+      newArgs[21] = "--disable-grease-tls";
+      newArgs[22] = "--disable-search-engine-collection";
+      newArgs[23] = "--fingerprinting-canvas-image-data-noise";
+      newArgs[24] = "--fingerprinting-canvas-measuretext-noise";
+      newArgs[25] = "--fingerprinting-client-rects-noise";
+      newArgs[26] = "--omnibox-autocomplete-filtering";
+      newArgs[27] = "--popups-to-tabs";
+      newArgs[28] = "--referrer-directive=noreferrers";
+      newArgs[29] = "--force-punycode-hostnames";
+      newArgs[30] = "--disable-sharing-hub";
+      if (!I2PChromiumProfileBuilder.usability) {
+        newArgs[31] = "--load-extension=" +
+                      new File(I2PChromiumProfileBuilder.profileDirectory(),
+                               "extensions/i2pchrome.js")
+                          .getAbsolutePath() +
+                      "," +
+                      new File(I2PChromiumProfileBuilder.profileDirectory(),
+                               "extensions/noscript.js")
+                          .getAbsolutePath();
+      } else {
+        newArgs[31] = "--load-extension=" +
+                      new File(I2PChromiumProfileBuilder.profileDirectory(),
+                               "extensions/i2pchrome.js")
+                          .getAbsolutePath() +
+                      "," +
+                      new File(I2PChromiumProfileBuilder.profileDirectory(),
+                               "extensions/jshelter.js")
+                          .getAbsolutePath() +
+                      "," +
+                      new File(I2PChromiumProfileBuilder.profileDirectory(),
+                               "extensions/localcdn.js")
+                          .getAbsolutePath() +
+                      "," +
+                      new File(I2PChromiumProfileBuilder.profileDirectory(),
+                               "extensions/ublock.js")
+                          .getAbsolutePath();
+      }
       /**+","+
       new
       File(I2PChromiumProfileBuilder.profileDirectory(),"extensions/ublock.js").getAbsolutePath()
@@ -423,7 +465,7 @@ public class I2PChromium {
       File(I2PChromiumProfileBuilder.profileDirectory(),"extensions/scriptsafe.js").getAbsolutePath();*/
       if (args.length > 0) {
         for (int i = 0; i < args.length; i++) {
-          newArgs[i + 21] = args[i];
+          newArgs[i + 32] = args[i];
         }
       }
       return new ProcessBuilder(newArgs).directory(
@@ -590,6 +632,8 @@ public class I2PChromium {
 
   public static void main(String[] args) {
     boolean privateBrowsing = false;
+    System.out.println("I2PChromium");
+    I2PChromium i2pChromium = new I2PChromium();
     System.out.println("checking for private browsing");
     ArrayList<String> visitURL = new ArrayList<String>();
     if (args != null && args.length > 0) {
@@ -599,14 +643,15 @@ public class I2PChromium {
           System.out.println(
               "private browsing is true, profile will be discarded at end of session");
         }
+        if (arg.equals("-usability")) {
+          I2PChromiumProfileBuilder.usability = true;
+        }
         if (!arg.startsWith("-")) {
           // check if it's a URL
           visitURL.add(ValidURL(arg));
         }
       }
     }
-    System.out.println("I2PChromium");
-    I2PChromium i2pChromium = new I2PChromium();
     i2pChromium.launch(privateBrowsing,
                        visitURL.toArray(new String[visitURL.size()]));
   }
