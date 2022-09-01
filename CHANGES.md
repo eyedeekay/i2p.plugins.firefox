@@ -1,4 +1,9 @@
-Wed, August 32
+Thu, September 1
+----------------
+
+ - Add a jpackage target. Add descriptions to release items.
+
+Wed, August 31
 --------------
 
  - Add unpacked extensions for Chromium profiles
