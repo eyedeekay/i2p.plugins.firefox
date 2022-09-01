@@ -22,6 +22,7 @@ github-release edit --user "${GITHUB_USER}" \
     --name "${GITHUB_NAME}" \
     --description "${GITHUB_DESCRIPTION}" \
     --tag "${GITHUB_TAG}"; true
+echo "Relase $GITHUB_TAG setup"
 github-release upload --user "${GITHUB_USER}" \
     --repo "${GITHUB_REPO}" \
     --tag "${GITHUB_TAG}" \
@@ -29,6 +30,7 @@ github-release upload --user "${GITHUB_USER}" \
     --name "i2pfirefox.jar" \
     --file "src/build/i2pfirefox.jar" \
     --replace
+echo "Uploaded jar"
 github-release upload --user "${GITHUB_USER}" \
     --repo "${GITHUB_REPO}" \
     --tag "${GITHUB_TAG}" \
@@ -36,6 +38,7 @@ github-release upload --user "${GITHUB_USER}" \
     --name "i2pfirefox.zip" \
     --file "i2pfirefox.zip" \
     --replace
+echo "Uploaded freestanding zip"
 github-release upload --user "${GITHUB_USER}" \
     --repo "${GITHUB_REPO}" \
     --tag "${GITHUB_TAG}" \
@@ -43,5 +46,6 @@ github-release upload --user "${GITHUB_USER}" \
     --label "I2P Browser launcher as a Jpackage, does not require a JVM, Linux Only for now unless you BYO." \
     --file "i2pbrowser.zip" \
     --replace  
+echo "Uploaded jpackage zip"
 git pull github --tags
 git push --all
