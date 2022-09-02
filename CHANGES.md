@@ -1,3 +1,8 @@
+Fri, September 2
+----------------
+
+ - Disable HTTPS only mode in favor of HTTPS-first mode to remove the interstitial on I2P sites.
+
 Thu, September 1
 ----------------
 

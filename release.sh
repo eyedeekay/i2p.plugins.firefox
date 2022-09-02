@@ -2,9 +2,9 @@
 
 GITHUB_USER=eyedeekay
 GITHUB_REPO=i2p.plugins.firefox
-GITHUB_NAME="That includes a -usability flag with an alternative extension loadout. Use with caution for now."
+GITHUB_NAME="That unsets HTTPS-Only mode in favor of HTTPS-first mode so we don't require the interstitial."
 GITHUB_DESCRIPTION=$(cat CHANGES.md)
-GITHUB_TAG=0.0.19
+GITHUB_TAG=0.0.20
 ant distclean
 ./javadoc.sh
 NUMLINE=`grep release.number build.xml | head -n 1`
