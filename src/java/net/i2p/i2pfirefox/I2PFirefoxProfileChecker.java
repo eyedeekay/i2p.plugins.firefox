@@ -1,6 +1,10 @@
 package net.i2p.i2pfirefox;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 
 /**
  * I2PFirefoxProfileChecker.java
@@ -74,7 +78,57 @@ public class I2PFirefoxProfileChecker {
       System.out.println("extensions directory is invalid");
       return false;
     }
-    return true;
+    return deRestrictHTTPS(profileDir.toString());
+  }
+
+  private static boolean deRestrictHTTPS(String profile) {
+    // String profile = profileDirectory();
+    File profileDir = new File(profile);
+    if (profileDir.exists()) {
+      File prefOverrides = new File(profile, "prefs.js");
+      if (prefOverrides.exists()) {
+        undoHttpsOnlyMode(prefOverrides);
+      }
+      File userSettings = new File(profile, "user.js");
+      if (userSettings.exists()) {
+        undoHttpsOnlyMode(userSettings);
+      }
+      File userOverrides = new File(profile, "user-overrides.js");
+      if (userOverrides.exists()) {
+        undoHttpsOnlyMode(userOverrides);
+      }
+    }
+    return false;
+  }
+
+  private static boolean undoHttpsOnlyMode(File fileToBeModified) {
+    String oldString = "\"dom.security.https_only_mode\", true";
+    String newString = "\"dom.security.https_only_mode\", false";
+    String oldContent = "";
+    BufferedReader reader = null;
+    FileWriter writer = null;
+    try {
+      reader = new BufferedReader(new FileReader(fileToBeModified));
+      String line = reader.readLine();
+      while (line != null) {
+        oldContent = oldContent + line + System.lineSeparator();
+        line = reader.readLine();
+      }
+      String newContent = oldContent.replaceAll(oldString, newString);
+      writer = new FileWriter(fileToBeModified);
+      writer.write(newContent);
+    } catch (IOException e) {
+      e.printStackTrace();
+    } finally {
+      try {
+        reader.close();
+        writer.close();
+        return true;
+      } catch (IOException e) {
+        e.printStackTrace();
+      }
+    }
+    return false;
   }
   /**
    * Return true if the file is valid.
