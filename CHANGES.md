@@ -2,6 +2,7 @@ Fri, September 2
 ----------------
 
  - Disable HTTPS only mode in favor of HTTPS-first mode to remove the interstitial on I2P sites.
+ - Clearnet sites still choose HTTPS first and will silently deny downgrades but will not warn HTTP-only users.
 
 Thu, September 1
 ----------------
