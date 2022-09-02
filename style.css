@@ -155,3 +155,10 @@ input {
 	float: right;
 	width: 15%;
 }
+#returnhome {
+    font-size: xxx-large;
+    display: inline;
+}
+h1 {
+    display: inline;
+}
