@@ -19,7 +19,7 @@ import java.util.ArrayList;
  * @author idk
  * @since 0.0.1
  */
-public class I2PFirefox {
+public class I2PFirefox extends I2PCommonBrowser {
   private final String[] FIREFOX_SEARCH_PATHS = FIREFOX_FINDER();
   private final int DEFAULT_TIMEOUT = 200;
   private Process p = null;
@@ -475,6 +475,8 @@ public class I2PFirefox {
           System.out.println("Rebuilt profile directory: " + profileDirectory);
         }
       }
+      if (validateProfileFirstRun(profileDirectory))
+        return null;
       ProcessBuilder pb;
       if (privateWindow) {
         pb = privateProcessBuilder(url);
@@ -507,6 +509,8 @@ public class I2PFirefox {
   public void launch(boolean privateWindow, String[] url) {
     if (waitForProxy()) {
       p = launchAndDetatch(privateWindow, url);
+      if (p == null)
+        return;
       try {
         System.out.println("Waiting for I2PFirefox to close...");
         int exit = p.waitFor();

@@ -199,4 +199,23 @@ public class I2PCommonBrowser {
       }
     }
   }
+
+  public static boolean validateProfileFirstRun(String profileDirectory) {
+    File profileDir = new File(profileDirectory);
+    if (!profileDir.exists()) {
+      System.out.println("Profile directory does not exist");
+      return false;
+    }
+    if (!profileDir.isDirectory()) {
+      System.out.println("Profile directory is not a directory");
+      return false;
+    }
+    File frf = new File(profileDir, "first-run");
+    if (frf.exists()) {
+      frf.delete();
+      // is a first run
+      return true;
+    }
+    return false;
+  }
 }
