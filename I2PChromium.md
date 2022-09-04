@@ -7,6 +7,7 @@ Description:
  > I2PChromium.java Copyright C 2022 idk <hankhill19580@gmail.com> This program is free software: you can redistribute it and/or modify it under the terms of the MIT License. See LICENSE.md for details. This program is distributed in the hope that it will be useful but WITHOUT ANY WARRANTY without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
 
 Author: idk   
+Parent class: I2PCommonBrowser  
 package: net.i2p.i2pfirefox  
 
 ## Dependencies
@@ -276,7 +277,7 @@ This method has no parameters.
 | url | String[] |  |  
 
 
-### launch [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L596)
+### launch [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L598)
 
 + Description: Populates a profile directory with a proxy configuration. Waits for an HTTP proxy on the port 4444 to be ready. Launches Chromium with the profile directory.   
 + Access: public  
@@ -288,7 +289,7 @@ This method has no parameters.
 | url | String[] |  |  
 
 
-### launch [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L619)
+### launch [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L623)
 
 + Description: Populates a profile directory with a proxy configuration. Waits for an HTTP proxy on the port 4444 to be ready. Launches Chromium with the profile directory.   
 + Access: public  
@@ -299,7 +300,7 @@ This method has no parameters.
 | privateWindow | boolean |  |  
 
 
-### launch [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L628)
+### launch [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L632)
 
 + Description: Populates a profile directory with a proxy configuration. Waits for an HTTP proxy on the port 4444 to be ready. Launches Chromium with the profile directory.   
 + Access: public  
@@ -308,7 +309,7 @@ This method has no parameters.
 This method has no parameters.  
 
 
-### ValidURL [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L630)
+### ValidURL [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L634)
 
 + Description:   
 + Access: private  
@@ -320,7 +321,7 @@ This method has no parameters.
 | inUrl | String |  |  
 
 
-### main [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L640)
+### main [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L644)
 
 + Description:   
 + Access: public  
@@ -332,7 +333,7 @@ This method has no parameters.
 | args | String[] |  |  
 
 
-### sleep [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L667)
+### sleep [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L671)
 
 + Description:   
 + Access: private  

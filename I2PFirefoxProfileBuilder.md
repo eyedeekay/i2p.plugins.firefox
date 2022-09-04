@@ -103,7 +103,7 @@ This method has no parameters.
 | base | String |  |  
 
 
-### copyStrictOptions [[src]](src/java/net/i2p/i2pfirefox/I2PFirefoxProfileBuilder.java#L149)
+### copyStrictOptions [[src]](src/java/net/i2p/i2pfirefox/I2PFirefoxProfileBuilder.java#L151)
 
 + Description: Copy the strict options from the base profile to the profile   
 + Access: public  

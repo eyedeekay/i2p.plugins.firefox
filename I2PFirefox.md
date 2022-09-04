@@ -7,6 +7,7 @@ Description:
  > I2PFirefox.java Copyright C 2022 idk <hankhill19580@gmail.com> This program is free software: you can redistribute it and/or modify it under the terms of the MIT License. See LICENSE.md for details. This program is distributed in the hope that it will be useful but WITHOUT ANY WARRANTY without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
 
 Author: idk   
+Parent class: I2PCommonBrowser  
 package: net.i2p.i2pfirefox  
 
 ## Dependencies
@@ -292,7 +293,7 @@ This method has no parameters.
 | url | String[] |  |  
 
 
-### launch [[src]](src/java/net/i2p/i2pfirefox/I2PFirefox.java#L507)
+### launch [[src]](src/java/net/i2p/i2pfirefox/I2PFirefox.java#L509)
 
 + Description: Populates a profile directory with a proxy configuration. Waits for an HTTP proxy on the port 4444 to be ready. Launches Firefox with the profile directory.   
 + Access: public  
@@ -304,7 +305,7 @@ This method has no parameters.
 | url | String[] |  |  
 
 
-### launch [[src]](src/java/net/i2p/i2pfirefox/I2PFirefox.java#L529)
+### launch [[src]](src/java/net/i2p/i2pfirefox/I2PFirefox.java#L533)
 
 + Description: Populates a profile directory with a proxy configuration. Waits for an HTTP proxy on the port 4444 to be ready. Launches Firefox with the profile directory.   
 + Access: public  
@@ -315,7 +316,7 @@ This method has no parameters.
 | privateWindow | boolean |  |  
 
 
-### launch [[src]](src/java/net/i2p/i2pfirefox/I2PFirefox.java#L539)
+### launch [[src]](src/java/net/i2p/i2pfirefox/I2PFirefox.java#L543)
 
 + Description: Populates a profile directory with a proxy configuration. Waits for an HTTP proxy on the port 4444 to be ready. Launches Firefox with the profile directory. Uses a semi-permanent profile.   
 + Access: public  
@@ -324,7 +325,7 @@ This method has no parameters.
 This method has no parameters.  
 
 
-### ValidURL [[src]](src/java/net/i2p/i2pfirefox/I2PFirefox.java#L541)
+### ValidURL [[src]](src/java/net/i2p/i2pfirefox/I2PFirefox.java#L545)
 
 + Description:   
 + Access: private  
@@ -336,7 +337,7 @@ This method has no parameters.
 | inUrl | String |  |  
 
 
-### main [[src]](src/java/net/i2p/i2pfirefox/I2PFirefox.java#L552)
+### main [[src]](src/java/net/i2p/i2pfirefox/I2PFirefox.java#L556)
 
 + Description:   
 + Access: public  
@@ -348,7 +349,7 @@ This method has no parameters.
 | args | String[] |  |  
 
 
-### sleep [[src]](src/java/net/i2p/i2pfirefox/I2PFirefox.java#L580)
+### sleep [[src]](src/java/net/i2p/i2pfirefox/I2PFirefox.java#L584)
 
 + Description:   
 + Access: private  
