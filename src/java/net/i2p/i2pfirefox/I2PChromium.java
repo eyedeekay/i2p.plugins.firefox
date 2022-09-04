@@ -353,9 +353,11 @@ public class I2PChromium {
     // return processBuilder(new String[]{});
     ArrayList<String> argList = new ArrayList<String>();
     argList.add("--incognito");
-    if (args != null && args.length > 0) {
-      for (String arg : args) {
-        argList.add(arg);
+    if (args != null) {
+      if (args.length > 0) {
+        for (String arg : args) {
+          argList.add(arg);
+        }
       }
     }
     return processBuilder(argList.toArray(new String[argList.size()]));
@@ -397,7 +399,10 @@ public class I2PChromium {
   public ProcessBuilder processBuilder(String[] args) {
     String chrome = topChromium();
     if (!chrome.isEmpty()) {
-      String[] newArgs = new String[args.length + 32];
+      int arglength = 0;
+      if (args != null)
+        arglength = args.length;
+      String[] newArgs = new String[arglength + 32];
       newArgs[0] = chrome;
       newArgs[1] =
           "--user-data-dir=" + I2PChromiumProfileBuilder.profileDirectory();
@@ -463,9 +468,11 @@ public class I2PChromium {
       +","+
       new
       File(I2PChromiumProfileBuilder.profileDirectory(),"extensions/scriptsafe.js").getAbsolutePath();*/
-      if (args.length > 0) {
-        for (int i = 0; i < args.length; i++) {
-          newArgs[i + 32] = args[i];
+      if (args != null) {
+        if (arglength > 0) {
+          for (int i = 0; i < arglength; i++) {
+            newArgs[i + 32] = args[i];
+          }
         }
       }
       return new ProcessBuilder(newArgs).directory(
@@ -636,19 +643,21 @@ public class I2PChromium {
     I2PChromium i2pChromium = new I2PChromium();
     System.out.println("checking for private browsing");
     ArrayList<String> visitURL = new ArrayList<String>();
-    if (args != null && args.length > 0) {
-      for (String arg : args) {
-        if (arg.equals("-private")) {
-          privateBrowsing = true;
-          System.out.println(
-              "private browsing is true, profile will be discarded at end of session");
-        }
-        if (arg.equals("-usability")) {
-          I2PChromiumProfileBuilder.usability = true;
-        }
-        if (!arg.startsWith("-")) {
-          // check if it's a URL
-          visitURL.add(ValidURL(arg));
+    if (args != null) {
+      if (args.length > 0) {
+        for (String arg : args) {
+          if (arg.equals("-private")) {
+            privateBrowsing = true;
+            System.out.println(
+                "private browsing is true, profile will be discarded at end of session");
+          }
+          if (arg.equals("-usability")) {
+            I2PChromiumProfileBuilder.usability = true;
+          }
+          if (!arg.startsWith("-")) {
+            // check if it's a URL
+            visitURL.add(ValidURL(arg));
+          }
         }
       }
     }

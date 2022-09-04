@@ -179,22 +179,24 @@ public class I2PBrowser {
     System.out.println("I2PBrowser");
     I2PBrowser i2pBrowser = new I2PBrowser();
     ArrayList<String> visitURL = new ArrayList<String>();
-    if (args != null && args.length > 0) {
-      for (String arg : args) {
-        if (arg.equals("-private")) {
-          privateBrowsing = true;
-        }
-        if (arg.equals("-chromium")) {
-          i2pBrowser.chromium = true;
-        }
-        if (arg.equals("-firefox")) {
-          i2pBrowser.firefox = true;
-        }
-        if (arg.equals("-usability")) {
-          i2pBrowser.usability = true;
-        }
-        if (!arg.startsWith("-")) {
-          visitURL.add(ValidURL(arg));
+    if (args != null) {
+      if (args.length > 0) {
+        for (String arg : args) {
+          if (arg.equals("-private")) {
+            privateBrowsing = true;
+          }
+          if (arg.equals("-chromium")) {
+            i2pBrowser.chromium = true;
+          }
+          if (arg.equals("-firefox")) {
+            i2pBrowser.firefox = true;
+          }
+          if (arg.equals("-usability")) {
+            i2pBrowser.usability = true;
+          }
+          if (!arg.startsWith("-")) {
+            visitURL.add(ValidURL(arg));
+          }
         }
       }
     }

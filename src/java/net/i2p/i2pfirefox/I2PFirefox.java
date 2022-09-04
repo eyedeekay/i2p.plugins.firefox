@@ -341,9 +341,11 @@ public class I2PFirefox {
   public ProcessBuilder privateProcessBuilder(String[] args) {
     ArrayList<String> argList = new ArrayList<String>();
     argList.add("--private-window");
-    if (args != null && args.length > 0) {
-      for (String arg : args) {
-        argList.add(arg);
+    if (args != null) {
+      if (args.length > 0) {
+        for (String arg : args) {
+          argList.add(arg);
+        }
       }
     }
     return processBuilder(argList.toArray(new String[argList.size()]));
@@ -362,13 +364,18 @@ public class I2PFirefox {
   public ProcessBuilder processBuilder(String[] args) {
     String firefox = topFirefox();
     if (!firefox.isEmpty()) {
-      String[] newArgs = new String[args.length + 3];
+      int arglength = 0;
+      if (args != null)
+        arglength = args.length;
+      String[] newArgs = new String[arglength + 3];
       newArgs[0] = firefox;
       newArgs[1] = "--profile";
       newArgs[2] = I2PFirefoxProfileBuilder.profileDirectory();
-      if (args != null && args.length > 0) {
-        for (int i = 0; i < args.length; i++) {
-          newArgs[i + 3] = args[i];
+      if (args != null) {
+        if (arglength > 0) {
+          for (int i = 0; i < arglength; i++) {
+            newArgs[i + 3] = args[i];
+          }
         }
       }
       return new ProcessBuilder(newArgs).directory(
@@ -546,19 +553,21 @@ public class I2PFirefox {
     boolean privateBrowsing = false;
     System.out.println("checking for private browsing");
     ArrayList<String> visitURL = new ArrayList<String>();
-    if (args != null && args.length > 0) {
-      for (String arg : args) {
-        if (arg.equals("-private")) {
-          privateBrowsing = true;
-          System.out.println(
-              "private browsing is true, profile will be discarded at end of session");
-        }
-        if (arg.equals("-usability")) {
-          usability = true;
-        }
-        if (!arg.startsWith("-")) {
-          // check if it's a URL
-          visitURL.add(ValidURL(arg));
+    if (args != null) {
+      if (args.length > 0) {
+        for (String arg : args) {
+          if (arg.equals("-private")) {
+            privateBrowsing = true;
+            System.out.println(
+                "private browsing is true, profile will be discarded at end of session");
+          }
+          if (arg.equals("-usability")) {
+            usability = true;
+          }
+          if (!arg.startsWith("-")) {
+            // check if it's a URL
+            visitURL.add(ValidURL(arg));
+          }
         }
       }
     }

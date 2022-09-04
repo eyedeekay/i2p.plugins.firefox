@@ -192,10 +192,13 @@ public class I2PGenericUnsafeBrowser extends I2PCommonBrowser {
   public ProcessBuilder baseProcessBuilder(String[] args) {
     String browser = findUnsafeBrowserAnywhere();
     if (!browser.isEmpty()) {
-      String[] newArgs = new String[args.length + 1];
+      int arglength = 0;
+      if (args != null)
+        arglength = args.length;
+      String[] newArgs = new String[arglength + 1];
       newArgs[0] = browser;
-      if (args != null && args.length > 0) {
-        for (int i = 0; i < args.length; i++) {
+      if (args != null && arglength > 0) {
+        for (int i = 0; i < arglength; i++) {
           newArgs[i + 1] = args[i];
         }
       }
@@ -394,16 +397,18 @@ public class I2PGenericUnsafeBrowser extends I2PCommonBrowser {
     boolean privateBrowsing = false;
     System.out.println("checking for private browsing");
     ArrayList<String> visitURL = new ArrayList<String>();
-    if (args != null && args.length > 0) {
-      for (String arg : args) {
-        if (arg.equals("-private")) {
-          privateBrowsing = true;
-          System.out.println(
-              "private browsing is true, profile will be discarded at end of session");
-        }
-        if (!arg.startsWith("-")) {
-          // check if it's a URL
-          visitURL.add(ValidURL(arg));
+    if (args != null) {
+      if (args.length > 0) {
+        for (String arg : args) {
+          if (arg.equals("-private")) {
+            privateBrowsing = true;
+            System.out.println(
+                "private browsing is true, profile will be discarded at end of session");
+          }
+          if (!arg.startsWith("-")) {
+            // check if it's a URL
+            visitURL.add(ValidURL(arg));
+          }
         }
       }
     }
