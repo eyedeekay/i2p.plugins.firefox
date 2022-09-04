@@ -2,9 +2,9 @@
 
 GITHUB_USER=eyedeekay
 GITHUB_REPO=i2p.plugins.firefox
-GITHUB_NAME="That unsets HTTPS-Only mode in favor of HTTPS-first mode so we don't require the interstitial."
+GITHUB_NAME="That gets it ready for inclusion in another bundle."
 GITHUB_DESCRIPTION=$(cat CHANGES.md)
-GITHUB_TAG=0.0.20
+GITHUB_TAG=0.0.21
 ant distclean
 ./javadoc.sh
 NUMLINE=`grep release.number build.xml | head -n 1`
