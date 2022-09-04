@@ -120,14 +120,16 @@ public class I2PFirefoxProfileBuilder extends I2PCommonBrowser {
     File baseProfileDir = new File(baseProfile);
     File profileDir = new File(profile);
 
-    try {
-      System.out.println("Copying base profile to profile directory");
-      copyDirectory(baseProfileDir, profileDir, "firefox", base);
-    } catch (Exception e) {
-      System.out.println("Error copying base profile to profile" + e);
-      return false;
+    if (!profileDir.exists()) {
+      try {
+        System.out.println("Copying base profile to profile directory");
+        copyDirectory(baseProfileDir, profileDir, "firefox", base);
+      } catch (Exception e) {
+        System.out.println("Error copying base profile to profile" + e);
+        return false;
+      }
+      System.out.println("Copied base profile to profile directory");
     }
-    System.out.println("Copied base profile to profile directory");
     // if user.js does not exist yet, make an empty one.
     // if (!touch(profileDir.toString(), "user.js")) {
     // return false;

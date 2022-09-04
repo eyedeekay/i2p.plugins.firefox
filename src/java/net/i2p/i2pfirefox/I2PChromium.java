@@ -19,7 +19,7 @@ import java.util.ArrayList;
  * @author idk
  * @since 0.0.1
  */
-public class I2PChromium {
+public class I2PChromium extends I2PCommonBrowser {
   private final String[] CHROMIUM_SEARCH_PATHS = CHROMIUM_FINDER();
   private final int DEFAULT_TIMEOUT = 200;
   private Process p = null;
@@ -565,6 +565,8 @@ public class I2PChromium {
           System.out.println("Rebuilt profile directory: " + profileDirectory);
         }
       }
+      if (validateProfileFirstRun(profileDirectory))
+        return null;
       ProcessBuilder pb = null;
       if (privateWindow) {
         pb = this.privateProcessBuilder(url);
@@ -596,6 +598,8 @@ public class I2PChromium {
   public void launch(boolean privateWindow, String[] url) {
     if (waitForProxy()) {
       p = launchAndDetatch(privateWindow, url);
+      if (p == null)
+        return;
       System.out.println("I2PChromium");
       try {
         System.out.println("Waiting for I2PChromium to close...");
