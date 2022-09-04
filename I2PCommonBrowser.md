@@ -140,3 +140,15 @@ package: net.i2p.i2pfirefox
 | destinationFile | File |  |  
 
 
+### validateProfileFirstRun [[src]](src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L203)
+
++ Description:   
++ Access: public  
++ Modifiers: static 
++ return: boolean  
+
+| Name | Type | Description |  
+| ----- | ----- | ----- |  
+| profileDirectory | String |  |  
+
+
