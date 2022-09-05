@@ -1,3 +1,9 @@
+Mon, September 5
+----------------
+
+ - Fix several issues with running on Windows 11
+ - Make tunnel nicknames different to avoid double shared tunnels
+
 Fri, September 2
 ----------------
 
