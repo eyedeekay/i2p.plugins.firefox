@@ -2,9 +2,9 @@
 
 GITHUB_USER=eyedeekay
 GITHUB_REPO=i2p.plugins.firefox
-GITHUB_NAME="That fixes a missing semicolon"
+GITHUB_NAME="That fixes a brand-new NPE."
 GITHUB_DESCRIPTION=$(cat CHANGES.md)
-GITHUB_TAG=0.0.23
+GITHUB_TAG=0.0.24
 ant distclean
 ./javadoc.sh
 NUMLINE=`grep release.number build.xml | head -n 1`

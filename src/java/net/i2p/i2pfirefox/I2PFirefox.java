@@ -369,8 +369,9 @@ public class I2PFirefox extends I2PCommonBrowser {
         arglength = args.length;
       String[] newArgs = new String[arglength + 4];
       newArgs[0] = firefox;
-      newArgs[1] = "--profile";
-      newArgs[2] = I2PFirefoxProfileBuilder.profileDirectory();
+      newArgs[1] = "-attach-console";
+      newArgs[2] = "--profile";
+      newArgs[3] = I2PFirefoxProfileBuilder.profileDirectory();
       if (args != null) {
         if (arglength > 0) {
           for (int i = 0; i < arglength; i++) {
@@ -430,6 +431,7 @@ public class I2PFirefox extends I2PCommonBrowser {
    */
   public boolean waitForProxy(int timeout, int port, String host) {
     for (int i = 0; i < timeout; i++) {
+      System.out.println("Waiting for proxy");
       if (checkifPortIsOccupied(port, host)) {
         return true;
       }
