@@ -13,3 +13,5 @@ src/build
 *.err
 *.log
 i2pbrowser/
+/i2pbrowser*.deb
+/logs
