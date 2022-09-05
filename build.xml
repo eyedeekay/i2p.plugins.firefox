@@ -434,4 +434,11 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
             <arg value="i2pbrowser"/>
         </exec>        
     </target>
+    <target name="debian" depends="jar">
+        <exec executable="bash" failonerror="true">
+            <arg value="--verbose"/>
+            <arg value="-c"/>
+            <arg value="./debian.sh"/>
+        </exec>
+    </target>
 </project>
