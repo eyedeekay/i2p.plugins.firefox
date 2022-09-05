@@ -1,16 +1,12 @@
 #! /usr/bin/env sh
 
-GITHUB_USER=eyedeekay
-GITHUB_REPO=i2p.plugins.firefox
-GITHUB_NAME="Always pass --new-instance to Firefox"
-GITHUB_DESCRIPTION=$(cat CHANGES.md)
-GITHUB_TAG=0.0.26
+. config.sh
 ant distclean
 ./javadoc.sh
 NUMLINE=`grep release.number build.xml | head -n 1`
 sed -i "s|$NUMLINE|        <property name=\"release.number\" value=\"$GITHUB_TAG\" />|g" build.xml
 edgar && git push --all
-ant jar freeZip jpackage
+ant jar freeZip jpackage debian
 github-release release --user "${GITHUB_USER}" \
     --repo "${GITHUB_REPO}" \
     --name "${GITHUB_NAME}" \
@@ -45,6 +41,13 @@ github-release upload --user "${GITHUB_USER}" \
     --label "I2P Browser launcher as a Jpackage, does not require a JVM, Linux Only for now unless you BYO." \
     --name "i2pbrowser.zip" \
     --file "i2pbrowser.zip" \
+    --replace
+github-release upload --user "${GITHUB_USER}" \
+    --repo "${GITHUB_REPO}" \
+    --tag "${GITHUB_TAG}" \
+    --label "I2P Browser launcher as a Jpackage inside of a Debian package." \
+    --name "i2pbrowser.deb" \
+    --file "i2pbrowser.deb" \
     --replace  
 echo "Uploaded jpackage zip"
 git pull github --tags

@@ -3,6 +3,8 @@ Mon, September 5
 
  - Fix several issues with running on Windows 11
  - Make tunnel nicknames different to avoid double shared tunnels
+ - Since Windows is apparently crazy and there's nothing I can do about it right now
+   make a deb.
 
 Fri, September 2
 ----------------
