@@ -367,14 +367,14 @@ public class I2PFirefox extends I2PCommonBrowser {
       int arglength = 0;
       if (args != null)
         arglength = args.length;
-      String[] newArgs = new String[arglength + 3];
+      String[] newArgs = new String[arglength + 4];
       newArgs[0] = firefox;
       newArgs[1] = "--profile";
       newArgs[2] = I2PFirefoxProfileBuilder.profileDirectory();
       if (args != null) {
         if (arglength > 0) {
           for (int i = 0; i < arglength; i++) {
-            newArgs[i + 3] = args[i];
+            newArgs[i + 4] = args[i];
           }
         }
       }
