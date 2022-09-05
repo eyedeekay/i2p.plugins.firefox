@@ -7,6 +7,7 @@ Description:
  > I2PChromiumProfileChecker.java Copyright C 2022 idk <hankhill19580@gmail.com> This program is free software: you can redistribute it and/or modify it under the terms of the MIT License. See LICENSE.md for details. This program is distributed in the hope that it will be useful but WITHOUT ANY WARRANTY without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. I2PChromiumProfileChecker is a that checks if the Chromium profile directory exists and is valid.  
 
 Author: idk   
+Parent class: I2PCommonBrowser  
 package: net.i2p.i2pfirefox  
 
 ## Dependencies

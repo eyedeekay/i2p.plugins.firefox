@@ -293,7 +293,7 @@ This method has no parameters.
 | url | String[] |  |  
 
 
-### launch [[src]](src/java/net/i2p/i2pfirefox/I2PFirefox.java#L511)
+### launch [[src]](src/java/net/i2p/i2pfirefox/I2PFirefox.java#L510)
 
 + Description: Populates a profile directory with a proxy configuration. Waits for an HTTP proxy on the port 4444 to be ready. Launches Firefox with the profile directory.   
 + Access: public  
@@ -305,7 +305,7 @@ This method has no parameters.
 | url | String[] |  |  
 
 
-### launch [[src]](src/java/net/i2p/i2pfirefox/I2PFirefox.java#L535)
+### launch [[src]](src/java/net/i2p/i2pfirefox/I2PFirefox.java#L534)
 
 + Description: Populates a profile directory with a proxy configuration. Waits for an HTTP proxy on the port 4444 to be ready. Launches Firefox with the profile directory.   
 + Access: public  
@@ -316,7 +316,7 @@ This method has no parameters.
 | privateWindow | boolean |  |  
 
 
-### launch [[src]](src/java/net/i2p/i2pfirefox/I2PFirefox.java#L545)
+### launch [[src]](src/java/net/i2p/i2pfirefox/I2PFirefox.java#L544)
 
 + Description: Populates a profile directory with a proxy configuration. Waits for an HTTP proxy on the port 4444 to be ready. Launches Firefox with the profile directory. Uses a semi-permanent profile.   
 + Access: public  
@@ -325,7 +325,7 @@ This method has no parameters.
 This method has no parameters.  
 
 
-### ValidURL [[src]](src/java/net/i2p/i2pfirefox/I2PFirefox.java#L547)
+### ValidURL [[src]](src/java/net/i2p/i2pfirefox/I2PFirefox.java#L546)
 
 + Description:   
 + Access: private  
@@ -337,7 +337,7 @@ This method has no parameters.
 | inUrl | String |  |  
 
 
-### main [[src]](src/java/net/i2p/i2pfirefox/I2PFirefox.java#L558)
+### main [[src]](src/java/net/i2p/i2pfirefox/I2PFirefox.java#L557)
 
 + Description:   
 + Access: public  
@@ -349,7 +349,7 @@ This method has no parameters.
 | args | String[] |  |  
 
 
-### sleep [[src]](src/java/net/i2p/i2pfirefox/I2PFirefox.java#L586)
+### sleep [[src]](src/java/net/i2p/i2pfirefox/I2PFirefox.java#L585)
 
 + Description:   
 + Access: private  
