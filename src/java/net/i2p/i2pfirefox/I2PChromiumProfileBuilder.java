@@ -120,8 +120,8 @@ public class I2PChromiumProfileBuilder extends I2PCommonBrowser {
   public static boolean copyBaseProfiletoProfile() {
     String baseProfile = baseProfileDirectory(usabilityMode());
     String profile = profileDirectory();
-    System.out.println("Copying base profile to profile directory: " +
-                       baseProfile + " -> " + profile);
+    println("Copying base profile to profile directory: " + baseProfile +
+            " -> " + profile);
     if (baseProfile.isEmpty() || profile.isEmpty()) {
       return false;
     }
@@ -129,14 +129,14 @@ public class I2PChromiumProfileBuilder extends I2PCommonBrowser {
     File profileDir = new File(profile);
     if (!profileDir.exists()) {
       try {
-        System.out.println("Copying base profile to profile directory");
+        println("Copying base profile to profile directory");
         copyDirectory(baseProfileDir, profileDir, "chromium", usabilityMode());
       } catch (Exception e) {
-        System.out.println("Error copying base profile to profile" + e);
+        println("Error copying base profile to profile" + e);
         return false;
       }
     }
-    System.out.println("Copied base profile to profile directory");
+    println("Copied base profile to profile directory");
     return true;
   }
 

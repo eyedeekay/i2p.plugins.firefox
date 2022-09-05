@@ -23,7 +23,7 @@ public class I2PFirefoxProfileUnpacker extends I2PCommonBrowser {
   public static void main(String[] args) {
     String profileDirectory = I2PFirefoxProfileBuilder.profileDirectory();
     if (profileDirectory == null) {
-      System.out.println("No profile directory found");
+      println("No profile directory found");
       return;
     }
   }

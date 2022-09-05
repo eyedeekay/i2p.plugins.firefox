@@ -36,7 +36,7 @@ public class I2PFirefox extends I2PCommonBrowser {
     for (String path : FIREFOX_SEARCH_PATHS) {
       File f = new File(path);
       if (f.exists()) {
-        System.out.println("Found Firefox at " + path);
+        println("Found Firefox at " + path);
         return;
       }
     }
@@ -238,10 +238,10 @@ public class I2PFirefox extends I2PCommonBrowser {
     for (String firefox : firefoxes) {
       File firefoxFile = new File(firefox);
       if (firefoxFile.exists()) {
-        System.out.println("Found valid firefox at " + firefox);
+        println("Found valid firefox at " + firefox);
         validFirefoxes.add(firefox);
       }
-      System.out.println("firefox at " + firefox + "does not exist");
+      println("firefox at " + firefox + "does not exist");
     }
     return validFirefoxes.toArray(new String[validFirefoxes.size()]);
   }
@@ -382,7 +382,7 @@ public class I2PFirefox extends I2PCommonBrowser {
       return new ProcessBuilder(newArgs).directory(
           I2PFirefoxProfileBuilder.runtimeDirectory(true));
     } else {
-      System.out.println("No Firefox found.");
+      println("No Firefox found.");
       return new ProcessBuilder(args);
     }
   }
@@ -431,7 +431,7 @@ public class I2PFirefox extends I2PCommonBrowser {
    */
   public boolean waitForProxy(int timeout, int port, String host) {
     for (int i = 0; i < timeout; i++) {
-      System.out.println("Waiting for proxy");
+      println("Waiting for proxy");
       if (checkifPortIsOccupied(port, host)) {
         return true;
       }
@@ -464,17 +464,16 @@ public class I2PFirefox extends I2PCommonBrowser {
     if (waitForProxy()) {
       String profileDirectory = I2PFirefoxProfileBuilder.profileDirectory();
       if (I2PFirefoxProfileChecker.validateProfileDirectory(profileDirectory)) {
-        System.out.println("Valid profile directory: " + profileDirectory);
+        println("Valid profile directory: " + profileDirectory);
       } else {
-        System.out.println("Invalid profile directory: " + profileDirectory +
-                           " rebuilding...");
+        println("Invalid profile directory: " + profileDirectory +
+                " rebuilding...");
         if (!I2PFirefoxProfileBuilder.copyBaseProfiletoProfile(
                 usabilityMode())) {
-          System.out.println("Failed to rebuild profile directory: " +
-                             profileDirectory);
+          println("Failed to rebuild profile directory: " + profileDirectory);
           return null;
         } else {
-          System.out.println("Rebuilt profile directory: " + profileDirectory);
+          println("Rebuilt profile directory: " + profileDirectory);
         }
       }
       if (validateProfileFirstRun(profileDirectory))
@@ -488,7 +487,7 @@ public class I2PFirefox extends I2PCommonBrowser {
       try {
         System.out.println(pb.command());
         p = pb.start();
-        System.out.println("I2PFirefox");
+        println("I2PFirefox");
         sleep(2000);
         return p;
       } catch (Throwable e) {
@@ -514,11 +513,11 @@ public class I2PFirefox extends I2PCommonBrowser {
       if (p == null)
         return;
       try {
-        System.out.println("Waiting for I2PFirefox to close...");
+        println("Waiting for I2PFirefox to close...");
         int exit = p.waitFor();
-        System.out.println("I2PFirefox exited with value: " + exit);
+        println("I2PFirefox exited with value: " + exit);
       } catch (Exception e) {
-        System.out.println("Error: " + e.getMessage());
+        println("Error: " + e.getMessage());
       }
     }
   }
@@ -548,7 +547,7 @@ public class I2PFirefox extends I2PCommonBrowser {
     String[] schemes = {"http", "https"};
     for (String scheme : schemes) {
       if (inUrl.startsWith(scheme)) {
-        System.out.println("Valid URL: " + inUrl);
+        println("Valid URL: " + inUrl);
         return inUrl;
       }
     }
@@ -557,14 +556,14 @@ public class I2PFirefox extends I2PCommonBrowser {
 
   public static void main(String[] args) {
     boolean privateBrowsing = false;
-    System.out.println("checking for private browsing");
+    println("checking for private browsing");
     ArrayList<String> visitURL = new ArrayList<String>();
     if (args != null) {
       if (args.length > 0) {
         for (String arg : args) {
           if (arg.equals("-private")) {
             privateBrowsing = true;
-            System.out.println(
+            println(
                 "private browsing is true, profile will be discarded at end of session");
           }
           if (arg.equals("-usability")) {
@@ -577,7 +576,7 @@ public class I2PFirefox extends I2PCommonBrowser {
         }
       }
     }
-    System.out.println("I2PFirefox");
+    println("I2PFirefox");
     I2PFirefox i2pFirefox = new I2PFirefox();
     i2pFirefox.launch(privateBrowsing,
                       visitURL.toArray(new String[visitURL.size()]));
