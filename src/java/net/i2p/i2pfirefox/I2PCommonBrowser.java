@@ -8,6 +8,9 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
+import java.util.logging.FileHandler;
+import java.util.logging.Logger;
+import java.util.logging.SimpleFormatter;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
@@ -27,6 +30,33 @@ import java.util.zip.ZipInputStream;
  */
 
 public class I2PCommonBrowser {
+  static Logger logger = Logger.getLogger("browserlauncher");
+  static FileHandler fh;
+
+  public I2PCommonBrowser() {
+    try {
+      // This block configure the logger with handler and formatter
+      fh = new FileHandler(logFile().toString());
+      logger.addHandler(fh);
+      SimpleFormatter formatter = new SimpleFormatter();
+      fh.setFormatter(formatter);
+      // the following statement is used to log any messages
+      logger.info("Browser log");
+    } catch (SecurityException e) {
+      e.printStackTrace();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+  }
+
+  public static void println(String line) { logger.info(line); }
+
+  private static File logFile() {
+    File log = new File("logs");
+    if (!log.exists())
+      log.mkdirs();
+    return new File(log, "browserlauncher.log");
+  }
 
   /**
    * get the runtime directory, creating it if create=true
@@ -118,16 +148,16 @@ public class I2PCommonBrowser {
 
   protected boolean unpackProfile(String profileDirectory, String browser,
                                   String base) {
-    System.out.println("Unpacking base profile to " + profileDirectory);
+    println("Unpacking base profile to " + profileDirectory);
     try {
       final InputStream resources =
           this.getClass().getClassLoader().getResourceAsStream(
               "i2p." + browser + "." + base + ".profile.zip");
       if (resources == null) {
-        System.out.println("Could not find resources");
+        println("Could not find resources");
         return false;
       }
-      System.out.println(resources.toString());
+      println(resources.toString());
       // InputStream corresponds to a zip file. Unzip it.
       // Files.copy(r, new File(profileDirectory).toPath(),
       // StandardCopyOption.REPLACE_EXISTING);
@@ -135,15 +165,14 @@ public class I2PCommonBrowser {
       ZipEntry entry;
       // while there are entries I process them
       while ((entry = zis.getNextEntry()) != null) {
-        System.out.println("entry: " + entry.getName() + ", " +
-                           entry.getSize());
+        println("entry: " + entry.getName() + ", " + entry.getSize());
         // consume all the data from this entry
         if (entry.isDirectory()) {
-          System.out.println("Creating directory: " + entry.getName());
+          println("Creating directory: " + entry.getName());
           File dir = new File(profileDirectory + "/" + entry.getName());
           dir.mkdirs();
         } else {
-          System.out.println("Creating file: " + entry.getName());
+          println("Creating file: " + entry.getName());
           File file = new File(profileDirectory + "/" + entry.getName());
           file.createNewFile();
           Files.copy(zis, file.toPath(), StandardCopyOption.REPLACE_EXISTING);
@@ -156,7 +185,7 @@ public class I2PCommonBrowser {
       // loop through the Enumeration
 
     } catch (Exception e) {
-      System.out.println("Error copying profile files: " + e.getMessage());
+      println("Error copying profile files: " + e.getMessage());
       return false;
     }
     return true;
@@ -203,11 +232,11 @@ public class I2PCommonBrowser {
   public static boolean validateProfileFirstRun(String profileDirectory) {
     File profileDir = new File(profileDirectory);
     if (!profileDir.exists()) {
-      System.out.println("Profile directory does not exist");
+      println("Profile directory does not exist");
       return false;
     }
     if (!profileDir.isDirectory()) {
-      System.out.println("Profile directory is not a directory");
+      println("Profile directory is not a directory");
       return false;
     }
     File frf = new File(profileDir, "first-run");

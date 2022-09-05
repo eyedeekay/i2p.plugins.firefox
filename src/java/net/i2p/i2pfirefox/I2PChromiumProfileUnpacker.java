@@ -23,7 +23,7 @@ public class I2PChromiumProfileUnpacker extends I2PCommonBrowser {
   public static void main(String[] args) {
     String profileDirectory = I2PChromiumProfileBuilder.profileDirectory();
     if (profileDirectory == null) {
-      System.out.println("No profile directory found");
+      println("No profile directory found");
       return;
     }
   }
@@ -35,7 +35,7 @@ public class I2PChromiumProfileUnpacker extends I2PCommonBrowser {
    * @since 0.0.1
    */
   public boolean unpackProfile(String profileDirectory, String mode) {
-    System.out.println("Unpacking base profile to " + profileDirectory);
+    println("Unpacking base profile to " + profileDirectory);
     return unpackProfile(profileDirectory, "chromium", mode);
   }
 }

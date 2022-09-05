@@ -20,7 +20,7 @@ import java.util.ArrayList;
  * @author idk
  * @since 0.0.16
  */
-public class I2PBrowser {
+public class I2PBrowser extends I2PCommonBrowser {
   private final I2PFirefox i2pFirefox = new I2PFirefox();
   private final I2PChromium i2pChromium = new I2PChromium();
   private final I2PGenericUnsafeBrowser i2pGeneral =
@@ -32,17 +32,17 @@ public class I2PBrowser {
   public boolean usability = false;
 
   private void launchFirefox(boolean privateWindow, String[] url) {
-    System.out.println("I2PFirefox");
+    println("I2PFirefox");
     I2PFirefox.usability = usability;
     i2pFirefox.launch(privateWindow, url);
   }
   private void launchChromium(boolean privateWindow, String[] url) {
-    System.out.println("I2PChromium");
+    println("I2PChromium");
     I2PChromiumProfileBuilder.usability = usability;
     i2pChromium.launch(privateWindow, url);
   }
   private void launchGeneric(boolean privateWindow, String[] url) {
-    System.out.println("I2PChromium");
+    println("I2PChromium");
     i2pGeneral.launch(privateWindow, url);
   }
 
@@ -176,7 +176,7 @@ public class I2PBrowser {
 
   public static void main(String[] args) {
     boolean privateBrowsing = false;
-    System.out.println("I2PBrowser");
+    println("I2PBrowser");
     I2PBrowser i2pBrowser = new I2PBrowser();
     ArrayList<String> visitURL = new ArrayList<String>();
     if (args != null) {

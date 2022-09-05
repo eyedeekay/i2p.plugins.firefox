@@ -35,7 +35,7 @@ public class I2PChromium extends I2PCommonBrowser {
     for (String path : CHROMIUM_SEARCH_PATHS) {
       File f = new File(path);
       if (f.exists()) {
-        System.out.println("Found Chromium at " + path);
+        println("Found Chromium at " + path);
         return;
       }
     }
@@ -44,7 +44,7 @@ public class I2PChromium extends I2PCommonBrowser {
     for (String path : CHROMIUM_SEARCH_PATHS) {
       File f = new File(path);
       if (f.exists()) {
-        System.out.println("Found Chromium at " + path);
+        println("Found Chromium at " + path);
         return;
       }
     }
@@ -250,10 +250,10 @@ public class I2PChromium extends I2PCommonBrowser {
     for (String chrome : chromees) {
       File chromeFile = new File(chrome);
       if (chromeFile.exists()) {
-        System.out.println("Found valid chromium at " + chrome);
+        println("Found valid chromium at " + chrome);
         validChromiums.add(chrome);
       }
-      System.out.println("chrome at " + chrome + "does not exist");
+      println("chrome at " + chrome + "does not exist");
     }
     return validChromiums.toArray(new String[validChromiums.size()]);
   }
@@ -478,7 +478,7 @@ public class I2PChromium extends I2PCommonBrowser {
       return new ProcessBuilder(newArgs).directory(
           I2PChromiumProfileBuilder.runtimeDirectory(true));
     } else {
-      System.out.println("No Chromium found.");
+      println("No Chromium found.");
       return new ProcessBuilder(args);
     }
   }
@@ -553,16 +553,15 @@ public class I2PChromium extends I2PCommonBrowser {
       String profileDirectory = I2PChromiumProfileBuilder.profileDirectory();
       if (I2PChromiumProfileChecker.validateProfileDirectory(
               profileDirectory)) {
-        System.out.println("Valid profile directory: " + profileDirectory);
+        println("Valid profile directory: " + profileDirectory);
       } else {
-        System.out.println("Invalid profile directory: " + profileDirectory +
-                           " rebuilding...");
+        println("Invalid profile directory: " + profileDirectory +
+                " rebuilding...");
         if (!I2PChromiumProfileBuilder.copyBaseProfiletoProfile()) {
-          System.out.println("Failed to rebuild profile directory: " +
-                             profileDirectory);
+          println("Failed to rebuild profile directory: " + profileDirectory);
           return null;
         } else {
-          System.out.println("Rebuilt profile directory: " + profileDirectory);
+          println("Rebuilt profile directory: " + profileDirectory);
         }
       }
       if (validateProfileFirstRun(profileDirectory))
@@ -600,13 +599,13 @@ public class I2PChromium extends I2PCommonBrowser {
       p = launchAndDetatch(privateWindow, url);
       if (p == null)
         return;
-      System.out.println("I2PChromium");
+      println("I2PChromium");
       try {
-        System.out.println("Waiting for I2PChromium to close...");
+        println("Waiting for I2PChromium to close...");
         int exit = p.waitFor();
-        System.out.println("I2PChromium exited with value: " + exit);
+        println("I2PChromium exited with value: " + exit);
       } catch (Exception e) {
-        System.out.println("Error: " + e.getMessage());
+        println("Error: " + e.getMessage());
       }
     }
   }
@@ -643,16 +642,16 @@ public class I2PChromium extends I2PCommonBrowser {
 
   public static void main(String[] args) {
     boolean privateBrowsing = false;
-    System.out.println("I2PChromium");
+    println("I2PChromium");
     I2PChromium i2pChromium = new I2PChromium();
-    System.out.println("checking for private browsing");
+    println("checking for private browsing");
     ArrayList<String> visitURL = new ArrayList<String>();
     if (args != null) {
       if (args.length > 0) {
         for (String arg : args) {
           if (arg.equals("-private")) {
             privateBrowsing = true;
-            System.out.println(
+            println(
                 "private browsing is true, profile will be discarded at end of session");
           }
           if (arg.equals("-usability")) {
