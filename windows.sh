@@ -1,8 +1,8 @@
 #! /usr/bin/env sh
-
 . config.sh
-jpackage --verbose \
-    --type deb \
+jpackage \
+    --verbose \
+    --type msi \
     --name i2pbrowser \
     --app-version "$GITHUB_TAG" \
     --input src/build \
