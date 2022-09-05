@@ -1,5 +1,5 @@
 #! /usr/bin/env sh
-. config.sh
+. ./config.sh
 jpackage \
     --verbose \
     --type msi \

@@ -1,6 +1,6 @@
 #! /usr/bin/env sh
 
-. config.sh
+. ./config.sh
 jpackage --verbose \
     --type deb \
     --name i2pbrowser \
