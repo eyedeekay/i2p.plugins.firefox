@@ -3,6 +3,12 @@
 jpackage \
     --verbose \
     --type msi \
+    --win-dir-chooser \
+    --win-help-url "https://geti2p.net" \
+    --win-menu \
+    --win-menu-group "I2P Browser Configurer" \
+    --win-shortcut \
+    --win-shortcut-prompt \
     --name i2pbrowser \
     --app-version "$GITHUB_TAG" \
     --input src/build \
