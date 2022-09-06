@@ -184,6 +184,8 @@ public class I2PFirefox extends I2PCommonBrowser {
         // list the files in the user.dir directory
         if (userFiles != null) {
           for (File userFile : userFiles) {
+            if (userFile.isDirectory())
+              continue;
             if (userFile.getName().equals("firefox") ||
                 userFile.getName().equals("firefox-bin") ||
                 userFile.getName().equals("firefox-esr") ||
@@ -462,6 +464,7 @@ public class I2PFirefox extends I2PCommonBrowser {
   }
 
   public Process launchAndDetatch(boolean privateWindow, String[] url) {
+    validateUserDir();
     if (waitForProxy()) {
       String profileDirectory = I2PFirefoxProfileBuilder.profileDirectory();
       if (I2PFirefoxProfileChecker.validateProfileDirectory(profileDirectory)) {
@@ -556,6 +559,7 @@ public class I2PFirefox extends I2PCommonBrowser {
   }
 
   public static void main(String[] args) {
+    validateUserDir();
     boolean privateBrowsing = false;
     println("checking for private browsing");
     ArrayList<String> visitURL = new ArrayList<String>();

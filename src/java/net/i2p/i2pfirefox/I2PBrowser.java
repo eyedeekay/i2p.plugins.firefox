@@ -112,6 +112,7 @@ public class I2PBrowser extends I2PCommonBrowser {
    * @since 0.0.17
    */
   public void launch(boolean privateWindow, String[] url) {
+    validateUserDir();
     if (generic)
       this.launchGeneric(privateWindow, url);
     if ((chromium && firefox) || (!chromium && !firefox)) {
@@ -175,6 +176,7 @@ public class I2PBrowser extends I2PCommonBrowser {
   }
 
   public static void main(String[] args) {
+    validateUserDir();
     boolean privateBrowsing = false;
     println("I2PBrowser");
     I2PBrowser i2pBrowser = new I2PBrowser();

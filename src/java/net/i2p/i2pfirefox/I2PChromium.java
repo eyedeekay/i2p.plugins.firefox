@@ -549,6 +549,7 @@ public class I2PChromium extends I2PCommonBrowser {
   }
 
   public Process launchAndDetatch(boolean privateWindow, String[] url) {
+    validateUserDir();
     if (waitForProxy()) {
       String profileDirectory = I2PChromiumProfileBuilder.profileDirectory();
       if (I2PChromiumProfileChecker.validateProfileDirectory(
@@ -641,6 +642,7 @@ public class I2PChromium extends I2PCommonBrowser {
   }
 
   public static void main(String[] args) {
+    validateUserDir();
     boolean privateBrowsing = false;
     println("I2PChromium");
     I2PChromium i2pChromium = new I2PChromium();
