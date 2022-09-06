@@ -9,6 +9,7 @@ jpackage \
     --win-menu-group "I2P Browser Configurer" \
     --win-shortcut \
     --win-shortcut-prompt \
+    --win-per-user-install \
     --license-file LICENSE.md \
     --name i2pbrowser \
     --app-version "$GITHUB_TAG" \

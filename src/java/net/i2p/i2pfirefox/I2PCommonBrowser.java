@@ -57,25 +57,30 @@ public class I2PCommonBrowser {
     File userHomeFile = new File(userHome);
     println("user.dir testing !" + userHomeFile.getAbsolutePath() + ".equals(" +
             userDirFile.getAbsolutePath() + ")");
-    if (!userDirFile.getAbsolutePath().equals(userHomeFile.getAbsolutePath())) {
-      println("user.dir is not inconvenient");
-      if (userDirFile.exists()) {
-        println("user.dir exists");
-        if (userDirFile.isDirectory()) {
-          println("user.dir is a directory");
-          if (userDirFile.canWrite()) {
-            println("user.dir is writable");
-            return;
-          } else {
-            println("user.dir is not writable");
+    if (!userDirFile.getAbsolutePath().contains("Program Files")) {
+      if (!userDirFile.getAbsolutePath().equals(
+              userHomeFile.getAbsolutePath())) {
+        println("user.dir is not inconvenient");
+        if (userDirFile.exists()) {
+          println("user.dir exists");
+          if (userDirFile.isDirectory()) {
+            println("user.dir is a directory");
+            if (userDirFile.canWrite()) {
+              println("user.dir is writable");
+              return;
+            } else {
+              println("user.dir is not writable");
+            }
           }
+          { println("user.dir is not actually a directory"); }
+        } else {
+          println("user.dir does not exist");
         }
-        { println("user.dir is not actually a directory"); }
       } else {
-        println("user.dir does not exist");
+        println("user.dir should not be the same as user.home");
       }
-    } else {
-      println("user.dir should not be the same as user.home");
+    }else{
+      println("user.dir cannot run from inside Program Files");
     }
     if (isWindows())
       userHome = new File(userHome, "AppData/Local/I2P").getAbsolutePath();
