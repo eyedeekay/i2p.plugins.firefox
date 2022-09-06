@@ -115,7 +115,7 @@ This method has no parameters.
 This method has no parameters.  
 
 
-### FIREFOX_FINDER [[src]](src/java/net/i2p/i2pfirefox/I2PFirefox.java#L201)
+### FIREFOX_FINDER [[src]](src/java/net/i2p/i2pfirefox/I2PFirefox.java#L203)
 
 + Description:   
 + Access: private  
@@ -125,7 +125,7 @@ This method has no parameters.
 This method has no parameters.  
 
 
-### getOperatingSystem [[src]](src/java/net/i2p/i2pfirefox/I2PFirefox.java#L213)
+### getOperatingSystem [[src]](src/java/net/i2p/i2pfirefox/I2PFirefox.java#L215)
 
 + Description:   
 + Access: private  
@@ -135,7 +135,7 @@ This method has no parameters.
 This method has no parameters.  
 
 
-### onlyValidFirefoxes [[src]](src/java/net/i2p/i2pfirefox/I2PFirefox.java#L235)
+### onlyValidFirefoxes [[src]](src/java/net/i2p/i2pfirefox/I2PFirefox.java#L237)
 
 + Description: Check our list of firefox paths for a valid firefox binary. Just an existence check for now but should check versions in the future.   
 + Access: public  
@@ -144,7 +144,7 @@ This method has no parameters.
 This method has no parameters.  
 
 
-### topFirefox [[src]](src/java/net/i2p/i2pfirefox/I2PFirefox.java#L255)
+### topFirefox [[src]](src/java/net/i2p/i2pfirefox/I2PFirefox.java#L257)
 
 + Description: Return the best available Firefox from the list of Firefoxes we have.   
 + Access: public  
@@ -153,7 +153,7 @@ This method has no parameters.
 This method has no parameters.  
 
 
-### topFirefox [[src]](src/java/net/i2p/i2pfirefox/I2PFirefox.java#L284)
+### topFirefox [[src]](src/java/net/i2p/i2pfirefox/I2PFirefox.java#L286)
 
 + Description: Return the best available Firefox from the list of Firefoxes we have. if override is passed it will be validated and if it validates it will be used.   
 + Access: public  
@@ -164,7 +164,7 @@ This method has no parameters.
 | overrideFirefox | String |  |  
 
 
-### defaultProcessBuilder [[src]](src/java/net/i2p/i2pfirefox/I2PFirefox.java#L302)
+### defaultProcessBuilder [[src]](src/java/net/i2p/i2pfirefox/I2PFirefox.java#L304)
 
 + Description: Build a ProcessBuilder for the top Firefox binary and the default profile.   
 + Access: public  
@@ -173,7 +173,7 @@ This method has no parameters.
 This method has no parameters.  
 
 
-### defaultProcessBuilder [[src]](src/java/net/i2p/i2pfirefox/I2PFirefox.java#L314)
+### defaultProcessBuilder [[src]](src/java/net/i2p/i2pfirefox/I2PFirefox.java#L316)
 
 + Description: Build a ProcessBuilder for the top Firefox binary and the default profile.   
 + Access: public  
@@ -184,7 +184,7 @@ This method has no parameters.
 | args | String[] | the args to pass to the Firefox binary  |  
 
 
-### privateProcessBuilder [[src]](src/java/net/i2p/i2pfirefox/I2PFirefox.java#L328)
+### privateProcessBuilder [[src]](src/java/net/i2p/i2pfirefox/I2PFirefox.java#L330)
 
 + Description: Build a ProcessBuilder for the top Firefox binary and the default profile. Pass the --private-window flag to open a window.   
 + Access: public  
@@ -193,7 +193,7 @@ This method has no parameters.
 This method has no parameters.  
 
 
-### privateProcessBuilder [[src]](src/java/net/i2p/i2pfirefox/I2PFirefox.java#L341)
+### privateProcessBuilder [[src]](src/java/net/i2p/i2pfirefox/I2PFirefox.java#L343)
 
 + Description: Build a ProcessBuilder for the top Firefox binary and the default profile. Pass the --private-window flag to open a window.   
 + Access: public  
@@ -204,7 +204,7 @@ This method has no parameters.
 | args | String[] | the arguments to pass to the Firefox binary  |  
 
 
-### processBuilder [[src]](src/java/net/i2p/i2pfirefox/I2PFirefox.java#L364)
+### processBuilder [[src]](src/java/net/i2p/i2pfirefox/I2PFirefox.java#L366)
 
 + Description: Build a ProcessBuilder for the top Firefox binary and the default profile with a specific set of extended arguments.   
 + Access: public  
@@ -215,7 +215,7 @@ This method has no parameters.
 | args | String[] | the extended arguments to pass to the Firefox binary.  |  
 
 
-### waitForProxy [[src]](src/java/net/i2p/i2pfirefox/I2PFirefox.java#L398)
+### waitForProxy [[src]](src/java/net/i2p/i2pfirefox/I2PFirefox.java#L400)
 
 + Description: Waits for an HTTP proxy on port 4444 to be ready. Returns false on timeout of 200 seconds.   
 + Access: public  
@@ -224,7 +224,7 @@ This method has no parameters.
 This method has no parameters.  
 
 
-### waitForProxy [[src]](src/java/net/i2p/i2pfirefox/I2PFirefox.java#L408)
+### waitForProxy [[src]](src/java/net/i2p/i2pfirefox/I2PFirefox.java#L410)
 
 + Description: Waits for an HTTP proxy on port 4444 to be ready. Returns false on timeout of the specified number of seconds.   
 + Access: public  
@@ -235,7 +235,7 @@ This method has no parameters.
 | timeout | int | the number of seconds to wait for the proxy to be ready.  |  
 
 
-### waitForProxy [[src]](src/java/net/i2p/i2pfirefox/I2PFirefox.java#L420)
+### waitForProxy [[src]](src/java/net/i2p/i2pfirefox/I2PFirefox.java#L422)
 
 + Description: Waits for an HTTP proxy on the specified port to be ready. Returns false on timeout of the specified number of seconds.   
 + Access: public  
@@ -247,7 +247,7 @@ This method has no parameters.
 | port | int | the port to wait for the proxy to be ready on.  |  
 
 
-### waitForProxy [[src]](src/java/net/i2p/i2pfirefox/I2PFirefox.java#L433)
+### waitForProxy [[src]](src/java/net/i2p/i2pfirefox/I2PFirefox.java#L435)
 
 + Description: Waits for an HTTP proxy on the specified port to be ready. Returns false on timeout of the specified number of seconds.   
 + Access: public  
@@ -260,7 +260,7 @@ This method has no parameters.
 | host | String | the host to wait for the proxy to be ready on.  |  
 
 
-### checkifPortIsOccupied [[src]](src/java/net/i2p/i2pfirefox/I2PFirefox.java#L447)
+### checkifPortIsOccupied [[src]](src/java/net/i2p/i2pfirefox/I2PFirefox.java#L449)
 
 + Description:   
 + Access: private  
@@ -272,7 +272,7 @@ This method has no parameters.
 | host | String |  |  
 
 
-### usabilityMode [[src]](src/java/net/i2p/i2pfirefox/I2PFirefox.java#L457)
+### usabilityMode [[src]](src/java/net/i2p/i2pfirefox/I2PFirefox.java#L459)
 
 + Description:   
 + Access: private  
@@ -281,7 +281,7 @@ This method has no parameters.
 This method has no parameters.  
 
 
-### launchAndDetatch [[src]](src/java/net/i2p/i2pfirefox/I2PFirefox.java#L464)
+### launchAndDetatch [[src]](src/java/net/i2p/i2pfirefox/I2PFirefox.java#L466)
 
 + Description:   
 + Access: public  
@@ -293,7 +293,7 @@ This method has no parameters.
 | url | String[] |  |  
 
 
-### launch [[src]](src/java/net/i2p/i2pfirefox/I2PFirefox.java#L511)
+### launch [[src]](src/java/net/i2p/i2pfirefox/I2PFirefox.java#L514)
 
 + Description: Populates a profile directory with a proxy configuration. Waits for an HTTP proxy on the port 4444 to be ready. Launches Firefox with the profile directory.   
 + Access: public  
@@ -305,7 +305,7 @@ This method has no parameters.
 | url | String[] |  |  
 
 
-### launch [[src]](src/java/net/i2p/i2pfirefox/I2PFirefox.java#L535)
+### launch [[src]](src/java/net/i2p/i2pfirefox/I2PFirefox.java#L538)
 
 + Description: Populates a profile directory with a proxy configuration. Waits for an HTTP proxy on the port 4444 to be ready. Launches Firefox with the profile directory.   
 + Access: public  
@@ -316,7 +316,7 @@ This method has no parameters.
 | privateWindow | boolean |  |  
 
 
-### launch [[src]](src/java/net/i2p/i2pfirefox/I2PFirefox.java#L545)
+### launch [[src]](src/java/net/i2p/i2pfirefox/I2PFirefox.java#L548)
 
 + Description: Populates a profile directory with a proxy configuration. Waits for an HTTP proxy on the port 4444 to be ready. Launches Firefox with the profile directory. Uses a semi-permanent profile.   
 + Access: public  
@@ -325,7 +325,7 @@ This method has no parameters.
 This method has no parameters.  
 
 
-### ValidURL [[src]](src/java/net/i2p/i2pfirefox/I2PFirefox.java#L547)
+### ValidURL [[src]](src/java/net/i2p/i2pfirefox/I2PFirefox.java#L550)
 
 + Description:   
 + Access: private  
@@ -337,7 +337,7 @@ This method has no parameters.
 | inUrl | String |  |  
 
 
-### main [[src]](src/java/net/i2p/i2pfirefox/I2PFirefox.java#L558)
+### main [[src]](src/java/net/i2p/i2pfirefox/I2PFirefox.java#L561)
 
 + Description:   
 + Access: public  
@@ -349,7 +349,7 @@ This method has no parameters.
 | args | String[] |  |  
 
 
-### sleep [[src]](src/java/net/i2p/i2pfirefox/I2PFirefox.java#L586)
+### sleep [[src]](src/java/net/i2p/i2pfirefox/I2PFirefox.java#L590)
 
 + Description:   
 + Access: private  
