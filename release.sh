@@ -1,6 +1,6 @@
 #! /usr/bin/env sh
 
-. config.sh
+. ./config.sh
 ant distclean
 ./javadoc.sh
 NUMLINE=`grep release.number build.xml | head -n 1`
