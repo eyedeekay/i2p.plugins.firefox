@@ -46,7 +46,7 @@ package: net.i2p.i2pfirefox
 This method has no parameters.  
 
 
-### isWindows [[src]](src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L93)
+### isWindows [[src]](src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L98)
 
 + Description:   
 + Access: private  
@@ -56,7 +56,7 @@ This method has no parameters.
 This method has no parameters.  
 
 
-### println [[src]](src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L105)
+### println [[src]](src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L110)
 
 + Description:   
 + Access: public  
@@ -68,7 +68,7 @@ This method has no parameters.
 | line | String |  |  
 
 
-### logFile [[src]](src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L107)
+### logFile [[src]](src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L112)
 
 + Description:   
 + Access: private  
@@ -78,7 +78,7 @@ This method has no parameters.
 This method has no parameters.  
 
 
-### runtimeDirectory [[src]](src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L123)
+### runtimeDirectory [[src]](src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L128)
 
 + Description: get the runtime directory creating it if create=true   
 + Access: protected  
@@ -91,7 +91,7 @@ This method has no parameters.
 | override | String |  |  
 
 
-### runtimeDirectory [[src]](src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L140)
+### runtimeDirectory [[src]](src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L145)
 
 + Description: get the correct runtime directory   
 + Access: protected  
@@ -103,7 +103,7 @@ This method has no parameters.
 | override | String |  |  
 
 
-### profileDirectory [[src]](src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L187)
+### profileDirectory [[src]](src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L192)
 
 + Description: get the profile directory creating it if necessary   
 + Access: protected  
@@ -116,7 +116,7 @@ This method has no parameters.
 | browser | String |  |  
 
 
-### profileDir [[src]](src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L199)
+### profileDir [[src]](src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L204)
 
 + Description:   
 + Access: protected  
@@ -129,7 +129,7 @@ This method has no parameters.
 | browser | String |  |  
 
 
-### unpackProfile [[src]](src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L205)
+### unpackProfile [[src]](src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L210)
 
 + Description:   
 + Access: protected  
@@ -142,7 +142,7 @@ This method has no parameters.
 | base | String |  |  
 
 
-### copyDirectory [[src]](src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L251)
+### copyDirectory [[src]](src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L256)
 
 + Description:   
 + Access: protected  
@@ -157,7 +157,7 @@ This method has no parameters.
 | base | String |  |  
 
 
-### copyDirectoryCompatibityMode [[src]](src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L267)
+### copyDirectoryCompatibityMode [[src]](src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L272)
 
 + Description:   
 + Access: private  
@@ -172,7 +172,7 @@ This method has no parameters.
 | base | String |  |  
 
 
-### copyFile [[src]](src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L276)
+### copyFile [[src]](src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L281)
 
 + Description:   
 + Access: private  
@@ -185,7 +185,7 @@ This method has no parameters.
 | destinationFile | File |  |  
 
 
-### validateProfileFirstRun [[src]](src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L287)
+### validateProfileFirstRun [[src]](src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L292)
 
 + Description:   
 + Access: public  
