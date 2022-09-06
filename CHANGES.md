@@ -4,7 +4,7 @@ Mon, September 5
  - Fix several issues with running on Windows 11
  - Make tunnel nicknames different to avoid double shared tunnels
  - Add support for building a Debian package.
- - Start support for building an MSI package.
+ - Add support for building an MSI package.
 
 Fri, September 2
 ----------------
