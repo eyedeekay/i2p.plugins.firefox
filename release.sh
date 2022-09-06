@@ -1,7 +1,7 @@
 #! /usr/bin/env sh
 
 . ./config.sh
-ant distclean
+ant distclean clangFmt
 ./javadoc.sh
 NUMLINE=`grep release.number build.xml | head -n 1`
 sed -i "s|$NUMLINE|        <property name=\"release.number\" value=\"$GITHUB_TAG\" />|g" build.xml
