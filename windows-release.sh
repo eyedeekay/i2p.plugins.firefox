@@ -3,7 +3,7 @@ git pull --all
 . ../i2p.firefox/config.sh
 . ./config.sh
 . "${HOME}/github-release-config.sh"
-ant distclean jar jpackage
+ant distclean jar
 ./windows.sh
 github-release upload --user "${GITHUB_USER}" \
     --repo "${GITHUB_REPO}" \
