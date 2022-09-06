@@ -79,7 +79,7 @@ public class I2PCommonBrowser {
       } else {
         println("user.dir should not be the same as user.home");
       }
-    }else{
+    } else {
       println("user.dir cannot run from inside Program Files");
     }
     if (isWindows())
