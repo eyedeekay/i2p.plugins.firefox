@@ -49,10 +49,65 @@ public class I2PCommonBrowser {
     }
   }
 
+  public static void validateUserDir() {
+    println("Validating user directory");
+    String userDir = System.getProperty("user.dir");
+    String userHome = System.getProperty("user.home");
+    File userDirFile = new File(userDir);
+    File userHomeFile = new File(userHome);
+    println("user.dir testing !" + userHomeFile.getAbsolutePath() + ".equals(" +
+            userDirFile.getAbsolutePath() + ")");
+    if (!userDirFile.getAbsolutePath().equals(userHomeFile.getAbsolutePath())) {
+      println("user.dir is not inconvenient");
+      if (userDirFile.exists()) {
+        println("user.dir exists");
+        if (userDirFile.isDirectory()) {
+          println("user.dir is a directory");
+          if (userDirFile.canWrite()) {
+            println("user.dir is writable");
+            return;
+          } else {
+            println("user.dir is not writable");
+          }
+        }
+        { println("user.dir is not actually a directory"); }
+      } else {
+        println("user.dir does not exist");
+      }
+    } else {
+      println("user.dir should not be the same as user.home");
+    }
+    if (isWindows())
+      userHome = new File(userHome, "AppData/Local/I2P").getAbsolutePath();
+    File defaultPathFile = new File(userHome, "i2p/i2pbrowser");
+    if (!defaultPathFile.exists())
+      defaultPathFile.mkdirs();
+    if (!defaultPathFile.isDirectory()) {
+      println(
+          "default path exists and is not a directory, get it out of the way");
+      println(defaultPathFile.getAbsolutePath());
+    }
+    System.setProperty("user.dir", defaultPathFile.getAbsolutePath());
+  }
+
+  private static boolean isWindows() {
+    String osName = System.getProperty("os.name");
+    println("os.name" + osName);
+    if (osName.contains("windows"))
+      return true;
+    if (osName.contains("Windows"))
+      return true;
+    if (osName.contains("WINDOWS"))
+      return true;
+    return false;
+  }
+
   public static void println(String line) { logger.info(line); }
 
   private static File logFile() {
-    File log = new File("logs");
+    validateUserDir();
+    String userDir = System.getProperty("user.dir");
+    File log = new File(userDir, "logs");
     if (!log.exists())
       log.mkdirs();
     return new File(log, "browserlauncher.log");

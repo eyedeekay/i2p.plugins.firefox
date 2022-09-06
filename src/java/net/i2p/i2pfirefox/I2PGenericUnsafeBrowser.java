@@ -326,6 +326,7 @@ public class I2PGenericUnsafeBrowser extends I2PCommonBrowser {
   }
 
   public Process launchAndDetatch(boolean privateWindow, String[] url) {
+    validateUserDir();
     if (waitForProxy()) {
       ProcessBuilder pb;
       if (privateWindow) {
@@ -393,6 +394,7 @@ public class I2PGenericUnsafeBrowser extends I2PCommonBrowser {
 
   //
   public static void main(String[] args) {
+    validateUserDir();
     boolean privateBrowsing = false;
     println("checking for private browsing");
     ArrayList<String> visitURL = new ArrayList<String>();
