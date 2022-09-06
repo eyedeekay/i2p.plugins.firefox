@@ -50,6 +50,14 @@ github-release upload --user "${GITHUB_USER}" \
     --name "i2pbrowser_${GITHUB_TAG}_.deb" \
     --file "i2pbrowser_${GITHUB_TAG}_amd64.deb" \
     --replace
-echo "Uploaded debian zip"
+echo "Uploaded debian package"
+github-release upload --user "${GITHUB_USER}" \
+    --repo "${GITHUB_REPO}" \
+    --tag "${GITHUB_TAG}" \
+    --label "I2P Browser launcher as a Jpackage inside of a Fedora package." \
+    --name "i2pbrowser_${GITHUB_TAG}_.rpm" \
+    --file "i2pbrowser_${GITHUB_TAG}.x86_64.rpm" \
+    --replace
+echo "Uploaded fedora package"
 git pull github --tags
 git push --all
