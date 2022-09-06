@@ -153,7 +153,7 @@ This method has no parameters.
 | url | String[] |  |  
 
 
-### launch [[src]](src/java/net/i2p/i2pfirefox/I2PBrowser.java#L156)
+### launch [[src]](src/java/net/i2p/i2pfirefox/I2PBrowser.java#L157)
 
 + Description: Populates a profile directory with a proxy configuration. Waits for an HTTP proxy on the port 4444 to be ready. Launches either Firefox or Chromium with the profile directory.   
 + Access: public  
@@ -164,7 +164,7 @@ This method has no parameters.
 | privateWindow | boolean |  |  
 
 
-### launch [[src]](src/java/net/i2p/i2pfirefox/I2PBrowser.java#L165)
+### launch [[src]](src/java/net/i2p/i2pfirefox/I2PBrowser.java#L166)
 
 + Description: Populates a profile directory with a proxy configuration. Waits for an HTTP proxy on the port 4444 to be ready. Launches either Firefox or Chromium with the profile directory.   
 + Access: public  
@@ -173,7 +173,7 @@ This method has no parameters.
 This method has no parameters.  
 
 
-### ValidURL [[src]](src/java/net/i2p/i2pfirefox/I2PBrowser.java#L167)
+### ValidURL [[src]](src/java/net/i2p/i2pfirefox/I2PBrowser.java#L168)
 
 + Description:   
 + Access: private  
@@ -185,7 +185,7 @@ This method has no parameters.
 | inUrl | String |  |  
 
 
-### main [[src]](src/java/net/i2p/i2pfirefox/I2PBrowser.java#L177)
+### main [[src]](src/java/net/i2p/i2pfirefox/I2PBrowser.java#L178)
 
 + Description:   
 + Access: public  
