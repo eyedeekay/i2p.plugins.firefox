@@ -47,9 +47,9 @@ github-release upload --user "${GITHUB_USER}" \
     --repo "${GITHUB_REPO}" \
     --tag "${GITHUB_TAG}" \
     --label "I2P Browser launcher as a Jpackage inside of a Debian package." \
-    --name "i2pbrowser.deb" \
-    --file "i2pbrowser.deb" \
-    --replace  
+    --name "i2pbrowser_${GITHUB_TAG}_.deb" \
+    --file "i2pbrowser_${GITHUB_TAG}_amd64.deb" \
+    --replace
 echo "Uploaded debian zip"
 git pull github --tags
 git push --all
