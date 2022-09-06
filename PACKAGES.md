@@ -20,13 +20,17 @@ Requires the Wixl toolset.
 
 run: `./windows.sh`
 
-### EXE: Works. Maintained.
+#### EXE
+
+#### Status: Works. Maintained.
 
 No special requirements.
 
 run: `./windows-exe.sh`
 
-### Portable(.zip): Unknown. Maintained.
+### Portable(.zip)
+
+#### Status: Unknown. Maintained.
 
 No special requirements.
 
@@ -40,13 +44,17 @@ be built on Debian, Fedora packages must be built on Fedora. Some leeway for
 derivative distros. Portable can be b build anywhere with a jpackage. Have
 Java tools in your `PATH`.
 
-### Debian: Works. Maintained.
+### Debian
+
+#### Status: Works. Maintained.
 
 Make sure you have a recent Java and jpackage.
 
 run: `ant debian`
 
-### Fedora: Unknown. Maintained.
+### Fedora
+
+#### Status: Unknown. Maintained.
 
 I'm a Debian user and don't have a Fedora machine set up right now.  Therefore,
 I build Fedora packages in a container.
@@ -57,7 +65,9 @@ package.
 
 run: `ant fedora`
 
-### Portable(.zip): Works. Maintained.
+### Portable(.zip)
+
+#### Status: Works. Maintained.
 
 Details are platform dependent. Same build-deps as everything else.
 
