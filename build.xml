@@ -441,4 +441,11 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
             <arg value="./debian.sh"/>
         </exec>
     </target>
+    <target name="fedora" depends="jar">
+        <exec executable="bash" failonerror="true">
+            <arg value="--verbose"/>
+            <arg value="-c"/>
+            <arg value="./fedora.sh"/>
+        </exec>
+    </target>
 </project>
