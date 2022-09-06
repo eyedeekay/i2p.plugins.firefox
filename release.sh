@@ -42,6 +42,7 @@ github-release upload --user "${GITHUB_USER}" \
     --name "i2pbrowser.zip" \
     --file "i2pbrowser.zip" \
     --replace
+echo "Uploaded jpackage zip"
 github-release upload --user "${GITHUB_USER}" \
     --repo "${GITHUB_REPO}" \
     --tag "${GITHUB_TAG}" \
@@ -49,6 +50,6 @@ github-release upload --user "${GITHUB_USER}" \
     --name "i2pbrowser.deb" \
     --file "i2pbrowser.deb" \
     --replace  
-echo "Uploaded jpackage zip"
+echo "Uploaded debian zip"
 git pull github --tags
 git push --all
