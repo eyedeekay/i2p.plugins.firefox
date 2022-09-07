@@ -7,25 +7,28 @@ ant distclean jar
 ./windows.sh
 ./windows-exe.sh
 ./windows-portable.sh
+msisum=$(sha256sum "i2pbrowser-${GITHUB_TAG}.msi")
 github-release upload --user "${GITHUB_USER}" \
     --repo "${GITHUB_REPO}" \
     --tag "${GITHUB_TAG}" \
-    --label "I2P Browser launcher as a Jpackage inside of an MSI package." \
-    --name "i2pbrowser-${GITHUB_TAG}.msi" \
+    --label "I2P Browser launcher as a Jpackage inside of an MSI package. ${msisum}" \
+    --name "i2pbrowser.msi" \
     --file "i2pbrowser-${GITHUB_TAG}.msi" \
     --replace
+exesum=$(sha256sum "i2pbrowser-${GITHUB_TAG}.exe")
 github-release upload --user "${GITHUB_USER}" \
     --repo "${GITHUB_REPO}" \
     --tag "${GITHUB_TAG}" \
-    --label "I2P Browser launcher as a Jpackage inside of an EXE package." \
-    --name "i2pbrowser-${GITHUB_TAG}.exe" \
+    --label "I2P Browser launcher as a Jpackage inside of an EXE package. ${exesum}" \
+    --name "i2pbrowser.exe" \
     --file "i2pbrowser-${GITHUB_TAG}.exe" \
     --replace
+zipsum=$(sha256sum "i2pbrowser-portable-${GITHUB_TAG}.zip")
 github-release upload --user "${GITHUB_USER}" \
     --repo "${GITHUB_REPO}" \
     --tag "${GITHUB_TAG}" \
-    --label "I2P Browser launcher as a Jpackage inside of an zip to be run from a directory on Windows." \
-    --name "i2pbrowser-portable-${GITHUB_TAG}.zip" \
+    --label "I2P Browser launcher as a Jpackage inside of an zip to be run from a directory on Windows. ${zipsum}" \
+    --name "i2pbrowser-portable.zip" \
     --file "i2pbrowser-portable-${GITHUB_TAG}.zip" \
     --replace
 echo "Uploaded Windows ZIP package"
