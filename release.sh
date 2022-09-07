@@ -19,7 +19,7 @@ github-release edit --user "${GITHUB_USER}" \
     --description "${GITHUB_DESCRIPTION}" \
     --tag "${GITHUB_TAG}"; true
 echo "Relase ${GITHUB_TAG} setup"
-jarsum=$(sha256sum "i2pfirefox.jar")
+jarsum=$(sha256sum "src/build/i2pfirefox.jar")
 github-release upload --user "${GITHUB_USER}" \
     --repo "${GITHUB_REPO}" \
     --tag "${GITHUB_TAG}" \
