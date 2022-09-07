@@ -332,7 +332,7 @@ public class I2PFirefox extends I2PCommonBrowser {
   }
 
   /**
-   * * Build a ProcessBuilder for the top Firefox binary and
+   * Build a ProcessBuilder for the top Firefox binary and
    * the default profile. Pass the --private-window flag to
    * open a private window.
    *
@@ -343,6 +343,28 @@ public class I2PFirefox extends I2PCommonBrowser {
   public ProcessBuilder privateProcessBuilder(String[] args) {
     ArrayList<String> argList = new ArrayList<String>();
     argList.add("--private-window");
+    if (args != null) {
+      if (args.length > 0) {
+        for (String arg : args) {
+          argList.add(arg);
+        }
+      }
+    }
+    return processBuilder(argList.toArray(new String[argList.size()]));
+  }
+
+  /**
+   * Build a ProcessBuilder for the top Firefox binary and
+   * the default profile. Pass the --headless flag to open
+   * without a window.
+   *
+   * @param args the arguments to pass to the Firefox binary
+   * @return a ProcessBuilder for the top Firefox binary and
+   * the default profile.
+   */
+  public ProcessBuilder headlessProcessBuilder(String[] args) {
+    ArrayList<String> argList = new ArrayList<String>();
+    argList.add("--headless");
     if (args != null) {
       if (args.length > 0) {
         for (String arg : args) {
@@ -480,8 +502,21 @@ public class I2PFirefox extends I2PCommonBrowser {
           println("Rebuilt profile directory: " + profileDirectory);
         }
       }
-      if (validateProfileFirstRun(profileDirectory))
-        return null;
+      if (validateProfileFirstRun(profileDirectory)) {
+        ProcessBuilder hpb = headlessProcessBuilder(url);
+        try {
+          Process hp = hpb.start();
+          try {
+            int hev = hp.waitFor();
+            println("Headless browser run completed, exit: " + hev);
+          } catch (InterruptedException e) {
+            println(e.toString());
+          }
+        } catch (IOException e) {
+          println(e.toString());
+        }
+      }
+
       ProcessBuilder pb;
       if (privateWindow) {
         pb = privateProcessBuilder(url);
