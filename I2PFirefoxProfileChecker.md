@@ -19,9 +19,11 @@ package: net.i2p.i2pfirefox
   <ul>  
 <li>java.io.BufferedReader</li>
 <li>java.io.File</li>
+<li>java.io.FileNotFoundException</li>
 <li>java.io.FileReader</li>
 <li>java.io.FileWriter</li>
 <li>java.io.IOException</li>
+<li>java.util.Scanner</li>
   </ul>  
 </details>  
 
@@ -29,7 +31,7 @@ package: net.i2p.i2pfirefox
 
 ## Methods
 
-### main [[src]](src/java/net/i2p/i2pfirefox/I2PFirefoxProfileChecker.java#L30)
+### main [[src]](src/java/net/i2p/i2pfirefox/I2PFirefoxProfileChecker.java#L32)
 
 + Description:   
 + Access: public  
@@ -41,7 +43,7 @@ package: net.i2p.i2pfirefox
 | args | String[] |  |  
 
 
-### validateProfileDirectory [[src]](src/java/net/i2p/i2pfirefox/I2PFirefoxProfileChecker.java#L51)
+### validateProfileDirectory [[src]](src/java/net/i2p/i2pfirefox/I2PFirefoxProfileChecker.java#L53)
 
 + Description: Return true if the profile directory is valid.   
 + Access: public  
@@ -53,7 +55,7 @@ package: net.i2p.i2pfirefox
 | profileDirectory | String | the profile directory to check  |  
 
 
-### deRestrictHTTPS [[src]](src/java/net/i2p/i2pfirefox/I2PFirefoxProfileChecker.java#L84)
+### deRestrictHTTPSAndSetupHomepage [[src]](src/java/net/i2p/i2pfirefox/I2PFirefoxProfileChecker.java#L86)
 
 + Description:   
 + Access: private  
@@ -65,7 +67,7 @@ package: net.i2p.i2pfirefox
 | profile | String |  |  
 
 
-### undoHttpsOnlyMode [[src]](src/java/net/i2p/i2pfirefox/I2PFirefoxProfileChecker.java#L104)
+### undoHttpsOnlyMode [[src]](src/java/net/i2p/i2pfirefox/I2PFirefoxProfileChecker.java#L109)
 
 + Description:   
 + Access: private  
@@ -77,7 +79,33 @@ package: net.i2p.i2pfirefox
 | fileToBeModified | File |  |  
 
 
-### validateFile [[src]](src/java/net/i2p/i2pfirefox/I2PFirefoxProfileChecker.java#L140)
+### undoHomepage [[src]](src/java/net/i2p/i2pfirefox/I2PFirefoxProfileChecker.java#L115)
+
++ Description:   
++ Access: private  
++ Modifiers: static 
++ return: boolean  
+
+| Name | Type | Description |  
+| ----- | ----- | ----- |  
+| fileToBeModified | File |  |  
+
+
+### undoValue [[src]](src/java/net/i2p/i2pfirefox/I2PFirefoxProfileChecker.java#L137)
+
++ Description:   
++ Access: private  
++ Modifiers: static 
++ return: boolean  
+
+| Name | Type | Description |  
+| ----- | ----- | ----- |  
+| oldString | String |  |  
+| newString | String |  |  
+| fileToBeModified | File |  |  
+
+
+### validateFile [[src]](src/java/net/i2p/i2pfirefox/I2PFirefoxProfileChecker.java#L171)
 
 + Description: Return true if the file is valid.   
 + Access: public  
@@ -89,7 +117,7 @@ package: net.i2p.i2pfirefox
 | file | String | the file to check  |  
 
 
-### validateExtensionDirectory [[src]](src/java/net/i2p/i2pfirefox/I2PFirefoxProfileChecker.java#L167)
+### validateExtensionDirectory [[src]](src/java/net/i2p/i2pfirefox/I2PFirefoxProfileChecker.java#L198)
 
 + Description: Return true if the extension directory is valid.   
 + Access: public  
