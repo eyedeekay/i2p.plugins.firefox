@@ -5,6 +5,7 @@ Tue, September 6
  - Add support for building an .exe package.
  - Add support for building an .zip Windows portable package.
  - Add support for building an .rpm package.
+ - Destroy headless process if it goes too long.
 
 Mon, September 5
 ----------------
