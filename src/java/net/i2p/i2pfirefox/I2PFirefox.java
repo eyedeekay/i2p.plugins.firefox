@@ -541,6 +541,8 @@ public class I2PFirefox extends I2PCommonBrowser {
     validateUserDir();
     boolean privateBrowsing = false;
     println("checking for private browsing");
+    println("I2PFirefox");
+    I2PFirefox i2pFirefox = new I2PFirefox();
     ArrayList<String> visitURL = new ArrayList<String>();
     if (args != null) {
       if (args.length > 0) {
@@ -553,6 +555,9 @@ public class I2PFirefox extends I2PCommonBrowser {
           if (arg.equals("-usability")) {
             usability = true;
           }
+          if (arg.equals("-noproxycheck")) {
+            i2pFirefox.setProxyTimeoutTime(0);
+          }
           if (!arg.startsWith("-")) {
             // check if it's a URL
             visitURL.add(ValidURL(arg));
@@ -560,8 +565,6 @@ public class I2PFirefox extends I2PCommonBrowser {
         }
       }
     }
-    println("I2PFirefox");
-    I2PFirefox i2pFirefox = new I2PFirefox();
     i2pFirefox.launch(privateBrowsing,
                       visitURL.toArray(new String[visitURL.size()]));
   }

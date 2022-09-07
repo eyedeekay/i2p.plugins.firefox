@@ -591,6 +591,9 @@ public class I2PChromium extends I2PCommonBrowser {
           if (arg.equals("-usability")) {
             I2PChromiumProfileBuilder.usability = true;
           }
+          if (arg.equals("-noproxycheck")) {
+            i2pChromium.setProxyTimeoutTime(0);
+          }
           if (!arg.startsWith("-")) {
             // check if it's a URL
             visitURL.add(ValidURL(arg));
