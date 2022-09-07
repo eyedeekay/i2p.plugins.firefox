@@ -8,10 +8,11 @@ Releases can be created in a mostly automatic way. With a working Java toolchain
 including jpackage installed:
 
 0. Set a `GITHUB_TOKEN` in the environment containing an API key.
-1. Update the version number(`GITHUB_TAG`) and version title(`GITHUB_NAME`) in `config.sh`
-2. On a Linux machine, run `./release.sh`
-3. On a Windows machine, run `./windows-release.sh`
-
+1. Update `CHANGES.md`
+2. Update the version number(`GITHUB_TAG`) and version title(`GITHUB_NAME`) in `config.sh`
+3. On a Linux machine, run `./release.sh`
+4. On a Windows machine, run `./windows-release.sh`
+5. On whatever machine you check in code with, run ./packages.sh
 
 Windows
 -------
