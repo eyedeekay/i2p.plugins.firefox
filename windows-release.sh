@@ -15,6 +15,7 @@ github-release upload --user "${GITHUB_USER}" \
     --name "i2pbrowser.msi" \
     --file "i2pbrowser-${GITHUB_TAG}.msi" \
     --replace
+echo "Uploaded MSI package"
 exesum=$(sha256sum "i2pbrowser-${GITHUB_TAG}.exe")
 github-release upload --user "${GITHUB_USER}" \
     --repo "${GITHUB_REPO}" \
@@ -23,6 +24,7 @@ github-release upload --user "${GITHUB_USER}" \
     --name "i2pbrowser.exe" \
     --file "i2pbrowser-${GITHUB_TAG}.exe" \
     --replace
+echo "Uploaded EXE package"
 zipsum=$(sha256sum "i2pbrowser-portable-${GITHUB_TAG}.zip")
 github-release upload --user "${GITHUB_USER}" \
     --repo "${GITHUB_REPO}" \
