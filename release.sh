@@ -51,7 +51,7 @@ github-release upload --user "${GITHUB_USER}" \
     --repo "${GITHUB_REPO}" \
     --tag "${GITHUB_TAG}" \
     --label "I2P Browser launcher as a Jpackage inside of a Debian package. ${debsum}" \
-    --name "i2pbrowser_${GITHUB_TAG}_.deb" \
+    --name "i2pbrowser_${GITHUB_TAG}_amd64.deb" \
     --file "i2pbrowser_${GITHUB_TAG}_amd64.deb" \
     --replace
 echo "Uploaded debian package"
@@ -60,7 +60,7 @@ github-release upload --user "${GITHUB_USER}" \
     --repo "${GITHUB_REPO}" \
     --tag "${GITHUB_TAG}" \
     --label "I2P Browser launcher as a Jpackage inside of a Fedora package. ${rpmsum}" \
-    --name "i2pbrowser-${GITHUB_TAG}_.rpm" \
+    --name "i2pbrowser-${GITHUB_TAG}-1.x86_64.rpm.rpm" \
     --file "i2pbrowser-${GITHUB_TAG}-1.x86_64.rpm" \
     --replace
 echo "Uploaded fedora package"
