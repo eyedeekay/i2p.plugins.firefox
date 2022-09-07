@@ -49,7 +49,7 @@ This method has no parameters.
 ### isWindows [[src]](src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L98)
 
 + Description:   
-+ Access: private  
++ Access: protected  
 + Modifiers: static 
 + return: boolean  
 
