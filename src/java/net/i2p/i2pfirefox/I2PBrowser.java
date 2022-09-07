@@ -197,6 +197,7 @@ public class I2PBrowser extends I2PCommonBrowser {
             i2pBrowser.usability = true;
           }
           if (arg.equals("-noproxycheck")) {
+            println("zeroing out proxy check");
             i2pBrowser.setProxyTimeoutTime(0);
           }
           if (!arg.startsWith("-")) {
