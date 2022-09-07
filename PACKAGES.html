@@ -135,6 +135,51 @@
       Packages for various operating systems
     </h1>
     <h2>
+      <a href="#making-a-new-release" rel="nofollow">
+        <span></span>
+      </a>
+      Making a new release:
+    </h2>
+    <p>
+      Releases can be created in a mostly automatic way. With a working Java toolchain
+      including jpackage installed:
+    </p>
+    <ol>
+      <li>
+        Set a
+        <code>
+          GITHUB_TOKEN
+        </code>
+        in the environment containing an API key.
+      </li>
+      <li>
+        Update the version number(
+        <code>
+          GITHUB_TAG
+        </code>
+        ) and version title(
+        <code>
+          GITHUB_NAME
+        </code>
+        ) in
+        <code>
+          config.sh
+        </code>
+      </li>
+      <li>
+        On a Linux machine, run
+        <code>
+          ./release.sh
+        </code>
+      </li>
+      <li>
+        On a Windows machine, run
+        <code>
+          ./windows-release.sh
+        </code>
+      </li>
+    </ol>
+    <h2>
       <a href="#windows" rel="nofollow">
         <span></span>
       </a>
@@ -173,15 +218,15 @@
       </a>
       MSI
     </h3>
+    <p>
+      Requires the Wixl toolset.
+    </p>
     <h4>
       <a href="#status-works-maintained" rel="nofollow">
         <span></span>
       </a>
       Status: Works. Maintained.
     </h4>
-    <p>
-      Requires the Wixl toolset.
-    </p>
     <p>
       run:
       <code>
@@ -194,15 +239,15 @@
       </a>
       EXE
     </h4>
+    <p>
+      No special requirements.
+    </p>
     <h4>
       <a href="#status-works-maintained" rel="nofollow">
         <span></span>
       </a>
       Status: Works. Maintained.
     </h4>
-    <p>
-      No special requirements.
-    </p>
     <p>
       run:
       <code>
@@ -215,15 +260,15 @@
       </a>
       Portable(.zip)
     </h3>
+    <p>
+      No special requirements.
+    </p>
     <h4>
       <a href="#status-unknown-maintained" rel="nofollow">
         <span></span>
       </a>
       Status: Unknown. Maintained.
     </h4>
-    <p>
-      No special requirements.
-    </p>
     <p>
       run:
       <code>
@@ -252,15 +297,15 @@
       </a>
       Debian
     </h3>
+    <p>
+      Make sure you have a recent Java and jpackage.
+    </p>
     <h4>
       <a href="#status-works-maintained" rel="nofollow">
         <span></span>
       </a>
       Status: Works. Maintained.
     </h4>
-    <p>
-      Make sure you have a recent Java and jpackage.
-    </p>
     <p>
       run:
       <code>
@@ -273,12 +318,6 @@
       </a>
       Fedora
     </h3>
-    <h4>
-      <a href="#status-unknown-maintained" rel="nofollow">
-        <span></span>
-      </a>
-      Status: Unknown. Maintained.
-    </h4>
     <p>
       I&#39;m a Debian user and don&#39;t have a Fedora machine set up right now.  Therefore,
       I build Fedora packages in a container.
@@ -288,6 +327,12 @@
       Adoptium&#39;s third-party repository to supply the JDK I use to build the fedora
       package.
     </p>
+    <h4>
+      <a href="#status-unknown-maintained" rel="nofollow">
+        <span></span>
+      </a>
+      Status: Unknown. Maintained.
+    </h4>
     <p>
       run:
       <code>
@@ -300,15 +345,15 @@
       </a>
       Portable(.zip)
     </h3>
+    <p>
+      Details are platform dependent. Same build-deps as everything else.
+    </p>
     <h4>
       <a href="#status-works-maintained" rel="nofollow">
         <span></span>
       </a>
       Status: Works. Maintained.
     </h4>
-    <p>
-      Details are platform dependent. Same build-deps as everything else.
-    </p>
     <p>
       run:
       <code>
