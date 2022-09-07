@@ -1,6 +1,7 @@
 Tue, September 6
 ----------------
 
+ - Run headlessly on first-run on Windows.
  - Add support for building an .exe package.
  - Add support for building an .zip Windows portable package.
  - Add support for building an .rpm package.
