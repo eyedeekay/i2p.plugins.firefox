@@ -1,6 +1,12 @@
 Tue, September 6
 ----------------
 
+ - Wait up to 5 seconds for the initializing headless Firefox instance to die on Windows
+ - Add option to disable proxy pre-check by setting timeout to zero or less
+
+Tue, September 6
+----------------
+
  - Run headlessly on first-run on Windows.
  - Add support for building an .exe package.
  - Add support for building an .zip Windows portable package.
