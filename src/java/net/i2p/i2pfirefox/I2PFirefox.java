@@ -508,10 +508,17 @@ public class I2PFirefox extends I2PCommonBrowser {
           try {
             Process hp = hpb.start();
             try {
-              boolean hev = hp.waitFor(20, TimeUnit.SECONDS);
+              boolean hev = hp.waitFor(5, TimeUnit.SECONDS);
               println("Headless browser run completed, exit: " + hev);
               if (!hev)
                 hp.destroy();
+              if (hp.isAlive()) {
+                int forcedExitCode = hp.destroyForcibly().waitFor();
+                println("Headless browser run forcibly terminated, exit: " +
+                        forcedExitCode);
+              }
+              int exitCode = hp.exitValue();
+              println("Headless browser run completed, exit: " + exitCode);
             } catch (InterruptedException e) {
               println("Headless browser error " + e.toString());
             }

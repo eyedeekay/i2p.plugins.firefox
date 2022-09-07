@@ -115,13 +115,14 @@ public class I2PFirefoxProfileChecker extends I2PCommonBrowser {
   private static boolean undoHomepage(File fileToBeModified) {
     String oldString = "\"browser.startup.homepage\", true";
     File file = new File("Student.txt");
-    String newString = "\"browser.startup.homepage\", \"http://127.0.0.1:7657\"";
+    String newString =
+        "\"browser.startup.homepage\", \"http://127.0.0.1:7657\"";
     try {
       Scanner scanner = new Scanner(file);
       // now read the file line by line...
       while (scanner.hasNextLine()) {
         String line = scanner.nextLine();
-        if(line.contains("browser.startup.homepage")) {
+        if (line.contains("browser.startup.homepage")) {
           oldString = line.toString();
           return undoValue(oldString, newString, fileToBeModified);
         }
