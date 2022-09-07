@@ -317,7 +317,7 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
         <delete dir="plugin/eepsite/docroot/torrents/" />
         <!-- get version number -->
         <buildnumber file="scripts/build.number" />
-        <property name="release.number" value="0.0.32" />
+        <property name="release.number" value="0.0.33" />
 
         <!-- make the update xpi2p -->
         <!-- this contains everything except i2ptunnel.config -->
