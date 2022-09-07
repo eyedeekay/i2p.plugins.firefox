@@ -1,6 +1,18 @@
 Packages for various operating systems
 ======================================
 
+Making a new release:
+---------------------
+
+Releases can be created in a mostly automatic way. With a working Java toolchain
+including jpackage installed:
+
+0. Set a `GITHUB_TOKEN` in the environment containing an API key.
+1. Update the version number(`GITHUB_TAG`) and version title(`GITHUB_NAME`) in `config.sh`
+2. On a Linux machine, run `./release.sh`
+3. On a Windows machine, run `./windows-release.sh`
+
+
 Windows
 -------
 
@@ -14,25 +26,25 @@ run: `windows-release.sh` only *after* release.sh on a Linux machine.
 
 ### MSI
 
-#### Status: Works. Maintained.
-
 Requires the Wixl toolset.
+
+#### Status: Works. Maintained.
 
 run: `./windows.sh`
 
 #### EXE
 
-#### Status: Works. Maintained.
-
 No special requirements.
+
+#### Status: Works. Maintained.
 
 run: `./windows-exe.sh`
 
 ### Portable(.zip)
 
-#### Status: Unknown. Maintained.
-
 No special requirements.
+
+#### Status: Unknown. Maintained.
 
 run: `./windows-portable.sh`
 
@@ -46,15 +58,13 @@ Java tools in your `PATH`.
 
 ### Debian
 
-#### Status: Works. Maintained.
-
 Make sure you have a recent Java and jpackage.
+
+#### Status: Works. Maintained.
 
 run: `ant debian`
 
 ### Fedora
-
-#### Status: Unknown. Maintained.
 
 I'm a Debian user and don't have a Fedora machine set up right now.  Therefore,
 I build Fedora packages in a container.
@@ -63,13 +73,15 @@ Fedora doesn't have a jpackage in their repositories as far as I can tell so I u
 Adoptium's third-party repository to supply the JDK I use to build the fedora
 package.
 
+#### Status: Unknown. Maintained.
+
 run: `ant fedora`
 
 ### Portable(.zip)
 
-#### Status: Works. Maintained.
-
 Details are platform dependent. Same build-deps as everything else.
+
+#### Status: Works. Maintained.
 
 run: `ant jpackage`
 
