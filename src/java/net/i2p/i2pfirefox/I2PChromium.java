@@ -1,8 +1,6 @@
 package net.i2p.i2pfirefox;
 
 import java.io.File;
-import java.io.IOException;
-import java.net.Socket;
 import java.util.ArrayList;
 
 /**
@@ -21,7 +19,6 @@ import java.util.ArrayList;
  */
 public class I2PChromium extends I2PCommonBrowser {
   private final String[] CHROMIUM_SEARCH_PATHS = CHROMIUM_FINDER();
-  private final int DEFAULT_TIMEOUT = 200;
   private Process p = null;
 
   /**
@@ -480,71 +477,6 @@ public class I2PChromium extends I2PCommonBrowser {
     } else {
       println("No Chromium found.");
       return new ProcessBuilder(args);
-    }
-  }
-
-  /**
-   * Waits for an HTTP proxy on port 4444 to be ready.
-   * Returns false on timeout of 200 seconds.
-   *
-   * @return true if the proxy is ready, false if it is not.
-   * @since 0.0.1
-   */
-  public boolean waitForProxy() { return waitForProxy(DEFAULT_TIMEOUT); }
-
-  /**
-   * Waits for an HTTP proxy on port 4444 to be ready.
-   * Returns false on timeout of the specified number of seconds.
-   *
-   * @param timeout the number of seconds to wait for the proxy to be ready.
-   * @return true if the proxy is ready, false if it is not.
-   * @since 0.0.1
-   */
-  public boolean waitForProxy(int timeout) {
-    return waitForProxy(timeout, 4444);
-  }
-  /**
-   * Waits for an HTTP proxy on the specified port to be ready.
-   * Returns false on timeout of the specified number of seconds.
-   *
-   * @param timeout the number of seconds to wait for the proxy to be ready.
-   * @param port the port to wait for the proxy to be ready on.
-   * @return true if the proxy is ready, false if it is not.
-   * @since 0.0.1
-   */
-  public boolean waitForProxy(int timeout, int port) {
-    return waitForProxy(timeout, port, "localhost");
-  }
-  /**
-   * Waits for an HTTP proxy on the specified port to be ready.
-   * Returns false on timeout of the specified number of seconds.
-   *
-   * @param timeout the number of seconds to wait for the proxy to be ready.
-   * @param port the port to wait for the proxy to be ready on.
-   * @param host the host to wait for the proxy to be ready on.
-   * @return true if the proxy is ready, false if it is not.
-   * @since 0.0.1
-   */
-  public boolean waitForProxy(int timeout, int port, String host) {
-    for (int i = 0; i < timeout; i++) {
-      if (checkifPortIsOccupied(port, host)) {
-        return true;
-      }
-      try {
-        Thread.sleep(1000);
-      } catch (InterruptedException e) {
-        e.printStackTrace();
-      }
-    }
-    return false;
-  }
-  private boolean checkifPortIsOccupied(int port, String host) {
-    try {
-      Socket socket = new Socket(host, port);
-      socket.close();
-      return true;
-    } catch (IOException e) {
-      return false;
     }
   }
 
