@@ -95,7 +95,7 @@ public class I2PCommonBrowser {
     System.setProperty("user.dir", defaultPathFile.getAbsolutePath());
   }
 
-  private static boolean isWindows() {
+  protected static boolean isWindows() {
     String osName = System.getProperty("os.name");
     println("os.name" + osName);
     if (osName.contains("windows"))

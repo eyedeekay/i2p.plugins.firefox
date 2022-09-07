@@ -1,10 +1,17 @@
+Tue, September 6
+----------------
+
+ - Add support for building an .exe package.
+ - Add support for building an .zip Windows portable package.
+ - Add support for building an .rpm package.
+
 Mon, September 5
 ----------------
 
  - Fix several issues with running on Windows 11
  - Make tunnel nicknames different to avoid double shared tunnels
- - Add support for building a Debian package.
- - Add support for building an MSI package.
+ - Add support for building a .deb package.
+ - Add support for building an .msi package.
 
 Fri, September 2
 ----------------

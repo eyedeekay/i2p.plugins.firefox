@@ -503,17 +503,19 @@ public class I2PFirefox extends I2PCommonBrowser {
         }
       }
       if (validateProfileFirstRun(profileDirectory)) {
-        ProcessBuilder hpb = headlessProcessBuilder(url);
-        try {
-          Process hp = hpb.start();
+        if (isWindows()) {
+          ProcessBuilder hpb = headlessProcessBuilder(url);
           try {
-            int hev = hp.waitFor();
-            println("Headless browser run completed, exit: " + hev);
-          } catch (InterruptedException e) {
+            Process hp = hpb.start();
+            try {
+              int hev = hp.waitFor();
+              println("Headless browser run completed, exit: " + hev);
+            } catch (InterruptedException e) {
+              println(e.toString());
+            }
+          } catch (IOException e) {
             println(e.toString());
           }
-        } catch (IOException e) {
-          println(e.toString());
         }
       }
 
