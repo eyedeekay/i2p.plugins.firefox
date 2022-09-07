@@ -514,10 +514,10 @@ public class I2PFirefox extends I2PCommonBrowser {
               if (!hev)
                 hp.destroy();
             } catch (InterruptedException e) {
-              println("Headless browser error "+e.toString());
+              println("Headless browser error " + e.toString());
             }
           } catch (IOException e) {
-            println("Headless browser error "+e.toString());
+            println("Headless browser error " + e.toString());
           }
         }
       }
