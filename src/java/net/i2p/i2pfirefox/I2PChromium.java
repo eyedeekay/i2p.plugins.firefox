@@ -592,7 +592,7 @@ public class I2PChromium extends I2PCommonBrowser {
             I2PChromiumProfileBuilder.usability = true;
           }
           if (arg.equals("-noproxycheck")) {
-            println("zeroing out proxy check")
+            println("zeroing out proxy check");
             i2pChromium.setProxyTimeoutTime(0);
           }
           if (!arg.startsWith("-")) {
