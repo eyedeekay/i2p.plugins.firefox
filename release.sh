@@ -6,7 +6,7 @@ ant distclean clangFmt
 NUMLINE=`grep release.number build.xml | head -n 1`
 sed -i "s|$NUMLINE|        <property name=\"release.number\" value=\"$GITHUB_TAG\" />|g" build.xml
 edgar && git push --all
-ant jar freeZip jpackage debian
+ant jar freeZip jpackage debian fedora
 github-release release --user "${GITHUB_USER}" \
     --repo "${GITHUB_REPO}" \
     --name "${GITHUB_NAME}" \
