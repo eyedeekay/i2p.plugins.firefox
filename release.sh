@@ -23,7 +23,7 @@ jarsum=$(sha256sum "src/build/i2pfirefox.jar")
 github-release upload --user "${GITHUB_USER}" \
     --repo "${GITHUB_REPO}" \
     --tag "${GITHUB_TAG}" \
-    --label "I2P Browser launcher as a .jar. ${jarsum}" \
+    --label "I2P Browser launcher as a .jar. Useful as a library or for advanced users. ${jarsum}" \
     --name "i2pfirefox.jar" \
     --file "src/build/i2pfirefox.jar" \
     --replace
