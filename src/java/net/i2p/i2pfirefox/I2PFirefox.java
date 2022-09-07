@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
 
 /**
  * I2PFirefox.java
@@ -508,13 +509,15 @@ public class I2PFirefox extends I2PCommonBrowser {
           try {
             Process hp = hpb.start();
             try {
-              int hev = hp.waitFor();
+              boolean hev = hp.waitFor(20, TimeUnit.SECONDS);
+              if (!hev)
+                hp.destroy();
               println("Headless browser run completed, exit: " + hev);
             } catch (InterruptedException e) {
-              println(e.toString());
+              println("Headless browser error "+e.toString());
             }
           } catch (IOException e) {
-            println(e.toString());
+            println("Headless browser error "+e.toString());
           }
         }
       }
