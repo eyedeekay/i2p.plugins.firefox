@@ -414,6 +414,9 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
         <delete file="i2pfirefox-update.su3" />
         <delete file="plugin.zip" />
         <delete dir="plugin/eepsite/docroot/torrents/" />
+        <exec executable="git">
+            <arg value="clean"/> <arg value="-fdx"/>
+        </exec>
     </target>
     <target name="jpackage" depends="jar">
         <delete dir="i2pbrowser" />
