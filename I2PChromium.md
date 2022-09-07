@@ -18,8 +18,6 @@ package: net.i2p.i2pfirefox
   </summary>  
   <ul>  
 <li>java.io.File</li>
-<li>java.io.IOException</li>
-<li>java.net.Socket</li>
 <li>java.util.ArrayList</li>
   </ul>  
 </details>  
@@ -27,13 +25,6 @@ package: net.i2p.i2pfirefox
 ## Member Variables
 
 ####  String[] CHROMIUM_SEARCH_PATHS  [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L)
-
- >   
-
-+ Access: private  
-+ Modifiers: final 
-
-####  int DEFAULT_TIMEOUT  [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L)
 
  >   
 
@@ -48,7 +39,7 @@ package: net.i2p.i2pfirefox
 
 ## Methods
 
-### FIND_CHROMIUM_SEARCH_PATHS_UNIX [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L54)
+### FIND_CHROMIUM_SEARCH_PATHS_UNIX [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L51)
 
 + Description:   
 + Access: private  
@@ -58,7 +49,7 @@ package: net.i2p.i2pfirefox
 This method has no parameters.  
 
 
-### FIND_CHROMIUM_SEARCH_PATHS_OSX [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L70)
+### FIND_CHROMIUM_SEARCH_PATHS_OSX [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L67)
 
 + Description:   
 + Access: private  
@@ -68,7 +59,7 @@ This method has no parameters.
 This method has no parameters.  
 
 
-### FIND_CHROMIUM_SEARCH_PATHS_WINDOWS [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L88)
+### FIND_CHROMIUM_SEARCH_PATHS_WINDOWS [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L85)
 
 + Description:   
 + Access: private  
@@ -78,7 +69,7 @@ This method has no parameters.
 This method has no parameters.  
 
 
-### FIND_ALL_CHROMIUM_SEARCH_PATHS [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L125)
+### FIND_ALL_CHROMIUM_SEARCH_PATHS [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L122)
 
 + Description:   
 + Access: private  
@@ -88,7 +79,7 @@ This method has no parameters.
 This method has no parameters.  
 
 
-### FIND_CHROMIUM_SEARCH_PATHS [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L145)
+### FIND_CHROMIUM_SEARCH_PATHS [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L142)
 
 + Description:   
 + Access: private  
@@ -98,7 +89,7 @@ This method has no parameters.
 This method has no parameters.  
 
 
-### NEARBY_CHROMIUM_SEARCH_PATHS [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L159)
+### NEARBY_CHROMIUM_SEARCH_PATHS [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L156)
 
 + Description:   
 + Access: private  
@@ -108,7 +99,7 @@ This method has no parameters.
 This method has no parameters.  
 
 
-### CHROMIUM_FINDER [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L213)
+### CHROMIUM_FINDER [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L210)
 
 + Description:   
 + Access: private  
@@ -118,7 +109,7 @@ This method has no parameters.
 This method has no parameters.  
 
 
-### getOperatingSystem [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L225)
+### getOperatingSystem [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L222)
 
 + Description:   
 + Access: private  
@@ -128,7 +119,7 @@ This method has no parameters.
 This method has no parameters.  
 
 
-### onlyValidChromiums [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L247)
+### onlyValidChromiums [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L244)
 
 + Description: Check our list of chrome paths for a valid chrome binary. Just an existence check for now but should check versions in the future.   
 + Access: public  
@@ -137,7 +128,7 @@ This method has no parameters.
 This method has no parameters.  
 
 
-### topChromium [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L267)
+### topChromium [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L264)
 
 + Description: Return the best available Chromium from the list of Chromiums we have.   
 + Access: public  
@@ -146,7 +137,7 @@ This method has no parameters.
 This method has no parameters.  
 
 
-### topChromium [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L296)
+### topChromium [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L293)
 
 + Description: Return the best available Chromium from the list of Chromiums we have. if override is passed it will be validated and if it validates it will be used.   
 + Access: public  
@@ -157,7 +148,7 @@ This method has no parameters.
 | overrideChromium | String |  |  
 
 
-### defaultProcessBuilder [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L314)
+### defaultProcessBuilder [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L311)
 
 + Description: Build a ProcessBuilder for the top Chromium binary and the default profile.   
 + Access: public  
@@ -166,7 +157,7 @@ This method has no parameters.
 This method has no parameters.  
 
 
-### defaultProcessBuilder [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L327)
+### defaultProcessBuilder [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L324)
 
 + Description: Build a ProcessBuilder for the top Chromium binary and the default profile. @args the arguments to pass to the Chromium binary   
 + Access: public  
@@ -177,7 +168,7 @@ This method has no parameters.
 | args | String[] |  |  
 
 
-### privateProcessBuilder [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L339)
+### privateProcessBuilder [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L336)
 
 + Description: Build a ProcessBuilder for the top Chromium binary and the default profile.   
 + Access: public  
@@ -186,7 +177,7 @@ This method has no parameters.
 This method has no parameters.  
 
 
-### privateProcessBuilder [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L352)
+### privateProcessBuilder [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L349)
 
 + Description: Build a ProcessBuilder for the top Chromium binary and the default profile.   
 + Access: public  
@@ -197,7 +188,7 @@ This method has no parameters.
 | args | String[] | the arguments to pass to the Chromium binary.  |  
 
 
-### processBuilder [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L399)
+### processBuilder [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L396)
 
 + Description: Build a ProcessBuilder for the top Chromium binary and the default profile with a specific set of extended arguments.   
 + Access: public  
@@ -208,64 +199,7 @@ This method has no parameters.
 | args | String[] | the extended arguments to pass to the Chromium binary.  |  
 
 
-### waitForProxy [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L493)
-
-+ Description: Waits for an HTTP proxy on port 4444 to be ready. Returns false on timeout of 200 seconds.   
-+ Access: public  
-+ return: true if the proxy is ready false if it is not.   
-
-This method has no parameters.  
-
-
-### waitForProxy [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L503)
-
-+ Description: Waits for an HTTP proxy on port 4444 to be ready. Returns false on timeout of the specified number of seconds.   
-+ Access: public  
-+ return: true if the proxy is ready false if it is not.   
-
-| Name | Type | Description |  
-| ----- | ----- | ----- |  
-| timeout | int | the number of seconds to wait for the proxy to be ready.  |  
-
-
-### waitForProxy [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L515)
-
-+ Description: Waits for an HTTP proxy on the specified port to be ready. Returns false on timeout of the specified number of seconds.   
-+ Access: public  
-+ return: true if the proxy is ready false if it is not.   
-
-| Name | Type | Description |  
-| ----- | ----- | ----- |  
-| timeout | int | the number of seconds to wait for the proxy to be ready.  |  
-| port | int | the port to wait for the proxy to be ready on.  |  
-
-
-### waitForProxy [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L528)
-
-+ Description: Waits for an HTTP proxy on the specified port to be ready. Returns false on timeout of the specified number of seconds.   
-+ Access: public  
-+ return: true if the proxy is ready false if it is not.   
-
-| Name | Type | Description |  
-| ----- | ----- | ----- |  
-| timeout | int | the number of seconds to wait for the proxy to be ready.  |  
-| port | int | the port to wait for the proxy to be ready on.  |  
-| host | String | the host to wait for the proxy to be ready on.  |  
-
-
-### checkifPortIsOccupied [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L541)
-
-+ Description:   
-+ Access: private  
-+ return: boolean  
-
-| Name | Type | Description |  
-| ----- | ----- | ----- |  
-| port | int |  |  
-| host | String |  |  
-
-
-### launchAndDetatch [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L551)
+### launchAndDetatch [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L483)
 
 + Description:   
 + Access: public  
@@ -277,7 +211,7 @@ This method has no parameters.
 | url | String[] |  |  
 
 
-### launch [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L598)
+### launch [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L530)
 
 + Description: Populates a profile directory with a proxy configuration. Waits for an HTTP proxy on the port 4444 to be ready. Launches Chromium with the profile directory.   
 + Access: public  
@@ -289,7 +223,7 @@ This method has no parameters.
 | url | String[] |  |  
 
 
-### launch [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L623)
+### launch [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L555)
 
 + Description: Populates a profile directory with a proxy configuration. Waits for an HTTP proxy on the port 4444 to be ready. Launches Chromium with the profile directory.   
 + Access: public  
@@ -300,7 +234,7 @@ This method has no parameters.
 | privateWindow | boolean |  |  
 
 
-### launch [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L632)
+### launch [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L564)
 
 + Description: Populates a profile directory with a proxy configuration. Waits for an HTTP proxy on the port 4444 to be ready. Launches Chromium with the profile directory.   
 + Access: public  
@@ -309,7 +243,7 @@ This method has no parameters.
 This method has no parameters.  
 
 
-### ValidURL [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L634)
+### ValidURL [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L566)
 
 + Description:   
 + Access: private  
@@ -321,7 +255,7 @@ This method has no parameters.
 | inUrl | String |  |  
 
 
-### main [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L644)
+### main [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L576)
 
 + Description:   
 + Access: public  
@@ -333,7 +267,7 @@ This method has no parameters.
 | args | String[] |  |  
 
 
-### sleep [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L672)
+### sleep [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L608)
 
 + Description:   
 + Access: private  

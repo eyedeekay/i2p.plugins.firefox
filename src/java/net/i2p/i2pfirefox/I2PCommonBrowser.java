@@ -33,7 +33,7 @@ import java.util.zip.ZipInputStream;
 public class I2PCommonBrowser {
   static Logger logger = Logger.getLogger("browserlauncher");
   static FileHandler fh;
-  //private final int DEFAULT_TIMEOUT = 200;
+  // private final int DEFAULT_TIMEOUT = 200;
   private static int CONFIGURED_TIMEOUT = 200;
 
   public I2PCommonBrowser() {
@@ -357,7 +357,7 @@ public class I2PCommonBrowser {
    */
   public boolean waitForProxy(int timeout, int port, String host) {
     println("waiting up to " + timeout + "seconds for a proxy");
-    if (timeout <= 0){
+    if (timeout <= 0) {
       return true;
     }
     for (int i = 0; i < timeout; i++) {
@@ -385,10 +385,8 @@ public class I2PCommonBrowser {
   /**
    * Alters the proxy timeout to customized value time, in seconds.
    * May be zero.
-   * 
+   *
    * @param time
    */
-  public void setProxyTimeoutTime(int time){
-    CONFIGURED_TIMEOUT = time;
-  }
+  public void setProxyTimeoutTime(int time) { CONFIGURED_TIMEOUT = time; }
 }
