@@ -556,6 +556,7 @@ public class I2PFirefox extends I2PCommonBrowser {
             usability = true;
           }
           if (arg.equals("-noproxycheck")) {
+            println("zeroing out proxy check")
             i2pFirefox.setProxyTimeoutTime(0);
           }
           if (!arg.startsWith("-")) {

@@ -354,6 +354,9 @@ public class I2PCommonBrowser {
    * @since 0.0.1
    */
   public boolean waitForProxy(int timeout, int port, String host) {
+    if (timeout == 0){
+      return true;
+    }
     for (int i = 0; i < timeout; i++) {
       println("Waiting for proxy");
       if (checkifPortIsOccupied(port, host)) {
