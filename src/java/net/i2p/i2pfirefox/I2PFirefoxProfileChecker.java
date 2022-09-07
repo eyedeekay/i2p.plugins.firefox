@@ -2,9 +2,11 @@ package net.i2p.i2pfirefox;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Scanner;
 
 /**
  * I2PFirefoxProfileChecker.java
@@ -78,24 +80,27 @@ public class I2PFirefoxProfileChecker extends I2PCommonBrowser {
       println("extensions directory is invalid");
       return false;
     }
-    return deRestrictHTTPS(profileDir.toString());
+    return deRestrictHTTPSAndSetupHomepage(profileDir.toString());
   }
 
-  private static boolean deRestrictHTTPS(String profile) {
+  private static boolean deRestrictHTTPSAndSetupHomepage(String profile) {
     // String profile = profileDirectory();
     File profileDir = new File(profile);
     if (profileDir.exists()) {
       File prefOverrides = new File(profile, "prefs.js");
       if (prefOverrides.exists()) {
         undoHttpsOnlyMode(prefOverrides);
+        undoHomepage(prefOverrides);
       }
       File userSettings = new File(profile, "user.js");
       if (userSettings.exists()) {
         undoHttpsOnlyMode(userSettings);
+        undoHomepage(userSettings);
       }
       File userOverrides = new File(profile, "user-overrides.js");
       if (userOverrides.exists()) {
         undoHttpsOnlyMode(userOverrides);
+        undoHomepage(userOverrides);
       }
     }
     return false;
@@ -104,6 +109,31 @@ public class I2PFirefoxProfileChecker extends I2PCommonBrowser {
   private static boolean undoHttpsOnlyMode(File fileToBeModified) {
     String oldString = "\"dom.security.https_only_mode\", true";
     String newString = "\"dom.security.https_only_mode\", false";
+    return undoValue(oldString, newString, fileToBeModified);
+  }
+
+  private static boolean undoHomepage(File fileToBeModified) {
+    String oldString = "\"browser.startup.homepage\", true";
+    File file = new File("Student.txt");
+    String newString = "\"browser.startup.homepage\", \"http://127.0.0.1:7657\"";
+    try {
+      Scanner scanner = new Scanner(file);
+      // now read the file line by line...
+      while (scanner.hasNextLine()) {
+        String line = scanner.nextLine();
+        if(line.contains("browser.startup.homepage")) {
+          oldString = line.toString();
+          return undoValue(oldString, newString, fileToBeModified);
+        }
+      }
+    } catch (FileNotFoundException e) {
+      // handle this
+    }
+    return true;
+  }
+
+  private static boolean undoValue(String oldString, String newString,
+                                   File fileToBeModified) {
     String oldContent = "";
     BufferedReader reader = null;
     FileWriter writer = null;
