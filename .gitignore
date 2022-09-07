@@ -16,3 +16,6 @@ i2pbrowser/
 /i2pbrowser*.deb
 /i2pbrowser*.rpm
 /logs
+/*.jar
+/*.msi
+/*.exe
