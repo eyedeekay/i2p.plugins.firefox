@@ -112,8 +112,8 @@ public class I2PFirefoxProfileBuilder extends I2PCommonBrowser {
   public static boolean copyBaseProfiletoProfile(String base) {
     String baseProfile = baseProfileDirectory(base);
     String profile = profileDirectory();
-    println("Copying base profile to profile directory: " + baseProfile +
-            " -> " + profile);
+    logger.info("Copying base profile to profile directory: " + baseProfile +
+                " -> " + profile);
     if (baseProfile.isEmpty() || profile.isEmpty()) {
       return false;
     }
@@ -122,13 +122,13 @@ public class I2PFirefoxProfileBuilder extends I2PCommonBrowser {
 
     if (!profileDir.exists()) {
       try {
-        println("Copying base profile to profile directory");
+        logger.info("Copying base profile to profile directory");
         copyDirectory(baseProfileDir, profileDir, "firefox", base);
       } catch (Exception e) {
-        println("Error copying base profile to profile" + e);
+        logger.info("Error copying base profile to profile" + e);
         return false;
       }
-      println("Copied base profile to profile directory");
+      logger.info("Copied base profile to profile directory");
     }
     // if user.js does not exist yet, make an empty one.
     // if (!touch(profileDir.toString(), "user.js")) {
@@ -171,7 +171,7 @@ public class I2PFirefoxProfileBuilder extends I2PCommonBrowser {
       Files.copy(baseOverrides.toPath(), userOverrides.toPath(),
                  StandardCopyOption.REPLACE_EXISTING);
     } catch (Exception e) {
-      println("Error copying base profile to profile" + e);
+      logger.info("Error copying base profile to profile" + e);
       return false;
     }
     // if user-overrides.js does not exist yet, make an empty one.

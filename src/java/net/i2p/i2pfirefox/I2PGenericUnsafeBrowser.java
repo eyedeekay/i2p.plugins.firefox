@@ -216,7 +216,7 @@ public class I2PGenericUnsafeBrowser extends I2PCommonBrowser {
       pb.environment().put("NO_PROXY", "http://127.0.0.1:7657");
       return pb;
     } else {
-      println("No Browser found.");
+      logger.info("No Browser found.");
       return new ProcessBuilder(args);
     }
   }
@@ -335,13 +335,13 @@ public class I2PGenericUnsafeBrowser extends I2PCommonBrowser {
         pb = baseProcessBuilder(url);
       }
       try {
-        System.out.println(pb.command());
+        System.out.logger.info(pb.command());
         p = pb.start();
-        println("I2PBrowser");
+        logger.info("I2PBrowser");
         sleep(2000);
         return p;
       } catch (Throwable e) {
-        System.out.println(e);
+        System.out.logger.info(e);
       }
     }
     return null;
@@ -351,15 +351,16 @@ public class I2PGenericUnsafeBrowser extends I2PCommonBrowser {
     if (waitForProxy()) {
       p = launchAndDetatch(privateWindow, url);
       try {
-        println("Waiting for I2PBrowser to close...");
+        logger.info("Waiting for I2PBrowser to close...");
         int exit = p.waitFor();
         if (privateWindow) {
           if (deleteRuntimeDirectory())
-            println("Private browsing enforced, deleting runtime directory");
+            logger.info(
+                "Private browsing enforced, deleting runtime directory");
         }
-        println("I2PBrowser exited with value: " + exit);
+        logger.info("I2PBrowser exited with value: " + exit);
       } catch (Exception e) {
-        println("Error: " + e.getMessage());
+        logger.info("Error: " + e.getMessage());
       }
     }
   }
@@ -376,7 +377,7 @@ public class I2PGenericUnsafeBrowser extends I2PCommonBrowser {
     String[] schemes = {"http", "https"};
     for (String scheme : schemes) {
       if (inUrl.startsWith(scheme)) {
-        println("Valid URL: " + inUrl);
+        logger.info("Valid URL: " + inUrl);
         return inUrl;
       }
     }
@@ -396,14 +397,14 @@ public class I2PGenericUnsafeBrowser extends I2PCommonBrowser {
   public static void main(String[] args) {
     validateUserDir();
     boolean privateBrowsing = false;
-    println("checking for private browsing");
+    logger.info("checking for private browsing");
     ArrayList<String> visitURL = new ArrayList<String>();
     if (args != null) {
       if (args.length > 0) {
         for (String arg : args) {
           if (arg.equals("-private")) {
             privateBrowsing = true;
-            println(
+            logger.info(
                 "private browsing is true, profile will be discarded at end of session");
           }
           if (!arg.startsWith("-")) {
@@ -413,7 +414,7 @@ public class I2PGenericUnsafeBrowser extends I2PCommonBrowser {
         }
       }
     }
-    println("I2PGenericUnsafeBrowser");
+    logger.info("I2PGenericUnsafeBrowser");
     I2PGenericUnsafeBrowser i2pBrowser = new I2PGenericUnsafeBrowser();
     i2pBrowser.launch(privateBrowsing,
                       visitURL.toArray(new String[visitURL.size()]));

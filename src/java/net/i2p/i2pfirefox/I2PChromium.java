@@ -32,7 +32,7 @@ public class I2PChromium extends I2PCommonBrowser {
     for (String path : CHROMIUM_SEARCH_PATHS) {
       File f = new File(path);
       if (f.exists()) {
-        println("Found Chromium at " + path);
+        logger.info("Found Chromium at " + path);
         return;
       }
     }
@@ -41,7 +41,7 @@ public class I2PChromium extends I2PCommonBrowser {
     for (String path : CHROMIUM_SEARCH_PATHS) {
       File f = new File(path);
       if (f.exists()) {
-        println("Found Chromium at " + path);
+        logger.info("Found Chromium at " + path);
         return;
       }
     }
@@ -247,10 +247,10 @@ public class I2PChromium extends I2PCommonBrowser {
     for (String chrome : chromees) {
       File chromeFile = new File(chrome);
       if (chromeFile.exists()) {
-        println("Found valid chromium at " + chrome);
+        logger.info("Found valid chromium at " + chrome);
         validChromiums.add(chrome);
       }
-      println("chrome at " + chrome + "does not exist");
+      logger.info("chrome at " + chrome + "does not exist");
     }
     return validChromiums.toArray(new String[validChromiums.size()]);
   }
@@ -475,7 +475,7 @@ public class I2PChromium extends I2PCommonBrowser {
       return new ProcessBuilder(newArgs).directory(
           I2PChromiumProfileBuilder.runtimeDirectory(true));
     } else {
-      println("No Chromium found.");
+      logger.info("No Chromium found.");
       return new ProcessBuilder(args);
     }
   }
@@ -486,15 +486,16 @@ public class I2PChromium extends I2PCommonBrowser {
       String profileDirectory = I2PChromiumProfileBuilder.profileDirectory();
       if (I2PChromiumProfileChecker.validateProfileDirectory(
               profileDirectory)) {
-        println("Valid profile directory: " + profileDirectory);
+        logger.info("Valid profile directory: " + profileDirectory);
       } else {
-        println("Invalid profile directory: " + profileDirectory +
-                " rebuilding...");
+        logger.info("Invalid profile directory: " + profileDirectory +
+                    " rebuilding...");
         if (!I2PChromiumProfileBuilder.copyBaseProfiletoProfile()) {
-          println("Failed to rebuild profile directory: " + profileDirectory);
+          logger.info("Failed to rebuild profile directory: " +
+                      profileDirectory);
           return null;
         } else {
-          println("Rebuilt profile directory: " + profileDirectory);
+          logger.info("Rebuilt profile directory: " + profileDirectory);
         }
       }
       if (validateProfileFirstRun(profileDirectory))
@@ -506,12 +507,12 @@ public class I2PChromium extends I2PCommonBrowser {
         pb = this.defaultProcessBuilder(url);
       }
       try {
-        System.out.println(pb.command());
+        logger.info(pb.command().toString());
         p = pb.start();
         sleep(2000);
         return p;
       } catch (Throwable e) {
-        System.out.println(e);
+        logger.info(e.toString());
       }
     }
     return null;
@@ -532,13 +533,13 @@ public class I2PChromium extends I2PCommonBrowser {
       p = launchAndDetatch(privateWindow, url);
       if (p == null)
         return;
-      println("I2PChromium");
+      logger.info("I2PChromium");
       try {
-        println("Waiting for I2PChromium to close...");
+        logger.info("Waiting for I2PChromium to close...");
         int exit = p.waitFor();
-        println("I2PChromium exited with value: " + exit);
+        logger.info("I2PChromium exited with value: " + exit);
       } catch (Exception e) {
-        println("Error: " + e.getMessage());
+        logger.info("Error: " + e.getMessage());
       }
     }
   }
@@ -576,23 +577,23 @@ public class I2PChromium extends I2PCommonBrowser {
   public static void main(String[] args) {
     validateUserDir();
     boolean privateBrowsing = false;
-    println("I2PChromium");
+    logger.info("I2PChromium");
     I2PChromium i2pChromium = new I2PChromium();
-    println("checking for private browsing");
+    logger.info("checking for private browsing");
     ArrayList<String> visitURL = new ArrayList<String>();
     if (args != null) {
       if (args.length > 0) {
         for (String arg : args) {
           if (arg.equals("-private")) {
             privateBrowsing = true;
-            println(
+            logger.info(
                 "private browsing is true, profile will be discarded at end of session");
           }
           if (arg.equals("-usability")) {
             I2PChromiumProfileBuilder.usability = true;
           }
           if (arg.equals("-noproxycheck")) {
-            println("zeroing out proxy check");
+            logger.info("zeroing out proxy check");
             i2pChromium.setProxyTimeoutTime(0);
           }
           if (!arg.startsWith("-")) {

@@ -29,15 +29,15 @@ public class I2PChromiumProfileChecker extends I2PCommonBrowser {
   public static void main(String[] args) {
     String profileDirectory = I2PChromiumProfileBuilder.profileDirectory();
     if (profileDirectory == null) {
-      println("No profile directory found");
+      logger.info("No profile directory found");
       return;
     }
-    println("Profile directory: " + profileDirectory);
+    logger.info("Profile directory: " + profileDirectory);
     boolean ok = validateProfileDirectory(profileDirectory);
     if (ok) {
-      println("Profile directory is valid");
+      logger.info("Profile directory is valid");
     } else {
-      println("Profile directory is invalid");
+      logger.info("Profile directory is invalid");
     }
   }
   /**
@@ -50,23 +50,23 @@ public class I2PChromiumProfileChecker extends I2PCommonBrowser {
   public static boolean validateProfileDirectory(String profileDirectory) {
     File profileDir = new File(profileDirectory);
     if (!profileDir.exists()) {
-      println("Profile directory does not exist");
+      logger.info("Profile directory does not exist");
       return false;
     }
     if (!profileDir.isDirectory()) {
-      println("Profile directory is not a directory");
+      logger.info("Profile directory is not a directory");
       return false;
     }
     if (!profileDir.canRead()) {
-      println("Profile directory is not readable");
+      logger.info("Profile directory is not readable");
       return false;
     }
     if (!profileDir.canWrite()) {
-      println("Profile directory is not writable");
+      logger.info("Profile directory is not writable");
       return false;
     }
     if (!validateExtensionDirectory(profileDir + "/extensions")) {
-      println("extensions directory is invalid");
+      logger.info("extensions directory is invalid");
       return false;
     }
     return true;
@@ -81,19 +81,19 @@ public class I2PChromiumProfileChecker extends I2PCommonBrowser {
   public static boolean validateFile(String file) {
     File f = new File(file);
     if (!f.exists()) {
-      println("User JavaScript file does not exist");
+      logger.info("User JavaScript file does not exist");
       return false;
     }
     if (!f.isFile()) {
-      println("User JavaScript file is not a file");
+      logger.info("User JavaScript file is not a file");
       return false;
     }
     if (!f.canRead()) {
-      println("User JavaScript file is not readable");
+      logger.info("User JavaScript file is not readable");
       return false;
     }
     if (!f.canWrite()) {
-      println("User JavaScript file is not writable");
+      logger.info("User JavaScript file is not writable");
       return false;
     }
     return true;
@@ -108,19 +108,19 @@ public class I2PChromiumProfileChecker extends I2PCommonBrowser {
   public static boolean validateExtensionDirectory(String extensionDirectory) {
     File extensionDir = new File(extensionDirectory);
     if (!extensionDir.exists()) {
-      println("Extension directory does not exist");
+      logger.info("Extension directory does not exist");
       return false;
     }
     if (!extensionDir.isDirectory()) {
-      println("Extension directory is not a directory");
+      logger.info("Extension directory is not a directory");
       return false;
     }
     if (!extensionDir.canRead()) {
-      println("Extension directory is not readable");
+      logger.info("Extension directory is not readable");
       return false;
     }
     if (!extensionDir.canWrite()) {
-      println("Extension directory is not writable");
+      logger.info("Extension directory is not writable");
       return false;
     }
     return true;

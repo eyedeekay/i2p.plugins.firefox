@@ -35,7 +35,7 @@ public class I2PFirefox extends I2PCommonBrowser {
     for (String path : FIREFOX_SEARCH_PATHS) {
       File f = new File(path);
       if (f.exists()) {
-        println("Found Firefox at " + path);
+        logger.info("Found Firefox at " + path);
         return;
       }
     }
@@ -239,10 +239,10 @@ public class I2PFirefox extends I2PCommonBrowser {
     for (String firefox : firefoxes) {
       File firefoxFile = new File(firefox);
       if (firefoxFile.exists()) {
-        println("Found valid firefox at " + firefox);
+        logger.info("Found valid firefox at " + firefox);
         validFirefoxes.add(firefox);
       }
-      println("firefox at " + firefox + "does not exist");
+      logger.info("firefox at " + firefox + "does not exist");
     }
     return validFirefoxes.toArray(new String[validFirefoxes.size()]);
   }
@@ -405,7 +405,7 @@ public class I2PFirefox extends I2PCommonBrowser {
       return new ProcessBuilder(newArgs).directory(
           I2PFirefoxProfileBuilder.runtimeDirectory(true));
     } else {
-      println("No Firefox found.");
+      logger.info("No Firefox found.");
       return new ProcessBuilder(args);
     }
   }
@@ -422,16 +422,17 @@ public class I2PFirefox extends I2PCommonBrowser {
     if (waitForProxy()) {
       String profileDirectory = I2PFirefoxProfileBuilder.profileDirectory();
       if (I2PFirefoxProfileChecker.validateProfileDirectory(profileDirectory)) {
-        println("Valid profile directory: " + profileDirectory);
+        logger.info("Valid profile directory: " + profileDirectory);
       } else {
-        println("Invalid profile directory: " + profileDirectory +
-                " rebuilding...");
+        logger.info("Invalid profile directory: " + profileDirectory +
+                    " rebuilding...");
         if (!I2PFirefoxProfileBuilder.copyBaseProfiletoProfile(
                 usabilityMode())) {
-          println("Failed to rebuild profile directory: " + profileDirectory);
+          logger.info("Failed to rebuild profile directory: " +
+                      profileDirectory);
           return null;
         } else {
-          println("Rebuilt profile directory: " + profileDirectory);
+          logger.info("Rebuilt profile directory: " + profileDirectory);
         }
       }
       if (validateProfileFirstRun(profileDirectory)) {
@@ -441,22 +442,22 @@ public class I2PFirefox extends I2PCommonBrowser {
             Process hp = hpb.start();
             try {
               boolean hev = hp.waitFor(5, TimeUnit.SECONDS);
-              println("Headless browser run completed, exit: " + hev);
+              logger.info("Headless browser run completed, exit: " + hev);
               if (!hev)
                 hp.destroy();
               hev = hp.waitFor(5, TimeUnit.SECONDS);
               if (hp.isAlive()) {
                 int forcedExitCode = hp.destroyForcibly().waitFor();
-                println("Headless browser run forcibly terminated, exit: " +
-                        forcedExitCode);
+                logger.info("Headless browser run forcibly terminated, exit: " +
+                            forcedExitCode);
               }
               int exitCode = hp.exitValue();
-              println("Headless browser run completed, exit: " + exitCode);
+              logger.info("Headless browser run completed, exit: " + exitCode);
             } catch (InterruptedException e) {
-              println("Headless browser error " + e.toString());
+              logger.info("Headless browser error " + e.toString());
             }
           } catch (IOException e) {
-            println("Headless browser error " + e.toString());
+            logger.info("Headless browser error " + e.toString());
           }
         }
       }
@@ -468,13 +469,13 @@ public class I2PFirefox extends I2PCommonBrowser {
         pb = defaultProcessBuilder(url);
       }
       try {
-        System.out.println(pb.command());
+        logger.info(pb.command().toString());
         p = pb.start();
-        println("I2PFirefox");
+        logger.info("I2PFirefox");
         sleep(2000);
         return p;
       } catch (Throwable e) {
-        System.out.println(e);
+        logger.info(e.toString());
       }
     }
     return null;
@@ -496,11 +497,11 @@ public class I2PFirefox extends I2PCommonBrowser {
       if (p == null)
         return;
       try {
-        println("Waiting for I2PFirefox to close...");
+        logger.info("Waiting for I2PFirefox to close...");
         int exit = p.waitFor();
-        println("I2PFirefox exited with value: " + exit);
+        logger.info("I2PFirefox exited with value: " + exit);
       } catch (Exception e) {
-        println("Error: " + e.getMessage());
+        logger.info("Error: " + e.getMessage());
       }
     }
   }
@@ -530,7 +531,7 @@ public class I2PFirefox extends I2PCommonBrowser {
     String[] schemes = {"http", "https"};
     for (String scheme : schemes) {
       if (inUrl.startsWith(scheme)) {
-        println("Valid URL: " + inUrl);
+        logger.info("Valid URL: " + inUrl);
         return inUrl;
       }
     }
@@ -540,8 +541,8 @@ public class I2PFirefox extends I2PCommonBrowser {
   public static void main(String[] args) {
     validateUserDir();
     boolean privateBrowsing = false;
-    println("checking for private browsing");
-    println("I2PFirefox");
+    logger.info("checking for private browsing");
+    logger.info("I2PFirefox");
     I2PFirefox i2pFirefox = new I2PFirefox();
     ArrayList<String> visitURL = new ArrayList<String>();
     if (args != null) {
@@ -549,14 +550,14 @@ public class I2PFirefox extends I2PCommonBrowser {
         for (String arg : args) {
           if (arg.equals("-private")) {
             privateBrowsing = true;
-            println(
+            logger.info(
                 "private browsing is true, profile will be discarded at end of session");
           }
           if (arg.equals("-usability")) {
             usability = true;
           }
           if (arg.equals("-noproxycheck")) {
-            println("zeroing out proxy check");
+            logger.info("zeroing out proxy check");
             i2pFirefox.setProxyTimeoutTime(0);
           }
           if (!arg.startsWith("-")) {
