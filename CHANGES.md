@@ -1,3 +1,8 @@
+Sun, September 11
+-----------------
+
+ - Make the logging a little more sensible
+
 Tue, September 6
 ----------------
 
