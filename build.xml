@@ -168,7 +168,7 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
         </exec>
     </target>
 
-    <target name="jar" depends="distclean,i2pFirefoxBaseProfileZip,i2pFirefoxUsabilityProfileZip,i2pChromiumBaseProfileZip">
+    <target name="jar" depends="i2pFirefoxBaseProfileZip,i2pFirefoxUsabilityProfileZip,i2pChromiumBaseProfileZip">
         <ant dir="src" target="jar" />
     </target>
 
