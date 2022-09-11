@@ -35,6 +35,13 @@ package: net.i2p.i2pfirefox
 
 ## Member Variables
 
+####  Logger logger  [[src]](src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L)
+
+ >   
+
++ Access: public  
++ Modifiers: static 
+
 ####   [[src]](src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L36)
 
  > static FileHandler fh;  

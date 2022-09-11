@@ -129,9 +129,6 @@
       /
     </a>
     <h1>
-      <a href="#i2p-plugins-firefox" rel="nofollow">
-        <span></span>
-      </a>
       i2p.plugins.firefox
     </h1>
     <p>
@@ -160,25 +157,18 @@
     </p>
     <p>
       <strong>
-        <a href="https://i2pgit.org/i2p-hackers/i2p.firefox" rel="nofollow">
+        <a href="https://i2pgit.org/i2p-hackers/i2p.firefox">
           Windows users should see the Easy-Install Bundle
         </a>
       </strong>
     </p>
     <h2>
-      <a href="#getting-started" rel="nofollow">
-        <span></span>
-      </a>
       Getting started
     </h2>
     <h3>
-      <a href="#using-a-binary" rel="nofollow">
-        <span></span>
-      </a>
       Using a Binary
     </h3>
-    <div>
-      <pre>
+    <pre><code class="language-sh">
 mkdir ~/tmp-i2pfirefox &amp;&amp; cd ~/tmp-i2pfirefox
 wget https://github.com/eyedeekay/i2p.plugins.firefox/releases/download/0.0.16/i2pfirefox.zip
 unzip i2pfirefox.zip
@@ -187,12 +177,8 @@ unzip i2pfirefox.zip
 #or if you want to use a Chromium
 
 ./i2pchromium.cmd
-</pre>
-    </div>
+</code></pre>
     <h3>
-      <a href="#build-dependencies" rel="nofollow">
-        <span></span>
-      </a>
       Build Dependencies
     </h3>
     <p>
@@ -209,14 +195,12 @@ unzip i2pfirefox.zip
       <code>
         crx3
       </code>
-      which is used to interact with the Chrome app store. I&#39;ve been using Java 17
+      which is used to interact with the Chrome app store. I&rsquo;ve been using Java 17
       on Debian mostly, on Debian and Ubuntu, install the dependencies with:
     </p>
-    <div>
-      <pre>sudo apt-get install openjdk-17* ant golang-go
+    <pre><code class="language-sh">sudo apt-get install openjdk-17* ant golang-go
 go install github.com/mediabuyerbot/go-crx3/crx3@latest
-</pre>
-    </div>
+</code></pre>
     <p>
       For Fedora, use Yum, for Arch use pacman or something else but make sure to tell everyone
       about it. Once you have that installed, when building, make sure to add
@@ -229,17 +213,12 @@ go install github.com/mediabuyerbot/go-crx3/crx3@latest
       </code>
       .
     </p>
-    <div>
-      <pre>export PATH=$PATH:$HOME/go/bin
-</pre>
-    </div>
+    <pre><code class="language-sh">export PATH=$PATH:$HOME/go/bin
+</code></pre>
     <p>
       Will almost always work.
     </p>
     <h3>
-      <a href="#building" rel="nofollow">
-        <span></span>
-      </a>
       Building
     </h3>
     <p>
@@ -247,19 +226,15 @@ go install github.com/mediabuyerbot/go-crx3/crx3@latest
       To generate that, you can either generate the full plugin, which will not work but
       produces the jar as a by-product, or you can:
     </p>
-    <div>
-      <pre>
+    <pre><code class="language-sh">
 ant jar
-</pre>
-    </div>
+</code></pre>
     <p>
-      To build just the jar. You&#39;ll know it worked if you can:
+      To build just the jar. You&rsquo;ll know it worked if you can:
     </p>
-    <div>
-      <pre>
+    <pre><code class="language-sh">
 java -cp ./src/build/i2pfirefox.jar net.i2p.i2pfirefox.I2PFirefox
-</pre>
-    </div>
+</code></pre>
     <p>
       and a new Firefox instance comes up with a fresh profile, ready-to-use for I2P browsing.
     </p>
@@ -267,34 +242,29 @@ java -cp ./src/build/i2pfirefox.jar net.i2p.i2pfirefox.I2PFirefox
       The cooler thing you can do with it is add it to an I2P distribution and somewhere in it,
       add a UI element that triggers something along the lines of this:
     </p>
-    <div>
-      <pre>
+    <pre><code class="language-java">
 // Firefox Example
 if (i2pIsRunning()) {
-    logger.warning(&#34;I2P is already running&#34;);
-    System.out.println(&#34;I2PFirefox&#34;);
+    logger.warning(&quot;I2P is already running&quot;);
+    System.out.println(&quot;I2PFirefox&quot;);
     I2PFirefox i2pFirefox = new I2PFirefox();
     i2pFirefox.launch();
 }
-</pre>
-    </div>
-    <div>
-      <pre>
+</code></pre>
+    <pre><code class="language-java">
 // Chromium Example
 if (i2pIsRunning()) {
-    logger.warning(&#34;I2P is already running&#34;);
-    System.out.println(&#34;I2PChromium&#34;);
+    logger.warning(&quot;I2P is already running&quot;);
+    System.out.println(&quot;I2PChromium&quot;);
     I2PChromium i2pChromium = new I2PChromium();
     i2pChromium.launch();
 }
-</pre>
-    </div>
-    <div>
-      <pre>
+</code></pre>
+    <pre><code class="language-java">
 // Auto-Select Example, chooses Firefox first, then Chromium
 if (i2pIsRunning()) {
-    logger.warning(&#34;I2P is already running&#34;);
-    System.out.println(&#34;I2PBrowser&#34;);
+    logger.warning(&quot;I2P is already running&quot;);
+    System.out.println(&quot;I2PBrowser&quot;);
     I2PBrowser i2pBrowser = new I2PBrowser();
     /*
      * toggle chromium to the top of the order by doing:
@@ -303,15 +273,11 @@ if (i2pIsRunning()) {
     */
     i2pBrowser.launch(privateBrowsing);
 }
-</pre>
-    </div>
+</code></pre>
     <p>
       to add a browser management tool to it.
     </p>
     <h3>
-      <a href="#browser-discovery-methods" rel="nofollow">
-        <span></span>
-      </a>
       Browser Discovery Methods
     </h3>
     <p>
@@ -323,12 +289,12 @@ if (i2pIsRunning()) {
     </p>
     <ol>
       <li>
-        &#34;Local&#34; discovery, where a browser is in a subdirectory of the directory where you
+        &ldquo;Local&rdquo; discovery, where a browser is in a subdirectory of the directory where you
         ran the launcher. This will only happen if the user unpacked a portable browser into
         the same directory where they ran the launcher.
       </li>
       <li>
-        &#34;Path-Based&#34; discovery, where it scans common browser installation directories
+        &ldquo;Path-Based&rdquo; discovery, where it scans common browser installation directories
         until it finds one which it can use. On Unix, it simply scans the directories on the
         <code>
           PATH
@@ -337,7 +303,7 @@ if (i2pIsRunning()) {
         directories are hard-coded and included in the binary. This is what usually happens.
       </li>
       <li>
-        &#34;System-Based&#34; discovery, where it defers to the host system to make a choice
+        &ldquo;System-Based&rdquo; discovery, where it defers to the host system to make a choice
         about the browser and counts on browser vendors to honor the system proxy environment
         variables. This is a catch-all solution which works with most browsers, but does
         not apply any customizations.
@@ -360,11 +326,11 @@ if (i2pIsRunning()) {
       <li>
         Linux is unaware of a Tor Browser path because Tor Browser is rarely, if ever,
         installed on-path. What is on path is virtually always a wrapper for Tor Browser
-        which is installed either as the main user or it&#39;s own user. Linux will only use
-        Tor Browser if it&#39;s discovered in &#34;Local&#34; mode.
+        which is installed either as the main user or it&rsquo;s own user. Linux will only use
+        Tor Browser if it&rsquo;s discovered in &ldquo;Local&rdquo; mode.
       </li>
       <li>
-        The above is also true of OSX for now but doesn&#39;t have to remain so.
+        The above is also true of OSX for now but doesn&rsquo;t have to remain so.
       </li>
       <li>
         I really only test Phase 3 with Dillo and Edgium.
@@ -374,9 +340,6 @@ if (i2pIsRunning()) {
       </li>
     </ul>
     <h3>
-      <a href="#usability-vs-strict" rel="nofollow">
-        <span></span>
-      </a>
       Usability vs Strict
     </h3>
     <p>
@@ -385,14 +348,11 @@ if (i2pIsRunning()) {
       they are browsing I2P. It assumes that they are part of a highly fragmented
       browsing environment where they are already unique, and therefore consolidation
       on configuration is a goal. However, this goal sometimes also conflicts with
-      usability. To allow users a safe set of choices, we offer &#34;Coarse&#34; configuration
+      usability. To allow users a safe set of choices, we offer &ldquo;Coarse&rdquo; configuration
       in 2 modes. We recommend that you do not deviate from these configurations if
       you have browser application fingerprinting as a concern.
     </p>
     <h4>
-      <a href="#usability-mode" rel="nofollow">
-        <span></span>
-      </a>
       Usability Mode
     </h4>
     <p>
@@ -407,9 +367,6 @@ if (i2pIsRunning()) {
       Cons: Plugin updates can create temporary uniqueness
     </p>
     <h5>
-      <a href="#usability-extension-set" rel="nofollow">
-        <span></span>
-      </a>
       Usability Extension Set
     </h5>
     <ul>
@@ -446,18 +403,12 @@ if (i2pIsRunning()) {
       </li>
     </ul>
     <h5>
-      <a href="#usability-user-js-characteristics" rel="nofollow">
-        <span></span>
-      </a>
       Usability user.js characteristics
     </h5>
     <p>
       TODO: Summarize differences
     </p>
     <h4>
-      <a href="#strict-mode" rel="nofollow">
-        <span></span>
-      </a>
       Strict Mode
     </h4>
     <p>
@@ -465,7 +416,7 @@ if (i2pIsRunning()) {
     </p>
     <p>
       Pros: Does not allow Javascript by default
-      Pros: Looks a lot like Tor Browser especially if you&#39;re using Tor Browser
+      Pros: Looks a lot like Tor Browser especially if you&rsquo;re using Tor Browser
     </p>
     <p>
       Cons: More work to use
@@ -473,9 +424,6 @@ if (i2pIsRunning()) {
       Cons: More likely to try and reach the clearnet
     </p>
     <h5>
-      <a href="#strict-extension-set" rel="nofollow">
-        <span></span>
-      </a>
       Strict Extension Set
     </h5>
     <ul>
@@ -497,9 +445,6 @@ if (i2pIsRunning()) {
       </li>
     </ul>
     <h5>
-      <a href="#strict-user-js-characteristics" rel="nofollow">
-        <span></span>
-      </a>
       Strict user.js characteristics
     </h5>
     <p>

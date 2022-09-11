@@ -211,7 +211,7 @@ This method has no parameters.
 | url | String[] |  |  
 
 
-### launch [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L530)
+### launch [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L531)
 
 + Description: Populates a profile directory with a proxy configuration. Waits for an HTTP proxy on the port 4444 to be ready. Launches Chromium with the profile directory.   
 + Access: public  
@@ -223,7 +223,7 @@ This method has no parameters.
 | url | String[] |  |  
 
 
-### launch [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L555)
+### launch [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L556)
 
 + Description: Populates a profile directory with a proxy configuration. Waits for an HTTP proxy on the port 4444 to be ready. Launches Chromium with the profile directory.   
 + Access: public  
@@ -234,7 +234,7 @@ This method has no parameters.
 | privateWindow | boolean |  |  
 
 
-### launch [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L564)
+### launch [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L565)
 
 + Description: Populates a profile directory with a proxy configuration. Waits for an HTTP proxy on the port 4444 to be ready. Launches Chromium with the profile directory.   
 + Access: public  
@@ -243,7 +243,7 @@ This method has no parameters.
 This method has no parameters.  
 
 
-### ValidURL [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L566)
+### ValidURL [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L567)
 
 + Description:   
 + Access: private  
@@ -255,7 +255,7 @@ This method has no parameters.
 | inUrl | String |  |  
 
 
-### main [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L576)
+### main [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L577)
 
 + Description:   
 + Access: public  
@@ -267,7 +267,7 @@ This method has no parameters.
 | args | String[] |  |  
 
 
-### sleep [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L608)
+### sleep [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L609)
 
 + Description:   
 + Access: private  
