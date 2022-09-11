@@ -1,813 +1,740 @@
 <html>
-<head>
-  <title>
-    i2p.plugins.fire...
-  </title>
-  <meta name="author" content="eyedeekay" />
-  <meta name="description" content="i2p.plugins.firefox" />
-  <meta name="keywords" content="main" />
-  <link rel="stylesheet" type="text/css" href="style.css" />
-  <link rel="stylesheet" type="text/css" href="showhider.css" />
-</head>
-<body>
-<div id="navbar">
-  <a href="#shownav">
-    Show navigation
-  </a>
-  <div id="shownav">
-    <div id="hidenav">
+  <head>
+    <title>
+      i2p.plugins.fire...
+    </title>
+    <meta name="author" content="eyedeekay" />
+    <meta name="description" content="i2p.plugins.firefox" />
+    <meta name="keywords" content="main" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="showhider.css" />
+  </head>
+  <body>
+    <div id="navbar">
+      <a href="#shownav">
+        Show navigation
+      </a>
+      <div id="shownav">
+        <div id="hidenav">
+          <ul>
+            <li>
+              <a href="..">
+                Up one level ^
+              </a>
+            </li>
+            <li>
+              <a href="index.html">
+                index
+              </a>
+            </li>
+            <li>
+              <a href="CHANGES.html">
+                CHANGES
+              </a>
+            </li>
+            <li>
+              <a href="EXAMPLES.html">
+                EXAMPLES
+              </a>
+            </li>
+            <li>
+              <a href="I2PBrowser.html">
+                I2PBrowser
+              </a>
+            </li>
+            <li>
+              <a href="I2PChromium.html">
+                I2PChromium
+              </a>
+            </li>
+            <li>
+              <a href="I2PChromiumProfileBuilder.html">
+                I2PChromiumProfileBuilder
+              </a>
+            </li>
+            <li>
+              <a href="I2PChromiumProfileChecker.html">
+                I2PChromiumProfileChecker
+              </a>
+            </li>
+            <li>
+              <a href="I2PChromiumProfileUnpacker.html">
+                I2PChromiumProfileUnpacker
+              </a>
+            </li>
+            <li>
+              <a href="I2PCommonBrowser.html">
+                I2PCommonBrowser
+              </a>
+            </li>
+            <li>
+              <a href="I2PFirefox.html">
+                I2PFirefox
+              </a>
+            </li>
+            <li>
+              <a href="I2PFirefoxProfileBuilder.html">
+                I2PFirefoxProfileBuilder
+              </a>
+            </li>
+            <li>
+              <a href="I2PFirefoxProfileChecker.html">
+                I2PFirefoxProfileChecker
+              </a>
+            </li>
+            <li>
+              <a href="I2PFirefoxProfileUnpacker.html">
+                I2PFirefoxProfileUnpacker
+              </a>
+            </li>
+            <li>
+              <a href="I2PGenericUnsafeBrowser.html">
+                I2PGenericUnsafeBrowser
+              </a>
+            </li>
+            <li>
+              <a href="LICENSE.html">
+                LICENSE
+              </a>
+            </li>
+            <li>
+              <a href="PACKAGES.html">
+                PACKAGES
+              </a>
+            </li>
+            <li>
+              <a href="RELEASES.html">
+                RELEASES
+              </a>
+            </li>
+            <li>
+              <a href="TODO.html">
+                TODO
+              </a>
+            </li>
+            <li>
+              <a href="USAGE.html">
+                USAGE
+              </a>
+            </li>
+          </ul>
+          <br>
+          <a href="#hidenav">
+            Hide Navigation
+          </a>
+        </div>
+      </div>
+    </div>
+    <a id="returnhome" href="/">
+      /
+    </a>
+    <h1>
+      Class I2PGenericUnsafeBrowser
+      <a href="src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java">
+        [src]
+      </a>
+    </h1>
+    <blockquote></blockquote>
+    <p>
+      Access: public
+      <br />
+      Description:
+      <br />
+      &gt; I2PChromiumProfileChecker.java Copyright C 2022 idk
+      <a href="mailto:hankhill19580@gmail.com">
+        hankhill19580@gmail.com
+      </a>
+      This program is free software: you can redistribute it and/or modify it under the terms of the MIT License. See LICENSE.md for details. This program is distributed in the hope that it will be useful but WITHOUT ANY WARRANTY without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. I2PGenericUnsafeBrowser is a wrapper which sets common environment variables for the process controlled by a processbuilder. ALWAYS ALWAYS ALWAYS try the Firefox and Chromium specific launchers first.
+    </p>
+    <p>
+      Author: idk
+      <br />
+      Parent class: I2PCommonBrowser
+      <br />
+      package: net.i2p.i2pfirefox
+    </p>
+    <h2>
+      Dependencies
+    </h2>
+    <p>
+      <details>
+        <br />
+        <summary>
+          <br />
+          Show dependencies
+          <br />
+        </summary>
+        <br />
+        <ul>
+          <br />
+          <li>
+            java.io.File
+          </li>
+          <li>
+            java.io.IOException
+          </li>
+          <li>
+            java.net.Socket
+          </li>
+          <li>
+            java.util.ArrayList
+          </li>
+          <li>
+            java.util.Scanner
+          </li>
+        </ul>
+        <br />
+      </details>
+    </p>
+    <h2>
+      Member Variables
+    </h2>
+    <h4>
+      int DEFAULT_TIMEOUT
+      <a href="src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L">
+        [src]
+      </a>
+    </h4>
+    <blockquote></blockquote>
+    <ul>
+      <li>
+        Access: private
+        <br />
+      </li>
+      <li>
+        Modifiers: final
+      </li>
+    </ul>
+    <h4>
+      String BROWSER
+      <a href="src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L">
+        [src]
+      </a>
+    </h4>
+    <blockquote></blockquote>
+    <ul>
+      <li>
+        Access: public
+        <br />
+      </li>
+      <li>
+        Modifiers: static
+      </li>
+    </ul>
+    <h4>
+      Process p
+      <a href="src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L">
+        [src]
+      </a>
+    </h4>
+    <blockquote></blockquote>
+    <ul>
+      <li>
+        Access: private
+        <br />
+      </li>
+    </ul>
+    <h2>
+      Methods
+    </h2>
+    <h3>
+      getDefaultWindowsBrowser
+      <a href="src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L90">
+        [src]
+      </a>
+    </h3>
+    <ul>
+      <li>
+        Description: Obtains the default browser for the Windows platform which by now should be Edgium in the worst-case scenario but in case it isn&rsquo;t we can use this function to figure it out. It can find: 1. The current user&rsquo;s HTTPS default browser if they configured it to be non-default 2. The current user&rsquo;s HTTP default browser if they configured it to be non-default 3. Edgium if it&rsquo;s available 4. iexplore if it&rsquo;s not and it will return the first one we find in exactly that order. Adapted from: and from:
+        <br />
+      </li>
+      <li>
+        Access: public
+        <br />
+      </li>
+      <li>
+        Modifiers: static
+      </li>
+      <li>
+        return: String
+        <br />
+      </li>
+    </ul>
+    <p>
+      This method has no parameters.
+    </p>
+    <h3>
+      getDefaultOutOfRegistry
+      <a href="src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L118">
+        [src]
+      </a>
+    </h3>
+    <ul>
+      <li>
+        Description: obtains information out of the Windows registry.
+        <br />
+      </li>
+      <li>
+        Access: public
+        <br />
+      </li>
+      <li>
+        Modifiers: static
+      </li>
+      <li>
+        return: String
+        <br />
+      </li>
+    </ul>
+    <p>
+      | Name | Type | Description |
+      <br />
+      | &mdash;&ndash; | &mdash;&ndash; | &mdash;&ndash; |
+      <br />
+      | hkeyquery | String | registry entry to ask for.  |
+    </p>
+    <h3>
+      scanAPath
+      <a href="src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L144">
+        [src]
+      </a>
+    </h3>
+    <ul>
+      <li>
+        Description:
+        <br />
+      </li>
+      <li>
+        Access: private
+        <br />
+      </li>
+      <li>
+        Modifiers: static
+      </li>
+      <li>
+        return: String
+        <br />
+      </li>
+    </ul>
+    <p>
+      | Name | Type | Description |
+      <br />
+      | &mdash;&ndash; | &mdash;&ndash; | &mdash;&ndash; |
+      <br />
+      | dir | String |  |
+    </p>
+    <h3>
+      getAnyUnixBrowser
+      <a href="src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L159">
+        [src]
+      </a>
+    </h3>
+    <ul>
+      <li>
+        Description: Find any browser in our list within a UNIX path
+        <br />
+      </li>
+      <li>
+        Access: public
+        <br />
+      </li>
+      <li>
+        Modifiers: static
+      </li>
+      <li>
+        return: String
+        <br />
+      </li>
+    </ul>
+    <p>
+      This method has no parameters.
+    </p>
+    <h3>
+      findUnsafeBrowserAnywhere
+      <a href="src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L178">
+        [src]
+      </a>
+    </h3>
+    <ul>
+      <li>
+        Description: Find any usable browser and output the whole path
+        <br />
+      </li>
+      <li>
+        Access: public
+        <br />
+      </li>
+      <li>
+        Modifiers: static
+      </li>
+      <li>
+        return: String
+        <br />
+      </li>
+    </ul>
+    <p>
+      This method has no parameters.
+    </p>
+    <h3>
+      deleteRuntimeDirectory
+      <a href="src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L229">
+        [src]
+      </a>
+    </h3>
+    <ul>
+      <li>
+        Description: delete the runtime directory
+        <br />
+      </li>
+      <li>
+        Access: public
+        <br />
+      </li>
+      <li>
+        Modifiers: static
+      </li>
+      <li>
+        return: boolean
+        <br />
+      </li>
+    </ul>
+    <p>
+      This method has no parameters.
+    </p>
+    <h3>
+      runtimeDirectory
+      <a href="src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L245">
+        [src]
+      </a>
+    </h3>
+    <ul>
+      <li>
+        Description: get the runtime directory creating it if create=true
+        <br />
+      </li>
+      <li>
+        Access: public
+        <br />
+      </li>
+      <li>
+        Modifiers: static
+      </li>
+      <li>
+        return: the runtime directory or null if it could not be created
+        <br />
+      </li>
+    </ul>
+    <p>
+      | Name | Type | Description |
+      <br />
+      | &mdash;&ndash; | &mdash;&ndash; | &mdash;&ndash; |
+      <br />
+      | create | boolean | if true create the runtime directory if it does not exist  |
+    </p>
+    <h3>
+      runtimeDirectory
+      <a href="src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L256">
+        [src]
+      </a>
+    </h3>
+    <ul>
+      <li>
+        Description: get the correct runtime directory
+        <br />
+      </li>
+      <li>
+        Access: public
+        <br />
+      </li>
+      <li>
+        Modifiers: static
+      </li>
+      <li>
+        return: the runtime directory or null if it could not be created or found
+        <br />
+      </li>
+    </ul>
+    <p>
+      This method has no parameters.
+    </p>
+    <h3>
+      waitForProxy
+      <a href="src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L278">
+        [src]
+      </a>
+    </h3>
+    <ul>
+      <li>
+        Description: Waits for an HTTP proxy on port 4444 to be ready. Returns false on timeout of 200 seconds.
+        <br />
+      </li>
+      <li>
+        Access: public
+        <br />
+      </li>
+      <li>
+        return: true if the proxy is ready false if it is not.
+        <br />
+      </li>
+    </ul>
+    <p>
+      This method has no parameters.
+    </p>
+    <h3>
+      waitForProxy
+      <a href="src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L288">
+        [src]
+      </a>
+    </h3>
+    <ul>
+      <li>
+        Description: Waits for an HTTP proxy on port 4444 to be ready. Returns false on timeout of the specified number of seconds.
+        <br />
+      </li>
+      <li>
+        Access: public
+        <br />
+      </li>
+      <li>
+        return: true if the proxy is ready false if it is not.
+        <br />
+      </li>
+    </ul>
+    <p>
+      | Name | Type | Description |
+      <br />
+      | &mdash;&ndash; | &mdash;&ndash; | &mdash;&ndash; |
+      <br />
+      | timeout | int | the number of seconds to wait for the proxy to be ready.  |
+    </p>
+    <h3>
+      waitForProxy
+      <a href="src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L300">
+        [src]
+      </a>
+    </h3>
+    <ul>
+      <li>
+        Description: Waits for an HTTP proxy on the specified port to be ready. Returns false on timeout of the specified number of seconds.
+        <br />
+      </li>
+      <li>
+        Access: public
+        <br />
+      </li>
+      <li>
+        return: true if the proxy is ready false if it is not.
+        <br />
+      </li>
+    </ul>
+    <p>
+      | Name | Type | Description |
+      <br />
+      | &mdash;&ndash; | &mdash;&ndash; | &mdash;&ndash; |
+      <br />
+      | timeout | int | the number of seconds to wait for the proxy to be ready.  |
+      <br />
+      | port | int | the port to wait for the proxy to be ready on.  |
+    </p>
+    <h3>
+      waitForProxy
+      <a href="src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L314">
+        [src]
+      </a>
+    </h3>
+    <ul>
+      <li>
+        Description: Waits for an HTTP proxy on the specified port to be ready. Returns false on timeout of the specified number of seconds.
+        <br />
+      </li>
+      <li>
+        Access: public
+        <br />
+      </li>
+      <li>
+        return: true if the proxy is ready false if it is not.
+        <br />
+      </li>
+    </ul>
+    <p>
+      | Name | Type | Description |
+      <br />
+      | &mdash;&ndash; | &mdash;&ndash; | &mdash;&ndash; |
+      <br />
+      | timeout | int | the number of seconds to wait for the proxy to be ready.  |
+      <br />
+      | port | int | the port to wait for the proxy to be ready on.  |
+      <br />
+      | host | String | the host to wait for the proxy to be ready on.  |
+    </p>
+    <h3>
+      launchAndDetatch
+      <a href="src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L328">
+        [src]
+      </a>
+    </h3>
+    <ul>
+      <li>
+        Description:
+        <br />
+      </li>
+      <li>
+        Access: public
+        <br />
+      </li>
+      <li>
+        return: Process
+        <br />
+      </li>
+    </ul>
+    <p>
+      | Name | Type | Description |
+      <br />
+      | &mdash;&ndash; | &mdash;&ndash; | &mdash;&ndash; |
+      <br />
+      | privateWindow | boolean |  |
+      <br />
+      | url | String[] |  |
+    </p>
+    <h3>
+      launch
+      <a href="src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L350">
+        [src]
+      </a>
+    </h3>
+    <ul>
+      <li>
+        Description:
+        <br />
+      </li>
+      <li>
+        Access: public
+        <br />
+      </li>
+      <li>
+        return: void
+        <br />
+      </li>
+    </ul>
+    <p>
+      | Name | Type | Description |
+      <br />
+      | &mdash;&ndash; | &mdash;&ndash; | &mdash;&ndash; |
+      <br />
+      | privateWindow | boolean |  |
+      <br />
+      | url | String[] |  |
+    </p>
+    <h3>
+      sleep
+      <a href="src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L368">
+        [src]
+      </a>
+    </h3>
+    <ul>
+      <li>
+        Description:
+        <br />
+      </li>
+      <li>
+        Access: private
+        <br />
+      </li>
+      <li>
+        Modifiers: static
+      </li>
+      <li>
+        return: void
+        <br />
+      </li>
+    </ul>
+    <p>
+      | Name | Type | Description |
+      <br />
+      | &mdash;&ndash; | &mdash;&ndash; | &mdash;&ndash; |
+      <br />
+      | millis | int |  |
+    </p>
+    <h3>
+      ValidURL
+      <a href="src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L376">
+        [src]
+      </a>
+    </h3>
+    <ul>
+      <li>
+        Description:
+        <br />
+      </li>
+      <li>
+        Access: private
+        <br />
+      </li>
+      <li>
+        Modifiers: static
+      </li>
+      <li>
+        return: String
+        <br />
+      </li>
+    </ul>
+    <p>
+      | Name | Type | Description |
+      <br />
+      | &mdash;&ndash; | &mdash;&ndash; | &mdash;&ndash; |
+      <br />
+      | inUrl | String |  |
+    </p>
+    <h3>
+      checkifPortIsOccupied
+      <a href="src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L386">
+        [src]
+      </a>
+    </h3>
+    <ul>
+      <li>
+        Description:
+        <br />
+      </li>
+      <li>
+        Access: private
+        <br />
+      </li>
+      <li>
+        return: boolean
+        <br />
+      </li>
+    </ul>
+    <p>
+      | Name | Type | Description |
+      <br />
+      | &mdash;&ndash; | &mdash;&ndash; | &mdash;&ndash; |
+      <br />
+      | port | int |  |
+      <br />
+      | host | String |  |
+    </p>
+    <div id="sourcecode">
+      <span id="sourcehead">
+        <strong>
+          Get the source code:
+        </strong>
+      </span>
       <ul>
         <li>
-          <a href="..">
-            Up one level ^
-          </a>
-        </li>
-        <li>
-          <a href="index.html">
-            index
-          </a>
-        </li>
-        <li>
-          <a href="CHANGES.html">
-            CHANGES
-          </a>
-        </li>
-        <li>
-          <a href="EXAMPLES.html">
-            EXAMPLES
-          </a>
-        </li>
-        <li>
-          <a href="I2PBrowser.html">
-            I2PBrowser
-          </a>
-        </li>
-        <li>
-          <a href="I2PChromium.html">
-            I2PChromium
-          </a>
-        </li>
-        <li>
-          <a href="I2PChromiumProfileBuilder.html">
-            I2PChromiumProfileBuilder
-          </a>
-        </li>
-        <li>
-          <a href="I2PChromiumProfileChecker.html">
-            I2PChromiumProfileChecker
-          </a>
-        </li>
-        <li>
-          <a href="I2PChromiumProfileUnpacker.html">
-            I2PChromiumProfileUnpacker
-          </a>
-        </li>
-        <li>
-          <a href="I2PCommonBrowser.html">
-            I2PCommonBrowser
-          </a>
-        </li>
-        <li>
-          <a href="I2PFirefox.html">
-            I2PFirefox
-          </a>
-        </li>
-        <li>
-          <a href="I2PFirefoxProfileBuilder.html">
-            I2PFirefoxProfileBuilder
-          </a>
-        </li>
-        <li>
-          <a href="I2PFirefoxProfileChecker.html">
-            I2PFirefoxProfileChecker
-          </a>
-        </li>
-        <li>
-          <a href="I2PFirefoxProfileUnpacker.html">
-            I2PFirefoxProfileUnpacker
-          </a>
-        </li>
-        <li>
-          <a href="I2PGenericUnsafeBrowser.html">
-            I2PGenericUnsafeBrowser
-          </a>
-        </li>
-        <li>
-          <a href="LICENSE.html">
-            LICENSE
-          </a>
-        </li>
-        <li>
-          <a href="PACKAGES.html">
-            PACKAGES
-          </a>
-        </li>
-        <li>
-          <a href="RELEASES.html">
-            RELEASES
-          </a>
-        </li>
-        <li>
-          <a href="TODO.html">
-            TODO
-          </a>
-        </li>
-        <li>
-          <a href="USAGE.html">
-            USAGE
+          <a href="https://github.com/eyedeekay/i2p.plugins.firefox">
+            Source Repository: (https://github.com/eyedeekay/i2p.plugins.firefox)
           </a>
         </li>
       </ul>
-      <br>
-      <a href="#hidenav">
-        Hide Navigation
-      </a>
     </div>
-  </div>
-</div>
-<a id="returnhome" href="/">
-  /
-</a>
-<h1>
-  <a href="#class-i2pgenericunsafebrowser-src" rel="nofollow">
-    <span></span>
-  </a>
-  Class I2PGenericUnsafeBrowser
-  <a href="src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java" rel="nofollow">
-    [src]
-  </a>
-</h1>
-<blockquote></blockquote>
-<p>
-  Access: public
-  <br>
-  Description:
-</p>
-<blockquote>
-  <p>
-    I2PChromiumProfileChecker.java Copyright C 2022 idk
-    <a href="mailto:hankhill19580@gmail.com" rel="nofollow">
-      hankhill19580@gmail.com
-    </a>
-    This program is free software: you can redistribute it and/or modify it under the terms of the MIT License. See LICENSE.md for details. This program is distributed in the hope that it will be useful but WITHOUT ANY WARRANTY without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. I2PGenericUnsafeBrowser is a wrapper which sets common environment variables for the process controlled by a processbuilder. ALWAYS ALWAYS ALWAYS try the Firefox and Chromium specific launchers first.
-  </p>
-</blockquote>
-<p>
-  Author: idk
-  <br>
-  Parent class: I2PCommonBrowser
-  <br>
-  package: net.i2p.i2pfirefox
-</p>
-<h2>
-  <a href="#dependencies" rel="nofollow">
-    <span></span>
-  </a>
-  Dependencies
-</h2>
-<p>
-  <details>
-  <br>
-  <summary>
-</p>
-<pre><code>Show dependencies  
-</code></pre>
-<p>
-<br>
-<ul>
-  <br>
-  <li>
-    java.io.File
-  </li>
-  <li>
-    java.io.IOException
-  </li>
-  <li>
-    java.net.Socket
-  </li>
-  <li>
-    java.util.ArrayList
-  </li>
-  <li>
-    java.util.Scanner
-  </li>
-</ul>
-<br>
-<h2>
-  <a href="#member-variables" rel="nofollow">
-    <span></span>
-  </a>
-  Member Variables
-</h2>
-<h4>
-  <a href="#int-default-timeout-src" rel="nofollow">
-    <span></span>
-  </a>
-  int DEFAULT_TIMEOUT
-  <a href="src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L" rel="nofollow">
-    [src]
-  </a>
-</h4>
-<blockquote></blockquote>
-<ul>
-  <li>
-    Access: private
-    <br>
-  </li>
-  <li>
-    Modifiers: final
-  </li>
-</ul>
-<h4>
-  <a href="#string-browser-src" rel="nofollow">
-    <span></span>
-  </a>
-  String BROWSER
-  <a href="src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L" rel="nofollow">
-    [src]
-  </a>
-</h4>
-<blockquote></blockquote>
-<ul>
-  <li>
-    Access: public
-    <br>
-  </li>
-  <li>
-    Modifiers: static
-  </li>
-</ul>
-<h4>
-  <a href="#process-p-src" rel="nofollow">
-    <span></span>
-  </a>
-  Process p
-  <a href="src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L" rel="nofollow">
-    [src]
-  </a>
-</h4>
-<blockquote></blockquote>
-<ul>
-  <li>
-    Access: private
-    <br>
-  </li>
-</ul>
-<h2>
-  <a href="#methods" rel="nofollow">
-    <span></span>
-  </a>
-  Methods
-</h2>
-<h3>
-  <a href="#getdefaultwindowsbrowser-src" rel="nofollow">
-    <span></span>
-  </a>
-  getDefaultWindowsBrowser
-  <a href="src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L90" rel="nofollow">
-    [src]
-  </a>
-</h3>
-<ul>
-  <li>
-    Description: Obtains the default browser for the Windows platform which by now should be Edgium in the worst-case scenario but in case it isn&#39;t we can use this function to figure it out. It can find: 1. The current user&#39;s HTTPS default browser if they configured it to be non-default 2. The current user&#39;s HTTP default browser if they configured it to be non-default 3. Edgium if it&#39;s available 4. iexplore if it&#39;s not and it will return the first one we find in exactly that order. Adapted from: and from:
-    <br>
-  </li>
-  <li>
-    Access: public
-    <br>
-  </li>
-  <li>
-    Modifiers: static
-  </li>
-  <li>
-    return: String
-    <br>
-  </li>
-</ul>
-<p>
-  This method has no parameters.
-</p>
-<h3>
-  <a href="#getdefaultoutofregistry-src" rel="nofollow">
-    <span></span>
-  </a>
-  getDefaultOutOfRegistry
-  <a href="src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L118" rel="nofollow">
-    [src]
-  </a>
-</h3>
-<ul>
-  <li>
-    Description: obtains information out of the Windows registry.
-    <br>
-  </li>
-  <li>
-    Access: public
-    <br>
-  </li>
-  <li>
-    Modifiers: static
-  </li>
-  <li>
-    return: String
-    <br>
-  </li>
-</ul>
-<p>
-  | Name | Type | Description |
-  <br>
-  | ----- | ----- | ----- |
-  <br>
-  | hkeyquery | String | registry entry to ask for.  |
-</p>
-<h3>
-  <a href="#scanapath-src" rel="nofollow">
-    <span></span>
-  </a>
-  scanAPath
-  <a href="src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L144" rel="nofollow">
-    [src]
-  </a>
-</h3>
-<ul>
-  <li>
-    Description:
-    <br>
-  </li>
-  <li>
-    Access: private
-    <br>
-  </li>
-  <li>
-    Modifiers: static
-  </li>
-  <li>
-    return: String
-    <br>
-  </li>
-</ul>
-<p>
-  | Name | Type | Description |
-  <br>
-  | ----- | ----- | ----- |
-  <br>
-  | dir | String |  |
-</p>
-<h3>
-  <a href="#getanyunixbrowser-src" rel="nofollow">
-    <span></span>
-  </a>
-  getAnyUnixBrowser
-  <a href="src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L159" rel="nofollow">
-    [src]
-  </a>
-</h3>
-<ul>
-  <li>
-    Description: Find any browser in our list within a UNIX path
-    <br>
-  </li>
-  <li>
-    Access: public
-    <br>
-  </li>
-  <li>
-    Modifiers: static
-  </li>
-  <li>
-    return: String
-    <br>
-  </li>
-</ul>
-<p>
-  This method has no parameters.
-</p>
-<h3>
-  <a href="#findunsafebrowseranywhere-src" rel="nofollow">
-    <span></span>
-  </a>
-  findUnsafeBrowserAnywhere
-  <a href="src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L178" rel="nofollow">
-    [src]
-  </a>
-</h3>
-<ul>
-  <li>
-    Description: Find any usable browser and output the whole path
-    <br>
-  </li>
-  <li>
-    Access: public
-    <br>
-  </li>
-  <li>
-    Modifiers: static
-  </li>
-  <li>
-    return: String
-    <br>
-  </li>
-</ul>
-<p>
-  This method has no parameters.
-</p>
-<h3>
-  <a href="#deleteruntimedirectory-src" rel="nofollow">
-    <span></span>
-  </a>
-  deleteRuntimeDirectory
-  <a href="src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L229" rel="nofollow">
-    [src]
-  </a>
-</h3>
-<ul>
-  <li>
-    Description: delete the runtime directory
-    <br>
-  </li>
-  <li>
-    Access: public
-    <br>
-  </li>
-  <li>
-    Modifiers: static
-  </li>
-  <li>
-    return: boolean
-    <br>
-  </li>
-</ul>
-<p>
-  This method has no parameters.
-</p>
-<h3>
-  <a href="#runtimedirectory-src" rel="nofollow">
-    <span></span>
-  </a>
-  runtimeDirectory
-  <a href="src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L245" rel="nofollow">
-    [src]
-  </a>
-</h3>
-<ul>
-  <li>
-    Description: get the runtime directory creating it if create=true
-    <br>
-  </li>
-  <li>
-    Access: public
-    <br>
-  </li>
-  <li>
-    Modifiers: static
-  </li>
-  <li>
-    return: the runtime directory or null if it could not be created
-    <br>
-  </li>
-</ul>
-<p>
-  | Name | Type | Description |
-  <br>
-  | ----- | ----- | ----- |
-  <br>
-  | create | boolean | if true create the runtime directory if it does not exist  |
-</p>
-<h3>
-  <a href="#runtimedirectory-src" rel="nofollow">
-    <span></span>
-  </a>
-  runtimeDirectory
-  <a href="src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L256" rel="nofollow">
-    [src]
-  </a>
-</h3>
-<ul>
-  <li>
-    Description: get the correct runtime directory
-    <br>
-  </li>
-  <li>
-    Access: public
-    <br>
-  </li>
-  <li>
-    Modifiers: static
-  </li>
-  <li>
-    return: the runtime directory or null if it could not be created or found
-    <br>
-  </li>
-</ul>
-<p>
-  This method has no parameters.
-</p>
-<h3>
-  <a href="#waitforproxy-src" rel="nofollow">
-    <span></span>
-  </a>
-  waitForProxy
-  <a href="src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L278" rel="nofollow">
-    [src]
-  </a>
-</h3>
-<ul>
-  <li>
-    Description: Waits for an HTTP proxy on port 4444 to be ready. Returns false on timeout of 200 seconds.
-    <br>
-  </li>
-  <li>
-    Access: public
-    <br>
-  </li>
-  <li>
-    return: true if the proxy is ready false if it is not.
-    <br>
-  </li>
-</ul>
-<p>
-  This method has no parameters.
-</p>
-<h3>
-  <a href="#waitforproxy-src" rel="nofollow">
-    <span></span>
-  </a>
-  waitForProxy
-  <a href="src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L288" rel="nofollow">
-    [src]
-  </a>
-</h3>
-<ul>
-  <li>
-    Description: Waits for an HTTP proxy on port 4444 to be ready. Returns false on timeout of the specified number of seconds.
-    <br>
-  </li>
-  <li>
-    Access: public
-    <br>
-  </li>
-  <li>
-    return: true if the proxy is ready false if it is not.
-    <br>
-  </li>
-</ul>
-<p>
-  | Name | Type | Description |
-  <br>
-  | ----- | ----- | ----- |
-  <br>
-  | timeout | int | the number of seconds to wait for the proxy to be ready.  |
-</p>
-<h3>
-  <a href="#waitforproxy-src" rel="nofollow">
-    <span></span>
-  </a>
-  waitForProxy
-  <a href="src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L300" rel="nofollow">
-    [src]
-  </a>
-</h3>
-<ul>
-  <li>
-    Description: Waits for an HTTP proxy on the specified port to be ready. Returns false on timeout of the specified number of seconds.
-    <br>
-  </li>
-  <li>
-    Access: public
-    <br>
-  </li>
-  <li>
-    return: true if the proxy is ready false if it is not.
-    <br>
-  </li>
-</ul>
-<p>
-  | Name | Type | Description |
-  <br>
-  | ----- | ----- | ----- |
-  <br>
-  | timeout | int | the number of seconds to wait for the proxy to be ready.  |
-  <br>
-  | port | int | the port to wait for the proxy to be ready on.  |
-</p>
-<h3>
-  <a href="#waitforproxy-src" rel="nofollow">
-    <span></span>
-  </a>
-  waitForProxy
-  <a href="src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L314" rel="nofollow">
-    [src]
-  </a>
-</h3>
-<ul>
-  <li>
-    Description: Waits for an HTTP proxy on the specified port to be ready. Returns false on timeout of the specified number of seconds.
-    <br>
-  </li>
-  <li>
-    Access: public
-    <br>
-  </li>
-  <li>
-    return: true if the proxy is ready false if it is not.
-    <br>
-  </li>
-</ul>
-<p>
-  | Name | Type | Description |
-  <br>
-  | ----- | ----- | ----- |
-  <br>
-  | timeout | int | the number of seconds to wait for the proxy to be ready.  |
-  <br>
-  | port | int | the port to wait for the proxy to be ready on.  |
-  <br>
-  | host | String | the host to wait for the proxy to be ready on.  |
-</p>
-<h3>
-  <a href="#launchanddetatch-src" rel="nofollow">
-    <span></span>
-  </a>
-  launchAndDetatch
-  <a href="src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L328" rel="nofollow">
-    [src]
-  </a>
-</h3>
-<ul>
-  <li>
-    Description:
-    <br>
-  </li>
-  <li>
-    Access: public
-    <br>
-  </li>
-  <li>
-    return: Process
-    <br>
-  </li>
-</ul>
-<p>
-  | Name | Type | Description |
-  <br>
-  | ----- | ----- | ----- |
-  <br>
-  | privateWindow | boolean |  |
-  <br>
-  | url | String[] |  |
-</p>
-<h3>
-  <a href="#launch-src" rel="nofollow">
-    <span></span>
-  </a>
-  launch
-  <a href="src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L350" rel="nofollow">
-    [src]
-  </a>
-</h3>
-<ul>
-  <li>
-    Description:
-    <br>
-  </li>
-  <li>
-    Access: public
-    <br>
-  </li>
-  <li>
-    return: void
-    <br>
-  </li>
-</ul>
-<p>
-  | Name | Type | Description |
-  <br>
-  | ----- | ----- | ----- |
-  <br>
-  | privateWindow | boolean |  |
-  <br>
-  | url | String[] |  |
-</p>
-<h3>
-  <a href="#sleep-src" rel="nofollow">
-    <span></span>
-  </a>
-  sleep
-  <a href="src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L367" rel="nofollow">
-    [src]
-  </a>
-</h3>
-<ul>
-  <li>
-    Description:
-    <br>
-  </li>
-  <li>
-    Access: private
-    <br>
-  </li>
-  <li>
-    Modifiers: static
-  </li>
-  <li>
-    return: void
-    <br>
-  </li>
-</ul>
-<p>
-  | Name | Type | Description |
-  <br>
-  | ----- | ----- | ----- |
-  <br>
-  | millis | int |  |
-</p>
-<h3>
-  <a href="#validurl-src" rel="nofollow">
-    <span></span>
-  </a>
-  ValidURL
-  <a href="src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L375" rel="nofollow">
-    [src]
-  </a>
-</h3>
-<ul>
-  <li>
-    Description:
-    <br>
-  </li>
-  <li>
-    Access: private
-    <br>
-  </li>
-  <li>
-    Modifiers: static
-  </li>
-  <li>
-    return: String
-    <br>
-  </li>
-</ul>
-<p>
-  | Name | Type | Description |
-  <br>
-  | ----- | ----- | ----- |
-  <br>
-  | inUrl | String |  |
-</p>
-<h3>
-  <a href="#checkifportisoccupied-src" rel="nofollow">
-    <span></span>
-  </a>
-  checkifPortIsOccupied
-  <a href="src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L385" rel="nofollow">
-    [src]
-  </a>
-</h3>
-<ul>
-  <li>
-    Description:
-    <br>
-  </li>
-  <li>
-    Access: private
-    <br>
-  </li>
-  <li>
-    return: boolean
-    <br>
-  </li>
-</ul>
-<p>
-  | Name | Type | Description |
-  <br>
-  | ----- | ----- | ----- |
-  <br>
-  | port | int |  |
-  <br>
-  | host | String |  |
-</p>
-<div id="sourcecode">
-  <span id="sourcehead">
-    <strong>
-      Get the source code:
-    </strong>
-  </span>
-  <ul>
-    <li>
-      <a href="https://github.com/eyedeekay/i2p.plugins.firefox">
-        Source Repository: (https://github.com/eyedeekay/i2p.plugins.firefox)
+    <div>
+      <a href="#show">
+        Show license
       </a>
-    </li>
-  </ul>
-</div>
-<div>
-  <a href="#show">
-    Show license
-  </a>
-  <div id="show">
-    <div id="hide">
-      <pre><code>   Copyright 2022 idk (hankhill19580@gmail.com)
+      <div id="show">
+        <div id="hide">
+          <pre><code>   Copyright 2022 idk (hankhill19580@gmail.com)
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -1650,18 +1577,20 @@ consider it more useful to permit linking proprietary applications with the
 library.  If this is what you want to do, use the GNU Library General
 Public License instead of this License.
 </code></pre>
-      <a href="#hide">
-        Hide license
+          <a href="#hide">
+            Hide license
+          </a>
+        </div>
+      </div>
+    </div>
+    <div>
+      <iframe src="https://snowflake.torproject.org/embed.html" width="320" height="240" frameborder="0" scrolling="no"></iframe>
+    </div>
+    <div>
+      <a href="https://geti2p.net/">
+        <img src="i2plogo.png"></img>
+        I2P
       </a>
     </div>
-  </div>
-</div>
-<div>
-  <iframe src="https://snowflake.torproject.org/embed.html" width="320" height="240" frameborder="0" scrolling="no"></iframe>
-</div>
-<div>
-  <a href="https://geti2p.net/">
-    <img src="i2plogo.png"></img>
-    I2P
-  </a>
-</div>
+  </body>
+</html>
