@@ -335,13 +335,13 @@ public class I2PGenericUnsafeBrowser extends I2PCommonBrowser {
         pb = baseProcessBuilder(url);
       }
       try {
-        System.out.logger.info(pb.command());
+        logger.info(pb.command().toString());
         p = pb.start();
         logger.info("I2PBrowser");
         sleep(2000);
         return p;
       } catch (Throwable e) {
-        System.out.logger.info(e);
+        logger.info(e.toString());
       }
     }
     return null;
@@ -355,8 +355,7 @@ public class I2PGenericUnsafeBrowser extends I2PCommonBrowser {
         int exit = p.waitFor();
         if (privateWindow) {
           if (deleteRuntimeDirectory())
-            logger.info(
-                "Private browsing enforced, deleting runtime directory");
+            logger.info("Private browsing enforced, deleting runtime directory");
         }
         logger.info("I2PBrowser exited with value: " + exit);
       } catch (Exception e) {
