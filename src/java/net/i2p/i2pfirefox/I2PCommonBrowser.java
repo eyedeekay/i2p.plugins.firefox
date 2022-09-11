@@ -31,7 +31,7 @@ import java.util.zip.ZipInputStream;
  */
 
 public class I2PCommonBrowser {
-  static Logger logger = Logger.getLogger("browserlauncher");
+  static public Logger logger = Logger.getLogger("browserlauncher");
   static FileHandler fh;
   // private final int DEFAULT_TIMEOUT = 200;
   private static int CONFIGURED_TIMEOUT = 200;
@@ -53,37 +53,37 @@ public class I2PCommonBrowser {
   }
 
   public static void validateUserDir() {
-    println("Validating user directory");
+    logger.info("Validating user directory");
     String userDir = System.getProperty("user.dir");
     String userHome = System.getProperty("user.home");
     File userDirFile = new File(userDir);
     File userHomeFile = new File(userHome);
-    println("user.dir testing !" + userHomeFile.getAbsolutePath() + ".equals(" +
-            userDirFile.getAbsolutePath() + ")");
+    logger.info("user.dir testing !" + userHomeFile.getAbsolutePath() +
+                ".equals(" + userDirFile.getAbsolutePath() + ")");
     if (!userDirFile.getAbsolutePath().contains("Program Files")) {
       if (!userDirFile.getAbsolutePath().equals(
               userHomeFile.getAbsolutePath())) {
-        println("user.dir is not inconvenient");
+        logger.info("user.dir is not inconvenient");
         if (userDirFile.exists()) {
-          println("user.dir exists");
+          logger.info("user.dir exists");
           if (userDirFile.isDirectory()) {
-            println("user.dir is a directory");
+            logger.info("user.dir is a directory");
             if (userDirFile.canWrite()) {
-              println("user.dir is writable");
+              logger.info("user.dir is writable");
               return;
             } else {
-              println("user.dir is not writable");
+              logger.info("user.dir is not writable");
             }
           }
-          { println("user.dir is not actually a directory"); }
+          { logger.info("user.dir is not actually a directory"); }
         } else {
-          println("user.dir does not exist");
+          logger.info("user.dir does not exist");
         }
       } else {
-        println("user.dir should not be the same as user.home");
+        logger.info("user.dir should not be the same as user.home");
       }
     } else {
-      println("user.dir cannot run from inside Program Files");
+      logger.info("user.dir cannot run from inside Program Files");
     }
     if (isWindows())
       userHome = new File(userHome, "AppData/Local/I2P").getAbsolutePath();
@@ -91,16 +91,16 @@ public class I2PCommonBrowser {
     if (!defaultPathFile.exists())
       defaultPathFile.mkdirs();
     if (!defaultPathFile.isDirectory()) {
-      println(
+      logger.info(
           "default path exists and is not a directory, get it out of the way");
-      println(defaultPathFile.getAbsolutePath());
+      logger.info(defaultPathFile.getAbsolutePath());
     }
     System.setProperty("user.dir", defaultPathFile.getAbsolutePath());
   }
 
   protected static boolean isWindows() {
     String osName = System.getProperty("os.name");
-    println("os.name" + osName);
+    logger.info("os.name" + osName);
     if (osName.contains("windows"))
       return true;
     if (osName.contains("Windows"))
@@ -110,7 +110,7 @@ public class I2PCommonBrowser {
     return false;
   }
 
-  public static void println(String line) { logger.info(line); }
+  //  public static void logger.info(String line) { logger.info(line); }
 
   private static File logFile() {
     validateUserDir();
@@ -211,16 +211,16 @@ public class I2PCommonBrowser {
 
   protected boolean unpackProfile(String profileDirectory, String browser,
                                   String base) {
-    println("Unpacking base profile to " + profileDirectory);
+    logger.info("Unpacking base profile to " + profileDirectory);
     try {
       final InputStream resources =
           this.getClass().getClassLoader().getResourceAsStream(
               "i2p." + browser + "." + base + ".profile.zip");
       if (resources == null) {
-        println("Could not find resources");
+        logger.info("Could not find resources");
         return false;
       }
-      println(resources.toString());
+      logger.info(resources.toString());
       // InputStream corresponds to a zip file. Unzip it.
       // Files.copy(r, new File(profileDirectory).toPath(),
       // StandardCopyOption.REPLACE_EXISTING);
@@ -228,14 +228,14 @@ public class I2PCommonBrowser {
       ZipEntry entry;
       // while there are entries I process them
       while ((entry = zis.getNextEntry()) != null) {
-        println("entry: " + entry.getName() + ", " + entry.getSize());
+        logger.info("entry: " + entry.getName() + ", " + entry.getSize());
         // consume all the data from this entry
         if (entry.isDirectory()) {
-          println("Creating directory: " + entry.getName());
+          logger.info("Creating directory: " + entry.getName());
           File dir = new File(profileDirectory + "/" + entry.getName());
           dir.mkdirs();
         } else {
-          println("Creating file: " + entry.getName());
+          logger.info("Creating file: " + entry.getName());
           File file = new File(profileDirectory + "/" + entry.getName());
           file.createNewFile();
           Files.copy(zis, file.toPath(), StandardCopyOption.REPLACE_EXISTING);
@@ -248,7 +248,7 @@ public class I2PCommonBrowser {
       // loop through the Enumeration
 
     } catch (Exception e) {
-      println("Error copying profile files: " + e.getMessage());
+      logger.info("Error copying profile files: " + e.getMessage());
       return false;
     }
     return true;
@@ -295,11 +295,11 @@ public class I2PCommonBrowser {
   public static boolean validateProfileFirstRun(String profileDirectory) {
     File profileDir = new File(profileDirectory);
     if (!profileDir.exists()) {
-      println("Profile directory does not exist");
+      logger.info("Profile directory does not exist");
       return false;
     }
     if (!profileDir.isDirectory()) {
-      println("Profile directory is not a directory");
+      logger.info("Profile directory is not a directory");
       return false;
     }
     File frf = new File(profileDir, "first-run");
@@ -356,12 +356,12 @@ public class I2PCommonBrowser {
    * @since 0.0.1
    */
   public boolean waitForProxy(int timeout, int port, String host) {
-    println("waiting up to " + timeout + "seconds for a proxy");
+    logger.info("waiting up to " + timeout + "seconds for a proxy");
     if (timeout <= 0) {
       return true;
     }
     for (int i = 0; i < timeout; i++) {
-      println("Waiting for proxy");
+      logger.info("Waiting for proxy");
       if (checkifPortIsOccupied(port, host)) {
         return true;
       }

@@ -32,17 +32,17 @@ public class I2PBrowser extends I2PCommonBrowser {
   public boolean usability = false;
 
   private void launchFirefox(boolean privateWindow, String[] url) {
-    println("I2PFirefox");
+    logger.info("I2PFirefox");
     I2PFirefox.usability = usability;
     i2pFirefox.launch(privateWindow, url);
   }
   private void launchChromium(boolean privateWindow, String[] url) {
-    println("I2PChromium");
+    logger.info("I2PChromium");
     I2PChromiumProfileBuilder.usability = usability;
     i2pChromium.launch(privateWindow, url);
   }
   private void launchGeneric(boolean privateWindow, String[] url) {
-    println("I2PChromium");
+    logger.info("I2PChromium");
     i2pGeneral.launch(privateWindow, url);
   }
 
@@ -178,7 +178,7 @@ public class I2PBrowser extends I2PCommonBrowser {
   public static void main(String[] args) {
     validateUserDir();
     boolean privateBrowsing = false;
-    println("I2PBrowser");
+    logger.info("I2PBrowser");
     I2PBrowser i2pBrowser = new I2PBrowser();
     ArrayList<String> visitURL = new ArrayList<String>();
     if (args != null) {
@@ -197,7 +197,7 @@ public class I2PBrowser extends I2PCommonBrowser {
             i2pBrowser.usability = true;
           }
           if (arg.equals("-noproxycheck")) {
-            println("zeroing out proxy check");
+            logger.info("zeroing out proxy check");
             i2pBrowser.setProxyTimeoutTime(0);
           }
           if (!arg.startsWith("-")) {
