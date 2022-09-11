@@ -355,7 +355,8 @@ public class I2PGenericUnsafeBrowser extends I2PCommonBrowser {
         int exit = p.waitFor();
         if (privateWindow) {
           if (deleteRuntimeDirectory())
-            logger.info("Private browsing enforced, deleting runtime directory");
+            logger.info(
+                "Private browsing enforced, deleting runtime directory");
         }
         logger.info("I2PBrowser exited with value: " + exit);
       } catch (Exception e) {
