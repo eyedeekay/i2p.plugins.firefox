@@ -438,7 +438,8 @@ public class I2PChromium extends I2PCommonBrowser {
       newArgs[1] =
           "--user-data-dir=" + I2PChromiumProfileBuilder.profileDirectory();
       newArgs[2] = "--proxy-server=http://127.0.0.1:4444";
-      newArgs[3] = "--proxy-bypass-list=http://localhost:7657,http://127.0.0.1:7657";
+      newArgs[3] =
+          "--proxy-bypass-list=http://localhost:7657,http://127.0.0.1:7657";
       newArgs[4] = "--safebrowsing-disable-download-protection";
       newArgs[5] = "--disable-client-side-phishing-detection";
       newArgs[6] = "--disable-3d-apis";
