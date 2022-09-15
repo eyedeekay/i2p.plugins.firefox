@@ -30,7 +30,7 @@ public class I2PFirefoxProfileChecker extends I2PCommonBrowser {
    * @param args unused
    */
   public static void main(String[] args) {
-    String profileDirectory = I2PFirefoxProfileBuilder.profileDirectory();
+    String profileDirectory = I2PFirefoxProfileBuilder.profileDirectory(false);
     if (profileDirectory == null) {
       logger.info("No profile directory found");
       return;

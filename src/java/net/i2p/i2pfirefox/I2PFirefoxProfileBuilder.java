@@ -30,8 +30,17 @@ public class I2PFirefoxProfileBuilder extends I2PCommonBrowser {
    *
    * @return the profile directory, or null if it could not be created
    */
-  public static String profileDirectory() {
-    return profileDirectory("I2P_FIREFOX_PROFILE", "firefox");
+  // public static String profileDirectory() {
+  //   return profileDirectory("I2P_FIREFOX_PROFILE", "firefox", false);
+  // }
+
+  /**
+   * get the profile directory, creating it if necessary
+   *
+   * @return the profile directory, or null if it could not be created
+   */
+  public static String profileDirectory(boolean app) {
+    return profileDirectory("I2P_FIREFOX_PROFILE", "firefox", app);
   }
 
   private static String baseProfileDir(String file, String base) {
@@ -109,9 +118,9 @@ public class I2PFirefoxProfileBuilder extends I2PCommonBrowser {
    *
    * @since 0.0.1
    */
-  public static boolean copyBaseProfiletoProfile(String base) {
+  public static boolean copyBaseProfiletoProfile(String base, boolean app) {
     String baseProfile = baseProfileDirectory(base);
-    String profile = profileDirectory();
+    String profile = profileDirectory(app);
     logger.info("Copying base profile to profile directory: " + baseProfile +
                 " -> " + profile);
     if (baseProfile.isEmpty() || profile.isEmpty()) {
@@ -139,7 +148,7 @@ public class I2PFirefoxProfileBuilder extends I2PCommonBrowser {
     // return false;
     //}
 
-    return copyStrictOptions(base);
+    return copyStrictOptions(base, app);
   }
 
   /**
@@ -148,12 +157,12 @@ public class I2PFirefoxProfileBuilder extends I2PCommonBrowser {
    * @return true if successful, false otherwise
    * @since 0.0.1
    */
-  public static boolean copyStrictOptions(String base) {
+  public static boolean copyStrictOptions(String base, boolean app) {
     if (!strict) {
       return true;
     }
     String baseProfile = baseProfileDirectory(base);
-    String profile = profileDirectory();
+    String profile = profileDirectory(app);
     if (baseProfile.isEmpty() || profile.isEmpty()) {
       return false;
     }

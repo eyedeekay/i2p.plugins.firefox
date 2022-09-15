@@ -21,7 +21,7 @@ package net.i2p.i2pfirefox;
 public class I2PFirefoxProfileUnpacker extends I2PCommonBrowser {
 
   public static void main(String[] args) {
-    String profileDirectory = I2PFirefoxProfileBuilder.profileDirectory();
+    String profileDirectory = I2PFirefoxProfileBuilder.profileDirectory(false);
     if (profileDirectory == null) {
       logger.info("No profile directory found");
       return;
