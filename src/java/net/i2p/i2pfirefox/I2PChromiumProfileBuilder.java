@@ -29,7 +29,7 @@ public class I2PChromiumProfileBuilder extends I2PCommonBrowser {
    * @return the profile directory, or null if it could not be created
    */
   public static String profileDirectory() {
-    return profileDirectory("I2P_CHROMIUM_PROFILE", "chromium");
+    return profileDirectory("I2P_CHROMIUM_PROFILE", "chromium", false);
   }
 
   private static String baseProfileDir(String file, String mode) {

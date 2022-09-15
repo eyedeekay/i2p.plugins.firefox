@@ -301,7 +301,7 @@ public class I2PFirefox extends I2PCommonBrowser {
    * @since 0.0.1
    */
   public ProcessBuilder defaultProcessBuilder() {
-    return processBuilder(new String[] {});
+    return processBuilder(new String[] {}, false);
   }
 
   /**
@@ -313,7 +313,7 @@ public class I2PFirefox extends I2PCommonBrowser {
    * the default profile.
    */
   public ProcessBuilder defaultProcessBuilder(String[] args) {
-    return processBuilder(args);
+    return processBuilder(args, false);
   }
 
   /**
@@ -327,7 +327,7 @@ public class I2PFirefox extends I2PCommonBrowser {
    * @since 0.0.1
    */
   public ProcessBuilder privateProcessBuilder() {
-    return processBuilder(new String[] {"--private-window"});
+    return processBuilder(new String[] {"--private-window"}, false);
   }
 
   /**
@@ -349,7 +349,42 @@ public class I2PFirefox extends I2PCommonBrowser {
         }
       }
     }
-    return processBuilder(argList.toArray(new String[argList.size()]));
+    return processBuilder(argList.toArray(new String[argList.size()]), false);
+  }
+
+  /**
+   * Build a ProcessBuilder for the top Firefox binary and
+   * the default profile. Pass the --private-window flag to
+   * open a private window.
+   *
+   * @param args the arguments to pass to the Firefox binary.
+   * @return a ProcessBuilder for the top Firefox binary and
+   * the default profile.
+   * @since 0.0.1
+   */
+  public ProcessBuilder appProcessBuilder() {
+    return appProcessBuilder(new String[] {});
+  }
+
+  /**
+   * Build a ProcessBuilder for the top Firefox binary and
+   * the default profile. Pass the --private-window flag to
+   * open a private window.
+   *
+   * @param args the arguments to pass to the Firefox binary
+   * @return a ProcessBuilder for the top Firefox binary and
+   * the default profile.
+   */
+  public ProcessBuilder appProcessBuilder(String[] args) {
+    ArrayList<String> argList = new ArrayList<String>();
+    if (args != null) {
+      if (args.length > 0) {
+        for (String arg : args) {
+          argList.add(arg);
+        }
+      }
+    }
+    return processBuilder(argList.toArray(new String[argList.size()]), true);
   }
 
   /**
@@ -371,7 +406,7 @@ public class I2PFirefox extends I2PCommonBrowser {
         }
       }
     }
-    return processBuilder(argList.toArray(new String[argList.size()]));
+    return processBuilder(argList.toArray(new String[argList.size()]), false);
   }
 
   /**
@@ -384,7 +419,12 @@ public class I2PFirefox extends I2PCommonBrowser {
    * default profile, with a specific set of extended arguments.
    * @since 0.0.1
    */
-  public ProcessBuilder processBuilder(String[] args) {
+  /*
+  public ProcessBuilder processBuilder(String[] args ) {
+    return processBuilder(args, false);
+  }
+    */
+  public ProcessBuilder processBuilder(String[] args, boolean app) {
     String firefox = topFirefox();
     if (!firefox.isEmpty()) {
       int arglength = 0;
@@ -394,7 +434,7 @@ public class I2PFirefox extends I2PCommonBrowser {
       newArgs[0] = firefox;
       newArgs[1] = "--new-instance";
       newArgs[2] = "--profile";
-      newArgs[3] = I2PFirefoxProfileBuilder.profileDirectory();
+      newArgs[3] = I2PFirefoxProfileBuilder.profileDirectory(app);
       if (args != null) {
         if (arglength > 0) {
           for (int i = 0; i < arglength; i++) {
@@ -416,18 +456,26 @@ public class I2PFirefox extends I2PCommonBrowser {
     }
     return "base";
   }
-
   public Process launchAndDetatch(boolean privateWindow, String[] url) {
+    int privateWindowInt = 0;
+    if (privateWindow)
+      privateWindowInt = 1;
+    return launchAndDetatch(privateWindowInt, url);
+  }
+  public Process launchAndDetatch(int privateWindow, String[] url) {
     validateUserDir();
+    boolean app = false;
+    if (privateWindow == 2)
+      app = true;
     if (waitForProxy()) {
-      String profileDirectory = I2PFirefoxProfileBuilder.profileDirectory();
+      String profileDirectory = I2PFirefoxProfileBuilder.profileDirectory(app);
       if (I2PFirefoxProfileChecker.validateProfileDirectory(profileDirectory)) {
         logger.info("Valid profile directory: " + profileDirectory);
       } else {
         logger.info("Invalid profile directory: " + profileDirectory +
                     " rebuilding...");
-        if (!I2PFirefoxProfileBuilder.copyBaseProfiletoProfile(
-                usabilityMode())) {
+        if (!I2PFirefoxProfileBuilder.copyBaseProfiletoProfile(usabilityMode(),
+                                                               app)) {
           logger.info("Failed to rebuild profile directory: " +
                       profileDirectory);
           return null;
@@ -461,12 +509,20 @@ public class I2PFirefox extends I2PCommonBrowser {
           }
         }
       }
-
       ProcessBuilder pb;
-      if (privateWindow) {
-        pb = privateProcessBuilder(url);
-      } else {
-        pb = defaultProcessBuilder(url);
+      switch (privateWindow) {
+      case 0:
+        pb = this.defaultProcessBuilder(url);
+        break;
+      case 1:
+        pb = this.privateProcessBuilder(url);
+        break;
+      case 2:
+        pb = this.appProcessBuilder(url);
+        break;
+      default:
+        pb = this.defaultProcessBuilder(url);
+        break;
       }
       try {
         logger.info(pb.command().toString());

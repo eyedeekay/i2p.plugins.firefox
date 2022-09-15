@@ -361,6 +361,40 @@ public class I2PChromium extends I2PCommonBrowser {
   }
 
   /**
+   * Build a ProcessBuilder for the top Chromium binary and
+   * the default profile.
+   *
+   * @return a ProcessBuilder for the top Chromium binary and
+   * the default profile. Always passes the --app flag.
+   * @since 0.0.1
+   */
+  public ProcessBuilder appProcessBuilder() {
+    return processBuilder(new String[] {"--app"});
+  }
+
+  /**
+   * Build a ProcessBuilder for the top Chromium binary and
+   * the default profile.
+   *
+   * @param args the arguments to pass to the Chromium binary.
+   * @return a ProcessBuilder for the top Chromium binary and
+   * the default profile. Always passes the --app flag.
+   * @since 0.0.1
+   */
+  public ProcessBuilder appProcessBuilder(String[] args) {
+    ArrayList<String> argList = new ArrayList<String>();
+    argList.add("--app");
+    if (args != null) {
+      if (args.length > 0) {
+        for (String arg : args) {
+          argList.add(arg);
+        }
+      }
+    }
+    return processBuilder(argList.toArray(new String[argList.size()]));
+  }
+
+  /**
    1 --user-data-dir="$CHROMIUM_I2P" \
    2 --proxy-server="http://127.0.0.1:4444" \
    3 --proxy-bypass-list=127.0.0.1:7657 \
@@ -484,6 +518,13 @@ public class I2PChromium extends I2PCommonBrowser {
   }
 
   public Process launchAndDetatch(boolean privateWindow, String[] url) {
+    int privateWindowInt = 0;
+    if (privateWindow)
+      privateWindowInt = 1;
+    return launchAndDetatch(privateWindowInt, url);
+  }
+
+  public Process launchAndDetatch(int privateWindow, String[] url) {
     validateUserDir();
     if (waitForProxy()) {
       String profileDirectory = I2PChromiumProfileBuilder.profileDirectory();
@@ -504,10 +545,19 @@ public class I2PChromium extends I2PCommonBrowser {
       if (validateProfileFirstRun(profileDirectory))
         return null;
       ProcessBuilder pb = null;
-      if (privateWindow) {
-        pb = this.privateProcessBuilder(url);
-      } else {
+      switch (privateWindow) {
+      case 0:
         pb = this.defaultProcessBuilder(url);
+        break;
+      case 1:
+        pb = this.privateProcessBuilder(url);
+        break;
+      case 2:
+        pb = this.appProcessBuilder(url);
+        break;
+      default:
+        pb = this.defaultProcessBuilder(url);
+        break;
       }
       try {
         logger.info(pb.command().toString());
