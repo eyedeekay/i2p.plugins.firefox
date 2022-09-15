@@ -1,3 +1,8 @@
+Wed, September 14
+-----------------
+
+ - Add ant targets which fetch Firefox addons from addons.mozilla.org
+
 Sun, September 11
 -----------------
 
