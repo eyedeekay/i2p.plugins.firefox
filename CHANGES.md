@@ -1,3 +1,8 @@
+Wed, September 15
+-----------------
+
+ - Add ant targets which auto-update the user.js
+
 Wed, September 14
 -----------------
 
