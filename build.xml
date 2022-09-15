@@ -278,6 +278,13 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
             <arg value="-o" />
             <arg value="src/i2p.chromium.base.profile/extensions/noscript.js.crx" />
         </exec>
+        <exec executable="crx3" failonerror="true">
+            <arg value="download"/>
+            <arg value="gcbommkclmclpchllfjekcdonpmejbdp" />
+            <arg value="-u=true"/>
+            <arg value="-o" />
+            <arg value="src/i2p.chromium.base.profile/extensions/https-everywhere.js.crx" />
+        </exec>
     </target>
 
     <target name="i2pChromiumUsabilityProfile">
@@ -308,6 +315,13 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
             <arg value="-u=true"/>
             <arg value="-o" />
             <arg value="src/i2p.chromium.usability.profile/extensions/localcdn.js.crx" />
+        </exec>
+        <exec executable="crx3" failonerror="true">
+            <arg value="download"/>
+            <arg value="gcbommkclmclpchllfjekcdonpmejbdp" />
+            <arg value="-u=true"/>
+            <arg value="-o" />
+            <arg value="src/i2p.chromium.base.profile/extensions/https-everywhere.js.crx" />
         </exec>
     </target>
 
