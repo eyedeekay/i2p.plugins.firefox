@@ -172,7 +172,7 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
         <ant dir="src" target="jar" />
     </target>
 
-    <target name="i2pFirefoxBaseProfile">
+    <target name="i2pFirefoxBaseProfile" depends="buildNum">
         <exec executable="amo-version" failonerror="true">
             <arg value="-n"/>
             <arg value="i2p-in-private-browsing"/>
@@ -194,6 +194,21 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
             <arg value="-o" />
             <arg value="src/i2p.firefox.base.profile/extensions/https-everywhere-eff@eff.org.xpi" />
         </exec>
+        <exec executable="echo" failonerror="true" append="false" output="src/i2p.firefox.base.profile/version.md">
+            <arg value="Profile Version" />
+        </exec>
+        <exec executable="echo" failonerror="true" append="true" output="src/i2p.firefox.base.profile/version.md">
+            <arg value="===============" />
+        </exec>
+        <exec executable="echo" failonerror="true" append="true" output="src/i2p.firefox.base.profile/version.md">
+            <arg value="" />
+        </exec>
+        <exec executable="echo" failonerror="true" append="true" output="src/i2p.firefox.base.profile/version.md">
+            <arg value="version=${release.number}-b${build.number}" />
+        </exec>
+        <exec executable="echo" failonerror="true" append="true" output="src/i2p.firefox.base.profile/version.md">
+            <arg value="" />
+        </exec>
     </target>
     <target name="i2pFirefoxBaseProfileZip">
         <exec executable="rm" failonerror="false" dir="src">
@@ -207,7 +222,7 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
         </exec>
     </target>
 
-    <target name="versionMd">
+    <target name="versionMd" depends="i2pFirefoxBaseProfile, i2pFirefoxUsabilityProfile, i2pChromiumBaseProfile, i2pChromiumUsabilityProfile">
         <delete file="VERSION.md"></delete>
         <exec executable="echo" failonerror="true">
             <redirector output="VERSION.md" error="VERSION.md" alwayslog="true" append="true"></redirector>
@@ -328,7 +343,7 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
         </exec>
     </target>
 
-    <target name="i2pFirefoxUsabilityProfile">
+    <target name="i2pFirefoxUsabilityProfile" depends="buildNum">
         <exec executable="amo-version" failonerror="true">
             <arg value="-n"/>
             <arg value="i2p-in-private-browsing"/>
@@ -371,6 +386,21 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
             <arg value="-o" />
             <arg value="src/i2p.firefox.usability.profile/extensions/uBlock0@raymondhill.net.xpi" />
         </exec>
+        <exec executable="echo" failonerror="true" append="false" output="src/i2p.firefox.usability.profile/version.md">
+            <arg value="Profile Version" />
+        </exec>
+        <exec executable="echo" failonerror="true" append="true" output="src/i2p.firefox.usability.profile/version.md">
+            <arg value="===============" />
+        </exec>
+        <exec executable="echo" failonerror="true" append="true" output="src/i2p.firefox.usability.profile/version.md">
+            <arg value="" />
+        </exec>
+        <exec executable="echo" failonerror="true" append="true" output="src/i2p.firefox.usability.profile/version.md">
+            <arg value="version=${release.number}-b${build.number}" />
+        </exec>
+        <exec executable="echo" failonerror="true" append="true" output="src/i2p.firefox.usability.profile/version.md">
+            <arg value="" />
+        </exec>
     </target>
     <target name="i2pFirefoxUsabilityProfileZip">
         <exec executable="rm" failonerror="false" dir="src">
@@ -405,6 +435,21 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
             <arg value="-u=true"/>
             <arg value="-o" />
             <arg value="src/i2p.chromium.base.profile/extensions/https-everywhere.js.crx" />
+        </exec>
+        <exec executable="echo" failonerror="true" append="false" output="src/i2p.chromium.base.profile/version.md">
+            <arg value="Profile Version" />
+        </exec>
+        <exec executable="echo" failonerror="true" append="true" output="src/i2p.chromium.base.profile/version.md">
+            <arg value="===============" />
+        </exec>
+        <exec executable="echo" failonerror="true" append="true" output="src/i2p.chromium.base.profile/version.md">
+            <arg value="" />
+        </exec>
+        <exec executable="echo" failonerror="true" append="true" output="src/i2p.chromium.base.profile/version.md">
+            <arg value="version=${release.number}-b${build.number}" />
+        </exec>
+        <exec executable="echo" failonerror="true" append="true" output="src/i2p.chromium.base.profile/version.md">
+            <arg value="" />
         </exec>
     </target>
 
@@ -443,6 +488,21 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
             <arg value="-u=true"/>
             <arg value="-o" />
             <arg value="src/i2p.chromium.usability.profile/extensions/https-everywhere.js.crx" />
+        </exec>
+        <exec executable="echo" failonerror="true" append="false" output="src/i2p.chromium.usability.profile/version.md">
+            <arg value="Profile Version" />
+        </exec>
+        <exec executable="echo" failonerror="true" append="true" output="src/i2p.chromium.usability.profile/version.md">
+            <arg value="===============" />
+        </exec>
+        <exec executable="echo" failonerror="true" append="true" output="src/i2p.chromium.usability.profile/version.md">
+            <arg value="" />
+        </exec>
+        <exec executable="echo" failonerror="true" append="true" output="src/i2p.chromium.usability.profile/version.md">
+            <arg value="version=${release.number}-b${build.number}" />
+        </exec>
+        <exec executable="echo" failonerror="true" append="true" output="src/i2p.chromium.usability.profile/version.md">
+            <arg value="" />
         </exec>
     </target>
 
@@ -492,15 +552,28 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
         </exec>
     </target>
 
-    <target name="plugin" depends="war">
+    <target name="buildNum">
+        <buildnumber file="scripts/build.number" />
+        <property name="release.number" value="0.0.36" />
+        <exec executable="echo" osfamily="unix">
+            <arg value="{build.number}-{release.number}" />
+        </exec>
+    </target>
+
+    <target name="ebn" depends="buildNum">
+        <exec executable="echo" osfamily="unix">
+            <arg value="{build.number}-{release.number}" />
+        </exec>
+    </target>
+
+    <target name="plugin" depends="war, buildNum">
         <delete>
            <!-- in installer but not update -->
            <fileset dir="plugin/" includes="i2ptunnel.config i2pfirefox.config eepsite/docroot/index.html eepsite/docroot/robots.txt" />
         </delete>
         <delete dir="plugin/eepsite/docroot/torrents/" />
         <!-- get version number -->
-        <buildnumber file="scripts/build.number" />
-        <property name="release.number" value="0.0.36" />
+
 
         <!-- make the update xpi2p -->
         <!-- this contains everything except i2ptunnel.config -->
