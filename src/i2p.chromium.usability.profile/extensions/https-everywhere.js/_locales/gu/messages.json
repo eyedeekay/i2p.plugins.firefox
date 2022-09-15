@@ -1,0 +1,224 @@
+{
+    "about_add_new_rule": {
+        "message": "\u0aa8\u0ab5\u0acb \u0aa8\u0abf\u0aaf\u0aae \u0a89\u0aae\u0ac7\u0ab0\u0acb"
+    },
+    "about_ext_description": {
+        "message": "\u0ab5\u0ac7\u0aac \u0a97\u0acb\u0aaa\u0aa8\u0ac0\u0aaf \u0a95\u0ab0\u0acb! \u0a98\u0aa3\u0ac0 \u0ab8\u0abe\u0a87\u0a9f \u0aaa\u0ab0 \u0a86\u0aaa\u0aae\u0ac7\u0ab3\u0ac7 HTTPS \u0ab8\u0ac1\u0ab0\u0a95\u0acd\u0ab7\u0abe\u0aa8\u0acb \u0a89\u0aaa\u0aaf\u0acb\u0a97 \u0a95\u0ab0\u0acb."
+    },
+    "about_ext_name": {
+        "message": "HTTPS Everywhere"
+    },
+    "about_rulesets_version": {
+        "message": "\u0aa8\u0abf\u0aaf\u0aae\u0acb \u0a86\u0ab5\u0ac3\u0aa4\u0acd\u0aa4\u0abf \u0aae\u0abe\u0a9f\u0ac7"
+    },
+    "about_title": {
+        "message": "HTTPS Everywhere \u0ab5\u0abf\u0ab6\u0ac7"
+    },
+    "about_version": {
+        "message": "\u0a86\u0ab5\u0ac3\u0aa4\u0acd\u0aa4\u0abf"
+    },
+    "cancel_copied_url": {
+        "message": "Copied to Clipboard"
+    },
+    "cancel_copy_url": {
+        "message": "Copy URL"
+    },
+    "cancel_he_blocking_explainer": {
+        "message": "HTTPS Everywhere noticed you were navigating to a non-HTTPS page, and tried to send you to the HTTPS version instead. The HTTPS version is unavailable. Most likely this site does not support HTTPS, but it is also possible that an attacker is blocking the HTTPS version. If you wish to view the unencrypted version of this page, you can still do so by disabling the 'Encrypt All Sites Eligible' (EASE) option in your HTTPS Everywhere extension. Be aware that disabling this option could make your browser vulnerable to network-based downgrade attacks on websites you visit."
+    },
+    "cancel_he_blocking_network": {
+        "message": "network-based downgrade attacks"
+    },
+    "cancel_http_once": {
+        "message": "Proceed anyway (unsafe)"
+    },
+    "cancel_open_page": {
+        "message": "Disable on this site"
+    },
+    "chrome_add_new_rule": {
+        "message": "Add a new rule for this site"
+    },
+    "chrome_add_rule": {
+        "message": "Add a rule for this site"
+    },
+    "chrome_always_https_for_host": {
+        "message": "Always use https for this host"
+    },
+    "chrome_disable_on_this_site": {
+        "message": "Disable on this site"
+    },
+    "chrome_enable_on_this_site": {
+        "message": "Enable on this site"
+    },
+    "chrome_experimental_rules": {
+        "message": "Experimental rules"
+    },
+    "chrome_experimental_rules_description": {
+        "message": "May cause warnings or breakage. Disabled by default."
+    },
+    "chrome_hide_advanced": {
+        "message": "\u0ab5\u0abf\u0a97\u0aa4\u0ab5\u0abe\u0ab0 \u0a9b\u0ac1\u0aaa\u0abe\u0ab5\u0acb"
+    },
+    "chrome_host": {
+        "message": "Host:"
+    },
+    "chrome_redirect_to": {
+        "message": "Redirect to"
+    },
+    "chrome_regex": {
+        "message": "Matching regex"
+    },
+    "chrome_rule_name": {
+        "message": "\u0aa8\u0abf\u0aaf\u0aae \u0aa8\u0abe\u0aae"
+    },
+    "chrome_settings_for_this_site_explained": {
+        "message": "As you browse different websites, you can change your preferences for each website"
+    },
+    "chrome_settings_for_this_site_header": {
+        "message": "Settings for this site"
+    },
+    "chrome_settings_for_this_site_subheader": {
+        "message": "Change your preferences for encrypted connections"
+    },
+    "chrome_show_advanced": {
+        "message": "\u0ab5\u0abf\u0a97\u0aa4\u0ab5\u0abe\u0ab0 \u0aac\u0aa4\u0abe\u0ab5\u0acb"
+    },
+    "chrome_stable_rules": {
+        "message": "Stable rules"
+    },
+    "chrome_stable_rules_description": {
+        "message": "Force encrypted connections to these websites:"
+    },
+    "chrome_status_cancel_button": {
+        "message": "\u0ab0\u0aa6\u0acd \u0a95\u0ab0\u0acb"
+    },
+    "menu_donate_eff_imperative": {
+        "message": "EFF \u0aa8\u0ac7 \u0aa6\u0abe\u0aa8 \u0a95\u0ab0\u0acb"
+    },
+    "menu_encryptAllSitesEligibleOff": {
+        "message": "Encrypt All Sites Eligible is OFF"
+    },
+    "menu_encryptAllSitesEligibleOn": {
+        "message": "Encrypt All Sites Eligible is ON"
+    },
+    "menu_globalDisable": {
+        "message": "HTTPS Everywhere is OFF"
+    },
+    "menu_globalEnable": {
+        "message": "HTTPS Everywhere is ON"
+    },
+    "menu_httpNoWhereExplainedAllowed": {
+        "message": "Unencrypted requests are currently allowed"
+    },
+    "menu_httpNoWhereExplainedBlocked": {
+        "message": "Unencrypted requests are currently blocked"
+    },
+    "menu_httpNoWhereMore": {
+        "message": "This mode blocks unencrypted content and requests"
+    },
+    "menu_observatory": {
+        "message": "SSL Observatory Preferences"
+    },
+    "menu_seeLess": {
+        "message": "See less"
+    },
+    "menu_seeMore": {
+        "message": "See more"
+    },
+    "menu_showCounter": {
+        "message": "\u0a95\u0abe\u0a89\u0aa8\u0acd\u0a9f\u0ab0 \u0aac\u0aa4\u0abe\u0ab5\u0acb"
+    },
+    "menu_viewAllRules": {
+        "message": "\u0aac\u0aa7\u0abe \u0aa8\u0abf\u0aaf\u0aae\u0acb \u0a9c\u0ac1\u0a93"
+    },
+    "onboarding_footer": {
+        "message": "HTTPS Everywhere is an EFF project"
+    },
+    "onboarding_header": {
+        "message": "HTTPS Everywhere has been updated!"
+    },
+    "onboarding_intro": {
+        "message": "\u0ab5\u0ac7\u0aac \u0a97\u0acb\u0aaa\u0aa8\u0ac0\u0aaf \u0a95\u0ab0\u0acb! \u0a98\u0aa3\u0ac0 \u0ab8\u0abe\u0a87\u0a9f \u0aaa\u0ab0 \u0a86\u0aaa\u0aae\u0ac7\u0ab3\u0ac7 HTTPS \u0ab8\u0ac1\u0ab0\u0a95\u0acd\u0ab7\u0abe\u0aa8\u0acb \u0a89\u0aaa\u0aaf\u0acb\u0a97 \u0a95\u0ab0\u0acb."
+    },
+    "options_addDisabledSite": {
+        "message": "Add Disabled Site"
+    },
+    "options_addUpdateChannel": {
+        "message": "Add Update Channel"
+    },
+    "options_advancedSettings": {
+        "message": "\u0aac\u0ac0\u0a9c\u0abe \u0ab8\u0ac7\u0a9f\u0abf\u0a82\u0a97\u0acd\u0ab8"
+    },
+    "options_autoUpdateRulesets": {
+        "message": "\u0ab8\u0acd\u0ab5\u0aa4\u0a83-\u0a85\u0aaa\u0aa1\u0ac7\u0a9f \u0aa8\u0abf\u0aaf\u0aae\u0acb"
+    },
+    "options_debuggingRulesets": {
+        "message": "Debugging Rulesets (advanced)"
+    },
+    "options_delete": {
+        "message": "\u0a95\u0abe\u0aa2\u0ac0 \u0aa8\u0abe\u0a96\u0acb"
+    },
+    "options_disabledUrlsListed": {
+        "message": "HTTPS Everywhere \u0ab8\u0abe\u0a87\u0a9f\u0acd\u0ab8 \u0aa8\u0abf\u0ab7\u0acd\u0a95\u0acd\u0ab0\u0abf\u0aaf"
+    },
+    "options_enableMixedRulesets": {
+        "message": "\u0aae\u0abf\u0ab6\u0acd\u0ab0\u0abf\u0aa4 \u0ab8\u0abe\u0aae\u0a97\u0acd\u0ab0\u0ac0 \u0aa8\u0abf\u0aaf\u0aae\u0acb\u0aa8\u0ac7 \u0ab8\u0a95\u0acd\u0ab7\u0aae \u0a95\u0ab0\u0acb"
+    },
+    "options_enterDisabledSite": {
+        "message": "Enter disabled site"
+    },
+    "options_enterUpdateChannelName": {
+        "message": "Enter update channel name"
+    },
+    "options_generalSettings": {
+        "message": "\u0ab8\u0abe\u0aae\u0abe\u0aa8\u0acd\u0aaf \u0ab8\u0ac7\u0a9f\u0abf\u0a82\u0a97\u0acd\u0ab8"
+    },
+    "options_hostNotFormattedCorrectly": {
+        "message": "This host could not be added because it was not formatted correctly. Please check it and try again."
+    },
+    "options_settings": {
+        "message": "\u0ab8\u0ac7\u0a9f\u0abf\u0a82\u0a97\u0acd\u0ab8"
+    },
+    "options_showDevtoolsTab": {
+        "message": "Devtools \u0a9f\u0ac7\u0aac \u0aac\u0aa4\u0abe\u0ab5\u0acb"
+    },
+    "options_storedRulesetsVersion": {
+        "message": "Stored rulesets version: "
+    },
+    "options_update": {
+        "message": "\u0a85\u0aaa\u0aa1\u0ac7\u0a9f \u0a95\u0ab0\u0acb"
+    },
+    "options_updateChannels": {
+        "message": "\u0a9a\u0ac7\u0aa8\u0ab2\u0acb \u0a85\u0aa6\u0acd\u0aaf\u0aa4\u0aa8 \u0a95\u0ab0\u0acb"
+    },
+    "options_updateChannelsWarning": {
+        "message": "\u0a9a\u0ac7\u0aa4\u0ab5\u0aa3\u0ac0: \u0a85\u0aa6\u0acd\u0aaf\u0aa4\u0aa8 \u0a9a\u0ac7\u0aa8\u0ab2\u0acd\u0ab8 \u0a89\u0aae\u0ac7\u0ab0\u0ab5\u0abe\u0aa5\u0ac0 \u0ab9\u0ac1\u0aae\u0ab2\u0abe\u0a96\u0acb\u0ab0\u0acb \u0aa4\u0aae\u0abe\u0ab0\u0abe \u0aac\u0acd\u0ab0\u0abe\u0a89\u0a9d\u0ab0\u0aa8\u0ac7 \u0ab9\u0abe\u0a87\u0a9c\u0ac7\u0a95 \u0a95\u0ab0\u0ac0 \u0ab6\u0a95\u0ac7 \u0a9b\u0ac7. \u0a9c\u0acb \u0aa4\u0aae\u0ac7 \u0a9c\u0abe\u0aa3\u0acb \u0a9b\u0acb \u0a95\u0ac7 \u0aa4\u0aae\u0ac7 \u0ab6\u0ac1\u0a82 \u0a95\u0ab0\u0ac0 \u0ab0\u0ab9\u0acd\u0aaf\u0abe\u0a82 \u0a9b\u0acb \u0aa4\u0acb \u0aab\u0a95\u0acd\u0aa4 \u0a86 \u0ab5\u0abf\u0aad\u0abe\u0a97\u0aa8\u0ac7 \u0ab8\u0a82\u0aaa\u0abe\u0aa6\u0abf\u0aa4 \u0a95\u0ab0\u0acb!"
+    },
+    "options_updatesLastChecked": {
+        "message": "Updates last checked: "
+    },
+    "options_updatesLastCheckedNever": {
+        "message": "\u0a95\u0acd\u0aaf\u0abe\u0ab0\u0ac7\u0aaf \u0aa8\u0ab9\u0abf"
+    },
+    "options_userRulesListed": {
+        "message": "HTTPS Everywhere \u0ab5\u0aaa\u0ab0\u0abe\u0ab6\u0a95\u0ab0\u0acd\u0aa4\u0abe \u0aa8\u0abf\u0aaf\u0aae\u0acb"
+    },
+    "prefs_export_settings": {
+        "message": "Export Settings"
+    },
+    "prefs_reset_defaults": {
+        "message": "Reset to Defaults"
+    },
+    "prefs_reset_defaults_message": {
+        "message": "This will reset each ruleset to its default state. Continue?"
+    },
+    "standalone_proxy_server_info_prefix": {
+        "message": "Proxy server running on"
+    },
+    "standalone_transparent_false": {
+        "message": "You must configure your applications to use an HTTP proxy on the specified host and port."
+    },
+    "standalone_transparent_true": {
+        "message": "You must set up your firewall rules to forward packets to the specified host and port."
+    }
+}

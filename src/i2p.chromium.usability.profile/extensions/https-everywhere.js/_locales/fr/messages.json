@@ -1,0 +1,224 @@
+{
+    "about_add_new_rule": {
+        "message": "Ajouter une nouvelle r\u00e8gle"
+    },
+    "about_ext_description": {
+        "message": "Chiffrez la Toile\u2009! Utilisez automatiquement la s\u00e9curit\u00e9 HTTPS avec de nombreux sites."
+    },
+    "about_ext_name": {
+        "message": "HTTPS\u00a0partout"
+    },
+    "about_rulesets_version": {
+        "message": "Version des ensembles de r\u00e8gles pour"
+    },
+    "about_title": {
+        "message": "\u00c0 propos de HTTPS\u00a0partout"
+    },
+    "about_version": {
+        "message": "Version"
+    },
+    "cancel_copied_url": {
+        "message": "A \u00e9t\u00e9 copi\u00e9 vers le presse-papiers"
+    },
+    "cancel_copy_url": {
+        "message": "Copier l\u2019URL"
+    },
+    "cancel_he_blocking_explainer": {
+        "message": "HTTPS\u00a0partout a remarqu\u00e9 que vous naviguiez vers une page non HTTPS et a tent\u00e9 de plut\u00f4t vous envoyer vers la version HTTPS. La version HTTPS n\u2019est pas propos\u00e9e. Ce site ne prend probablement pas HTTPS en charge, mais il est aussi possible qu\u2019un assaillant bloque la version HTTPS. Si vous souhaitez visualiser la version non chiffr\u00e9e de cette page, vous pouvez quand m\u00eame le faire en d\u00e9sactivant l\u2019option \u00ab\u00a0Chiffrer tous les sites admissibles (CTSA)\u00a0\u00bb dans votre extension HTTPS\u00a0partout. Sachez que la d\u00e9sactivation de cette option peut rendre votre navigateur vuln\u00e9rable aux attaques r\u00e9seau par d\u00e9classement contre les sites Web que vous visitez."
+    },
+    "cancel_he_blocking_network": {
+        "message": "attaques de r\u00e9trograde r\u00e9seau"
+    },
+    "cancel_http_once": {
+        "message": "Poursuivre quand m\u00eame (risqu\u00e9)"
+    },
+    "cancel_open_page": {
+        "message": "D\u00e9sactiver sur ce site"
+    },
+    "chrome_add_new_rule": {
+        "message": "Ajouter une nouvelle r\u00e8gle pour ce site"
+    },
+    "chrome_add_rule": {
+        "message": "Ajouter une r\u00e8gle pour ce site"
+    },
+    "chrome_always_https_for_host": {
+        "message": "Toujours utiliser HTTPS pour cet h\u00f4te"
+    },
+    "chrome_disable_on_this_site": {
+        "message": "D\u00e9sactiver sur ce site"
+    },
+    "chrome_enable_on_this_site": {
+        "message": "Activer sur ce site"
+    },
+    "chrome_experimental_rules": {
+        "message": "R\u00e8gles exp\u00e9rimentales\u00a0:"
+    },
+    "chrome_experimental_rules_description": {
+        "message": "Pourrait causer des avertissements ou des d\u00e9faillances. D\u00e9sactiv\u00e9 par d\u00e9faut."
+    },
+    "chrome_hide_advanced": {
+        "message": "Cacher les options \u00e9volu\u00e9es"
+    },
+    "chrome_host": {
+        "message": "H\u00f4te\u00a0:"
+    },
+    "chrome_redirect_to": {
+        "message": "Rediriger vers"
+    },
+    "chrome_regex": {
+        "message": "Regex correspondant"
+    },
+    "chrome_rule_name": {
+        "message": "Nom de la r\u00e8gle"
+    },
+    "chrome_settings_for_this_site_explained": {
+        "message": "Alors que vous parcourez diff\u00e9rents sites Web, vous pouvez changer vos pr\u00e9f\u00e9rences pour chaque site Web"
+    },
+    "chrome_settings_for_this_site_header": {
+        "message": "Param\u00e8tres pour ce site"
+    },
+    "chrome_settings_for_this_site_subheader": {
+        "message": "Changer vos pr\u00e9f\u00e9rences pour les connexions chiffr\u00e9es"
+    },
+    "chrome_show_advanced": {
+        "message": "Afficher les options \u00e9volu\u00e9es"
+    },
+    "chrome_stable_rules": {
+        "message": "R\u00e8gles stables"
+    },
+    "chrome_stable_rules_description": {
+        "message": "Forcer des connexions chiffr\u00e9es vers ces sites Web\u00a0:"
+    },
+    "chrome_status_cancel_button": {
+        "message": "Annuler"
+    },
+    "menu_donate_eff_imperative": {
+        "message": "Faire un don \u00e0 la FF\u00c9"
+    },
+    "menu_encryptAllSitesEligibleOff": {
+        "message": "Chiffrer tous les sites admissibles est d\u00e9sactiv\u00e9e"
+    },
+    "menu_encryptAllSitesEligibleOn": {
+        "message": "Chiffrer tous les sites admissibles est activ\u00e9e"
+    },
+    "menu_globalDisable": {
+        "message": "HTTPS\u00a0partout est d\u00e9sactiv\u00e9e"
+    },
+    "menu_globalEnable": {
+        "message": "HTTPS\u00a0partout est activ\u00e9e"
+    },
+    "menu_httpNoWhereExplainedAllowed": {
+        "message": "Les requ\u00eates non chiffr\u00e9es sont permises actuellement"
+    },
+    "menu_httpNoWhereExplainedBlocked": {
+        "message": "Les requ\u00eates non chiffr\u00e9es sont bloqu\u00e9es actuellement"
+    },
+    "menu_httpNoWhereMore": {
+        "message": "Ce mode bloque les contenus et les requ\u00eates non chiffr\u00e9s"
+    },
+    "menu_observatory": {
+        "message": "Pr\u00e9f\u00e9rences de l\u2019observatoire SSL "
+    },
+    "menu_seeLess": {
+        "message": "Moins de pr\u00e9cisions"
+    },
+    "menu_seeMore": {
+        "message": "Plus de pr\u00e9cisions"
+    },
+    "menu_showCounter": {
+        "message": "Afficher le compteur"
+    },
+    "menu_viewAllRules": {
+        "message": "Visualiser toutes les r\u00e8gles"
+    },
+    "onboarding_footer": {
+        "message": "HTTPS\u00a0partout est un projet de la FF\u00c9"
+    },
+    "onboarding_header": {
+        "message": "HTTPS\u00a0partout a \u00e9t\u00e9 mise \u00e0 jour"
+    },
+    "onboarding_intro": {
+        "message": "Chiffrez la Toile\u2009! Utilisez automatiquement la s\u00e9curit\u00e9 HTTPS avec de nombreux sites."
+    },
+    "options_addDisabledSite": {
+        "message": "Ajouter un site \u00e0 d\u00e9sactiver"
+    },
+    "options_addUpdateChannel": {
+        "message": "Ajouter un canal de mise \u00e0 jour"
+    },
+    "options_advancedSettings": {
+        "message": "Param\u00e8tres avanc\u00e9s"
+    },
+    "options_autoUpdateRulesets": {
+        "message": "Mettre automatiquement \u00e0 jour les ensembles de r\u00e8gles"
+    },
+    "options_debuggingRulesets": {
+        "message": "D\u00e9bogage des ensemble de r\u00e8gles (expert) "
+    },
+    "options_delete": {
+        "message": "Supprimer"
+    },
+    "options_disabledUrlsListed": {
+        "message": "Sites d\u00e9sactiv\u00e9s dans HTTPS\u00a0partout"
+    },
+    "options_enableMixedRulesets": {
+        "message": "Activer les ensembles de r\u00e8gles pour le contenu mixte"
+    },
+    "options_enterDisabledSite": {
+        "message": "Saisissez un site \u00e0 d\u00e9sactiver"
+    },
+    "options_enterUpdateChannelName": {
+        "message": "Saisissez le nom du canal de M\u00e0J"
+    },
+    "options_generalSettings": {
+        "message": "Param\u00e8tres g\u00e9n\u00e9raux"
+    },
+    "options_hostNotFormattedCorrectly": {
+        "message": "Cet h\u00f4te n\u2019a pas pu \u00eatre ajout\u00e9, car il n\u2019\u00e9tait pas correctement form\u00e9. Veuille le v\u00e9rifier et r\u00e9essayer."
+    },
+    "options_settings": {
+        "message": "Param\u00e8tres"
+    },
+    "options_showDevtoolsTab": {
+        "message": "Afficher l\u2019onglet des outils pour d\u00e9veloppeurs"
+    },
+    "options_storedRulesetsVersion": {
+        "message": "Version enregistr\u00e9e des ensembles de r\u00e8gles\u00a0: "
+    },
+    "options_update": {
+        "message": "Mise \u00e0 jour"
+    },
+    "options_updateChannels": {
+        "message": "Canaux de mise \u00e0 jour"
+    },
+    "options_updateChannelsWarning": {
+        "message": "Avertissement\u00a0: L\u2019ajout de canaux de mise \u00e0 jour peut permettre \u00e0 des assaillants de pirater votre navigateur. Ne modifiez cette section que si vous savez ce que vous faites."
+    },
+    "options_updatesLastChecked": {
+        "message": "Derni\u00e8re v\u00e9rification des mises \u00e0 jour\u00a0:"
+    },
+    "options_updatesLastCheckedNever": {
+        "message": "jamais"
+    },
+    "options_userRulesListed": {
+        "message": "R\u00e8gles utilisateur de HTTPS\u00a0partout"
+    },
+    "prefs_export_settings": {
+        "message": "Exporter les param\u00e8tres"
+    },
+    "prefs_reset_defaults": {
+        "message": "R\u00e9initialiser aux param\u00e8tres par d\u00e9faut"
+    },
+    "prefs_reset_defaults_message": {
+        "message": "Chaque ensemble de r\u00e8gles sera r\u00e9initialis\u00e9 \u00e0 son \u00e9tat par d\u00e9faut. Poursuivre\u2009?"
+    },
+    "standalone_proxy_server_info_prefix": {
+        "message": "Serveur mandataire en fonction sur"
+    },
+    "standalone_transparent_false": {
+        "message": "Vous devez configurer vos applications pour qu\u2019elles utilisent un mandataire HTTP sur l\u2019h\u00f4te et le port indiqu\u00e9s."
+    },
+    "standalone_transparent_true": {
+        "message": "Vous devez configurer les r\u00e8gles de votre pare-feu pour acheminer les paquets vers l\u2019h\u00f4te et le port indiqu\u00e9s."
+    }
+}

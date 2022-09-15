@@ -1,0 +1,224 @@
+{
+    "about_add_new_rule": {
+        "message": "Neue Regel hinzuf\u00fcgen"
+    },
+    "about_ext_description": {
+        "message": "Verschl\u00fcsselt das Internet! Nutzen Sie HTTPS-Sicherheit automatisch auf vielen Webseiten."
+    },
+    "about_ext_name": {
+        "message": "HTTPS Everywhere"
+    },
+    "about_rulesets_version": {
+        "message": "Regelsatz-Version f\u00fcr"
+    },
+    "about_title": {
+        "message": "\u00dcber HTTPS Everywhere"
+    },
+    "about_version": {
+        "message": "Version"
+    },
+    "cancel_copied_url": {
+        "message": "In die Zwischenablage kopiert"
+    },
+    "cancel_copy_url": {
+        "message": "URL kopieren"
+    },
+    "cancel_he_blocking_explainer": {
+        "message": "HTTPS Everywhere hat bemerkt, dass du zu einer Nicht-HTTPS-Seite navigierst, und versuchte, dich stattdessen an die HTTPS-Version zu schicken. Die HTTPS-Version ist nicht verf\u00fcgbar. Wahrscheinlich unterst\u00fctzt diese Seite kein HTTPS, aber es ist auch m\u00f6glich, dass ein Angreifer die HTTPS-Version blockiert. Wenn du die unverschl\u00fcsselte Version dieser Seite anzeigen m\u00f6chtest, kannst du dies trotzdem tun, indem du die Option 'Alle geeigneten Seiten verschl\u00fcsseln' (EASE) in deiner HTTPS Everywhere Erweiterung deaktivierst. Beachte, dass das Deaktivieren dieser Option deinen Browser anf\u00e4llig f\u00fcr netzwerkbasierte Downgrade-Angriffe auf von dir besuchte Websites machen kann."
+    },
+    "cancel_he_blocking_network": {
+        "message": "Netzwerk-basierte Herunterstufungsangriffe"
+    },
+    "cancel_http_once": {
+        "message": "Trotzdem weiterfahren (unsicher)"
+    },
+    "cancel_open_page": {
+        "message": "Auf dieser Seite deaktivieren"
+    },
+    "chrome_add_new_rule": {
+        "message": "Eine neue Regel f\u00fcr diese Seite hinzuf\u00fcgen"
+    },
+    "chrome_add_rule": {
+        "message": "Eine Regel f\u00fcr diese Seite hinzuf\u00fcgen"
+    },
+    "chrome_always_https_for_host": {
+        "message": "Immer https f\u00fcr diesen Host verwenden"
+    },
+    "chrome_disable_on_this_site": {
+        "message": "Auf dieser Seite deaktivieren"
+    },
+    "chrome_enable_on_this_site": {
+        "message": "Auf dieser Seite aktivieren"
+    },
+    "chrome_experimental_rules": {
+        "message": "Experimentelle Regeln"
+    },
+    "chrome_experimental_rules_description": {
+        "message": "Kann Warnungen oder Abst\u00fcrze verursachen. Standardm\u00e4\u00dfig deaktiviert."
+    },
+    "chrome_hide_advanced": {
+        "message": "Erweiterte Optionen ausblenden"
+    },
+    "chrome_host": {
+        "message": "Host:"
+    },
+    "chrome_redirect_to": {
+        "message": "Weiterleiten nach"
+    },
+    "chrome_regex": {
+        "message": "\u00dcbereinstimmender regul\u00e4rer Ausdruck"
+    },
+    "chrome_rule_name": {
+        "message": "Regelname"
+    },
+    "chrome_settings_for_this_site_explained": {
+        "message": "Wenn du verschiedene Webseiten besuchst, kannst du deine Einstellungen f\u00fcr jede Webseite \u00e4ndern"
+    },
+    "chrome_settings_for_this_site_header": {
+        "message": "Einstellungen f\u00fcr diese Seite"
+    },
+    "chrome_settings_for_this_site_subheader": {
+        "message": "\u00c4ndere deine Einstellungen f\u00fcr verschl\u00fcsselte Verbindungen."
+    },
+    "chrome_show_advanced": {
+        "message": "Erweiterte Optionen anzeigen"
+    },
+    "chrome_stable_rules": {
+        "message": "Funktionierende Regeln"
+    },
+    "chrome_stable_rules_description": {
+        "message": "Erzwingen Sie eine verschl\u00fcsselte Verbindung zu diesen Webseiten:"
+    },
+    "chrome_status_cancel_button": {
+        "message": "Abbrechen"
+    },
+    "menu_donate_eff_imperative": {
+        "message": "Spende an EFF"
+    },
+    "menu_encryptAllSitesEligibleOff": {
+        "message": "Alle geeigneten Seiten verschl\u00fcsseln ist AUS"
+    },
+    "menu_encryptAllSitesEligibleOn": {
+        "message": "Alle geeigneten Seiten verschl\u00fcsseln ist AN"
+    },
+    "menu_globalDisable": {
+        "message": "HTTPS Everywhere ist AUS"
+    },
+    "menu_globalEnable": {
+        "message": "HTTPS Everywhere ist AN"
+    },
+    "menu_httpNoWhereExplainedAllowed": {
+        "message": "Unverschl\u00fcsselte Anfragen sind derzeit erlaubt"
+    },
+    "menu_httpNoWhereExplainedBlocked": {
+        "message": "Unverschl\u00fcsselte Anfragen sind derzeit blockiert."
+    },
+    "menu_httpNoWhereMore": {
+        "message": "Dieser Modus blockiert unverschl\u00fcsselte Inhalte und Anfragen."
+    },
+    "menu_observatory": {
+        "message": "SSL-Observatory-Einstellungen"
+    },
+    "menu_seeLess": {
+        "message": "Weniger anzeigen"
+    },
+    "menu_seeMore": {
+        "message": "Weitere Informationen"
+    },
+    "menu_showCounter": {
+        "message": "Z\u00e4hler anzeigen"
+    },
+    "menu_viewAllRules": {
+        "message": "Alle Regeln ansehen"
+    },
+    "onboarding_footer": {
+        "message": "HTTPS Everywhere ist ein EFF-Projekt"
+    },
+    "onboarding_header": {
+        "message": "HTTPS Everywhere wurde aktualisiert!"
+    },
+    "onboarding_intro": {
+        "message": "Verschl\u00fcsselt das Internet! Nutzen Sie HTTPS-Sicherheit automatisch auf vielen Webseiten."
+    },
+    "options_addDisabledSite": {
+        "message": "Deaktivierte Seite hinzuf\u00fcgen"
+    },
+    "options_addUpdateChannel": {
+        "message": "Aktualisierungs-Quelle hinzuf\u00fcgen"
+    },
+    "options_advancedSettings": {
+        "message": "Erweiterte Einstellungen"
+    },
+    "options_autoUpdateRulesets": {
+        "message": "Regels\u00e4tze automatisch aktualisieren"
+    },
+    "options_debuggingRulesets": {
+        "message": "Fehlerdiagnose von Regels\u00e4tzen (erweitert)"
+    },
+    "options_delete": {
+        "message": "Entfernen"
+    },
+    "options_disabledUrlsListed": {
+        "message": "HTTPS Everywhere deaktivierte Webseiten"
+    },
+    "options_enableMixedRulesets": {
+        "message": "Regels\u00e4tze f\u00fcr gemischte Inhalte aktivieren"
+    },
+    "options_enterDisabledSite": {
+        "message": "Deaktivierte Seite eingeben"
+    },
+    "options_enterUpdateChannelName": {
+        "message": "Name der Aktualisierungs-Quelle eingeben"
+    },
+    "options_generalSettings": {
+        "message": "Allgemeine Einstellungen"
+    },
+    "options_hostNotFormattedCorrectly": {
+        "message": "Dieser Host konnte nicht hinzugef\u00fcgt werden, da er nicht richtig formatiert wurde. Bitte \u00fcberpr\u00fcfen und erneut versuchen."
+    },
+    "options_settings": {
+        "message": "Einstellungen"
+    },
+    "options_showDevtoolsTab": {
+        "message": "Entwicklungswerkzeuge-Reiter anzeigen"
+    },
+    "options_storedRulesetsVersion": {
+        "message": "Gespeicherte Version der Regels\u00e4tze:"
+    },
+    "options_update": {
+        "message": "Aktualisieren"
+    },
+    "options_updateChannels": {
+        "message": "Aktualisierungs-Quellen"
+    },
+    "options_updateChannelsWarning": {
+        "message": "Warnung: Das Hinzuf\u00fcgen neuer Quellen k\u00f6nnte es Angreifern erlauben, den Browser zu \u00fcbernehmen. Dieser Bereich sollte nur bearbeitet werden, wenn Sie wissen, was Sie tun."
+    },
+    "options_updatesLastChecked": {
+        "message": "Aktualisierungen zuletzt gepr\u00fcft:"
+    },
+    "options_updatesLastCheckedNever": {
+        "message": "nie"
+    },
+    "options_userRulesListed": {
+        "message": "HTTPS-Everywhere-Benutzerregeln"
+    },
+    "prefs_export_settings": {
+        "message": "Einstellungen exportieren"
+    },
+    "prefs_reset_defaults": {
+        "message": "Auf Standardeinstellungen zur\u00fccksetzen"
+    },
+    "prefs_reset_defaults_message": {
+        "message": "Dies wird jeden Regelsatz auf seinen Standardzustand zur\u00fccksetzen. Fortfahren?"
+    },
+    "standalone_proxy_server_info_prefix": {
+        "message": "Proxy-Server l\u00e4uft auf"
+    },
+    "standalone_transparent_false": {
+        "message": "Du musst deine Anwendungen so konfigurieren, dass sie einen HTTP-Proxy auf dem angegebenen Host und Anschluss verwenden."
+    },
+    "standalone_transparent_true": {
+        "message": "Du musst deine Firewall-Regeln so einrichten, dass Pakete an den angegebenen Host und Anschluss weitergeleitet werden."
+    }
+}

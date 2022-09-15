@@ -1,0 +1,224 @@
+{
+    "about_add_new_rule": {
+        "message": "Prida\u0165 nov\u00e9 pravidlo"
+    },
+    "about_ext_description": {
+        "message": "Za\u0161ifrujte web! Tento doplnok automatizuje pou\u017eitie HTTPS na mnoh\u00fdch str\u00e1nkach."
+    },
+    "about_ext_name": {
+        "message": "HTTPS Everywhere"
+    },
+    "about_rulesets_version": {
+        "message": "Verzia pravidiel pre"
+    },
+    "about_title": {
+        "message": "O HTTPS Everywhere"
+    },
+    "about_version": {
+        "message": "Verzia"
+    },
+    "cancel_copied_url": {
+        "message": "Copied to Clipboard"
+    },
+    "cancel_copy_url": {
+        "message": "Copy URL"
+    },
+    "cancel_he_blocking_explainer": {
+        "message": "Roz\u0161\u00edrenie HTTPS Everywhere zaznamenalo, \u017ee ste sa pok\u00fasili dosta\u0165 na nezabezpe\u010den\u00fa verziu str\u00e1nky a pok\u00fasilo sa v\u00e1m poskytn\u00fa\u0165 jej zabezpe\u010den\u00fa verziu. T\u00e1to v\u0161ak nie je dostupn\u00e1. S najv\u00e4\u010d\u0161ou pravdepodobnos\u0165ou str\u00e1nka nepodporuje HTTPS, no je taktie\u017e mo\u017en\u00e9, \u017ee \u00fato\u010dn\u00edk blokuje jej zabezpe\u010den\u00fa verziu. Ak si chcete pozrie\u0165 nezabezpe\u010den\u00fa verziu str\u00e1nky, zru\u0161te za\u0161krtnutie mo\u017enosti \u201e\u0160ifrova\u0165 v\u0161etky vhodn\u00e9 str\u00e1nky (EASE)\u201c v mo\u017enostiach tohto roz\u0161\u00edrenia. Berte v\u0161ak na vedomie, \u017ee tak m\u00f4\u017eete svoj prehliada\u010d vystavi\u0165 riziku \u00fatoku typu network-based downgrade."
+    },
+    "cancel_he_blocking_network": {
+        "message": "\u00fatok typu network-based downgrade"
+    },
+    "cancel_http_once": {
+        "message": "Proceed anyway (unsafe)"
+    },
+    "cancel_open_page": {
+        "message": "Disable on this site"
+    },
+    "chrome_add_new_rule": {
+        "message": "Prida\u0165 nov\u00e9 pravidlo pre t\u00fato str\u00e1nku."
+    },
+    "chrome_add_rule": {
+        "message": "Prida\u0165 pravidlo pre t\u00fato str\u00e1nku."
+    },
+    "chrome_always_https_for_host": {
+        "message": "V\u017edy pou\u017e\u00edva\u0165 https pre tohto hostite\u013ea."
+    },
+    "chrome_disable_on_this_site": {
+        "message": "Disable on this site"
+    },
+    "chrome_enable_on_this_site": {
+        "message": "Enable on this site"
+    },
+    "chrome_experimental_rules": {
+        "message": "Experiment\u00e1lne pravidl\u00e1"
+    },
+    "chrome_experimental_rules_description": {
+        "message": "M\u00f4\u017ee sp\u00f4sobi\u0165 upozornenie alebo chyby. Zak\u00e1zan\u00e9 vo v\u00fdchodzom nastaven\u00ed."
+    },
+    "chrome_hide_advanced": {
+        "message": "Skry\u0165 pokro\u010dil\u00e9"
+    },
+    "chrome_host": {
+        "message": "Hostite\u013e:"
+    },
+    "chrome_redirect_to": {
+        "message": "Presmerova\u0165 do"
+    },
+    "chrome_regex": {
+        "message": "Vyhovuj\u00face regul\u00e1rne v\u00fdrazy"
+    },
+    "chrome_rule_name": {
+        "message": "N\u00e1zov pravidla"
+    },
+    "chrome_settings_for_this_site_explained": {
+        "message": "Po\u010das prehliadania r\u00f4znych web-str\u00e1nok, m\u00f4\u017eete zmeni\u0165 nastavenia pre ka\u017ed\u00fa web-str\u00e1nku zvl\u00e1\u0161\u0165"
+    },
+    "chrome_settings_for_this_site_header": {
+        "message": "Nastavenia pre t\u00fato str\u00e1nku"
+    },
+    "chrome_settings_for_this_site_subheader": {
+        "message": "Zmeni\u0165 nastavenia pre \u0161ifrovan\u00e9 spojenia"
+    },
+    "chrome_show_advanced": {
+        "message": "Zobrazi\u0165 pokro\u010dil\u00e9"
+    },
+    "chrome_stable_rules": {
+        "message": "Stabiln\u00e9 pravidl\u00e1"
+    },
+    "chrome_stable_rules_description": {
+        "message": "Vyn\u00fati\u0165 \u0161ifrovan\u00e9 spojenie pre tieto webov\u00e9 str\u00e1nky:"
+    },
+    "chrome_status_cancel_button": {
+        "message": "Zru\u0161i\u0165"
+    },
+    "menu_donate_eff_imperative": {
+        "message": "Prispejte EFF"
+    },
+    "menu_encryptAllSitesEligibleOff": {
+        "message": "\u0160ifrovanie v\u0161etk\u00fdch vhodn\u00fdch str\u00e1nok je VYPNUT\u00c9"
+    },
+    "menu_encryptAllSitesEligibleOn": {
+        "message": "\u0160ifrovanie v\u0161etk\u00fdch vhodn\u00fdch str\u00e1nok je ZAPNUT\u00c9"
+    },
+    "menu_globalDisable": {
+        "message": "Roz\u0161\u00edrenie HTTPS Everywhere je VYPNUT\u00c9"
+    },
+    "menu_globalEnable": {
+        "message": "Roz\u0161\u00edrenie HTTPS Everywhere je ZAPNUT\u00c9"
+    },
+    "menu_httpNoWhereExplainedAllowed": {
+        "message": "Neza\u0161ifrovan\u00e9 po\u017eiadavky s\u00fa aktu\u00e1lne povolen\u00e9"
+    },
+    "menu_httpNoWhereExplainedBlocked": {
+        "message": "Neza\u0161ifrovan\u00e9 po\u017eiadavky s\u00fa aktu\u00e1lne blokovan\u00e9"
+    },
+    "menu_httpNoWhereMore": {
+        "message": "Tento m\u00f3d blokuje neza\u0161ifrovan\u00fd obsah a po\u017eiadavky"
+    },
+    "menu_observatory": {
+        "message": "Nastavenia SSL Observatory"
+    },
+    "menu_seeLess": {
+        "message": "Zobrazi\u0165 menej"
+    },
+    "menu_seeMore": {
+        "message": "Zobrazi\u0165 viac"
+    },
+    "menu_showCounter": {
+        "message": "Zobrazi\u0165 po\u010d\u00edtadlo"
+    },
+    "menu_viewAllRules": {
+        "message": "Zobrazi\u0165 v\u0161etky pravidl\u00e1"
+    },
+    "onboarding_footer": {
+        "message": "HTTPS Everywhere is an EFF project"
+    },
+    "onboarding_header": {
+        "message": "HTTPS Everywhere has been updated!"
+    },
+    "onboarding_intro": {
+        "message": "Za\u0161ifrujte web! Tento doplnok automatizuje pou\u017eitie HTTPS na mnoh\u00fdch str\u00e1nkach."
+    },
+    "options_addDisabledSite": {
+        "message": "Add Disabled Site"
+    },
+    "options_addUpdateChannel": {
+        "message": "Prida\u0165 aktualiza\u010dn\u00fd kan\u00e1l"
+    },
+    "options_advancedSettings": {
+        "message": "Pokro\u010dil\u00e9 nastavenia"
+    },
+    "options_autoUpdateRulesets": {
+        "message": "Automaticky aktualizova\u0165 zoznamy pravidiel"
+    },
+    "options_debuggingRulesets": {
+        "message": "Pravidl\u00e1 pre ladenie (pokro\u010dil\u00e9)"
+    },
+    "options_delete": {
+        "message": "Odstr\u00e1ni\u0165"
+    },
+    "options_disabledUrlsListed": {
+        "message": "HTTPS Everywhere - str\u00e1nky, na ktor\u00fdch je roz\u0161\u00edrenie zak\u00e1zan\u00e9"
+    },
+    "options_enableMixedRulesets": {
+        "message": "Povoli\u0165 zoznamy pravidiel so zmie\u0161an\u00fdm obsahom"
+    },
+    "options_enterDisabledSite": {
+        "message": "Enter disabled site"
+    },
+    "options_enterUpdateChannelName": {
+        "message": "Zadajte n\u00e1zov aktualiza\u010dn\u00e9ho kan\u00e1la"
+    },
+    "options_generalSettings": {
+        "message": "V\u0161eobecn\u00e9 nastavenia"
+    },
+    "options_hostNotFormattedCorrectly": {
+        "message": "This host could not be added because it was not formatted correctly. Please check it and try again."
+    },
+    "options_settings": {
+        "message": "Nastavenia"
+    },
+    "options_showDevtoolsTab": {
+        "message": "Zobrazova\u0165 kartu s n\u00e1strojmi pre v\u00fdvoj\u00e1rov"
+    },
+    "options_storedRulesetsVersion": {
+        "message": "Verzia ulo\u017een\u00fdch pravidiel:"
+    },
+    "options_update": {
+        "message": "Aktualizova\u0165"
+    },
+    "options_updateChannels": {
+        "message": "Aktualiza\u010dn\u00e9 kan\u00e1ly"
+    },
+    "options_updateChannelsWarning": {
+        "message": "Varovanie: pridanie aktualiza\u010dn\u00e9ho kan\u00e1la m\u00f4\u017ee umo\u017eni\u0165 \u00fato\u010dn\u00edkom zmocni\u0165 sa v\u00e1\u0161ho prehliada\u010da. T\u00fato \u010das\u0165 upravujte len ak viete, \u010do rob\u00edte!"
+    },
+    "options_updatesLastChecked": {
+        "message": "Posledn\u00e1 kontrola aktualiz\u00e1ci\u00ed:"
+    },
+    "options_updatesLastCheckedNever": {
+        "message": "nikdy"
+    },
+    "options_userRulesListed": {
+        "message": "HTTPS Everywhere - pravidl\u00e1 pou\u017e\u00edvate\u013ea"
+    },
+    "prefs_export_settings": {
+        "message": "Exportova\u0165 nastavenia"
+    },
+    "prefs_reset_defaults": {
+        "message": "Obnovi\u0165 predvolen\u00e9 nastavenia"
+    },
+    "prefs_reset_defaults_message": {
+        "message": "T\u00fdmto obnov\u00edte v\u0161etky pravidl\u00e1 do ich p\u00f4vodn\u00e9ho stavu. Chcete pokra\u010dova\u0165?"
+    },
+    "standalone_proxy_server_info_prefix": {
+        "message": "Proxy server running on"
+    },
+    "standalone_transparent_false": {
+        "message": "You must configure your applications to use an HTTP proxy on the specified host and port."
+    },
+    "standalone_transparent_true": {
+        "message": "You must set up your firewall rules to forward packets to the specified host and port."
+    }
+}

@@ -1,0 +1,224 @@
+{
+    "about_add_new_rule": {
+        "message": "Dodaj now\u0105 regu\u0142\u0119"
+    },
+    "about_ext_description": {
+        "message": "Szyfruj sie\u0107! Automatycznie u\u017cywaj zabezpiecze\u0144 HTTPS na wielu stronach."
+    },
+    "about_ext_name": {
+        "message": "HTTPS Everywhere"
+    },
+    "about_rulesets_version": {
+        "message": "Wersja zestawu regu\u0142 dla "
+    },
+    "about_title": {
+        "message": "O HTTPS Everywhere"
+    },
+    "about_version": {
+        "message": "Wersja"
+    },
+    "cancel_copied_url": {
+        "message": "Skopiowano do schowka"
+    },
+    "cancel_copy_url": {
+        "message": "Kopiuj odno\u015bnik"
+    },
+    "cancel_he_blocking_explainer": {
+        "message": "HTTPS Everywhere zauwa\u017cy\u0142, \u017ce przechodzisz do strony innej ni\u017c HTTPS i zamiast tego pr\u00f3bowa\u0142 wys\u0142a\u0107 ci\u0119 do wersji HTTPS. Wersja HTTPS jest niedost\u0119pna. Najprawdopodobniej ta witryna nie obs\u0142uguje protoko\u0142u HTTPS, ale mo\u017cliwe jest r\u00f3wnie\u017c, \u017ce osoba atakuj\u0105ca blokuje wersj\u0119 HTTPS. Je\u015bli chcesz wy\u015bwietli\u0107 niezaszyfrowan\u0105 wersj\u0119 tej strony, mo\u017cesz to zrobi\u0107, wy\u0142\u0105czaj\u0105c opcj\u0119 \u201eSzyfruj wszystkie uprawnione witryny\u201d (EASE) w rozszerzeniu HTTPS Everywhere. Nale\u017cy pami\u0119ta\u0107, \u017ce wy\u0142\u0105czenie tej opcji mo\u017ce spowodowa\u0107, \u017ce przegl\u0105darka b\u0119dzie nara\u017cona na ataki polegaj\u0105ce na obni\u017caniu wersji po\u0142\u0105czenia w odwiedzanych witrynach."
+    },
+    "cancel_he_blocking_network": {
+        "message": "sieciowe ataki downgrade"
+    },
+    "cancel_http_once": {
+        "message": "Kontynuuj mimo wszystko (niebezpieczne)"
+    },
+    "cancel_open_page": {
+        "message": "Wy\u0142\u0105cz na tej witrynie"
+    },
+    "chrome_add_new_rule": {
+        "message": "Dodaj now\u0105 regu\u0142\u0119 dla tej strony"
+    },
+    "chrome_add_rule": {
+        "message": "Dodaj regu\u0142\u0119 dla tej strony"
+    },
+    "chrome_always_https_for_host": {
+        "message": "Zawsze u\u017cywaj https dla tego hosta"
+    },
+    "chrome_disable_on_this_site": {
+        "message": "Wy\u0142\u0105cz na tej witrynie"
+    },
+    "chrome_enable_on_this_site": {
+        "message": "W\u0142\u0105cz na tej witrynie"
+    },
+    "chrome_experimental_rules": {
+        "message": "Regu\u0142y eksperymentalne"
+    },
+    "chrome_experimental_rules_description": {
+        "message": "Mo\u017ce powodowa\u0107 ostrze\u017cenia lub uszkodzenia. Domy\u015blnie wy\u0142\u0105czone."
+    },
+    "chrome_hide_advanced": {
+        "message": "Ukryj zaawansowane"
+    },
+    "chrome_host": {
+        "message": "Host:"
+    },
+    "chrome_redirect_to": {
+        "message": "Przekieruj do"
+    },
+    "chrome_regex": {
+        "message": "Pasuj\u0105cy regex"
+    },
+    "chrome_rule_name": {
+        "message": "Nazwa regu\u0142y"
+    },
+    "chrome_settings_for_this_site_explained": {
+        "message": "Podczas przegl\u0105dania r\u00f3\u017cnych stron internetowych mo\u017cesz zmieni\u0107 swoje preferencje dla ka\u017cdej witryny"
+    },
+    "chrome_settings_for_this_site_header": {
+        "message": "Ustawienia dla tej witryny"
+    },
+    "chrome_settings_for_this_site_subheader": {
+        "message": "Zmie\u0144 swoje preferencje dla po\u0142\u0105cze\u0144 szyfrowanych"
+    },
+    "chrome_show_advanced": {
+        "message": "Poka\u017c zaawansowane"
+    },
+    "chrome_stable_rules": {
+        "message": "Regu\u0142y stabilne"
+    },
+    "chrome_stable_rules_description": {
+        "message": "Wymuszaj szyfrowane po\u0142\u0105czenie do tych stron internetowych:"
+    },
+    "chrome_status_cancel_button": {
+        "message": "Anuluj"
+    },
+    "menu_donate_eff_imperative": {
+        "message": "Wspom\u00f3\u017c finansowo EFF"
+    },
+    "menu_encryptAllSitesEligibleOff": {
+        "message": "Szyfruj wszystkie mo\u017cliwe witryny jest WY\u0141\u0104CZONE"
+    },
+    "menu_encryptAllSitesEligibleOn": {
+        "message": "Szyfruj wszystkie mo\u017cliwe witryny jest W\u0141\u0104CZONE"
+    },
+    "menu_globalDisable": {
+        "message": "HTTPS Everywhere jest WY\u0141\u0104CZONE"
+    },
+    "menu_globalEnable": {
+        "message": "HTTPS Everywhere jest W\u0141\u0104CZONE"
+    },
+    "menu_httpNoWhereExplainedAllowed": {
+        "message": "Niezaszyfrowane \u017c\u0105dania s\u0105 obecnie dozwolone"
+    },
+    "menu_httpNoWhereExplainedBlocked": {
+        "message": "Niezaszyfrowane \u017c\u0105dania s\u0105 obecnie zablokowane"
+    },
+    "menu_httpNoWhereMore": {
+        "message": "Ten tryb blokuje niezaszyfrowan\u0105 zawarto\u015b\u0107 i \u017c\u0105dania"
+    },
+    "menu_observatory": {
+        "message": "Ustawienia SSL Observatory"
+    },
+    "menu_seeLess": {
+        "message": "Zobacz mniej"
+    },
+    "menu_seeMore": {
+        "message": "Zobacz wi\u0119cej"
+    },
+    "menu_showCounter": {
+        "message": "Poka\u017c Licznik"
+    },
+    "menu_viewAllRules": {
+        "message": "Wy\u015bwietl wszystkie regu\u0142y"
+    },
+    "onboarding_footer": {
+        "message": "HTTPS Everywhere jest projektem organizacji EFF"
+    },
+    "onboarding_header": {
+        "message": "Rozszerzenie HTTPS Everywhere zosta\u0142o zaktualizowane!"
+    },
+    "onboarding_intro": {
+        "message": "Szyfruj sie\u0107! Automatycznie u\u017cywaj zabezpiecze\u0144 HTTPS na wielu stronach."
+    },
+    "options_addDisabledSite": {
+        "message": "Dodaj stron\u0119 do wyj\u0105tk\u00f3w"
+    },
+    "options_addUpdateChannel": {
+        "message": "Dodaj kana\u0142 aktualizacji"
+    },
+    "options_advancedSettings": {
+        "message": "Ustawienia zaawansowane"
+    },
+    "options_autoUpdateRulesets": {
+        "message": "Automatycznie aktualizuj zestawy regu\u0142"
+    },
+    "options_debuggingRulesets": {
+        "message": "Zestaw regu\u0142 debugowania (zaawansowane)"
+    },
+    "options_delete": {
+        "message": "Usu\u0144"
+    },
+    "options_disabledUrlsListed": {
+        "message": "Strony wy\u0142\u0105czone w HTTPS Everywhere"
+    },
+    "options_enableMixedRulesets": {
+        "message": "W\u0142\u0105cz zestawy regu\u0142 o r\u00f3\u017cnorodnych zawarto\u015bciach"
+    },
+    "options_enterDisabledSite": {
+        "message": "Wprowad\u017a wykluczan\u0105 stron\u0119"
+    },
+    "options_enterUpdateChannelName": {
+        "message": "Wpisz nazw\u0119 kana\u0142u aktualizacji"
+    },
+    "options_generalSettings": {
+        "message": "Ustawienia g\u0142\u00f3wne"
+    },
+    "options_hostNotFormattedCorrectly": {
+        "message": "Nie mo\u017cna doda\u0107 tego hosta, poniewa\u017c nie zosta\u0142 poprawnie sformatowany. Sprawd\u017a to i spr\u00f3buj ponownie."
+    },
+    "options_settings": {
+        "message": "Ustawienia"
+    },
+    "options_showDevtoolsTab": {
+        "message": "Poka\u017c zak\u0142adk\u0119 Devtools"
+    },
+    "options_storedRulesetsVersion": {
+        "message": "Zapisane wersje zestaw\u00f3w regu\u0142:"
+    },
+    "options_update": {
+        "message": "Aktualizacja"
+    },
+    "options_updateChannels": {
+        "message": "Kana\u0142y aktualizacji"
+    },
+    "options_updateChannelsWarning": {
+        "message": "Ostrze\u017cenie: Dodawanie aktualizacji kana\u0142\u00f3w mo\u017ce umo\u017cliwi\u0107 atak przej\u0119cia kontroli nad twoj\u0105 przegl\u0105dark\u0105. Edytuj t\u0119 sekcj\u0119 jedynie, je\u015bli wiesz co robisz!"
+    },
+    "options_updatesLastChecked": {
+        "message": "Ostatnio sprawdzono aktualizacje:"
+    },
+    "options_updatesLastCheckedNever": {
+        "message": "nigdy"
+    },
+    "options_userRulesListed": {
+        "message": "Zasady u\u017cytkownik\u00f3w HTTPS Everywhere"
+    },
+    "prefs_export_settings": {
+        "message": "Eksportuj ustawienia"
+    },
+    "prefs_reset_defaults": {
+        "message": "Przywr\u00f3\u0107 ustawienia fabryczne"
+    },
+    "prefs_reset_defaults_message": {
+        "message": "To przywr\u00f3ci ka\u017cdy zestaw regu\u0142 do jego domy\u015blnego stanu. Czy kontynuowa\u0107?"
+    },
+    "standalone_proxy_server_info_prefix": {
+        "message": "Serwer proxy dzia\u0142aj\u0105cy na"
+    },
+    "standalone_transparent_false": {
+        "message": "Musisz skonfigurowa\u0107 swoje aplikacje, aby korzysta\u0142y z serwera proxy HTTP na okre\u015blonym komputerze i porcie."
+    },
+    "standalone_transparent_true": {
+        "message": "Musisz skonfigurowa\u0107 swoj\u0105 zapor\u0119 sieciow\u0105, aby przekierowywa\u0142a pakiety na okre\u015blony komputer i port."
+    }
+}

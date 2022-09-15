@@ -1,0 +1,224 @@
+{
+    "about_add_new_rule": {
+        "message": "L\u00e4gg till ny regel"
+    },
+    "about_ext_description": {
+        "message": "Kryptera webben! Anv\u00e4nd HTTPS automatiskt p\u00e5 m\u00e5nga webbplatser."
+    },
+    "about_ext_name": {
+        "message": "HTTPS Everywhere"
+    },
+    "about_rulesets_version": {
+        "message": "Regelupps\u00e4ttningsversion f\u00f6r"
+    },
+    "about_title": {
+        "message": "Om HTTPS Everywhere"
+    },
+    "about_version": {
+        "message": "Version"
+    },
+    "cancel_copied_url": {
+        "message": "Kopierad till urklipp"
+    },
+    "cancel_copy_url": {
+        "message": "Kopiera webbadress"
+    },
+    "cancel_he_blocking_explainer": {
+        "message": "HTTPS Everywhere m\u00e4rkte att du navigerade till en sida som inte anv\u00e4nder HTTPS och f\u00f6rs\u00f6kte skicka dig till HTTPS-versionen ist\u00e4llet. HTTPS-versionen \u00e4r inte tillg\u00e4nglig. Troligtvis st\u00f6der den h\u00e4r webbplatsen inte HTTPS, men det \u00e4r ocks\u00e5 m\u00f6jligt att en angripare blockerar HTTPS-versionen. Om du vill visa den okrypterade versionen av den h\u00e4r sidan kan du fortfarande g\u00f6ra det genom att inaktivera alternativet &quot;Kryptera alla kvalificerade webbplatser&quot; i ditt HTTPS Everywhere-till\u00e4gg. T\u00e4nk p\u00e5 att inaktivering det h\u00e4r alternativet kan g\u00f6ra din webbl\u00e4sare s\u00e5rbar f\u00f6r n\u00e4tverksbaserade nedgraderingsattacker p\u00e5 webbplatser du bes\u00f6ker."
+    },
+    "cancel_he_blocking_network": {
+        "message": "n\u00e4tverksbaserade nedgraderingsattacker"
+    },
+    "cancel_http_once": {
+        "message": "Forts\u00e4tt \u00e4nd\u00e5 (os\u00e4kert)"
+    },
+    "cancel_open_page": {
+        "message": "Inaktivera f\u00f6r denna webbplats"
+    },
+    "chrome_add_new_rule": {
+        "message": "L\u00e4gg till en ny regel f\u00f6r denna sida"
+    },
+    "chrome_add_rule": {
+        "message": "L\u00e4gg till en regel f\u00f6r denna sida"
+    },
+    "chrome_always_https_for_host": {
+        "message": "Anv\u00e4nd alltid https f\u00f6r denna v\u00e4rd"
+    },
+    "chrome_disable_on_this_site": {
+        "message": "Inaktivera f\u00f6r denna webbplats"
+    },
+    "chrome_enable_on_this_site": {
+        "message": "Aktivera f\u00f6r denna webbplats"
+    },
+    "chrome_experimental_rules": {
+        "message": "Experimentella regler"
+    },
+    "chrome_experimental_rules_description": {
+        "message": "Kan orsaka varningar eller avbrott. Inaktiverade som standard."
+    },
+    "chrome_hide_advanced": {
+        "message": "D\u00f6lj avancerad"
+    },
+    "chrome_host": {
+        "message": "V\u00e4rd:"
+    },
+    "chrome_redirect_to": {
+        "message": "Omdirigera till"
+    },
+    "chrome_regex": {
+        "message": "Matchar regex"
+    },
+    "chrome_rule_name": {
+        "message": "Regelnamn"
+    },
+    "chrome_settings_for_this_site_explained": {
+        "message": "N\u00e4r du surfar p\u00e5 olika webbplatser kan du \u00e4ndra dina inst\u00e4llningar f\u00f6r varje webbplats"
+    },
+    "chrome_settings_for_this_site_header": {
+        "message": "Inst\u00e4llningar f\u00f6r denna webbplats"
+    },
+    "chrome_settings_for_this_site_subheader": {
+        "message": "\u00c4ndra dina inst\u00e4llningar f\u00f6r krypterade anslutningar"
+    },
+    "chrome_show_advanced": {
+        "message": "Visa avancerad"
+    },
+    "chrome_stable_rules": {
+        "message": "Stabila regler"
+    },
+    "chrome_stable_rules_description": {
+        "message": "Tvinga krypterade anslutningar till dessa webbplatser:"
+    },
+    "chrome_status_cancel_button": {
+        "message": "Avbryt"
+    },
+    "menu_donate_eff_imperative": {
+        "message": "Donera till EFF"
+    },
+    "menu_encryptAllSitesEligibleOff": {
+        "message": "Kryptera alla kvalificerade webbplatser \u00e4r AV"
+    },
+    "menu_encryptAllSitesEligibleOn": {
+        "message": "Kryptera alla kvalificerade webbplatser \u00e4r P\u00c5"
+    },
+    "menu_globalDisable": {
+        "message": "HTTPS Everywhere \u00e4r AV"
+    },
+    "menu_globalEnable": {
+        "message": "HTTPS Everywhere \u00e4r P\u00c5"
+    },
+    "menu_httpNoWhereExplainedAllowed": {
+        "message": "Okrypterade f\u00f6rfr\u00e5gningar \u00e4r f\u00f6r n\u00e4rvarande till\u00e5tna"
+    },
+    "menu_httpNoWhereExplainedBlocked": {
+        "message": "Okrypterade f\u00f6rfr\u00e5gningar blockeras f\u00f6r n\u00e4rvarande"
+    },
+    "menu_httpNoWhereMore": {
+        "message": "Detta l\u00e4ge blockerar okrypterat inneh\u00e5ll och f\u00f6rfr\u00e5gningar"
+    },
+    "menu_observatory": {
+        "message": "Inst\u00e4llningar f\u00f6r SSL-observatoriet"
+    },
+    "menu_seeLess": {
+        "message": "Se mindre"
+    },
+    "menu_seeMore": {
+        "message": "Se mer"
+    },
+    "menu_showCounter": {
+        "message": "Visa r\u00e4knare"
+    },
+    "menu_viewAllRules": {
+        "message": "Visa alla regler"
+    },
+    "onboarding_footer": {
+        "message": "HTTPS Everywhere \u00e4r ett EFF-projekt"
+    },
+    "onboarding_header": {
+        "message": "HTTPS Everywhere har uppdaterats!"
+    },
+    "onboarding_intro": {
+        "message": "Kryptera webben! Anv\u00e4nd HTTPS automatiskt p\u00e5 m\u00e5nga webbplatser."
+    },
+    "options_addDisabledSite": {
+        "message": "L\u00e4gg till inaktiverad webbplats"
+    },
+    "options_addUpdateChannel": {
+        "message": "L\u00e4gg till uppdateringskanal"
+    },
+    "options_advancedSettings": {
+        "message": "Avancerade inst\u00e4llningar"
+    },
+    "options_autoUpdateRulesets": {
+        "message": "Automatisk uppdatering av regler"
+    },
+    "options_debuggingRulesets": {
+        "message": "Fels\u00f6ka regelupps\u00e4ttningar (avancerat)"
+    },
+    "options_delete": {
+        "message": "Ta bort"
+    },
+    "options_disabledUrlsListed": {
+        "message": "HTTPS Everywhere inaktiverade webbplatser"
+    },
+    "options_enableMixedRulesets": {
+        "message": "Aktivera regler med blandade inneh\u00e5ll"
+    },
+    "options_enterDisabledSite": {
+        "message": "Ange inaktiverad webbplats"
+    },
+    "options_enterUpdateChannelName": {
+        "message": "Ange namn p\u00e5 uppdateringskanal"
+    },
+    "options_generalSettings": {
+        "message": "Allm\u00e4nna inst\u00e4llningar"
+    },
+    "options_hostNotFormattedCorrectly": {
+        "message": "Det gick inte att l\u00e4gga till denna v\u00e4rd eftersom den inte var formaterad korrekt. Kontrollera den och f\u00f6rs\u00f6k igen."
+    },
+    "options_settings": {
+        "message": "Inst\u00e4llningar"
+    },
+    "options_showDevtoolsTab": {
+        "message": "Visa fliken Devtools"
+    },
+    "options_storedRulesetsVersion": {
+        "message": "Lagrad version f\u00f6r reglerupps\u00e4ttning: "
+    },
+    "options_update": {
+        "message": "Uppdatera"
+    },
+    "options_updateChannels": {
+        "message": "Uppdatera kanaler"
+    },
+    "options_updateChannelsWarning": {
+        "message": "Varning: Till\u00e4ggningen av uppdateringskanaler kan leda till att angripare kapar din webbl\u00e4sare. \u00c4ndra bara det h\u00e4r avsnittet om du vet vad du g\u00f6r!"
+    },
+    "options_updatesLastChecked": {
+        "message": "Uppdateringar som senast kontrollerats: "
+    },
+    "options_updatesLastCheckedNever": {
+        "message": "aldrig"
+    },
+    "options_userRulesListed": {
+        "message": "HTTPS Everywhere-anv\u00e4ndarregler"
+    },
+    "prefs_export_settings": {
+        "message": "Exportera inst\u00e4llningar"
+    },
+    "prefs_reset_defaults": {
+        "message": "\u00c5terst\u00e4ll till standardv\u00e4rden"
+    },
+    "prefs_reset_defaults_message": {
+        "message": "Detta \u00e5terst\u00e4ller varje regel till dess standardv\u00e4rde. Forts\u00e4tta?"
+    },
+    "standalone_proxy_server_info_prefix": {
+        "message": "Proxyserver k\u00f6rs p\u00e5"
+    },
+    "standalone_transparent_false": {
+        "message": "Du m\u00e5ste konfigurera dina program s\u00e5 att de anv\u00e4nder en HTTP-proxy p\u00e5 den angivna v\u00e4rden och porten."
+    },
+    "standalone_transparent_true": {
+        "message": "Du m\u00e5ste st\u00e4lla in dina brandv\u00e4ggsregler f\u00f6r att vidarebefordra paket till den angivna v\u00e4rden och porten."
+    }
+}
