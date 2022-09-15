@@ -211,6 +211,10 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
         <delete file="VERSION.md"></delete>
         <exec executable="echo" failonerror="true">
             <redirector output="VERSION.md" error="VERSION.md" alwayslog="true" append="true"></redirector>
+            <arg value=""/>
+        </exec>
+        <exec executable="echo" failonerror="true">
+            <redirector output="VERSION.md" error="VERSION.md" alwayslog="true" append="true"></redirector>
             <arg value="Extension Versions"/>
         </exec>
         <exec executable="echo" failonerror="true">
