@@ -439,12 +439,21 @@ public class I2PChromium extends I2PCommonBrowser {
                           .getAbsolutePath() +
                       "," +
                       new File(I2PChromiumProfileBuilder.profileDirectory(),
+                               "extensions/https-everywhere.js")
+                          .getAbsolutePath() +
+                      "," +
+                      new File(I2PChromiumProfileBuilder.profileDirectory(),
                                "extensions/noscript.js")
                           .getAbsolutePath();
+
       } else {
         newArgs[31] = "--load-extension=" +
                       new File(I2PChromiumProfileBuilder.profileDirectory(),
                                "extensions/i2pchrome.js")
+                          .getAbsolutePath() +
+                      "," +
+                      new File(I2PChromiumProfileBuilder.profileDirectory(),
+                               "extensions/https-everywhere.js")
                           .getAbsolutePath() +
                       "," +
                       new File(I2PChromiumProfileBuilder.profileDirectory(),
