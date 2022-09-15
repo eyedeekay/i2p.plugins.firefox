@@ -168,6 +168,55 @@
       </strong>
     </p>
     <h2>
+      Credits
+    </h2>
+    <p>
+      This profile manager makes use of a set of browser extensions which are largely the work of others.
+      It makes use of dependencies that are the work of others. In many ways, it&rsquo;s merely an elaborate
+      configuration tool. A smart one, but a configuration tool nonetheless. Many thanks to the following
+      projects, developers, and communities:
+    </p>
+    <h3>
+      Firefox and Chrome Extensions
+    </h3>
+    <ul>
+      <li>
+        <a href="https://noscript.net">
+          NoScript - Giorgio Maone and others
+        </a>
+      </li>
+      <li>
+        <a href="https://www.eff.org/https-everywhere">
+          HTTPS Everywhere - Electronic Frontier Foundation
+        </a>
+      </li>
+      <li>
+        <a href="https://ublockorigin.com/">
+          uBlock Origin - Raymond Gorhill and others
+        </a>
+      </li>
+      <li>
+        <a href="https://www.localcdn.org/">
+          LocalCDN - nobody and others
+        </a>
+      </li>
+      <li>
+        <a href="https://jshelter.org/">
+          jShelter - Libor Polčák and others
+        </a>
+      </li>
+    </ul>
+    <h3>
+      Firefox Configuration Modifiations
+    </h3>
+    <ul>
+      <li>
+        <a href="https://github.com/arkenfox/user.js/">
+          Arkenfox - Thorin Oakenpants and Others
+        </a>
+      </li>
+    </ul>
+    <h2>
       Getting started
     </h2>
     <h3>
@@ -259,6 +308,20 @@ unzip i2pfirefox.zip
       want to update the profiles, you don&rsquo;t need it.
     </p>
     <pre><code class="language-sh">go install github.com/eyedeekay/amo-version@latest
+</code></pre>
+    <p>
+      If you also want to update the
+      <code>
+        user.js
+      </code>
+      in use by the Firefox targets, you will need
+      <code>
+        github-release
+      </code>
+      to download the latest release package that is offered by the
+      Arkenfox project.
+    </p>
+    <pre><code class="language-sh">go install github.com/github-release/github-release@latest
 </code></pre>
     <p>
       For Fedora, use Yum, for Arch use pacman or something else but make sure to tell everyone
