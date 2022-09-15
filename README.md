@@ -34,6 +34,9 @@ projects, developers, and communities:
 
 - [Arkenfox - Thorin Oakenpants and Others](https://github.com/arkenfox/user.js/)
 
+You can find the license files for each of the these projects in the `src/i2p.firefox.*.profile/extensions/*`
+directory for Firefox, and the `src/i2p.chromium.*.profile/extensions/*.js/*` directories for Chromium.
+
 ## Getting started
 
 ### Using a Binary

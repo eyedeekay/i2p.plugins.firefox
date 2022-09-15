@@ -9,6 +9,42 @@ sed -i "s|${READMELINE}|wget https://github.com/eyedeekay/i2p.plugins.firefox/re
 sed -i "s|${NUMLINE}|        <property name=\"release.number\" value=\"$GITHUB_TAG\" />|g" build.xml
 edgar && git push --all
 ant jar freeZip jpackage debian fedora
+profilezipsum=$(sha256sum src/i2p.chromium.base.profile.zip)
+github-release upload --user "${GITHUB_USER}" \
+    --repo "${GITHUB_REPO}" \
+    --tag "${GITHUB_TAG}" \
+    --label "Chromium strict extensions ${profilezipsum}" \
+    --name "i2p.chromium.base.profile.zip" \
+    --file "src/i2p.chromium.base.profile.zip" \
+    --replace
+echo "Uploaded Chromium base profile"
+profilezipsum=$(sha256sum src/i2p.chromium.usability.profile.zip)
+github-release upload --user "${GITHUB_USER}" \
+    --repo "${GITHUB_REPO}" \
+    --tag "${GITHUB_TAG}" \
+    --label "Chromium usability extensions ${profilezipsum}" \
+    --name "i2p.chromium.usability.profile.zip" \
+    --file "src/i2p.chromium.usability.profile.zip" \
+    --replace
+echo "Uploaded Chromium usability profile"
+profilezipsum=$(sha256sum src/i2p.firefox.base.profile.zip)
+github-release upload --user "${GITHUB_USER}" \
+    --repo "${GITHUB_REPO}" \
+    --tag "${GITHUB_TAG}" \
+    --label "Firefox strict profile ${profilezipsum}" \
+    --name "i2p.firefox.base.profile.zip" \
+    --file "src/i2p.firefox.base.profile.zip" \
+    --replace
+echo "Uploaded Firefox base profile"
+profilezipsum=$(sha256sum src/i2p.firefox.usability.profile.zip)
+github-release upload --user "${GITHUB_USER}" \
+    --repo "${GITHUB_REPO}" \
+    --tag "${GITHUB_TAG}" \
+    --label "Firefox usability profile ${profilezipsum}" \
+    --name "i2p.firefox.usability.profile.zip" \
+    --file "src/i2p.firefox.usability.profile.zip" \
+    --replace
+echo "Uploaded Firefox usability profile"
 github-release release --user "${GITHUB_USER}" \
     --repo "${GITHUB_REPO}" \
     --name "${GITHUB_NAME}" \
@@ -66,5 +102,6 @@ github-release upload --user "${GITHUB_USER}" \
     --file "i2pbrowser-${GITHUB_TAG}-1.x86_64.rpm" \
     --replace
 echo "Uploaded fedora package"
+
 git pull github --tags
 git push --all
