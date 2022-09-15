@@ -207,6 +207,123 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
         </exec>
     </target>
 
+    <target name="versionMd">
+        <delete file="VERSION.md"></delete>
+        <exec executable="echo" failonerror="true">
+            <redirector output="VERSION.md" error="VERSION.md" alwayslog="true" append="true"></redirector>
+            <arg value="Extension Versions"/>
+        </exec>
+        <exec executable="echo" failonerror="true">
+            <redirector output="VERSION.md" error="VERSION.md" alwayslog="true" append="true"></redirector>
+            <arg value="=================="/>
+        </exec>
+        <exec executable="echo" failonerror="true">
+            <redirector output="VERSION.md" error="VERSION.md" alwayslog="true" append="true"></redirector>
+            <arg value=""/>
+        </exec>
+        <exec executable="echo" failonerror="true">
+            <redirector output="VERSION.md" error="VERSION.md" alwayslog="true" append="true"></redirector>
+            <arg value="## Firefox"/>
+        </exec>
+        <exec executable="echo" failonerror="true">
+            <redirector output="VERSION.md" error="VERSION.md" alwayslog="true" append="true"></redirector>
+            <arg value=""/>
+        </exec>
+        <exec executable="echo" failonerror="true">
+            <redirector output="VERSION.md" error="VERSION.md" alwayslog="true" append="true"></redirector>
+            <arg value="```md"/>
+        </exec>
+        <exec executable="amo-version" failonerror="true">
+            <redirector output="VERSION.md" error="VERSION.md" alwayslog="true" append="true"></redirector>
+            <arg value="-n"/>
+            <arg value="i2p-in-private-browsing"/>
+        </exec>
+        <exec executable="amo-version" failonerror="true">
+            <redirector output="VERSION.md" error="VERSION.md" alwayslog="true" append="true"></redirector>
+            <arg value="-n"/>
+            <arg value="noscript"/>
+        </exec>
+        <exec executable="amo-version" failonerror="true">
+            <redirector output="VERSION.md" error="VERSION.md" alwayslog="true" append="true"></redirector>
+            <arg value="-n"/>
+            <arg value="localcdn-fork-of-decentraleyes"/>
+        </exec>
+        <exec executable="amo-version" failonerror="true">
+            <redirector output="VERSION.md" error="VERSION.md" alwayslog="true" append="true"></redirector>
+            <arg value="-n"/>
+            <arg value="https-everywhere"/>
+        </exec>
+        <exec executable="amo-version" failonerror="true">
+            <redirector output="VERSION.md" error="VERSION.md" alwayslog="true" append="true"></redirector>
+            <arg value="-n"/>
+            <arg value="onion-in-container-browsing"/>
+        </exec>
+        <exec executable="amo-version" failonerror="true">
+            <redirector output="VERSION.md" error="VERSION.md" alwayslog="true" append="true"></redirector>
+            <arg value="-n"/>
+            <arg value="javascript-restrictor"/>
+        </exec>
+        <exec executable="amo-version" failonerror="true">
+            <redirector output="VERSION.md" error="VERSION.md" alwayslog="true" append="true"></redirector>
+            <arg value="-n"/>
+            <arg value="ublock-origin"/>
+        </exec>
+        <exec executable="echo" failonerror="true">
+            <redirector output="VERSION.md" error="VERSION.md" alwayslog="true" append="true"></redirector>
+            <arg value="```"/>
+        </exec>
+        <exec executable="echo" failonerror="true">
+            <redirector output="VERSION.md" error="VERSION.md" alwayslog="true" append="true"></redirector>
+            <arg value=""/>
+        </exec>
+        <exec executable="echo" failonerror="true">
+            <redirector output="VERSION.md" error="VERSION.md" alwayslog="true" append="true"></redirector>
+            <arg value="## Chromium"/>
+        </exec>
+        <exec executable="echo" failonerror="true">
+            <redirector output="VERSION.md" error="VERSION.md" alwayslog="true" append="true"></redirector>
+            <arg value=""/>
+        </exec>
+        <exec executable="echo" failonerror="true">
+            <redirector output="VERSION.md" error="VERSION.md" alwayslog="true" append="true"></redirector>
+            <arg value="```md"/>
+        </exec>
+        <exec executable="manifest-json-version" failonerror="true">
+            <redirector output="VERSION.md" error="VERSION.md" alwayslog="true" append="true"></redirector>
+            <arg value="-mf"/>
+            <arg value="src/i2p.chromium.base.profile/extensions/i2pchrome.js/manifest.json"/>
+        </exec>
+        <exec executable="manifest-json-version" failonerror="true">
+            <redirector output="VERSION.md" error="VERSION.md" alwayslog="true" append="true"></redirector>
+            <arg value="-mf"/>
+            <arg value="src/i2p.chromium.base.profile/extensions/noscript.js/manifest.json"/>
+        </exec>
+        <exec executable="manifest-json-version" failonerror="true">
+            <redirector output="VERSION.md" error="VERSION.md" alwayslog="true" append="true"></redirector>
+            <arg value="-mf"/>
+            <arg value="src/i2p.chromium.base.profile/extensions/https-everywhere.js/manifest.json"/>
+        </exec>
+        <exec executable="manifest-json-version" failonerror="true">
+            <redirector output="VERSION.md" error="VERSION.md" alwayslog="true" append="true"></redirector>
+            <arg value="-mf"/>
+            <arg value="src/i2p.chromium.usability.profile/extensions/localcdn.js/manifest.json"/>
+        </exec>
+        <exec executable="manifest-json-version" failonerror="true">
+            <redirector output="VERSION.md" error="VERSION.md" alwayslog="true" append="true"></redirector>
+            <arg value="-mf"/>
+            <arg value="src/i2p.chromium.usability.profile/extensions/ublock.js/manifest.json"/>
+        </exec>
+        <exec executable="manifest-json-version" failonerror="true">
+            <redirector output="VERSION.md" error="VERSION.md" alwayslog="true" append="true"></redirector>
+            <arg value="-mf"/>
+            <arg value="src/i2p.chromium.usability.profile/extensions/jshelter.js/manifest.json"/>
+        </exec>
+        <exec executable="echo" failonerror="true">
+            <redirector output="VERSION.md" error="VERSION.md" alwayslog="true" append="true"></redirector>
+            <arg value="```"/>
+        </exec>
+    </target>
+
     <target name="i2pFirefoxUsabilityProfile">
         <exec executable="amo-version" failonerror="true">
             <arg value="-n"/>
