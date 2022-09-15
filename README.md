@@ -15,6 +15,25 @@ other system that exists underneath it. **It is just a profile manager.**
 
 **[Windows users should see the Easy-Install Bundle](https://i2pgit.org/i2p-hackers/i2p.firefox)**
 
+## Credits
+
+This profile manager makes use of a set of browser extensions which are largely the work of others.
+It makes use of dependencies that are the work of others. In many ways, it's merely an elaborate
+configuration tool. A smart one, but a configuration tool nonetheless. Many thanks to the following
+projects, developers, and communities:
+
+### Firefox and Chrome Extensions
+
+- [NoScript - Giorgio Maone and others](https://noscript.net)
+- [HTTPS Everywhere - Electronic Frontier Foundation](https://www.eff.org/https-everywhere)
+- [uBlock Origin - Raymond Gorhill and others](https://ublockorigin.com/)
+- [LocalCDN - nobody and others](https://www.localcdn.org/)
+- [jShelter - Libor Polčák and others](https://jshelter.org/)
+
+### Firefox Configuration Modifiations
+
+- [Arkenfox - Thorin Oakenpants and Others](https://github.com/arkenfox/user.js/)
+
 ## Getting started
 
 ### Using a Binary
@@ -69,6 +88,14 @@ want to update the profiles, you don't need it.
 
 ```sh
 go install github.com/eyedeekay/amo-version@latest
+```
+
+If you also want to update the `user.js` in use by the Firefox targets, you will need
+`github-release` to download the latest release package that is offered by the
+Arkenfox project.
+
+```sh
+go install github.com/github-release/github-release@latest
 ```
 
 For Fedora, use Yum, for Arch use pacman or something else but make sure to tell everyone

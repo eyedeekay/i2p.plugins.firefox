@@ -4,6 +4,16 @@ Packages for various operating systems
 Making a new release:
 ---------------------
 
+Release dependency: I use `github-release` to automatically upload packages to github.
+You can obtain it with:
+
+```sh
+go install github.com/github-release/github-release@latest
+```
+
+You will need it on both the Windows and Linux system. OSX too if I jpackage this
+for it.
+
 Releases can be created in a mostly automatic way. With a working Java toolchain
 including jpackage installed:
 
