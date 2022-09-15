@@ -45,7 +45,7 @@ run: `./windows-exe.sh`
 
 No special requirements.
 
-#### Status: Unknown. Maintained.
+#### Status: Works. Maintained.
 
 run: `./windows-portable.sh`
 
