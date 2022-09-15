@@ -90,14 +90,6 @@ want to update the profiles, you don't need it.
 go install github.com/eyedeekay/amo-version@latest
 ```
 
-If you also want to update the `user.js` in use by the Firefox targets, you will need
-`github-release` to download the latest release package that is offered by the
-Arkenfox project.
-
-```sh
-go install github.com/github-release/github-release@latest
-```
-
 For Fedora, use Yum, for Arch use pacman or something else but make sure to tell everyone
 about it. Once you have that installed, when building, make sure to add `$GOPATH/bin/`
 to your `$PATH`.
