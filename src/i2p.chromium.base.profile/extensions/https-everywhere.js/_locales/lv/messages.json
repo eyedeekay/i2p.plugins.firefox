@@ -1,0 +1,224 @@
+{
+    "about_add_new_rule": {
+        "message": "Pievienot jaunu k\u0101rtulu"
+    },
+    "about_ext_description": {
+        "message": "\u0160ifr\u0113t t\u012bmekli! Autom\u0101tiski lietot HTTPS dro\u0161\u012bbu daudz\u0101s vietn\u0113s."
+    },
+    "about_ext_name": {
+        "message": "HTTPS Everywhere"
+    },
+    "about_rulesets_version": {
+        "message": "K\u0101rtulu kopu versija"
+    },
+    "about_title": {
+        "message": "Par HTTPS Everywhere"
+    },
+    "about_version": {
+        "message": "Versija"
+    },
+    "cancel_copied_url": {
+        "message": "Iekop\u0113ts starpliktuv\u0113"
+    },
+    "cancel_copy_url": {
+        "message": "Kop\u0113t URL"
+    },
+    "cancel_he_blocking_explainer": {
+        "message": "HTTPS Everywhere iev\u0113roja, ka J\u016bs navig\u0113j\u0101t uz ne-HTTPS lapu un t\u0101p\u0113c cent\u0101mies J\u016bs nos\u016bt\u012bt uz HTTPS versiju. HTTPS versija nav pieejama. Visticam\u0101k \u0161\u012b vietne neatbalsta HTTPS, bet ar\u012b ir iesp\u0113jams, ka uzbruc\u0113js blo\u0137\u0113 HTTPS versiju. Ja v\u0113laties skat\u012bt \u0161\u012bs lapas ne\u0161ifr\u0113to versiju, J\u016bs to varat atsp\u0113jojot \u201e\u0160ifr\u0113t visas iesp\u0113jam\u0101s lapas\u201d (EASE) izv\u0113li sav\u0101 HTTPS Everywhere papla\u0161in\u0101jum\u0101. Jums j\u0101zina, ka \u0161\u012bs izv\u0113les atsp\u0113jo\u0161ana var padar\u012bt J\u016bsu p\u0101rl\u016bku ievainojamu t\u012bkl\u0101 balst\u012btiem pazemin\u0101\u0161anas uzbrukumiem J\u016bsu apmekl\u0113taj\u0101s t\u012bmek\u013ca vietn\u0113s."
+    },
+    "cancel_he_blocking_network": {
+        "message": "t\u012bkla balst\u012bti pazemin\u0101\u0161anas uzbrukumi"
+    },
+    "cancel_http_once": {
+        "message": "Vienalga turpin\u0101t (nav dro\u0161i)"
+    },
+    "cancel_open_page": {
+        "message": "Atsp\u0113jot \u0161aj\u0101 vietn\u0113"
+    },
+    "chrome_add_new_rule": {
+        "message": "\u0160ai vietnei pievienot jaunu k\u0101rtulu"
+    },
+    "chrome_add_rule": {
+        "message": "\u0160ai vietnei pievienot k\u0101rtulu"
+    },
+    "chrome_always_https_for_host": {
+        "message": "\u0160im resursdatoram vienm\u0113r lietot https"
+    },
+    "chrome_disable_on_this_site": {
+        "message": "Atsp\u0113jot \u0161aj\u0101 vietn\u0113"
+    },
+    "chrome_enable_on_this_site": {
+        "message": "Iesp\u0113jot \u0161aj\u0101 vietn\u0113"
+    },
+    "chrome_experimental_rules": {
+        "message": "Eksperiment\u0101las k\u0101rtulas"
+    },
+    "chrome_experimental_rules_description": {
+        "message": "Var izsaukt br\u012bdin\u0101jumus vai darb\u012bbas p\u0101rtraukumus. P\u0113c noklus\u0113juma ir atsp\u0113jots."
+    },
+    "chrome_hide_advanced": {
+        "message": "Sl\u0113pt lietprat\u012bg\u0101s"
+    },
+    "chrome_host": {
+        "message": "Resursdators:"
+    },
+    "chrome_redirect_to": {
+        "message": "Novirz\u012bt uz"
+    },
+    "chrome_regex": {
+        "message": "Atbilsto\u0161a regul\u0101ra izteiksme jeb regex"
+    },
+    "chrome_rule_name": {
+        "message": "K\u0101rtulas nosaukums"
+    },
+    "chrome_settings_for_this_site_explained": {
+        "message": "Kad p\u0101rl\u016bkojat da\u017e\u0101das t\u012bmek\u013ca vietnes, J\u016bs varat main\u012bt savas izv\u0113lnes katrai t\u012bmek\u013ca vietnei."
+    },
+    "chrome_settings_for_this_site_header": {
+        "message": "\u0160\u012bs vietnes iestat\u012bjumi"
+    },
+    "chrome_settings_for_this_site_subheader": {
+        "message": "Mainiet savas \u0161ifr\u0113to savienojumu izv\u0113lnes"
+    },
+    "chrome_show_advanced": {
+        "message": "R\u0101d\u012bt lietprat\u012bg\u0101s"
+    },
+    "chrome_stable_rules": {
+        "message": "Stabilas k\u0101rtulas"
+    },
+    "chrome_stable_rules_description": {
+        "message": "Uzspiest \u0161ifr\u0113tus savienojumus ar \u0161\u012bm t\u012bmek\u013ca vietn\u0113m."
+    },
+    "chrome_status_cancel_button": {
+        "message": "Atcelt"
+    },
+    "menu_donate_eff_imperative": {
+        "message": "Ziedojiet EFF"
+    },
+    "menu_encryptAllSitesEligibleOff": {
+        "message": "Visu atbilsto\u0161o viet\u0146u \u0161ifr\u0113\u0161ana ir IZSL\u0112GTA"
+    },
+    "menu_encryptAllSitesEligibleOn": {
+        "message": "Visu atbilsto\u0161o viet\u0146u \u0161ifr\u0113\u0161ana ir IESL\u0112GTA"
+    },
+    "menu_globalDisable": {
+        "message": "HTTPS Everywhere ir IZSL\u0112GTS"
+    },
+    "menu_globalEnable": {
+        "message": "HTTPS Everywhere ir IESL\u0112GTS"
+    },
+    "menu_httpNoWhereExplainedAllowed": {
+        "message": "Ne\u0161ifr\u0113ti piepras\u012bjumi \u0161obr\u012bd tiek at\u013cauti"
+    },
+    "menu_httpNoWhereExplainedBlocked": {
+        "message": "Ne\u0161ifr\u0113ti piepras\u012bjumi \u0161obr\u012bd tiek blo\u0137\u0113ti"
+    },
+    "menu_httpNoWhereMore": {
+        "message": "\u0160is re\u017e\u012bms blo\u0137\u0113 ne\u0161ifr\u0113tu saturu un piepras\u012bjumus"
+    },
+    "menu_observatory": {
+        "message": "SSL Observatory preferences"
+    },
+    "menu_seeLess": {
+        "message": "Skat\u012bt maz\u0101k"
+    },
+    "menu_seeMore": {
+        "message": "Skat\u012bt vair\u0101k"
+    },
+    "menu_showCounter": {
+        "message": "R\u0101d\u012bjumu skait\u012bt\u0101js"
+    },
+    "menu_viewAllRules": {
+        "message": "Skat\u012bt visas k\u0101rtulas"
+    },
+    "onboarding_footer": {
+        "message": "HTTPS Everywhere ir EFF projekts"
+    },
+    "onboarding_header": {
+        "message": "HTTPS Everywhere ir atjaunin\u0101ts!"
+    },
+    "onboarding_intro": {
+        "message": "\u0160ifr\u0113t t\u012bmekli! Autom\u0101tiski lietot HTTPS dro\u0161\u012bbu daudz\u0101s vietn\u0113s."
+    },
+    "options_addDisabledSite": {
+        "message": "Pievienot atsp\u0113jotu vietni"
+    },
+    "options_addUpdateChannel": {
+        "message": "Pievienot atjauno\u0161anas kan\u0101lu"
+    },
+    "options_advancedSettings": {
+        "message": "Papildu iestat\u012bjumi"
+    },
+    "options_autoUpdateRulesets": {
+        "message": "Autom\u0101tiski atjaunin\u0101t k\u0101rtulu kopas"
+    },
+    "options_debuggingRulesets": {
+        "message": "Atk\u013c\u016bdo\u0161anas k\u0101rtulu kopas (lietprat\u0113jiem)"
+    },
+    "options_delete": {
+        "message": "Dz\u0113st"
+    },
+    "options_disabledUrlsListed": {
+        "message": "HTTPS Everywhere vietnes ir atsp\u0113jotas"
+    },
+    "options_enableMixedRulesets": {
+        "message": "Iesp\u0113jot jaukta satura k\u0101rtulu kopas"
+    },
+    "options_enterDisabledSite": {
+        "message": "Ievad\u012bt atsp\u0113jotu vietni"
+    },
+    "options_enterUpdateChannelName": {
+        "message": "Ievad\u012bt atjauno\u0161anas kan\u0101la nosaukumu"
+    },
+    "options_generalSettings": {
+        "message": "Visp\u0101r\u012bgi iestat\u012bjumi"
+    },
+    "options_hostNotFormattedCorrectly": {
+        "message": "Resursdatoru nebija iesp\u0113jams pievienot, jo tas nebija pareizi format\u0113ts. L\u016bdzu p\u0101rbaudiet un m\u0113\u0123iniet v\u0113lreiz."
+    },
+    "options_settings": {
+        "message": "Iestat\u012bjumi"
+    },
+    "options_showDevtoolsTab": {
+        "message": "Rad\u012bt cilni Izstr\u0101d\u0101t\u0101ju r\u012bki"
+    },
+    "options_storedRulesetsVersion": {
+        "message": "Saglab\u0101t\u0101 k\u0101rtulu kopu versija:"
+    },
+    "options_update": {
+        "message": "Atjaunot"
+    },
+    "options_updateChannels": {
+        "message": "Atjaunot kan\u0101lus"
+    },
+    "options_updateChannelsWarning": {
+        "message": "Br\u012bdin\u0101jums. Atjauno\u0161anas kan\u0101lu pievieno\u0161ana var \u013caut uzbruc\u0113jiem p\u0101r\u0146emt kontroli p\u0101r J\u016bsu p\u0101rl\u016bku. Redi\u0123\u0113jiet \u0161o noda\u013cu tikai tad, ja zin\u0101t, ko dar\u0101t!"
+    },
+    "options_updatesLastChecked": {
+        "message": "Atjaunojumi p\u0113d\u0113joreiz p\u0101rbaud\u012bti:"
+    },
+    "options_updatesLastCheckedNever": {
+        "message": "nekad"
+    },
+    "options_userRulesListed": {
+        "message": "HTTPS Everywhere lietot\u0101ju k\u0101rtulas"
+    },
+    "prefs_export_settings": {
+        "message": "Eksporta iestat\u012bjumi"
+    },
+    "prefs_reset_defaults": {
+        "message": "Atiestat\u012bt uz noklus\u0113juma v\u0113rt\u012bb\u0101m"
+    },
+    "prefs_reset_defaults_message": {
+        "message": "\u0160\u012b darb\u012bba atiestat\u012bs visas k\u0101rtulu kopas uz to noklus\u0113juma v\u0113rt\u012bb\u0101m. Turpin\u0101t?"
+    },
+    "standalone_proxy_server_info_prefix": {
+        "message": "Starpniekserveris str\u0101d\u0101 uz"
+    },
+    "standalone_transparent_false": {
+        "message": "Jums j\u0101konfigur\u0113 savas lietotnes, lai izmantotu HTTP starpnieku uz nor\u0101d\u012bt\u0101 reursdatora un porta."
+    },
+    "standalone_transparent_true": {
+        "message": "Lai p\u0101rs\u016bt\u012btu datu paketes uz nor\u0101d\u012bto resursdatoru un portu, Jums j\u0101iestata sava ugunsm\u016bra k\u0101rtulas."
+    }
+}

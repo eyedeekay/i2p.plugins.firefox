@@ -1,0 +1,224 @@
+{
+    "about_add_new_rule": {
+        "message": "Aldoni novan regulon"
+    },
+    "about_ext_description": {
+        "message": "\u0108ifrigu la reton! A\u016dtomate uzu HTTPS\u2010sekurecon \u0109e multaj retejoj."
+    },
+    "about_ext_name": {
+        "message": "HTTPS-\u0108ie"
+    },
+    "about_rulesets_version": {
+        "message": "Versio de reguloj por"
+    },
+    "about_title": {
+        "message": "Pri HTTPS-\u0108ie"
+    },
+    "about_version": {
+        "message": "Versio"
+    },
+    "cancel_copied_url": {
+        "message": "Kopiita al tondujo"
+    },
+    "cancel_copy_url": {
+        "message": "Kopii ligilon"
+    },
+    "cancel_he_blocking_explainer": {
+        "message": "HTTPS-\u0108ie rimarkis, ke vi vizitis retpa\u011don sen HTTPS kaj provis sendi vin al retpa\u011do kun HTTPS, sed la versio kun HTTPS estas nedisponebla. Probable tiu \u0109i retejo ne subtenas HTTPS, tamen anka\u016d eblas, ke iu atakanto blokas aliron al HTTPS. Por viziti ne\u0109ifritan version de tiu \u0109i retpa\u011do, malaktivigu la agordon \u201c\u0109ifri \u0109iujn eblajn retejojn\u201d de etenda\u0135o HTTPS-\u0108ie. Estu singarda, \u0109ar malaktivigo de tiu \u0109i agordo igas vian retumilon atakebla al \u201cret-bazaj malpromociaj atakoj\u201d (\u00abdowngrade attack\u00bb) \u0109e vizitataj retejoj."
+    },
+    "cancel_he_blocking_network": {
+        "message": "ret-bazaj malpromociaj atakoj"
+    },
+    "cancel_http_once": {
+        "message": "Pluigi malgra\u016d tio (dan\u011dere)"
+    },
+    "cancel_open_page": {
+        "message": "Malaktivigi por tiu \u0109i retejo"
+    },
+    "chrome_add_new_rule": {
+        "message": "Aldoni novan regulon por tiu \u0109i retejo"
+    },
+    "chrome_add_rule": {
+        "message": "Aldoni regulon por tiu \u0109i retejo"
+    },
+    "chrome_always_https_for_host": {
+        "message": "\u0108iam uzi https por tiu \u0109i retejo"
+    },
+    "chrome_disable_on_this_site": {
+        "message": "Malaktivigi por tiu \u0109i retejo"
+    },
+    "chrome_enable_on_this_site": {
+        "message": "Aktivigi por tiu \u0109i retejo"
+    },
+    "chrome_experimental_rules": {
+        "message": "Eksperimentaj reguloj"
+    },
+    "chrome_experimental_rules_description": {
+        "message": "Povas ka\u016dzi avertojn a\u016d malfunkciojn. Implicite mal\u015daltitaj."
+    },
+    "chrome_hide_advanced": {
+        "message": "Ka\u015di altnivelajn"
+    },
+    "chrome_host": {
+        "message": "Servilo:"
+    },
+    "chrome_redirect_to": {
+        "message": "Aldirekti al"
+    },
+    "chrome_regex": {
+        "message": "Kongrua regula esprimo"
+    },
+    "chrome_rule_name": {
+        "message": "Nomo de regulo"
+    },
+    "chrome_settings_for_this_site_explained": {
+        "message": "Dum retumi diversajn retejojn, eblas \u015dan\u011di preferojn por \u0109iu retejo aparte"
+    },
+    "chrome_settings_for_this_site_header": {
+        "message": "Agordoj por tiu \u0109i retejo"
+    },
+    "chrome_settings_for_this_site_subheader": {
+        "message": "\u015can\u011di agordojn de \u0109ifirtaj konektoj"
+    },
+    "chrome_show_advanced": {
+        "message": "Montri altnivelajn"
+    },
+    "chrome_stable_rules": {
+        "message": "Stabilaj reguloj"
+    },
+    "chrome_stable_rules_description": {
+        "message": "Devigi \u0109ifritan konekton al tiuj retejoj:"
+    },
+    "chrome_status_cancel_button": {
+        "message": "Rezigni"
+    },
+    "menu_donate_eff_imperative": {
+        "message": "Donaci al EFF"
+    },
+    "menu_encryptAllSitesEligibleOff": {
+        "message": "\u0108ifri \u0109iujn eblajn retejojn: mal\u015daltita"
+    },
+    "menu_encryptAllSitesEligibleOn": {
+        "message": "\u0108ifri \u0109iujn eblajn retejojn: \u015daltita"
+    },
+    "menu_globalDisable": {
+        "message": "HTTPS\u2011\u0108ie: mal\u015daltita"
+    },
+    "menu_globalEnable": {
+        "message": "HTTPS\u2011\u0108ie: \u015daltita"
+    },
+    "menu_httpNoWhereExplainedAllowed": {
+        "message": "Ne\u0109ifritaj petoj estas nuntempe permesataj"
+    },
+    "menu_httpNoWhereExplainedBlocked": {
+        "message": "Ne\u0109ifritaj petoj estas nuntempe blokitaj"
+    },
+    "menu_httpNoWhereMore": {
+        "message": "Tiu \u0109i re\u011dimo blokas \u0109iujn ne\u0109ifritan petojn enhavon"
+    },
+    "menu_observatory": {
+        "message": "Agordoj de SSL-Observejo"
+    },
+    "menu_seeLess": {
+        "message": "Malpli da informo"
+    },
+    "menu_seeMore": {
+        "message": "Pli da informo"
+    },
+    "menu_showCounter": {
+        "message": "Montri nombrilon"
+    },
+    "menu_viewAllRules": {
+        "message": "Montri \u0109iujn regulojn"
+    },
+    "onboarding_footer": {
+        "message": "HTTPS\u2011\u0108ie estas projekto de EFF"
+    },
+    "onboarding_header": {
+        "message": "HTTPS\u2011\u0108ie estas \u011disdatigita!"
+    },
+    "onboarding_intro": {
+        "message": "\u0108ifrigu la reton! A\u016dtomate uzu HTTPS\u2010sekurecon \u0109e multaj retejoj."
+    },
+    "options_addDisabledSite": {
+        "message": "Aldoni retejon por escepti"
+    },
+    "options_addUpdateChannel": {
+        "message": "Aldoni \u011disdatigan kanalon"
+    },
+    "options_advancedSettings": {
+        "message": "Altnivelaj agordoj"
+    },
+    "options_autoUpdateRulesets": {
+        "message": "A\u016dtomate \u011disdatigi regulojn"
+    },
+    "options_debuggingRulesets": {
+        "message": "Senerarigaj reguloj (spertulaj)"
+    },
+    "options_delete": {
+        "message": "Forigi"
+    },
+    "options_disabledUrlsListed": {
+        "message": "Retejoj malaktivigitaj por HTTPS-\u0108ie"
+    },
+    "options_enableMixedRulesets": {
+        "message": "En\u015dalti regulojn de miksita enhavo"
+    },
+    "options_enterDisabledSite": {
+        "message": "Enigu retejon por escepti"
+    },
+    "options_enterUpdateChannelName": {
+        "message": "Enigu nomon por \u011disdatiga kanalo"
+    },
+    "options_generalSettings": {
+        "message": "\u011ceneralaj agordoj"
+    },
+    "options_hostNotFormattedCorrectly": {
+        "message": "Ne povis aldoni tiun \u0109i retejon, \u0109ar \u011di ne estas \u011duste enigita. Kontrolu \u011dian \u011dustecon kaj reprovu."
+    },
+    "options_settings": {
+        "message": "Agordoj"
+    },
+    "options_showDevtoolsTab": {
+        "message": "Montri langeton de programista ilaro"
+    },
+    "options_storedRulesetsVersion": {
+        "message": "Versio de reguloj:"
+    },
+    "options_update": {
+        "message": "\u011cisdatigi"
+    },
+    "options_updateChannels": {
+        "message": "\u011cisdatigaj kanaloj"
+    },
+    "options_updateChannelsWarning": {
+        "message": "Averto: aldoni \u011disdatigajn kanalojn povas ebligi al atakantoj kontroli vian retumilon. Nur redaktu tiun \u0109i sekcion se vi scias, kion vi faras!"
+    },
+    "options_updatesLastChecked": {
+        "message": "Anta\u016de kontrolis pri \u011disdatigo je: "
+    },
+    "options_updatesLastCheckedNever": {
+        "message": "neniam"
+    },
+    "options_userRulesListed": {
+        "message": "Reguloj de uzanto"
+    },
+    "prefs_export_settings": {
+        "message": "Elporti agordojn"
+    },
+    "prefs_reset_defaults": {
+        "message": "Re\u015dargi al aprioraj"
+    },
+    "prefs_reset_defaults_message": {
+        "message": "Tio \u0109i agordos \u0109iun regulon al implicita stato. \u0108u pluigi?"
+    },
+    "standalone_proxy_server_info_prefix": {
+        "message": "Retperanta servilo funkcianta \u0109e"
+    },
+    "standalone_transparent_false": {
+        "message": "Vi devas agordi viajn programojn por uzi HTTP-retperanton \u0109e la difinita komputilo kaj pordo."
+    },
+    "standalone_transparent_true": {
+        "message": "Vi devas agordi regulojn de via fajro\u015dirmilo por enkursigi paketojn al la difinita komputilo kaj pordo."
+    }
+}

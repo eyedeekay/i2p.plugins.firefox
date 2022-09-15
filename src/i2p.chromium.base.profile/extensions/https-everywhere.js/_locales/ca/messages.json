@@ -1,0 +1,224 @@
+{
+    "about_add_new_rule": {
+        "message": "Afegeix una regla nova"
+    },
+    "about_ext_description": {
+        "message": "Xifra la Web! Fes servir autom\u00e0ticament la seguretat HTTPS a molts llocs."
+    },
+    "about_ext_name": {
+        "message": "HTTPS Everywhere"
+    },
+    "about_rulesets_version": {
+        "message": "Versi\u00f3 del conjunt de regles per a"
+    },
+    "about_title": {
+        "message": "Quant a l'HTTPS Everywhere"
+    },
+    "about_version": {
+        "message": "Versi\u00f3"
+    },
+    "cancel_copied_url": {
+        "message": "S'ha copiat al porta-retalls"
+    },
+    "cancel_copy_url": {
+        "message": "Copia l'URL"
+    },
+    "cancel_he_blocking_explainer": {
+        "message": "HTTPS Everywhere ha detectat que esteu navegant per una p\u00e0gina que no disposa del protocol HTTPS, S'ha intentat reencaminar a la versi\u00f3 HTTPS per\u00f2 el lloc web no disposa de cap versi\u00f3 amb aquest protocol. Probablement el lloc web no suporta el protocol segur, per\u00f2 seria possible que un atacant estigui blocant la versi\u00f3 HTTPS d'aquest lloc web. Si voleu veure la versi\u00f3 sense xifrat d'aquest lloc web, podeu fer-ho inhabilitant l'opci\u00f3 \u00abXifra tots els llocs\u00bb (EASE) a la seva extensi\u00f3 HTTPS Everywhere. Tingueu en compte que inhabilitar aquesta opci\u00f3 pot deixar el navegador vulnerable a atacs en xarxa als llocs que visiteu."
+    },
+    "cancel_he_blocking_network": {
+        "message": "atacs de degradaci\u00f3 basats en xarxa"
+    },
+    "cancel_http_once": {
+        "message": "Ignora i procedeix (insegur)"
+    },
+    "cancel_open_page": {
+        "message": "Inhabilita en aquest lloc"
+    },
+    "chrome_add_new_rule": {
+        "message": "Afegeix una regla nova per a aquest lloc"
+    },
+    "chrome_add_rule": {
+        "message": "Afegeix una regla per a aquest lloc"
+    },
+    "chrome_always_https_for_host": {
+        "message": "Utilitza sempre https per a aquest host"
+    },
+    "chrome_disable_on_this_site": {
+        "message": "Desactiva en aquest lloc"
+    },
+    "chrome_enable_on_this_site": {
+        "message": "Activa en aquest lloc"
+    },
+    "chrome_experimental_rules": {
+        "message": "Regles experimentals"
+    },
+    "chrome_experimental_rules_description": {
+        "message": "Pot causar avisos i problemes. Desactivat per defecte."
+    },
+    "chrome_hide_advanced": {
+        "message": "Amaga l'avan\u00e7at"
+    },
+    "chrome_host": {
+        "message": "Host:"
+    },
+    "chrome_redirect_to": {
+        "message": "Redirecciona a"
+    },
+    "chrome_regex": {
+        "message": "Trobant la regex"
+    },
+    "chrome_rule_name": {
+        "message": "Nom de la regla"
+    },
+    "chrome_settings_for_this_site_explained": {
+        "message": "A mesura que navegueu per diferents llocs web, podreu canviar les vostres prefer\u00e8ncies en cadascun d'ells"
+    },
+    "chrome_settings_for_this_site_header": {
+        "message": "Configuraci\u00f3 d'aquest lloc"
+    },
+    "chrome_settings_for_this_site_subheader": {
+        "message": "Canvieu les prefer\u00e8ncies per a les connexions xifrades"
+    },
+    "chrome_show_advanced": {
+        "message": "Mostra l'avan\u00e7at"
+    },
+    "chrome_stable_rules": {
+        "message": "Regles estables"
+    },
+    "chrome_stable_rules_description": {
+        "message": "For\u00e7a les connexions encriptades per als llocs web seg\u00fcents:"
+    },
+    "chrome_status_cancel_button": {
+        "message": "Cancel\u00b7la"
+    },
+    "menu_donate_eff_imperative": {
+        "message": "D\u00f3na a l'EEF"
+    },
+    "menu_encryptAllSitesEligibleOff": {
+        "message": "Xifra tots els llocs est\u00e0 inhabilitat"
+    },
+    "menu_encryptAllSitesEligibleOn": {
+        "message": "Xifra tots els llocs est\u00e0 habilitat"
+    },
+    "menu_globalDisable": {
+        "message": "HTTPS Everywhere est\u00e0 inhabilitat"
+    },
+    "menu_globalEnable": {
+        "message": "HTTPS Everywhere est\u00e0 habilitat"
+    },
+    "menu_httpNoWhereExplainedAllowed": {
+        "message": "Les sol\u00b7licituds sense xifrat estan permeses actualment "
+    },
+    "menu_httpNoWhereExplainedBlocked": {
+        "message": "Les sol\u00b7licituds sense xifrat estan blocades actualment"
+    },
+    "menu_httpNoWhereMore": {
+        "message": "Aquest mode bloca el contingut i les sol\u00b7licituds sense xifrat"
+    },
+    "menu_observatory": {
+        "message": "Prefer\u00e8ncies de SSL Observatory"
+    },
+    "menu_seeLess": {
+        "message": "Mostra'n menys"
+    },
+    "menu_seeMore": {
+        "message": "Mostra'n m\u00e9s"
+    },
+    "menu_showCounter": {
+        "message": "Mostra el comptador"
+    },
+    "menu_viewAllRules": {
+        "message": "Ensenya totes les regles"
+    },
+    "onboarding_footer": {
+        "message": "L'HTTPS Everywhere \u00e9s un projecte de l'EFF"
+    },
+    "onboarding_header": {
+        "message": "S'ha actualitzat l'HTTPS Everywhere!"
+    },
+    "onboarding_intro": {
+        "message": "Xifra el web! Utilitza autom\u00e0ticament la seguretat HTTPS a molts llocs."
+    },
+    "options_addDisabledSite": {
+        "message": "Afegeix un web desactivat"
+    },
+    "options_addUpdateChannel": {
+        "message": "Afegeix un canal d'actualitzaci\u00f3"
+    },
+    "options_advancedSettings": {
+        "message": "Configuracions avan\u00e7ades"
+    },
+    "options_autoUpdateRulesets": {
+        "message": "Actualitza autom\u00e0ticament el conjunt de regles"
+    },
+    "options_debuggingRulesets": {
+        "message": "Depuraci\u00f3 dels conjunts de regles (avan\u00e7at)"
+    },
+    "options_delete": {
+        "message": "Suprimeix"
+    },
+    "options_disabledUrlsListed": {
+        "message": "HTTPS Everywhere per llocs web Desactivat"
+    },
+    "options_enableMixedRulesets": {
+        "message": "Permet contingut amb conjunt de regles mixt"
+    },
+    "options_enterDisabledSite": {
+        "message": "Indiqueu el lloc web desactivat"
+    },
+    "options_enterUpdateChannelName": {
+        "message": "Introdu\u00efu el nom del canal d'actualitzaci\u00f3"
+    },
+    "options_generalSettings": {
+        "message": "Configuraci\u00f3 general"
+    },
+    "options_hostNotFormattedCorrectly": {
+        "message": "No pot afegir-se el servidor perqu\u00e8 no tenia el format correcte. Comproveu-ho i torneu a provar."
+    },
+    "options_settings": {
+        "message": "Configuraci\u00f3"
+    },
+    "options_showDevtoolsTab": {
+        "message": "Mostra la pestanya d'eines de desenvolupador"
+    },
+    "options_storedRulesetsVersion": {
+        "message": "Versi\u00f3 de regles emmagatzemades:"
+    },
+    "options_update": {
+        "message": "Actualitza"
+    },
+    "options_updateChannels": {
+        "message": "Actualitza els canals"
+    },
+    "options_updateChannelsWarning": {
+        "message": "Advert\u00e8ncia: afegir canals d'actualitzaci\u00f3 pot provocar que els atacants segrestin el vostre navegador. Nom\u00e9s editeu aquesta secci\u00f3 si sabeu el que feu!"
+    },
+    "options_updatesLastChecked": {
+        "message": "Darrera verificaci\u00f3 d'actualitzacions:"
+    },
+    "options_updatesLastCheckedNever": {
+        "message": "mai"
+    },
+    "options_userRulesListed": {
+        "message": "Regles d'Usuari per HTTPS Everywhere"
+    },
+    "prefs_export_settings": {
+        "message": "Configuraci\u00f3 d'exportaci\u00f3"
+    },
+    "prefs_reset_defaults": {
+        "message": "Torna a les opcions per defecte"
+    },
+    "prefs_reset_defaults_message": {
+        "message": "Aix\u00f2 reiniciar\u00e0 cada conjunt de regles als valors per defecte. Voleu continuar?"
+    },
+    "standalone_proxy_server_info_prefix": {
+        "message": "El servidor intermediari s'est\u00e0 executant"
+    },
+    "standalone_transparent_false": {
+        "message": "Heu de configurar les vostres aplicacions per a utilitzar un servidor intermediari HTTP en el servidor i port especificats."
+    },
+    "standalone_transparent_true": {
+        "message": "Cal que definiu les regles del vostre tallafoc perqu\u00e8 reenvi\u00ef els paquets al servidor i port especificats."
+    }
+}

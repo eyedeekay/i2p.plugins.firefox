@@ -1,0 +1,224 @@
+{
+    "about_add_new_rule": {
+        "message": "Adicionar nova regra "
+    },
+    "about_ext_description": {
+        "message": "Criptografar a Web! Use automaticamente a seguran\u00e7a HTTPS em diversos sites."
+    },
+    "about_ext_name": {
+        "message": "HTTPS Everywhere"
+    },
+    "about_rulesets_version": {
+        "message": "Conjunto de regras para a vers\u00e3o"
+    },
+    "about_title": {
+        "message": "Sobre o HTTPS Everywhere"
+    },
+    "about_version": {
+        "message": "Vers\u00e3o"
+    },
+    "cancel_copied_url": {
+        "message": "Copiado para o Clipboard"
+    },
+    "cancel_copy_url": {
+        "message": "Copiar URL"
+    },
+    "cancel_he_blocking_explainer": {
+        "message": "HTTPS Everywhere percebeu que voc\u00ea estava navegando para uma p\u00e1gina n\u00e3o HTTPS e tentou envi\u00e1-lo para a vers\u00e3o HTTPS. A vers\u00e3o HTTPS, no momento, n\u00e3o est\u00e1 dispon\u00edvel. Provavelmente, este site n\u00e3o oferece suporte para a vers\u00e3o HTTPS, mas tamb\u00e9m \u00e9 poss\u00edvel que um invasor esteja bloqueando a vers\u00e3o HTTPS. Se desejar visualizar a vers\u00e3o n\u00e3o criptografada desta p\u00e1gina, voc\u00ea ainda pode fazer isso desativando a op\u00e7\u00e3o, 'Criptografar todos os sites qualificados' (EASE), em sua extens\u00e3o HTTPS Everywhere. Esteja ciente que ao desabilitar essa op\u00e7\u00e3o voc\u00ea pode tornar o seu navegador vulner\u00e1vel a outros ataques de rede em sites que voc\u00ea visita."
+    },
+    "cancel_he_blocking_network": {
+        "message": "Outros ataques de rede"
+    },
+    "cancel_http_once": {
+        "message": "Continuar mesmo assim (inseguro)"
+    },
+    "cancel_open_page": {
+        "message": "Desativar neste site"
+    },
+    "chrome_add_new_rule": {
+        "message": "Adicione uma nova regra para esse site"
+    },
+    "chrome_add_rule": {
+        "message": "Adicione uma exce\u00e7\u00e3o para esse site"
+    },
+    "chrome_always_https_for_host": {
+        "message": "Sempre usar https para este hospedeiro"
+    },
+    "chrome_disable_on_this_site": {
+        "message": "Desativar neste site"
+    },
+    "chrome_enable_on_this_site": {
+        "message": "Habilitar neste site"
+    },
+    "chrome_experimental_rules": {
+        "message": "Regras experimentais"
+    },
+    "chrome_experimental_rules_description": {
+        "message": "Pode causar avisos ou quebras na rede. Desativado por padr\u00e3o."
+    },
+    "chrome_hide_advanced": {
+        "message": "Ocultar op\u00e7\u00f5es avan\u00e7adas"
+    },
+    "chrome_host": {
+        "message": "Hospedeiro:"
+    },
+    "chrome_redirect_to": {
+        "message": "Redirecionar para"
+    },
+    "chrome_regex": {
+        "message": "Express\u00e3o regular equivalente"
+    },
+    "chrome_rule_name": {
+        "message": "Nome da regra"
+    },
+    "chrome_settings_for_this_site_explained": {
+        "message": "Conforme voc\u00ea navega em diferentes websites, voc\u00ea pode alterar as suas prefer\u00eancias para cada site"
+    },
+    "chrome_settings_for_this_site_header": {
+        "message": "Configura\u00e7\u00f5es para este site"
+    },
+    "chrome_settings_for_this_site_subheader": {
+        "message": "Mude suas prefer\u00eancias para conex\u00f5es criptografadas"
+    },
+    "chrome_show_advanced": {
+        "message": "Mostrar op\u00e7\u00f5es avan\u00e7adas"
+    },
+    "chrome_stable_rules": {
+        "message": "Regras est\u00e1veis"
+    },
+    "chrome_stable_rules_description": {
+        "message": "For\u00e7ar conex\u00f5es criptografadas para estes sites:"
+    },
+    "chrome_status_cancel_button": {
+        "message": "Cancelar"
+    },
+    "menu_donate_eff_imperative": {
+        "message": "Doar para EFF"
+    },
+    "menu_encryptAllSitesEligibleOff": {
+        "message": "Criptografar todos os sites eleg\u00edveis est\u00e1 desativado"
+    },
+    "menu_encryptAllSitesEligibleOn": {
+        "message": "Criptografar todos sites eleg\u00edveis est\u00e1 ligado"
+    },
+    "menu_globalDisable": {
+        "message": "HTTPS Everywhere est\u00e1 Desativado"
+    },
+    "menu_globalEnable": {
+        "message": "HTTPS Everywhere est\u00e1 Ativado"
+    },
+    "menu_httpNoWhereExplainedAllowed": {
+        "message": "Solicita\u00e7\u00f5es n\u00e3o criptografadas s\u00e3o permitidas atualmente"
+    },
+    "menu_httpNoWhereExplainedBlocked": {
+        "message": "Pedidos n\u00e3o criptografados est\u00e3o atualmente bloqueados"
+    },
+    "menu_httpNoWhereMore": {
+        "message": "Este modo bloqueia conte\u00fado n\u00e3o criptografado e solicita\u00e7\u00f5es"
+    },
+    "menu_observatory": {
+        "message": "Prefer\u00eancias do Observat\u00f3rio SSL"
+    },
+    "menu_seeLess": {
+        "message": "Ver menos"
+    },
+    "menu_seeMore": {
+        "message": "Ver mais"
+    },
+    "menu_showCounter": {
+        "message": "Mostrar o contador"
+    },
+    "menu_viewAllRules": {
+        "message": "Ver Todas as Regras"
+    },
+    "onboarding_footer": {
+        "message": "HTTPS Everywhere \u00e9 um projeto da EFF"
+    },
+    "onboarding_header": {
+        "message": "O HTTPS Everywhere foi atualizado!"
+    },
+    "onboarding_intro": {
+        "message": "Criptografar a Web! Use automaticamente a seguran\u00e7a HTTPS em diversos sites."
+    },
+    "options_addDisabledSite": {
+        "message": "Adicionar Um Site Desativado"
+    },
+    "options_addUpdateChannel": {
+        "message": "Adicione canal de atualiza\u00e7\u00e3o"
+    },
+    "options_advancedSettings": {
+        "message": "Configura\u00e7\u00f5es Avan\u00e7adas"
+    },
+    "options_autoUpdateRulesets": {
+        "message": "Atualizar automaticamente os conjuntos de regras"
+    },
+    "options_debuggingRulesets": {
+        "message": "Depurando conjuntos de regras (avan\u00e7ado)"
+    },
+    "options_delete": {
+        "message": "Apagar"
+    },
+    "options_disabledUrlsListed": {
+        "message": "HTTPS Everywhere Sites Desabilitados"
+    },
+    "options_enableMixedRulesets": {
+        "message": "Habilitar conjuntos de regras de conte\u00fado misto"
+    },
+    "options_enterDisabledSite": {
+        "message": "Entrar em um site desativado"
+    },
+    "options_enterUpdateChannelName": {
+        "message": "Entre com o nome do canal de atualiza\u00e7\u00e3o"
+    },
+    "options_generalSettings": {
+        "message": "Configura\u00e7\u00f5es Gerais"
+    },
+    "options_hostNotFormattedCorrectly": {
+        "message": "Este hospedeiro n\u00e3o p\u00f4de ser adicionado porque n\u00e3o foi formatado corretamente. Por favor, tente novamente."
+    },
+    "options_settings": {
+        "message": "Configura\u00e7\u00f5es"
+    },
+    "options_showDevtoolsTab": {
+        "message": "Exibir a aba de ferramentas de desenvolvimento"
+    },
+    "options_storedRulesetsVersion": {
+        "message": "Vers\u00e3o do conjunto de regras armazenadas:"
+    },
+    "options_update": {
+        "message": "Atualizar"
+    },
+    "options_updateChannels": {
+        "message": "Atualizar Canais"
+    },
+    "options_updateChannelsWarning": {
+        "message": "Aviso: Adicionar canais de atualiza\u00e7\u00e3o pode fazer com que atacantes sequestrem o seu navegador. Edite esta se\u00e7\u00e3o apenas se voc\u00ea souber o que est\u00e1 fazendo!"
+    },
+    "options_updatesLastChecked": {
+        "message": "Atualiza\u00e7\u00f5es verificadas pela \u00faltima vez:"
+    },
+    "options_updatesLastCheckedNever": {
+        "message": "nunca"
+    },
+    "options_userRulesListed": {
+        "message": "Regras de usu\u00e1rios do HTTPS Everywhere"
+    },
+    "prefs_export_settings": {
+        "message": "Exportar Configura\u00e7\u00f5es"
+    },
+    "prefs_reset_defaults": {
+        "message": "Restaurar as configura\u00e7\u00f5es padr\u00e3o"
+    },
+    "prefs_reset_defaults_message": {
+        "message": "Isso redefinir\u00e1 cada conjunto de regras para seu estado padr\u00e3o. Continuar?"
+    },
+    "standalone_proxy_server_info_prefix": {
+        "message": "Servidor proxy rodando em"
+    },
+    "standalone_transparent_false": {
+        "message": "Voc\u00ea deve configurar suas aplica\u00e7\u00f5es para usarem um proxy HTTP no hospedeiro e porta especificados."
+    },
+    "standalone_transparent_true": {
+        "message": "Voc\u00ea deve configurar suas regras de firewall para encaminhar pacotes para o hospedeiro e a porta especificados."
+    }
+}
