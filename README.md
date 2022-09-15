@@ -33,13 +33,42 @@ unzip i2pfirefox.zip
 
 ### Build Dependencies
 
-You will need `ant`, `java` and for building the Chromium profile, a Go application
-called `crx3` which is used to interact with the Chrome app store. I've been using Java 17
+You will need `ant` and java `java` and for building the jar. You will need
+`jpackage` for many of the potential build targets. I've been using Java 17
 on Debian mostly, on Debian and Ubuntu, install the dependencies with:
 
 ```sh
-sudo apt-get install openjdk-17* ant golang-go
+sudo apt-get install openjdk-17* ant
+```
+
+Some of the targets use scripts written in Go to help generate resources. If
+you want to update the profiles, you will need them. To install Go on Debian
+and Ubuntu:
+
+```sh
+sudo apt-get install golang-go
+```
+
+Add `$HOME/go/bin` to your `$PATH` so `ant` can find Go applications.
+
+`export PATH=$PATH:$HOME/go/bin`
+
+Then use Go to download the applications you need and add them to `$HOME/go/bin`.
+
+If you want to build the Chromium profiles you will need a Go application
+called `crx3` which is used to interact with the Chrome app store to download
+and update extensions.
+
+```sh
 go install github.com/mediabuyerbot/go-crx3/crx3@latest
+```
+
+Another Go application, called `amo-version`, is used to fetch extensions from addons.mozilla.org.
+Like the Chrome profiles, generating the Firefox profiles requires this application. If you don't
+want to update the profiles, you don't need it.
+
+```sh
+go install github.com/eyedeekay/amo-version@latest
 ```
 
 For Fedora, use Yum, for Arch use pacman or something else but make sure to tell everyone

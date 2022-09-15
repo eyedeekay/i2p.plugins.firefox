@@ -186,20 +186,74 @@ unzip i2pfirefox.zip
       <code>
         ant
       </code>
-      ,
+      and java
       <code>
         java
       </code>
-      and for building the Chromium profile, a Go application
+      and for building the jar. You will need
+      <code>
+        jpackage
+      </code>
+      for many of the potential build targets. I&rsquo;ve been using Java 17
+      on Debian mostly, on Debian and Ubuntu, install the dependencies with:
+    </p>
+    <pre><code class="language-sh">sudo apt-get install openjdk-17* ant
+</code></pre>
+    <p>
+      Some of the targets use scripts written in Go to help generate resources. If
+      you want to update the profiles, you will need them. To install Go on Debian
+      and Ubuntu:
+    </p>
+    <pre><code class="language-sh">sudo apt-get install golang-go
+</code></pre>
+    <p>
+      Add
+      <code>
+        $HOME/go/bin
+      </code>
+      to your
+      <code>
+        $PATH
+      </code>
+      so
+      <code>
+        ant
+      </code>
+      can find Go applications.
+    </p>
+    <p>
+      <code>
+        export PATH=$PATH:$HOME/go/bin
+      </code>
+    </p>
+    <p>
+      Then use Go to download the applications you need and add them to
+      <code>
+        $HOME/go/bin
+      </code>
+      .
+    </p>
+    <p>
+      If you want to build the Chromium profiles you will need a Go application
       called
       <code>
         crx3
       </code>
-      which is used to interact with the Chrome app store. I&rsquo;ve been using Java 17
-      on Debian mostly, on Debian and Ubuntu, install the dependencies with:
+      which is used to interact with the Chrome app store to download
+      and update extensions.
     </p>
-    <pre><code class="language-sh">sudo apt-get install openjdk-17* ant golang-go
-go install github.com/mediabuyerbot/go-crx3/crx3@latest
+    <pre><code class="language-sh">go install github.com/mediabuyerbot/go-crx3/crx3@latest
+</code></pre>
+    <p>
+      Another Go application, called
+      <code>
+        amo-version
+      </code>
+      , is used to fetch extensions from addons.mozilla.org.
+      Like the Chrome profiles, generating the Firefox profiles requires this application. If you don&rsquo;t
+      want to update the profiles, you don&rsquo;t need it.
+    </p>
+    <pre><code class="language-sh">go install github.com/eyedeekay/amo-version@latest
 </code></pre>
     <p>
       For Fedora, use Yum, for Arch use pacman or something else but make sure to tell everyone

@@ -168,11 +168,34 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
         </exec>
     </target>
 
-    <target name="jar" depends="i2pFirefoxBaseProfileZip,i2pFirefoxUsabilityProfileZip,i2pChromiumBaseProfileZip">
+    <target name="jar" depends="i2pFirefoxBaseProfileZip,i2pFirefoxUsabilityProfileZip,i2pChromiumBaseProfileZip,i2pChromiumUsabilityProfileZip">
         <ant dir="src" target="jar" />
     </target>
 
-    <target name="i2pFirefoxBaseProfileZip" depends="i2pFirefoxUsabilityProfileZip">
+    <target name="i2pFirefoxBaseProfile">
+        <exec executable="amo-version" failonerror="true">
+            <arg value="-n"/>
+            <arg value="i2p-in-private-browsing"/>
+            <arg value="-d"/>
+            <arg value="-o" />
+            <arg value="src/i2p.firefox.base.profile/extensions/i2ppb@eyedeekay.github.io.xpi" />
+        </exec>
+        <exec executable="amo-version" failonerror="true">
+            <arg value="-n"/>
+            <arg value="noscript"/>
+            <arg value="-d"/>
+            <arg value="-o" />
+            <arg value="src/i2p.firefox.base.profile/extensions/{73a6fe31-595d-460b-a920-fcc0f8843232}.xpi" />
+        </exec>
+        <exec executable="amo-version" failonerror="true">
+            <arg value="-n"/>
+            <arg value="https-everywhere"/>
+            <arg value="-d"/>
+            <arg value="-o" />
+            <arg value="src/i2p.firefox.base.profile/extensions/https-everywhere-eff@eff.org.xpi" />
+        </exec>
+    </target>
+    <target name="i2pFirefoxBaseProfileZip">
         <exec executable="rm" failonerror="false" dir="src">
             <arg value="-rf" />
             <arg value="i2p.firefox.base.profile.zip" />
@@ -181,6 +204,51 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
             <arg value="-r"/>
             <arg value="i2p.firefox.base.profile.zip"/>
             <arg value="i2p.firefox.base.profile"/>
+        </exec>
+    </target>
+
+    <target name="i2pFirefoxUsabilityProfile">
+        <exec executable="amo-version" failonerror="true">
+            <arg value="-n"/>
+            <arg value="i2p-in-private-browsing"/>
+            <arg value="-d"/>
+            <arg value="-o" />
+            <arg value="src/i2p.firefox.base.profile/extensions/i2ppb@eyedeekay.github.io.xpi" />
+        </exec>
+        <exec executable="amo-version" failonerror="true">
+            <arg value="-n"/>
+            <arg value="localcdn-fork-of-decentraleyes"/>
+            <arg value="-d"/>
+            <arg value="-o" />
+            <arg value="./src/i2p.firefox.usability.profile/extensions/{b86e4813-687a-43e6-ab65-0bde4ab75758}.xpi" />
+        </exec>
+        <exec executable="amo-version" failonerror="true">
+            <arg value="-n"/>
+            <arg value="https-everywhere"/>
+            <arg value="-d"/>
+            <arg value="-o" />
+            <arg value="src/i2p.firefox.base.profile/extensions/https-everywhere-eff@eff.org.xpi" />
+        </exec>
+        <exec executable="amo-version" failonerror="true">
+            <arg value="-n"/>
+            <arg value="onion-in-container-browsing"/>
+            <arg value="-d"/>
+            <arg value="-o" />
+            <arg value="src/i2p.firefox.usability.profile/extensions/onioncbt@eyedeekay.github.io.xpi" />
+        </exec>
+        <exec executable="amo-version" failonerror="true">
+            <arg value="-n"/>
+            <arg value="javascript-restrictor"/>
+            <arg value="-d"/>
+            <arg value="-o" />
+            <arg value="src/i2p.firefox.usability.profile/extensions/jsr@javascriptrestrictor.xpi" />
+        </exec>
+        <exec executable="amo-version" failonerror="true">
+            <arg value="-n"/>
+            <arg value="ublock-origin"/>
+            <arg value="-d"/>
+            <arg value="-o" />
+            <arg value="src/i2p.firefox.usability.profile/extensions/uBlock0@raymondhill.net.xpi" />
         </exec>
     </target>
     <target name="i2pFirefoxUsabilityProfileZip">
@@ -203,16 +271,6 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
             <arg value="-o" />
             <arg value="src/i2p.chromium.base.profile/extensions/i2pchrome.js.crx" />
         </exec>
-        <!--
-            TODO: I don't want to deal with licensing issues while on a headfull of cold
-            medicine and COVID. SO for now I'm only including a plugin written by a person
-            who I'm pretty sure isn't going to sue me for it(me). In order to more closely
-            mirror the behavior of the Firefox profile, we should at least include a script
-            blocking plugin, such as ScriptSafe. uBlock was also suggested and I tend to
-            agree. However, since we have to load extensions unpacked, they won't be updated
-            automatically. This is probably good for working against fingerprinting but it's
-            also more work should a plugin have a security vulnerability.
-        -->
         <exec executable="crx3" failonerror="true">
             <arg value="download"/>
             <arg value="doojmbjmlfjjnbmnoijecmcbfeoakpjm" />
@@ -230,16 +288,6 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
             <arg value="-o" />
             <arg value="src/i2p.chromium.usability.profile/extensions/i2pchrome.js.crx" />
         </exec>
-        <!--
-            TODO: I don't want to deal with licensing issues while on a headfull of cold
-            medicine and COVID. SO for now I'm only including a plugin written by a person
-            who I'm pretty sure isn't going to sue me for it(me). In order to more closely
-            mirror the behavior of the Firefox profile, we should at least include a script
-            blocking plugin, such as ScriptSafe. uBlock was also suggested and I tend to
-            agree. However, since we have to load extensions unpacked, they won't be updated
-            automatically. This is probably good for working against fingerprinting but it's
-            also more work should a plugin have a security vulnerability.
-        -->
         <exec executable="crx3" failonerror="true">
             <arg value="download"/>
             <arg value="cjpalhdlnbpafiamejdnhcphjbkeiagm" />
