@@ -22,7 +22,7 @@ other system that exists underneath it. **It is just a profile manager.**
 ```sh
 
 mkdir ~/tmp-i2pfirefox && cd ~/tmp-i2pfirefox
-wget https://github.com/eyedeekay/i2p.plugins.firefox/releases/download/0.0.16/i2pfirefox.zip
+wget https://github.com/eyedeekay/i2p.plugins.firefox/releases/download/0.0.36/i2pfirefox.zip
 unzip i2pfirefox.zip
 ./i2pfirefox.cmd
 
