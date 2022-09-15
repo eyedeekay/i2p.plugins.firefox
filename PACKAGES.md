@@ -12,7 +12,7 @@ including jpackage installed:
 2. Update the version number(`GITHUB_TAG`) and version title(`GITHUB_NAME`) in `config.sh`
 3. On a Linux machine, run `./release.sh`
 4. On a Windows machine, run `./windows-release.sh`
-5. On whatever machine you check in code with, run ./packages.sh
+5. On whatever machine you check in code with, run `./packages.sh`
 
 Windows
 -------
