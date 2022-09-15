@@ -1,5 +1,5 @@
 Profile Version
 ===============
 
-version=0.0.36-b94
+version=0.0.36-b96
 
