@@ -140,6 +140,20 @@
       Making a new release:
     </h2>
     <p>
+      Release dependency: I use
+      <code>
+        github-release
+      </code>
+      to automatically upload packages to github.
+      You can obtain it with:
+    </p>
+    <pre><code class="language-sh">go install github.com/github-release/github-release@latest
+</code></pre>
+    <p>
+      You will need it on both the Windows and Linux system. OSX too if I jpackage this
+      for it.
+    </p>
+    <p>
       Releases can be created in a mostly automatic way. With a working Java toolchain
       including jpackage installed:
     </p>
