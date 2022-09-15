@@ -468,12 +468,6 @@ public class I2PChromium extends I2PCommonBrowser {
                                "extensions/ublock.js")
                           .getAbsolutePath();
       }
-      /**+","+
-      new
-      File(I2PChromiumProfileBuilder.profileDirectory(),"extensions/ublock.js").getAbsolutePath()
-      +","+
-      new
-      File(I2PChromiumProfileBuilder.profileDirectory(),"extensions/scriptsafe.js").getAbsolutePath();*/
       if (args != null) {
         if (arglength > 0) {
           for (int i = 0; i < arglength; i++) {
