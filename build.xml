@@ -552,6 +552,92 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
         </exec>
     </target>
 
+    <target name="arkenfoxUpdateUserJs">
+        <exec executable="git" osfamily="unix" failonerror="false">
+            <arg value="clone" />
+            <arg value="https://github.com/arkenfox/user.js" />
+        </exec>
+        <exec executable="git" dir="user.js" output="user.js/.arkenfox.number">
+            <arg value="tag" />
+            <arg value="--sort=committerdate" />
+        </exec>
+    </target>
+
+    <target name="arkenfoxConfig" depends="arkenfoxUpdateUserJs">
+        <exec executable="tail" dir="user.js" output="user.js/.arkenfox.number">
+            <arg value="-n" />
+            <arg value="1" />
+            <arg value=".arkenfox.number" />
+        </exec>
+        <exec executable="echo" dir="user.js" output="arkenfox.number" append="false">
+            <arg value="-n" />
+            <arg value="-e" />
+            <arg value="arkenfox.number=" />
+        </exec>
+        <exec executable="cat" dir="user.js" output="arkenfox.number" append="true">
+            <arg value=".arkenfox.number" />
+        </exec>
+        <exec executable="tr" input="arkenfox.number" output="arkenfox.number" append="false">
+            <arg value="-d" />
+            <arg value="\n" />
+        </exec>
+    </target>
+    <target name="arkenfoxNum" depends="arkenfoxConfig">
+        <property file="arkenfox.number" />
+        <exec executable="echo" osfamily="unix" output="arkenfoxnum">
+            <arg value="{arkenfox.number}" />
+        </exec>
+    </target>
+    <target name="arkenfoxCheckout" depends="arkenfoxNum">
+        <exec executable="git" osfamily="unix" dir="user.js">
+            <arg value="pull" />
+            <arg value="--tags" />
+        </exec>
+        <exec executable="git" osfamily="unix" dir="user.js">
+            <arg value="checkout" />
+            <arg value="${arkenfox.number}" />
+        </exec>
+    </target>
+
+    <target name="userJs" depends="i2pFirefoxBaseUserJs,i2pFirefoxUsabilityUserJs">
+    </target>
+    <target name="i2pFirefoxBaseUserJs" depends="arkenfoxCheckout">
+        <copy file="user.js/user.js" tofile="src/i2p.firefox.base.profile/user.js"/>
+        <exec executable="sed" osfamily="unix">
+            <arg value="-i" />
+            <arg value='s|user_pref("extensions.autoDisableScopes", 15);|user_pref("extensions.autoDisableScopes", 0);|g' />
+            <arg value="src/i2p.firefox.base.profile/user.js" />
+        </exec>
+        <exec executable="sed" osfamily="unix">
+            <arg value="-i" />
+            <arg value='s|user_pref("extensions.enabledScopes", 5);|user_pref("extensions.enabledScopes", 1);|g' />
+            <arg value="src/i2p.firefox.base.profile/user.js" />
+        </exec>
+        <exec executable="sed" osfamily="unix">
+            <arg value="-i" />
+            <arg value='s|user_pref("dom.security.https_only_mode", true);|user_pref("dom.security.https_only_mode", false);|g' />
+            <arg value="src/i2p.firefox.base.profile/user.js" />
+        </exec>
+    </target>
+    <target name="i2pFirefoxUsabilityUserJs" depends="arkenfoxCheckout">
+        <copy file="user.js/user.js" tofile="src/i2p.firefox.usability.profile/user.js"/>
+        <exec executable="sed" osfamily="unix">
+            <arg value="-i" />
+            <arg value='s|user_pref("extensions.autoDisableScopes", 15);|user_pref("extensions.autoDisableScopes", 0);|g' />
+            <arg value="src/i2p.firefox.usability.profile/user.js" />
+        </exec>
+        <exec executable="sed" osfamily="unix">
+            <arg value="-i" />
+            <arg value='s|user_pref("extensions.enabledScopes", 5);|user_pref("extensions.enabledScopes", 1);|g' />
+            <arg value="src/i2p.firefox.usability.profile/user.js" />
+        </exec>
+        <exec executable="sed" osfamily="unix">
+            <arg value="-i" />
+            <arg value='s|user_pref("dom.security.https_only_mode", true);|user_pref("dom.security.https_only_mode", false);|g' />
+            <arg value="src/i2p.firefox.usability.profile/user.js" />
+        </exec>
+    </target>
+
     <target name="buildNum">
         <buildnumber file="scripts/build.number" />
         <property name="release.number" value="0.0.36" />
