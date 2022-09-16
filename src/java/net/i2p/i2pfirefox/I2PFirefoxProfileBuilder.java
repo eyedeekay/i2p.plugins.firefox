@@ -1,6 +1,7 @@
 package net.i2p.i2pfirefox;
 
 import java.io.File;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
 
@@ -200,6 +201,28 @@ public class I2PFirefoxProfileBuilder extends I2PCommonBrowser {
     return copyStrictOptions(base, app);
   }
 
+  protected static boolean writeAppChrome(String profile) {
+    File dir = new File(profile, "chrome");
+    if (!dir.exists())
+      dir.mkdirs();
+    File f = new File(dir, "userChrome.css");
+    try{
+      Files.write(f.toPath(), userChromeCSS().getBytes());
+    }catch(IOException e){
+      logger.warning(e.toString());
+      return false;
+    }
+    return true;
+  }
+  protected static boolean deleteAppChrome(String profile) {
+    File dir = new File(profile, "chrome");
+    if (!dir.exists())
+      return true;
+    File f = new File(dir, "userChrome.css");
+    if (f.exists())
+      f.delete();
+    return true;
+  }
   /**
    * Copy the strict options from the base profile to the profile
    *
@@ -238,11 +261,13 @@ public class I2PFirefoxProfileBuilder extends I2PCommonBrowser {
             "user_pref(\"toolkit.legacyUserProfileCustomizations.stylesheets\", false);",
             "user_pref(\"toolkit.legacyUserProfileCustomizations.stylesheets\", true);",
             userOverrides);
+        writeAppChrome(profileDir.toString());
       } else {
         I2PFirefoxProfileChecker.undoValue(
             "user_pref(\"toolkit.legacyUserProfileCustomizations.stylesheets\", true);",
             "user_pref(\"toolkit.legacyUserProfileCustomizations.stylesheets\", false);",
             userOverrides);
+            deleteAppChrome(profileDir.toString());
       }
     }
     return true;
