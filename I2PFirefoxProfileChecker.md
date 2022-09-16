@@ -94,7 +94,7 @@ package: net.i2p.i2pfirefox
 ### undoValue [[src]](src/java/net/i2p/i2pfirefox/I2PFirefoxProfileChecker.java#L138)
 
 + Description:   
-+ Access: private  
++ Access: public  
 + Modifiers: static 
 + return: boolean  
 
