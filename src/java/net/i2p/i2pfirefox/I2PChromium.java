@@ -369,7 +369,7 @@ public class I2PChromium extends I2PCommonBrowser {
    * @since 0.0.1
    */
   public ProcessBuilder appProcessBuilder() {
-    return processBuilder(new String[] {"--app"});
+    return processBuilder(new String[] {"--app=http://127.0.0.1:7657"});
   }
 
   /**
@@ -383,7 +383,8 @@ public class I2PChromium extends I2PCommonBrowser {
    */
   public ProcessBuilder appProcessBuilder(String[] args) {
     ArrayList<String> argList = new ArrayList<String>();
-    argList.add("--app");
+    argList.add("--app=http://127.0.0.1:7657");
+    // argList.add("http://127.0.0.1:7657");
     if (args != null) {
       if (args.length > 0) {
         for (String arg : args) {
