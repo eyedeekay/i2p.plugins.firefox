@@ -259,7 +259,7 @@ public class I2PFirefoxProfileBuilder extends I2PCommonBrowser {
       return false;
     }
     File workingUserOverrides = new File(profileDir, "user-overrides.js");
-    logger.info(userOverrides.getAbsolutePath());
+    logger.info(workingUserOverrides.getAbsolutePath());
     if (workingUserOverrides.exists()) {
       logger.info("Checking app mode settings");
       if (app) {
@@ -279,6 +279,28 @@ public class I2PFirefoxProfileBuilder extends I2PCommonBrowser {
       }
     }
     logger.info("Done setting up fancy Firefox options");
+    File workingPrefOverrides = new File(profileDir, "prefs.js");
+    logger.info(workingPrefOverrides.getAbsolutePath());
+    if (workingPrefOverrides.exists()) {
+      logger.info("Checking app mode settings");
+      if (app) {
+        logger.info("Setting profile to app mode");
+        I2PFirefoxProfileChecker.undoValue(
+            "toolkit.legacyUserProfileCustomizations.stylesheets\", false",
+            "toolkit.legacyUserProfileCustomizations.stylesheets\", true",
+            workingPrefOverrides);
+        writeAppChrome(profileDir.toString());
+      } else {
+        logger.info("Taking profile out of app mode");
+        I2PFirefoxProfileChecker.undoValue(
+            "toolkit.legacyUserProfileCustomizations.stylesheets\", true",
+            "toolkit.legacyUserProfileCustomizations.stylesheets\", false",
+            workingPrefOverrides);
+        deleteAppChrome(profileDir.toString());
+      }
+    }
+    logger.info("Done setting up fancy Firefox options");
+
     return true;
   }
 
