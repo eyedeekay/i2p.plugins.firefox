@@ -96,6 +96,22 @@ Details are platform dependent. Same build-deps as everything else.
 
 run: `ant jpackage`
 
+Docker
+------
+
+```sh
+docker build -t eyedeekay/i2p.plugins.firefox .
+```
+
+```sh
+xhost + local:docker
+docker run -it --rm \
+        --net=host \
+        -e DISPLAY=unix$(DISPLAY) \
+        -v /tmp/.X11-unix:/tmp/.X11-unix \
+        eyedeekay/i2p.plugins.firefox
+```
+
 OSX
 ---
 
