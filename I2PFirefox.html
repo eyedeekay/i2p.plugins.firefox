@@ -625,8 +625,58 @@
       | args | String[] | the arguments to pass to the Firefox binary  |
     </p>
     <h3>
+      appProcessBuilder
+      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L365">
+        [src]
+      </a>
+    </h3>
+    <ul>
+      <li>
+        Description: Build a ProcessBuilder for the top Firefox binary and the default profile. Pass the &ndash;private-window flag to open a window.
+        <br />
+      </li>
+      <li>
+        Access: public
+        <br />
+      </li>
+      <li>
+        return: a ProcessBuilder for the top Firefox binary and the default profile.
+        <br />
+      </li>
+    </ul>
+    <p>
+      This method has no parameters.
+    </p>
+    <h3>
+      appProcessBuilder
+      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L378">
+        [src]
+      </a>
+    </h3>
+    <ul>
+      <li>
+        Description: Build a ProcessBuilder for the top Firefox binary and the default profile. Pass the &ndash;private-window flag to open a window.
+        <br />
+      </li>
+      <li>
+        Access: public
+        <br />
+      </li>
+      <li>
+        return: ProcessBuilder
+        <br />
+      </li>
+    </ul>
+    <p>
+      | Name | Type | Description |
+      <br />
+      | &mdash;&ndash; | &mdash;&ndash; | &mdash;&ndash; |
+      <br />
+      | args | String[] | the arguments to pass to the Firefox binary  |
+    </p>
+    <h3>
       headlessProcessBuilder
-      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L364">
+      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L399">
         [src]
       </a>
     </h3>
@@ -653,13 +703,13 @@
     </p>
     <h3>
       processBuilder
-      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L387">
+      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L427">
         [src]
       </a>
     </h3>
     <ul>
       <li>
-        Description: Build a ProcessBuilder for the top Firefox binary and the default profile with a specific set of extended arguments.
+        Description:
         <br />
       </li>
       <li>
@@ -667,7 +717,7 @@
         <br />
       </li>
       <li>
-        return: a ProcessBuilder for the top Firefox binary and default profile with a specific set of extended arguments.
+        return: ProcessBuilder
         <br />
       </li>
     </ul>
@@ -676,11 +726,13 @@
       <br />
       | &mdash;&ndash; | &mdash;&ndash; | &mdash;&ndash; |
       <br />
-      | args | String[] | the extended arguments to pass to the Firefox binary.  |
+      | args | String[] |  |
+      <br />
+      | app | boolean |  |
     </p>
     <h3>
       usabilityMode
-      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L413">
+      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L453">
         [src]
       </a>
     </h3>
@@ -703,7 +755,7 @@
     </p>
     <h3>
       launchAndDetatch
-      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L420">
+      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L459">
         [src]
       </a>
     </h3>
@@ -731,8 +783,37 @@
       | url | String[] |  |
     </p>
     <h3>
+      launchAndDetatch
+      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L465">
+        [src]
+      </a>
+    </h3>
+    <ul>
+      <li>
+        Description:
+        <br />
+      </li>
+      <li>
+        Access: public
+        <br />
+      </li>
+      <li>
+        return: Process
+        <br />
+      </li>
+    </ul>
+    <p>
+      | Name | Type | Description |
+      <br />
+      | &mdash;&ndash; | &mdash;&ndash; | &mdash;&ndash; |
+      <br />
+      | privateWindow | int |  |
+      <br />
+      | url | String[] |  |
+    </p>
+    <h3>
       launch
-      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L494">
+      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L558">
         [src]
       </a>
     </h3>
@@ -761,7 +842,36 @@
     </p>
     <h3>
       launch
-      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L518">
+      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L564">
+        [src]
+      </a>
+    </h3>
+    <ul>
+      <li>
+        Description:
+        <br />
+      </li>
+      <li>
+        Access: public
+        <br />
+      </li>
+      <li>
+        return: void
+        <br />
+      </li>
+    </ul>
+    <p>
+      | Name | Type | Description |
+      <br />
+      | &mdash;&ndash; | &mdash;&ndash; | &mdash;&ndash; |
+      <br />
+      | privateWindow | int |  |
+      <br />
+      | url | String[] |  |
+    </p>
+    <h3>
+      launch
+      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L588">
         [src]
       </a>
     </h3>
@@ -788,7 +898,7 @@
     </p>
     <h3>
       launch
-      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L528">
+      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L598">
         [src]
       </a>
     </h3>
@@ -811,7 +921,7 @@
     </p>
     <h3>
       ValidURL
-      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L530">
+      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L600">
         [src]
       </a>
     </h3>
@@ -841,7 +951,7 @@
     </p>
     <h3>
       main
-      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L541">
+      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L611">
         [src]
       </a>
     </h3>
@@ -871,7 +981,7 @@
     </p>
     <h3>
       sleep
-      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L574">
+      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L648">
         [src]
       </a>
     </h3>
