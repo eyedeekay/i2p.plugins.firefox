@@ -265,15 +265,15 @@ public class I2PFirefoxProfileBuilder extends I2PCommonBrowser {
       if (app) {
         logger.info("Setting profile to app mode");
         I2PFirefoxProfileChecker.undoValue(
-            "user_pref(\"toolkit.legacyUserProfileCustomizations.stylesheets\", false);",
-            "user_pref(\"toolkit.legacyUserProfileCustomizations.stylesheets\", true);",
+            "toolkit.legacyUserProfileCustomizations.stylesheets\", false",
+            "toolkit.legacyUserProfileCustomizations.stylesheets\", true",
             workingUserOverrides);
         writeAppChrome(profileDir.toString());
       } else {
         logger.info("Taking profile out of app mode");
         I2PFirefoxProfileChecker.undoValue(
-            "user_pref(\"toolkit.legacyUserProfileCustomizations.stylesheets\", true);",
-            "user_pref(\"toolkit.legacyUserProfileCustomizations.stylesheets\", false);",
+            "toolkit.legacyUserProfileCustomizations.stylesheets\", true",
+            "toolkit.legacyUserProfileCustomizations.stylesheets\", false",
             workingUserOverrides);
         deleteAppChrome(profileDir.toString());
       }
