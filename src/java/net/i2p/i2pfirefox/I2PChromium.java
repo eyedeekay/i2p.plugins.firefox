@@ -663,7 +663,10 @@ public class I2PChromium extends I2PCommonBrowser {
           }
           if (!arg.startsWith("-")) {
             // check if it's a URL
-            visitURL.add(ValidURL(arg));
+            if (privateBrowsing == 2)
+              visitURL.add("--app=" + ValidURL(arg));
+            else
+              visitURL.add(ValidURL(arg));
           }
         }
       }
