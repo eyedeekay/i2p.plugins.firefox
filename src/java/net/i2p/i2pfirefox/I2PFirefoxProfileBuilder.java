@@ -232,10 +232,19 @@ public class I2PFirefoxProfileBuilder extends I2PCommonBrowser {
       logger.info("Error copying base profile to profile" + e);
       return false;
     }
-    // if user-overrides.js does not exist yet, make an empty one.
-    // if (!touch(profileDir.toString(), "user-overrides.js")) {
-    // return false;
-    //}
+    if (userOverrides.exists()) {
+      if (app) {
+        I2PFirefoxProfileChecker.undoValue(
+            "user_pref(\"toolkit.legacyUserProfileCustomizations.stylesheets\", false);",
+            "user_pref(\"toolkit.legacyUserProfileCustomizations.stylesheets\", true);",
+            userOverrides);
+      } else {
+        I2PFirefoxProfileChecker.undoValue(
+            "user_pref(\"toolkit.legacyUserProfileCustomizations.stylesheets\", true);",
+            "user_pref(\"toolkit.legacyUserProfileCustomizations.stylesheets\", false);",
+            userOverrides);
+      }
+    }
     return true;
   }
 
