@@ -24,6 +24,55 @@ import java.nio.file.StandardCopyOption;
  */
 public class I2PFirefoxProfileBuilder extends I2PCommonBrowser {
   private static boolean strict;
+  private static String userChromeCSS() {
+    String ret =
+        "@namespace url(\"http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul\")\n";
+
+    /* only needed once */
+
+    ret += "@namespace html url(\" http : // www.w3.org/1999/xhtml\");\n";
+    ret += "#PersonalToolbar,\n";
+    ret += "#PanelUI-Button,\n";
+    ret += "#PanelUI-menu-button,\n";
+    ret += "#star-button,\n";
+    ret += "#forward-button,\n";
+    ret += "#home-button,\n";
+    ret += "#bookmarks-toolbar-button,\n";
+    ret += "#library-button,\n";
+    ret += "#sidebar-button,\n";
+    ret += "#pocket-button,\n";
+    ret += "#fxa-toolbar-menu-button,\n";
+    ret += "#reader-mode-button,\n";
+    ret += "#identity-icon {\n";
+    ret += "    visibility: collapse;\n";
+    ret += "}\n";
+    ret += "\n";
+    ret += "#urlbar-background {\n";
+    ret += "    background-color: black !important;\n";
+    ret += "}\n";
+    ret += "\n";
+    ret += "\n";
+    ret += "/* Remove back button circle */\n";
+    ret += "\n";
+    ret += "#back-button:not(:hover),\n";
+    ret += "#back-button:not(:hover)>.toolbarbutton-icon {\n";
+    ret += "    background: transparent !important;\n";
+    ret += "    border: none !important;\n";
+    ret += "    box-shadow: none !important;\n";
+    ret += "}\n";
+    ret += "\n";
+    ret += "#back-button:hover,\n";
+    ret += "#back-button:hover>.toolbarbutton-icon {\n";
+    ret += "    border: none !important;\n";
+    ret += "    border-radius: 2px !important;\n";
+    ret += "}\n";
+    ret += "\n";
+    ret += "#urlbar-container,\n";
+    ret += "#nav-bar {\n";
+    ret += "    visibility: collapse !important\n";
+    ret += "}\n";
+    return ret;
+  }
 
   /**
    * get the profile directory, creating it if necessary
