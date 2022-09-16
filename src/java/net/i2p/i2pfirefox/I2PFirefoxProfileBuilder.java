@@ -259,21 +259,22 @@ public class I2PFirefoxProfileBuilder extends I2PCommonBrowser {
       return false;
     }
     logger.info(userOverrides.getAbsolutePath());
-    if (userOverrides.exists()) {
+    File workingUserOverrides = new File(profileDir, "user-overrides.js");
+    if (workingUserOverrides.exists()) {
       logger.info("Checking app mode settings");
       if (app) {
         logger.info("Setting profile to app mode");
         I2PFirefoxProfileChecker.undoValue(
             "user_pref(\"toolkit.legacyUserProfileCustomizations.stylesheets\", false);",
             "user_pref(\"toolkit.legacyUserProfileCustomizations.stylesheets\", true);",
-            userOverrides);
+            workingUserOverrides);
         writeAppChrome(profileDir.toString());
       } else {
         logger.info("Taking profile out of app mode");
         I2PFirefoxProfileChecker.undoValue(
             "user_pref(\"toolkit.legacyUserProfileCustomizations.stylesheets\", true);",
             "user_pref(\"toolkit.legacyUserProfileCustomizations.stylesheets\", false);",
-            userOverrides);
+            workingUserOverrides);
         deleteAppChrome(profileDir.toString());
       }
     }
