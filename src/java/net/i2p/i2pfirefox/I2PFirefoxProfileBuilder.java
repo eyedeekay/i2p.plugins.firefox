@@ -259,6 +259,7 @@ public class I2PFirefoxProfileBuilder extends I2PCommonBrowser {
       return false;
     }
     if (userOverrides.exists()) {
+      logger.info("Checking app mode settings");
       if (app) {
         logger.info("Setting profile to app mode");
         I2PFirefoxProfileChecker.undoValue(
@@ -275,6 +276,7 @@ public class I2PFirefoxProfileBuilder extends I2PCommonBrowser {
         deleteAppChrome(profileDir.toString());
       }
     }
+    logger.info("Done setting up fancy Firefox options");
     return true;
   }
 
