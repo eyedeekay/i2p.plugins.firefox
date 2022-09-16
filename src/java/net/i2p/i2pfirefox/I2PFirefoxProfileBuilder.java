@@ -258,8 +258,8 @@ public class I2PFirefoxProfileBuilder extends I2PCommonBrowser {
       logger.info("Error copying base profile to profile" + e);
       return false;
     }
-    logger.info(userOverrides.getAbsolutePath());
     File workingUserOverrides = new File(profileDir, "user-overrides.js");
+    logger.info(userOverrides.getAbsolutePath());
     if (workingUserOverrides.exists()) {
       logger.info("Checking app mode settings");
       if (app) {
