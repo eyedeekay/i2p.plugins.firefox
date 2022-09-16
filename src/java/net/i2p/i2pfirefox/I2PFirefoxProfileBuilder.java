@@ -248,7 +248,7 @@ public class I2PFirefoxProfileBuilder extends I2PCommonBrowser {
     try {
       if (baseOverrides.exists()) {
         if (strict) {
-          logger.info("Checking strict options");
+          logger.info("Enabling strict options");
           Files.copy(baseOverrides.toPath(), userOverrides.toPath(),
                      StandardCopyOption.REPLACE_EXISTING);
           return true;
