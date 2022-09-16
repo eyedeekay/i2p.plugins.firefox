@@ -180,6 +180,9 @@
             java.io.File
           </li>
           <li>
+            java.io.IOException
+          </li>
+          <li>
             java.nio.file.Files
           </li>
           <li>
@@ -212,8 +215,34 @@
       Methods
     </h2>
     <h3>
+      userChromeCSS
+      <a href="src/java/net/i2p/i2pfirefox/I2PFirefoxProfileBuilder.java#L28">
+        [src]
+      </a>
+    </h3>
+    <ul>
+      <li>
+        Description:
+        <br />
+      </li>
+      <li>
+        Access: private
+        <br />
+      </li>
+      <li>
+        Modifiers: static
+      </li>
+      <li>
+        return: String
+        <br />
+      </li>
+    </ul>
+    <p>
+      This method has no parameters.
+    </p>
+    <h3>
       profileDirectory
-      <a href="src/java/net/i2p/i2pfirefox/I2PFirefoxProfileBuilder.java#L33">
+      <a href="src/java/net/i2p/i2pfirefox/I2PFirefoxProfileBuilder.java#L92">
         [src]
       </a>
     </h3>
@@ -235,11 +264,15 @@
       </li>
     </ul>
     <p>
-      This method has no parameters.
+      | Name | Type | Description |
+      <br />
+      | &mdash;&ndash; | &mdash;&ndash; | &mdash;&ndash; |
+      <br />
+      | app | boolean |  |
     </p>
     <h3>
       baseProfileDir
-      <a href="src/java/net/i2p/i2pfirefox/I2PFirefoxProfileBuilder.java#L37">
+      <a href="src/java/net/i2p/i2pfirefox/I2PFirefoxProfileBuilder.java#L96">
         [src]
       </a>
     </h3>
@@ -271,7 +304,7 @@
     </p>
     <h3>
       baseProfileDirectory
-      <a href="src/java/net/i2p/i2pfirefox/I2PFirefoxProfileBuilder.java#L57">
+      <a href="src/java/net/i2p/i2pfirefox/I2PFirefoxProfileBuilder.java#L116">
         [src]
       </a>
     </h3>
@@ -301,7 +334,7 @@
     </p>
     <h3>
       runtimeDirectory
-      <a href="src/java/net/i2p/i2pfirefox/I2PFirefoxProfileBuilder.java#L81">
+      <a href="src/java/net/i2p/i2pfirefox/I2PFirefoxProfileBuilder.java#L140">
         [src]
       </a>
     </h3>
@@ -331,7 +364,7 @@
     </p>
     <h3>
       runtimeDirectory
-      <a href="src/java/net/i2p/i2pfirefox/I2PFirefoxProfileBuilder.java#L92">
+      <a href="src/java/net/i2p/i2pfirefox/I2PFirefoxProfileBuilder.java#L151">
         [src]
       </a>
     </h3>
@@ -357,7 +390,7 @@
     </p>
     <h3>
       copyBaseProfiletoProfile
-      <a href="src/java/net/i2p/i2pfirefox/I2PFirefoxProfileBuilder.java#L112">
+      <a href="src/java/net/i2p/i2pfirefox/I2PFirefoxProfileBuilder.java#L171">
         [src]
       </a>
     </h3>
@@ -384,10 +417,72 @@
       | &mdash;&ndash; | &mdash;&ndash; | &mdash;&ndash; |
       <br />
       | base | String |  |
+      <br />
+      | app | boolean |  |
+    </p>
+    <h3>
+      writeAppChrome
+      <a href="src/java/net/i2p/i2pfirefox/I2PFirefoxProfileBuilder.java#L204">
+        [src]
+      </a>
+    </h3>
+    <ul>
+      <li>
+        Description:
+        <br />
+      </li>
+      <li>
+        Access: protected
+        <br />
+      </li>
+      <li>
+        Modifiers: static
+      </li>
+      <li>
+        return: boolean
+        <br />
+      </li>
+    </ul>
+    <p>
+      | Name | Type | Description |
+      <br />
+      | &mdash;&ndash; | &mdash;&ndash; | &mdash;&ndash; |
+      <br />
+      | profile | String |  |
+    </p>
+    <h3>
+      deleteAppChrome
+      <a href="src/java/net/i2p/i2pfirefox/I2PFirefoxProfileBuilder.java#L217">
+        [src]
+      </a>
+    </h3>
+    <ul>
+      <li>
+        Description:
+        <br />
+      </li>
+      <li>
+        Access: protected
+        <br />
+      </li>
+      <li>
+        Modifiers: static
+      </li>
+      <li>
+        return: boolean
+        <br />
+      </li>
+    </ul>
+    <p>
+      | Name | Type | Description |
+      <br />
+      | &mdash;&ndash; | &mdash;&ndash; | &mdash;&ndash; |
+      <br />
+      | profile | String |  |
     </p>
     <h3>
       copyStrictOptions
-      <a href="src/java/net/i2p/i2pfirefox/I2PFirefoxProfileBuilder.java#L151">
+      <a href="src/java/net/i2p/i2pfirefox/I2PFirefoxProfileBuilder.java#L232">
         [src]
       </a>
     </h3>
@@ -414,6 +509,8 @@
       | &mdash;&ndash; | &mdash;&ndash; | &mdash;&ndash; |
       <br />
       | base | String |  |
+      <br />
+      | app | boolean |  |
     </p>
     <div id="sourcecode">
       <span id="sourcehead">
