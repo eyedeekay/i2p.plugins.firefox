@@ -206,9 +206,9 @@ public class I2PFirefoxProfileBuilder extends I2PCommonBrowser {
     if (!dir.exists())
       dir.mkdirs();
     File f = new File(dir, "userChrome.css");
-    try{
+    try {
       Files.write(f.toPath(), userChromeCSS().getBytes());
-    }catch(IOException e){
+    } catch (IOException e) {
       logger.warning(e.toString());
       return false;
     }
@@ -267,7 +267,7 @@ public class I2PFirefoxProfileBuilder extends I2PCommonBrowser {
             "user_pref(\"toolkit.legacyUserProfileCustomizations.stylesheets\", true);",
             "user_pref(\"toolkit.legacyUserProfileCustomizations.stylesheets\", false);",
             userOverrides);
-            deleteAppChrome(profileDir.toString());
+        deleteAppChrome(profileDir.toString());
       }
     }
     return true;
