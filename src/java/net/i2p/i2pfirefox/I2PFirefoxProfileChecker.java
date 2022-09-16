@@ -134,8 +134,8 @@ public class I2PFirefoxProfileChecker extends I2PCommonBrowser {
     return true;
   }
 
-  private static boolean undoValue(String oldString, String newString,
-                                   File fileToBeModified) {
+  public static boolean undoValue(String oldString, String newString,
+                                  File fileToBeModified) {
     String oldContent = "";
     BufferedReader reader = null;
     FileWriter writer = null;
