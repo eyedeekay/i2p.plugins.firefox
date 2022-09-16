@@ -548,6 +548,12 @@ public class I2PFirefox extends I2PCommonBrowser {
    * @since 0.0.17
    */
   public void launch(boolean privateWindow, String[] url) {
+    int priv = 0;
+    if (privateWindow)
+      priv = 1;
+    launch(priv, url);
+  }
+  public void launch(int privateWindow, String[] url) {
     if (waitForProxy()) {
       p = launchAndDetatch(privateWindow, url);
       if (p == null)
@@ -596,7 +602,7 @@ public class I2PFirefox extends I2PCommonBrowser {
 
   public static void main(String[] args) {
     validateUserDir();
-    boolean privateBrowsing = false;
+    int privateBrowsing = 0;
     logger.info("checking for private browsing");
     logger.info("I2PFirefox");
     I2PFirefox i2pFirefox = new I2PFirefox();
@@ -605,12 +611,15 @@ public class I2PFirefox extends I2PCommonBrowser {
       if (args.length > 0) {
         for (String arg : args) {
           if (arg.equals("-private")) {
-            privateBrowsing = true;
+            privateBrowsing = 1;
             logger.info(
                 "private browsing is true, profile will be discarded at end of session");
           }
           if (arg.equals("-usability")) {
             usability = true;
+          }
+          if (arg.equals("-app")) {
+            privateBrowsing = 2;
           }
           if (arg.equals("-noproxycheck")) {
             logger.info("zeroing out proxy check");

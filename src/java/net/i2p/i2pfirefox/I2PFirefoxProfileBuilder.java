@@ -230,39 +230,43 @@ public class I2PFirefoxProfileBuilder extends I2PCommonBrowser {
    * @since 0.0.1
    */
   public static boolean copyStrictOptions(String base, boolean app) {
-    if (!strict) {
-      return true;
-    }
+    logger.info("Checking strict options");
     String baseProfile = baseProfileDirectory(base);
     String profile = profileDirectory(app);
     if (baseProfile.isEmpty() || profile.isEmpty()) {
+      logger.info("Empty paths");
       return false;
     }
     File baseProfileDir = new File(baseProfile);
     File profileDir = new File(profile);
     if (!baseProfileDir.exists() || !profileDir.exists()) {
+      logger.info("Empty directories");
       return false;
     }
     File baseOverrides = new File(baseProfile, "strict-overrides.js");
     File userOverrides = new File(baseProfile, "user-overrides.js");
-    if (!baseOverrides.exists()) {
-      return false;
-    }
     try {
-      Files.copy(baseOverrides.toPath(), userOverrides.toPath(),
-                 StandardCopyOption.REPLACE_EXISTING);
+      if (baseOverrides.exists()) {
+        if (!strict) {
+          Files.copy(baseOverrides.toPath(), userOverrides.toPath(),
+                     StandardCopyOption.REPLACE_EXISTING);
+          return true;
+        }
+      }
     } catch (Exception e) {
       logger.info("Error copying base profile to profile" + e);
       return false;
     }
     if (userOverrides.exists()) {
       if (app) {
+        logger.info("Setting profile to app mode");
         I2PFirefoxProfileChecker.undoValue(
             "user_pref(\"toolkit.legacyUserProfileCustomizations.stylesheets\", false);",
             "user_pref(\"toolkit.legacyUserProfileCustomizations.stylesheets\", true);",
             userOverrides);
         writeAppChrome(profileDir.toString());
       } else {
+        logger.info("Taking profile out of app mode");
         I2PFirefoxProfileChecker.undoValue(
             "user_pref(\"toolkit.legacyUserProfileCustomizations.stylesheets\", true);",
             "user_pref(\"toolkit.legacyUserProfileCustomizations.stylesheets\", false);",
