@@ -247,7 +247,8 @@ public class I2PFirefoxProfileBuilder extends I2PCommonBrowser {
     File userOverrides = new File(baseProfile, "user-overrides.js");
     try {
       if (baseOverrides.exists()) {
-        if (!strict) {
+        if (strict) {
+          logger.info("Checking strict options");
           Files.copy(baseOverrides.toPath(), userOverrides.toPath(),
                      StandardCopyOption.REPLACE_EXISTING);
           return true;
