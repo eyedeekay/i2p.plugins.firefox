@@ -619,6 +619,7 @@ public class I2PFirefox extends I2PCommonBrowser {
             usability = true;
           }
           if (arg.equals("-app")) {
+            usability = true;
             privateBrowsing = 2;
           }
           if (arg.equals("-noproxycheck")) {

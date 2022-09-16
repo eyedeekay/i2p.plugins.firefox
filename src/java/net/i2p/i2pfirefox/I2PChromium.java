@@ -583,6 +583,12 @@ public class I2PChromium extends I2PCommonBrowser {
    * @since 0.0.17
    */
   public void launch(boolean privateWindow, String[] url) {
+    int privateWindowInt = 0;
+    if (privateWindow)
+      privateWindowInt = 1;
+    launch(privateWindowInt, url);
+  }
+  public void launch(int privateWindow, String[] url) {
     if (waitForProxy()) {
       p = launchAndDetatch(privateWindow, url);
       if (p == null)
@@ -630,7 +636,7 @@ public class I2PChromium extends I2PCommonBrowser {
 
   public static void main(String[] args) {
     validateUserDir();
-    boolean privateBrowsing = false;
+    int privateBrowsing = 0;
     logger.info("I2PChromium");
     I2PChromium i2pChromium = new I2PChromium();
     logger.info("checking for private browsing");
@@ -639,11 +645,15 @@ public class I2PChromium extends I2PCommonBrowser {
       if (args.length > 0) {
         for (String arg : args) {
           if (arg.equals("-private")) {
-            privateBrowsing = true;
+            privateBrowsing = 1;
             logger.info(
                 "private browsing is true, profile will be discarded at end of session");
           }
           if (arg.equals("-usability")) {
+            I2PChromiumProfileBuilder.usability = true;
+          }
+          if (arg.equals("-app")) {
+            privateBrowsing = 2;
             I2PChromiumProfileBuilder.usability = true;
           }
           if (arg.equals("-noproxycheck")) {
