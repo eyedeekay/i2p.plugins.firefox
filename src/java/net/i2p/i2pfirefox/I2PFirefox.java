@@ -518,8 +518,16 @@ public class I2PFirefox extends I2PCommonBrowser {
         pb = this.privateProcessBuilder(url);
         break;
       case 2:
-        pb = this.appProcessBuilder(url);
-        break;
+        logger.info("Setting up app mode " + url.toString());
+        if (url == null || url.length == 0) {
+          String[] newurl = {"http://127.0.0.1:7657"};
+          logger.info("Setting up default urls" + newurl.toString());
+          pb = this.appProcessBuilder(newurl);
+          break;
+        } else {
+          pb = this.appProcessBuilder(url);
+          break;
+        }
       default:
         pb = this.defaultProcessBuilder(url);
         break;

@@ -31,18 +31,21 @@ public class I2PBrowser extends I2PCommonBrowser {
   public boolean chromiumFirst = false;
   public boolean usability = false;
 
-  private void launchFirefox(boolean privateWindow, String[] url) {
-    logger.info("I2PFirefox");
+  private void launchFirefox(int privateWindow, String[] url) {
+    logger.info("I2PFirefox" + privateWindow);
     I2PFirefox.usability = usability;
     i2pFirefox.launch(privateWindow, url);
   }
-  private void launchChromium(boolean privateWindow, String[] url) {
-    logger.info("I2PChromium");
+  private void launchChromium(int privateWindow, String[] url) {
+    logger.info("I2PChromium" + privateWindow);
     I2PChromiumProfileBuilder.usability = usability;
     i2pChromium.launch(privateWindow, url);
   }
-  private void launchGeneric(boolean privateWindow, String[] url) {
-    logger.info("I2PChromium");
+  private void launchGeneric(int privateWindowInt, String[] url) {
+    boolean privateWindow = false;
+    if (privateWindowInt == 1)
+      privateWindow = true;
+    logger.info("I2PGeneric" + privateWindowInt);
     i2pGeneral.launch(privateWindow, url);
   }
 
@@ -111,7 +114,7 @@ public class I2PBrowser extends I2PCommonBrowser {
    *     profile).
    * @since 0.0.17
    */
-  public void launch(boolean privateWindow, String[] url) {
+  public void launch(int privateWindow, String[] url) {
     validateUserDir();
     if (generic)
       this.launchGeneric(privateWindow, url);
@@ -154,7 +157,12 @@ public class I2PBrowser extends I2PCommonBrowser {
    *     profile).
    * @since 0.0.16
    */
-  public void launch(boolean privateWindow) { launch(privateWindow, null); }
+  public void launch(boolean privateWindow) {
+    int privateWindowInt = 0;
+    if (privateWindow)
+      privateWindowInt = 1;
+    launch(privateWindowInt, null);
+  }
 
   /**
    * Populates a profile directory with a proxy configuration.
@@ -177,7 +185,7 @@ public class I2PBrowser extends I2PCommonBrowser {
 
   public static void main(String[] args) {
     validateUserDir();
-    boolean privateBrowsing = false;
+    int privateBrowsing = 0;
     logger.info("I2PBrowser");
     I2PBrowser i2pBrowser = new I2PBrowser();
     ArrayList<String> visitURL = new ArrayList<String>();
@@ -185,7 +193,7 @@ public class I2PBrowser extends I2PCommonBrowser {
       if (args.length > 0) {
         for (String arg : args) {
           if (arg.equals("-private")) {
-            privateBrowsing = true;
+            privateBrowsing = 1;
           }
           if (arg.equals("-chromium")) {
             i2pBrowser.chromium = true;
@@ -195,6 +203,10 @@ public class I2PBrowser extends I2PCommonBrowser {
           }
           if (arg.equals("-usability")) {
             i2pBrowser.usability = true;
+          }
+          if (arg.equals("-app")) {
+            i2pBrowser.usability = true;
+            privateBrowsing = 2;
           }
           if (arg.equals("-noproxycheck")) {
             logger.info("zeroing out proxy check");
