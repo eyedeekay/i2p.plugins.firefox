@@ -204,7 +204,7 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
             <arg value="" />
         </exec>
         <exec executable="echo" failonerror="true" append="true" output="src/i2p.firefox.base.profile/version.md">
-        <property name="release.number" value="0.0.37" />
+        <property name="release.number" value="0.0.36" />
         </exec>
         <exec executable="echo" failonerror="true" append="true" output="src/i2p.firefox.base.profile/version.md">
             <arg value="" />
@@ -396,7 +396,7 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
             <arg value="" />
         </exec>
         <exec executable="echo" failonerror="true" append="true" output="src/i2p.firefox.usability.profile/version.md">
-        <property name="release.number" value="0.0.37" />
+        <property name="release.number" value="0.0.36" />
         </exec>
         <exec executable="echo" failonerror="true" append="true" output="src/i2p.firefox.usability.profile/version.md">
             <arg value="" />
@@ -446,7 +446,7 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
             <arg value="" />
         </exec>
         <exec executable="echo" failonerror="true" append="true" output="src/i2p.chromium.base.profile/version.md">
-        <property name="release.number" value="0.0.37" />
+        <property name="release.number" value="0.0.36" />
         </exec>
         <exec executable="echo" failonerror="true" append="true" output="src/i2p.chromium.base.profile/version.md">
             <arg value="" />
@@ -499,7 +499,7 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
             <arg value="" />
         </exec>
         <exec executable="echo" failonerror="true" append="true" output="src/i2p.chromium.usability.profile/version.md">
-        <property name="release.number" value="0.0.37" />
+        <property name="release.number" value="0.0.36" />
         </exec>
         <exec executable="echo" failonerror="true" append="true" output="src/i2p.chromium.usability.profile/version.md">
             <arg value="" />
@@ -674,7 +674,7 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
             <arg value="update-only=true" />
         </exec>
         <exec executable="echo" osfamily="unix" failonerror="true" output="plugin/plugin.config" append="true">
-        <property name="release.number" value="0.0.37" />
+        <property name="release.number" value="0.0.36" />
         </exec>
         <input message="Enter su3 signing key password:" addproperty="release.password.su3" />
         <fail message="You must enter a password." >
@@ -697,7 +697,7 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
         <copy file="scripts/robots.txt" todir="plugin/eepsite/docroot/" overwrite="true" />
         <mkdir dir="plugin/eepsite/docroot/torrents/" />
         <exec executable="echo" osfamily="unix" failonerror="true" output="plugin/plugin.config" append="true">
-        <property name="release.number" value="0.0.37" />
+        <property name="release.number" value="0.0.36" />
         </exec>
         <exec executable="scripts/makeplugin.sh" inputstring="${release.password.su3}" failonerror="true" >
             <arg value="plugin" />
