@@ -93,6 +93,11 @@
               </a>
             </li>
             <li>
+              <a href="I2PPureJavaBrowser.html">
+                I2PPureJavaBrowser
+              </a>
+            </li>
+            <li>
               <a href="LICENSE.html">
                 LICENSE
               </a>
@@ -343,6 +348,18 @@
         ant jpackage
       </code>
     </p>
+    <h2>
+      Docker
+    </h2>
+    <pre><code class="language-sh">docker build -t eyedeekay/i2p.plugins.firefox .
+</code></pre>
+    <pre><code class="language-sh">xhost + local:docker
+docker run -it --rm \
+        --net=host \
+        -e DISPLAY=unix$(DISPLAY) \
+        -v /tmp/.X11-unix:/tmp/.X11-unix \
+        eyedeekay/i2p.plugins.firefox
+</code></pre>
     <h2>
       OSX
     </h2>
