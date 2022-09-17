@@ -44,7 +44,7 @@ directory for Firefox, and the `src/i2p.chromium.*.profile/extensions/*.js/*` di
 ```sh
 
 mkdir ~/tmp-i2pfirefox && cd ~/tmp-i2pfirefox
-wget https://github.com/eyedeekay/i2p.plugins.firefox/releases/download/0.0.37/i2pfirefox.zip
+wget https://github.com/eyedeekay/i2p.plugins.firefox/releases/download/0.0.36/i2pfirefox.zip
 unzip i2pfirefox.zip
 ./i2pfirefox.cmd
 
