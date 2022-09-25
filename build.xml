@@ -332,13 +332,13 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
         <buildnumber file="scripts/build.number" />
         <property name="release.number" value="1.0.0" />
         <exec executable="echo" osfamily="unix">
-            <arg value="{build.number}-{release.number}" />
+            <arg value="${release.number}-${build.number}" />
         </exec>
     </target>
 
     <target name="ebn" depends="buildNum">
         <exec executable="echo" osfamily="unix">
-            <arg value="{build.number}-{release.number}" />
+            <arg value="${release.number}-${build.number}" />
         </exec>
     </target>
 
@@ -364,7 +364,7 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
             <arg value="update-only=true" />
         </exec>
         <exec executable="echo" osfamily="unix" failonerror="true" output="plugin/plugin.config" append="true">
-            <arg value="{build.number}-{release.number}" />
+            <arg value="${release.number}-${build.number}" />
         </exec>
         <input message="Enter su3 signing key password:" addproperty="release.password.su3" />
         <fail message="You must enter a password." >
@@ -387,7 +387,7 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
         <copy file="scripts/robots.txt" todir="plugin/eepsite/docroot/" overwrite="true" />
         <mkdir dir="plugin/eepsite/docroot/torrents/" />
         <exec executable="echo" osfamily="unix" failonerror="true" output="plugin/plugin.config" append="true">
-            <arg value="{build.number}-{release.number}" />
+            <arg value="${release.number}-${build.number}" />
         </exec>
         <exec executable="scripts/makeplugin.sh" inputstring="${release.password.su3}" failonerror="true" >
             <arg value="plugin" />
@@ -638,7 +638,7 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
             <arg value="" />
         </exec>
         <exec executable="echo" failonerror="true" append="true" output="src/i2p.chromium.base.profile/version.md">
-            <arg value="{build.number}-{release.number}" />
+            <arg value="${release.number}-${build.number}" />
         </exec>
         <exec executable="echo" failonerror="true" append="true" output="src/i2p.chromium.base.profile/version.md">
             <arg value="" />
@@ -691,7 +691,7 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
             <arg value="" />
         </exec>
         <exec executable="echo" failonerror="true" append="true" output="src/i2p.chromium.usability.profile/version.md">
-            <arg value="{build.number}-{release.number}" />
+            <arg value="${release.number}-${build.number}" />
         </exec>
         <exec executable="echo" failonerror="true" append="true" output="src/i2p.chromium.usability.profile/version.md">
             <arg value="" />
@@ -729,7 +729,7 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
             <arg value="" />
         </exec>
         <exec executable="echo" failonerror="true" append="true" output="src/i2p.firefox.base.profile/version.md">
-            <arg value="{build.number}-{release.number}" />
+            <arg value="${release.number}-${build.number}" />
         </exec>
         <exec executable="echo" failonerror="true" append="true" output="src/i2p.firefox.base.profile/version.md">
             <arg value="" />
@@ -789,7 +789,7 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
             <arg value="" />
         </exec>
         <exec executable="echo" failonerror="true" append="true" output="src/i2p.firefox.usability.profile/version.md">
-            <arg value="{build.number}-{release.number}" />
+            <arg value="${release.number}-${build.number}" />
         </exec>
         <exec executable="echo" failonerror="true" append="true" output="src/i2p.firefox.usability.profile/version.md">
             <arg value="" />
