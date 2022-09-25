@@ -12,8 +12,8 @@ noscript
 11.4.11
 https://addons.mozilla.org/firefox/downloads/file/4002416/noscript-11.4.11.xpi
 localcdn-fork-of-decentraleyes
-2.6.34
-https://addons.mozilla.org/firefox/downloads/file/3994960/localcdn_fork_of_decentraleyes-2.6.34.xpi
+2.6.35
+https://addons.mozilla.org/firefox/downloads/file/4003760/localcdn_fork_of_decentraleyes-2.6.35.xpi
 https-everywhere
 2021.7.13
 https://addons.mozilla.org/firefox/downloads/file/3809748/https_everywhere-2021.7.13.xpi
@@ -24,8 +24,8 @@ javascript-restrictor
 0.11.1
 https://addons.mozilla.org/firefox/downloads/file/3950710/javascript_restrictor-0.11.1.xpi
 ublock-origin
-1.44.2
-https://addons.mozilla.org/firefox/downloads/file/3998742/ublock_origin-1.44.2.xpi
+1.44.4
+https://addons.mozilla.org/firefox/downloads/file/4003969/ublock_origin-1.44.4.xpi
 ```
 
 ## Chromium
@@ -44,7 +44,7 @@ LocalCDN
 2.6.34
 https://clients2.google.com/service/update2/crx
 uBlock Origin
-1.44.2
+1.44.4
 https://clients2.google.com/service/update2/crx
 JShelter
 0.11.1

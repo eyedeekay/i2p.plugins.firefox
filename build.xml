@@ -172,44 +172,6 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
         <ant dir="src" target="jar" />
     </target>
 
-    <target name="i2pFirefoxBaseProfile" depends="buildNum">
-        <exec executable="amo-version" failonerror="true">
-            <arg value="-n"/>
-            <arg value="i2p-in-private-browsing"/>
-            <arg value="-d"/>
-            <arg value="-o" />
-            <arg value="src/i2p.firefox.base.profile/extensions/i2ppb@eyedeekay.github.io.xpi" />
-        </exec>
-        <exec executable="amo-version" failonerror="true">
-            <arg value="-n"/>
-            <arg value="noscript"/>
-            <arg value="-d"/>
-            <arg value="-o" />
-            <arg value="src/i2p.firefox.base.profile/extensions/{73a6fe31-595d-460b-a920-fcc0f8843232}.xpi" />
-        </exec>
-        <exec executable="amo-version" failonerror="true">
-            <arg value="-n"/>
-            <arg value="https-everywhere"/>
-            <arg value="-d"/>
-            <arg value="-o" />
-            <arg value="src/i2p.firefox.base.profile/extensions/https-everywhere-eff@eff.org.xpi" />
-        </exec>
-        <exec executable="echo" failonerror="true" append="false" output="src/i2p.firefox.base.profile/version.md">
-            <arg value="Profile Version" />
-        </exec>
-        <exec executable="echo" failonerror="true" append="true" output="src/i2p.firefox.base.profile/version.md">
-            <arg value="===============" />
-        </exec>
-        <exec executable="echo" failonerror="true" append="true" output="src/i2p.firefox.base.profile/version.md">
-            <arg value="" />
-        </exec>
-        <exec executable="echo" failonerror="true" append="true" output="src/i2p.firefox.base.profile/version.md">
-        <property name="release.number" value="1.0.0" />
-        </exec>
-        <exec executable="echo" failonerror="true" append="true" output="src/i2p.firefox.base.profile/version.md">
-            <arg value="" />
-        </exec>
-    </target>
     <target name="i2pFirefoxBaseProfileZip">
         <exec executable="rm" failonerror="false" dir="src">
             <arg value="-rf" />
@@ -222,186 +184,6 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
         </exec>
     </target>
 
-    <target name="versionMd" depends="i2pFirefoxBaseProfile, i2pFirefoxUsabilityProfile, i2pChromiumBaseProfile, i2pChromiumUsabilityProfile">
-        <delete file="VERSION.md"></delete>
-        <exec executable="echo" failonerror="true">
-            <redirector output="VERSION.md" error="VERSION.md" alwayslog="true" append="true"></redirector>
-            <arg value=""/>
-        </exec>
-        <exec executable="echo" failonerror="true">
-            <redirector output="VERSION.md" error="VERSION.md" alwayslog="true" append="true"></redirector>
-            <arg value="Extension Versions"/>
-        </exec>
-        <exec executable="echo" failonerror="true">
-            <redirector output="VERSION.md" error="VERSION.md" alwayslog="true" append="true"></redirector>
-            <arg value="=================="/>
-        </exec>
-        <exec executable="echo" failonerror="true">
-            <redirector output="VERSION.md" error="VERSION.md" alwayslog="true" append="true"></redirector>
-            <arg value=""/>
-        </exec>
-        <exec executable="echo" failonerror="true">
-            <redirector output="VERSION.md" error="VERSION.md" alwayslog="true" append="true"></redirector>
-            <arg value="## Firefox"/>
-        </exec>
-        <exec executable="echo" failonerror="true">
-            <redirector output="VERSION.md" error="VERSION.md" alwayslog="true" append="true"></redirector>
-            <arg value=""/>
-        </exec>
-        <exec executable="echo" failonerror="true">
-            <redirector output="VERSION.md" error="VERSION.md" alwayslog="true" append="true"></redirector>
-            <arg value="```md"/>
-        </exec>
-        <exec executable="amo-version" failonerror="true">
-            <redirector output="VERSION.md" error="VERSION.md" alwayslog="true" append="true"></redirector>
-            <arg value="-n"/>
-            <arg value="i2p-in-private-browsing"/>
-        </exec>
-        <exec executable="amo-version" failonerror="true">
-            <redirector output="VERSION.md" error="VERSION.md" alwayslog="true" append="true"></redirector>
-            <arg value="-n"/>
-            <arg value="noscript"/>
-        </exec>
-        <exec executable="amo-version" failonerror="true">
-            <redirector output="VERSION.md" error="VERSION.md" alwayslog="true" append="true"></redirector>
-            <arg value="-n"/>
-            <arg value="localcdn-fork-of-decentraleyes"/>
-        </exec>
-        <exec executable="amo-version" failonerror="true">
-            <redirector output="VERSION.md" error="VERSION.md" alwayslog="true" append="true"></redirector>
-            <arg value="-n"/>
-            <arg value="https-everywhere"/>
-        </exec>
-        <exec executable="amo-version" failonerror="true">
-            <redirector output="VERSION.md" error="VERSION.md" alwayslog="true" append="true"></redirector>
-            <arg value="-n"/>
-            <arg value="onion-in-container-browsing"/>
-        </exec>
-        <exec executable="amo-version" failonerror="true">
-            <redirector output="VERSION.md" error="VERSION.md" alwayslog="true" append="true"></redirector>
-            <arg value="-n"/>
-            <arg value="javascript-restrictor"/>
-        </exec>
-        <exec executable="amo-version" failonerror="true">
-            <redirector output="VERSION.md" error="VERSION.md" alwayslog="true" append="true"></redirector>
-            <arg value="-n"/>
-            <arg value="ublock-origin"/>
-        </exec>
-        <exec executable="echo" failonerror="true">
-            <redirector output="VERSION.md" error="VERSION.md" alwayslog="true" append="true"></redirector>
-            <arg value="```"/>
-        </exec>
-        <exec executable="echo" failonerror="true">
-            <redirector output="VERSION.md" error="VERSION.md" alwayslog="true" append="true"></redirector>
-            <arg value=""/>
-        </exec>
-        <exec executable="echo" failonerror="true">
-            <redirector output="VERSION.md" error="VERSION.md" alwayslog="true" append="true"></redirector>
-            <arg value="## Chromium"/>
-        </exec>
-        <exec executable="echo" failonerror="true">
-            <redirector output="VERSION.md" error="VERSION.md" alwayslog="true" append="true"></redirector>
-            <arg value=""/>
-        </exec>
-        <exec executable="echo" failonerror="true">
-            <redirector output="VERSION.md" error="VERSION.md" alwayslog="true" append="true"></redirector>
-            <arg value="```md"/>
-        </exec>
-        <exec executable="manifest-json-version" failonerror="true">
-            <redirector output="VERSION.md" error="VERSION.md" alwayslog="true" append="true"></redirector>
-            <arg value="-mf"/>
-            <arg value="src/i2p.chromium.base.profile/extensions/i2pchrome.js/manifest.json"/>
-        </exec>
-        <exec executable="manifest-json-version" failonerror="true">
-            <redirector output="VERSION.md" error="VERSION.md" alwayslog="true" append="true"></redirector>
-            <arg value="-mf"/>
-            <arg value="src/i2p.chromium.base.profile/extensions/noscript.js/manifest.json"/>
-        </exec>
-        <exec executable="manifest-json-version" failonerror="true">
-            <redirector output="VERSION.md" error="VERSION.md" alwayslog="true" append="true"></redirector>
-            <arg value="-mf"/>
-            <arg value="src/i2p.chromium.base.profile/extensions/https-everywhere.js/manifest.json"/>
-        </exec>
-        <exec executable="manifest-json-version" failonerror="true">
-            <redirector output="VERSION.md" error="VERSION.md" alwayslog="true" append="true"></redirector>
-            <arg value="-mf"/>
-            <arg value="src/i2p.chromium.usability.profile/extensions/localcdn.js/manifest.json"/>
-        </exec>
-        <exec executable="manifest-json-version" failonerror="true">
-            <redirector output="VERSION.md" error="VERSION.md" alwayslog="true" append="true"></redirector>
-            <arg value="-mf"/>
-            <arg value="src/i2p.chromium.usability.profile/extensions/ublock.js/manifest.json"/>
-        </exec>
-        <exec executable="manifest-json-version" failonerror="true">
-            <redirector output="VERSION.md" error="VERSION.md" alwayslog="true" append="true"></redirector>
-            <arg value="-mf"/>
-            <arg value="src/i2p.chromium.usability.profile/extensions/jshelter.js/manifest.json"/>
-        </exec>
-        <exec executable="echo" failonerror="true">
-            <redirector output="VERSION.md" error="VERSION.md" alwayslog="true" append="true"></redirector>
-            <arg value="```"/>
-        </exec>
-    </target>
-
-    <target name="i2pFirefoxUsabilityProfile" depends="buildNum">
-        <exec executable="amo-version" failonerror="true">
-            <arg value="-n"/>
-            <arg value="i2p-in-private-browsing"/>
-            <arg value="-d"/>
-            <arg value="-o" />
-            <arg value="src/i2p.firefox.base.profile/extensions/i2ppb@eyedeekay.github.io.xpi" />
-        </exec>
-        <exec executable="amo-version" failonerror="true">
-            <arg value="-n"/>
-            <arg value="localcdn-fork-of-decentraleyes"/>
-            <arg value="-d"/>
-            <arg value="-o" />
-            <arg value="./src/i2p.firefox.usability.profile/extensions/{b86e4813-687a-43e6-ab65-0bde4ab75758}.xpi" />
-        </exec>
-        <exec executable="amo-version" failonerror="true">
-            <arg value="-n"/>
-            <arg value="https-everywhere"/>
-            <arg value="-d"/>
-            <arg value="-o" />
-            <arg value="src/i2p.firefox.base.profile/extensions/https-everywhere-eff@eff.org.xpi" />
-        </exec>
-        <exec executable="amo-version" failonerror="true">
-            <arg value="-n"/>
-            <arg value="onion-in-container-browsing"/>
-            <arg value="-d"/>
-            <arg value="-o" />
-            <arg value="src/i2p.firefox.usability.profile/extensions/onioncbt@eyedeekay.github.io.xpi" />
-        </exec>
-        <exec executable="amo-version" failonerror="true">
-            <arg value="-n"/>
-            <arg value="javascript-restrictor"/>
-            <arg value="-d"/>
-            <arg value="-o" />
-            <arg value="src/i2p.firefox.usability.profile/extensions/jsr@javascriptrestrictor.xpi" />
-        </exec>
-        <exec executable="amo-version" failonerror="true">
-            <arg value="-n"/>
-            <arg value="ublock-origin"/>
-            <arg value="-d"/>
-            <arg value="-o" />
-            <arg value="src/i2p.firefox.usability.profile/extensions/uBlock0@raymondhill.net.xpi" />
-        </exec>
-        <exec executable="echo" failonerror="true" append="false" output="src/i2p.firefox.usability.profile/version.md">
-            <arg value="Profile Version" />
-        </exec>
-        <exec executable="echo" failonerror="true" append="true" output="src/i2p.firefox.usability.profile/version.md">
-            <arg value="===============" />
-        </exec>
-        <exec executable="echo" failonerror="true" append="true" output="src/i2p.firefox.usability.profile/version.md">
-            <arg value="" />
-        </exec>
-        <exec executable="echo" failonerror="true" append="true" output="src/i2p.firefox.usability.profile/version.md">
-        <property name="release.number" value="1.0.0" />
-        </exec>
-        <exec executable="echo" failonerror="true" append="true" output="src/i2p.firefox.usability.profile/version.md">
-            <arg value="" />
-        </exec>
-    </target>
     <target name="i2pFirefoxUsabilityProfileZip">
         <exec executable="rm" failonerror="false" dir="src">
             <arg value="-rf" />
@@ -411,98 +193,6 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
             <arg value="-r"/>
             <arg value="i2p.firefox.usability.profile.zip"/>
             <arg value="i2p.firefox.usability.profile"/>
-        </exec>
-    </target>
-
-    <target name="i2pChromiumBaseProfile">
-        <exec executable="crx3" failonerror="true">
-            <arg value="download"/>
-            <arg value="ikdjcmomgldfciocnpekfndklkfgglpe" />
-            <arg value="-u=true"/>
-            <arg value="-o" />
-            <arg value="src/i2p.chromium.base.profile/extensions/i2pchrome.js.crx" />
-        </exec>
-        <exec executable="crx3" failonerror="true">
-            <arg value="download"/>
-            <arg value="doojmbjmlfjjnbmnoijecmcbfeoakpjm" />
-            <arg value="-u=true"/>
-            <arg value="-o" />
-            <arg value="src/i2p.chromium.base.profile/extensions/noscript.js.crx" />
-        </exec>
-        <exec executable="crx3" failonerror="true">
-            <arg value="download"/>
-            <arg value="gcbommkclmclpchllfjekcdonpmejbdp" />
-            <arg value="-u=true"/>
-            <arg value="-o" />
-            <arg value="src/i2p.chromium.base.profile/extensions/https-everywhere.js.crx" />
-        </exec>
-        <exec executable="echo" failonerror="true" append="false" output="src/i2p.chromium.base.profile/version.md">
-            <arg value="Profile Version" />
-        </exec>
-        <exec executable="echo" failonerror="true" append="true" output="src/i2p.chromium.base.profile/version.md">
-            <arg value="===============" />
-        </exec>
-        <exec executable="echo" failonerror="true" append="true" output="src/i2p.chromium.base.profile/version.md">
-            <arg value="" />
-        </exec>
-        <exec executable="echo" failonerror="true" append="true" output="src/i2p.chromium.base.profile/version.md">
-        <property name="release.number" value="1.0.0" />
-        </exec>
-        <exec executable="echo" failonerror="true" append="true" output="src/i2p.chromium.base.profile/version.md">
-            <arg value="" />
-        </exec>
-    </target>
-
-    <target name="i2pChromiumUsabilityProfile">
-        <exec executable="crx3" failonerror="true">
-            <arg value="download"/>
-            <arg value="ikdjcmomgldfciocnpekfndklkfgglpe" />
-            <arg value="-u=true"/>
-            <arg value="-o" />
-            <arg value="src/i2p.chromium.usability.profile/extensions/i2pchrome.js.crx" />
-        </exec>
-        <exec executable="crx3" failonerror="true">
-            <arg value="download"/>
-            <arg value="cjpalhdlnbpafiamejdnhcphjbkeiagm" />
-            <arg value="-u=true"/>
-            <arg value="-o" />
-            <arg value="src/i2p.chromium.usability.profile/extensions/ublock.js.crx" />
-        </exec>
-        <exec executable="crx3" failonerror="true">
-            <arg value="download"/>
-            <arg value="ammoloihpcbognfddfjcljgembpibcmb" />
-            <arg value="-u=true"/>
-            <arg value="-o" />
-            <arg value="src/i2p.chromium.usability.profile/extensions/jshelter.js.crx" />
-        </exec>
-        <exec executable="crx3" failonerror="true">
-            <arg value="download"/>
-            <arg value="njdfdhgcmkocbgbhcioffdbicglldapd" />
-            <arg value="-u=true"/>
-            <arg value="-o" />
-            <arg value="src/i2p.chromium.usability.profile/extensions/localcdn.js.crx" />
-        </exec>
-        <exec executable="crx3" failonerror="true">
-            <arg value="download"/>
-            <arg value="gcbommkclmclpchllfjekcdonpmejbdp" />
-            <arg value="-u=true"/>
-            <arg value="-o" />
-            <arg value="src/i2p.chromium.usability.profile/extensions/https-everywhere.js.crx" />
-        </exec>
-        <exec executable="echo" failonerror="true" append="false" output="src/i2p.chromium.usability.profile/version.md">
-            <arg value="Profile Version" />
-        </exec>
-        <exec executable="echo" failonerror="true" append="true" output="src/i2p.chromium.usability.profile/version.md">
-            <arg value="===============" />
-        </exec>
-        <exec executable="echo" failonerror="true" append="true" output="src/i2p.chromium.usability.profile/version.md">
-            <arg value="" />
-        </exec>
-        <exec executable="echo" failonerror="true" append="true" output="src/i2p.chromium.usability.profile/version.md">
-        <property name="release.number" value="1.0.0" />
-        </exec>
-        <exec executable="echo" failonerror="true" append="true" output="src/i2p.chromium.usability.profile/version.md">
-            <arg value="" />
         </exec>
     </target>
 
@@ -674,7 +364,7 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
             <arg value="update-only=true" />
         </exec>
         <exec executable="echo" osfamily="unix" failonerror="true" output="plugin/plugin.config" append="true">
-        <property name="release.number" value="1.0.0" />
+            <arg value="{build.number}-{release.number}" />
         </exec>
         <input message="Enter su3 signing key password:" addproperty="release.password.su3" />
         <fail message="You must enter a password." >
@@ -697,7 +387,7 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
         <copy file="scripts/robots.txt" todir="plugin/eepsite/docroot/" overwrite="true" />
         <mkdir dir="plugin/eepsite/docroot/torrents/" />
         <exec executable="echo" osfamily="unix" failonerror="true" output="plugin/plugin.config" append="true">
-        <property name="release.number" value="1.0.0" />
+            <arg value="{build.number}-{release.number}" />
         </exec>
         <exec executable="scripts/makeplugin.sh" inputstring="${release.password.su3}" failonerror="true" >
             <arg value="plugin" />
@@ -792,6 +482,317 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
             <arg value="--verbose"/>
             <arg value="-c"/>
             <arg value="./fedora.sh"/>
+        </exec>
+    </target>
+
+    <target name="versionMd" depends="i2pFirefoxBaseProfile, i2pFirefoxUsabilityProfile, i2pChromiumBaseProfile, i2pChromiumUsabilityProfile">
+        <delete file="VERSION.md"></delete>
+        <exec executable="echo" failonerror="true">
+            <redirector output="VERSION.md" error="VERSION.md" alwayslog="true" append="true"></redirector>
+            <arg value=""/>
+        </exec>
+        <exec executable="echo" failonerror="true">
+            <redirector output="VERSION.md" error="VERSION.md" alwayslog="true" append="true"></redirector>
+            <arg value="Extension Versions"/>
+        </exec>
+        <exec executable="echo" failonerror="true">
+            <redirector output="VERSION.md" error="VERSION.md" alwayslog="true" append="true"></redirector>
+            <arg value="=================="/>
+        </exec>
+        <exec executable="echo" failonerror="true">
+            <redirector output="VERSION.md" error="VERSION.md" alwayslog="true" append="true"></redirector>
+            <arg value=""/>
+        </exec>
+        <exec executable="echo" failonerror="true">
+            <redirector output="VERSION.md" error="VERSION.md" alwayslog="true" append="true"></redirector>
+            <arg value="## Firefox"/>
+        </exec>
+        <exec executable="echo" failonerror="true">
+            <redirector output="VERSION.md" error="VERSION.md" alwayslog="true" append="true"></redirector>
+            <arg value=""/>
+        </exec>
+        <exec executable="echo" failonerror="true">
+            <redirector output="VERSION.md" error="VERSION.md" alwayslog="true" append="true"></redirector>
+            <arg value="```md"/>
+        </exec>
+        <exec executable="amo-version" failonerror="true">
+            <redirector output="VERSION.md" error="VERSION.md" alwayslog="true" append="true"></redirector>
+            <arg value="-n"/>
+            <arg value="i2p-in-private-browsing"/>
+        </exec>
+        <exec executable="amo-version" failonerror="true">
+            <redirector output="VERSION.md" error="VERSION.md" alwayslog="true" append="true"></redirector>
+            <arg value="-n"/>
+            <arg value="noscript"/>
+        </exec>
+        <exec executable="amo-version" failonerror="true">
+            <redirector output="VERSION.md" error="VERSION.md" alwayslog="true" append="true"></redirector>
+            <arg value="-n"/>
+            <arg value="localcdn-fork-of-decentraleyes"/>
+        </exec>
+        <exec executable="amo-version" failonerror="true">
+            <redirector output="VERSION.md" error="VERSION.md" alwayslog="true" append="true"></redirector>
+            <arg value="-n"/>
+            <arg value="https-everywhere"/>
+        </exec>
+        <exec executable="amo-version" failonerror="true">
+            <redirector output="VERSION.md" error="VERSION.md" alwayslog="true" append="true"></redirector>
+            <arg value="-n"/>
+            <arg value="onion-in-container-browsing"/>
+        </exec>
+        <exec executable="amo-version" failonerror="true">
+            <redirector output="VERSION.md" error="VERSION.md" alwayslog="true" append="true"></redirector>
+            <arg value="-n"/>
+            <arg value="javascript-restrictor"/>
+        </exec>
+        <exec executable="amo-version" failonerror="true">
+            <redirector output="VERSION.md" error="VERSION.md" alwayslog="true" append="true"></redirector>
+            <arg value="-n"/>
+            <arg value="ublock-origin"/>
+        </exec>
+        <exec executable="echo" failonerror="true">
+            <redirector output="VERSION.md" error="VERSION.md" alwayslog="true" append="true"></redirector>
+            <arg value="```"/>
+        </exec>
+        <exec executable="echo" failonerror="true">
+            <redirector output="VERSION.md" error="VERSION.md" alwayslog="true" append="true"></redirector>
+            <arg value=""/>
+        </exec>
+        <exec executable="echo" failonerror="true">
+            <redirector output="VERSION.md" error="VERSION.md" alwayslog="true" append="true"></redirector>
+            <arg value="## Chromium"/>
+        </exec>
+        <exec executable="echo" failonerror="true">
+            <redirector output="VERSION.md" error="VERSION.md" alwayslog="true" append="true"></redirector>
+            <arg value=""/>
+        </exec>
+        <exec executable="echo" failonerror="true">
+            <redirector output="VERSION.md" error="VERSION.md" alwayslog="true" append="true"></redirector>
+            <arg value="```md"/>
+        </exec>
+        <exec executable="manifest-json-version" failonerror="true">
+            <redirector output="VERSION.md" error="VERSION.md" alwayslog="true" append="true"></redirector>
+            <arg value="-mf"/>
+            <arg value="src/i2p.chromium.base.profile/extensions/i2pchrome.js/manifest.json"/>
+        </exec>
+        <exec executable="manifest-json-version" failonerror="true">
+            <redirector output="VERSION.md" error="VERSION.md" alwayslog="true" append="true"></redirector>
+            <arg value="-mf"/>
+            <arg value="src/i2p.chromium.base.profile/extensions/noscript.js/manifest.json"/>
+        </exec>
+        <exec executable="manifest-json-version" failonerror="true">
+            <redirector output="VERSION.md" error="VERSION.md" alwayslog="true" append="true"></redirector>
+            <arg value="-mf"/>
+            <arg value="src/i2p.chromium.base.profile/extensions/https-everywhere.js/manifest.json"/>
+        </exec>
+        <exec executable="manifest-json-version" failonerror="true">
+            <redirector output="VERSION.md" error="VERSION.md" alwayslog="true" append="true"></redirector>
+            <arg value="-mf"/>
+            <arg value="src/i2p.chromium.usability.profile/extensions/localcdn.js/manifest.json"/>
+        </exec>
+        <exec executable="manifest-json-version" failonerror="true">
+            <redirector output="VERSION.md" error="VERSION.md" alwayslog="true" append="true"></redirector>
+            <arg value="-mf"/>
+            <arg value="src/i2p.chromium.usability.profile/extensions/ublock.js/manifest.json"/>
+        </exec>
+        <exec executable="manifest-json-version" failonerror="true">
+            <redirector output="VERSION.md" error="VERSION.md" alwayslog="true" append="true"></redirector>
+            <arg value="-mf"/>
+            <arg value="src/i2p.chromium.usability.profile/extensions/jshelter.js/manifest.json"/>
+        </exec>
+        <exec executable="echo" failonerror="true">
+            <redirector output="VERSION.md" error="VERSION.md" alwayslog="true" append="true"></redirector>
+            <arg value="```"/>
+        </exec>
+    </target>
+    
+    <target name="i2pChromiumBaseProfile">
+        <exec executable="crx3" failonerror="true">
+            <arg value="download"/>
+            <arg value="ikdjcmomgldfciocnpekfndklkfgglpe" />
+            <arg value="-u=true"/>
+            <arg value="-o" />
+            <arg value="src/i2p.chromium.base.profile/extensions/i2pchrome.js.crx" />
+        </exec>
+        <exec executable="crx3" failonerror="true">
+            <arg value="download"/>
+            <arg value="doojmbjmlfjjnbmnoijecmcbfeoakpjm" />
+            <arg value="-u=true"/>
+            <arg value="-o" />
+            <arg value="src/i2p.chromium.base.profile/extensions/noscript.js.crx" />
+        </exec>
+        <exec executable="crx3" failonerror="true">
+            <arg value="download"/>
+            <arg value="gcbommkclmclpchllfjekcdonpmejbdp" />
+            <arg value="-u=true"/>
+            <arg value="-o" />
+            <arg value="src/i2p.chromium.base.profile/extensions/https-everywhere.js.crx" />
+        </exec>
+        <exec executable="echo" failonerror="true" append="false" output="src/i2p.chromium.base.profile/version.md">
+            <arg value="Profile Version" />
+        </exec>
+        <exec executable="echo" failonerror="true" append="true" output="src/i2p.chromium.base.profile/version.md">
+            <arg value="===============" />
+        </exec>
+        <exec executable="echo" failonerror="true" append="true" output="src/i2p.chromium.base.profile/version.md">
+            <arg value="" />
+        </exec>
+        <exec executable="echo" failonerror="true" append="true" output="src/i2p.chromium.base.profile/version.md">
+            <arg value="{build.number}-{release.number}" />
+        </exec>
+        <exec executable="echo" failonerror="true" append="true" output="src/i2p.chromium.base.profile/version.md">
+            <arg value="" />
+        </exec>
+    </target>
+
+    <target name="i2pChromiumUsabilityProfile">
+        <exec executable="crx3" failonerror="true">
+            <arg value="download"/>
+            <arg value="ikdjcmomgldfciocnpekfndklkfgglpe" />
+            <arg value="-u=true"/>
+            <arg value="-o" />
+            <arg value="src/i2p.chromium.usability.profile/extensions/i2pchrome.js.crx" />
+        </exec>
+        <exec executable="crx3" failonerror="true">
+            <arg value="download"/>
+            <arg value="cjpalhdlnbpafiamejdnhcphjbkeiagm" />
+            <arg value="-u=true"/>
+            <arg value="-o" />
+            <arg value="src/i2p.chromium.usability.profile/extensions/ublock.js.crx" />
+        </exec>
+        <exec executable="crx3" failonerror="true">
+            <arg value="download"/>
+            <arg value="ammoloihpcbognfddfjcljgembpibcmb" />
+            <arg value="-u=true"/>
+            <arg value="-o" />
+            <arg value="src/i2p.chromium.usability.profile/extensions/jshelter.js.crx" />
+        </exec>
+        <exec executable="crx3" failonerror="true">
+            <arg value="download"/>
+            <arg value="njdfdhgcmkocbgbhcioffdbicglldapd" />
+            <arg value="-u=true"/>
+            <arg value="-o" />
+            <arg value="src/i2p.chromium.usability.profile/extensions/localcdn.js.crx" />
+        </exec>
+        <exec executable="crx3" failonerror="true">
+            <arg value="download"/>
+            <arg value="gcbommkclmclpchllfjekcdonpmejbdp" />
+            <arg value="-u=true"/>
+            <arg value="-o" />
+            <arg value="src/i2p.chromium.usability.profile/extensions/https-everywhere.js.crx" />
+        </exec>
+        <exec executable="echo" failonerror="true" append="false" output="src/i2p.chromium.usability.profile/version.md">
+            <arg value="Profile Version" />
+        </exec>
+        <exec executable="echo" failonerror="true" append="true" output="src/i2p.chromium.usability.profile/version.md">
+            <arg value="===============" />
+        </exec>
+        <exec executable="echo" failonerror="true" append="true" output="src/i2p.chromium.usability.profile/version.md">
+            <arg value="" />
+        </exec>
+        <exec executable="echo" failonerror="true" append="true" output="src/i2p.chromium.usability.profile/version.md">
+            <arg value="{build.number}-{release.number}" />
+        </exec>
+        <exec executable="echo" failonerror="true" append="true" output="src/i2p.chromium.usability.profile/version.md">
+            <arg value="" />
+        </exec>
+    </target>
+    <target name="i2pFirefoxBaseProfile" depends="buildNum">
+        <exec executable="amo-version" failonerror="true">
+            <arg value="-n"/>
+            <arg value="i2p-in-private-browsing"/>
+            <arg value="-d"/>
+            <arg value="-o" />
+            <arg value="src/i2p.firefox.base.profile/extensions/i2ppb@eyedeekay.github.io.xpi" />
+        </exec>
+        <exec executable="amo-version" failonerror="true">
+            <arg value="-n"/>
+            <arg value="noscript"/>
+            <arg value="-d"/>
+            <arg value="-o" />
+            <arg value="src/i2p.firefox.base.profile/extensions/{73a6fe31-595d-460b-a920-fcc0f8843232}.xpi" />
+        </exec>
+        <exec executable="amo-version" failonerror="true">
+            <arg value="-n"/>
+            <arg value="https-everywhere"/>
+            <arg value="-d"/>
+            <arg value="-o" />
+            <arg value="src/i2p.firefox.base.profile/extensions/https-everywhere-eff@eff.org.xpi" />
+        </exec>
+        <exec executable="echo" failonerror="true" append="false" output="src/i2p.firefox.base.profile/version.md">
+            <arg value="Profile Version" />
+        </exec>
+        <exec executable="echo" failonerror="true" append="true" output="src/i2p.firefox.base.profile/version.md">
+            <arg value="===============" />
+        </exec>
+        <exec executable="echo" failonerror="true" append="true" output="src/i2p.firefox.base.profile/version.md">
+            <arg value="" />
+        </exec>
+        <exec executable="echo" failonerror="true" append="true" output="src/i2p.firefox.base.profile/version.md">
+            <arg value="{build.number}-{release.number}" />
+        </exec>
+        <exec executable="echo" failonerror="true" append="true" output="src/i2p.firefox.base.profile/version.md">
+            <arg value="" />
+        </exec>
+    </target>
+
+    <target name="i2pFirefoxUsabilityProfile" depends="buildNum">
+        <exec executable="amo-version" failonerror="true">
+            <arg value="-n"/>
+            <arg value="i2p-in-private-browsing"/>
+            <arg value="-d"/>
+            <arg value="-o" />
+            <arg value="src/i2p.firefox.base.profile/extensions/i2ppb@eyedeekay.github.io.xpi" />
+        </exec>
+        <exec executable="amo-version" failonerror="true">
+            <arg value="-n"/>
+            <arg value="localcdn-fork-of-decentraleyes"/>
+            <arg value="-d"/>
+            <arg value="-o" />
+            <arg value="./src/i2p.firefox.usability.profile/extensions/{b86e4813-687a-43e6-ab65-0bde4ab75758}.xpi" />
+        </exec>
+        <exec executable="amo-version" failonerror="true">
+            <arg value="-n"/>
+            <arg value="https-everywhere"/>
+            <arg value="-d"/>
+            <arg value="-o" />
+            <arg value="src/i2p.firefox.base.profile/extensions/https-everywhere-eff@eff.org.xpi" />
+        </exec>
+        <exec executable="amo-version" failonerror="true">
+            <arg value="-n"/>
+            <arg value="onion-in-container-browsing"/>
+            <arg value="-d"/>
+            <arg value="-o" />
+            <arg value="src/i2p.firefox.usability.profile/extensions/onioncbt@eyedeekay.github.io.xpi" />
+        </exec>
+        <exec executable="amo-version" failonerror="true">
+            <arg value="-n"/>
+            <arg value="javascript-restrictor"/>
+            <arg value="-d"/>
+            <arg value="-o" />
+            <arg value="src/i2p.firefox.usability.profile/extensions/jsr@javascriptrestrictor.xpi" />
+        </exec>
+        <exec executable="amo-version" failonerror="true">
+            <arg value="-n"/>
+            <arg value="ublock-origin"/>
+            <arg value="-d"/>
+            <arg value="-o" />
+            <arg value="src/i2p.firefox.usability.profile/extensions/uBlock0@raymondhill.net.xpi" />
+        </exec>
+        <exec executable="echo" failonerror="true" append="false" output="src/i2p.firefox.usability.profile/version.md">
+            <arg value="Profile Version" />
+        </exec>
+        <exec executable="echo" failonerror="true" append="true" output="src/i2p.firefox.usability.profile/version.md">
+            <arg value="===============" />
+        </exec>
+        <exec executable="echo" failonerror="true" append="true" output="src/i2p.firefox.usability.profile/version.md">
+            <arg value="" />
+        </exec>
+        <exec executable="echo" failonerror="true" append="true" output="src/i2p.firefox.usability.profile/version.md">
+            <arg value="{build.number}-{release.number}" />
+        </exec>
+        <exec executable="echo" failonerror="true" append="true" output="src/i2p.firefox.usability.profile/version.md">
+            <arg value="" />
         </exec>
     </target>
 </project>
