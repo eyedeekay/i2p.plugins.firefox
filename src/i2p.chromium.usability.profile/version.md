@@ -1,5 +1,5 @@
 Profile Version
 ===============
 
-{build.number}-{release.number}
+1.0.0-105
 
