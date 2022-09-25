@@ -1,3 +1,8 @@
+Sun, September 25
+-----------------
+
+ - Become version 1.0.0
+
 Wed, September 15
 -----------------
 
