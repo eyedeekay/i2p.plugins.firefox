@@ -1,5 +1,5 @@
 Profile Version
 ===============
 
-version=0.0.36-b96
+{build.number}-{release.number}
 
