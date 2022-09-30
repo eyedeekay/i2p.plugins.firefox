@@ -59,14 +59,13 @@ public class I2PFirefox extends I2PCommonBrowser {
   }
   private static String[] FIND_FIREFOX_SEARCH_PATHS_OSX() {
     String[] path =
-        new String[] {"/Applications/Firefox.app",
-                      "/Applications/Waterfox.app",
+        new String[] {"/Applications/Firefox.app", "/Applications/Waterfox.app",
                       "/Applications/Librewolf.app"};
     String[] exePath = new String[path.length];
     int i = 0;
     for (String s : path) {
-        exePath[i] = s;
-        i++;
+      exePath[i] = s;
+      i++;
     }
     return exePath;
   }
@@ -439,16 +438,17 @@ public class I2PFirefox extends I2PCommonBrowser {
           }
         }
       }
-      if (isOSX()){
-        String argString = Arrays.toString(Arrays.copyOfRange(newArgs, 1, newArgs.length));
+      if (isOSX()) {
+        String argString =
+            Arrays.toString(Arrays.copyOfRange(newArgs, 1, newArgs.length));
         String[] finalArgs = {"open", newArgs[0], "--args", argString};
         return new ProcessBuilder(finalArgs).directory(
             I2PFirefoxProfileBuilder.runtimeDirectory(true));
-      }else{
+      } else {
         return new ProcessBuilder(newArgs).directory(
             I2PFirefoxProfileBuilder.runtimeDirectory(true));
       }
-      
+
     } else {
       logger.info("No Firefox found.");
       return new ProcessBuilder(args);
