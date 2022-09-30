@@ -2,7 +2,7 @@
 <project basedir="." default="all" name="i2pfirefox">
     <property file="override.properties"/>
 
-    <target name="all" depends="clean,i2pFirefoxBaseProfileZip,i2pChromiumBaseProfileZip,plugin" />
+    <target name="all" depends="clean,i2pFirefoxBaseProfileZip,i2pChromiumBaseProfileZip,jar" />
 
     <target name="war" >
         <ant dir="src" target="build" />
