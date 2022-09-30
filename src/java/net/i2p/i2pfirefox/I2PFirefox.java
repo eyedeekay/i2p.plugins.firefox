@@ -3,6 +3,7 @@ package net.i2p.i2pfirefox;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -58,18 +59,14 @@ public class I2PFirefox extends I2PCommonBrowser {
   }
   private static String[] FIND_FIREFOX_SEARCH_PATHS_OSX() {
     String[] path =
-        new String[] {"/Applications/Firefox.app/Contents/MacOS/",
-                      "/Applications/Waterfox.app/Contents/MacOS/",
-                      "/Applications/Librewolf.app/Contents/MacOS/"};
-    String[] exes = new String[] {"firefox",  "firefox-bin",  "firefox-esr",
-                                  "waterfox", "waterfox-bin", "librewolf"};
-    String[] exePath = new String[path.length * exes.length];
+        new String[] {"/Applications/Firefox.app",
+                      "/Applications/Waterfox.app",
+                      "/Applications/Librewolf.app"};
+    String[] exePath = new String[path.length];
     int i = 0;
     for (String s : path) {
-      for (String exe : exes) {
-        exePath[i] = s + "/" + exe;
+        exePath[i] = s;
         i++;
-      }
     }
     return exePath;
   }
@@ -442,8 +439,16 @@ public class I2PFirefox extends I2PCommonBrowser {
           }
         }
       }
-      return new ProcessBuilder(newArgs).directory(
-          I2PFirefoxProfileBuilder.runtimeDirectory(true));
+      if (isOSX()){
+        String argString = Arrays.toString(Arrays.copyOfRange(newArgs, 1, newArgs.length));
+        String[] finalArgs = {"open", newArgs[0], "--args", argString};
+        return new ProcessBuilder(finalArgs).directory(
+            I2PFirefoxProfileBuilder.runtimeDirectory(true));
+      }else{
+        return new ProcessBuilder(newArgs).directory(
+            I2PFirefoxProfileBuilder.runtimeDirectory(true));
+      }
+      
     } else {
       logger.info("No Firefox found.");
       return new ProcessBuilder(args);
@@ -484,7 +489,7 @@ public class I2PFirefox extends I2PCommonBrowser {
         }
       }
       if (validateProfileFirstRun(profileDirectory)) {
-        if (isWindows()) {
+        if (isWindows() || isOSX()) {
           ProcessBuilder hpb = headlessProcessBuilder(url);
           try {
             Process hp = hpb.start();

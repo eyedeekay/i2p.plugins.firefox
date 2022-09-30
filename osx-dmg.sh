@@ -3,7 +3,6 @@
 jpackage \
     --verbose \
     --type dmg \
-    --license-file LICENSE.md \
     --name i2pbrowser \
     --app-version "$GITHUB_TAG" \
     --input src/build \
