@@ -110,6 +110,28 @@ public class I2PCommonBrowser {
     return false;
   }
 
+  protected static boolean isOSX() {
+    String osName = System.getProperty("os.name");
+    logger.info("os.name" + osName);
+    if (osName.contains("OSX"))
+      return true;
+    if (osName.contains("osx"))
+      return true;
+    if (osName.contains("mac"))
+      return true;
+    if (osName.contains("Mac"))
+      return true;
+    if (osName.contains("apple"))
+      return true;
+    if (osName.contains("Apple"))
+      return true;
+    if (osName.contains("Darwin"))
+      return true;
+    if (osName.contains("darwin"))
+      return true;
+    return false;
+  }
+
   //  public static void logger.info(String line) { logger.info(line); }
 
   private static File logFile() {
