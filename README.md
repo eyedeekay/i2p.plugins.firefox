@@ -192,6 +192,12 @@ There is a little subtlety here though.
 resulting in a positive test for Chromium when launching the browser in auto-select
 mode. So Windows will never reach stage 3 unless expressly forced to. If Firefox or
 a variant is installed, it will be chosen before Edgium unless directed otherwise.
+- Even though it will launch you into Edgium if it has no other choice, I recommend
+you do not use it. Edgium will in a constant, incessant way try to induce you to
+share your behavior with Microsoft. If you try to resist this, it negatively affects
+the performance of the browser. Google also does this with Chrome, ant this negatively
+affects Chrome performance too, but less than with Edgium. TL:DR Edgium sucks and is
+pointless and terrible. Literally any other browser would be better.
 - Linux is unaware of a Tor Browser path because Tor Browser is rarely, if ever,
 installed on-path. What is on path is virtually always a wrapper for Tor Browser
 which is installed either as the main user or it's own user. Linux will only use
