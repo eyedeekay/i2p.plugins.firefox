@@ -2,6 +2,7 @@ package net.i2p.i2pfirefox;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * I2PChromium.java
@@ -66,19 +67,13 @@ public class I2PChromium extends I2PCommonBrowser {
   }
   private static String[] FIND_CHROMIUM_SEARCH_PATHS_OSX() {
     String[] path =
-        new String[] {"/Applications/Chromium.app/Contents/MacOS/",
-                      "/Applications/Waterfox.app/Contents/MacOS/",
-                      "/Applications/Librewolf.app/Contents/MacOS/"};
-    String[] exes =
-        new String[] {"ungoogled-chromium", "chromium", "brave", "edge",
-                      "ungoogled-chromium", "chrome"};
-    String[] exePath = new String[path.length * exes.length];
+        new String[] {"/Applications/Chromium.app", "/Applications/Chrome.app",
+                      "/Applications/Brave.app"};
+    String[] exePath = new String[path.length];
     int i = 0;
     for (String s : path) {
-      for (String exe : exes) {
-        exePath[i] = s + "/" + exe;
-        i++;
-      }
+      exePath[i] = s;
+      i++;
     }
     return exePath;
   }
@@ -511,8 +506,16 @@ public class I2PChromium extends I2PCommonBrowser {
           }
         }
       }
-      return new ProcessBuilder(newArgs).directory(
-          I2PChromiumProfileBuilder.runtimeDirectory(true));
+      if (isOSX()) {
+        String argString =
+            Arrays.toString(Arrays.copyOfRange(newArgs, 1, newArgs.length));
+        String[] finalArgs = {"open", newArgs[0], "--args", argString};
+        return new ProcessBuilder(finalArgs).directory(
+            I2PChromiumProfileBuilder.runtimeDirectory(true));
+      } else {
+        return new ProcessBuilder(newArgs).directory(
+            I2PChromiumProfileBuilder.runtimeDirectory(true));
+      }
     } else {
       logger.info("No Chromium found.");
       return new ProcessBuilder(args);
