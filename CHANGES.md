@@ -3,6 +3,7 @@ Sat, October 1
 
  - Work around anti-automation measures on OSX by writing final command out to shell script and running that
  - Deterministically generate .zip files
+ - Add Tor Browser support to OSX
 
 Sun, September 25
 -----------------

@@ -61,7 +61,8 @@ public class I2PFirefox extends I2PCommonBrowser {
     return exePath;
   }
   private static String[] FIND_FIREFOX_SEARCH_PATHS_OSX() {
-    String[] path = new String[] {"/Applications/Firefox.app/Contents/MacOS",
+    String[] path = new String[] {"/Applications/Tor Browser.app/Contents/MacOS",
+                                  "/Applications/Firefox.app/Contents/MacOS",
                                   "/Applications/Waterfox.app/Contents/MacOS",
                                   "/Applications/Librewolf.app/Contents/MacOS"};
     String[] exes = new String[] {"firefox",  "firefox-bin",  "firefox-esr",
