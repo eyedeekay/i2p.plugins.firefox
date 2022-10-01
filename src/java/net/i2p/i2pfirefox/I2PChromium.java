@@ -1,8 +1,12 @@
 package net.i2p.i2pfirefox;
 
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.stream.Stream;
 
 /**
  * I2PChromium.java
@@ -507,19 +511,39 @@ public class I2PChromium extends I2PCommonBrowser {
         }
       }
       if (isOSX()) {
-        String argString =
-            join(Arrays.copyOfRange(newArgs, 1, newArgs.length));
-        String[] finalArgs = {"open", newArgs[0], "--args", argString};
-        return new ProcessBuilder(finalArgs).directory(
-            I2PChromiumProfileBuilder.runtimeDirectory(true));
+        String argString = join(Arrays.copyOfRange(newArgs, 1, newArgs.length));
+        String[] fg = {""};
+        String[] lastArgs =
+            Stream.concat(Arrays.stream(newArgs), Arrays.stream(fg))
+                .toArray(String[] ::new);
+        // String[] finalArgs = Stream.concat(Arrays.stream(initArgs),
+        // Arrays.stream(lastArgs)).toArray(String[]::new);
+        File bashScript = new File("i2pchromium.sh");
+        if (bashScript.exists()) {
+          bashScript.delete();
+        }
+        try {
+          FileWriter bWriter = new FileWriter(bashScript);
+          PrintWriter bpWriter = new PrintWriter(bWriter);
+          bpWriter.println("#! /usr/bin/env sh");
+          bpWriter.println(join(lastArgs));
+          bpWriter.close();
+          bWriter.close();
+          if (!bashScript.canExecute()) {
+            bashScript.setExecutable(true);
+          }
+          return new ProcessBuilder(bashScript.getAbsolutePath())
+              .directory(I2PFirefoxProfileBuilder.runtimeDirectory(true));
+        } catch (IOException e) {
+          logger.warning(e.toString());
+        }
       } else {
         return new ProcessBuilder(newArgs).directory(
             I2PChromiumProfileBuilder.runtimeDirectory(true));
       }
-    } else {
-      logger.info("No Chromium found.");
-      return new ProcessBuilder(args);
     }
+    logger.info("No Chromium found.");
+    return new ProcessBuilder(args);
   }
 
   public Process launchAndDetatch(boolean privateWindow, String[] url) {
