@@ -230,7 +230,7 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
             <arg value="i2pchromium-private.cmd"/>
             <arg value="i2pfirefox-usability.cmd"/>
             <arg value="i2pchromium-usability.cmd"/>
-            <arg value="i2pfirefox-usability-private.cmd"/>
+            <arg value="i2pfirefox-private-usability.cmd"/>
             <arg value="i2pchromium-usability-private.cmd"/>
             <arg value="LICENSE.md"/>
             <arg value="README.md"/>
