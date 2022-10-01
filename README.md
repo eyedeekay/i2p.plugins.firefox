@@ -93,6 +93,19 @@ want to update the profiles, you don't need it.
 go install github.com/eyedeekay/amo-version@latest
 ```
 
+One last Go application, called `dzip` is used to generate zip files deterministically for
+redistribution. If you don't want to use it, you can work around it by creating a file called
+`dzip` in `/usr/local/bin/dzip` and adding the contents:
+
+```sh
+#! /usr/bin/env sh
+zip -r $@
+```
+
+This will break deterministic builds, but for testing it will continue to work. More elaborate
+scripts or other deterministic zip utilities can be easily substituted in by placing them
+in the `$PATH` under the name `dzip`.
+
 For Fedora, use Yum, for Arch use pacman or something else but make sure to tell everyone
 about it. Once you have that installed, when building, make sure to add `$GOPATH/bin/`
 to your `$PATH`.
