@@ -423,8 +423,9 @@ public class I2PCommonBrowser {
   protected static String join(String[] arr) {
     StringBuilder val = new StringBuilder("");
     for (int x = 0; x < arr.length; x++) {
-      val.append(" ");
+      val.append(" \"");
       val.append(arr[x]);
+      val.append("\"");
     }
     return val.toString();
   }
