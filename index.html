@@ -326,6 +326,38 @@ unzip i2pfirefox.zip
     <pre><code class="language-sh">go install github.com/eyedeekay/amo-version@latest
 </code></pre>
     <p>
+      One last Go application, called
+      <code>
+        dzip
+      </code>
+      is used to generate zip files deterministically for
+      redistribution. If you don&rsquo;t want to use it, you can work around it by creating a file called
+      <code>
+        dzip
+      </code>
+      in
+      <code>
+        /usr/local/bin/dzip
+      </code>
+      and adding the contents:
+    </p>
+    <pre><code class="language-sh">#! /usr/bin/env sh
+zip -r $@
+</code></pre>
+    <p>
+      This will break deterministic builds, but for testing it will continue to work. More elaborate
+      scripts or other deterministic zip utilities can be easily substituted in by placing them
+      in the
+      <code>
+        $PATH
+      </code>
+      under the name
+      <code>
+        dzip
+      </code>
+      .
+    </p>
+    <p>
       For Fedora, use Yum, for Arch use pacman or something else but make sure to tell everyone
       about it. Once you have that installed, when building, make sure to add
       <code>
