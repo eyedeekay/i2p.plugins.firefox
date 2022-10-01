@@ -440,7 +440,7 @@ public class I2PFirefox extends I2PCommonBrowser {
       }
       if (isOSX()) {
         String argString =
-            Arrays.toString(Arrays.copyOfRange(newArgs, 1, newArgs.length));
+            join(Arrays.copyOfRange(newArgs, 1, newArgs.length));
         String[] finalArgs = {"open", newArgs[0], "--args", argString};
         return new ProcessBuilder(finalArgs).directory(
             I2PFirefoxProfileBuilder.runtimeDirectory(true));
