@@ -1,10 +1,13 @@
 package net.i2p.i2pfirefox;
 
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
+import java.util.stream.Stream;
 
 /**
  * I2PFirefox.java
@@ -58,14 +61,18 @@ public class I2PFirefox extends I2PCommonBrowser {
     return exePath;
   }
   private static String[] FIND_FIREFOX_SEARCH_PATHS_OSX() {
-    String[] path =
-        new String[] {"/Applications/Firefox.app", "/Applications/Waterfox.app",
-                      "/Applications/Librewolf.app"};
-    String[] exePath = new String[path.length];
+    String[] path = new String[] {"/Applications/Firefox.app/Contents/MacOS",
+                                  "/Applications/Waterfox.app/Contents/MacOS",
+                                  "/Applications/Librewolf.app/Contents/MacOS"};
+    String[] exes = new String[] {"firefox",  "firefox-bin",  "firefox-esr",
+                                  "waterfox", "waterfox-bin", "librewolf"};
+    String[] exePath = new String[path.length * exes.length];
     int i = 0;
     for (String s : path) {
-      exePath[i] = s;
-      i++;
+      for (String exe : exes) {
+        exePath[i] = s + "/" + exe;
+        i++;
+      }
     }
     return exePath;
   }
@@ -439,20 +446,43 @@ public class I2PFirefox extends I2PCommonBrowser {
         }
       }
       if (isOSX()) {
-        String argString =
-            join(Arrays.copyOfRange(newArgs, 1, newArgs.length));
-        String[] finalArgs = {"open", newArgs[0], "--args", argString};
-        return new ProcessBuilder(finalArgs).directory(
-            I2PFirefoxProfileBuilder.runtimeDirectory(true));
+        String argString = join(Arrays.copyOfRange(newArgs, 1, newArgs.length));
+        String[] fg = {""};
+        String[] lastArgs =
+            Stream.concat(Arrays.stream(newArgs), Arrays.stream(fg))
+                .toArray(String[] ::new);
+        // String[] finalArgs = Stream.concat(Arrays.stream(initArgs),
+        // Arrays.stream(lastArgs)).toArray(String[]::new);
+        File bashScript = new File("i2pfirefox.sh");
+        if (bashScript.exists()) {
+          bashScript.delete();
+        }
+        try {
+          FileWriter bWriter = new FileWriter(bashScript);
+          PrintWriter bpWriter = new PrintWriter(bWriter);
+          bpWriter.println("#! /usr/bin/env sh");
+          bpWriter.println(join(lastArgs));
+          bpWriter.close();
+          bWriter.close();
+          if (!bashScript.canExecute()) {
+            bashScript.setExecutable(true);
+          }
+          return new ProcessBuilder(bashScript.getAbsolutePath())
+              .directory(I2PFirefoxProfileBuilder.runtimeDirectory(true));
+        } catch (IOException e) {
+          logger.warning(e.toString());
+        }
+        return null;
       } else {
         return new ProcessBuilder(newArgs).directory(
             I2PFirefoxProfileBuilder.runtimeDirectory(true));
       }
 
-    } else {
-      logger.info("No Firefox found.");
-      return new ProcessBuilder(args);
-    }
+    } // else {
+    logger.info("No Firefox found.");
+    return new ProcessBuilder(args);
+    //}
+    // return null;
   }
 
   private String usabilityMode() {
@@ -489,7 +519,7 @@ public class I2PFirefox extends I2PCommonBrowser {
         }
       }
       if (validateProfileFirstRun(profileDirectory)) {
-        if (isWindows() || isOSX()) {
+        if (isWindows()) {
           ProcessBuilder hpb = headlessProcessBuilder(url);
           try {
             Process hp = hpb.start();
