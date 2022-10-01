@@ -416,4 +416,15 @@ public class I2PCommonBrowser {
    * @param time
    */
   public void setProxyTimeoutTime(int time) { CONFIGURED_TIMEOUT = time; }
+
+  /**
+   * 
+   */
+  protected static String join(String[] arr){
+    StringBuilder val = new StringBuilder("");
+    for (int x = 0; x < arr.length; x++){
+      val.append(arr[x]);
+    }
+    return val.toString();
+  }
 }
