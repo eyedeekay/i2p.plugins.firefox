@@ -94,7 +94,13 @@ go install github.com/eyedeekay/amo-version@latest
 ```
 
 One last Go application, called `dzip` is used to generate zip files deterministically for
-redistribution. If you don't want to use it, you can work around it by creating a file called
+redistribution.
+
+```sh
+go install github.com/delicb/dzip@latest
+```
+
+If you don't want to use it, you can work around it by creating a file called
 `dzip` in `/usr/local/bin/dzip` and adding the contents:
 
 ```sh
