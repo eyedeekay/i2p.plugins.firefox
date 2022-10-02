@@ -1,6 +1,5 @@
 #! /usr/bin/env bash
 
-ant distclean
 rm -rf docs
 
 ~/.cargo/bin/lojidoc src/java/net/i2p/i2pfirefox/ -s -l > report.log
