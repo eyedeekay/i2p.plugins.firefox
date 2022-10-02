@@ -155,23 +155,37 @@ public class I2PFirefox extends I2PCommonBrowser {
     // "firefox-esr", "waterfox", "waterfox-bin", "librewolf" up to a depth of 2
     // directories deep. list the directories in the plugin directory
     if (plugin != null && !plugin.isEmpty()) {
-      File pluginDir = new File(plugin);
-      if (pluginDir.exists()) {
-        File[] pluginDirs = pluginDir.listFiles();
-        // list the files in the plugin directory
-        for (File pluginDir1 : pluginDirs) {
-          File[] pluginFiles = pluginDir1.listFiles();
-          // list the files in the plugin directory
-          if (pluginFiles != null) {
-            for (File pluginFile : pluginFiles) {
-              logger.info("CHECKING NEARBY" + pluginFile.getAbsolutePath());
-              if (pluginFile.getName().equals("firefox") ||
-                  pluginFile.getName().equals("firefox-bin") ||
-                  pluginFile.getName().equals("firefox-esr") ||
-                  pluginFile.getName().equals("waterfox") ||
-                  pluginFile.getName().equals("waterfox-bin") ||
-                  pluginFile.getName().equals("librewolf")) {
-                return new String[] {pluginFile.getAbsolutePath()};
+      File userDir = new File(plugin);
+      if (userDir.exists()) {
+        File[] userDirs = userDir.listFiles();
+        for (File userDir1 : userDirs) {
+          File[] userFiles = userDir1.listFiles();
+          if (userFiles != null) {
+            for (File userFile : userFiles) {
+              // logger.info("CHECKING NEARBY" + userFile.getAbsolutePath());
+              if (userFile.isDirectory()) {
+                File[] userFiles2 = userFile.listFiles();
+                for (File userFile2 : userFiles2) {
+                  if (userFile2.isDirectory())
+                    continue;
+                  if (userFile2.getName().equals("firefox") ||
+                      userFile2.getName().equals("firefox-bin") ||
+                      userFile2.getName().equals("firefox-esr") ||
+                      userFile2.getName().equals("waterfox") ||
+                      userFile2.getName().equals("waterfox-bin") ||
+                      userFile2.getName().equals("librewolf")) {
+                    logger.info("FOUND NEARBY" + userFile2.getAbsolutePath());
+                    return new String[] {userFile2.getAbsolutePath()};
+                  }
+                }
+              }
+              if (userFile.getName().equals("firefox") ||
+                  userFile.getName().equals("firefox-bin") ||
+                  userFile.getName().equals("firefox-esr") ||
+                  userFile.getName().equals("waterfox") ||
+                  userFile.getName().equals("waterfox-bin") ||
+                  userFile.getName().equals("librewolf")) {
+                return new String[] {userFile.getAbsolutePath()};
               }
             }
           }
@@ -186,14 +200,11 @@ public class I2PFirefox extends I2PCommonBrowser {
       // list the files in the user.dir directory
       for (File userDir1 : userDirs) {
         File[] userFiles = userDir1.listFiles();
-        // list the files in the first user.dir directorys
         if (userFiles != null) {
           for (File userFile : userFiles) {
-            //logger.info("CHECKING NEARBY" + userFile.getAbsolutePath());
             if (userFile.isDirectory()) {
               File[] userFiles2 = userFile.listFiles();
               for (File userFile2 : userFiles2) {
-                //logger.info("CHECKING NEARBY" + userFile2.getAbsolutePath());
                 if (userFile2.isDirectory())
                   continue;
                 if (userFile2.getName().equals("firefox") ||
