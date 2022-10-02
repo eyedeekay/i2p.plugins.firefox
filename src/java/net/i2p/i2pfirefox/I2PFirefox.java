@@ -164,6 +164,7 @@ public class I2PFirefox extends I2PCommonBrowser {
           // list the files in the plugin directory
           if (pluginFiles != null) {
             for (File pluginFile : pluginFiles) {
+              logger.info("CHECKING NEARBY" + pluginFile.getAbsolutePath());
               if (pluginFile.getName().equals("firefox") ||
                   pluginFile.getName().equals("firefox-bin") ||
                   pluginFile.getName().equals("firefox-esr") ||
@@ -185,11 +186,27 @@ public class I2PFirefox extends I2PCommonBrowser {
       // list the files in the user.dir directory
       for (File userDir1 : userDirs) {
         File[] userFiles = userDir1.listFiles();
-        // list the files in the user.dir directory
+        // list the files in the first user.dir directorys
         if (userFiles != null) {
           for (File userFile : userFiles) {
-            if (userFile.isDirectory())
-              continue;
+            //logger.info("CHECKING NEARBY" + userFile.getAbsolutePath());
+            if (userFile.isDirectory()) {
+              File[] userFiles2 = userFile.listFiles();
+              for (File userFile2 : userFiles2) {
+                //logger.info("CHECKING NEARBY" + userFile2.getAbsolutePath());
+                if (userFile2.isDirectory())
+                  continue;
+                if (userFile2.getName().equals("firefox") ||
+                    userFile2.getName().equals("firefox-bin") ||
+                    userFile2.getName().equals("firefox-esr") ||
+                    userFile2.getName().equals("waterfox") ||
+                    userFile2.getName().equals("waterfox-bin") ||
+                    userFile2.getName().equals("librewolf")) {
+                  logger.info("FOUND NEARBY" + userFile2.getAbsolutePath());
+                  return new String[] {userFile2.getAbsolutePath()};
+                }
+              }
+            }
             if (userFile.getName().equals("firefox") ||
                 userFile.getName().equals("firefox-bin") ||
                 userFile.getName().equals("firefox-esr") ||
@@ -448,6 +465,7 @@ public class I2PFirefox extends I2PCommonBrowser {
         }
       }
       if (isOSX()) {
+
         String[] fg = {""};
         String[] lastArgs =
             Stream.concat(Arrays.stream(newArgs), Arrays.stream(fg))
