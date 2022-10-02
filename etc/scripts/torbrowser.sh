@@ -1,4 +1,10 @@
-#!/bin/sh
+#!/bin/bash
+
+TORSOCKS=$(which torsocks)
+if [ -f "${TORSOCKS}" ]; then
+    . "${TORSOCKS}" on
+fi
+
 version="$(curl -s https://aus1.torproject.org/torbrowser/update_3/release/downloads.json | jq -r ".version")"
 locale="en-US" # mention your locale. default = en-US
 if [ -d /etc/default/locale ]; then
@@ -19,4 +25,3 @@ fi
 gpgv --keyring ./tor.keyring "tor-browser-linux64-"$version"_"$locale".tar.xz.asc" "tor-browser-linux64-"$version"_"$locale".tar.xz"
 
 tar xvJf "tor-browser-linux64-"$version"_"$locale".tar.xz"
-
