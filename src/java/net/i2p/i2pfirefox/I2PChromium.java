@@ -511,7 +511,6 @@ public class I2PChromium extends I2PCommonBrowser {
         }
       }
       if (isOSX()) {
-        String argString = join(Arrays.copyOfRange(newArgs, 1, newArgs.length));
         String[] fg = {""};
         String[] lastArgs =
             Stream.concat(Arrays.stream(newArgs), Arrays.stream(fg))
