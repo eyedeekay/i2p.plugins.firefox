@@ -1,0 +1,19 @@
+#!/bin/sh
+version="$(curl -s https://aus1.torproject.org/torbrowser/update_3/release/downloads.json | jq -r ".version")"
+locale="en-US" # mention your locale. default = en-US
+if [ -d /etc/default/locale ]; then
+    . /etc/default/locale
+    locale=$(echo "${LANG}" | sed 's|.UTF-8||g')
+fi
+
+gpg --auto-key-locate nodefault,wkd --locate-keys torbrowser@torproject.org
+gpg --output ./tor.keyring --export torbrowser@torproject.org
+
+wget -cv "https://www.torproject.org/dist/torbrowser/"$version"/tor-browser-linux64-"$version"_"$locale".tar.xz" 
+wget -cv "https://www.torproject.org/dist/torbrowser/"$version"/tor-browser-linux64-"$version"_"$locale".tar.xz.asc"
+
+gpgv --keyring ./tor.keyring "tor-browser-linux64-"$version"_"$locale".tar.xz.asc" "tor-browser-linux64-"$version"_"$locale".tar.xz"
+
+#echo tar xvJf "tor-browser-linux64-"$version"_"$locale".tar.xz"
+#echo tar xvJf "tor-browser-linux64-"$version"_"$locale".tar.xz.asc"
+
