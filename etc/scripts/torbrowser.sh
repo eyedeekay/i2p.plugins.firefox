@@ -6,14 +6,17 @@ if [ -d /etc/default/locale ]; then
     locale=$(echo "${LANG}" | sed 's|.UTF-8||g')
 fi
 
-gpg --auto-key-locate nodefault,wkd --locate-keys torbrowser@torproject.org
-gpg --output ./tor.keyring --export torbrowser@torproject.org
+if [ ! -f ./tor.keyring ]; then
+    gpg --auto-key-locate nodefault,wkd --locate-keys torbrowser@torproject.org
+    gpg --output ./tor.keyring --export torbrowser@torproject.org
+fi
 
-wget -cv "https://www.torproject.org/dist/torbrowser/"$version"/tor-browser-linux64-"$version"_"$locale".tar.xz" 
-wget -cv "https://www.torproject.org/dist/torbrowser/"$version"/tor-browser-linux64-"$version"_"$locale".tar.xz.asc"
+if [ ! -f "tor-browser-linux64-"$version"_"$locale".tar.xz" ]; then
+    wget -cv "https://www.torproject.org/dist/torbrowser/"$version"/tor-browser-linux64-"$version"_"$locale".tar.xz" 
+    wget -cv "https://www.torproject.org/dist/torbrowser/"$version"/tor-browser-linux64-"$version"_"$locale".tar.xz.asc"
+fi
 
 gpgv --keyring ./tor.keyring "tor-browser-linux64-"$version"_"$locale".tar.xz.asc" "tor-browser-linux64-"$version"_"$locale".tar.xz"
 
-#echo tar xvJf "tor-browser-linux64-"$version"_"$locale".tar.xz"
-#echo tar xvJf "tor-browser-linux64-"$version"_"$locale".tar.xz.asc"
+tar xvJf "tor-browser-linux64-"$version"_"$locale".tar.xz"
 
