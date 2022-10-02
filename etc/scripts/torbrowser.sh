@@ -3,7 +3,7 @@ version="$(curl -s https://aus1.torproject.org/torbrowser/update_3/release/downl
 locale="en-US" # mention your locale. default = en-US
 if [ -d /etc/default/locale ]; then
     . /etc/default/locale
-    locale=$(echo "${LANG}" | sed 's|.UTF-8||g')
+    locale=$(echo "${LANG}" | cut -d . -f1)
 fi
 
 if [ ! -f ./tor.keyring ]; then
