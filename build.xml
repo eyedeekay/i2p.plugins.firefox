@@ -451,6 +451,7 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
             <arg value="--type"/> <arg value="app-image"/>
             <arg value="--name"/> <arg value="i2pbrowser"/>
             <arg value="--app-version"/> <arg value="${release_number}"/>
+            <arg value="--app-content"/> <arg value="etc/scripts/torbrowser.sh"/>
             <arg value="--input"/> <arg value="src/build"/>
             <arg value="--main-jar"/> <arg value="i2pfirefox.jar"/>
             <arg value="--main-class"/> <arg value="net.i2p.i2pfirefox.I2PBrowser"/>

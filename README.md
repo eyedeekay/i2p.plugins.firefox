@@ -220,7 +220,9 @@ pointless and terrible. Literally any other browser would be better.
 - Linux is unaware of a Tor Browser path because Tor Browser is rarely, if ever,
 installed on-path. What is on path is virtually always a wrapper for Tor Browser
 which is installed either as the main user or it's own user. Linux will only use
-Tor Browser if it's discovered in "Local" mode.
+Tor Browser if it's discovered in "Local" mode. To set this up automatically, you
+can `cd` to the `I2P` directory where you unpacked the `.tar.gz` file, and run the
+`./lib/torbrowser.sh` script from there.
 - I really only test Phase 3 with Dillo and Edgium. **YMMV.**
 
 ### Usability vs Strict
