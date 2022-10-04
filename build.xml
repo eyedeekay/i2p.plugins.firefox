@@ -8,6 +8,15 @@
         <ant dir="src" target="build" />
     </target>
 
+    <target name="tarball">
+        <exec executable="git">
+            <arg value="archive"/>
+            <arg value="--format=tar.gz"/>
+            <arg value="--output=i2p.plugins.firefox.tar.gz"/>
+            <arg value="main"/>
+        </exec>
+    </target>
+
     <target name="examples" >
         <exec executable="echo">
             <redirector output="USAGE.md"/>
