@@ -224,7 +224,7 @@ This method has no parameters.
 | args | String[] | the extended arguments to pass to the Chromium binary.  |  
 
 
-### launchAndDetatch [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L549)
+### launchAndDetatch [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L548)
 
 + Description:   
 + Access: public  
@@ -236,7 +236,7 @@ This method has no parameters.
 | url | String[] |  |  
 
 
-### launchAndDetatch [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L556)
+### launchAndDetatch [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L555)
 
 + Description:   
 + Access: public  
@@ -248,7 +248,7 @@ This method has no parameters.
 | url | String[] |  |  
 
 
-### launch [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L613)
+### launch [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L612)
 
 + Description: Populates a profile directory with a proxy configuration. Waits for an HTTP proxy on the port 4444 to be ready. Launches Chromium with the profile directory.   
 + Access: public  
@@ -260,7 +260,7 @@ This method has no parameters.
 | url | String[] |  |  
 
 
-### launch [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L619)
+### launch [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L618)
 
 + Description:   
 + Access: public  
@@ -272,7 +272,7 @@ This method has no parameters.
 | url | String[] |  |  
 
 
-### launch [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L644)
+### launch [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L643)
 
 + Description: Populates a profile directory with a proxy configuration. Waits for an HTTP proxy on the port 4444 to be ready. Launches Chromium with the profile directory.   
 + Access: public  
@@ -283,7 +283,7 @@ This method has no parameters.
 | privateWindow | boolean |  |  
 
 
-### launch [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L653)
+### launch [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L652)
 
 + Description: Populates a profile directory with a proxy configuration. Waits for an HTTP proxy on the port 4444 to be ready. Launches Chromium with the profile directory.   
 + Access: public  
@@ -292,7 +292,7 @@ This method has no parameters.
 This method has no parameters.  
 
 
-### ValidURL [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L655)
+### ValidURL [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L654)
 
 + Description:   
 + Access: private  
@@ -304,7 +304,7 @@ This method has no parameters.
 | inUrl | String |  |  
 
 
-### main [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L665)
+### main [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L664)
 
 + Description:   
 + Access: public  
@@ -316,7 +316,7 @@ This method has no parameters.
 | args | String[] |  |  
 
 
-### sleep [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L704)
+### sleep [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L703)
 
 + Description:   
 + Access: private  
