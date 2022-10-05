@@ -187,6 +187,7 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
             <arg value="i2p.firefox.base.profile.zip" />
         </exec>
         <exec executable="dzip" failonerror="true" dir="src">
+            <arg value="-O"/>
             <arg value="i2p.firefox.base.profile.zip"/>
             <arg value="i2p.firefox.base.profile"/>
         </exec>
@@ -198,6 +199,7 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
             <arg value="i2p.firefox.usability.profile.zip" />
         </exec>
         <exec executable="dzip" failonerror="true" dir="src">
+            <arg value="-O"/>
             <arg value="i2p.firefox.usability.profile.zip"/>
             <arg value="i2p.firefox.usability.profile"/>
         </exec>
@@ -209,6 +211,7 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
             <arg value="i2p.chromium.base.profile.zip" />
         </exec>
         <exec executable="dzip" failonerror="true" dir="src">
+            <arg value="-O"/>
             <arg value="i2p.chromium.base.profile.zip"/>
             <arg value="i2p.chromium.base.profile"/>
         </exec>
@@ -220,6 +223,7 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
             <arg value="i2p.chromium.usability.profile.zip" />
         </exec>
         <exec executable="dzip" failonerror="true" dir="src">
+            <arg value="-O"/>
             <arg value="i2p.chromium.usability.profile.zip"/>
             <arg value="i2p.chromium.usability.profile"/>
         </exec>
@@ -231,6 +235,7 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
             <arg value="i2pbrowser.zip" />
         </exec>
         <exec executable="dzip" failonerror="true">
+            <arg value="-O"/>
             <arg value="i2pfirefox.zip"/>
             <arg value="src/build/i2pfirefox.jar"/>
             <arg value="i2pfirefox.cmd"/>
@@ -470,6 +475,7 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
             <arg value="i2pbrowser.zip" />
         </exec>
         <exec executable="dzip" failonerror="true">
+            <arg value="-O"/>
             <arg value="i2pbrowser.zip"/>
             <arg value="i2pbrowser"/>
         </exec>        
