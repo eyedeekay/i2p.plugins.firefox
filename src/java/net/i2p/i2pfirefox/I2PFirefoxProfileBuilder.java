@@ -68,10 +68,16 @@ public class I2PFirefoxProfileBuilder extends I2PCommonBrowser {
     ret += "    border-radius: 2px !important;\n";
     ret += "}\n";
     ret += "\n";
-    ret += "#urlbar-container,\n";
-    ret += "#nav-bar {\n";
-    ret += "    visibility: collapse !important\n";
+    ret += "#urlbar-container {\n";
+    ret += "    visibility: collapse !important;\n";
     ret += "}\n";
+    ret += "\n";
+    ret += "#TabsToolbar-customization-target {\n";
+    ret += "    min-width: 50vw;\n";
+    ret += "    max-width: 50vw;\n";
+    ret += "    width: 50vw;\n";
+    ret += "}\n";
+    ret += "\n";
     return ret;
   }
 
