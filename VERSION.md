@@ -6,14 +6,14 @@ Extension Versions
 
 ```md
 i2p-in-private-browsing
-0.134
-https://addons.mozilla.org/firefox/downloads/file/3953182/i2p_in_private_browsing-0.134.xpi
+1.40
+https://addons.mozilla.org/firefox/downloads/file/4016633/i2p_in_private_browsing-1.40.xpi
 noscript
 11.4.11
 https://addons.mozilla.org/firefox/downloads/file/4002416/noscript-11.4.11.xpi
 localcdn-fork-of-decentraleyes
-2.6.36
-https://addons.mozilla.org/firefox/downloads/file/4009967/localcdn_fork_of_decentraleyes-2.6.36.xpi
+2.6.37
+https://addons.mozilla.org/firefox/downloads/file/4016148/localcdn_fork_of_decentraleyes-2.6.37.xpi
 https-everywhere
 2021.7.13
 https://addons.mozilla.org/firefox/downloads/file/3809748/https_everywhere-2021.7.13.xpi
