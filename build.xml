@@ -428,6 +428,7 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
         <delete>
             <fileset dir="." includes="*/*.~ **/*.*~ */**/*.*~ *.*~" />
         </delete>
+        <delete dir="user.js" />
         <delete dir="i2p.firefox.base.profile" />
         <delete dir="i2p.firefox.usability.profile" />
         <delete dir="i2p.firefox.profile" />
