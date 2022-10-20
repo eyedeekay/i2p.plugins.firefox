@@ -45,7 +45,7 @@ package: net.i2p.i2pfirefox
 This method has no parameters.  
 
 
-### profileDirectory [[src]](src/java/net/i2p/i2pfirefox/I2PFirefoxProfileBuilder.java#L92)
+### profileDirectory [[src]](src/java/net/i2p/i2pfirefox/I2PFirefoxProfileBuilder.java#L110)
 
 + Description: get the profile directory creating it if necessary   
 + Access: public  
@@ -57,7 +57,7 @@ This method has no parameters.
 | app | boolean |  |  
 
 
-### baseProfileDir [[src]](src/java/net/i2p/i2pfirefox/I2PFirefoxProfileBuilder.java#L96)
+### baseProfileDir [[src]](src/java/net/i2p/i2pfirefox/I2PFirefoxProfileBuilder.java#L114)
 
 + Description:   
 + Access: private  
@@ -70,7 +70,7 @@ This method has no parameters.
 | base | String |  |  
 
 
-### baseProfileDirectory [[src]](src/java/net/i2p/i2pfirefox/I2PFirefoxProfileBuilder.java#L116)
+### baseProfileDirectory [[src]](src/java/net/i2p/i2pfirefox/I2PFirefoxProfileBuilder.java#L134)
 
 + Description: get the base profile directory creating it if necessary   
 + Access: public  
@@ -82,7 +82,7 @@ This method has no parameters.
 | base | String |  |  
 
 
-### runtimeDirectory [[src]](src/java/net/i2p/i2pfirefox/I2PFirefoxProfileBuilder.java#L140)
+### runtimeDirectory [[src]](src/java/net/i2p/i2pfirefox/I2PFirefoxProfileBuilder.java#L158)
 
 + Description: get the runtime directory creating it if create=true   
 + Access: public  
@@ -94,7 +94,7 @@ This method has no parameters.
 | create | boolean | if true create the runtime directory if it does not exist  |  
 
 
-### runtimeDirectory [[src]](src/java/net/i2p/i2pfirefox/I2PFirefoxProfileBuilder.java#L151)
+### runtimeDirectory [[src]](src/java/net/i2p/i2pfirefox/I2PFirefoxProfileBuilder.java#L169)
 
 + Description: get the correct runtime directory   
 + Access: public  
@@ -104,7 +104,7 @@ This method has no parameters.
 This method has no parameters.  
 
 
-### copyBaseProfiletoProfile [[src]](src/java/net/i2p/i2pfirefox/I2PFirefoxProfileBuilder.java#L171)
+### copyBaseProfiletoProfile [[src]](src/java/net/i2p/i2pfirefox/I2PFirefoxProfileBuilder.java#L189)
 
 + Description: Copy the inert base profile directory to the runtime profile directory   
 + Access: public  
@@ -117,7 +117,7 @@ This method has no parameters.
 | app | boolean |  |  
 
 
-### writeAppChrome [[src]](src/java/net/i2p/i2pfirefox/I2PFirefoxProfileBuilder.java#L204)
+### writeAppChrome [[src]](src/java/net/i2p/i2pfirefox/I2PFirefoxProfileBuilder.java#L222)
 
 + Description:   
 + Access: protected  
@@ -129,7 +129,7 @@ This method has no parameters.
 | profile | String |  |  
 
 
-### deleteAppChrome [[src]](src/java/net/i2p/i2pfirefox/I2PFirefoxProfileBuilder.java#L217)
+### deleteAppChrome [[src]](src/java/net/i2p/i2pfirefox/I2PFirefoxProfileBuilder.java#L235)
 
 + Description:   
 + Access: protected  
@@ -141,7 +141,7 @@ This method has no parameters.
 | profile | String |  |  
 
 
-### copyStrictOptions [[src]](src/java/net/i2p/i2pfirefox/I2PFirefoxProfileBuilder.java#L232)
+### copyStrictOptions [[src]](src/java/net/i2p/i2pfirefox/I2PFirefoxProfileBuilder.java#L250)
 
 + Description: Copy the strict options from the base profile to the profile   
 + Access: public  
