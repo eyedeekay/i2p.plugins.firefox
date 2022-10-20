@@ -1,3 +1,8 @@
+Sat, October 20
+---------------
+
+ - Complete the PWA/App mode
+
 Sat, October 1
 --------------
 
