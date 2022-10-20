@@ -2,6 +2,7 @@
 
 . ./config.sh
 ./preprelease.sh
+./profiles-upload.sh
 github-release release --user "${GITHUB_USER}" \
     --repo "${GITHUB_REPO}" \
     --name "${GITHUB_NAME}" \
