@@ -78,6 +78,18 @@ public class I2PFirefoxProfileBuilder extends I2PCommonBrowser {
     ret += "    width: 50vw;\n";
     ret += "}\n";
     ret += "\n";
+    ret += "#TabsToolbar {";
+    ret += "    display: inherit;";
+    ret += "}";
+    ret += "\n";
+    ret += "toolbar {";
+    ret += "    max-width: 50%;";
+    ret += "}";
+    ret += "\n";
+    ret += "#navigator-toolbox {";
+    ret += "    display: inline-flex;";
+    ret += "}";
+    ret += "\n";
     return ret;
   }
 
