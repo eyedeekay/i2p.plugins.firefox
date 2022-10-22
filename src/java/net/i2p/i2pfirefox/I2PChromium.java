@@ -53,12 +53,32 @@ public class I2PChromium extends I2PCommonBrowser {
     I2PChromiumProfileBuilder.usability = true;
   }
 
+  public static String[] chromiumPathsUnix() {
+    String chromiumPathsProp = prop.getProperty("chromium.paths.unix");
+    if (chromiumPathsProp != null)
+      return chromiumPathsProp.split(",");
+    return new String[] {"/usr/bin", "/usr/local/bin", "/opt/chromium/bin",
+                         "/snap/bin"};
+  }
+
+  public static String[] chromiumBinsUnix() {
+    String chromiumPathsProp = prop.getProperty("chromium.bins.unix");
+    if (chromiumPathsProp != null)
+      return chromiumPathsProp.split(",");
+    if (isOSX()) {
+      chromiumPathsProp = prop.getProperty("chromium.bins.osx");
+      if (chromiumPathsProp != null)
+        return chromiumPathsProp.split(",");
+    }
+    return new String[] {"ungoogled-chromium", "chromium", "brave", "edge",
+                         "ungoogled-chromium", "chrome"};
+  }
+
   private static String[] FIND_CHROMIUM_SEARCH_PATHS_UNIX() {
     String[] path = new String[] {"/usr/bin", "/usr/local/bin",
                                   "/opt/chrome/bin", "/snap/bin"};
-    String[] exes =
-        new String[] {"ungoogled-chromium", "chromium", "brave", "edge",
-                      "ungoogled-chromium", "chrome"};
+    String[] exes = chromiumBinsUnix();
+
     String[] exePath = new String[path.length * exes.length];
     int i = 0;
     for (String s : path) {
@@ -69,23 +89,36 @@ public class I2PChromium extends I2PCommonBrowser {
     }
     return exePath;
   }
+  public static String[] chromiumPathsOSX() {
+    String chromiumPathsProp = prop.getProperty("chromium.paths.osx");
+    if (chromiumPathsProp != null)
+      return chromiumPathsProp.split(",");
+    return new String[] {"/Applications/Chromium.app/Contents/MacOS",
+                         "/Applications/Chrome.app/Contents/MacOS",
+                         "/Applications/Brave.app/Contents/MacOS"};
+  }
   private static String[] FIND_CHROMIUM_SEARCH_PATHS_OSX() {
-    String[] path =
-        new String[] {"/Applications/Chromium.app", "/Applications/Chrome.app",
-                      "/Applications/Brave.app"};
-    String[] exePath = new String[path.length];
+    String[] path = chromiumPathsOSX();
+    String[] exes = chromiumBinsUnix();
+    String[] exePath = new String[path.length * exes.length];
     int i = 0;
     for (String s : path) {
-      exePath[i] = s;
-      i++;
+      for (String exe : exes) {
+        exePath[i] = s + "/" + exe;
+        i++;
+      }
     }
     return exePath;
   }
-  private static String[] FIND_CHROMIUM_SEARCH_PATHS_WINDOWS() {
+
+  public static String[] chromiumPathsWindows() {
+    String chromiumPathsProp = prop.getProperty("chromium.paths.windows");
+    if (chromiumPathsProp != null)
+      return chromiumPathsProp.split(",");
     String programFiles = System.getenv("ProgramFiles");
     String localAppData = System.getenv("LOCALAPPDATA");
     String programFiles86 = System.getenv("ProgramFiles(x86)");
-    String[] path = new String[] {
+    return new String[] {
         new File(localAppData, "/Google/Chrome/Application/").toString(),
         new File(programFiles, "/Google/Chrome/Application/").toString(),
         new File(programFiles86, "/Google/Chrome/Application/").toString(),
@@ -101,12 +134,18 @@ public class I2PChromium extends I2PCommonBrowser {
         new File(programFiles86, "/Microsoft/Edge/Application/").toString(),
         new File(programFiles, "/Microsoft/Edge/Application/").toString(),
     };
-    String[] exes = new String[] {"ungoogled-chromium.exe",
-                                  "chromium.exe",
-                                  "brave.exe",
-                                  "msedge.exe",
-                                  "edge.exe",
-                                  "chrome.exe"};
+  }
+  private static String[] chromiumBinsWindows() {
+    String chromiumPathsProp = prop.getProperty("chromium.bins.windows");
+    if (chromiumPathsProp != null)
+      return chromiumPathsProp.split(",");
+    return new String[] {
+        "ungoogled-chromium.exe", "chromium.exe", "brave.exe", "edge.exe",
+        "ungoogled-chromium.exe", "chrome.exe"};
+  }
+  private static String[] FIND_CHROMIUM_SEARCH_PATHS_WINDOWS() {
+    String[] path = chromiumPathsWindows();
+    String[] exes = chromiumBinsWindows();
     String[] exePath = new String[path.length * exes.length];
     int i = 0;
     for (String s : path) {
@@ -217,19 +256,6 @@ public class I2PChromium extends I2PCommonBrowser {
     } else {
       return new String[] {};
     }
-  }
-  private static String getOperatingSystem() {
-    String os = System.getProperty("os.name");
-    if (os.startsWith("Windows")) {
-      return "Windows";
-    } else if (os.contains("Linux")) {
-      return "Linux";
-    } else if (os.contains("BSD")) {
-      return "BSD";
-    } else if (os.contains("Mac")) {
-      return "Mac";
-    }
-    return "Unknown";
   }
 
   /**
@@ -532,7 +558,7 @@ public class I2PChromium extends I2PCommonBrowser {
             bashScript.setExecutable(true);
           }
           return new ProcessBuilder(bashScript.getAbsolutePath())
-              .directory(I2PFirefoxProfileBuilder.runtimeDirectory(true));
+              .directory(I2PChromiumProfileBuilder.runtimeDirectory(true));
         } catch (IOException e) {
           logger.warning(e.toString());
         }

@@ -34,35 +34,27 @@ public class I2PGenericUnsafeBrowser extends I2PCommonBrowser {
   // ftp_proxy and no_proxy. in practice, this is going to be hard to guarantee.
   // For now, we're just assuming. So don't use this until I understand the
   // situation better, unless you think you know better.
-  private static final String[] browsers = {
-      // This debian script tries everything in $BROWSER, then gnome-www-browser
-      // and x-www-browser
-      // if X is running and www-browser otherwise. Those point to the user's
-      // preferred
-      // browser using the update-alternatives system.
-      "sensible-browser",
-      // another one that opens a preferred browser
-      "xdg-open",
-      // Try x-www-browser directly
-      "x-www-browser", "gnome-www-browser",
-      // general graphical browsers that aren't Firefox or Chromium based
-      "defaultbrowser", // puppy linux
-      "dillo", "seamonkey", "konqueror", "galeon", "surf",
-      // Text Mode Browsers only below here
-      "www-browser", "links", "lynx"};
-
-  private static String getOperatingSystem() {
-    String os = System.getProperty("os.name");
-    if (os.startsWith("Windows")) {
-      return "Windows";
-    } else if (os.contains("Linux")) {
-      return "Linux";
-    } else if (os.contains("BSD")) {
-      return "BSD";
-    } else if (os.contains("Mac")) {
-      return "Mac";
-    }
-    return "Unknown";
+  private static String[] browsers() {
+    String genericPathsProp = prop.getProperty("generic.bins.unix");
+    if (genericPathsProp != null)
+      return genericPathsProp.split(",");
+    return new String[] {
+        // This debian script tries everything in $BROWSER, then
+        // gnome-www-browser
+        // and x-www-browser
+        // if X is running and www-browser otherwise. Those point to the user's
+        // preferred
+        // browser using the update-alternatives system.
+        "sensible-browser",
+        // another one that opens a preferred browser
+        "xdg-open",
+        // Try x-www-browser directly
+        "x-www-browser", "gnome-www-browser",
+        // general graphical browsers that aren't Firefox or Chromium based
+        "defaultbrowser", // puppy linux
+        "dillo", "seamonkey", "konqueror", "galeon", "surf",
+        // Text Mode Browsers only below here
+        "www-browser", "links", "lynx"};
   }
 
   /**
@@ -217,7 +209,7 @@ public class I2PGenericUnsafeBrowser extends I2PCommonBrowser {
   }
 
   private static String scanAPath(String dir) {
-    for (String browser : browsers) {
+    for (String browser : browsers()) {
       File test = new File(dir, browser);
       if (test.exists()) {
         return test.getAbsolutePath();

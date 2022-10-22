@@ -9,6 +9,7 @@ import java.io.OutputStream;
 import java.net.Socket;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
+import java.util.Properties;
 import java.util.logging.FileHandler;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
@@ -31,6 +32,7 @@ import java.util.zip.ZipInputStream;
  */
 
 public class I2PCommonBrowser {
+  static public Properties prop = new Properties();
   static public Logger logger = Logger.getLogger("browserlauncher");
   static FileHandler fh;
   // private final int DEFAULT_TIMEOUT = 200;
@@ -49,6 +51,16 @@ public class I2PCommonBrowser {
       e.printStackTrace();
     } catch (IOException e) {
       e.printStackTrace();
+    }
+  }
+
+  public static void loadPropertiesFile(File props) {
+    try (InputStream propsInput = new FileInputStream(props)) {
+      prop = new Properties();
+      prop.load(propsInput);
+      System.out.println(prop);
+    } catch (IOException io) {
+      logger.warning(io.toString());
     }
   }
 
@@ -96,6 +108,19 @@ public class I2PCommonBrowser {
       logger.info(defaultPathFile.getAbsolutePath());
     }
     System.setProperty("user.dir", defaultPathFile.getAbsolutePath());
+  }
+  public static String getOperatingSystem() {
+    String os = System.getProperty("os.name");
+    if (os.startsWith("Windows")) {
+      return "Windows";
+    } else if (os.contains("Linux")) {
+      return "Linux";
+    } else if (os.contains("BSD")) {
+      return "BSD";
+    } else if (os.contains("Mac")) {
+      return "Mac";
+    }
+    return "Unknown";
   }
 
   protected static boolean isWindows() {
@@ -259,11 +284,11 @@ public class I2PCommonBrowser {
         // consume all the data from this entry
         if (entry.isDirectory()) {
           logger.info("Creating directory: " + entry.getName());
-          File dir = new File(profileDirectory + "/" + entry.getName());
+          File dir = new File(profileDirectory, entry.getName());
           dir.mkdirs();
         } else {
           logger.info("Creating file: " + entry.getName());
-          File file = new File(profileDirectory + "/" + entry.getName());
+          File file = new File(profileDirectory, entry.getName());
           file.createNewFile();
           Files.copy(zis, file.toPath(), StandardCopyOption.REPLACE_EXISTING);
         }
@@ -290,16 +315,15 @@ public class I2PCommonBrowser {
       destinationDirectory.mkdir();
     }
     for (String f : sourceDirectory.list()) {
-      copyDirectoryCompatibityMode(new File(sourceDirectory, f),
-                                   new File(destinationDirectory, f), browser,
-                                   base);
+      copyDirectoryCompatibilityMode(new File(sourceDirectory, f),
+                                     new File(destinationDirectory, f), browser,
+                                     base);
     }
   }
 
-  private static void copyDirectoryCompatibityMode(File source,
-                                                   File destination,
-                                                   String browser, String base)
-      throws IOException {
+  private static void
+  copyDirectoryCompatibilityMode(File source, File destination, String browser,
+                                 String base) throws IOException {
     if (source.isDirectory()) {
       copyDirectory(source, destination, browser, base);
     } else {
