@@ -45,11 +45,30 @@ public class I2PFirefox extends I2PCommonBrowser {
     }
   }
 
+  public static String[] firefoxPathsUnix() {
+    String firefoxPathsProp = prop.getProperty("firefox.paths.unix");
+    if (firefoxPathsProp != null)
+      return firefoxPathsProp.split(",");
+    return new String[] {"/usr/bin", "/usr/local/bin", "/opt/firefox/bin",
+                         "/snap/bin"};
+  }
+
+  public static String[] firefoxBinsUnix() {
+    String firefoxPathsProp = prop.getProperty("firefox.bins.unix");
+    if (firefoxPathsProp != null)
+      return firefoxPathsProp.split(",");
+    if (isOSX()) {
+      firefoxPathsProp = prop.getProperty("firefox.bins.osx");
+      if (firefoxPathsProp != null)
+        return firefoxPathsProp.split(",");
+    }
+    return new String[] {"firefox",  "firefox-bin",  "firefox-esr",
+                         "waterfox", "waterfox-bin", "librewolf"};
+  }
+
   private static String[] FIND_FIREFOX_SEARCH_PATHS_UNIX() {
-    String[] path = new String[] {"/usr/bin", "/usr/local/bin",
-                                  "/opt/firefox/bin", "/snap/bin"};
-    String[] exes = new String[] {"firefox",  "firefox-bin",  "firefox-esr",
-                                  "waterfox", "waterfox-bin", "librewolf"};
+    String[] path = firefoxPathsUnix();
+    String[] exes = firefoxBinsUnix();
     String[] exePath = new String[path.length * exes.length];
     int i = 0;
     for (String s : path) {
@@ -59,15 +78,19 @@ public class I2PFirefox extends I2PCommonBrowser {
       }
     }
     return exePath;
+  }
+  public static String[] firefoxPathsOSX() {
+    String firefoxPathsProp = prop.getProperty("firefox.paths.osx");
+    if (firefoxPathsProp != null)
+      return firefoxPathsProp.split(",");
+    return new String[] {"/Applications/Tor Browser.app/Contents/MacOS",
+                         "/Applications/Firefox.app/Contents/MacOS",
+                         "/Applications/Waterfox.app/Contents/MacOS",
+                         "/Applications/Librewolf.app/Contents/MacOS"};
   }
   private static String[] FIND_FIREFOX_SEARCH_PATHS_OSX() {
-    String[] path =
-        new String[] {"/Applications/Tor Browser.app/Contents/MacOS",
-                      "/Applications/Firefox.app/Contents/MacOS",
-                      "/Applications/Waterfox.app/Contents/MacOS",
-                      "/Applications/Librewolf.app/Contents/MacOS"};
-    String[] exes = new String[] {"firefox",  "firefox-bin",  "firefox-esr",
-                                  "waterfox", "waterfox-bin", "librewolf"};
+    String[] path = firefoxPathsOSX();
+    String[] exes = firefoxBinsUnix();
     String[] exePath = new String[path.length * exes.length];
     int i = 0;
     for (String s : path) {
@@ -78,7 +101,10 @@ public class I2PFirefox extends I2PCommonBrowser {
     }
     return exePath;
   }
-  private static String[] FIND_FIREFOX_SEARCH_PATHS_WINDOWS() {
+  public static String[] firefoxPathsWindows() {
+    String firefoxPathsProp = prop.getProperty("firefox.paths.windows");
+    if (firefoxPathsProp != null)
+      return firefoxPathsProp.split(",");
     String userHome = System.getProperty("user.home");
     String programFiles = System.getenv("ProgramFiles");
     // String localAppData = System.getenv("LOCALAPPDATA");
@@ -90,7 +116,7 @@ public class I2PFirefox extends I2PCommonBrowser {
         new File(userHome, "/OneDrive/Desktop/Tor Browser/Browser/").toString(),
         new File(userHome, "/Desktop/Tor Browser/Browser/").toString()};
 
-    String[] path = new String[] {
+    return new String[] {
         tbPath[0],
         tbPath[1],
         new File(programFiles, "Mozilla Firefox/").toString(),
@@ -99,10 +125,19 @@ public class I2PFirefox extends I2PCommonBrowser {
         new File(programFiles86, "Waterfox/").toString(),
         new File(programFiles, "Librewolf/").toString(),
     };
-    String[] exes = new String[] {
+  }
+  private static String[] firefoxBinsWindows() {
+    String firefoxPathsProp = prop.getProperty("firefox.bins.windows");
+    if (firefoxPathsProp != null)
+      return firefoxPathsProp.split(",");
+    return new String[] {
         "firefox.exe",  "firefox-bin.exe",  "firefox-esr.exe",
         "waterfox.exe", "waterfox-bin.exe", "librewolf.exe",
     };
+  }
+  private static String[] FIND_FIREFOX_SEARCH_PATHS_WINDOWS() {
+    String[] path = firefoxPathsWindows();
+    String[] exes = firefoxBinsWindows();
     String[] exePath = new String[path.length * exes.length];
     int i = 0;
     for (String s : path) {
@@ -243,19 +278,6 @@ public class I2PFirefox extends I2PCommonBrowser {
     } else {
       return new String[] {};
     }
-  }
-  private static String getOperatingSystem() {
-    String os = System.getProperty("os.name");
-    if (os.startsWith("Windows")) {
-      return "Windows";
-    } else if (os.contains("Linux")) {
-      return "Linux";
-    } else if (os.contains("BSD")) {
-      return "BSD";
-    } else if (os.contains("Mac")) {
-      return "Mac";
-    }
-    return "Unknown";
   }
 
   /**
@@ -476,7 +498,6 @@ public class I2PFirefox extends I2PCommonBrowser {
         }
       }
       if (isOSX()) {
-
         String[] fg = {""};
         String[] lastArgs =
             Stream.concat(Arrays.stream(newArgs), Arrays.stream(fg))
