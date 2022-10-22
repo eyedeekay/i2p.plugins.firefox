@@ -53,30 +53,32 @@ public class I2PChromium extends I2PCommonBrowser {
     I2PChromiumProfileBuilder.usability = true;
   }
 
-  public static String[] chromiumPathsUnix() {
+  private static String[] chromiumPathsUnix() {
     String chromiumPathsProp = prop.getProperty("chromium.paths.unix");
     if (chromiumPathsProp != null)
-      return chromiumPathsProp.split(",");
+      if (!chromiumPathsProp.equals(""))
+        return chromiumPathsProp.split(",");
     return new String[] {"/usr/bin", "/usr/local/bin", "/opt/chromium/bin",
                          "/snap/bin"};
   }
 
-  public static String[] chromiumBinsUnix() {
+  private static String[] chromiumBinsUnix() {
     String chromiumPathsProp = prop.getProperty("chromium.bins.unix");
     if (chromiumPathsProp != null)
-      return chromiumPathsProp.split(",");
+      if (!chromiumPathsProp.equals(""))
+        return chromiumPathsProp.split(",");
     if (isOSX()) {
       chromiumPathsProp = prop.getProperty("chromium.bins.osx");
       if (chromiumPathsProp != null)
-        return chromiumPathsProp.split(",");
+        if (!chromiumPathsProp.equals(""))
+          return chromiumPathsProp.split(",");
     }
     return new String[] {"ungoogled-chromium", "chromium", "brave", "edge",
                          "ungoogled-chromium", "chrome"};
   }
 
   private static String[] FIND_CHROMIUM_SEARCH_PATHS_UNIX() {
-    String[] path = new String[] {"/usr/bin", "/usr/local/bin",
-                                  "/opt/chrome/bin", "/snap/bin"};
+    String[] path = chromiumPathsUnix();
     String[] exes = chromiumBinsUnix();
 
     String[] exePath = new String[path.length * exes.length];
@@ -89,10 +91,11 @@ public class I2PChromium extends I2PCommonBrowser {
     }
     return exePath;
   }
-  public static String[] chromiumPathsOSX() {
+  private static String[] chromiumPathsOSX() {
     String chromiumPathsProp = prop.getProperty("chromium.paths.osx");
     if (chromiumPathsProp != null)
-      return chromiumPathsProp.split(",");
+      if (!chromiumPathsProp.equals(""))
+        return chromiumPathsProp.split(",");
     return new String[] {"/Applications/Chromium.app/Contents/MacOS",
                          "/Applications/Chrome.app/Contents/MacOS",
                          "/Applications/Brave.app/Contents/MacOS"};
@@ -111,10 +114,11 @@ public class I2PChromium extends I2PCommonBrowser {
     return exePath;
   }
 
-  public static String[] chromiumPathsWindows() {
+  private static String[] chromiumPathsWindows() {
     String chromiumPathsProp = prop.getProperty("chromium.paths.windows");
     if (chromiumPathsProp != null)
-      return chromiumPathsProp.split(",");
+      if (!chromiumPathsProp.equals(""))
+        return chromiumPathsProp.split(",");
     String programFiles = System.getenv("ProgramFiles");
     String localAppData = System.getenv("LOCALAPPDATA");
     String programFiles86 = System.getenv("ProgramFiles(x86)");
@@ -138,7 +142,8 @@ public class I2PChromium extends I2PCommonBrowser {
   private static String[] chromiumBinsWindows() {
     String chromiumPathsProp = prop.getProperty("chromium.bins.windows");
     if (chromiumPathsProp != null)
-      return chromiumPathsProp.split(",");
+      if (!chromiumPathsProp.equals(""))
+        return chromiumPathsProp.split(",");
     return new String[] {
         "ungoogled-chromium.exe", "chromium.exe", "brave.exe", "edge.exe",
         "ungoogled-chromium.exe", "chrome.exe"};
