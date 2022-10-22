@@ -48,7 +48,8 @@ public class I2PFirefox extends I2PCommonBrowser {
   public static String[] firefoxPathsUnix() {
     String firefoxPathsProp = prop.getProperty("firefox.paths.unix");
     if (firefoxPathsProp != null)
-      return firefoxPathsProp.split(",");
+      if (!firefoxPathsProp.equals(""))
+        return firefoxPathsProp.split(",");
     return new String[] {"/usr/bin", "/usr/local/bin", "/opt/firefox/bin",
                          "/snap/bin"};
   }
@@ -56,11 +57,13 @@ public class I2PFirefox extends I2PCommonBrowser {
   public static String[] firefoxBinsUnix() {
     String firefoxPathsProp = prop.getProperty("firefox.bins.unix");
     if (firefoxPathsProp != null)
-      return firefoxPathsProp.split(",");
+      if (!firefoxPathsProp.equals(""))
+        return firefoxPathsProp.split(",");
     if (isOSX()) {
       firefoxPathsProp = prop.getProperty("firefox.bins.osx");
       if (firefoxPathsProp != null)
-        return firefoxPathsProp.split(",");
+        if (!firefoxPathsProp.equals(""))
+          return firefoxPathsProp.split(",");
     }
     return new String[] {"firefox",  "firefox-bin",  "firefox-esr",
                          "waterfox", "waterfox-bin", "librewolf"};
@@ -82,7 +85,8 @@ public class I2PFirefox extends I2PCommonBrowser {
   public static String[] firefoxPathsOSX() {
     String firefoxPathsProp = prop.getProperty("firefox.paths.osx");
     if (firefoxPathsProp != null)
-      return firefoxPathsProp.split(",");
+      if (!firefoxPathsProp.equals(""))
+        return firefoxPathsProp.split(",");
     return new String[] {"/Applications/Tor Browser.app/Contents/MacOS",
                          "/Applications/Firefox.app/Contents/MacOS",
                          "/Applications/Waterfox.app/Contents/MacOS",
@@ -104,7 +108,8 @@ public class I2PFirefox extends I2PCommonBrowser {
   public static String[] firefoxPathsWindows() {
     String firefoxPathsProp = prop.getProperty("firefox.paths.windows");
     if (firefoxPathsProp != null)
-      return firefoxPathsProp.split(",");
+      if (!firefoxPathsProp.equals(""))
+        return firefoxPathsProp.split(",");
     String userHome = System.getProperty("user.home");
     String programFiles = System.getenv("ProgramFiles");
     // String localAppData = System.getenv("LOCALAPPDATA");
@@ -129,7 +134,8 @@ public class I2PFirefox extends I2PCommonBrowser {
   private static String[] firefoxBinsWindows() {
     String firefoxPathsProp = prop.getProperty("firefox.bins.windows");
     if (firefoxPathsProp != null)
-      return firefoxPathsProp.split(",");
+      if (!firefoxPathsProp.equals(""))
+        return firefoxPathsProp.split(",");
     return new String[] {
         "firefox.exe",  "firefox-bin.exe",  "firefox-esr.exe",
         "waterfox.exe", "waterfox-bin.exe", "librewolf.exe",
