@@ -80,65 +80,140 @@ public class I2PGenericUnsafeBrowser extends I2PCommonBrowser {
    * and it will return the first one we find in exactly that order.
    *
    * Adapted from:
-   * https://stackoverflow.com/questions/15852885/method-returning-default-browser-as-a-string
-   * and from:
-   * https://github.com/i2p/i2p.i2p/blob/master/apps/systray/java/src/net/i2p/apps/systray/UrlLauncher.java
+   * https://stackoverflow.com/questions/15852885/me...
    *
-   * @return path to the default browser ready for execution. Empty string on
-   *     Linux and OSX.
+   * @param url containing full scheme, i.e. http://127.0.0.1:7657
+   * @return path to command[0] and target URL[1] to the default browser ready
+   *     for execution, or null if not found
+   * @since 2.0.0
    */
-  public static String getDefaultWindowsBrowser() {
-    if (getOperatingSystem() == "Windows") {
-      String defaultBrowser = getDefaultOutOfRegistry(
-          "HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Windows\\Shell\\Associations\\URLAssociations\\https\\UserChoice");
-      if (defaultBrowser != "")
-        return defaultBrowser;
-      defaultBrowser = getDefaultOutOfRegistry(
-          "HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Windows\\Shell\\Associations\\URLAssociations\\http\\UserChoice");
-      if (defaultBrowser != "")
-        return defaultBrowser;
-      defaultBrowser = getDefaultOutOfRegistry(
-          "HKEY_LOCAL_MACHINE\\SOFTWARE\\Classes\\microsoft-edge\\shell\\open\\command");
-      if (defaultBrowser != "")
-        return defaultBrowser;
-      defaultBrowser = getDefaultOutOfRegistry(
-          "HKEY_CLASSES_ROOT\\http\\shell\\open\\command");
-      if (defaultBrowser != "")
-        return defaultBrowser;
+  static public String getDefaultWindowsBrowser() {
+    String defaultBrowser =
+        "C:\\Program Files\\Internet Explorer\\iexplore.exe";
+    String key = "";
+    // User-Configured HTTPS Browser
+    key =
+        "HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Windows\\Shell\\Associations\\URLAssociations\\https\\UserChoice";
+    defaultBrowser = getDefaultOutOfRegistry(key);
+    if (defaultBrowser != null)
+      return defaultBrowser;
+    // User-Configure HTTP Browser
+    key =
+        "HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Windows\\Shell\\Associations\\URLAssociations\\http\\UserChoice";
+    defaultBrowser = getDefaultOutOfRegistry(key);
+    if (defaultBrowser != null)
+      return defaultBrowser;
+    // MSEdge on pretty much everything after Windows 7
+    key = "HKEY_CLASSES_ROOT\\MSEdgeHTM\\shell\\open\\command";
+    defaultBrowser = getDefaultOutOfRegistry(key);
+    if (defaultBrowser != null) {
+      return defaultBrowser;
     }
-    return "";
+    // iexplore usually, depends on the Windows, sometimes Edge
+    key = "HKEY_CLASSES_ROOT\\http\\shell\\open\\command";
+    defaultBrowser = getDefaultOutOfRegistry(key);
+    if (defaultBrowser != null) {
+      return defaultBrowser;
+    }
+    return defaultBrowser;
   }
 
   /**
-   * obtains information out of the Windows registry.
+   * obtains a value matching a key contained in the windows registry at a
+   * path represented by hkeyquery
    *
    * @param hkeyquery registry entry to ask for.
-   * @return
+   * @param key key to retrieve value from
+   * @return either a registry "Default" value or null if one does not
+   *     exist/is empty
+   * @since 2.0.0
    */
-  public static String getDefaultOutOfRegistry(String hkeyquery) {
-    if (getOperatingSystem() == "Windows") {
-      try {
-        // Get registry where we find the default browser
-        Process process = Runtime.getRuntime().exec("REG QUERY " + hkeyquery);
-        Scanner kb = new Scanner(process.getInputStream());
-        while (kb.hasNextLine()) {
-          String line = kb.nextLine();
-          if (line.contains("(Default")) {
-            String[] splitLine = line.split("  ");
-            kb.close();
-            return splitLine[splitLine.length - 1]
-                .replace("%1", "")
-                .replaceAll("\\s+$", "")
-                .replaceAll("\"", "");
+  private static String registryQuery(String hkeyquery, String key) {
+    try {
+      // Get registry where we find the default browser
+      String[] cmd = {"REG", "QUERY", hkeyquery};
+      Process process = Runtime.getRuntime().exec(cmd);
+      Scanner kb = new Scanner(process.getInputStream());
+      while (kb.hasNextLine()) {
+        String line = kb.nextLine().trim();
+        if (line.startsWith(key)) {
+          String[] splitLine = line.split("  ");
+          kb.close();
+          String finalValue = splitLine[splitLine.length - 1].trim();
+          if (!finalValue.equals("")) {
+            return finalValue;
           }
         }
-        // Match wasn't found, still need to close Scanner
-        kb.close();
-      } catch (Exception e) {
-        e.printStackTrace();
+      }
+      // Match wasn't found, still need to close Scanner
+      kb.close();
+    } catch (Exception e) {
+      logger.warning(e.toString());
+    }
+    return null;
+  }
+
+  /**
+   * If following a query back to the Default value doesn't work then what
+   * we have is a "ProgID" which will be registered in
+   * \HKEY_CLASSES_ROOT\%ProgId%, and will have an entry \shell\open\command,
+   * where \shell\open\command yields the value that contains the command it
+   * needs. This function takes a registry query in the same format as
+   * getDefaultOutOfRegistry but instead of looking for the default entry
+   *
+   * @param hkeyquery
+   * @return the command required to run the application referenced in
+   *     hkeyquery, or null
+   * @since 2.0.0
+   */
+  private static String followUserConfiguredBrowserToCommand(String hkeyquery) {
+    String progIdValue = registryQuery(hkeyquery, "ProgId");
+    return followProgIdToCommand(progIdValue);
+  }
+
+  /**
+   * Cross-references a progId obtained by
+   * followUserConfiguredBrowserToCommand against
+   * HKEY_CLASSES_ROOT\%ProgId%\shell\open\command, which holds the value of
+   * the command which we need to run to launch the default browser.
+   *
+   * @param hkeyquery
+   * @return the command required to run the application referenced in
+   *     hkeyquery, or null
+   * @since 2.0.0
+   */
+  private static String followProgIdToCommand(String progid) {
+    String hkeyquery =
+        "HKEY_CLASSES_ROOT\\" + progid + "\\shell\\open\\command";
+    String finalValue = registryQuery(hkeyquery, "(Default)");
+    if (finalValue != null) {
+      if (!finalValue.equals(""))
+        return finalValue;
+    }
+    return null;
+  }
+
+  /**
+   * obtains a default browsing command out of the Windows registry.
+   *
+   * @param hkeyquery registry entry to ask for.
+   * @return either a registry "Default" value or null if one does not
+   *     exist/is empty
+   * @since 2.0.0
+   */
+  private static String getDefaultOutOfRegistry(String hkeyquery) {
+    String defaultValue = registryQuery(hkeyquery, "Default");
+    if (defaultValue != null) {
+      if (!defaultValue.equals(""))
+        return defaultValue.split(" ")[0];
+    } else {
+      defaultValue = followUserConfiguredBrowserToCommand(hkeyquery);
+      if (defaultValue != null) {
+        if (!defaultValue.equals(""))
+          return defaultValue.split(" ")[0];
       }
     }
-    return "";
+    return null;
   }
 
   private static String scanAPath(String dir) {
@@ -250,7 +325,8 @@ public class I2PGenericUnsafeBrowser extends I2PCommonBrowser {
   /**
    * get the correct runtime directory
    *
-   * @return the runtime directory, or null if it could not be created or found
+   * @return the runtime directory, or null if it could not be created or
+   *     found
    * @since 0.0.18
    */
   public static String runtimeDirectory() {
