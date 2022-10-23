@@ -8,7 +8,12 @@ import java.awt.Toolkit;
 import java.awt.TrayIcon;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * I2PBrowser.java
@@ -39,6 +44,7 @@ public class I2PBrowser extends I2PCommonBrowser {
   public boolean chromiumFirst = false;
   public boolean usability = false;
   static private boolean outputConfig = true;
+  static private boolean systrayIsRunning = false;
 
   private void launchFirefox(int privateWindow, String[] url) {
     logger.info("I2PFirefox" + privateWindow);
@@ -241,10 +247,38 @@ public class I2PBrowser extends I2PCommonBrowser {
         }
       }
     }
+    try {
+      systray(args);
+    } catch (Exception e) {
+      logger.warning(e.toString());
+    }
     i2pBrowser.launch(privateBrowsing,
                       visitURL.toArray(new String[visitURL.size()]));
+    shutdownSystray();
+  }
+  private static boolean systrayIsRunningExternally() {
+    File systrayIsRunningFile =
+        new File(runtimeDirectory(""), "systray.running");
+    if (systrayIsRunningFile.exists())
+      return true;
+    return false;
+  }
+  private static void shutdownSystray() {
+    if (systrayIsRunning) {
+      File systrayIsRunningFile =
+          new File(runtimeDirectory(""), "systray.running");
+      if (systrayIsRunningFile.exists())
+        systrayIsRunningFile.delete();
+    }
   }
   public static void systray(String[] args) throws Exception {
+    if (systrayIsRunning) {
+      return;
+    }
+    if (systrayIsRunningExternally()) {
+      return;
+    }
+    systrayIsRunning = true;
     if (!SystemTray.isSupported()) {
       logger.warning("SystemTray is not supported");
       return;
@@ -252,24 +286,56 @@ public class I2PBrowser extends I2PCommonBrowser {
 
     SystemTray tray = SystemTray.getSystemTray();
     Toolkit toolkit = Toolkit.getDefaultToolkit();
-    Image image = toolkit.getImage("trayIcon.jpg");
+    File iconFile = new File(runtimeDirectory(""), "icon.png");
+    if (!iconFile.exists()) {
+      InputStream resources =
+          I2PBrowser.class.getClassLoader().getResourceAsStream("icon.png");
+      OutputStream fos = new FileOutputStream(iconFile);
+      copy(resources, fos);
+    }
+    Image image = toolkit.getImage("icon.png");
 
     PopupMenu menu = new PopupMenu();
 
-    MenuItem messageItem = new MenuItem("Show Message");
-    messageItem.addActionListener(new ActionListener() {
+    MenuItem launchRegularBrowser = new MenuItem("Launch I2P Browser");
+    launchRegularBrowser.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
-        // JOptionPane.showMessageDialog(null, "www.java2s.com");
+        ArrayList<String> argsList = new ArrayList<String>();
+        argsList.addAll(Arrays.asList(args));
+        main(argsList.toArray(args));
       }
     });
-    menu.add(messageItem);
+    menu.add(launchRegularBrowser);
+
+    MenuItem launchPrivateBrowser =
+        new MenuItem("Launch I2P Browser - Throwaway Session");
+    launchPrivateBrowser.addActionListener(new ActionListener() {
+      public void actionPerformed(ActionEvent e) {
+        ArrayList<String> argsList =
+            new ArrayList<String>(Arrays.asList(new String[] {"-private"}));
+        argsList.addAll(Arrays.asList(args));
+        main(argsList.toArray(args));
+      }
+    });
+    menu.add(launchPrivateBrowser);
+
+    MenuItem launchConfigBrowser = new MenuItem("Launch I2P Console");
+    launchConfigBrowser.addActionListener(new ActionListener() {
+      public void actionPerformed(ActionEvent e) {
+        ArrayList<String> argsList = new ArrayList<String>(
+            Arrays.asList(new String[] {"-app", "http://127.0.0.1:7657"}));
+        argsList.addAll(Arrays.asList(args));
+        main(argsList.toArray(args));
+      }
+    });
+    menu.add(launchConfigBrowser);
 
     MenuItem closeItem = new MenuItem("Close");
     closeItem.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) { System.exit(0); }
     });
     menu.add(closeItem);
-    TrayIcon icon = new TrayIcon(image, "SystemTray Demo", menu);
+    TrayIcon icon = new TrayIcon(image, "I2P Browser Profile Controller", menu);
     icon.setImageAutoSize(true);
 
     tray.add(icon);
