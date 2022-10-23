@@ -36,7 +36,7 @@ package: net.i2p.i2pfirefox
 | args | String[] |  |  
 
 
-### unpackProfile [[src]](src/java/net/i2p/i2pfirefox/I2PChromiumProfileUnpacker.java#L37)
+### unpackProfile [[src]](src/java/net/i2p/i2pfirefox/I2PChromiumProfileUnpacker.java#L38)
 
 + Description: unpack the profile directory   
 + Access: public  

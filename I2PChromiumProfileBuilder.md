@@ -39,7 +39,9 @@ package: net.i2p.i2pfirefox
 + Modifiers: static 
 + return: String  
 
-This method has no parameters.  
+| Name | Type | Description |  
+| ----- | ----- | ----- |  
+| base | String |  |  
 
 
 ### baseProfileDir [[src]](src/java/net/i2p/i2pfirefox/I2PChromiumProfileBuilder.java#L35)
@@ -92,7 +94,7 @@ This method has no parameters.
 ### usabilityMode [[src]](src/java/net/i2p/i2pfirefox/I2PChromiumProfileBuilder.java#L109)
 
 + Description:   
-+ Access: private  
++ Access: public  
 + Modifiers: static 
 + return: String  
 

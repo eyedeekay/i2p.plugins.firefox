@@ -55,6 +55,7 @@ This method has no parameters.
 | Name | Type | Description |  
 | ----- | ----- | ----- |  
 | app | boolean |  |  
+| base | String |  |  
 
 
 ### baseProfileDir [[src]](src/java/net/i2p/i2pfirefox/I2PFirefoxProfileBuilder.java#L114)
