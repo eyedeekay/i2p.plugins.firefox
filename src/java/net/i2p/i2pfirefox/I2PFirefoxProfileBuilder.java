@@ -107,8 +107,8 @@ public class I2PFirefoxProfileBuilder extends I2PCommonBrowser {
    *
    * @return the profile directory, or null if it could not be created
    */
-  public static String profileDirectory(boolean app) {
-    return profileDirectory("I2P_FIREFOX_PROFILE", "firefox", app);
+  public static String profileDirectory(boolean app, String base) {
+    return profileDirectory("I2P_FIREFOX_PROFILE", "firefox", base, app);
   }
 
   private static String baseProfileDir(String file, String base) {
@@ -188,7 +188,7 @@ public class I2PFirefoxProfileBuilder extends I2PCommonBrowser {
    */
   public static boolean copyBaseProfiletoProfile(String base, boolean app) {
     String baseProfile = baseProfileDirectory(base);
-    String profile = profileDirectory(app);
+    String profile = profileDirectory(app, base);
     logger.info("Copying base profile to profile directory: " + baseProfile +
                 " -> " + profile);
     if (baseProfile.isEmpty() || profile.isEmpty()) {
@@ -250,7 +250,7 @@ public class I2PFirefoxProfileBuilder extends I2PCommonBrowser {
   public static boolean copyStrictOptions(String base, boolean app) {
     logger.info("Checking strict options");
     String baseProfile = baseProfileDirectory(base);
-    String profile = profileDirectory(app);
+    String profile = profileDirectory(app, base);
     if (baseProfile.isEmpty() || profile.isEmpty()) {
       logger.info("Empty paths");
       return false;

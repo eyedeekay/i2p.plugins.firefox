@@ -27,7 +27,8 @@ public class I2PChromiumProfileChecker extends I2PCommonBrowser {
    * @since 0.0.1
    */
   public static void main(String[] args) {
-    String profileDirectory = I2PChromiumProfileBuilder.profileDirectory();
+    String profileDirectory =
+        I2PChromiumProfileBuilder.profileDirectory("base");
     if (profileDirectory == null) {
       logger.info("No profile directory found");
       return;
