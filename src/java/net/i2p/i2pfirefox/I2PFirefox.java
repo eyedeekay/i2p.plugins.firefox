@@ -158,13 +158,12 @@ public class I2PFirefox extends I2PCommonBrowser {
     // know for sure.
     String programFiles86 = System.getenv("ProgramFiles(x86)");
 
-    if (programFiles.equals(""))
+    if (programFiles == null)
       programFiles = "C:\\Program Files\\";
-    if (programFiles86.equals(""))
+    if (programFiles86 == null)
       programFiles = "C:\\Program Files (x86)\\";
-    if (!isWindows()) {
+    if (!isWindows())
       userHome = "C:\\Users\\user\\";
-    }
 
     String[] tbPath = new String[] {
         new File(userHome, "/OneDrive/Desktop/Tor Browser/Browser/").toString(),
