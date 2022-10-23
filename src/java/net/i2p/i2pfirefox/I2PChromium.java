@@ -160,7 +160,7 @@ public class I2PChromium extends I2PCommonBrowser {
     if (programFiles == null)
       programFiles = "C:/Program Files/";
     if (programFiles86 == null)
-      programFiles = "C:/Program Files (x86)/";
+      programFiles86 = "C:/Program Files (x86)/";
     if (!isWindows())
       localAppData = "C:/Users/user/AppData/Local/";
 
