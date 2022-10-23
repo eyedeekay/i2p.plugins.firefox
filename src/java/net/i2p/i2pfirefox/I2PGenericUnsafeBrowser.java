@@ -150,6 +150,7 @@ public class I2PGenericUnsafeBrowser extends I2PCommonBrowser {
         if (line.startsWith(key)) {
           String[] splitLine = line.split("  ");
           kb.close();
+          logger.info("line "+ line);
           String finalValue = splitLine[splitLine.length - 1].trim();
           if (!finalValue.equals("")) {
             return finalValue;
@@ -213,7 +214,7 @@ public class I2PGenericUnsafeBrowser extends I2PCommonBrowser {
    * @since 2.0.0
    */
   private static String getDefaultOutOfRegistry(String hkeyquery) {
-    String defaultValue = registryQuery(hkeyquery, "Default");
+    String defaultValue = registryQuery(hkeyquery, "(Default)");
     if (defaultValue != null) {
       if (!defaultValue.equals(""))
         return defaultValue.split(" ")[0];
@@ -278,6 +279,8 @@ public class I2PGenericUnsafeBrowser extends I2PCommonBrowser {
   public ProcessBuilder baseProcessBuilder(String[] args) {
     
     String browser = findUnsafeBrowserAnywhere();
+    if (browser == null)
+      System.exit(1);
     if (browser.contains("edge.exe") || browser.contains("msedge.exe")){
       ArrayList<String> argsList = new ArrayList<String>(Arrays.asList("--user-data-dir="+profileDirectory("","generic","unsafe",false)));
       argsList.addAll(Arrays.asList(args));
