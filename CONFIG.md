@@ -7,7 +7,7 @@ It is possible to configure the Browser Launcher differently using a
 
 ## bins
 
-`         bins       ` properties determine which Firefox or Chromium
+`bins` properties determine which Firefox or Chromium
 variants to use by matching the binary name. You can use these to
 configure custom Firefox or Chromium variants or disable others.
 
@@ -17,13 +17,13 @@ chromium.bins.*
 generic.bins.*
 ```
 
-`         generic.bins       ` is only used on Unixes, and usually
-refers to `         sensible-browser       ` on common Linux
+`generic.bins` is only used on Unixes, and usually
+refers to `sensible-browser` on common Linux
 distributions.
 
 ## paths
 
-`         paths       ` properties determine where to search for Firefox
+`paths` properties determine where to search for Firefox
 or Chromium variants to use by trying to find a file matching the binary
 name by looking in a series of directories. You can use these to
 configure Firefox or Chromium in non-default install locations.
@@ -60,4 +60,21 @@ firefox.paths.windows=C\:\\Users\\user\\/OneDrive/Desktop/Tor Browser/Browser,C\
 
 ```properties
 generic.bins.unix=sensible-browser,xdg-open,x-www-browser,gnome-www-browser,defaultbrowser,dillo,seamonkey,konqueror,galeon,surf,www-browser,links,lynx
+```
+
+### Launching it with I2P
+
+If you want this to be launched by I2P when you click "Launch I2P
+Browser", edit `router.config` in oder to contain the
+path to `i2pbrowser` for your platform.
+
+``` properties
+routerconsole.browser=/path/to/i2pbrowser
+```
+
+For example, if you installed it with the `.deb`
+`jpackage` , use:
+
+``` properties
+routerconsole.browser=/opt/i2pbrowser/bin/i2pbrowser
 ```
