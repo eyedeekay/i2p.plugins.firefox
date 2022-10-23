@@ -1,5 +1,13 @@
 package net.i2p.i2pfirefox;
 
+import java.awt.Image;
+import java.awt.MenuItem;
+import java.awt.PopupMenu;
+import java.awt.SystemTray;
+import java.awt.Toolkit;
+import java.awt.TrayIcon;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 /**
@@ -235,5 +243,35 @@ public class I2PBrowser extends I2PCommonBrowser {
     }
     i2pBrowser.launch(privateBrowsing,
                       visitURL.toArray(new String[visitURL.size()]));
+  }
+  public static void systray(String[] args) throws Exception {
+    if (!SystemTray.isSupported()) {
+      logger.warning("SystemTray is not supported");
+      return;
+    }
+
+    SystemTray tray = SystemTray.getSystemTray();
+    Toolkit toolkit = Toolkit.getDefaultToolkit();
+    Image image = toolkit.getImage("trayIcon.jpg");
+
+    PopupMenu menu = new PopupMenu();
+
+    MenuItem messageItem = new MenuItem("Show Message");
+    messageItem.addActionListener(new ActionListener() {
+      public void actionPerformed(ActionEvent e) {
+        // JOptionPane.showMessageDialog(null, "www.java2s.com");
+      }
+    });
+    menu.add(messageItem);
+
+    MenuItem closeItem = new MenuItem("Close");
+    closeItem.addActionListener(new ActionListener() {
+      public void actionPerformed(ActionEvent e) { System.exit(0); }
+    });
+    menu.add(closeItem);
+    TrayIcon icon = new TrayIcon(image, "SystemTray Demo", menu);
+    icon.setImageAutoSize(true);
+
+    tray.add(icon);
   }
 }
