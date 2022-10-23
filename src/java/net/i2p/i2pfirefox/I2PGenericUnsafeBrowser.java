@@ -276,12 +276,14 @@ public class I2PGenericUnsafeBrowser extends I2PCommonBrowser {
 
   //
   public ProcessBuilder baseProcessBuilder(String[] args) {
-    
+
     String browser = findUnsafeBrowserAnywhere().split(" -")[0].trim();
     if (browser == null)
       System.exit(1);
-    if (browser.contains("edge.exe") || browser.contains("msedge.exe")){
-      ArrayList<String> argsList = new ArrayList<String>(Arrays.asList("--user-data-dir="+profileDirectory("","generic","unsafe",false)));
+    if (browser.contains("edge.exe") || browser.contains("msedge.exe")) {
+      ArrayList<String> argsList = new ArrayList<String>(
+          Arrays.asList("--user-data-dir=" +
+                        profileDirectory("", "generic", "unsafe", false)));
       argsList.addAll(Arrays.asList(args));
       args = argsList.toArray(args);
     }
@@ -363,63 +365,6 @@ public class I2PGenericUnsafeBrowser extends I2PCommonBrowser {
     return runtimeDirectory("");
   }
 
-  /**
-   * Waits for an HTTP proxy on port 4444 to be ready.
-   * Returns false on timeout of 200 seconds.
-   *
-   * @return true if the proxy is ready, false if it is not.
-   * @since 0.0.18
-   */
-  public boolean waitForProxy() { return waitForProxy(DEFAULT_TIMEOUT); }
-
-  /**
-   * Waits for an HTTP proxy on port 4444 to be ready.
-   * Returns false on timeout of the specified number of seconds.
-   *
-   * @param timeout the number of seconds to wait for the proxy to be ready.
-   * @return true if the proxy is ready, false if it is not.
-   * @since 0.0.18
-   */
-  public boolean waitForProxy(int timeout) {
-    return waitForProxy(timeout, 4444);
-  }
-  /**
-   * Waits for an HTTP proxy on the specified port to be ready.
-   * Returns false on timeout of the specified number of seconds.
-   *
-   * @param timeout the number of seconds to wait for the proxy to be ready.
-   * @param port the port to wait for the proxy to be ready on.
-   * @return true if the proxy is ready, false if it is not.
-   * @since 0.0.18
-   */
-  public boolean waitForProxy(int timeout, int port) {
-    return waitForProxy(timeout, port, "localhost");
-  }
-
-  /**
-   * Waits for an HTTP proxy on the specified port to be ready.
-   * Returns false on timeout of the specified number of seconds.
-   *
-   * @param timeout the number of seconds to wait for the proxy to be ready.
-   * @param port the port to wait for the proxy to be ready on.
-   * @param host the host to wait for the proxy to be ready on.
-   * @return true if the proxy is ready, false if it is not.
-   * @since 0.0.18
-   */
-  public boolean waitForProxy(int timeout, int port, String host) {
-    for (int i = 0; i < timeout; i++) {
-      if (checkifPortIsOccupied(port, host)) {
-        return true;
-      }
-      try {
-        Thread.sleep(1000);
-      } catch (InterruptedException e) {
-        e.printStackTrace();
-      }
-    }
-    return false;
-  }
-
   public Process launchAndDetatch(boolean privateWindow, String[] url) {
     validateUserDir();
     if (waitForProxy()) {
@@ -460,14 +405,6 @@ public class I2PGenericUnsafeBrowser extends I2PCommonBrowser {
     }
   }
 
-  private static void sleep(int millis) {
-    try {
-      Thread.sleep(millis);
-    } catch (InterruptedException bad) {
-      bad.printStackTrace();
-      throw new RuntimeException(bad);
-    }
-  }
   private static String ValidURL(String inUrl) {
     String[] schemes = {"http", "https"};
     for (String scheme : schemes) {
@@ -477,15 +414,6 @@ public class I2PGenericUnsafeBrowser extends I2PCommonBrowser {
       }
     }
     return "";
-  }
-  private boolean checkifPortIsOccupied(int port, String host) {
-    try {
-      Socket socket = new Socket(host, port);
-      socket.close();
-      return true;
-    } catch (IOException e) {
-      return false;
-    }
   }
 
   //
