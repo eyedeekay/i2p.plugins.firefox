@@ -34,7 +34,7 @@
             </li>
             <li>
               <a href="CONFIG.html">
-                CONFIG
+                CONFIG.html
               </a>
             </li>
             <li>
@@ -190,10 +190,16 @@
             java.io.File
           </li>
           <li>
+            java.io.FileOutputStream
+          </li>
+          <li>
             java.io.FileWriter
           </li>
           <li>
             java.io.IOException
+          </li>
+          <li>
+            java.io.OutputStream
           </li>
           <li>
             java.io.PrintWriter
@@ -203,6 +209,12 @@
           </li>
           <li>
             java.util.Arrays
+          </li>
+          <li>
+            java.util.List
+          </li>
+          <li>
+            java.util.stream.Collectors
           </li>
           <li>
             java.util.stream.Stream
@@ -247,8 +259,112 @@
       Methods
     </h2>
     <h3>
+      storeChromiumDefaults
+      <a href="src/java/net/i2p/i2pfirefox/I2PChromium.java#L60">
+        [src]
+      </a>
+    </h3>
+    <ul>
+      <li>
+        Description:
+        <br />
+      </li>
+      <li>
+        Access: public
+        <br />
+      </li>
+      <li>
+        Modifiers: static
+      </li>
+      <li>
+        return: void
+        <br />
+      </li>
+    </ul>
+    <p>
+      This method has no parameters.
+    </p>
+    <h3>
+      chromiumPathsUnix
+      <a href="src/java/net/i2p/i2pfirefox/I2PChromium.java#L89">
+        [src]
+      </a>
+    </h3>
+    <ul>
+      <li>
+        Description:
+        <br />
+      </li>
+      <li>
+        Access: private
+        <br />
+      </li>
+      <li>
+        Modifiers: static
+      </li>
+      <li>
+        return: String[]
+        <br />
+      </li>
+    </ul>
+    <p>
+      This method has no parameters.
+    </p>
+    <h3>
+      chromiumBinsUnix
+      <a href="src/java/net/i2p/i2pfirefox/I2PChromium.java#L98">
+        [src]
+      </a>
+    </h3>
+    <ul>
+      <li>
+        Description:
+        <br />
+      </li>
+      <li>
+        Access: private
+        <br />
+      </li>
+      <li>
+        Modifiers: static
+      </li>
+      <li>
+        return: String[]
+        <br />
+      </li>
+    </ul>
+    <p>
+      This method has no parameters.
+    </p>
+    <h3>
       FIND_CHROMIUM_SEARCH_PATHS_UNIX
-      <a href="src/java/net/i2p/i2pfirefox/I2PChromium.java#L56">
+      <a href="src/java/net/i2p/i2pfirefox/I2PChromium.java#L114">
+        [src]
+      </a>
+    </h3>
+    <ul>
+      <li>
+        Description:
+        <br />
+      </li>
+      <li>
+        Access: private
+        <br />
+      </li>
+      <li>
+        Modifiers: static
+      </li>
+      <li>
+        return: String[]
+        <br />
+      </li>
+    </ul>
+    <p>
+      This method has no parameters.
+    </p>
+    <h3>
+      chromiumPathsOSX
+      <a href="src/java/net/i2p/i2pfirefox/I2PChromium.java#L128">
         [src]
       </a>
     </h3>
@@ -274,7 +390,59 @@
     </p>
     <h3>
       FIND_CHROMIUM_SEARCH_PATHS_OSX
-      <a href="src/java/net/i2p/i2pfirefox/I2PChromium.java#L72">
+      <a href="src/java/net/i2p/i2pfirefox/I2PChromium.java#L137">
+        [src]
+      </a>
+    </h3>
+    <ul>
+      <li>
+        Description:
+        <br />
+      </li>
+      <li>
+        Access: private
+        <br />
+      </li>
+      <li>
+        Modifiers: static
+      </li>
+      <li>
+        return: String[]
+        <br />
+      </li>
+    </ul>
+    <p>
+      This method has no parameters.
+    </p>
+    <h3>
+      chromiumPathsWindows
+      <a href="src/java/net/i2p/i2pfirefox/I2PChromium.java#L151">
+        [src]
+      </a>
+    </h3>
+    <ul>
+      <li>
+        Description:
+        <br />
+      </li>
+      <li>
+        Access: private
+        <br />
+      </li>
+      <li>
+        Modifiers: static
+      </li>
+      <li>
+        return: String[]
+        <br />
+      </li>
+    </ul>
+    <p>
+      This method has no parameters.
+    </p>
+    <h3>
+      chromiumBinsWindows
+      <a href="src/java/net/i2p/i2pfirefox/I2PChromium.java#L176">
         [src]
       </a>
     </h3>
@@ -300,7 +468,7 @@
     </p>
     <h3>
       FIND_CHROMIUM_SEARCH_PATHS_WINDOWS
-      <a href="src/java/net/i2p/i2pfirefox/I2PChromium.java#L84">
+      <a href="src/java/net/i2p/i2pfirefox/I2PChromium.java#L185">
         [src]
       </a>
     </h3>
@@ -326,7 +494,7 @@
     </p>
     <h3>
       FIND_ALL_CHROMIUM_SEARCH_PATHS
-      <a href="src/java/net/i2p/i2pfirefox/I2PChromium.java#L121">
+      <a href="src/java/net/i2p/i2pfirefox/I2PChromium.java#L199">
         [src]
       </a>
     </h3>
@@ -352,7 +520,7 @@
     </p>
     <h3>
       FIND_CHROMIUM_SEARCH_PATHS
-      <a href="src/java/net/i2p/i2pfirefox/I2PChromium.java#L141">
+      <a href="src/java/net/i2p/i2pfirefox/I2PChromium.java#L219">
         [src]
       </a>
     </h3>
@@ -378,7 +546,7 @@
     </p>
     <h3>
       NEARBY_CHROMIUM_SEARCH_PATHS
-      <a href="src/java/net/i2p/i2pfirefox/I2PChromium.java#L155">
+      <a href="src/java/net/i2p/i2pfirefox/I2PChromium.java#L233">
         [src]
       </a>
     </h3>
@@ -404,7 +572,7 @@
     </p>
     <h3>
       CHROMIUM_FINDER
-      <a href="src/java/net/i2p/i2pfirefox/I2PChromium.java#L209">
+      <a href="src/java/net/i2p/i2pfirefox/I2PChromium.java#L287">
         [src]
       </a>
     </h3>
@@ -429,34 +597,8 @@
       This method has no parameters.
     </p>
     <h3>
-      getOperatingSystem
-      <a href="src/java/net/i2p/i2pfirefox/I2PChromium.java#L221">
-        [src]
-      </a>
-    </h3>
-    <ul>
-      <li>
-        Description:
-        <br />
-      </li>
-      <li>
-        Access: private
-        <br />
-      </li>
-      <li>
-        Modifiers: static
-      </li>
-      <li>
-        return: String
-        <br />
-      </li>
-    </ul>
-    <p>
-      This method has no parameters.
-    </p>
-    <h3>
       onlyValidChromiums
-      <a href="src/java/net/i2p/i2pfirefox/I2PChromium.java#L243">
+      <a href="src/java/net/i2p/i2pfirefox/I2PChromium.java#L308">
         [src]
       </a>
     </h3>
@@ -479,7 +621,7 @@
     </p>
     <h3>
       topChromium
-      <a href="src/java/net/i2p/i2pfirefox/I2PChromium.java#L263">
+      <a href="src/java/net/i2p/i2pfirefox/I2PChromium.java#L328">
         [src]
       </a>
     </h3>
@@ -502,7 +644,7 @@
     </p>
     <h3>
       topChromium
-      <a href="src/java/net/i2p/i2pfirefox/I2PChromium.java#L292">
+      <a href="src/java/net/i2p/i2pfirefox/I2PChromium.java#L357">
         [src]
       </a>
     </h3>
@@ -529,7 +671,7 @@
     </p>
     <h3>
       defaultProcessBuilder
-      <a href="src/java/net/i2p/i2pfirefox/I2PChromium.java#L310">
+      <a href="src/java/net/i2p/i2pfirefox/I2PChromium.java#L375">
         [src]
       </a>
     </h3>
@@ -552,7 +694,7 @@
     </p>
     <h3>
       defaultProcessBuilder
-      <a href="src/java/net/i2p/i2pfirefox/I2PChromium.java#L323">
+      <a href="src/java/net/i2p/i2pfirefox/I2PChromium.java#L388">
         [src]
       </a>
     </h3>
@@ -579,7 +721,7 @@
     </p>
     <h3>
       privateProcessBuilder
-      <a href="src/java/net/i2p/i2pfirefox/I2PChromium.java#L335">
+      <a href="src/java/net/i2p/i2pfirefox/I2PChromium.java#L400">
         [src]
       </a>
     </h3>
@@ -602,7 +744,7 @@
     </p>
     <h3>
       privateProcessBuilder
-      <a href="src/java/net/i2p/i2pfirefox/I2PChromium.java#L348">
+      <a href="src/java/net/i2p/i2pfirefox/I2PChromium.java#L413">
         [src]
       </a>
     </h3>
@@ -629,7 +771,7 @@
     </p>
     <h3>
       appProcessBuilder
-      <a href="src/java/net/i2p/i2pfirefox/I2PChromium.java#L370">
+      <a href="src/java/net/i2p/i2pfirefox/I2PChromium.java#L435">
         [src]
       </a>
     </h3>
@@ -652,7 +794,7 @@
     </p>
     <h3>
       appProcessBuilder
-      <a href="src/java/net/i2p/i2pfirefox/I2PChromium.java#L383">
+      <a href="src/java/net/i2p/i2pfirefox/I2PChromium.java#L448">
         [src]
       </a>
     </h3>
@@ -679,7 +821,7 @@
     </p>
     <h3>
       processBuilder
-      <a href="src/java/net/i2p/i2pfirefox/I2PChromium.java#L430">
+      <a href="src/java/net/i2p/i2pfirefox/I2PChromium.java#L495">
         [src]
       </a>
     </h3>
@@ -706,7 +848,7 @@
     </p>
     <h3>
       launchAndDetatch
-      <a href="src/java/net/i2p/i2pfirefox/I2PChromium.java#L548">
+      <a href="src/java/net/i2p/i2pfirefox/I2PChromium.java#L616">
         [src]
       </a>
     </h3>
@@ -735,7 +877,7 @@
     </p>
     <h3>
       launchAndDetatch
-      <a href="src/java/net/i2p/i2pfirefox/I2PChromium.java#L555">
+      <a href="src/java/net/i2p/i2pfirefox/I2PChromium.java#L623">
         [src]
       </a>
     </h3>
@@ -764,7 +906,7 @@
     </p>
     <h3>
       launch
-      <a href="src/java/net/i2p/i2pfirefox/I2PChromium.java#L612">
+      <a href="src/java/net/i2p/i2pfirefox/I2PChromium.java#L681">
         [src]
       </a>
     </h3>
@@ -793,7 +935,7 @@
     </p>
     <h3>
       launch
-      <a href="src/java/net/i2p/i2pfirefox/I2PChromium.java#L618">
+      <a href="src/java/net/i2p/i2pfirefox/I2PChromium.java#L687">
         [src]
       </a>
     </h3>
@@ -822,7 +964,7 @@
     </p>
     <h3>
       launch
-      <a href="src/java/net/i2p/i2pfirefox/I2PChromium.java#L643">
+      <a href="src/java/net/i2p/i2pfirefox/I2PChromium.java#L712">
         [src]
       </a>
     </h3>
@@ -849,7 +991,7 @@
     </p>
     <h3>
       launch
-      <a href="src/java/net/i2p/i2pfirefox/I2PChromium.java#L652">
+      <a href="src/java/net/i2p/i2pfirefox/I2PChromium.java#L721">
         [src]
       </a>
     </h3>
@@ -872,7 +1014,7 @@
     </p>
     <h3>
       ValidURL
-      <a href="src/java/net/i2p/i2pfirefox/I2PChromium.java#L654">
+      <a href="src/java/net/i2p/i2pfirefox/I2PChromium.java#L723">
         [src]
       </a>
     </h3>
@@ -902,7 +1044,7 @@
     </p>
     <h3>
       main
-      <a href="src/java/net/i2p/i2pfirefox/I2PChromium.java#L664">
+      <a href="src/java/net/i2p/i2pfirefox/I2PChromium.java#L733">
         [src]
       </a>
     </h3>
@@ -932,7 +1074,7 @@
     </p>
     <h3>
       sleep
-      <a href="src/java/net/i2p/i2pfirefox/I2PChromium.java#L703">
+      <a href="src/java/net/i2p/i2pfirefox/I2PChromium.java#L772">
         [src]
       </a>
     </h3>
