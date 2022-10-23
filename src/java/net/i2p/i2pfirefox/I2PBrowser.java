@@ -10,6 +10,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
@@ -44,7 +46,6 @@ public class I2PBrowser extends I2PCommonBrowser {
   public boolean chromiumFirst = false;
   public boolean usability = false;
   static private boolean outputConfig = true;
-  static private boolean systrayIsRunning = false;
 
   private void launchFirefox(int privateWindow, String[] url) {
     logger.info("I2PFirefox" + privateWindow);
@@ -247,41 +248,45 @@ public class I2PBrowser extends I2PCommonBrowser {
         }
       }
     }
+    boolean systrayStarted = false;
     try {
-      systray(args);
+      systrayStarted = systray(args);
     } catch (Exception e) {
       logger.warning(e.toString());
     }
     i2pBrowser.launch(privateBrowsing,
                       visitURL.toArray(new String[visitURL.size()]));
-    shutdownSystray();
   }
   private static boolean systrayIsRunningExternally() {
     File systrayIsRunningFile =
         new File(runtimeDirectory(""), "systray.running");
-    if (systrayIsRunningFile.exists())
+    if (systrayIsRunningFile.exists()) {
+      logger.info("Systray is already running in another process");
       return true;
+    }
+    try {
+      FileWriter myWriter = new FileWriter(systrayIsRunningFile);
+      myWriter.write("systray is running");
+      myWriter.close();
+    } catch (IOException ioe) {
+      logger.warning(ioe.toString());
+      return true;
+    }
     return false;
   }
   private static void shutdownSystray() {
-    if (systrayIsRunning) {
-      File systrayIsRunningFile =
-          new File(runtimeDirectory(""), "systray.running");
-      if (systrayIsRunningFile.exists())
-        systrayIsRunningFile.delete();
-    }
+    File systrayIsRunningFile =
+        new File(runtimeDirectory(""), "systray.running");
+    if (systrayIsRunningFile.exists())
+      systrayIsRunningFile.delete();
   }
-  public static void systray(String[] args) throws Exception {
-    if (systrayIsRunning) {
-      return;
-    }
+  public static boolean systray(String[] args) throws Exception {
     if (systrayIsRunningExternally()) {
-      return;
+      return false;
     }
-    systrayIsRunning = true;
     if (!SystemTray.isSupported()) {
       logger.warning("SystemTray is not supported");
-      return;
+      return false;
     }
 
     SystemTray tray = SystemTray.getSystemTray();
@@ -332,12 +337,16 @@ public class I2PBrowser extends I2PCommonBrowser {
 
     MenuItem closeItem = new MenuItem("Close");
     closeItem.addActionListener(new ActionListener() {
-      public void actionPerformed(ActionEvent e) { System.exit(0); }
+      public void actionPerformed(ActionEvent e) {
+        shutdownSystray();
+        System.exit(0);
+      }
     });
     menu.add(closeItem);
     TrayIcon icon = new TrayIcon(image, "I2P Browser Profile Controller", menu);
     icon.setImageAutoSize(true);
 
     tray.add(icon);
+    return true;
   }
 }
