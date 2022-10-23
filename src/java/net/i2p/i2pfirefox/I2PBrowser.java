@@ -30,7 +30,7 @@ public class I2PBrowser extends I2PCommonBrowser {
   public boolean generic = false;
   public boolean chromiumFirst = false;
   public boolean usability = false;
-  static private boolean outputConfig = false;
+  static private boolean outputConfig = true;
 
   private void launchFirefox(int privateWindow, String[] url) {
     logger.info("I2PFirefox" + privateWindow);
@@ -50,6 +50,8 @@ public class I2PBrowser extends I2PCommonBrowser {
     boolean privateWindow = false;
     if (privateWindowInt == 1)
       privateWindow = true;
+    if (outputConfig)
+      i2pGeneral.storeGenericDefaults();
     logger.info("I2PGeneric" + privateWindowInt);
     i2pGeneral.launch(privateWindow, url);
   }
@@ -208,6 +210,9 @@ public class I2PBrowser extends I2PCommonBrowser {
           }
           if (arg.equals("-usability")) {
             i2pBrowser.usability = true;
+          }
+          if (arg.equals("-generic")) {
+            i2pBrowser.generic = true;
           }
           if (arg.equals("-app")) {
             i2pBrowser.usability = true;
