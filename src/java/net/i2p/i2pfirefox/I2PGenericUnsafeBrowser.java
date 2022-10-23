@@ -150,7 +150,6 @@ public class I2PGenericUnsafeBrowser extends I2PCommonBrowser {
         if (line.startsWith(key)) {
           String[] splitLine = line.split("  ");
           kb.close();
-          logger.info("line "+ line);
           String finalValue = splitLine[splitLine.length - 1].trim();
           if (!finalValue.equals("")) {
             return finalValue;
@@ -217,12 +216,12 @@ public class I2PGenericUnsafeBrowser extends I2PCommonBrowser {
     String defaultValue = registryQuery(hkeyquery, "(Default)");
     if (defaultValue != null) {
       if (!defaultValue.equals(""))
-        return defaultValue.split(" ")[0];
+        return defaultValue;
     } else {
       defaultValue = followUserConfiguredBrowserToCommand(hkeyquery);
       if (defaultValue != null) {
         if (!defaultValue.equals(""))
-          return defaultValue.split(" ")[0];
+          return defaultValue;
       }
     }
     return null;
@@ -278,7 +277,7 @@ public class I2PGenericUnsafeBrowser extends I2PCommonBrowser {
   //
   public ProcessBuilder baseProcessBuilder(String[] args) {
     
-    String browser = findUnsafeBrowserAnywhere();
+    String browser = findUnsafeBrowserAnywhere().split(" -")[0].trim();
     if (browser == null)
       System.exit(1);
     if (browser.contains("edge.exe") || browser.contains("msedge.exe")){
