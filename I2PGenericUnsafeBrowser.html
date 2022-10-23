@@ -34,7 +34,7 @@
             </li>
             <li>
               <a href="CONFIG.html">
-                CONFIG
+                CONFIG.html
               </a>
             </li>
             <li>
@@ -186,7 +186,13 @@
             java.io.File
           </li>
           <li>
+            java.io.FileOutputStream
+          </li>
+          <li>
             java.io.IOException
+          </li>
+          <li>
+            java.io.OutputStream
           </li>
           <li>
             java.net.Socket
@@ -195,7 +201,16 @@
             java.util.ArrayList
           </li>
           <li>
+            java.util.Arrays
+          </li>
+          <li>
+            java.util.List
+          </li>
+          <li>
             java.util.Scanner
+          </li>
+          <li>
+            java.util.stream.Collectors
           </li>
         </ul>
         <br />
@@ -254,13 +269,13 @@
     </h2>
     <h3>
       getDefaultWindowsBrowser
-      <a href="src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L90">
+      <a href="src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L101">
         [src]
       </a>
     </h3>
     <ul>
       <li>
-        Description: Obtains the default browser for the Windows platform which by now should be Edgium in the worst-case scenario but in case it isn&rsquo;t we can use this function to figure it out. It can find: 1. The current user&rsquo;s HTTPS default browser if they configured it to be non-default 2. The current user&rsquo;s HTTP default browser if they configured it to be non-default 3. Edgium if it&rsquo;s available 4. iexplore if it&rsquo;s not and it will return the first one we find in exactly that order. Adapted from: and from:
+        Description: Obtains the default browser for the Windows platform which by now should be Edgium in the worst-case scenario but in case it isn&rsquo;t we can use this function to figure it out. It can find: 1. The current user&rsquo;s HTTPS default browser if they configured it to be non-default 2. The current user&rsquo;s HTTP default browser if they configured it to be non-default 3. Edgium if it&rsquo;s available 4. iexplore if it&rsquo;s not and it will return the first one we find in exactly that order. Adapted from:
         <br />
       </li>
       <li>
@@ -271,7 +286,7 @@
         Modifiers: static
       </li>
       <li>
-        return: String
+        return: path to command[0] and target URL[1] to the default browser ready for execution or null if not found
         <br />
       </li>
     </ul>
@@ -279,25 +294,117 @@
       This method has no parameters.
     </p>
     <h3>
-      getDefaultOutOfRegistry
-      <a href="src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L118">
+      registryQuery
+      <a href="src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L142">
         [src]
       </a>
     </h3>
     <ul>
       <li>
-        Description: obtains information out of the Windows registry.
+        Description: obtains a value matching a key contained in the windows registry at a path represented by hkeyquery
         <br />
       </li>
       <li>
-        Access: public
+        Access: private
         <br />
       </li>
       <li>
         Modifiers: static
       </li>
       <li>
-        return: String
+        return: either a registry &ldquo;Default&rdquo; value or null if one does not exist/is empty
+        <br />
+      </li>
+    </ul>
+    <p>
+      | Name | Type | Description |
+      <br />
+      | &mdash;&ndash; | &mdash;&ndash; | &mdash;&ndash; |
+      <br />
+      | hkeyquery | String | registry entry to ask for.  |
+      <br />
+      | key | String | key to retrieve value from  |
+    </p>
+    <h3>
+      followUserConfiguredBrowserToCommand
+      <a href="src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L180">
+        [src]
+      </a>
+    </h3>
+    <ul>
+      <li>
+        Description: If following a query back to the Default value doesn&rsquo;t work then what we have is a &ldquo;ProgID&rdquo; which will be registered in \HKEY_CLASSES_ROOT\%ProgId% and will have an entry \shell\open\command where \shell\open\command yields the value that contains the command it needs. This function takes a registry query in the same format as getDefaultOutOfRegistry but instead of looking for the default entry
+        <br />
+      </li>
+      <li>
+        Access: private
+        <br />
+      </li>
+      <li>
+        Modifiers: static
+      </li>
+      <li>
+        return: the command required to run the application referenced in hkeyquery or null
+        <br />
+      </li>
+    </ul>
+    <p>
+      | Name | Type | Description |
+      <br />
+      | &mdash;&ndash; | &mdash;&ndash; | &mdash;&ndash; |
+      <br />
+      | hkeyquery | String |  |
+    </p>
+    <h3>
+      followProgIdToCommand
+      <a href="src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L196">
+        [src]
+      </a>
+    </h3>
+    <ul>
+      <li>
+        Description: Cross-references a progId obtained by followUserConfiguredBrowserToCommand against HKEY_CLASSES_ROOT\%ProgId%\shell\open\command which holds the value of the command which we need to run to launch the default browser.
+        <br />
+      </li>
+      <li>
+        Access: private
+        <br />
+      </li>
+      <li>
+        Modifiers: static
+      </li>
+      <li>
+        return: the command required to run the application referenced in hkeyquery or null
+        <br />
+      </li>
+    </ul>
+    <p>
+      | Name | Type | Description |
+      <br />
+      | &mdash;&ndash; | &mdash;&ndash; | &mdash;&ndash; |
+      <br />
+      | progid | String |  |
+    </p>
+    <h3>
+      getDefaultOutOfRegistry
+      <a href="src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L215">
+        [src]
+      </a>
+    </h3>
+    <ul>
+      <li>
+        Description: obtains a default browsing command out of the Windows registry.
+        <br />
+      </li>
+      <li>
+        Access: private
+        <br />
+      </li>
+      <li>
+        Modifiers: static
+      </li>
+      <li>
+        return: either a registry &ldquo;Default&rdquo; value or null if one does not exist/is empty
         <br />
       </li>
     </ul>
@@ -310,7 +417,7 @@
     </p>
     <h3>
       scanAPath
-      <a href="src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L144">
+      <a href="src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L230">
         [src]
       </a>
     </h3>
@@ -340,7 +447,7 @@
     </p>
     <h3>
       getAnyUnixBrowser
-      <a href="src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L159">
+      <a href="src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L245">
         [src]
       </a>
     </h3>
@@ -366,7 +473,7 @@
     </p>
     <h3>
       findUnsafeBrowserAnywhere
-      <a href="src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L178">
+      <a href="src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L264">
         [src]
       </a>
     </h3>
@@ -392,7 +499,7 @@
     </p>
     <h3>
       deleteRuntimeDirectory
-      <a href="src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L229">
+      <a href="src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L315">
         [src]
       </a>
     </h3>
@@ -418,7 +525,7 @@
     </p>
     <h3>
       runtimeDirectory
-      <a href="src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L245">
+      <a href="src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L331">
         [src]
       </a>
     </h3>
@@ -448,7 +555,7 @@
     </p>
     <h3>
       runtimeDirectory
-      <a href="src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L256">
+      <a href="src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L343">
         [src]
       </a>
     </h3>
@@ -474,7 +581,7 @@
     </p>
     <h3>
       waitForProxy
-      <a href="src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L278">
+      <a href="src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L365">
         [src]
       </a>
     </h3>
@@ -497,7 +604,7 @@
     </p>
     <h3>
       waitForProxy
-      <a href="src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L288">
+      <a href="src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L375">
         [src]
       </a>
     </h3>
@@ -524,7 +631,7 @@
     </p>
     <h3>
       waitForProxy
-      <a href="src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L300">
+      <a href="src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L387">
         [src]
       </a>
     </h3>
@@ -553,7 +660,7 @@
     </p>
     <h3>
       waitForProxy
-      <a href="src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L314">
+      <a href="src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L401">
         [src]
       </a>
     </h3>
@@ -584,7 +691,7 @@
     </p>
     <h3>
       launchAndDetatch
-      <a href="src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L328">
+      <a href="src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L415">
         [src]
       </a>
     </h3>
@@ -613,7 +720,7 @@
     </p>
     <h3>
       launch
-      <a href="src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L350">
+      <a href="src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L437">
         [src]
       </a>
     </h3>
@@ -642,7 +749,7 @@
     </p>
     <h3>
       sleep
-      <a href="src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L368">
+      <a href="src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L455">
         [src]
       </a>
     </h3>
@@ -672,7 +779,7 @@
     </p>
     <h3>
       ValidURL
-      <a href="src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L376">
+      <a href="src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L463">
         [src]
       </a>
     </h3>
@@ -702,7 +809,7 @@
     </p>
     <h3>
       checkifPortIsOccupied
-      <a href="src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L386">
+      <a href="src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L473">
         [src]
       </a>
     </h3>
