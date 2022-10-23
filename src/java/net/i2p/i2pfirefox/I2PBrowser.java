@@ -30,7 +30,7 @@ public class I2PBrowser extends I2PCommonBrowser {
   public boolean generic = false;
   public boolean chromiumFirst = false;
   public boolean usability = false;
-  static private boolean outputConfig = true;
+  static private boolean outputConfig = false;
 
   private void launchFirefox(int privateWindow, String[] url) {
     logger.info("I2PFirefox" + privateWindow);
