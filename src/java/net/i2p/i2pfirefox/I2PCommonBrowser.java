@@ -333,6 +333,15 @@ public class I2PCommonBrowser {
     }
   }
 
+  public static void copy(InputStream source, OutputStream target)
+      throws IOException {
+    byte[] buf = new byte[8192];
+    int length;
+    while ((length = source.read(buf)) != -1) {
+      target.write(buf, 0, length);
+    }
+  }
+
   private static void copyFile(File sourceFile, File destinationFile)
       throws IOException {
     try (InputStream in = new FileInputStream(sourceFile);

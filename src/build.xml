@@ -46,6 +46,7 @@
             <fileset file="i2p.firefox.usability.profile.zip" />
             <fileset file="i2p.chromium.base.profile.zip" />
             <fileset file="i2p.chromium.usability.profile.zip" />
+            <fileset file="icon.png" />
         </jar>
     </target>    
 

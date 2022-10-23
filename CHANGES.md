@@ -1,4 +1,10 @@
-Sat, October 20
+Sat, October 22
+---------------
+
+ - Add systray for launching browsers from our own GUI
+ - Add `browser.config` file for customizing configuration
+
+Thu, October 20
 ---------------
 
  - Complete the PWA/App mode
