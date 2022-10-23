@@ -17,6 +17,7 @@
         <pathelement location="${jettylib}/jetty-xml.jar" />
         <pathelement location="${jettylib}/commons-logging.jar" />
         <pathelement location="${jettylib}/commons-el.jar" />
+        <pathelement location="lib/jars/gngr.jar" />
     </path>
 
     <target name="all" depends="clean, build" />
