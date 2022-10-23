@@ -108,7 +108,7 @@ public class I2PChromium extends I2PCommonBrowser {
       if (!chromiumPathsProp.equals(""))
         return chromiumPathsProp.split(",");
     return new String[] {"ungoogled-chromium", "chromium", "brave", "edge",
-                         "ungoogled-chromium", "chrome"};
+                         "msedge", "chrome"};
   }
 
   private static String[] FIND_CHROMIUM_SEARCH_PATHS_UNIX() {
@@ -188,7 +188,7 @@ public class I2PChromium extends I2PCommonBrowser {
         return chromiumPathsProp.split(",");
     return new String[] {
         "ungoogled-chromium.exe", "chromium.exe", "brave.exe", "edge.exe",
-        "ungoogled-chromium.exe", "chrome.exe"};
+        "msedge.exe", "chrome.exe"};
   }
   private static String[] FIND_CHROMIUM_SEARCH_PATHS_WINDOWS() {
     String[] path = chromiumPathsWindows();
@@ -242,7 +242,7 @@ public class I2PChromium extends I2PCommonBrowser {
     // obtain the PLUGIN environment variable
     String plugin = System.getenv("PLUGIN");
     // search the plugin directory for anything named "ungoogled-chromium",
-    // "chromium", "brave", "edge", "ungoogled-chromium", "chrome" up to a depth
+    // "chromium", "brave", "edge", "msedge", "chrome" up to a depth
     // of 2 directories deep. list the directories in the plugin directory
     if (plugin != null && !plugin.isEmpty()) {
       File pluginDir = new File(plugin);
