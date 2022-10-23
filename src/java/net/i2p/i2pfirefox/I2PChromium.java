@@ -1,11 +1,15 @@
 package net.i2p.i2pfirefox;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
@@ -53,6 +57,35 @@ public class I2PChromium extends I2PCommonBrowser {
     I2PChromiumProfileBuilder.usability = true;
   }
 
+  public static void storeChromiumDefaults() {
+    List<String> list = new ArrayList<String>();
+    list = Arrays.asList(chromiumPathsWindows());
+    prop.setProperty("chromium.paths.windows",
+                     list.stream().collect(Collectors.joining(",")));
+    list = Arrays.asList(chromiumPathsUnix());
+    prop.setProperty("chromium.paths.linux",
+                     list.stream().collect(Collectors.joining(",")));
+    list = Arrays.asList(chromiumPathsOSX());
+    prop.setProperty("chromium.paths.osx",
+                     list.stream().collect(Collectors.joining(",")));
+
+    list = Arrays.asList(chromiumBinsWindows());
+    prop.setProperty("chromium.bins.windows",
+                     list.stream().collect(Collectors.joining(",")));
+    list = Arrays.asList(chromiumBinsUnix());
+    prop.setProperty("chromium.bins.linux",
+                     list.stream().collect(Collectors.joining(",")));
+    list = Arrays.asList(chromiumBinsUnix());
+    prop.setProperty("chromium.bins.osx",
+                     list.stream().collect(Collectors.joining(",")));
+    try (OutputStream fos = new FileOutputStream(
+             new File(runtimeDirectory(""), "browser.config"))) {
+      prop.store(fos, "Chromium Configuration Section");
+    } catch (IOException ioe) {
+      logger.warning(ioe.toString());
+    }
+  }
+
   private static String[] chromiumPathsUnix() {
     String chromiumPathsProp = prop.getProperty("chromium.paths.unix");
     if (chromiumPathsProp != null)
@@ -63,16 +96,17 @@ public class I2PChromium extends I2PCommonBrowser {
   }
 
   private static String[] chromiumBinsUnix() {
-    String chromiumPathsProp = prop.getProperty("chromium.bins.unix");
-    if (chromiumPathsProp != null)
-      if (!chromiumPathsProp.equals(""))
-        return chromiumPathsProp.split(",");
+    String chromiumPathsProp;
     if (isOSX()) {
       chromiumPathsProp = prop.getProperty("chromium.bins.osx");
       if (chromiumPathsProp != null)
         if (!chromiumPathsProp.equals(""))
           return chromiumPathsProp.split(",");
     }
+    chromiumPathsProp = prop.getProperty("chromium.bins.unix");
+    if (chromiumPathsProp != null)
+      if (!chromiumPathsProp.equals(""))
+        return chromiumPathsProp.split(",");
     return new String[] {"ungoogled-chromium", "chromium", "brave", "edge",
                          "ungoogled-chromium", "chrome"};
   }

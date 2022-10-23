@@ -1,12 +1,16 @@
 package net.i2p.i2pfirefox;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
@@ -45,6 +49,35 @@ public class I2PFirefox extends I2PCommonBrowser {
     }
   }
 
+  public static void storeFirefoxDefaults() {
+    List<String> list = new ArrayList<String>();
+    list = Arrays.asList(firefoxPathsWindows());
+    prop.setProperty("firefox.paths.windows",
+                     list.stream().collect(Collectors.joining(",")));
+    list = Arrays.asList(firefoxPathsUnix());
+    prop.setProperty("firefox.paths.linux",
+                     list.stream().collect(Collectors.joining(",")));
+    list = Arrays.asList(firefoxPathsOSX());
+    prop.setProperty("firefox.paths.osx",
+                     list.stream().collect(Collectors.joining(",")));
+
+    list = Arrays.asList(firefoxBinsWindows());
+    prop.setProperty("firefox.bins.windows",
+                     list.stream().collect(Collectors.joining(",")));
+    list = Arrays.asList(firefoxBinsUnix());
+    prop.setProperty("firefox.bins.linux",
+                     list.stream().collect(Collectors.joining(",")));
+    list = Arrays.asList(firefoxBinsUnix());
+    prop.setProperty("firefox.bins.osx",
+                     list.stream().collect(Collectors.joining(",")));
+    try (OutputStream fos = new FileOutputStream(
+             new File(runtimeDirectory(""), "browser.config"))) {
+      prop.store(fos, "Firefox Configuration Section");
+    } catch (IOException ioe) {
+      logger.warning(ioe.toString());
+    }
+  }
+
   public static String[] firefoxPathsUnix() {
     String firefoxPathsProp = prop.getProperty("firefox.paths.unix");
     if (firefoxPathsProp != null)
@@ -55,16 +88,18 @@ public class I2PFirefox extends I2PCommonBrowser {
   }
 
   public static String[] firefoxBinsUnix() {
-    String firefoxPathsProp = prop.getProperty("firefox.bins.unix");
-    if (firefoxPathsProp != null)
-      if (!firefoxPathsProp.equals(""))
-        return firefoxPathsProp.split(",");
+    String firefoxPathsProp;
     if (isOSX()) {
       firefoxPathsProp = prop.getProperty("firefox.bins.osx");
       if (firefoxPathsProp != null)
         if (!firefoxPathsProp.equals(""))
           return firefoxPathsProp.split(",");
     }
+    firefoxPathsProp = prop.getProperty("firefox.bins.unix");
+    if (firefoxPathsProp != null)
+      if (!firefoxPathsProp.equals(""))
+        return firefoxPathsProp.split(",");
+
     return new String[] {"firefox",  "firefox-bin",  "firefox-esr",
                          "waterfox", "waterfox-bin", "librewolf"};
   }

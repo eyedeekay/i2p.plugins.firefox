@@ -30,15 +30,20 @@ public class I2PBrowser extends I2PCommonBrowser {
   public boolean generic = false;
   public boolean chromiumFirst = false;
   public boolean usability = false;
+  static private boolean outputConfig = true;
 
   private void launchFirefox(int privateWindow, String[] url) {
     logger.info("I2PFirefox" + privateWindow);
     I2PFirefox.usability = usability;
+    if (outputConfig)
+      i2pFirefox.storeFirefoxDefaults();
     i2pFirefox.launch(privateWindow, url);
   }
   private void launchChromium(int privateWindow, String[] url) {
     logger.info("I2PChromium" + privateWindow);
     I2PChromiumProfileBuilder.usability = usability;
+    if (outputConfig)
+      i2pChromium.storeChromiumDefaults();
     i2pChromium.launch(privateWindow, url);
   }
   private void launchGeneric(int privateWindowInt, String[] url) {
@@ -207,6 +212,9 @@ public class I2PBrowser extends I2PCommonBrowser {
           if (arg.equals("-app")) {
             i2pBrowser.usability = true;
             privateBrowsing = 2;
+          }
+          if (arg.equals("-outputconfig")) {
+            outputConfig = true;
           }
           if (arg.equals("-noproxycheck")) {
             logger.info("zeroing out proxy check");
