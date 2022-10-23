@@ -34,7 +34,7 @@
             </li>
             <li>
               <a href="CONFIG.html">
-                CONFIG
+                CONFIG.html
               </a>
             </li>
             <li>
@@ -208,6 +208,12 @@
             java.nio.file.StandardCopyOption
           </li>
           <li>
+            java.util.Arrays
+          </li>
+          <li>
+            java.util.Properties
+          </li>
+          <li>
             java.util.logging.FileHandler
           </li>
           <li>
@@ -230,6 +236,22 @@
       Member Variables
     </h2>
     <h4>
+      Properties prop
+      <a href="src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L">
+        [src]
+      </a>
+    </h4>
+    <blockquote></blockquote>
+    <ul>
+      <li>
+        Access: public
+        <br />
+      </li>
+      <li>
+        Modifiers: static
+      </li>
+    </ul>
+    <h4>
       Logger logger
       <a href="src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L">
         [src]
@@ -246,7 +268,7 @@
       </li>
     </ul>
     <h4>
-      <a href="src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L36">
+      <a href="src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L39">
         [src]
       </a>
     </h4>
@@ -265,7 +287,7 @@
       </li>
     </ul>
     <h4>
-      <a href="src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L37">
+      <a href="src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L40">
         [src]
       </a>
     </h4>
@@ -288,7 +310,7 @@
     </h2>
     <h3>
       runtimeDirectory
-      <a href="src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L153">
+      <a href="src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L180">
         [src]
       </a>
     </h3>
@@ -320,7 +342,7 @@
     </p>
     <h3>
       runtimeDirectory
-      <a href="src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L170">
+      <a href="src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L197">
         [src]
       </a>
     </h3>
@@ -350,7 +372,7 @@
     </p>
     <h3>
       profileDirectory
-      <a href="src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L218">
+      <a href="src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L245">
         [src]
       </a>
     </h3>
@@ -380,11 +402,13 @@
       <br />
       | browser | String |  |
       <br />
+      | base | String |  |
+      <br />
       | app | boolean |  |
     </p>
     <h3>
       profileDir
-      <a href="src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L230">
+      <a href="src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L258">
         [src]
       </a>
     </h3>
@@ -414,11 +438,13 @@
       <br />
       | browser | String |  |
       <br />
+      | base | String |  |
+      <br />
       | app | boolean |  |
     </p>
     <h3>
       unpackProfile
-      <a href="src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L240">
+      <a href="src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L269">
         [src]
       </a>
     </h3>
@@ -449,7 +475,7 @@
     </p>
     <h3>
       copyDirectory
-      <a href="src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L286">
+      <a href="src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L315">
         [src]
       </a>
     </h3>
@@ -484,8 +510,8 @@
       | base | String |  |
     </p>
     <h3>
-      copyDirectoryCompatibityMode
-      <a href="src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L302">
+      copyDirectoryCompatibilityMode
+      <a href="src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L330">
         [src]
       </a>
     </h3>
@@ -520,8 +546,40 @@
       | base | String |  |
     </p>
     <h3>
+      copy
+      <a href="src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L339">
+        [src]
+      </a>
+    </h3>
+    <ul>
+      <li>
+        Description:
+        <br />
+      </li>
+      <li>
+        Access: public
+        <br />
+      </li>
+      <li>
+        Modifiers: static
+      </li>
+      <li>
+        return: void
+        <br />
+      </li>
+    </ul>
+    <p>
+      | Name | Type | Description |
+      <br />
+      | &mdash;&ndash; | &mdash;&ndash; | &mdash;&ndash; |
+      <br />
+      | source | InputStream |  |
+      <br />
+      | target | OutputStream |  |
+    </p>
+    <h3>
       copyFile
-      <a href="src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L311">
+      <a href="src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L348">
         [src]
       </a>
     </h3>
@@ -553,7 +611,7 @@
     </p>
     <h3>
       validateProfileFirstRun
-      <a href="src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L322">
+      <a href="src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L359">
         [src]
       </a>
     </h3>
@@ -583,7 +641,7 @@
     </p>
     <h3>
       waitForProxy
-      <a href="src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L348">
+      <a href="src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L385">
         [src]
       </a>
     </h3>
@@ -606,7 +664,7 @@
     </p>
     <h3>
       waitForProxy
-      <a href="src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L358">
+      <a href="src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L395">
         [src]
       </a>
     </h3>
@@ -633,7 +691,7 @@
     </p>
     <h3>
       waitForProxy
-      <a href="src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L370">
+      <a href="src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L407">
         [src]
       </a>
     </h3>
@@ -662,7 +720,7 @@
     </p>
     <h3>
       waitForProxy
-      <a href="src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L385">
+      <a href="src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L422">
         [src]
       </a>
     </h3>
@@ -693,7 +751,7 @@
     </p>
     <h3>
       checkifPortIsOccupied
-      <a href="src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L403">
+      <a href="src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L440">
         [src]
       </a>
     </h3>
@@ -722,7 +780,7 @@
     </p>
     <h3>
       setProxyTimeoutTime
-      <a href="src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L418">
+      <a href="src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L455">
         [src]
       </a>
     </h3>
@@ -749,7 +807,7 @@
     </p>
     <h3>
       join
-      <a href="src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L423">
+      <a href="src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L460">
         [src]
       </a>
     </h3>
