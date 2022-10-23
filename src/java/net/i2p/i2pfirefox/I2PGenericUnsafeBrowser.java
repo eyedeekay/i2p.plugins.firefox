@@ -276,7 +276,13 @@ public class I2PGenericUnsafeBrowser extends I2PCommonBrowser {
 
   //
   public ProcessBuilder baseProcessBuilder(String[] args) {
+    
     String browser = findUnsafeBrowserAnywhere();
+    if (browser.contains("edge.exe") || browser.contains("msedge.exe")){
+      ArrayList<String> argsList = new ArrayList<String>(Arrays.asList("--user-data-dir="+profileDirectory("","generic","unsafe",false)));
+      argsList.addAll(Arrays.asList(args));
+      args = argsList.toArray(args);
+    }
     if (!browser.isEmpty()) {
       int arglength = 0;
       if (args != null)
