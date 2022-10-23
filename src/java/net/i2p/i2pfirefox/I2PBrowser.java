@@ -45,7 +45,8 @@ public class I2PBrowser extends I2PCommonBrowser {
   public boolean generic = false;
   public boolean chromiumFirst = false;
   public boolean usability = false;
-  static private boolean outputConfig = true;
+  static private boolean outputConfig = false;
+  static private boolean useSystray = true;
 
   private void launchFirefox(int privateWindow, String[] url) {
     logger.info("I2PFirefox" + privateWindow);
@@ -238,6 +239,9 @@ public class I2PBrowser extends I2PCommonBrowser {
           if (arg.equals("-outputconfig")) {
             outputConfig = true;
           }
+          if (arg.equals("-nosystray")) {
+            useSystray = false;
+          }
           if (arg.equals("-noproxycheck")) {
             logger.info("zeroing out proxy check");
             i2pBrowser.setProxyTimeoutTime(0);
@@ -248,9 +252,11 @@ public class I2PBrowser extends I2PCommonBrowser {
         }
       }
     }
-    boolean systrayStarted = false;
     try {
-      systrayStarted = systray(args);
+      if (useSystray) {
+        logger.info("Starting systray");
+        systray(args);
+      }
     } catch (Exception e) {
       logger.warning(e.toString());
     }
