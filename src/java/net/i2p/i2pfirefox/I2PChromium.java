@@ -163,7 +163,7 @@ public class I2PChromium extends I2PCommonBrowser {
       programFiles = "C:\\Program Files (x86)\\";
     if (!isWindows())
       localAppData = "C:\\Users\\user\\AppData\\Local\\";
-      
+
     return new String[] {
         new File(localAppData, "/Google/Chrome/Application/").toString(),
         new File(programFiles, "/Google/Chrome/Application/").toString(),
