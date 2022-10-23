@@ -156,6 +156,17 @@ public class I2PChromium extends I2PCommonBrowser {
     String programFiles = System.getenv("ProgramFiles");
     String localAppData = System.getenv("LOCALAPPDATA");
     String programFiles86 = System.getenv("ProgramFiles(x86)");
+
+    if (programFiles == null)
+        programFiles = "C:\\Program Files\\";
+    if (programFiles86 == null)
+        programFiles = "C:\\Program Files (x86)\\";
+    if (!isWindows())
+      localAppData = "C:\\Users\\user\\AppData\\Local\\";
+    logger.info("ProgramFiles" + programFiles);
+    logger.info("ProgramFiles" + programFiles86);
+    logger.info("ProgramFiles" + localAppData);
+    System.exit(1);
     return new String[] {
         new File(localAppData, "/Google/Chrome/Application/").toString(),
         new File(programFiles, "/Google/Chrome/Application/").toString(),

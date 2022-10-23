@@ -2,12 +2,12 @@
 
 . ./config.sh
 ./preprelease.sh
-./profiles-upload.sh
 github-release release --user "${GITHUB_USER}" \
     --repo "${GITHUB_REPO}" \
     --name "${GITHUB_NAME}" \
     --description "${GITHUB_DESCRIPTION}" \
     --tag "${GITHUB_TAG}"; true
+./profiles-upload.sh
 sleep 2s
 github-release edit --user "${GITHUB_USER}" \
     --repo "${GITHUB_REPO}" \
