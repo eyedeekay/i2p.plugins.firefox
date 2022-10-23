@@ -32,6 +32,12 @@ public class I2PFirefox extends I2PCommonBrowser {
   private Process p = null;
   public static boolean usability = false;
 
+  private static String baseMode() {
+    if (usability)
+      return "usability";
+    return "base";
+  }
+
   /**
    * Construct an I2PFirefox class which manages an instance of Firefox and
    * an accompanying Firefox profile. This version includes Firefox variants
@@ -574,7 +580,7 @@ public class I2PFirefox extends I2PCommonBrowser {
       newArgs[0] = firefox;
       newArgs[1] = "--new-instance";
       newArgs[2] = "--profile";
-      newArgs[3] = I2PFirefoxProfileBuilder.profileDirectory(app);
+      newArgs[3] = I2PFirefoxProfileBuilder.profileDirectory(app, baseMode());
       if (args != null) {
         if (arglength > 0) {
           for (int i = 0; i < arglength; i++) {
@@ -639,7 +645,8 @@ public class I2PFirefox extends I2PCommonBrowser {
     if (privateWindow == 2)
       app = true;
     if (waitForProxy()) {
-      String profileDirectory = I2PFirefoxProfileBuilder.profileDirectory(app);
+      String profileDirectory =
+          I2PFirefoxProfileBuilder.profileDirectory(app, baseMode());
       if (I2PFirefoxProfileChecker.validateProfileDirectory(profileDirectory)) {
         logger.info("Valid profile directory: " + profileDirectory);
       } else {

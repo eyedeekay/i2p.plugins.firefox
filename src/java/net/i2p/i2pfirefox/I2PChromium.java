@@ -501,7 +501,8 @@ public class I2PChromium extends I2PCommonBrowser {
       String[] newArgs = new String[arglength + 32];
       newArgs[0] = chrome;
       newArgs[1] =
-          "--user-data-dir=" + I2PChromiumProfileBuilder.profileDirectory();
+          "--user-data-dir=" + I2PChromiumProfileBuilder.profileDirectory(
+                                   I2PChromiumProfileBuilder.usabilityMode());
       newArgs[2] = "--proxy-server=http://127.0.0.1:4444";
       newArgs[3] =
           "--proxy-bypass-list=http://localhost:7657,http://127.0.0.1:7657";
@@ -533,40 +534,42 @@ public class I2PChromium extends I2PCommonBrowser {
       newArgs[29] = "--force-punycode-hostnames";
       newArgs[30] = "--disable-sharing-hub";
       if (!I2PChromiumProfileBuilder.usability) {
-        newArgs[31] = "--load-extension=" +
-                      new File(I2PChromiumProfileBuilder.profileDirectory(),
-                               "extensions/i2pchrome.js")
-                          .getAbsolutePath() +
-                      "," +
-                      new File(I2PChromiumProfileBuilder.profileDirectory(),
-                               "extensions/https-everywhere.js")
-                          .getAbsolutePath() +
-                      "," +
-                      new File(I2PChromiumProfileBuilder.profileDirectory(),
-                               "extensions/noscript.js")
-                          .getAbsolutePath();
+        newArgs[31] =
+            "--load-extension=" +
+            new File(I2PChromiumProfileBuilder.profileDirectory("base"),
+                     "extensions/i2pchrome.js")
+                .getAbsolutePath() +
+            "," +
+            new File(I2PChromiumProfileBuilder.profileDirectory("base"),
+                     "extensions/https-everywhere.js")
+                .getAbsolutePath() +
+            "," +
+            new File(I2PChromiumProfileBuilder.profileDirectory("base"),
+                     "extensions/noscript.js")
+                .getAbsolutePath();
 
       } else {
-        newArgs[31] = "--load-extension=" +
-                      new File(I2PChromiumProfileBuilder.profileDirectory(),
-                               "extensions/i2pchrome.js")
-                          .getAbsolutePath() +
-                      "," +
-                      new File(I2PChromiumProfileBuilder.profileDirectory(),
-                               "extensions/https-everywhere.js")
-                          .getAbsolutePath() +
-                      "," +
-                      new File(I2PChromiumProfileBuilder.profileDirectory(),
-                               "extensions/jshelter.js")
-                          .getAbsolutePath() +
-                      "," +
-                      new File(I2PChromiumProfileBuilder.profileDirectory(),
-                               "extensions/localcdn.js")
-                          .getAbsolutePath() +
-                      "," +
-                      new File(I2PChromiumProfileBuilder.profileDirectory(),
-                               "extensions/ublock.js")
-                          .getAbsolutePath();
+        newArgs[31] =
+            "--load-extension=" +
+            new File(I2PChromiumProfileBuilder.profileDirectory("usability"),
+                     "extensions/i2pchrome.js")
+                .getAbsolutePath() +
+            "," +
+            new File(I2PChromiumProfileBuilder.profileDirectory("usability"),
+                     "extensions/https-everywhere.js")
+                .getAbsolutePath() +
+            "," +
+            new File(I2PChromiumProfileBuilder.profileDirectory("usability"),
+                     "extensions/jshelter.js")
+                .getAbsolutePath() +
+            "," +
+            new File(I2PChromiumProfileBuilder.profileDirectory("usability"),
+                     "extensions/localcdn.js")
+                .getAbsolutePath() +
+            "," +
+            new File(I2PChromiumProfileBuilder.profileDirectory("usability"),
+                     "extensions/ublock.js")
+                .getAbsolutePath();
       }
       if (args != null) {
         if (arglength > 0) {
@@ -620,7 +623,8 @@ public class I2PChromium extends I2PCommonBrowser {
   public Process launchAndDetatch(int privateWindow, String[] url) {
     validateUserDir();
     if (waitForProxy()) {
-      String profileDirectory = I2PChromiumProfileBuilder.profileDirectory();
+      String profileDirectory = I2PChromiumProfileBuilder.profileDirectory(
+          I2PChromiumProfileBuilder.usabilityMode());
       if (I2PChromiumProfileChecker.validateProfileDirectory(
               profileDirectory)) {
         logger.info("Valid profile directory: " + profileDirectory);

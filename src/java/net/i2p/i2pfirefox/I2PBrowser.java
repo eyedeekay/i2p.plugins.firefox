@@ -1,6 +1,7 @@
 package net.i2p.i2pfirefox;
 
 import java.awt.Image;
+import java.awt.Menu;
 import java.awt.MenuItem;
 import java.awt.PopupMenu;
 import java.awt.SystemTray;
@@ -229,6 +230,9 @@ public class I2PBrowser extends I2PCommonBrowser {
           if (arg.equals("-usability")) {
             i2pBrowser.usability = true;
           }
+          if (arg.equals("-strict")) {
+            i2pBrowser.usability = false;
+          }
           if (arg.equals("-generic")) {
             i2pBrowser.generic = true;
           }
@@ -307,39 +311,81 @@ public class I2PBrowser extends I2PCommonBrowser {
     Image image = toolkit.getImage("icon.png");
 
     PopupMenu menu = new PopupMenu();
-
-    MenuItem launchRegularBrowser = new MenuItem("Launch I2P Browser");
-    launchRegularBrowser.addActionListener(new ActionListener() {
+    Menu submenuStrict = new Menu("Strict Mode");
+    MenuItem launchRegularBrowserStrict = new MenuItem("Launch I2P Browser");
+    launchRegularBrowserStrict.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
         ArrayList<String> argsList = new ArrayList<String>();
         argsList.addAll(Arrays.asList(args));
+        argsList.add("-strict");
         main(argsList.toArray(args));
       }
     });
-    menu.add(launchRegularBrowser);
+    submenuStrict.add(launchRegularBrowserStrict);
 
-    MenuItem launchPrivateBrowser =
+    MenuItem launchPrivateBrowserStrict =
         new MenuItem("Launch I2P Browser - Throwaway Session");
-    launchPrivateBrowser.addActionListener(new ActionListener() {
+    launchPrivateBrowserStrict.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
         ArrayList<String> argsList =
             new ArrayList<String>(Arrays.asList(new String[] {"-private"}));
         argsList.addAll(Arrays.asList(args));
+        argsList.add("-strict");
         main(argsList.toArray(args));
       }
     });
-    menu.add(launchPrivateBrowser);
+    submenuStrict.add(launchPrivateBrowserStrict);
 
-    MenuItem launchConfigBrowser = new MenuItem("Launch I2P Console");
-    launchConfigBrowser.addActionListener(new ActionListener() {
+    MenuItem launchConfigBrowserStrict = new MenuItem("Launch I2P Console");
+    launchConfigBrowserStrict.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
         ArrayList<String> argsList = new ArrayList<String>(
             Arrays.asList(new String[] {"-app", "http://127.0.0.1:7657"}));
         argsList.addAll(Arrays.asList(args));
+        argsList.add("-strict");
         main(argsList.toArray(args));
       }
     });
-    menu.add(launchConfigBrowser);
+    submenuStrict.add(launchConfigBrowserStrict);
+    menu.add(submenuStrict);
+
+    Menu submenuUsability = new Menu("Usability Mode");
+    MenuItem launchRegularBrowserUsability = new MenuItem("Launch I2P Browser");
+    launchRegularBrowserUsability.addActionListener(new ActionListener() {
+      public void actionPerformed(ActionEvent e) {
+        ArrayList<String> argsList = new ArrayList<String>();
+        argsList.addAll(Arrays.asList(args));
+        argsList.add("-usability");
+        main(argsList.toArray(args));
+      }
+    });
+    submenuUsability.add(launchRegularBrowserUsability);
+
+    MenuItem launchPrivateBrowserUsability =
+        new MenuItem("Launch I2P Browser - Throwaway Session");
+    launchPrivateBrowserUsability.addActionListener(new ActionListener() {
+      public void actionPerformed(ActionEvent e) {
+        ArrayList<String> argsList =
+            new ArrayList<String>(Arrays.asList(new String[] {"-private"}));
+        argsList.addAll(Arrays.asList(args));
+        argsList.add("-usability");
+        main(argsList.toArray(args));
+      }
+    });
+    submenuUsability.add(launchPrivateBrowserUsability);
+
+    MenuItem launchConfigBrowserUsability = new MenuItem("Launch I2P Console");
+    launchConfigBrowserUsability.addActionListener(new ActionListener() {
+      public void actionPerformed(ActionEvent e) {
+        ArrayList<String> argsList = new ArrayList<String>(
+            Arrays.asList(new String[] {"-app", "http://127.0.0.1:7657"}));
+        argsList.addAll(Arrays.asList(args));
+        argsList.add("-usability");
+        main(argsList.toArray(args));
+      }
+    });
+    submenuUsability.add(launchConfigBrowserUsability);
+    menu.add(submenuUsability);
 
     MenuItem closeItem = new MenuItem("Close");
     closeItem.addActionListener(new ActionListener() {

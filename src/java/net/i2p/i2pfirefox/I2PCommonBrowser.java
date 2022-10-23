@@ -242,7 +242,7 @@ public class I2PCommonBrowser {
    * @since 0.0.19
    */
   protected static String profileDirectory(String envVar, String browser,
-                                           boolean app) {
+                                           String base, boolean app) {
     String pd = System.getenv(envVar);
     if (pd != null && !pd.isEmpty()) {
       File pdf = new File(pd);
@@ -251,15 +251,17 @@ public class I2PCommonBrowser {
       }
     }
     String rtd = runtimeDirectory("");
-    return profileDir(rtd, browser, app);
+    return profileDir(rtd, browser, base, app);
   }
 
-  protected static String profileDir(String file, String browser, boolean app) {
+  protected static String profileDir(String file, String browser, String base,
+                                     boolean app) {
     String appString = "";
     if (app) {
       appString = ".app";
     }
-    File profileDir = new File(file, "i2p." + browser + ".profile" + appString);
+    File profileDir =
+        new File(file, "i2p." + browser + ".profile." + base + appString);
     return profileDir.getAbsolutePath();
   }
 

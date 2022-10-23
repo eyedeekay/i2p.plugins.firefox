@@ -28,8 +28,8 @@ public class I2PChromiumProfileBuilder extends I2PCommonBrowser {
    *
    * @return the profile directory, or null if it could not be created
    */
-  public static String profileDirectory() {
-    return profileDirectory("I2P_CHROMIUM_PROFILE", "chromium", false);
+  public static String profileDirectory(String base) {
+    return profileDirectory("I2P_CHROMIUM_PROFILE", "chromium", base, false);
   }
 
   private static String baseProfileDir(String file, String mode) {
@@ -106,7 +106,7 @@ public class I2PChromiumProfileBuilder extends I2PCommonBrowser {
     return runtimeDirectory("");
   }
 
-  private static String usabilityMode() {
+  public static String usabilityMode() {
     if (usability)
       return "usability";
     return "base";
@@ -119,7 +119,7 @@ public class I2PChromiumProfileBuilder extends I2PCommonBrowser {
    */
   public static boolean copyBaseProfiletoProfile() {
     String baseProfile = baseProfileDirectory(usabilityMode());
-    String profile = profileDirectory();
+    String profile = profileDirectory(usabilityMode());
     logger.info("Copying base profile to profile directory: " + baseProfile +
                 " -> " + profile);
     if (baseProfile.isEmpty() || profile.isEmpty()) {
