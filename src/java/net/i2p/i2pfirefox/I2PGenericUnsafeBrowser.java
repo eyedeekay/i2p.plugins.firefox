@@ -1,10 +1,15 @@
 package net.i2p.i2pfirefox;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 /**
  * I2PChromiumProfileChecker.java
@@ -55,6 +60,20 @@ public class I2PGenericUnsafeBrowser extends I2PCommonBrowser {
         "dillo", "seamonkey", "konqueror", "galeon", "surf",
         // Text Mode Browsers only below here
         "www-browser", "links", "lynx"};
+  }
+
+  public static void storeGenericDefaults() {
+    List<String> list = new ArrayList<String>();
+
+    list = Arrays.asList(browsers());
+    prop.setProperty("generic.bins.unix",
+                     list.stream().collect(Collectors.joining(",")));
+    try (OutputStream fos = new FileOutputStream(
+             new File(runtimeDirectory(""), "browser.config"))) {
+      prop.store(fos, "Chromium Configuration Section");
+    } catch (IOException ioe) {
+      logger.warning(ioe.toString());
+    }
   }
 
   /**
