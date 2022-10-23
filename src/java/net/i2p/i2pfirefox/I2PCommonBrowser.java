@@ -52,6 +52,7 @@ public class I2PCommonBrowser {
     } catch (IOException e) {
       e.printStackTrace();
     }
+    loadPropertiesFile(new File(runtimeDirectory(""), "browser.config"));
   }
 
   public static void loadPropertiesFile(File props) {
