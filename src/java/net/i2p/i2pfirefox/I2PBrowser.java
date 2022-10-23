@@ -123,8 +123,10 @@ public class I2PBrowser extends I2PCommonBrowser {
    */
   public void launch(int privateWindow, String[] url) {
     validateUserDir();
-    if (generic)
+    if (generic) {
       this.launchGeneric(privateWindow, url);
+      return;
+    }
     if ((chromium && firefox) || (!chromium && !firefox)) {
       if (this.hasFirefox()) {
         this.launchFirefox(privateWindow, url);
