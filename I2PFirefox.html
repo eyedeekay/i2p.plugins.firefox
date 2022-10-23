@@ -34,7 +34,7 @@
             </li>
             <li>
               <a href="CONFIG.html">
-                CONFIG
+                CONFIG.html
               </a>
             </li>
             <li>
@@ -190,10 +190,16 @@
             java.io.File
           </li>
           <li>
+            java.io.FileOutputStream
+          </li>
+          <li>
             java.io.FileWriter
           </li>
           <li>
             java.io.IOException
+          </li>
+          <li>
+            java.io.OutputStream
           </li>
           <li>
             java.io.PrintWriter
@@ -205,7 +211,13 @@
             java.util.Arrays
           </li>
           <li>
+            java.util.List
+          </li>
+          <li>
             java.util.concurrent.TimeUnit
+          </li>
+          <li>
+            java.util.stream.Collectors
           </li>
           <li>
             java.util.stream.Stream
@@ -266,8 +278,112 @@
       Methods
     </h2>
     <h3>
+      baseMode
+      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L35">
+        [src]
+      </a>
+    </h3>
+    <ul>
+      <li>
+        Description:
+        <br />
+      </li>
+      <li>
+        Access: private
+        <br />
+      </li>
+      <li>
+        Modifiers: static
+      </li>
+      <li>
+        return: String
+        <br />
+      </li>
+    </ul>
+    <p>
+      This method has no parameters.
+    </p>
+    <h3>
+      storeFirefoxDefaults
+      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L58">
+        [src]
+      </a>
+    </h3>
+    <ul>
+      <li>
+        Description:
+        <br />
+      </li>
+      <li>
+        Access: public
+        <br />
+      </li>
+      <li>
+        Modifiers: static
+      </li>
+      <li>
+        return: void
+        <br />
+      </li>
+    </ul>
+    <p>
+      This method has no parameters.
+    </p>
+    <h3>
+      firefoxPathsUnix
+      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L87">
+        [src]
+      </a>
+    </h3>
+    <ul>
+      <li>
+        Description:
+        <br />
+      </li>
+      <li>
+        Access: public
+        <br />
+      </li>
+      <li>
+        Modifiers: static
+      </li>
+      <li>
+        return: String[]
+        <br />
+      </li>
+    </ul>
+    <p>
+      This method has no parameters.
+    </p>
+    <h3>
+      firefoxBinsUnix
+      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L96">
+        [src]
+      </a>
+    </h3>
+    <ul>
+      <li>
+        Description:
+        <br />
+      </li>
+      <li>
+        Access: public
+        <br />
+      </li>
+      <li>
+        Modifiers: static
+      </li>
+      <li>
+        return: String[]
+        <br />
+      </li>
+    </ul>
+    <p>
+      This method has no parameters.
+    </p>
+    <h3>
       FIND_FIREFOX_SEARCH_PATHS_UNIX
-      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L48">
+      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L113">
         [src]
       </a>
     </h3>
@@ -292,8 +408,86 @@
       This method has no parameters.
     </p>
     <h3>
+      firefoxPathsOSX
+      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L126">
+        [src]
+      </a>
+    </h3>
+    <ul>
+      <li>
+        Description:
+        <br />
+      </li>
+      <li>
+        Access: public
+        <br />
+      </li>
+      <li>
+        Modifiers: static
+      </li>
+      <li>
+        return: String[]
+        <br />
+      </li>
+    </ul>
+    <p>
+      This method has no parameters.
+    </p>
+    <h3>
       FIND_FIREFOX_SEARCH_PATHS_OSX
-      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L63">
+      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L136">
+        [src]
+      </a>
+    </h3>
+    <ul>
+      <li>
+        Description:
+        <br />
+      </li>
+      <li>
+        Access: private
+        <br />
+      </li>
+      <li>
+        Modifiers: static
+      </li>
+      <li>
+        return: String[]
+        <br />
+      </li>
+    </ul>
+    <p>
+      This method has no parameters.
+    </p>
+    <h3>
+      firefoxPathsWindows
+      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L149">
+        [src]
+      </a>
+    </h3>
+    <ul>
+      <li>
+        Description:
+        <br />
+      </li>
+      <li>
+        Access: public
+        <br />
+      </li>
+      <li>
+        Modifiers: static
+      </li>
+      <li>
+        return: String[]
+        <br />
+      </li>
+    </ul>
+    <p>
+      This method has no parameters.
+    </p>
+    <h3>
+      firefoxBinsWindows
+      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L175">
         [src]
       </a>
     </h3>
@@ -319,7 +513,7 @@
     </p>
     <h3>
       FIND_FIREFOX_SEARCH_PATHS_WINDOWS
-      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L81">
+      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L185">
         [src]
       </a>
     </h3>
@@ -345,7 +539,7 @@
     </p>
     <h3>
       FIND_ALL_FIREFOX_SEARCH_PATHS
-      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L117">
+      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L199">
         [src]
       </a>
     </h3>
@@ -371,7 +565,7 @@
     </p>
     <h3>
       FIND_FIREFOX_SEARCH_PATHS
-      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L137">
+      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L219">
         [src]
       </a>
     </h3>
@@ -397,7 +591,7 @@
     </p>
     <h3>
       NEARBY_FIREFOX_SEARCH_PATHS
-      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L151">
+      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L233">
         [src]
       </a>
     </h3>
@@ -423,7 +617,7 @@
     </p>
     <h3>
       FIREFOX_FINDER
-      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L235">
+      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L359">
         [src]
       </a>
     </h3>
@@ -448,34 +642,8 @@
       This method has no parameters.
     </p>
     <h3>
-      getOperatingSystem
-      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L247">
-        [src]
-      </a>
-    </h3>
-    <ul>
-      <li>
-        Description:
-        <br />
-      </li>
-      <li>
-        Access: private
-        <br />
-      </li>
-      <li>
-        Modifiers: static
-      </li>
-      <li>
-        return: String
-        <br />
-      </li>
-    </ul>
-    <p>
-      This method has no parameters.
-    </p>
-    <h3>
       onlyValidFirefoxes
-      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L269">
+      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L380">
         [src]
       </a>
     </h3>
@@ -498,7 +666,7 @@
     </p>
     <h3>
       topFirefox
-      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L289">
+      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L401">
         [src]
       </a>
     </h3>
@@ -521,7 +689,7 @@
     </p>
     <h3>
       topFirefox
-      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L318">
+      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L431">
         [src]
       </a>
     </h3>
@@ -548,7 +716,7 @@
     </p>
     <h3>
       defaultProcessBuilder
-      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L336">
+      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L449">
         [src]
       </a>
     </h3>
@@ -571,7 +739,7 @@
     </p>
     <h3>
       defaultProcessBuilder
-      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L348">
+      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L461">
         [src]
       </a>
     </h3>
@@ -598,7 +766,7 @@
     </p>
     <h3>
       privateProcessBuilder
-      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L362">
+      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L475">
         [src]
       </a>
     </h3>
@@ -621,7 +789,7 @@
     </p>
     <h3>
       privateProcessBuilder
-      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L375">
+      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L488">
         [src]
       </a>
     </h3>
@@ -648,7 +816,7 @@
     </p>
     <h3>
       appProcessBuilder
-      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L398">
+      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L511">
         [src]
       </a>
     </h3>
@@ -671,7 +839,7 @@
     </p>
     <h3>
       appProcessBuilder
-      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L411">
+      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L524">
         [src]
       </a>
     </h3>
@@ -698,7 +866,7 @@
     </p>
     <h3>
       headlessProcessBuilder
-      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L432">
+      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L545">
         [src]
       </a>
     </h3>
@@ -725,7 +893,7 @@
     </p>
     <h3>
       processBuilder
-      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L460">
+      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L573">
         [src]
       </a>
     </h3>
@@ -754,7 +922,7 @@
     </p>
     <h3>
       usabilityMode
-      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L518">
+      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L630">
         [src]
       </a>
     </h3>
@@ -777,7 +945,7 @@
     </p>
     <h3>
       launchAndDetatch
-      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L524">
+      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L636">
         [src]
       </a>
     </h3>
@@ -806,7 +974,7 @@
     </p>
     <h3>
       launchAndDetatch
-      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L530">
+      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L642">
         [src]
       </a>
     </h3>
@@ -835,7 +1003,7 @@
     </p>
     <h3>
       launch
-      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L623">
+      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L736">
         [src]
       </a>
     </h3>
@@ -864,7 +1032,7 @@
     </p>
     <h3>
       launch
-      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L629">
+      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L742">
         [src]
       </a>
     </h3>
@@ -893,7 +1061,7 @@
     </p>
     <h3>
       launch
-      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L653">
+      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L766">
         [src]
       </a>
     </h3>
@@ -920,7 +1088,7 @@
     </p>
     <h3>
       launch
-      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L663">
+      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L776">
         [src]
       </a>
     </h3>
@@ -943,7 +1111,7 @@
     </p>
     <h3>
       ValidURL
-      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L665">
+      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L778">
         [src]
       </a>
     </h3>
@@ -973,7 +1141,7 @@
     </p>
     <h3>
       main
-      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L676">
+      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L789">
         [src]
       </a>
     </h3>
@@ -1003,7 +1171,7 @@
     </p>
     <h3>
       sleep
-      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L713">
+      <a href="src/java/net/i2p/i2pfirefox/I2PFirefox.java#L826">
         [src]
       </a>
     </h3>
