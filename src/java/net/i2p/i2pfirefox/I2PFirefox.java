@@ -830,12 +830,12 @@ public class I2PFirefox extends I2PCommonBrowser {
                       visitURL.toArray(new String[visitURL.size()]));
   }
 
-  private static void sleep(int millis) {
+  /*private static void sleep(int millis) {
     try {
       Thread.sleep(millis);
     } catch (InterruptedException bad) {
       bad.printStackTrace();
       throw new RuntimeException(bad);
     }
-  }
+  }*/
 }

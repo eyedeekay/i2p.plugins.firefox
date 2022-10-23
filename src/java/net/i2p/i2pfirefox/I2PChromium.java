@@ -107,8 +107,8 @@ public class I2PChromium extends I2PCommonBrowser {
     if (chromiumPathsProp != null)
       if (!chromiumPathsProp.equals(""))
         return chromiumPathsProp.split(",");
-    return new String[] {"ungoogled-chromium", "chromium", "brave", "edge",
-                         "msedge", "chrome"};
+    return new String[] {
+        "ungoogled-chromium", "chromium", "brave", "edge", "msedge", "chrome"};
   }
 
   private static String[] FIND_CHROMIUM_SEARCH_PATHS_UNIX() {
@@ -186,9 +186,12 @@ public class I2PChromium extends I2PCommonBrowser {
     if (chromiumPathsProp != null)
       if (!chromiumPathsProp.equals(""))
         return chromiumPathsProp.split(",");
-    return new String[] {
-        "ungoogled-chromium.exe", "chromium.exe", "brave.exe", "edge.exe",
-        "msedge.exe", "chrome.exe"};
+    return new String[] {"ungoogled-chromium.exe",
+                         "chromium.exe",
+                         "brave.exe",
+                         "edge.exe",
+                         "msedge.exe",
+                         "chrome.exe"};
   }
   private static String[] FIND_CHROMIUM_SEARCH_PATHS_WINDOWS() {
     String[] path = chromiumPathsWindows();
@@ -776,13 +779,5 @@ public class I2PChromium extends I2PCommonBrowser {
     }
     i2pChromium.launch(privateBrowsing,
                        visitURL.toArray(new String[visitURL.size()]));
-  }
-  private static void sleep(int millis) {
-    try {
-      Thread.sleep(millis);
-    } catch (InterruptedException bad) {
-      bad.printStackTrace();
-      throw new RuntimeException(bad);
-    }
   }
 }

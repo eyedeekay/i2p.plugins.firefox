@@ -437,7 +437,7 @@ public class I2PCommonBrowser {
     }
     return false;
   }
-  private boolean checkifPortIsOccupied(int port, String host) {
+  public boolean checkifPortIsOccupied(int port, String host) {
     try {
       Socket socket = new Socket(host, port);
       socket.close();
@@ -465,5 +465,13 @@ public class I2PCommonBrowser {
       val.append("\"");
     }
     return val.toString();
+  }
+  public static void sleep(int millis) {
+    try {
+      Thread.sleep(millis);
+    } catch (InterruptedException bad) {
+      bad.printStackTrace();
+      throw new RuntimeException(bad);
+    }
   }
 }
