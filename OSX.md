@@ -5,6 +5,17 @@ This code will launch an I2P-Configured Browser on OSX, but at this time
 there are no packages for it because it's not possible for me to sign OSX
 packages. You can use the `.jar` file with any Java greater than Java 8.
 
+```sh
+mkdir ~/tmp-i2pfirefox && cd ~/tmp-i2pfirefox
+wget https://github.com/eyedeekay/i2p.plugins.firefox/releases/download/1.0.3/i2pfirefox.zip
+unzip i2pfirefox.zip
+./i2pfirefox.cmd
+
+#or if you want to use a Chromium
+
+./i2pchromium.cmd
+```
+
 Building a `jpackage`
 ---------------------
 
