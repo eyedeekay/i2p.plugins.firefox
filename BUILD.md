@@ -3,11 +3,11 @@
 ## Build Dependencies
 
 You will need `ant` and java `java` and for building the jar. You will need
-`jpackage` for many of the potential build targets. I've been using Java 17
+`jpackage` for many of the potential build targets. I've been using Java 18
 on Debian mostly, on Debian and Ubuntu, install the dependencies with:
 
 ```sh
-sudo apt-get install openjdk-17* ant
+sudo apt-get install openjdk-18* ant
 ```
 
 Some of the targets use scripts written in Go to help generate resources. If
