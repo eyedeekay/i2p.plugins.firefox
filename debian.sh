@@ -10,6 +10,7 @@ jpackage --verbose \
     --linux-shortcut \
     --license-file LICENSE.md \
     --name i2pbrowser \
+    --icon src/icon.png \
     --app-version "$GITHUB_TAG" \
     --input src/build \
     --main-jar i2pfirefox.jar \

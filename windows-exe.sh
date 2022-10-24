@@ -11,6 +11,7 @@ jpackage \
     --win-shortcut-prompt \
     --win-per-user-install \
     --license-file LICENSE.md \
+    --icon src/icon.png \
     --name i2pbrowser \
     --app-version "$GITHUB_TAG" \
     --input src/build \
