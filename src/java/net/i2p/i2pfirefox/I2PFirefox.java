@@ -237,21 +237,7 @@ public class I2PFirefox extends I2PCommonBrowser {
       return FIND_ALL_FIREFOX_SEARCH_PATHS();
     }
   }
-  static File searchFile(File file, String search) {
-    if (file.isDirectory()) {
-      File[] arr = file.listFiles();
-      for (File f : arr) {
-        File found = searchFile(f, search);
-        if (found != null)
-          return found;
-      }
-    } else {
-      if (file.getName().equals(search)) {
-        return file;
-      }
-    }
-    return null;
-  }
+
   private static String[] NEARBY_FIREFOX_SEARCH_PATHS() {
     // obtain the PLUGIN environment variable
     String plugin = System.getenv("PLUGIN");
@@ -263,9 +249,6 @@ public class I2PFirefox extends I2PCommonBrowser {
       if (userDir.exists()) {
         if (isWindows()) {
           File searchResult = searchFile(userDir, "firefox-esr.exe");
-          if (searchResult != null)
-            return new String[] {searchResult.getAbsolutePath()};
-          searchResult = searchFile(userDir, "firefox-esr.exe");
           if (searchResult != null)
             return new String[] {searchResult.getAbsolutePath()};
           searchResult = searchFile(userDir, "firefox.exe");
@@ -285,9 +268,6 @@ public class I2PFirefox extends I2PCommonBrowser {
             return new String[] {searchResult.getAbsolutePath()};
         } else {
           File searchResult = searchFile(userDir, "firefox-esr");
-          if (searchResult != null)
-            return new String[] {searchResult.getAbsolutePath()};
-          searchResult = searchFile(userDir, "firefox-esr");
           if (searchResult != null)
             return new String[] {searchResult.getAbsolutePath()};
           searchResult = searchFile(userDir, "firefox");
@@ -316,9 +296,6 @@ public class I2PFirefox extends I2PCommonBrowser {
         File searchResult = searchFile(userDir, "firefox-esr.exe");
         if (searchResult != null)
           return new String[] {searchResult.getAbsolutePath()};
-        searchResult = searchFile(userDir, "firefox-esr.exe");
-        if (searchResult != null)
-          return new String[] {searchResult.getAbsolutePath()};
         searchResult = searchFile(userDir, "firefox.exe");
         if (searchResult != null)
           return new String[] {searchResult.getAbsolutePath()};
@@ -336,9 +313,6 @@ public class I2PFirefox extends I2PCommonBrowser {
           return new String[] {searchResult.getAbsolutePath()};
       } else {
         File searchResult = searchFile(userDir, "firefox-esr");
-        if (searchResult != null)
-          return new String[] {searchResult.getAbsolutePath()};
-        searchResult = searchFile(userDir, "firefox-esr");
         if (searchResult != null)
           return new String[] {searchResult.getAbsolutePath()};
         searchResult = searchFile(userDir, "firefox");
