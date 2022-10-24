@@ -11,6 +11,7 @@ jpackage \
     --input src/build \
     --main-jar i2pfirefox.jar \
     --resource-dir tmp \
+    --icon src/icon.png \
     --main-class net.i2p.i2pfirefox.I2PBrowser
 rm -rf tmp
 cp -v LICENSE.md i2pbrowser-portable/LICENSE.md

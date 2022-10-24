@@ -8,10 +8,15 @@ packages. You can use the `.jar` file with any Java greater than Java 8.
 Building a `jpackage`
 ---------------------
 
-In order to build a `jpackage`, install at least Java 17.
+In order to build a `jpackage`, install at least Java 17. To set up Java
+17 and configure it to be the Java used by the system for the rest of the
+session, use these commands:
 
 ```sh
 brew install openjdk@17 
 sudo ln -sfn /usr/local/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk
 export JAVA_HOME=`/usr/libexec/java_home -v 17`
 ```
+
+Once you're finished, run `./osx-dmg.sh` in the repository root to produce a
+`.dmg` package.
