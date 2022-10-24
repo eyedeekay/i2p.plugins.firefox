@@ -1,6 +1,6 @@
 # i2p.plugins.firefox
 
-A port of the batch scripts from i2p.firefox to Java.
+A port of the batch scripts from `i2p.firefox` to Java.
 
 **Status:** This package is maintained. It cannot solve all your problems. Fingerprinting
 is a reality in modern browsers. Exploits are too. This software attempts to provide a
@@ -41,8 +41,15 @@ directory for Firefox, and the `src/i2p.chromium.*.profile/extensions/*.js/*` di
 
 ### Using a Binary
 
-```sh
+For platform specific instructions, see
 
+- [LINUX.md](LINUX.md)/[LINUX.html](LINUX.html)
+- [OSX.md](OSX.md)/[OSX.html](OSX.html)
+- [WINDOWS.md](WINDOWS.md)/[WINDOWS.html](WINDOWS.html)
+
+#### All platforms, using a zip: `.zip` and a non-bundled Java
+
+```sh
 mkdir ~/tmp-i2pfirefox && cd ~/tmp-i2pfirefox
 wget https://github.com/eyedeekay/i2p.plugins.firefox/releases/download/1.0.2/i2pfirefox.zip
 unzip i2pfirefox.zip
