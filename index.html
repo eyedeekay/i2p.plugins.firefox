@@ -28,6 +28,11 @@
               </a>
             </li>
             <li>
+              <a href="BUILD.html">
+                BUILD
+              </a>
+            </li>
+            <li>
               <a href="CHANGES.html">
                 CHANGES
               </a>
@@ -108,6 +113,11 @@
               </a>
             </li>
             <li>
+              <a href="LINUX.html">
+                LINUX
+              </a>
+            </li>
+            <li>
               <a href="OSX.html">
                 OSX
               </a>
@@ -137,6 +147,11 @@
                 VERSION
               </a>
             </li>
+            <li>
+              <a href="WINDOWS.html">
+                WINDOWS
+              </a>
+            </li>
           </ul>
           <br>
           <a href="#hidenav">
@@ -152,7 +167,11 @@
       i2p.plugins.firefox
     </h1>
     <p>
-      A port of the batch scripts from i2p.firefox to Java.
+      A port of the batch scripts from
+      <code>
+        i2p.firefox
+      </code>
+      to Java.
     </p>
     <p>
       <strong>
@@ -248,8 +267,46 @@
     <h3>
       Using a Binary
     </h3>
-    <pre><code class="language-sh">
-mkdir ~/tmp-i2pfirefox &amp;&amp; cd ~/tmp-i2pfirefox
+    <p>
+      For platform specific instructions, see
+    </p>
+    <ul>
+      <li>
+        <a href="LINUX.md">
+          LINUX.md
+        </a>
+        /
+        <a href="LINUX.html">
+          LINUX.html
+        </a>
+      </li>
+      <li>
+        <a href="OSX.md">
+          OSX.md
+        </a>
+        /
+        <a href="OSX.html">
+          OSX.html
+        </a>
+      </li>
+      <li>
+        <a href="WINDOWS.md">
+          WINDOWS.md
+        </a>
+        /
+        <a href="WINDOWS.html">
+          WINDOWS.html
+        </a>
+      </li>
+    </ul>
+    <h4>
+      All platforms, using a zip:
+      <code>
+        .zip
+      </code>
+      and a non-bundled Java
+    </h4>
+    <pre><code class="language-sh">mkdir ~/tmp-i2pfirefox &amp;&amp; cd ~/tmp-i2pfirefox
 wget https://github.com/eyedeekay/i2p.plugins.firefox/releases/download/1.0.2/i2pfirefox.zip
 unzip i2pfirefox.zip
 ./i2pfirefox.cmd
@@ -258,391 +315,6 @@ unzip i2pfirefox.zip
 
 ./i2pchromium.cmd
 </code></pre>
-    <h3>
-      Build Dependencies
-    </h3>
-    <p>
-      You will need
-      <code>
-        ant
-      </code>
-      and java
-      <code>
-        java
-      </code>
-      and for building the jar. You will need
-      <code>
-        jpackage
-      </code>
-      for many of the potential build targets. I&rsquo;ve been using Java 17
-      on Debian mostly, on Debian and Ubuntu, install the dependencies with:
-    </p>
-    <pre><code class="language-sh">sudo apt-get install openjdk-17* ant
-</code></pre>
-    <p>
-      Some of the targets use scripts written in Go to help generate resources. If
-      you want to update the profiles, you will need them. To install Go on Debian
-      and Ubuntu:
-    </p>
-    <pre><code class="language-sh">sudo apt-get install golang-go
-</code></pre>
-    <p>
-      Add
-      <code>
-        $HOME/go/bin
-      </code>
-      to your
-      <code>
-        $PATH
-      </code>
-      so
-      <code>
-        ant
-      </code>
-      can find Go applications.
-    </p>
-    <p>
-      <code>
-        export PATH=$PATH:$HOME/go/bin
-      </code>
-    </p>
-    <p>
-      Then use Go to download the applications you need and add them to
-      <code>
-        $HOME/go/bin
-      </code>
-      .
-    </p>
-    <p>
-      If you want to build the Chromium profiles you will need a Go application
-      called
-      <code>
-        crx3
-      </code>
-      which is used to interact with the Chrome app store to download
-      and update extensions.
-    </p>
-    <pre><code class="language-sh">go install github.com/mediabuyerbot/go-crx3/crx3@latest
-</code></pre>
-    <p>
-      Another Go application, called
-      <code>
-        amo-version
-      </code>
-      , is used to fetch extensions from addons.mozilla.org.
-      Like the Chrome profiles, generating the Firefox profiles requires this application. If you don&rsquo;t
-      want to update the profiles, you don&rsquo;t need it.
-    </p>
-    <pre><code class="language-sh">go install github.com/eyedeekay/amo-version@latest
-</code></pre>
-    <p>
-      One last Go application, called
-      <code>
-        dzip
-      </code>
-      is used to generate zip files deterministically for
-      redistribution.
-    </p>
-    <pre><code class="language-sh">go install github.com/delicb/dzip@latest
-</code></pre>
-    <p>
-      If you don&rsquo;t want to use it, you can work around it by creating a file called
-      <code>
-        dzip
-      </code>
-      in
-      <code>
-        /usr/local/bin/dzip
-      </code>
-      and adding the contents:
-    </p>
-    <pre><code class="language-sh">#! /usr/bin/env sh
-zip -r $@
-</code></pre>
-    <p>
-      This will break deterministic builds, but for testing it will continue to work. More elaborate
-      scripts or other deterministic zip utilities can be easily substituted in by placing them
-      in the
-      <code>
-        $PATH
-      </code>
-      under the name
-      <code>
-        dzip
-      </code>
-      .
-    </p>
-    <p>
-      For Fedora, use Yum, for Arch use pacman or something else but make sure to tell everyone
-      about it. Once you have that installed, when building, make sure to add
-      <code>
-        $GOPATH/bin/
-      </code>
-      to your
-      <code>
-        $PATH
-      </code>
-      .
-    </p>
-    <pre><code class="language-sh">export PATH=$PATH:$HOME/go/bin
-</code></pre>
-    <p>
-      Will almost always work.
-    </p>
-    <h3>
-      Building
-    </h3>
-    <p>
-      This is not actually a plugin yet, but it will be soon. The important bit is the jar.
-      To generate that, you can either generate the full plugin, which will not work but
-      produces the jar as a by-product, or you can:
-    </p>
-    <pre><code class="language-sh">
-ant jar
-</code></pre>
-    <p>
-      To build just the jar. You&rsquo;ll know it worked if you can:
-    </p>
-    <pre><code class="language-sh">
-java -cp ./src/build/i2pfirefox.jar net.i2p.i2pfirefox.I2PFirefox
-</code></pre>
-    <p>
-      and a new Firefox instance comes up with a fresh profile, ready-to-use for I2P browsing.
-    </p>
-    <p>
-      The cooler thing you can do with it is add it to an I2P distribution and somewhere in it,
-      add a UI element that triggers something along the lines of this:
-    </p>
-    <pre><code class="language-java">
-// Firefox Example
-if (i2pIsRunning()) {
-    logger.warning(&quot;I2P is already running&quot;);
-    System.out.println(&quot;I2PFirefox&quot;);
-    I2PFirefox i2pFirefox = new I2PFirefox();
-    i2pFirefox.launch();
-}
-</code></pre>
-    <pre><code class="language-java">
-// Chromium Example
-if (i2pIsRunning()) {
-    logger.warning(&quot;I2P is already running&quot;);
-    System.out.println(&quot;I2PChromium&quot;);
-    I2PChromium i2pChromium = new I2PChromium();
-    i2pChromium.launch();
-}
-</code></pre>
-    <pre><code class="language-java">
-// Auto-Select Example, chooses Firefox first, then Chromium
-if (i2pIsRunning()) {
-    logger.warning(&quot;I2P is already running&quot;);
-    System.out.println(&quot;I2PBrowser&quot;);
-    I2PBrowser i2pBrowser = new I2PBrowser();
-    /*
-     * toggle chromium to the top of the order by doing:
-    I2PBrowser.chromiumFirst = true;
-     * 
-    */
-    i2pBrowser.launch(privateBrowsing);
-}
-</code></pre>
-    <p>
-      to add a browser management tool to it.
-    </p>
-    <h3>
-      Browser Discovery Methods
-    </h3>
-    <p>
-      This tool looks for browsers on the host system, creates a workspace to use for I2P
-      purposes, and launches the browser inside of that workspace. The details of the
-      workspace vary from browser to browser but roughly corresponds to a browser profile.
-      In order to be successful this tool uses 3 main types of browser discovery methods,
-      in this order:
-    </p>
-    <ol>
-      <li>
-        &ldquo;Local&rdquo; discovery, where a browser is in a subdirectory of the directory where you
-        ran the launcher. This will only happen if the user unpacked a portable browser into
-        the same directory where they ran the launcher.
-      </li>
-      <li>
-        &ldquo;Path-Based&rdquo; discovery, where it scans common browser installation directories
-        until it finds one which it can use. On Unix, it simply scans the directories on the
-        <code>
-          PATH
-        </code>
-        for a browser it knows about. On Windows, default paths to browser install
-        directories are hard-coded and included in the binary. This is what usually happens.
-      </li>
-      <li>
-        &ldquo;System-Based&rdquo; discovery, where it defers to the host system to make a choice
-        about the browser and counts on browser vendors to honor the system proxy environment
-        variables. This is a catch-all solution which works with most browsers, but does
-        not apply any customizations.
-      </li>
-    </ol>
-    <p>
-      There is a little subtlety here though.
-    </p>
-    <ul>
-      <li>
-        The path to Edgium on Windows will
-        <strong>
-          always
-        </strong>
-        resolve during path-based discovery,
-        resulting in a positive test for Chromium when launching the browser in auto-select
-        mode. So Windows will never reach stage 3 unless expressly forced to. If Firefox or
-        a variant is installed, it will be chosen before Edgium unless directed otherwise.
-      </li>
-      <li>
-        Even though it will launch you into Edgium if it has no other choice, I recommend
-        you do not use it. Edgium will in a constant, incessant way try to induce you to
-        share your behavior with Microsoft. If you try to resist this, it negatively affects
-        the performance of the browser. Google also does this with Chrome, ant this negatively
-        affects Chrome performance too, but less than with Edgium. TL:DR Edgium sucks and is
-        pointless and terrible. Literally any other browser would be better.
-      </li>
-      <li>
-        Linux is unaware of a Tor Browser path because Tor Browser is rarely, if ever,
-        installed on-path. What is on path is virtually always a wrapper for Tor Browser
-        which is installed either as the main user or it&rsquo;s own user. Linux will only use
-        Tor Browser if it&rsquo;s discovered in &ldquo;Local&rdquo; mode. To set this up automatically, you
-        can
-        <code>
-          cd
-        </code>
-        to the
-        <code>
-          I2P
-        </code>
-        directory where you unpacked the
-        <code>
-          .tar.gz
-        </code>
-        file, and run the
-        <code>
-          ./lib/torbrowser.sh
-        </code>
-        script from there.
-      </li>
-      <li>
-        I really only test Phase 3 with Dillo and Edgium.
-        <strong>
-          YMMV.
-        </strong>
-      </li>
-    </ul>
-    <h3>
-      Usability vs Strict
-    </h3>
-    <p>
-      This is basically a profile-management tool geared toward minimizing the
-      differences between browser users which are passively discernible while
-      they are browsing I2P. It assumes that they are part of a highly fragmented
-      browsing environment where they are already unique, and therefore consolidation
-      on configuration is a goal. However, this goal sometimes also conflicts with
-      usability. To allow users a safe set of choices, we offer &ldquo;Coarse&rdquo; configuration
-      in 2 modes. We recommend that you do not deviate from these configurations if
-      you have browser application fingerprinting as a concern.
-    </p>
-    <h4>
-      Usability Mode
-    </h4>
-    <p>
-      TODO: description
-    </p>
-    <p>
-      Pros: Allows a restricted subset of Javascript
-      Pros: Less likely to try and reach the clearnet
-    </p>
-    <p>
-      Cons: Looks very different from Tor Browser
-      Cons: Plugin updates can create temporary uniqueness
-    </p>
-    <h5>
-      Usability Extension Set
-    </h5>
-    <ul>
-      <li>
-        <strong>
-          I2P In Private Browsing
-        </strong>
-      </li>
-      <li>
-        <strong>
-          uMatrix
-        </strong>
-      </li>
-      <li>
-        <strong>
-          jsRestrictor
-        </strong>
-      </li>
-      <li>
-        <strong>
-          LocalCDN
-        </strong>
-      </li>
-      <li>
-        <strong>
-          Onion in Container Tabs
-        </strong>
-      </li>
-      <li>
-        <strong>
-          HTTPS EveryWhere
-        </strong>
-        in some configurations
-      </li>
-    </ul>
-    <h5>
-      Usability user.js characteristics
-    </h5>
-    <p>
-      TODO: Summarize differences
-    </p>
-    <h4>
-      Strict Mode
-    </h4>
-    <p>
-      TODO: description
-    </p>
-    <p>
-      Pros: Does not allow Javascript by default
-      Pros: Looks a lot like Tor Browser especially if you&rsquo;re using Tor Browser
-    </p>
-    <p>
-      Cons: More work to use
-      Cons: Temporary uniqueness can be created by enabling Javascript for specific sites
-      Cons: More likely to try and reach the clearnet
-    </p>
-    <h5>
-      Strict Extension Set
-    </h5>
-    <ul>
-      <li>
-        <strong>
-          NoScript
-        </strong>
-      </li>
-      <li>
-        <strong>
-          I2P In Private Browsing
-        </strong>
-      </li>
-      <li>
-        <strong>
-          HTTPS EveryWhere
-        </strong>
-        in some configurations
-      </li>
-    </ul>
-    <h5>
-      Strict user.js characteristics
-    </h5>
-    <p>
-      TODO: Summarize differences
-    </p>
     <div id="sourcecode">
       <span id="sourcehead">
         <strong>
