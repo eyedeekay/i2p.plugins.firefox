@@ -241,9 +241,6 @@ public class I2PFirefox extends I2PCommonBrowser {
   private static String[] NEARBY_FIREFOX_SEARCH_PATHS() {
     // obtain the PLUGIN environment variable
     String plugin = System.getenv("PLUGIN");
-    // search the plugin directory for anything named "firefox", "firefox-bin",
-    // "firefox-esr", "waterfox", "waterfox-bin", "librewolf" up to a depth of 2
-    // directories deep. list the directories in the plugin directory
     if (plugin != null && !plugin.isEmpty()) {
       File userDir = new File(plugin);
       if (userDir.exists()) {

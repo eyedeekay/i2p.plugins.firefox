@@ -244,9 +244,6 @@ public class I2PChromium extends I2PCommonBrowser {
   private static String[] NEARBY_CHROMIUM_SEARCH_PATHS() {
     // obtain the PLUGIN environment variable
     String plugin = System.getenv("PLUGIN");
-    // search the plugin directory for anything named "ungoogled-chromium",
-    // "chromium", "brave", "edge", "msedge", "chrome" up to a depth
-    // of 2 directories deep. list the directories in the plugin directory
     if (plugin != null && !plugin.isEmpty()) {
       File pluginDir = new File(plugin);
       if (pluginDir.exists()) {
