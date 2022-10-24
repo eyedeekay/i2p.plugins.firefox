@@ -28,6 +28,11 @@
               </a>
             </li>
             <li>
+              <a href="BUILD.html">
+                BUILD
+              </a>
+            </li>
+            <li>
               <a href="CHANGES.html">
                 CHANGES
               </a>
@@ -108,6 +113,11 @@
               </a>
             </li>
             <li>
+              <a href="LINUX.html">
+                LINUX
+              </a>
+            </li>
+            <li>
               <a href="OSX.html">
                 OSX
               </a>
@@ -135,6 +145,11 @@
             <li>
               <a href="VERSION.html">
                 VERSION
+              </a>
+            </li>
+            <li>
+              <a href="WINDOWS.html">
+                WINDOWS
               </a>
             </li>
           </ul>
@@ -171,12 +186,25 @@
       <code>
         jpackage
       </code>
-      , install at least Java 17.
+      , install at least Java 17. To set up Java
+      17 and configure it to be the Java used by the system for the rest of the
+      session, use these commands:
     </p>
     <pre><code class="language-sh">brew install openjdk@17 
 sudo ln -sfn /usr/local/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk
 export JAVA_HOME=`/usr/libexec/java_home -v 17`
 </code></pre>
+    <p>
+      Once you&rsquo;re finished, run
+      <code>
+        ./osx-dmg.sh
+      </code>
+      in the repository root to produce a
+      <code>
+        .dmg
+      </code>
+      package.
+    </p>
     <div id="sourcecode">
       <span id="sourcehead">
         <strong>
