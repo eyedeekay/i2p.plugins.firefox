@@ -250,23 +250,44 @@ public class I2PChromium extends I2PCommonBrowser {
     if (plugin != null && !plugin.isEmpty()) {
       File pluginDir = new File(plugin);
       if (pluginDir.exists()) {
-        File[] pluginDirs = pluginDir.listFiles();
-        // list the files in the plugin directory
-        for (File pluginDir1 : pluginDirs) {
-          File[] pluginFiles = pluginDir1.listFiles();
-          // list the files in the plugin directory
-          if (pluginFiles != null) {
-            for (File pluginFile : pluginFiles) {
-              if (pluginFile.getName().equals("ungoogled-chromium") ||
-                  pluginFile.getName().equals("chromium") ||
-                  pluginFile.getName().equals("brave") ||
-                  pluginFile.getName().equals("edge") ||
-                  pluginFile.getName().equals("ungoogled-chromium") ||
-                  pluginFile.getName().equals("chrome")) {
-                return new String[] {pluginFile.getAbsolutePath()};
-              }
-            }
-          }
+        if (isWindows()) {
+          File searchResult = searchFile(pluginDir, "ungoogled-chromium.exe");
+          if (searchResult != null)
+            return new String[] {searchResult.getAbsolutePath()};
+          searchResult = searchFile(pluginDir, "brave.exe");
+          if (searchResult != null)
+            return new String[] {searchResult.getAbsolutePath()};
+          searchResult = searchFile(pluginDir, "chromium.exe");
+          if (searchResult != null)
+            return new String[] {searchResult.getAbsolutePath()};
+          searchResult = searchFile(pluginDir, "edge.exe");
+          if (searchResult != null)
+            return new String[] {searchResult.getAbsolutePath()};
+          searchResult = searchFile(pluginDir, "msedge.exe");
+          if (searchResult != null)
+            return new String[] {searchResult.getAbsolutePath()};
+          searchResult = searchFile(pluginDir, "chrome.exe");
+          if (searchResult != null)
+            return new String[] {searchResult.getAbsolutePath()};
+        } else {
+          File searchResult = searchFile(pluginDir, "ungoogled-chromium");
+          if (searchResult != null)
+            return new String[] {searchResult.getAbsolutePath()};
+          searchResult = searchFile(pluginDir, "brave");
+          if (searchResult != null)
+            return new String[] {searchResult.getAbsolutePath()};
+          searchResult = searchFile(pluginDir, "chromium");
+          if (searchResult != null)
+            return new String[] {searchResult.getAbsolutePath()};
+          searchResult = searchFile(pluginDir, "edge");
+          if (searchResult != null)
+            return new String[] {searchResult.getAbsolutePath()};
+          searchResult = searchFile(pluginDir, "msedge");
+          if (searchResult != null)
+            return new String[] {searchResult.getAbsolutePath()};
+          searchResult = searchFile(pluginDir, "chrome");
+          if (searchResult != null)
+            return new String[] {searchResult.getAbsolutePath()};
         }
       }
     }
@@ -274,23 +295,44 @@ public class I2PChromium extends I2PCommonBrowser {
     // list the directories in the user.dir directory
     File userDir = new File(System.getProperty("user.dir"));
     if (userDir.exists()) {
-      File[] userDirs = userDir.listFiles();
-      // list the files in the user.dir directory
-      for (File userDir1 : userDirs) {
-        File[] userFiles = userDir1.listFiles();
-        // list the files in the user.dir directory
-        if (userFiles != null) {
-          for (File userFile : userFiles) {
-            if (userFile.getName().equals("ungoogled-chromium") ||
-                userFile.getName().equals("chromium") ||
-                userFile.getName().equals("brave") ||
-                userFile.getName().equals("edge") ||
-                userFile.getName().equals("ungoogled-chromium") ||
-                userFile.getName().equals("chrome")) {
-              return new String[] {userFile.getAbsolutePath()};
-            }
-          }
-        }
+      if (isWindows()) {
+        File searchResult = searchFile(userDir, "ungoogled-chromium.exe");
+        if (searchResult != null)
+          return new String[] {searchResult.getAbsolutePath()};
+        searchResult = searchFile(userDir, "brave.exe");
+        if (searchResult != null)
+          return new String[] {searchResult.getAbsolutePath()};
+        searchResult = searchFile(userDir, "chromium.exe");
+        if (searchResult != null)
+          return new String[] {searchResult.getAbsolutePath()};
+        searchResult = searchFile(userDir, "edge.exe");
+        if (searchResult != null)
+          return new String[] {searchResult.getAbsolutePath()};
+        searchResult = searchFile(userDir, "msedge.exe");
+        if (searchResult != null)
+          return new String[] {searchResult.getAbsolutePath()};
+        searchResult = searchFile(userDir, "chrome.exe");
+        if (searchResult != null)
+          return new String[] {searchResult.getAbsolutePath()};
+      } else {
+        File searchResult = searchFile(userDir, "ungoogled-chromium");
+        if (searchResult != null)
+          return new String[] {searchResult.getAbsolutePath()};
+        searchResult = searchFile(userDir, "brave");
+        if (searchResult != null)
+          return new String[] {searchResult.getAbsolutePath()};
+        searchResult = searchFile(userDir, "chromium");
+        if (searchResult != null)
+          return new String[] {searchResult.getAbsolutePath()};
+        searchResult = searchFile(userDir, "edge");
+        if (searchResult != null)
+          return new String[] {searchResult.getAbsolutePath()};
+        searchResult = searchFile(userDir, "msedge");
+        if (searchResult != null)
+          return new String[] {searchResult.getAbsolutePath()};
+        searchResult = searchFile(userDir, "chrome");
+        if (searchResult != null)
+          return new String[] {searchResult.getAbsolutePath()};
       }
     }
     return new String[] {};
