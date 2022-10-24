@@ -145,7 +145,7 @@ This method has no parameters.
 This method has no parameters.  
 
 
-### deleteRuntimeDirectory [[src]](src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L315)
+### deleteRuntimeDirectory [[src]](src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L325)
 
 + Description: delete the runtime directory   
 + Access: public  
@@ -155,7 +155,7 @@ This method has no parameters.
 This method has no parameters.  
 
 
-### runtimeDirectory [[src]](src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L331)
+### runtimeDirectory [[src]](src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L341)
 
 + Description: get the runtime directory creating it if create=true   
 + Access: public  
@@ -167,7 +167,7 @@ This method has no parameters.
 | create | boolean | if true create the runtime directory if it does not exist  |  
 
 
-### runtimeDirectory [[src]](src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L343)
+### runtimeDirectory [[src]](src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L353)
 
 + Description: get the correct runtime directory   
 + Access: public  
@@ -177,52 +177,7 @@ This method has no parameters.
 This method has no parameters.  
 
 
-### waitForProxy [[src]](src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L365)
-
-+ Description: Waits for an HTTP proxy on port 4444 to be ready. Returns false on timeout of 200 seconds.   
-+ Access: public  
-+ return: true if the proxy is ready false if it is not.   
-
-This method has no parameters.  
-
-
-### waitForProxy [[src]](src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L375)
-
-+ Description: Waits for an HTTP proxy on port 4444 to be ready. Returns false on timeout of the specified number of seconds.   
-+ Access: public  
-+ return: true if the proxy is ready false if it is not.   
-
-| Name | Type | Description |  
-| ----- | ----- | ----- |  
-| timeout | int | the number of seconds to wait for the proxy to be ready.  |  
-
-
-### waitForProxy [[src]](src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L387)
-
-+ Description: Waits for an HTTP proxy on the specified port to be ready. Returns false on timeout of the specified number of seconds.   
-+ Access: public  
-+ return: true if the proxy is ready false if it is not.   
-
-| Name | Type | Description |  
-| ----- | ----- | ----- |  
-| timeout | int | the number of seconds to wait for the proxy to be ready.  |  
-| port | int | the port to wait for the proxy to be ready on.  |  
-
-
-### waitForProxy [[src]](src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L401)
-
-+ Description: Waits for an HTTP proxy on the specified port to be ready. Returns false on timeout of the specified number of seconds.   
-+ Access: public  
-+ return: true if the proxy is ready false if it is not.   
-
-| Name | Type | Description |  
-| ----- | ----- | ----- |  
-| timeout | int | the number of seconds to wait for the proxy to be ready.  |  
-| port | int | the port to wait for the proxy to be ready on.  |  
-| host | String | the host to wait for the proxy to be ready on.  |  
-
-
-### launchAndDetatch [[src]](src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L415)
+### launchAndDetatch [[src]](src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L368)
 
 + Description:   
 + Access: public  
@@ -234,7 +189,7 @@ This method has no parameters.
 | url | String[] |  |  
 
 
-### launch [[src]](src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L437)
+### launch [[src]](src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L390)
 
 + Description:   
 + Access: public  
@@ -246,19 +201,7 @@ This method has no parameters.
 | url | String[] |  |  
 
 
-### sleep [[src]](src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L455)
-
-+ Description:   
-+ Access: private  
-+ Modifiers: static 
-+ return: void  
-
-| Name | Type | Description |  
-| ----- | ----- | ----- |  
-| millis | int |  |  
-
-
-### ValidURL [[src]](src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L463)
+### ValidURL [[src]](src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L408)
 
 + Description:   
 + Access: private  
@@ -268,17 +211,5 @@ This method has no parameters.
 | Name | Type | Description |  
 | ----- | ----- | ----- |  
 | inUrl | String |  |  
-
-
-### checkifPortIsOccupied [[src]](src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L473)
-
-+ Description:   
-+ Access: private  
-+ return: boolean  
-
-| Name | Type | Description |  
-| ----- | ----- | ----- |  
-| port | int |  |  
-| host | String |  |  
 
 

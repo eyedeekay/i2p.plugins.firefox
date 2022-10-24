@@ -251,7 +251,7 @@ This method has no parameters.
 ### checkifPortIsOccupied [[src]](src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L440)
 
 + Description:   
-+ Access: private  
++ Access: public  
 + return: boolean  
 
 | Name | Type | Description |  
@@ -281,5 +281,30 @@ This method has no parameters.
 | Name | Type | Description |  
 | ----- | ----- | ----- |  
 | arr | String[] |  |  
+
+
+### sleep [[src]](src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L469)
+
++ Description:   
++ Access: public  
++ Modifiers: static 
++ return: void  
+
+| Name | Type | Description |  
+| ----- | ----- | ----- |  
+| millis | int |  |  
+
+
+### searchFile [[src]](src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L477)
+
++ Description:   
++ Access: public  
++ Modifiers: static 
++ return: File  
+
+| Name | Type | Description |  
+| ----- | ----- | ----- |  
+| file | File |  |  
+| search | String |  |  
 
 
