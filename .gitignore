@@ -22,3 +22,5 @@ i2pbrowser/
 /user.js
 arkenfoxnum
 /*.tar.gz
+/*.tar.xz
+/i2p.firefox.profile.*
