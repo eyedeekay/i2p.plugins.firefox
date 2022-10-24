@@ -22,12 +22,14 @@ unzip i2pbrowser.zip && cd i2pbrowser
 #### Debian/Ubuntu and variants Jpackage: `.deb`
 
 1. Start your I2P Router
-2. Run `sudo apt-get install ./i2pbrowser*.deb`(Only needs to be done once per update)
-3. Use the applications menu shortcut to launch the pre-configured I2P browser
+2. Download the latest release `.deb` from [Github](https://github.com/eyedeekay/i2p.plugins.firefox/releases) and verify it's hash.
+3. Run `sudo apt-get install ./i2pbrowser*.deb`(Only needs to be done once per update)
+4. Use the applications menu shortcut to launch the pre-configured I2P browser
 
 #### Fedora and variants Jpackage: `.rpm`
 
 1. Start your I2P Router
-2. Run `sudo rpm -i ./i2pbrowser*.rpm`(Only needs to be done the first time)
-3. Run `sudo rpm -U ./i2pbrowser*.rpm`(Only needs to be done once per update)
-4. Use the applications menu shortcut to launch the pre-configured I2P browser
+2. Download the latest release `.r[m` from [Github](https://github.com/eyedeekay/i2p.plugins.firefox/releases) and verify it's hash.
+3. Run `sudo rpm -i ./i2pbrowser*.rpm`(Only needs to be done the first time)
+4. Run `sudo rpm -U ./i2pbrowser*.rpm`(Only needs to be done once per update)
+5. Use the applications menu shortcut to launch the pre-configured I2P browser
