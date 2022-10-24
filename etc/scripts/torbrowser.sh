@@ -2,7 +2,7 @@
 
 TORSOCKS=$(which torsocks)
 if [ -f "${TORSOCKS}" ]; then
-    #. "${TORSOCKS}" on
+    . "${TORSOCKS}" on
     echo ""
 fi
 
