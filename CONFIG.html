@@ -108,6 +108,11 @@
               </a>
             </li>
             <li>
+              <a href="OSX.html">
+                OSX
+              </a>
+            </li>
+            <li>
               <a href="PACKAGES.html">
                 PACKAGES
               </a>
@@ -144,7 +149,7 @@
       /
     </a>
     <h1>
-      Configuration of the Browser Launcher
+      Configuring the Browser Launcher
     </h1>
     <p>
       It is possible to configure the Browser Launcher differently using a
@@ -167,8 +172,7 @@
       <code>
         $PLUGIN
       </code>
-      directory for
-      I2P Plugin installs.
+      directory for I2P Plugin installs.
     </p>
     <h2>
       bins
@@ -177,9 +181,9 @@
       <code>
         bins
       </code>
-      properties determine which Firefox or Chromium variants to use by matching the
-      binary name. You can use these to configure custom Firefox or Chromium variants or
-      disable others.
+      properties determine which Firefox or Chromium
+      variants to use by matching the binary name. You can use these to
+      configure custom Firefox or Chromium variants or disable others.
     </p>
     <pre><code class="language-properties">firefox.bins.*
 chromium.bins.*
@@ -189,12 +193,13 @@ generic.bins.*
       <code>
         generic.bins
       </code>
-      is only used on Unixes, and usually refers to
+      is only used on Unixes, and usually
+      refers to
       <code>
         sensible-browser
       </code>
-      on common
-      Linux distributions.
+      on common Linux
+      distributions.
     </p>
     <h2>
       paths
@@ -203,9 +208,10 @@ generic.bins.*
       <code>
         paths
       </code>
-      properties determine where to search for Firefox or Chromium variants to use
-      by trying to find a file matching the binary name by looking in a series of directories.
-      You can use these to configure Firefox or Chromium in non-default install locations.
+      properties determine where to search for Firefox
+      or Chromium variants to use by trying to find a file matching the binary
+      name by looking in a series of directories. You can use these to
+      configure Firefox or Chromium in non-default install locations.
     </p>
     <pre><code class="language-properties">firefox.paths.*
 chromium.paths.*
@@ -216,34 +222,35 @@ chromium.paths.*
     <p>
       This properties file represents the defaults.
     </p>
-    <pre><code class="language-properties"># Chromium configuration section
+    <pre><code class="language-properties">#Chromium Configuration Section
+#Sun Oct 23 11:29:45 EDT 2022
 chromium.bins.linux=ungoogled-chromium,chromium,brave,edge,ungoogled-chromium,chrome
 chromium.bins.osx=ungoogled-chromium,chromium,brave,edge,ungoogled-chromium,chrome
 chromium.bins.windows=ungoogled-chromium.exe,chromium.exe,brave.exe,edge.exe,ungoogled-chromium.exe,chrome.exe
 chromium.paths.linux=/usr/bin,/usr/local/bin,/opt/chromium/bin,/snap/bin
 chromium.paths.osx=/Applications/Chromium.app/Contents/MacOS,/Applications/Chrome.app/Contents/MacOS,/Applications/Brave.app/Contents/MacOS
-chromium.paths.windows=/Google/Chrome/Application,/Google/Chrome/Application,/Google/Chrome/Application,/Chromium/Application,/Chromium/Application,/Chromium/Application,/BraveSoftware/Brave Browser/Application,/BraveSoftware/Brave Browser/Application,/BraveSoftware/Brave Browser/Application,/Microsoft/Edge/Application,/Microsoft/Edge/Application
-
-# Firefox configuration section
-firefox.bins.linux=firefox,firefox-bin,firefox-esr,waterfox,waterfox-bin,librewolf
+chromium.paths.windows=C\:\\Users\\user\\AppData\\Local\\/Google/Chrome/Application,C\:\\Program Files (x86)\\/Google/Chrome/Application,/Google/Chrome/Application,C\:\\Users\\user\\AppData\\Local\\/Chromium/Application,C\:\\Program Files (x86)\\/Chromium/Application,/Chromium/Application,C\:\\Users\\user\\AppData\\Local\\/BraveSoftware/Brave Browser/Application,C\:\\Program Files (x86)\\/BraveSoftware/Brave Browser/Application,/BraveSoftware/Brave Browser/Application,/Microsoft/Edge/Application,C\:\\Program Files (x86)\\/Microsoft/Edge/Application
+</code></pre>
+    <pre><code class="language-properties">firefox.bins.linux=firefox,firefox-bin,firefox-esr,waterfox,waterfox-bin,librewolf
 firefox.bins.osx=firefox,firefox-bin,firefox-esr,waterfox,waterfox-bin,librewolf
 firefox.bins.windows=firefox.exe,firefox-bin.exe,firefox-esr.exe,waterfox.exe,waterfox-bin.exe,librewolf.exe
 firefox.paths.linux=/usr/bin,/usr/local/bin,/opt/firefox/bin,/snap/bin
 firefox.paths.osx=/Applications/Tor Browser.app/Contents/MacOS,/Applications/Firefox.app/Contents/MacOS,/Applications/Waterfox.app/Contents/MacOS,/Applications/Librewolf.app/Contents/MacOS
-firefox.paths.windows=/home/idk/OneDrive/Desktop/Tor Browser/Browser,/home/idk/Desktop/Tor Browser/Browser,Mozilla Firefox,Mozilla Firefox,Waterfox,Waterfox,Librewolf
-
-# Generic configuration section
-generic.bins.unix=sensible-browser,xdg-open,x-www-browser,gnome-www-browser,defaultbrowser,dillo,seamonkey,konqueror,galeon,surf,www-browser,links,lynx
+firefox.paths.windows=C\:\\Users\\user\\/OneDrive/Desktop/Tor Browser/Browser,C\:\\Users\\user\\/Desktop/Tor Browser/Browser,C\:\\Program Files (x86)\\/Mozilla Firefox,Mozilla Firefox,C\:\\Program Files (x86)\\/Waterfox,Waterfox,C\:\\Program Files (x86)\\/Librewolf
+</code></pre>
+    <pre><code class="language-properties">generic.bins.unix=sensible-browser,xdg-open,x-www-browser,gnome-www-browser,defaultbrowser,dillo,seamonkey,konqueror,galeon,surf,www-browser,links,lynx
 </code></pre>
     <h3>
       Launching it with I2P
     </h3>
     <p>
-      If you want this to be launched by I2P when you click &ldquo;Launch I2P Browser&rdquo;, edit
+      If you want this to be launched by I2P when you click &ldquo;Launch I2P
+      Browser&rdquo;, edit
       <code>
         router.config
       </code>
-      in oder to contain the path to
+      in oder to contain the
+      path to
       <code>
         i2pbrowser
       </code>
