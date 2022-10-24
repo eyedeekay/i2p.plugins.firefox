@@ -2,7 +2,8 @@
 
 TORSOCKS=$(which torsocks)
 if [ -f "${TORSOCKS}" ]; then
-    . "${TORSOCKS}" on
+    #. "${TORSOCKS}" on
+    echo ""
 fi
 
 version="$(curl -s https://aus1.torproject.org/torbrowser/update_3/release/downloads.json | jq -r ".version")"

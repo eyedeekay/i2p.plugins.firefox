@@ -261,121 +261,104 @@ public class I2PFirefox extends I2PCommonBrowser {
     if (plugin != null && !plugin.isEmpty()) {
       File userDir = new File(plugin);
       if (userDir.exists()) {
-        File[] userDirs = userDir.listFiles();
-        for (File userDir1 : userDirs) {
-          File[] userFiles = userDir1.listFiles();
-          if (userFiles != null) {
-            for (File userFile : userFiles) {
-              // logger.info("CHECKING NEARBY" + userFile.getAbsolutePath());
-              if (userFile.isDirectory()) {
-                File[] userFiles2 = userFile.listFiles();
-                for (File userFile2 : userFiles2) {
-                  if (userFile2.isDirectory())
-                    continue;
-                  if (!isWindows()) {
-                    if (userFile2.getName().equals("firefox") ||
-                        userFile2.getName().equals("firefox-bin") ||
-                        userFile2.getName().equals("firefox-esr") ||
-                        userFile2.getName().equals("waterfox") ||
-                        userFile2.getName().equals("waterfox-bin") ||
-                        userFile2.getName().equals("librewolf")) {
-                      return new String[] {userFile2.getAbsolutePath()};
-                    }
-                  } else {
-                    if (userFile2.getName().equals("firefox.exe") ||
-                        userFile2.getName().equals("firefox-bin.exe") ||
-                        userFile2.getName().equals("firefox-esr.exe") ||
-                        userFile2.getName().equals("waterfox.exe") ||
-                        userFile2.getName().equals("waterfox-bin.exe") ||
-                        userFile2.getName().equals("librewolf.exe")) {
-                      return new String[] {userFile2.getAbsolutePath()};
-                    }
-                  }
-                }
-                if (!isWindows()) {
-                  if (userFile.getName().equals("firefox") ||
-                      userFile.getName().equals("firefox-bin") ||
-                      userFile.getName().equals("firefox-esr") ||
-                      userFile.getName().equals("waterfox") ||
-                      userFile.getName().equals("waterfox-bin") ||
-                      userFile.getName().equals("librewolf")) {
-                    return new String[] {userFile.getAbsolutePath()};
-                  }
-                } else {
-                  if (userFile.getName().equals("firefox.exe") ||
-                      userFile.getName().equals("firefox-bin.exe") ||
-                      userFile.getName().equals("firefox-esr.exe") ||
-                      userFile.getName().equals("waterfox.exe") ||
-                      userFile.getName().equals("waterfox-bin.exe") ||
-                      userFile.getName().equals("librewolf.exe")) {
-                    return new String[] {userFile.getAbsolutePath()};
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-      // now, do the same thing, but with user.dir instead of plugin
-      // list the directories in the user.dir directory
-      userDir = new File(System.getProperty("user.dir"));
-      if (userDir.exists()) {
-        File[] userDirs = userDir.listFiles();
-        // list the files in the user.dir directory
-        for (File userDir1 : userDirs) {
-          File[] userFiles = userDir1.listFiles();
-          if (userFiles != null) {
-            for (File userFile : userFiles) {
-              if (userFile.isDirectory()) {
-                File[] userFiles2 = userFile.listFiles();
-                for (File userFile2 : userFiles2) {
-                  if (userFile2.isDirectory())
-                    continue;
-                  if (isWindows()) {
-                    if (userFile2.getName().equals("firefox") ||
-                        userFile2.getName().equals("firefox-bin") ||
-                        userFile2.getName().equals("firefox-esr") ||
-                        userFile2.getName().equals("waterfox") ||
-                        userFile2.getName().equals("waterfox-bin") ||
-                        userFile2.getName().equals("librewolf")) {
-                      return new String[] {userFile2.getAbsolutePath()};
-                    }
-                  } else {
-                    if (userFile.getName().equals("firefox.exe") ||
-                        userFile.getName().equals("firefox-bin.exe") ||
-                        userFile.getName().equals("firefox-esr.exe") ||
-                        userFile.getName().equals("waterfox.exe") ||
-                        userFile.getName().equals("waterfox-bin.exe") ||
-                        userFile.getName().equals("librewolf.exe")) {
-                      return new String[] {userFile.getAbsolutePath()};
-                    }
-                  }
-                }
-              }
-              if (!isWindows()) {
-                if (userFile.getName().equals("firefox") ||
-                    userFile.getName().equals("firefox-bin") ||
-                    userFile.getName().equals("firefox-esr") ||
-                    userFile.getName().equals("waterfox") ||
-                    userFile.getName().equals("waterfox-bin") ||
-                    userFile.getName().equals("librewolf")) {
-                  return new String[] {userFile.getAbsolutePath()};
-                }
-              } else {
-                if (userFile.getName().equals("firefox.exe") ||
-                    userFile.getName().equals("firefox-bin.exe") ||
-                    userFile.getName().equals("firefox-esr.exe") ||
-                    userFile.getName().equals("waterfox.exe") ||
-                    userFile.getName().equals("waterfox-bin.exe") ||
-                    userFile.getName().equals("librewolf.exe")) {
-                  return new String[] {userFile.getAbsolutePath()};
-                }
-              }
-            }
-          }
+        if (isWindows()) {
+          File searchResult = searchFile(userDir, "firefox-esr.exe");
+          if (searchResult != null)
+            return new String[] {searchResult.getAbsolutePath()};
+          searchResult = searchFile(userDir, "firefox-esr.exe");
+          if (searchResult != null)
+            return new String[] {searchResult.getAbsolutePath()};
+          searchResult = searchFile(userDir, "firefox.exe");
+          if (searchResult != null)
+            return new String[] {searchResult.getAbsolutePath()};
+          searchResult = searchFile(userDir, "firefox-bin.exe");
+          if (searchResult != null)
+            return new String[] {searchResult.getAbsolutePath()};
+          searchResult = searchFile(userDir, "waterfox.exe");
+          if (searchResult != null)
+            return new String[] {searchResult.getAbsolutePath()};
+          searchResult = searchFile(userDir, "waterfox-bin.exe");
+          if (searchResult != null)
+            return new String[] {searchResult.getAbsolutePath()};
+          searchResult = searchFile(userDir, "librewolf.exe");
+          if (searchResult != null)
+            return new String[] {searchResult.getAbsolutePath()};
+        } else {
+          File searchResult = searchFile(userDir, "firefox-esr");
+          if (searchResult != null)
+            return new String[] {searchResult.getAbsolutePath()};
+          searchResult = searchFile(userDir, "firefox-esr");
+          if (searchResult != null)
+            return new String[] {searchResult.getAbsolutePath()};
+          searchResult = searchFile(userDir, "firefox");
+          if (searchResult != null)
+            return new String[] {searchResult.getAbsolutePath()};
+          searchResult = searchFile(userDir, "firefox-bin");
+          if (searchResult != null)
+            return new String[] {searchResult.getAbsolutePath()};
+          searchResult = searchFile(userDir, "waterfox");
+          if (searchResult != null)
+            return new String[] {searchResult.getAbsolutePath()};
+          searchResult = searchFile(userDir, "waterfox-bin");
+          if (searchResult != null)
+            return new String[] {searchResult.getAbsolutePath()};
+          searchResult = searchFile(userDir, "librewolf");
+          if (searchResult != null)
+            return new String[] {searchResult.getAbsolutePath()};
         }
       }
     }
+    // now, do the same thing, but with user.dir instead of plugin
+    // list the directories in the user.dir directory
+    File userDir = new File(System.getProperty("user.dir"));
+    if (userDir.exists()) {
+      if (isWindows()) {
+        File searchResult = searchFile(userDir, "firefox-esr.exe");
+        if (searchResult != null)
+          return new String[] {searchResult.getAbsolutePath()};
+        searchResult = searchFile(userDir, "firefox-esr.exe");
+        if (searchResult != null)
+          return new String[] {searchResult.getAbsolutePath()};
+        searchResult = searchFile(userDir, "firefox.exe");
+        if (searchResult != null)
+          return new String[] {searchResult.getAbsolutePath()};
+        searchResult = searchFile(userDir, "firefox-bin.exe");
+        if (searchResult != null)
+          return new String[] {searchResult.getAbsolutePath()};
+        searchResult = searchFile(userDir, "waterfox.exe");
+        if (searchResult != null)
+          return new String[] {searchResult.getAbsolutePath()};
+        searchResult = searchFile(userDir, "waterfox-bin.exe");
+        if (searchResult != null)
+          return new String[] {searchResult.getAbsolutePath()};
+        searchResult = searchFile(userDir, "librewolf.exe");
+        if (searchResult != null)
+          return new String[] {searchResult.getAbsolutePath()};
+      } else {
+        File searchResult = searchFile(userDir, "firefox-esr");
+        if (searchResult != null)
+          return new String[] {searchResult.getAbsolutePath()};
+        searchResult = searchFile(userDir, "firefox-esr");
+        if (searchResult != null)
+          return new String[] {searchResult.getAbsolutePath()};
+        searchResult = searchFile(userDir, "firefox");
+        if (searchResult != null)
+          return new String[] {searchResult.getAbsolutePath()};
+        searchResult = searchFile(userDir, "firefox-bin");
+        if (searchResult != null)
+          return new String[] {searchResult.getAbsolutePath()};
+        searchResult = searchFile(userDir, "waterfox");
+        if (searchResult != null)
+          return new String[] {searchResult.getAbsolutePath()};
+        searchResult = searchFile(userDir, "waterfox-bin");
+        if (searchResult != null)
+          return new String[] {searchResult.getAbsolutePath()};
+        searchResult = searchFile(userDir, "librewolf");
+        if (searchResult != null)
+          return new String[] {searchResult.getAbsolutePath()};
+      }
+    }
+
     return new String[] {};
   }
   private static String[] FIREFOX_FINDER() {
