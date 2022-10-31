@@ -257,6 +257,7 @@ public class I2PFirefoxProfileBuilder extends I2PCommonBrowser {
     }
     File baseProfileDir = new File(baseProfile);
     File profileDir = new File(profile);
+    setupUserChrome(profileDir, app);
     if (!baseProfileDir.exists() || !profileDir.exists()) {
       logger.info("Empty directories");
       return false;
@@ -276,6 +277,12 @@ public class I2PFirefoxProfileBuilder extends I2PCommonBrowser {
       logger.info("Error copying base profile to profile" + e);
       return false;
     }
+    logger.info("Done setting up fancy Firefox options");
+
+    return true;
+  }
+
+  public static void setupUserChrome(File profileDir, boolean app) {
     File workingUserOverrides = new File(profileDir, "user-overrides.js");
     logger.info(workingUserOverrides.getAbsolutePath());
     if (workingUserOverrides.exists()) {
@@ -317,9 +324,6 @@ public class I2PFirefoxProfileBuilder extends I2PCommonBrowser {
         deleteAppChrome(profileDir.toString());
       }
     }
-    logger.info("Done setting up fancy Firefox options");
-
-    return true;
   }
 
   /**

@@ -260,6 +260,12 @@ public class I2PBrowser extends I2PCommonBrowser {
       if (useSystray) {
         logger.info("Starting systray");
         systray(args);
+        Runtime.getRuntime().addShutdownHook(new Thread() {
+          @Override
+          public void run() {
+            shutdownSystray();
+          }
+        });
       }
     } catch (Exception e) {
       logger.warning(e.toString());
