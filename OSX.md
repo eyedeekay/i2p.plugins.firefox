@@ -7,7 +7,7 @@ packages. You can use the `.jar` file with any Java greater than Java 8.
 
 ```sh
 mkdir ~/tmp-i2pfirefox && cd ~/tmp-i2pfirefox
-wget https://github.com/eyedeekay/i2p.plugins.firefox/releases/download/1.0.3/i2pfirefox.zip
+wget https://github.com/eyedeekay/i2p.plugins.firefox/releases/download/1.0.4/i2pfirefox.zip
 unzip i2pfirefox.zip
 ./cmd/i2pfirefox.cmd
 

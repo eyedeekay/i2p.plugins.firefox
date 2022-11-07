@@ -155,3 +155,16 @@ This method has no parameters.
 | app | boolean |  |  
 
 
+### setupUserChrome [[src]](src/java/net/i2p/i2pfirefox/I2PFirefoxProfileBuilder.java#L285)
+
++ Description:   
++ Access: public  
++ Modifiers: static 
++ return: void  
+
+| Name | Type | Description |  
+| ----- | ----- | ----- |  
+| profileDir | File |  |  
+| app | boolean |  |  
+
+

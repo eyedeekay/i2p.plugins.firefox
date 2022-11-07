@@ -6,14 +6,14 @@ Extension Versions
 
 ```md
 i2p-in-private-browsing
-1.40
-https://addons.mozilla.org/firefox/downloads/file/4016633/i2p_in_private_browsing-1.40.xpi
+1.44
+https://addons.mozilla.org/firefox/downloads/file/4020669/i2p_in_private_browsing-1.44.xpi
 noscript
 11.4.11
 https://addons.mozilla.org/firefox/downloads/file/4002416/noscript-11.4.11.xpi
 localcdn-fork-of-decentraleyes
-2.6.38
-https://addons.mozilla.org/firefox/downloads/file/4017192/localcdn_fork_of_decentraleyes-2.6.38.xpi
+2.6.39
+https://addons.mozilla.org/firefox/downloads/file/4022992/localcdn_fork_of_decentraleyes-2.6.39.xpi
 https-everywhere
 2021.7.13
 https://addons.mozilla.org/firefox/downloads/file/3809748/https_everywhere-2021.7.13.xpi
@@ -41,7 +41,7 @@ __MSG_about_ext_name__
 2022.5.24
 https://clients2.google.com/service/update2/crx
 LocalCDN
-2.6.34
+2.6.39
 https://clients2.google.com/service/update2/crx
 uBlock Origin
 1.44.4

@@ -360,7 +360,7 @@
         "description": "Icon"
     },
     "helpRuleGeneratorUblockTableMode": {
-        "message": "Chế Độ",
+        "message": "Chế độ",
         "description": "Mode"
     },
     "helpRuleGeneratorUblockTableUseful": {
@@ -380,7 +380,7 @@
         "description": "Hard"
     },
     "helpWebsiteIssuesDescription": {
-        "message": "Có hai nguyên nhân có thể xảy ra: Hoặc do framework/thư viện được yêu cầu nhưng LocalCDN chưa phân phối hoặc do SOP. SOP (Viết tắt của từ tiếng Anh \"Same origin policy\" dịch tạm là \"Điều khoản đồng nguồn\") là một cơ chế bảo mật quyết định dữ liệu nào mà trình duyệt được phép tải. Nó giúp cách ly các tài liệu độc hại, từ đó làm giảm thiểu các nguy cơ tấn công có thể xảy ra. Điều khoản này ngăn chặn các trình duyệt tải các framework bên ngoài của LocalCDN. Không may, hiện nay chưa có giải pháp cho vấn đề này.",
+        "message": "Có hai nguyên nhân có thể xảy ra: Do framework/thư viện được yêu cầu nhưng LocalCDN chưa phân phối hoặc do SOP. SOP (Viết tắt của từ tiếng Anh \"Same origin policy\" tạm dịch là \"Điều khoản cùng nguồn gốc\") là một cơ chế bảo mật quyết định dữ liệu nào mà trình duyệt được phép tải. Nó giúp cách ly các tài liệu độc hại, từ đó làm giảm thiểu các nguy cơ tấn công có thể xảy ra. Điều khoản này ngăn chặn các trình duyệt tải các framework bên ngoài của LocalCDN. Không may, hiện nay chưa có giải pháp cho vấn đề này.",
         "description": "There are two possible reasons: Either a framework/library is required that LocalCDN doesn‘t (yet) deliver or an SOP. A SOP (Same origin policy) is a security mechanism that determines what data the browser is allowed to load. It helps to isolate malicious documents and thus reduce possible attack vectors. This policy prevents the browser from loading the external frameworks of LocalCDN. Unfortunately there is no solution for this at the moment."
     },
     "helpBlockGoogleFontsDescription": {

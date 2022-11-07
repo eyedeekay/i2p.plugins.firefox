@@ -55,7 +55,7 @@ const MessageResponse = {
 const Resource = {
     'MAPPING_EXPRESSION': /\.map$/i,
     'VERSION_EXPRESSION': /(?:\d{1,2}\.){1,3}\d{1,2}(?:-\d)?|latest/,
-    'SINGLE_NUMBER_EXPRESSION': /^\D+@?\d.*$/,
+    'SINGLE_NUMBER_EXPRESSION': /^\D+@?\d{1,2}\D*$/,
     'MATHJAX': /\/\w.*(?:\d{1,2}\.){1,3}\d{1,2}(?:-\d)?\/|\/(mathjax\/)?latest\//,
     'TINYMCE': /\/\w.*(?:\d{1,2}\.){1,3}\d{1,2}(?:-\d)?\//,
     'VERSION_PLACEHOLDER': '{version}'

@@ -151,7 +151,7 @@ requestAnalyzer._findLocalTarget = function (resourceMappings, basePath, channel
 
     // Handle weird version expressions
     if (!versionNumber && Resource.SINGLE_NUMBER_EXPRESSION.test(channelPath)) {
-        versionNumber = channelPath.match(/\d/);
+        versionNumber = channelPath.match(/\d{1,2}/);
         resourcePattern = resourcePath.replaceAll(versionNumber, Resource.VERSION_PLACEHOLDER);
         versionNumber = [`${versionNumber}.0`];
     } else {
@@ -197,13 +197,13 @@ requestAnalyzer._findLocalTarget = function (resourceMappings, basePath, channel
             bundle = targets.determineBundle(targetPath);
             if (bundle !== '') {
                 targetPath = requestAnalyzer._getPathOfBundle(initiator, channelHost, channelPath, targetPath, bundle);
+                if (bundle === 'vex (Bundle)' && !targetPath.endsWith('.min.css') && targetPath.endsWith('.css')) {
+                    targetPath = targetPath.replace('.css', '.min.css');
+                }
             }
             if (targetPath['result'] === false) {
                 break;
             }
-
-            console.log(`${LogString.PREFIX} ${LogString.REPLACED_RESOURCE} ${targetPath}`);
-            log.append(initiator, channelHost + channelPath, targetPath, false);
 
             // Prepare and return a local target.
             return {

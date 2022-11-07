@@ -227,7 +227,7 @@ This method has no parameters.
 | args | String[] |  |  
 
 
-### systrayIsRunningExternally [[src]](src/java/net/i2p/i2pfirefox/I2PBrowser.java#L270)
+### systrayIsRunningExternally [[src]](src/java/net/i2p/i2pfirefox/I2PBrowser.java#L276)
 
 + Description:   
 + Access: private  
@@ -237,7 +237,7 @@ This method has no parameters.
 This method has no parameters.  
 
 
-### shutdownSystray [[src]](src/java/net/i2p/i2pfirefox/I2PBrowser.java#L287)
+### shutdownSystray [[src]](src/java/net/i2p/i2pfirefox/I2PBrowser.java#L293)
 
 + Description:   
 + Access: private  
@@ -247,7 +247,7 @@ This method has no parameters.
 This method has no parameters.  
 
 
-### systray [[src]](src/java/net/i2p/i2pfirefox/I2PBrowser.java#L293)
+### systray [[src]](src/java/net/i2p/i2pfirefox/I2PBrowser.java#L299)
 
 + Description:   
 + Access: public  

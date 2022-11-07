@@ -245,6 +245,34 @@ shorthands.specialFiles = function (channelHost, channelPath, searchString) {
             'path': `resources/createjs/${lastVersion}/createjs.min.jsm`,
             'bundle': ''
         };
+    } else if (CompleteURL.startsWith('cdnjs.cloudflare.com/ajax/libs/gsap/latest/')) {
+        if (channelPath.endsWith('js')) {
+            channelPath += 'm';
+        }
+        lastVersion = '1.20.5';
+        return {
+            'source': channelHost,
+            'versionDelivered': lastVersion,
+            'path': `resources/gsap/${lastVersion}/${helpers.extractFilenameFromPath(channelPath)}`,
+            'bundle': 'GSAP'
+        };
+    } else if (CompleteURL.startsWith('cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.')) {
+        return {
+            'source': channelHost,
+            'versionDelivered': 'latest',
+            'versionRequested': 'latest',
+            'path': 'resources/google-material-design-icons/google-material-design-icons.css',
+            'bundle': ''
+        };
+    } else if (CompleteURL.startsWith('cdn.jsdelivr.net/npm/@webcomponents/webcomponentsjs/webcomponents-loader.')) {
+        lastVersion = targets.setLastVersion('/webcomponentsjs/');
+        return {
+            'source': channelHost,
+            'versionDelivered': lastVersion,
+            'versionRequested': 'latest',
+            'path': `resources/webcomponentsjs/${lastVersion}/webcomponents-loader.min.jsm`,
+            'bundle': ''
+        };
     }
     return {
         'result': false,
