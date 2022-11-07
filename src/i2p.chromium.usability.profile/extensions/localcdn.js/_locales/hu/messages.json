@@ -296,7 +296,7 @@
         "description": "What will be synchronized when I select »sync« as storage type?"
     },
     "helpBrowserCompatibilityTitle": {
-        "message": "",
+        "message": "Böngésző kompatibilitás",
         "description": "Browser compatibility"
     },
     "helpIntroductionDescription": {

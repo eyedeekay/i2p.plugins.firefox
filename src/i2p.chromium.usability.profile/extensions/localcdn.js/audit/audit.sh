@@ -55,6 +55,7 @@
 # Exceptions:
 #   /resources/*/note
 #   /resources/google-material-design-icons/google-material-design-icons.css
+#   /resources/blocked/*
 #
 # =============================================================================
 # WHY ARE THESE FILES EXCLUDED?
@@ -68,6 +69,10 @@
 #
 # /resources/*/note                 These files contain notes if a file has
 #                                   been renamed.
+#
+# /resources/blocked/*              This folder contains files which will be
+#                                   displayed if the direct CDN call is blocked.
+#                                   (https://codeberg.org/nobody/LocalCDN/issues/1050)
 # =============================================================================
 
 
@@ -595,8 +600,6 @@ function create_url() {
         else
             url="$NETDNA_BOOTSTRAPCDN/$folder/$version/js/bootstrap.min.js"
         fi
-    elif [ "$folder" = "webcomponentsjs" ]; then
-        url="$CLOUDFLARE/$folder/2.6.0/webcomponents-loader.min.js"
     elif [ "$folder" = "vue-i18n" ] && [[ "$version" != 8* ]]; then
         url="$CLOUDFLARE/$folder/$version/vue-i18n.cjs.min.js"
     elif [ "$path" = "../resources/twitter-bootstrap/fonts/glyphicons-halflings-regular.woff2" ]; then
@@ -718,6 +721,8 @@ function create_url() {
         url="$CLOUDFLARE/$folder/$version/moment-with-langs.min.js"
     elif [ "$folder" = "react-intl" ]; then
         url="$JSDELIVR/npm/react-intl@$version/react-intl.iife.min.js"
+    elif [ "$folder" = "in-view" ]; then
+        url="$JSDELIVR/npm/in-view@$version/dist/in-view.min.js"
     # --------------------------------------------------------------------------
     else
         if [ "$subfile" = "$jfile" ]; then
@@ -763,6 +768,7 @@ done < <(find ../resources/ \
     ! -iname "fa-loader.css" \
     ! -iname "google-material-design-icons.css" \
     ! -iname "google-fonts-placeholder.css" \
+    -not -path "../resources/blocked/*" \
     -print0)
 
 

@@ -3,7 +3,7 @@
 
   "manifest_version": 2,
   "name": "LocalCDN",
-  "version": "2.6.34",
+  "version": "2.6.39",
   "browser_specific_settings": {
     "gecko": {
       "id": "{b86e4813-687a-43e6-ab65-0bde4ab75758}",
