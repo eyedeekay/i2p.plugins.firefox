@@ -5,7 +5,7 @@ jpackage \
     --type dmg \
     --name i2pbrowser \
     --app-version "$GITHUB_TAG" \
-    --icon src/icon.png \
+    --icon src/icon.icns \
     --input src/build \
     --main-jar i2pfirefox.jar \
     --main-class net.i2p.i2pfirefox.I2PBrowser

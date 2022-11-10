@@ -571,7 +571,15 @@ public class I2PFirefox extends I2PCommonBrowser {
                 .toArray(String[] ::new);
         // String[] finalArgs = Stream.concat(Arrays.stream(initArgs),
         // Arrays.stream(lastArgs)).toArray(String[]::new);
-        File bashScript = new File("i2pfirefox.sh");
+        String applicationSupportDirectory =
+            System.getProperty("user.home") +
+            "/Library/Application Support/i2pbrowser";
+        File applicationSupportDirectoryFile =
+            new File(applicationSupportDirectory);
+        if (!applicationSupportDirectoryFile.exists())
+          applicationSupportDirectoryFile.mkdirs();
+        File bashScript =
+            new File(applicationSupportDirectory, "i2pfirefox.sh");
         if (bashScript.exists()) {
           bashScript.delete();
         }
