@@ -317,6 +317,10 @@ public class I2PBrowser extends I2PCommonBrowser {
     Image image = toolkit.getImage("icon.png");
 
     PopupMenu menu = new PopupMenu();
+    TrayIcon icon = new TrayIcon(image, "I2P Browser Profile Controller", menu);
+    icon.setImageAutoSize(true);
+
+    tray.add(icon);
     Menu submenuStrict = new Menu("Strict Mode");
     MenuItem launchRegularBrowserStrict = new MenuItem("Launch I2P Browser");
     launchRegularBrowserStrict.addActionListener(new ActionListener() {
@@ -401,10 +405,6 @@ public class I2PBrowser extends I2PCommonBrowser {
       }
     });
     menu.add(closeItem);
-    TrayIcon icon = new TrayIcon(image, "I2P Browser Profile Controller", menu);
-    icon.setImageAutoSize(true);
-
-    tray.add(icon);
     return true;
   }
 }
