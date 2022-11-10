@@ -579,7 +579,7 @@ public class I2PFirefox extends I2PCommonBrowser {
         if (!applicationSupportDirectoryFile.exists())
           applicationSupportDirectoryFile.mkdirs();
         File bashScript =
-            new File(applicationSupportDirectory, "i2pfirefox.sh");
+            new File(applicationSupportDirectoryFile, "i2pfirefox.sh");
         if (bashScript.exists()) {
           bashScript.delete();
         }
@@ -732,6 +732,8 @@ public class I2PFirefox extends I2PCommonBrowser {
         logger.info("Waiting for I2PFirefox to close...");
         int exit = p.waitFor();
         logger.info("I2PFirefox exited with value: " + exit);
+        if (isOSX())
+          System.exit(exit);
       } catch (Exception e) {
         logger.info("Error: " + e.getMessage());
       }
