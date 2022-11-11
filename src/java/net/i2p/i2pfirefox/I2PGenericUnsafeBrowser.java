@@ -99,9 +99,8 @@ public class I2PGenericUnsafeBrowser extends I2PCommonBrowser {
    * @since 2.0.0
    */
   static public String getDefaultWindowsBrowser() {
-    String defaultBrowser =
-        "C:\\Program Files\\Internet Explorer\\iexplore.exe";
-    String key = "";
+    String defaultBrowser;
+    String key;
     // User-Configured HTTPS Browser
     key =
         "HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Windows\\Shell\\Associations\\URLAssociations\\https\\UserChoice";
@@ -126,6 +125,7 @@ public class I2PGenericUnsafeBrowser extends I2PCommonBrowser {
     if (defaultBrowser != null) {
       return defaultBrowser;
     }
+    defaultBrowser = "C:\\Program Files\\Internet Explorer\\iexplore.exe";
     return defaultBrowser;
   }
 
