@@ -39,6 +39,10 @@ directory for Firefox, and the `src/i2p.chromium.*.profile/extensions/*.js/*` di
 
 ## Getting started
 
+### Building the package:
+
+ - See: [BUILD.md](docs/BUILD.md)/[BUILD.html](docs/BUILD.html)
+
 ### Using a Binary
 
 For platform specific instructions, see
