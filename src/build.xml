@@ -20,7 +20,7 @@
     </path>
 
     <target name="all" depends="clean, build" />
-    <target name="build" depends="jar, war" />
+    <target name="build" depends="jar" />
     <target name="builddep">
     </target>
 
@@ -48,52 +48,6 @@
             <fileset file="i2p.chromium.usability.profile.zip" />
             <fileset file="icon.png" />
         </jar>
-    </target>    
-
-    <target name="precompilejsp" depends="compile" >
-        <mkdir dir="build" />
-        <mkdir dir="build/war/WEB-INF/classes" />
-        <path id="jspcp">
-            <path refid="cp" />
-            <pathelement location="build/obj" />
-        </path>
-        <java classname="org.apache.jasper.JspC" fork="true" classpathref="jspcp" failonerror="true">
-            <arg value="-d" />
-            <arg value="build/jspjava" />
-            <arg value="-v" />
-            <arg value="-p" />
-            <arg value="net.i2p.i2pfirefox" />
-            <arg value="-webinc" />
-            <arg value="build/web-fragment.xml" />
-            <arg value="-webapp" />
-            <arg value="jsp/" />
-        </java>
-
-        <javac
-            debug="true"
-            deprecation="on"
-            source="${javac.version}" target="${javac.version}" 
-            destdir="build/war/WEB-INF/classes"
-            srcdir="./build/jspjava"
-            includes="**/*.java"
-            includeAntRuntime="false"
-            classpathref="jspcp"
-            failonerror="true" >
-            <compilerarg line="${javac.compilerargs}" />
-        </javac>
-
-        <copy file="jsp/WEB-INF/web.xml" tofile="build/web.xml" />
-        <loadfile property="jspc.web.fragment" srcfile="build/web-fragment.xml" />
-        <replace file="build/web.xml">
-            <replacefilter token="&lt;!-- precompiled servlets --&gt;" value="${jspc.web.fragment}" />
-        </replace>
-
-    </target>
-
-    <target name="war" depends="precompilejsp"> 
-        <war destfile="build/firefox.war.jar" webxml="build/web.xml">
-            <fileset dir="build/war" />
-        </war>
     </target>
     
     <target name="clean">
