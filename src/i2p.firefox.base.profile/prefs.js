@@ -38,7 +38,7 @@ user_pref("network.proxy.ftp_port", 4444);
 user_pref("network.proxy.socks", "127.0.0.1");
 user_pref("network.proxy.socks_port", 4444);
 user_pref("network.proxy.share_proxy_settings", true);
-user_pref("browser.startup.homepage", "about:blank");
+user_pref("browser.startup.homepage", "http://127.0.0.1:7657");
 user_pref("dom.security.https_only_mode", false);
 user_pref("keyword.enabled", false);
 user_pref("extensions.allowPrivateBrowsingByDefault", true);
@@ -63,4 +63,8 @@ user_pref("browser.display.use_system_colors", false);
 user_pref("dom.image-lazy-loading.enabled", false);
 user_pref("extensions.autoDisableScopes", 0);
 user_pref("extensions.enabledScopes", 1);
-user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", false);
+
+user_pref("browser.startup.page", "1");
+user_pref("browser.toolbars.bookmarks.visibility", "always");
+user_pref("browser.uiCustomization.state", "{\"placements\":{\"widget-overflow-fixed-list\":[],\"nav-bar\":[\"back-button\",\"forward-button\",\"stop-reload-button\",\"home-button\",\"urlbar-container\",\"save-to-pocket-button\",\"downloads-button\",\"fxa-toolbar-menu-button\"],\"toolbar-menubar\":[\"menubar-items\"],\"TabsToolbar\":[\"tabbrowser-tabs\",\"new-tab-button\",\"alltabs-button\"],\"PersonalToolbar\":[\"import-button\",\"personal-bookmarks\"]},\"seen\":[\"developer-button\"],\"dirtyAreaCache\":[\"nav-bar\",\"PersonalToolbar\",\"toolbar-menubar\",\"TabsToolbar\"],\"currentVersion\":17,\"newElementCount\":4}");
+
