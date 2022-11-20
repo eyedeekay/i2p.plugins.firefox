@@ -24,3 +24,5 @@ arkenfoxnum
 /*.tar.gz
 /*.tar.xz
 /i2p.firefox.profile.*
+/src/*.zip
+/src/*profile/extensions/*.xpi
