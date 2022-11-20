@@ -618,7 +618,7 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
     </target>
     
     <target name="i2pChromiumBaseProfile">
-        <mkdir dir="src/i2p.chromium.base.profile/" failonerror="false" />
+        <mkdir dir="src/i2p.chromium.base.profile/extensions/" />
         <exec executable="crx3" failonerror="true">
             <arg value="download"/>
             <arg value="ikdjcmomgldfciocnpekfndklkfgglpe" />
@@ -658,7 +658,7 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
     </target>
 
     <target name="i2pChromiumUsabilityProfile">
-        <mkdir dir="src/i2p.chromium.usability.profile/" failonerror="false" />
+        <mkdir dir="src/i2p.chromium.usability.profile/extensions/" />
         <exec executable="crx3" failonerror="true">
             <arg value="download"/>
             <arg value="ikdjcmomgldfciocnpekfndklkfgglpe" />
@@ -711,7 +711,7 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
         </exec>
     </target>
     <target name="i2pFirefoxBaseProfile" depends="buildNum">
-        <mkdir dir="src/i2p.firefox.base.profile/" failonerror="false" />
+        <mkdir dir="src/i2p.firefox.base.profile/extensions/" />
         <exec executable="amo-version" failonerror="true">
             <arg value="-n"/>
             <arg value="i2p-in-private-browsing"/>
@@ -751,7 +751,7 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
     </target>
 
     <target name="i2pFirefoxUsabilityProfile" depends="buildNum">
-        <mkdir dir="src/i2p.firefox.usability.profile/" failonerror="false" />
+        <mkdir dir="src/i2p.firefox.usability.profile/extensions/" />
         <exec executable="amo-version" failonerror="true">
             <arg value="-n"/>
             <arg value="i2p-in-private-browsing"/>
