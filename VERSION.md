@@ -9,11 +9,11 @@ i2p-in-private-browsing
 1.44
 https://addons.mozilla.org/firefox/downloads/file/4020669/i2p_in_private_browsing-1.44.xpi
 noscript
-11.4.11
-https://addons.mozilla.org/firefox/downloads/file/4002416/noscript-11.4.11.xpi
+11.4.12
+https://addons.mozilla.org/firefox/downloads/file/4030389/noscript-11.4.12.xpi
 localcdn-fork-of-decentraleyes
-2.6.39
-https://addons.mozilla.org/firefox/downloads/file/4022992/localcdn_fork_of_decentraleyes-2.6.39.xpi
+2.6.40
+https://addons.mozilla.org/firefox/downloads/file/4032517/localcdn_fork_of_decentraleyes-2.6.40.xpi
 https-everywhere
 2021.7.13
 https://addons.mozilla.org/firefox/downloads/file/3809748/https_everywhere-2021.7.13.xpi
@@ -24,8 +24,8 @@ javascript-restrictor
 0.11.1
 https://addons.mozilla.org/firefox/downloads/file/3950710/javascript_restrictor-0.11.1.xpi
 ublock-origin
-1.44.4
-https://addons.mozilla.org/firefox/downloads/file/4003969/ublock_origin-1.44.4.xpi
+1.45.2
+https://addons.mozilla.org/firefox/downloads/file/4028976/ublock_origin-1.45.2.xpi
 ```
 
 ## Chromium
@@ -35,7 +35,7 @@ __MSG_extensionName__
 1.29
 https://clients2.google.com/service/update2/crx
 NoScript
-11.4.6
+11.4.12
 https://clients2.google.com/service/update2/crx
 __MSG_about_ext_name__
 2022.5.24
@@ -44,7 +44,7 @@ LocalCDN
 2.6.39
 https://clients2.google.com/service/update2/crx
 uBlock Origin
-1.44.4
+1.45.2
 https://clients2.google.com/service/update2/crx
 JShelter
 0.11.1
