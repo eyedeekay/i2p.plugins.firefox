@@ -712,6 +712,9 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
     </target>
     <target name="i2pFirefoxBaseProfile" depends="buildNum">
         <mkdir dir="src/i2p.firefox.base.profile/extensions/" />
+        <copy file="src/prefs.js" tofile="src/i2p.firefox.base.profile/prefs.js" />
+        <copy file="src/user-overrides.js" tofile="src/i2p.firefox.base.profile/user-overrides.js" />
+        <touch file="src/i2p.firefox.base.profile/first-run"/>
         <exec executable="amo-version" failonerror="true">
             <arg value="-n"/>
             <arg value="i2p-in-private-browsing"/>
@@ -752,12 +755,15 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
 
     <target name="i2pFirefoxUsabilityProfile" depends="buildNum">
         <mkdir dir="src/i2p.firefox.usability.profile/extensions/" />
+        <copy file="src/prefs.js" tofile="src/i2p.firefox.usability.profile/prefs.js" />
+        <copy file="src/user-overrides.js" tofile="src/i2p.firefox.usability.profile/user-overrides.js" />
+        <touch file="src/i2p.firefox.usability.profile/first-run"/>
         <exec executable="amo-version" failonerror="true">
             <arg value="-n"/>
             <arg value="i2p-in-private-browsing"/>
             <arg value="-d"/>
             <arg value="-o" />
-            <arg value="src/i2p.firefox.base.profile/extensions/i2ppb@eyedeekay.github.io.xpi" />
+            <arg value="src/i2p.firefox.usability.profile/extensions/i2ppb@eyedeekay.github.io.xpi" />
         </exec>
         <exec executable="amo-version" failonerror="true">
             <arg value="-n"/>
@@ -771,7 +777,7 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
             <arg value="https-everywhere"/>
             <arg value="-d"/>
             <arg value="-o" />
-            <arg value="src/i2p.firefox.base.profile/extensions/https-everywhere-eff@eff.org.xpi" />
+            <arg value="src/i2p.firefox.usability.profile/extensions/https-everywhere-eff@eff.org.xpi" />
         </exec>
         <exec executable="amo-version" failonerror="true">
             <arg value="-n"/>

@@ -9,8 +9,8 @@ i2p-in-private-browsing
 1.44
 https://addons.mozilla.org/firefox/downloads/file/4020669/i2p_in_private_browsing-1.44.xpi
 noscript
-11.4.12
-https://addons.mozilla.org/firefox/downloads/file/4030389/noscript-11.4.12.xpi
+11.4.13
+https://addons.mozilla.org/firefox/downloads/file/4033638/noscript-11.4.13.xpi
 localcdn-fork-of-decentraleyes
 2.6.40
 https://addons.mozilla.org/firefox/downloads/file/4032517/localcdn_fork_of_decentraleyes-2.6.40.xpi
@@ -35,7 +35,7 @@ __MSG_extensionName__
 1.29
 https://clients2.google.com/service/update2/crx
 NoScript
-11.4.12
+11.4.13
 https://clients2.google.com/service/update2/crx
 __MSG_about_ext_name__
 2022.5.24
