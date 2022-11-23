@@ -1,3 +1,9 @@
+Tue, November 22
+----------------
+
+ - Fix some minor issues from buildsystem refactor that surfaced during release
+ - update to version 1.0.5
+
 Sat, October 22
 ---------------
 
