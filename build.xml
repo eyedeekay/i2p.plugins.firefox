@@ -4,10 +4,6 @@
 
     <target name="all" depends="clean,versionMd,i2pFirefoxBaseProfileZip,i2pChromiumBaseProfileZip,jar" />
 
-    <target name="war" >
-        <ant dir="src" target="build" />
-    </target>
-
     <target name="tarball">
         <exec executable="git">
             <arg value="archive"/>
@@ -343,7 +339,7 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
         </exec>
     </target>
 
-    <target name="plugin" depends="war, buildNum">
+    <target name="plugin" depends="all, buildNum">
         <delete>
            <!-- in installer but not update -->
            <fileset dir="plugin/" includes="i2ptunnel.config i2pfirefox.config eepsite/docroot/index.html eepsite/docroot/robots.txt" />
