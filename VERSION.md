@@ -12,8 +12,8 @@ noscript
 11.4.13
 https://addons.mozilla.org/firefox/downloads/file/4033638/noscript-11.4.13.xpi
 localcdn-fork-of-decentraleyes
-2.6.40
-https://addons.mozilla.org/firefox/downloads/file/4032517/localcdn_fork_of_decentraleyes-2.6.40.xpi
+2.6.43
+https://addons.mozilla.org/firefox/downloads/file/4041581/localcdn_fork_of_decentraleyes-2.6.43.xpi
 https-everywhere
 2021.7.13
 https://addons.mozilla.org/firefox/downloads/file/3809748/https_everywhere-2021.7.13.xpi
