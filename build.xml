@@ -365,7 +365,7 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
             <arg value="update-only=true" />
         </exec>
         <exec executable="echo" osfamily="unix" failonerror="true" output="plugin/plugin.config" append="true">
-            <arg value="${release.number}-${build.number}" />
+            <arg value="version=${release.number}-${build.number}" />
         </exec>
         <input message="Enter su3 signing key password:" addproperty="release.password.su3" />
         <fail message="You must enter a password." >
@@ -388,7 +388,7 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
         <copy file="scripts/robots.txt" todir="plugin/eepsite/docroot/" overwrite="true" />
         <mkdir dir="plugin/eepsite/docroot/torrents/" />
         <exec executable="echo" osfamily="unix" failonerror="true" output="plugin/plugin.config" append="true">
-            <arg value="${release.number}-${build.number}" />
+            <arg value="version=${release.number}-${build.number}" />
         </exec>
         <exec executable="scripts/makeplugin.sh" inputstring="${release.password.su3}" failonerror="true" >
             <arg value="plugin" />

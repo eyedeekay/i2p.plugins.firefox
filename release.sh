@@ -17,6 +17,7 @@ github-release edit --user "${GITHUB_USER}" \
 echo "Relase ${GITHUB_TAG} setup"
 tarsum=$(sha256sum i2p.plugins.firefox.tar.gz)
 github-release upload --user "${GITHUB_USER}" \
+    --replace \
     --repo "${GITHUB_REPO}" \
     --tag "${GITHUB_TAG}" \
     --label "I2P Browser launcher source tarball. ${tarsum}" \
@@ -24,6 +25,7 @@ github-release upload --user "${GITHUB_USER}" \
     --file "i2p.plugins.firefox.tar.gz" 
 jarsum=$(sha256sum "src/build/i2pfirefox.jar")
 github-release upload --user "${GITHUB_USER}" \
+    --replace \
     --repo "${GITHUB_REPO}" \
     --tag "${GITHUB_TAG}" \
     --label "I2P Browser launcher as a .jar. Useful as a library or for advanced users. ${jarsum}" \
@@ -32,6 +34,7 @@ github-release upload --user "${GITHUB_USER}" \
 echo "Uploaded jar"
 zipsum=$(sha256sum "i2pfirefox.zip")
 github-release upload --user "${GITHUB_USER}" \
+    --replace \
     --repo "${GITHUB_REPO}" \
     --tag "${GITHUB_TAG}" \
     --label "I2P Browser launcher as a .jar and a set of semi-univeral launcher scripts. ${zipsum}" \
@@ -40,6 +43,7 @@ github-release upload --user "${GITHUB_USER}" \
 echo "Uploaded freestanding zip"
 jvmsum=$(sha256sum "i2pbrowser.zip")
 github-release upload --user "${GITHUB_USER}" \
+    --replace \
     --repo "${GITHUB_REPO}" \
     --tag "${GITHUB_TAG}" \
     --label "I2P Browser launcher as a Jpackage, does not require a JVM. ${jvmsum}" \
@@ -48,6 +52,7 @@ github-release upload --user "${GITHUB_USER}" \
 echo "Uploaded jpackage zip"
 debsum=$(sha256sum "i2pbrowser_${GITHUB_TAG}_amd64.deb")
 github-release upload --user "${GITHUB_USER}" \
+    --replace \
     --repo "${GITHUB_REPO}" \
     --tag "${GITHUB_TAG}" \
     --label "I2P Browser launcher as a Jpackage inside of a Debian package. ${debsum}" \
@@ -56,6 +61,7 @@ github-release upload --user "${GITHUB_USER}" \
 echo "Uploaded debian package"
 rpmsum=$(sha256sum i2pbrowser-${GITHUB_TAG}-1.x86_64.rpm)
 github-release upload --user "${GITHUB_USER}" \
+    --replace \
     --repo "${GITHUB_REPO}" \
     --tag "${GITHUB_TAG}" \
     --label "I2P Browser launcher as a Jpackage inside of a Fedora package. ${rpmsum}" \
