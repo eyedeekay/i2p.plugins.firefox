@@ -17,6 +17,8 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
+import net.i2p.app.ClientApp;
+import net.i2p.app.ClientAppState;
 
 /**
  * I2PBrowser.java
@@ -36,7 +38,7 @@ import java.util.Arrays;
  * @author idk
  * @since 0.0.16
  */
-public class I2PBrowser extends I2PCommonBrowser {
+public class I2PBrowser extends I2PCommonBrowser implements ClientApp {
   private final I2PFirefox i2pFirefox = new I2PFirefox();
   private final I2PChromium i2pChromium = new I2PChromium();
   private final I2PGenericUnsafeBrowser i2pGeneral =
@@ -401,10 +403,27 @@ public class I2PBrowser extends I2PCommonBrowser {
     closeItem.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
         shutdownSystray();
+        tray.remove(icon);
         System.exit(0);
       }
     });
     menu.add(closeItem);
     return true;
+  }
+  public String getDisplayName() { return "Browser Profile Manager"; }
+  public String getName() { return "browserProfileManager"; }
+  public void shutdown() {
+    shutdownSystray();
+    System.exit(0);
+  }
+  public void startup() {
+    String[] args;
+    main(args);
+  }
+  public ClientAppState getState() {
+    if (systrayIsRunningExternally()) {
+      return ClientAppState.RUNNING;
+    }
+    return ClientAppState.STOPPED;
   }
 }
