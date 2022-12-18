@@ -412,13 +412,13 @@ public class I2PBrowser extends I2PCommonBrowser implements ClientApp {
   }
   public String getDisplayName() { return "Browser Profile Manager"; }
   public String getName() { return "browserProfileManager"; }
-  public void shutdown() {
+  public void shutdown(String[] args) {
     shutdownSystray();
     System.exit(0);
   }
   public void startup() {
-    String[] args;
-    main(args);
+    String[] args = {""};
+    systray(args);
   }
   public ClientAppState getState() {
     if (systrayIsRunningExternally()) {
