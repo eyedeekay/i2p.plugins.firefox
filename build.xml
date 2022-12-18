@@ -396,12 +396,20 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
         <copy file="i2pfirefox-update.su3" todir="i2p.plugins.firefox" overwrite="true" />
         <copy file="i2pfirefox.xpi2p" todir="i2p.plugins.firefox" overwrite="true" />
         <copy file="i2pfirefox-update.xpi2p" todir="i2p.plugins.firefox" overwrite="true" />
+        <delete file="i2p.plugins.firefox.torrent" failonerror="false" />
         <exec executable="mktorrent" osfamily="unix" failonerror="true">
-            <arg value='--announce=http://mb5ir7klpc2tj6ha3xhmrs3mseqvanauciuoiamx2mmzujvg67uq.b32.i2p/announce' />
-            <arg value='--name="i2p.plugins.firefox"' />
-            <arg value='--web-seed=http://idk.i2p/i2p.plugins.firefox/' />
+            <arg value='--announce=http://mb5ir7klpc2tj6ha3xhmrs3mseqvanauciuoiamx2mmzujvg67uq.b32.i2p/a,http://w7tpbzncbcocrqtwwm3nezhnnsw4ozadvi2hmvzdhrqzfxfum7wa.b32.i2p/a' />
+            <arg value='--piece-length=20' />
+            <arg value='--name=i2p.plugins.firefox' />
+            <arg value='--web-seed=http://idk.i2p/i2p.plugins.firefox,http://idk.i2p/i2p.plugins.firefox' />
             <arg value='--output=i2p.plugins.firefox.torrent' />
             <arg value='i2p.plugins.firefox' />
+        </exec>
+        <exec executable="cp">
+            <arg value="-rv" />
+            <arg value="i2p.plugins.firefox" />
+            <arg value="i2p.plugins.firefox.torrent" />
+            <arg value="${user.home}/.i2p/i2psnark/" />
         </exec>
     </target>
 

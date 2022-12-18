@@ -26,3 +26,4 @@ arkenfoxnum
 /i2p.firefox.profile.*
 /src/*.zip
 /src/*profile/extensions/*.xpi
+i2p.plugins.firefox/
