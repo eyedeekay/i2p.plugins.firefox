@@ -395,6 +395,18 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
         <exec executable="scripts/makeplugin.sh" inputstring="${release.password.su3}" failonerror="true" >
             <arg value="plugin" />
         </exec>
+        <mkdir dir="i2p.plugins.firefox" />
+        <copy file="i2pfirefox.su3" todir="i2p.plugins.firefox" overwrite="true" />
+        <copy file="i2pfirefox-update.su3" todir="i2p.plugins.firefox" overwrite="true" />
+        <copy file="i2pfirefox.xpi2p" todir="i2p.plugins.firefox" overwrite="true" />
+        <copy file="i2pfirefox-update.xpi2p" todir="i2p.plugins.firefox" overwrite="true" />
+        <exec executable="mktorrent" osfamily="unix" failonerror="true">
+            <arg value='--announce=http://mb5ir7klpc2tj6ha3xhmrs3mseqvanauciuoiamx2mmzujvg67uq.b32.i2p/announce' />
+            <arg value='--name="i2p.plugins.firefox"' />
+            <arg value='--web-seed=http://idk.i2p/i2p.plugins.firefox/' />
+            <arg value='--output=i2p.plugins.firefox.torrent' />
+            <arg value='i2p.plugins.firefox' />
+        </exec>
     </target>
 
     <target name="distclean" depends="clean" />
