@@ -17,7 +17,9 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
+import net.i2p.I2PAppContext;
 import net.i2p.app.ClientApp;
+import net.i2p.app.ClientAppManager;
 import net.i2p.app.ClientAppState;
 
 /**
@@ -43,11 +45,15 @@ public class I2PBrowser extends I2PCommonBrowser implements ClientApp {
   private final I2PChromium i2pChromium = new I2PChromium();
   private final I2PGenericUnsafeBrowser i2pGeneral =
       new I2PGenericUnsafeBrowser();
+  private final SystemTray tray = initTray();
+  private final TrayIcon icon = initIcon();
+  private final PopupMenu menu = initMenu();
   public boolean firefox = false;
   public boolean chromium = false;
   public boolean generic = false;
   public boolean chromiumFirst = false;
   public boolean usability = false;
+  public int privateBrowsing = 0;
   static private boolean outputConfig = false;
   static private boolean useSystray = true;
 
@@ -92,6 +98,8 @@ public class I2PBrowser extends I2PCommonBrowser implements ClientApp {
   public I2PBrowser(String browserPath) {
     I2PGenericUnsafeBrowser.BROWSER = browserPath;
   }
+  public I2PBrowser(I2PAppContext context, ClientAppManager listener,
+                    String[] args) {}
 
   public void setBrowser(String browserPath) {
     I2PGenericUnsafeBrowser.BROWSER = browserPath;
@@ -212,34 +220,37 @@ public class I2PBrowser extends I2PCommonBrowser implements ClientApp {
   }
 
   public static void main(String[] args) {
+    I2PBrowser i2pBrowser = new I2PBrowser();
+    i2pBrowser.startup(args);
+  }
+  public ArrayList<String> parseArgs(String[] args) {
     validateUserDir();
     int privateBrowsing = 0;
     logger.info("I2PBrowser");
-    I2PBrowser i2pBrowser = new I2PBrowser();
     ArrayList<String> visitURL = new ArrayList<String>();
     if (args != null) {
       if (args.length > 0) {
         for (String arg : args) {
           if (arg.equals("-private")) {
-            privateBrowsing = 1;
+            this.privateBrowsing = 1;
           }
           if (arg.equals("-chromium")) {
-            i2pBrowser.chromium = true;
+            this.chromium = true;
           }
           if (arg.equals("-firefox")) {
-            i2pBrowser.firefox = true;
+            this.firefox = true;
           }
           if (arg.equals("-usability")) {
-            i2pBrowser.usability = true;
+            this.usability = true;
           }
           if (arg.equals("-strict")) {
-            i2pBrowser.usability = false;
+            this.usability = false;
           }
           if (arg.equals("-generic")) {
-            i2pBrowser.generic = true;
+            this.generic = true;
           }
           if (arg.equals("-app")) {
-            i2pBrowser.usability = true;
+            this.usability = true;
             privateBrowsing = 2;
           }
           if (arg.equals("-outputconfig")) {
@@ -250,7 +261,7 @@ public class I2PBrowser extends I2PCommonBrowser implements ClientApp {
           }
           if (arg.equals("-noproxycheck")) {
             logger.info("zeroing out proxy check");
-            i2pBrowser.setProxyTimeoutTime(0);
+            this.setProxyTimeoutTime(0);
           }
           if (!arg.startsWith("-")) {
             visitURL.add(ValidURL(arg));
@@ -258,6 +269,10 @@ public class I2PBrowser extends I2PCommonBrowser implements ClientApp {
         }
       }
     }
+    return visitURL;
+  }
+  public void startup(String[] args) {
+    ArrayList<String> visitURL = parseArgs(args);
     try {
       if (useSystray) {
         logger.info("Starting systray");
@@ -272,8 +287,8 @@ public class I2PBrowser extends I2PCommonBrowser implements ClientApp {
     } catch (Exception e) {
       logger.warning(e.toString());
     }
-    i2pBrowser.launch(privateBrowsing,
-                      visitURL.toArray(new String[visitURL.size()]));
+    this.launch(this.privateBrowsing,
+                visitURL.toArray(new String[visitURL.size()]));
   }
   private static boolean systrayIsRunningExternally() {
     File systrayIsRunningFile =
@@ -292,35 +307,51 @@ public class I2PBrowser extends I2PCommonBrowser implements ClientApp {
     }
     return false;
   }
-  private static void shutdownSystray() {
+  private void shutdownSystray() {
     File systrayIsRunningFile =
         new File(runtimeDirectory(""), "systray.running");
     if (systrayIsRunningFile.exists())
       systrayIsRunningFile.delete();
+    tray.remove(icon);
   }
-  public static boolean systray(String[] args) throws Exception {
+  private SystemTray initTray() {
     if (systrayIsRunningExternally()) {
-      return false;
+      return null;
     }
     if (!SystemTray.isSupported()) {
       logger.warning("SystemTray is not supported");
-      return false;
+      return null;
     }
+    return SystemTray.getSystemTray();
+  }
 
-    SystemTray tray = SystemTray.getSystemTray();
-    Toolkit toolkit = Toolkit.getDefaultToolkit();
+  private PopupMenu initMenu() {
+    PopupMenu menu = new PopupMenu();
+    return menu;
+  }
+
+  private TrayIcon initIcon() {
     File iconFile = new File(runtimeDirectory(""), "icon.png");
     if (!iconFile.exists()) {
       InputStream resources =
           I2PBrowser.class.getClassLoader().getResourceAsStream("icon.png");
-      OutputStream fos = new FileOutputStream(iconFile);
-      copy(resources, fos);
+      try {
+        OutputStream fos = new FileOutputStream(iconFile);
+        copy(resources, fos);
+      } catch (IOException e) {
+        logger.warning(e.toString());
+      }
     }
+    Toolkit toolkit = Toolkit.getDefaultToolkit();
     Image image = toolkit.getImage("icon.png");
 
-    PopupMenu menu = new PopupMenu();
     TrayIcon icon = new TrayIcon(image, "I2P Browser Profile Controller", menu);
     icon.setImageAutoSize(true);
+    return icon;
+  }
+  public boolean systray(String[] args) throws Exception {
+    if (tray == null)
+      throw new Exception("System Tray is Null Exception");
 
     tray.add(icon);
     Menu submenuStrict = new Menu("Strict Mode");
@@ -403,8 +434,8 @@ public class I2PBrowser extends I2PCommonBrowser implements ClientApp {
     closeItem.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
         shutdownSystray();
-        tray.remove(icon);
-        System.exit(0);
+
+        // System.exit(0);
       }
     });
     menu.add(closeItem);
@@ -412,13 +443,14 @@ public class I2PBrowser extends I2PCommonBrowser implements ClientApp {
   }
   public String getDisplayName() { return "Browser Profile Manager"; }
   public String getName() { return "browserProfileManager"; }
-  public void shutdown(String[] args) {
-    shutdownSystray();
-    System.exit(0);
-  }
+  public void shutdown(String[] args) { shutdownSystray(); }
   public void startup() {
-    String[] args = {""};
-    systray(args);
+    String[] args = {};
+    try {
+      this.startup(args);
+    } catch (Exception e) {
+      logger.info(e.toString());
+    }
   }
   public ClientAppState getState() {
     if (systrayIsRunningExternally()) {
