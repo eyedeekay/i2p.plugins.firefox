@@ -17,10 +17,6 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
-import net.i2p.I2PAppContext;
-import net.i2p.app.ClientApp;
-import net.i2p.app.ClientAppManager;
-import net.i2p.app.ClientAppState;
 
 /**
  * I2PBrowser.java
@@ -40,7 +36,7 @@ import net.i2p.app.ClientAppState;
  * @author idk
  * @since 0.0.16
  */
-public class I2PBrowser extends I2PCommonBrowser implements ClientApp {
+public class I2PBrowser extends I2PCommonBrowser {
   private final I2PFirefox i2pFirefox = new I2PFirefox();
   private final I2PChromium i2pChromium = new I2PChromium();
   private final I2PGenericUnsafeBrowser i2pGeneral =
@@ -98,8 +94,6 @@ public class I2PBrowser extends I2PCommonBrowser implements ClientApp {
   public I2PBrowser(String browserPath) {
     I2PGenericUnsafeBrowser.BROWSER = browserPath;
   }
-  public I2PBrowser(I2PAppContext context, ClientAppManager listener,
-                    String[] args) {}
 
   public void setBrowser(String browserPath) {
     I2PGenericUnsafeBrowser.BROWSER = browserPath;
@@ -290,7 +284,7 @@ public class I2PBrowser extends I2PCommonBrowser implements ClientApp {
     this.launch(this.privateBrowsing,
                 visitURL.toArray(new String[visitURL.size()]));
   }
-  private static boolean systrayIsRunningExternally() {
+  protected static boolean systrayIsRunningExternally() {
     File systrayIsRunningFile =
         new File(runtimeDirectory(""), "systray.running");
     if (systrayIsRunningFile.exists()) {
@@ -307,12 +301,12 @@ public class I2PBrowser extends I2PCommonBrowser implements ClientApp {
     }
     return false;
   }
-  private void shutdownSystray() {
+  protected void shutdownSystray() {
+    tray.remove(icon);
     File systrayIsRunningFile =
         new File(runtimeDirectory(""), "systray.running");
     if (systrayIsRunningFile.exists())
       systrayIsRunningFile.delete();
-    tray.remove(icon);
   }
   private SystemTray initTray() {
     if (systrayIsRunningExternally()) {
@@ -432,30 +426,9 @@ public class I2PBrowser extends I2PCommonBrowser implements ClientApp {
 
     MenuItem closeItem = new MenuItem("Close");
     closeItem.addActionListener(new ActionListener() {
-      public void actionPerformed(ActionEvent e) {
-        shutdownSystray();
-
-        // System.exit(0);
-      }
+      public void actionPerformed(ActionEvent e) { shutdownSystray(); }
     });
     menu.add(closeItem);
     return true;
-  }
-  public String getDisplayName() { return "Browser Profile Manager"; }
-  public String getName() { return "browserProfileManager"; }
-  public void shutdown(String[] args) { shutdownSystray(); }
-  public void startup() {
-    String[] args = {};
-    try {
-      this.startup(args);
-    } catch (Exception e) {
-      logger.info(e.toString());
-    }
-  }
-  public ClientAppState getState() {
-    if (systrayIsRunningExternally()) {
-      return ClientAppState.RUNNING;
-    }
-    return ClientAppState.STOPPED;
   }
 }
