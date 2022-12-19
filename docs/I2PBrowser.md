@@ -60,6 +60,27 @@ package: net.i2p.i2pfirefox
 + Access: private  
 + Modifiers: final 
 
+####  SystemTray tray  [[src]](src/java/net/i2p/i2pfirefox/I2PBrowser.java#L)
+
+ >   
+
++ Access: private  
++ Modifiers: final 
+
+####  TrayIcon icon  [[src]](src/java/net/i2p/i2pfirefox/I2PBrowser.java#L)
+
+ >   
+
++ Access: private  
++ Modifiers: final 
+
+####  PopupMenu menu  [[src]](src/java/net/i2p/i2pfirefox/I2PBrowser.java#L)
+
+ >   
+
++ Access: private  
++ Modifiers: final 
+
 ####  boolean firefox  [[src]](src/java/net/i2p/i2pfirefox/I2PBrowser.java#L)
 
  >   
@@ -90,6 +111,12 @@ package: net.i2p.i2pfirefox
 
 + Access: public  
 
+####  int privateBrowsing  [[src]](src/java/net/i2p/i2pfirefox/I2PBrowser.java#L)
+
+ >   
+
++ Access: public  
+
 ####  boolean outputConfig  [[src]](src/java/net/i2p/i2pfirefox/I2PBrowser.java#L)
 
  >   
@@ -106,7 +133,7 @@ package: net.i2p.i2pfirefox
 
 ## Methods
 
-### launchFirefox [[src]](src/java/net/i2p/i2pfirefox/I2PBrowser.java#L52)
+### launchFirefox [[src]](src/java/net/i2p/i2pfirefox/I2PBrowser.java#L56)
 
 + Description:   
 + Access: private  
@@ -118,7 +145,7 @@ package: net.i2p.i2pfirefox
 | url | String[] |  |  
 
 
-### launchChromium [[src]](src/java/net/i2p/i2pfirefox/I2PBrowser.java#L59)
+### launchChromium [[src]](src/java/net/i2p/i2pfirefox/I2PBrowser.java#L63)
 
 + Description:   
 + Access: private  
@@ -130,7 +157,7 @@ package: net.i2p.i2pfirefox
 | url | String[] |  |  
 
 
-### launchGeneric [[src]](src/java/net/i2p/i2pfirefox/I2PBrowser.java#L66)
+### launchGeneric [[src]](src/java/net/i2p/i2pfirefox/I2PBrowser.java#L70)
 
 + Description:   
 + Access: private  
@@ -142,7 +169,7 @@ package: net.i2p.i2pfirefox
 | url | String[] |  |  
 
 
-### setBrowser [[src]](src/java/net/i2p/i2pfirefox/I2PBrowser.java#L94)
+### setBrowser [[src]](src/java/net/i2p/i2pfirefox/I2PBrowser.java#L98)
 
 + Description:   
 + Access: public  
@@ -153,7 +180,7 @@ package: net.i2p.i2pfirefox
 | browserPath | String |  |  
 
 
-### hasChromium [[src]](src/java/net/i2p/i2pfirefox/I2PBrowser.java#L104)
+### hasChromium [[src]](src/java/net/i2p/i2pfirefox/I2PBrowser.java#L108)
 
 + Description: Return true if there is a Chromium available   
 + Access: public  
@@ -162,7 +189,7 @@ package: net.i2p.i2pfirefox
 This method has no parameters.  
 
 
-### hasFirefox [[src]](src/java/net/i2p/i2pfirefox/I2PBrowser.java#L121)
+### hasFirefox [[src]](src/java/net/i2p/i2pfirefox/I2PBrowser.java#L125)
 
 + Description: Return true if there is a Firefox variant available   
 + Access: public  
@@ -171,7 +198,7 @@ This method has no parameters.
 This method has no parameters.  
 
 
-### launch [[src]](src/java/net/i2p/i2pfirefox/I2PBrowser.java#L141)
+### launch [[src]](src/java/net/i2p/i2pfirefox/I2PBrowser.java#L145)
 
 + Description: Populates a profile directory with a proxy configuration. Waits for an HTTP proxy on the port 4444 to be ready. Launches either Firefox or Chromium with the profile directory.   
 + Access: public  
@@ -183,7 +210,7 @@ This method has no parameters.
 | url | String[] |  |  
 
 
-### launch [[src]](src/java/net/i2p/i2pfirefox/I2PBrowser.java#L186)
+### launch [[src]](src/java/net/i2p/i2pfirefox/I2PBrowser.java#L190)
 
 + Description: Populates a profile directory with a proxy configuration. Waits for an HTTP proxy on the port 4444 to be ready. Launches either Firefox or Chromium with the profile directory.   
 + Access: public  
@@ -194,7 +221,7 @@ This method has no parameters.
 | privateWindow | boolean |  |  
 
 
-### launch [[src]](src/java/net/i2p/i2pfirefox/I2PBrowser.java#L200)
+### launch [[src]](src/java/net/i2p/i2pfirefox/I2PBrowser.java#L204)
 
 + Description: Populates a profile directory with a proxy configuration. Waits for an HTTP proxy on the port 4444 to be ready. Launches either Firefox or Chromium with the profile directory.   
 + Access: public  
@@ -203,7 +230,7 @@ This method has no parameters.
 This method has no parameters.  
 
 
-### ValidURL [[src]](src/java/net/i2p/i2pfirefox/I2PBrowser.java#L202)
+### ValidURL [[src]](src/java/net/i2p/i2pfirefox/I2PBrowser.java#L206)
 
 + Description:   
 + Access: private  
@@ -215,7 +242,7 @@ This method has no parameters.
 | inUrl | String |  |  
 
 
-### main [[src]](src/java/net/i2p/i2pfirefox/I2PBrowser.java#L212)
+### main [[src]](src/java/net/i2p/i2pfirefox/I2PBrowser.java#L216)
 
 + Description:   
 + Access: public  
@@ -227,31 +254,78 @@ This method has no parameters.
 | args | String[] |  |  
 
 
-### systrayIsRunningExternally [[src]](src/java/net/i2p/i2pfirefox/I2PBrowser.java#L276)
+### parseArgs [[src]](src/java/net/i2p/i2pfirefox/I2PBrowser.java#L220)
 
 + Description:   
-+ Access: private  
++ Access: public  
++ return: ArrayList<String>  
+
+| Name | Type | Description |  
+| ----- | ----- | ----- |  
+| args | String[] |  |  
+
+
+### startup [[src]](src/java/net/i2p/i2pfirefox/I2PBrowser.java#L268)
+
++ Description:   
++ Access: public  
++ return: void  
+
+| Name | Type | Description |  
+| ----- | ----- | ----- |  
+| args | String[] |  |  
+
+
+### systrayIsRunningExternally [[src]](src/java/net/i2p/i2pfirefox/I2PBrowser.java#L287)
+
++ Description:   
++ Access: protected  
 + Modifiers: static 
 + return: boolean  
 
 This method has no parameters.  
 
 
-### shutdownSystray [[src]](src/java/net/i2p/i2pfirefox/I2PBrowser.java#L293)
+### shutdownSystray [[src]](src/java/net/i2p/i2pfirefox/I2PBrowser.java#L304)
 
 + Description:   
-+ Access: private  
-+ Modifiers: static 
++ Access: protected  
 + return: void  
 
 This method has no parameters.  
 
 
-### systray [[src]](src/java/net/i2p/i2pfirefox/I2PBrowser.java#L299)
+### initTray [[src]](src/java/net/i2p/i2pfirefox/I2PBrowser.java#L311)
+
++ Description:   
++ Access: private  
++ return: SystemTray  
+
+This method has no parameters.  
+
+
+### initMenu [[src]](src/java/net/i2p/i2pfirefox/I2PBrowser.java#L322)
+
++ Description:   
++ Access: private  
++ return: PopupMenu  
+
+This method has no parameters.  
+
+
+### initIcon [[src]](src/java/net/i2p/i2pfirefox/I2PBrowser.java#L327)
+
++ Description:   
++ Access: private  
++ return: TrayIcon  
+
+This method has no parameters.  
+
+
+### systray [[src]](src/java/net/i2p/i2pfirefox/I2PBrowser.java#L346)
 
 + Description:   
 + Access: public  
-+ Modifiers: static 
 + return: boolean  
 
 | Name | Type | Description |  
