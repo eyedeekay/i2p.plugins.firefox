@@ -66,8 +66,25 @@ github-release upload --user "${GITHUB_USER}" \
     --tag "${GITHUB_TAG}" \
     --label "I2P Browser launcher as a Jpackage inside of a Fedora package. ${rpmsum}" \
     --name "i2pbrowser-${GITHUB_TAG}-1.x86_64.rpm" \
-    --file "i2pbrowser-${GITHUB_TAG}-1.x86_64.rpm" 
+    --file "i2pbrowser-${GITHUB_TAG}-1.x86_64.rpm"
 echo "Uploaded fedora package"
+susum=$(sha256sum i2pfirefox.su3)
+github-release upload --user "${GITHUB_USER}" \
+    --replace \
+    --repo "${GITHUB_REPO}" \
+    --tag "${GITHUB_TAG}" \
+    --label "I2P Browser launcher as an I2P Console Plugin. ${susum}" \
+    --name "i2pfirefox.su3" \
+    --file "i2pfirefox.su3"
+susum=$(sha256sum i2pfirefox-update.su3)
+github-release upload --user "${GITHUB_USER}" \
+    --replace \
+    --repo "${GITHUB_REPO}" \
+    --tag "${GITHUB_TAG}" \
+    --label "I2P Browser launcher as an I2P Console Plugin, update-only. ${susum}" \
+    --name "i2pfirefox-update.su3" \
+    --file "i2pfirefox-update.su3"
+echo "Uploaded su3 package"
 
 git pull github --tags
 git push --all

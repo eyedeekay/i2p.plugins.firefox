@@ -1,3 +1,8 @@
+Sun, December 18
+----------------
+
+ - Enable use as a Java I2P Console Plugin
+
 Tue, November 22
 ----------------
 
