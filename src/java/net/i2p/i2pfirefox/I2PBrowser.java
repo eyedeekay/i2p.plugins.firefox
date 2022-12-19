@@ -219,7 +219,6 @@ public class I2PBrowser extends I2PCommonBrowser {
   }
   public ArrayList<String> parseArgs(String[] args) {
     validateUserDir();
-    int privateBrowsing = 0;
     logger.info("I2PBrowser");
     ArrayList<String> visitURL = new ArrayList<String>();
     if (args != null) {
@@ -359,6 +358,7 @@ public class I2PBrowser extends I2PCommonBrowser {
       }
     });
     submenuStrict.add(launchRegularBrowserStrict);
+    logger.info("Added strict mode browser");
 
     MenuItem launchPrivateBrowserStrict =
         new MenuItem("Launch I2P Browser - Throwaway Session");
@@ -372,19 +372,9 @@ public class I2PBrowser extends I2PCommonBrowser {
       }
     });
     submenuStrict.add(launchPrivateBrowserStrict);
-
-    MenuItem launchConfigBrowserStrict = new MenuItem("Launch I2P Console");
-    launchConfigBrowserStrict.addActionListener(new ActionListener() {
-      public void actionPerformed(ActionEvent e) {
-        ArrayList<String> argsList = new ArrayList<String>(
-            Arrays.asList(new String[] {"-app", "http://127.0.0.1:7657"}));
-        argsList.addAll(Arrays.asList(args));
-        argsList.add("-strict");
-        main(argsList.toArray(args));
-      }
-    });
-    submenuStrict.add(launchConfigBrowserStrict);
+    logger.info("Added strict+private mode browser");
     menu.add(submenuStrict);
+    logger.info("Added strict mode submenu");
 
     Menu submenuUsability = new Menu("Usability Mode");
     MenuItem launchRegularBrowserUsability = new MenuItem("Launch I2P Browser");
@@ -397,7 +387,7 @@ public class I2PBrowser extends I2PCommonBrowser {
       }
     });
     submenuUsability.add(launchRegularBrowserUsability);
-
+    logger.info("Added usability mode browser");
     MenuItem launchPrivateBrowserUsability =
         new MenuItem("Launch I2P Browser - Throwaway Session");
     launchPrivateBrowserUsability.addActionListener(new ActionListener() {
@@ -410,7 +400,7 @@ public class I2PBrowser extends I2PCommonBrowser {
       }
     });
     submenuUsability.add(launchPrivateBrowserUsability);
-
+    logger.info("Added usability+private mode browser");
     MenuItem launchConfigBrowserUsability = new MenuItem("Launch I2P Console");
     launchConfigBrowserUsability.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
@@ -422,13 +412,16 @@ public class I2PBrowser extends I2PCommonBrowser {
       }
     });
     submenuUsability.add(launchConfigBrowserUsability);
+    logger.info("Added config-only browser");
     menu.add(submenuUsability);
+    logger.info("Added usability mode submenu");
 
     MenuItem closeItem = new MenuItem("Close");
     closeItem.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) { shutdownSystray(); }
     });
     menu.add(closeItem);
+    logger.info("Added close menu item");
     return true;
   }
 }
