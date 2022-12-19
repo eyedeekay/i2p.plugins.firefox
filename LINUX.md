@@ -7,7 +7,7 @@ Linux. These packages are for the **`amd64`** architecture.
 
 ```sh
 mkdir ~/tmp-i2pbrowser && cd ~/tmp-i2pbrowser
-wget https://github.com/eyedeekay/i2p.plugins.firefox/releases/download/1.0.5/i2pbrowser.zip
+wget https://github.com/eyedeekay/i2p.plugins.firefox/releases/download/1.0.6/i2pbrowser.zip
 unzip i2pbrowser.zip && cd i2pbrowser
 ## THIS STEP IS OPTIONAL but it will force the system to use Tor Browser from within the i2pbrowser directory.
 # This probably offers better security than vanilla Firefox.

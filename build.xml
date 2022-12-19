@@ -327,7 +327,7 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
 
     <target name="buildNum">
         <buildnumber file="scripts/build.number" />
-        <property name="release.number" value="1.0.5" />
+        <property name="release.number" value="1.0.6" />
         <exec executable="echo" osfamily="unix">
             <arg value="${release.number}-${build.number}" />
         </exec>
