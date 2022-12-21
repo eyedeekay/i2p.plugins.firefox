@@ -11,9 +11,9 @@ import java.awt.Toolkit;
 import java.awt.TrayIcon;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.awt.event.MouseAdapter;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
@@ -105,9 +105,7 @@ public class I2PBrowser extends I2PCommonBrowser {
    *
    * @since 0.0.16
    */
-  public I2PBrowser() {
-    initIconFile();
-  }
+  public I2PBrowser() { initIconFile(); }
 
   /**
    * Construct an I2PBrowser class which automatically determines which browser
@@ -360,9 +358,9 @@ public class I2PBrowser extends I2PCommonBrowser {
     TrayIcon icon = new TrayIcon(image, "I2P Browser Profile Controller", menu);
     icon.addMouseListener(new MouseAdapter() {
       public void mouseClicked(MouseEvent e) {
-        if (e.getClickCount() == 1) {
-          logger.info("Menu clicked");
-          icon.getPopupMenu().show(null, 100, 100);
+        if (e.getClickCount() == 2) {
+          String[] args = {"-usability", "-app", "http://127.0.0.1:7657"};
+          main(args);
         }
       }
     });
