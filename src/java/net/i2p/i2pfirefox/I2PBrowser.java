@@ -362,7 +362,7 @@ public class I2PBrowser extends I2PCommonBrowser {
       public void mouseClicked(MouseEvent e) {
         if (e.getClickCount() == 1) {
           logger.info("Menu clicked");
-          //menu.show(tray, 0, 0);
+          icon.getPopupMenu().show(null, 100, 100);
         }
       }
     });
@@ -443,9 +443,9 @@ public class I2PBrowser extends I2PCommonBrowser {
         main(args);
       }
     });
-    submenuUsability.add(launchConfigBrowserUsability);
-    logger.info("Added config-only browser");
     menu.add(submenuUsability);
+    menu.add(launchConfigBrowserUsability);
+    logger.info("Added config-only browser");
     logger.info("Added usability mode submenu");
     closeItem.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) { shutdownSystray(); }
