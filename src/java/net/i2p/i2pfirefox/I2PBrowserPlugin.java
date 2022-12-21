@@ -25,7 +25,7 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
     try {
       this.startup(args);
       while (!downloadTorrent()) {
-        logger.info("Working to download updates in the background")
+        logger.info("Working to download updates in the background");
       }
     } catch (Exception e) {
       logger.info(e.toString());
@@ -59,6 +59,7 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
     } catch (IOException err) {
       logger.warning(err.toString());
     }
+    return null;
   }
   private boolean downloadTorrent() {
     try {
