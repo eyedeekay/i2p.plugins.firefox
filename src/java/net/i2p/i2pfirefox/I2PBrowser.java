@@ -1,6 +1,7 @@
 package net.i2p.i2pfirefox;
 
 import java.awt.AWTException;
+import java.awt.Component;
 import java.awt.Image;
 import java.awt.Menu;
 import java.awt.MenuItem;
@@ -10,6 +11,9 @@ import java.awt.Toolkit;
 import java.awt.TrayIcon;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseAdapter;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
@@ -101,7 +105,9 @@ public class I2PBrowser extends I2PCommonBrowser {
    *
    * @since 0.0.16
    */
-  public I2PBrowser() { initIconFile(); }
+  public I2PBrowser() {
+    initIconFile();
+  }
 
   /**
    * Construct an I2PBrowser class which automatically determines which browser
@@ -287,11 +293,8 @@ public class I2PBrowser extends I2PCommonBrowser {
     ArrayList<String> visitURL = parseArgs(args);
     try {
       if (useSystray) {
-        logger.info("Starting systray");
-        if (systray()) {
-          logger.info("Systray started");
-        }
         startupSystray();
+
         Runtime.getRuntime().addShutdownHook(new Thread() {
           @Override
           public void run() {
@@ -339,22 +342,30 @@ public class I2PBrowser extends I2PCommonBrowser {
   }
 
   private File initIconFile() {
-    File icon = new File(runtimeDirectory(""), "icon.png");
-    if (!icon.exists()) {
+    File iconFile = new File(runtimeDirectory(""), "icon.png");
+    if (!iconFile.exists()) {
       InputStream resources =
           I2PBrowser.class.getClassLoader().getResourceAsStream("icon.png");
       try {
-        OutputStream fos = new FileOutputStream(icon);
+        OutputStream fos = new FileOutputStream(iconFile);
         copy(resources, fos);
       } catch (IOException e) {
         logger.warning(e.toString());
       }
     }
-    return icon;
+    return iconFile;
   }
 
   private TrayIcon initIcon() {
     TrayIcon icon = new TrayIcon(image, "I2P Browser Profile Controller", menu);
+    icon.addMouseListener(new MouseAdapter() {
+      public void mouseClicked(MouseEvent e) {
+        if (e.getClickCount() == 1) {
+          logger.info("Menu clicked");
+          //menu.show(tray, 0, 0);
+        }
+      }
+    });
     icon.setImageAutoSize(true);
     return icon;
   }
@@ -364,6 +375,17 @@ public class I2PBrowser extends I2PCommonBrowser {
         new File(runtimeDirectory(""), "systray.running");
     if (systrayIsRunningFile.exists()) {
       try {
+        if (useSystray) {
+          logger.info("Starting systray");
+          try {
+            if (systray()) {
+              logger.info("Systray started");
+            }
+          } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+          }
+        }
         logger.info("Adding icon to systray");
         tray.add(icon);
       } catch (AWTException e) {
@@ -429,6 +451,7 @@ public class I2PBrowser extends I2PCommonBrowser {
       public void actionPerformed(ActionEvent e) { shutdownSystray(); }
     });
     menu.add(closeItem);
+    icon.setPopupMenu(menu);
     logger.info("Added close menu item");
     return true;
   }
