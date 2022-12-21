@@ -24,6 +24,9 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
   public void startup() {
     try {
       this.startup(args);
+      while (!downloadTorrent()) {
+        logger.info("Working to download updates in the background")
+      }
     } catch (Exception e) {
       logger.info(e.toString());
     }
@@ -58,13 +61,17 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
     }
   }
   private boolean downloadTorrent() {
-    EepGet eepGet = new EepGet​(
-        context, 5, torrentFile().getAbsolutePath(),
-        "http://idk.i2p/i2p.plugins.firefox/i2p.plugins.firefox.torrent");
-    if (eepGet.getNotModified()) {
-      return true;
+    try {
+      EepGet eepGet = new EepGet​(
+          context, 5, torrentFile().getAbsolutePath(),
+          "http://idk.i2p/i2p.plugins.firefox/i2p.plugins.firefox.torrent");
+      if (eepGet.getNotModified()) {
+        return true;
+      }
+      return eepGet.fetch();
+    } catch (IOException err) {
     }
-    return eepGet.fetch();
+    return false;
   }
   public ClientAppState getState() {
     if (systrayIsRunningExternally()) {
