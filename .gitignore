@@ -7,6 +7,10 @@ log
 /i2p.firefox.base.profile/
 /i2p.chromium.usability.profile/
 /i2p.firefox.usability.profile/
+/src/i2p.chromium.base.profile/
+/src/i2p.firefox.base.profile/
+/src/i2p.chromium.usability.profile/
+/src/i2p.firefox.usability.profile/
 i2p.chromium.profile
 i2p.firefox.profile
 src/build
