@@ -24,8 +24,16 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
   public void startup() {
     try {
       this.startup(args);
-      while (!downloadTorrent()) {
+      boolean got = downloadTorrent();
+      while (!got) {
         logger.info("Working to download updates in the background");
+        got = downloadTorrent();
+      }
+      if (got) {
+        File content = torrentFileContents();
+        if (content.exists()) {
+          content.delete();
+        }
       }
     } catch (Exception e) {
       logger.info(e.toString());
@@ -61,13 +69,26 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
     }
     return null;
   }
+  private File torrentFileContents() throws IOException {
+    try {
+      File torrents = torrentDir();
+      File torrent = new File(torrents, "i2p.plugins.firefox");
+      if (torrent == null) {
+        throw new IOException("Torrent directory contents are null");
+      }
+      return torrent;
+    } catch (IOException err) {
+      logger.warning(err.toString());
+    }
+    return null;
+  }
   private boolean downloadTorrent() {
     try {
       EepGet eepGet = new EepGet​(
           context, 5, torrentFile().getAbsolutePath(),
           "http://idk.i2p/i2p.plugins.firefox/i2p.plugins.firefox.torrent");
       if (eepGet.getNotModified()) {
-        return true;
+        return false;
       }
       return eepGet.fetch();
     } catch (IOException err) {
