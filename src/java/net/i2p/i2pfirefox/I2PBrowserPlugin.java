@@ -29,7 +29,7 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
     }
   }
   private File torrentDir() {
-    File configDir = context.getConigDir();
+    File configDir = context.getConfigDir();
     if (configDir == null) {
       throw new IOException("The I2P Config directory is null");
     }
