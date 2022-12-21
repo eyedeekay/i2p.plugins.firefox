@@ -31,3 +31,5 @@ arkenfoxnum
 /src/*.zip
 /src/*profile/extensions/*.xpi
 i2p.plugins.firefox/
+/icon.png
+/systray.running
