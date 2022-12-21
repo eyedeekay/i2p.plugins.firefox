@@ -48,7 +48,7 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
     }
     return snarkDir;
   }
-  private File torrentFile() {
+  private File torrentFile() throws IOException {
     try {
       File torrents = torrentDir();
       File torrent = new File(torrents, "i2p.plugins.firefox.torrent");
