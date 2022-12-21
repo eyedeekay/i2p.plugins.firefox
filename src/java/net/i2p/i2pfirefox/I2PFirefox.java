@@ -29,7 +29,7 @@ import java.util.stream.Stream;
  */
 public class I2PFirefox extends I2PCommonBrowser {
   private final String[] FIREFOX_SEARCH_PATHS = FIREFOX_FINDER();
-  private Process p = null;
+  private Process process = null;
   public static boolean usability = false;
 
   private static String baseMode() {
@@ -696,10 +696,10 @@ public class I2PFirefox extends I2PCommonBrowser {
       }
       try {
         logger.info(pb.command().toString());
-        p = pb.start();
+        process = pb.start();
         logger.info("I2PFirefox");
         sleep(2000);
-        return p;
+        return process;
       } catch (Throwable e) {
         logger.info(e.toString());
       }
@@ -725,12 +725,12 @@ public class I2PFirefox extends I2PCommonBrowser {
   }
   public void launch(int privateWindow, String[] url) {
     if (waitForProxy()) {
-      p = launchAndDetatch(privateWindow, url);
-      if (p == null)
+      process = launchAndDetatch(privateWindow, url);
+      if (process == null)
         return;
       try {
         logger.info("Waiting for I2PFirefox to close...");
-        int exit = p.waitFor();
+        int exit = process.waitFor();
         logger.info("I2PFirefox exited with value: " + exit);
         if (isOSX())
           System.exit(exit);

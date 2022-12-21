@@ -1,5 +1,6 @@
 package net.i2p.i2pfirefox;
 
+import java.awt.AWTException;
 import java.awt.Image;
 import java.awt.Menu;
 import java.awt.MenuItem;
@@ -41,9 +42,12 @@ public class I2PBrowser extends I2PCommonBrowser {
   private final I2PChromium i2pChromium = new I2PChromium();
   private final I2PGenericUnsafeBrowser i2pGeneral =
       new I2PGenericUnsafeBrowser();
+  private final Toolkit toolkit = Toolkit.getDefaultToolkit();
   private final SystemTray tray = initTray();
+  private final Image image = toolkit.getImage("icon.png");
   private final TrayIcon icon = initIcon();
   private final PopupMenu menu = initMenu();
+
   private final Menu submenuStrict = new Menu("Strict Mode");
   private final MenuItem launchRegularBrowserStrict =
       new MenuItem("Launch I2P Browser");
@@ -57,6 +61,7 @@ public class I2PBrowser extends I2PCommonBrowser {
   private final MenuItem launchConfigBrowserUsability =
       new MenuItem("Launch I2P Console");
   private final MenuItem closeItem = new MenuItem("Close");
+
   public boolean firefox = false;
   public boolean chromium = false;
   public boolean generic = false;
@@ -96,7 +101,7 @@ public class I2PBrowser extends I2PCommonBrowser {
    *
    * @since 0.0.16
    */
-  public I2PBrowser() {}
+  public I2PBrowser() { initIconFile(); }
 
   /**
    * Construct an I2PBrowser class which automatically determines which browser
@@ -106,6 +111,7 @@ public class I2PBrowser extends I2PCommonBrowser {
    */
   public I2PBrowser(String browserPath) {
     I2PGenericUnsafeBrowser.BROWSER = browserPath;
+    initIconFile();
   }
 
   public void setBrowser(String browserPath) {
@@ -282,7 +288,10 @@ public class I2PBrowser extends I2PCommonBrowser {
     try {
       if (useSystray) {
         logger.info("Starting systray");
-        systray(args);
+        if (systray()) {
+          logger.info("Systray started");
+        }
+        startupSystray();
         Runtime.getRuntime().addShutdownHook(new Thread() {
           @Override
           public void run() {
@@ -313,13 +322,6 @@ public class I2PBrowser extends I2PCommonBrowser {
     }
     return false;
   }
-  protected void shutdownSystray() {
-    tray.remove(icon);
-    File systrayIsRunningFile =
-        new File(runtimeDirectory(""), "systray.running");
-    if (systrayIsRunningFile.exists())
-      systrayIsRunningFile.delete();
-  }
   private SystemTray initTray() {
     if (systrayIsRunningExternally()) {
       return null;
@@ -336,46 +338,61 @@ public class I2PBrowser extends I2PCommonBrowser {
     return menu;
   }
 
-  private TrayIcon initIcon() {
-    File iconFile = new File(runtimeDirectory(""), "icon.png");
-    if (!iconFile.exists()) {
+  private File initIconFile() {
+    File icon = new File(runtimeDirectory(""), "icon.png");
+    if (!icon.exists()) {
       InputStream resources =
           I2PBrowser.class.getClassLoader().getResourceAsStream("icon.png");
       try {
-        OutputStream fos = new FileOutputStream(iconFile);
+        OutputStream fos = new FileOutputStream(icon);
         copy(resources, fos);
       } catch (IOException e) {
         logger.warning(e.toString());
       }
     }
-    Toolkit toolkit = Toolkit.getDefaultToolkit();
-    Image image = toolkit.getImage("icon.png");
+    return icon;
+  }
 
+  private TrayIcon initIcon() {
     TrayIcon icon = new TrayIcon(image, "I2P Browser Profile Controller", menu);
     icon.setImageAutoSize(true);
     return icon;
   }
-  public boolean systray(String[] args) throws Exception {
+  protected void startupSystray() {
+    logger.info("Setting up systray");
+    File systrayIsRunningFile =
+        new File(runtimeDirectory(""), "systray.running");
+    if (systrayIsRunningFile.exists()) {
+      try {
+        logger.info("Adding icon to systray");
+        tray.add(icon);
+      } catch (AWTException e) {
+        logger.warning(e.toString());
+      }
+    }
+  }
+  protected void shutdownSystray() {
+    tray.remove(icon);
+    File systrayIsRunningFile =
+        new File(runtimeDirectory(""), "systray.running");
+    if (systrayIsRunningFile.exists())
+      systrayIsRunningFile.delete();
+  }
+  public boolean systray() throws Exception {
     if (tray == null)
       throw new Exception("System Tray is Null Exception");
-    tray.add(icon);
     launchRegularBrowserStrict.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
-        ArrayList<String> argsList = new ArrayList<String>();
-        argsList.addAll(Arrays.asList(args));
-        argsList.add("-strict");
-        main(argsList.toArray(args));
+        String[] args = {"-strict"};
+        main(args);
       }
     });
     submenuStrict.add(launchRegularBrowserStrict);
     logger.info("Added strict mode browser");
     launchPrivateBrowserStrict.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
-        ArrayList<String> argsList =
-            new ArrayList<String>(Arrays.asList(new String[] {"-private"}));
-        argsList.addAll(Arrays.asList(args));
-        argsList.add("-strict");
-        main(argsList.toArray(args));
+        String[] args = {"-private", "-strict"};
+        main(args);
       }
     });
     submenuStrict.add(launchPrivateBrowserStrict);
@@ -384,32 +401,24 @@ public class I2PBrowser extends I2PCommonBrowser {
     logger.info("Added strict mode submenu");
     launchRegularBrowserUsability.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
-        ArrayList<String> argsList = new ArrayList<String>();
-        argsList.addAll(Arrays.asList(args));
-        argsList.add("-usability");
-        main(argsList.toArray(args));
+        String[] args = {"-usability"};
+        main(args);
       }
     });
     submenuUsability.add(launchRegularBrowserUsability);
     logger.info("Added usability mode browser");
     launchPrivateBrowserUsability.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
-        ArrayList<String> argsList =
-            new ArrayList<String>(Arrays.asList(new String[] {"-private"}));
-        argsList.addAll(Arrays.asList(args));
-        argsList.add("-usability");
-        main(argsList.toArray(args));
+        String[] args = {"-private", "-strict"};
+        main(args);
       }
     });
     submenuUsability.add(launchPrivateBrowserUsability);
     logger.info("Added usability+private mode browser");
     launchConfigBrowserUsability.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
-        ArrayList<String> argsList = new ArrayList<String>(
-            Arrays.asList(new String[] {"-app", "http://127.0.0.1:7657"}));
-        argsList.addAll(Arrays.asList(args));
-        argsList.add("-usability");
-        main(argsList.toArray(args));
+        String[] args = {"-usability", "-app", "http://127.0.0.1:7657"};
+        main(args);
       }
     });
     submenuUsability.add(launchConfigBrowserUsability);
