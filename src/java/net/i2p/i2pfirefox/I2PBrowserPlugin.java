@@ -26,6 +26,8 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
   public void shutdown(String[] args) {
     got = true;
     shutdown = true;
+    cam.notify(this, this.getState(),
+               "Shutting down up profile manager systray", null);
     this.shutdownSystray();
   }
   private void downloadInBackground() {
@@ -55,6 +57,8 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
     }
   }
   public void startup() {
+    cam.notify(this, this.getState(), "Starting up profile manager systray",
+               null);
     Runnable r = new Runnable() {
       public void run() { downloadInBackground(); }
     };
