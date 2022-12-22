@@ -326,7 +326,8 @@ public class I2PBrowser extends I2PCommonBrowser {
     File systrayIsRunningFile =
         new File(runtimeDirectory(""), "systray.running");
     if (systrayIsRunningFile.exists()) {
-      logger.info("Systray is already running in another process");
+      logger.info("Systray is already running in another process: " +
+                  systrayIsRunningFile.toString());
       return true;
     }
     logger.info("Systray does not appear to be running");
