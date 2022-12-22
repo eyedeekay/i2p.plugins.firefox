@@ -85,21 +85,18 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
   public void startup() {
     cam.notify(this, ClientAppState.STARTING,
                "Starting up profile manager systray", null);
-    IOException error;
     Runnable r = new Runnable() {
       public void run() {
         try {
           downloadInBackground();
         } catch (IOException err) {
-          error = err;
+          err.printStackTrace();
         }
       }
     };
     new Thread(r).start();
     try {
       this.startup(args);
-      if (error != null)
-        logger.warning(error.toString());
       cam.notify(this, ClientAppState.RUNNING,
                  "Starting up profile manager systray", null);
     } catch (Exception e) {
