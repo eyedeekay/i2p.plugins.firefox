@@ -12,6 +12,7 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
   private final I2PAppContext context;
   private final ClientAppManager cam;
   private final String[] args;
+  private boolean got = false;
   public I2PBrowserPlugin(I2PAppContext context, ClientAppManager listener,
                           String[] args) {
     this.context = context;
@@ -20,10 +21,13 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
   }
   public String getDisplayName() { return "Browser Profile Manager"; }
   public String getName() { return "browserProfileManager"; }
-  public void shutdown(String[] args) { this.shutdownSystray(); }
+  public void shutdown(String[] args) {
+    got = true;
+    this.shutdownSystray();
+  }
   public void startup() {
     try {
-      boolean got = downloadTorrent();
+      got = downloadTorrent();
       while (!got) {
         logger.info("Working to download updates in the background");
         got = downloadTorrent();
