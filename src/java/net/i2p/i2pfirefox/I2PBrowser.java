@@ -332,7 +332,7 @@ public class I2PBrowser extends I2PCommonBrowser {
     return false;
   }
   private SystemTray initTray() {
-    if (systrayIsRunningExternally()) {
+    if (systrayRunningExternally()) {
       return null;
     }
     if (!SystemTray.isSupported()) {
@@ -377,9 +377,7 @@ public class I2PBrowser extends I2PCommonBrowser {
   }
   protected void startupSystray() {
     logger.info("Setting up systray");
-    File systrayIsRunningFile =
-        new File(runtimeDirectory(""), "systray.running");
-    if (systrayIsRunningFile.exists()) {
+    if (systrayRunningExternally()) {
       try {
         if (useSystray) {
           logger.info("Starting systray");
@@ -390,6 +388,9 @@ public class I2PBrowser extends I2PCommonBrowser {
           } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
+          }
+          if (!createSystrayRunningFile()) {
+            logger.warning("Failed to create systray running file");
           }
         }
         logger.info("Adding icon to systray");
@@ -402,10 +403,11 @@ public class I2PBrowser extends I2PCommonBrowser {
   protected void shutdownSystray() {
     if (tray != null)
       tray.remove(icon);
-    File systrayIsRunningFile =
-        new File(runtimeDirectory(""), "systray.running");
-    if (systrayIsRunningFile.exists())
+    if (systrayRunningExternally()) {
+      File systrayIsRunningFile =
+          new File(runtimeDirectory(""), "systray.running");
       systrayIsRunningFile.delete();
+    }
   }
   public boolean systray() throws Exception {
     if (tray == null)
