@@ -306,19 +306,26 @@ public class I2PBrowser extends I2PCommonBrowser {
     this.launch(this.privateBrowsing,
                 visitURL.toArray(new String[visitURL.size()]));
   }
+  protected static boolean createSystrayRunningFile() {
+    File systrayIsRunningFile =
+        new File(runtimeDirectory(""), "systray.running");
+    if (systrayIsRunningFile.exists()) {
+      try {
+        FileWriter myWriter = new FileWriter(systrayIsRunningFile);
+        myWriter.write("systray is running");
+        myWriter.close();
+      } catch (IOException ioe) {
+        logger.warning(ioe.toString());
+        return true;
+      }
+    }
+    return false;
+  }
   protected static boolean systrayIsRunningExternally() {
     File systrayIsRunningFile =
         new File(runtimeDirectory(""), "systray.running");
     if (systrayIsRunningFile.exists()) {
       logger.info("Systray is already running in another process");
-      return true;
-    }
-    try {
-      FileWriter myWriter = new FileWriter(systrayIsRunningFile);
-      myWriter.write("systray is running");
-      myWriter.close();
-    } catch (IOException ioe) {
-      logger.warning(ioe.toString());
       return true;
     }
     return false;
