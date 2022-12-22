@@ -2,6 +2,7 @@ package net.i2p.i2pfirefox;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.logging.Logger;
 import net.i2p.I2PAppContext;
 import net.i2p.app.ClientApp;
 import net.i2p.app.ClientAppManager;
@@ -28,9 +29,10 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
     this.shutdownSystray();
   }
   private void downloadInBackground() {
+    Logger threadLogger = Logger.getLogger("browserlauncherupdatethread");
     got = downloadTorrent();
     while (!got) {
-      logger.info("Working to download updates in the background");
+      threadLogger.info("Working to download updates in the background");
       if (shutdown) {
         break;
       }

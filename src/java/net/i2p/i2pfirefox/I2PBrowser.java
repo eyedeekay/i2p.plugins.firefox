@@ -362,7 +362,6 @@ public class I2PBrowser extends I2PCommonBrowser {
     }
     return iconFile;
   }
-
   private TrayIcon initIcon() {
     TrayIcon icon = new TrayIcon(image, "I2P Browser Profile Controller", menu);
     icon.addMouseListener(new MouseAdapter() {
