@@ -47,8 +47,9 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
         if (content.exists()) {
           content.delete();
         }
+      } catch (IOException err) {
+        logger.warning(err.toString());
       }
-      (IOException err) { logger.warning(err.toString()); }
     }
   }
   public void startup() {
