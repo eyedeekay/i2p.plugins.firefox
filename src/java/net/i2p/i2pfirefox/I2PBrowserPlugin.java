@@ -27,6 +27,7 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
       while (!got) {
         logger.info("Working to download updates in the background");
         got = downloadTorrent();
+        Thread.sleep(5000);
       }
       if (got) {
         File content = torrentFileContents();
