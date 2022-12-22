@@ -17,10 +17,10 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
   private volatile boolean shutdown = false;
   public I2PBrowserPlugin(I2PAppContext context, ClientAppManager listener,
                           String[] args) {
+    this.cam = listener;
     cam.notify(this, ClientAppState.UNINITIALIZED,
                "Initializing Profile Manager Systray Plugin",
                null) this.context = context;
-    this.cam = listener;
     this.args = args;
     cam.notify(this, ClientAppState.INITIALIZED,
                "Profile Manager Systray Plugin Initialized", null);
