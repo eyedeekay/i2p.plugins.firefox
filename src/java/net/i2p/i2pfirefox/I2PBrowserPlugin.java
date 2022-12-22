@@ -85,7 +85,7 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
   public void startup() {
     cam.notify(this, ClientAppState.STARTING,
                "Starting up profile manager systray", null);
-    final IOException error = null;
+    final IOException error;
     Runnable r = new Runnable() {
       public void run() {
         try {
@@ -98,7 +98,8 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
     new Thread(r).start();
     try {
       this.startup(args);
-      logger.warning(error.toString());
+      if (error != null)
+        logger.warning(error.toString());
       cam.notify(this, ClientAppState.RUNNING,
                  "Starting up profile manager systray", null);
     } catch (Exception e) {
