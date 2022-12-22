@@ -27,28 +27,35 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
     shutdown = true;
     this.shutdownSystray();
   }
-  public void startup() {
-    try {
+  private void downloadInBackground() {
+    got = downloadTorrent();
+    while (!got) {
+      logger.info("Working to download updates in the background");
+      if (shutdown) {
+        break;
+      }
       got = downloadTorrent();
-      while (!got) {
-        logger.info("Working to download updates in the background");
-        if (shutdown) {
-          break;
-        }
-        got = downloadTorrent();
-        Thread.sleep(5000);
+      Thread.sleep(5000);
+    }
+    if (got) {
+      File content = torrentFileContents();
+      if (content.exists()) {
+        content.delete();
       }
-      if (got) {
-        File content = torrentFileContents();
-        if (content.exists()) {
-          content.delete();
-        }
-      }
+    }
+  }
+  public void startup() {
+    Runnable r = new Runnable() {
+      public void run() { downloadInBackground(); }
+    };
+    new Thread(r).start();
+    try {
       this.startup(args);
     } catch (Exception e) {
       logger.info(e.toString());
     }
   }
+
   private File torrentDir() throws IOException {
     File configDir = context.getConfigDir();
     if (configDir == null) {
