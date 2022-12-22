@@ -38,11 +38,11 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
   public String getDisplayName() { return "Browser Profile Manager"; }
   public String getName() { return "browserProfileManager"; }
   public void shutdown(String[] args) {
+    this.shutdownSystray();
     cam.notify(this, ClientAppState.STOPPING,
                "Shutting down up profile manager systray", null);
     got = true;
     shutdown = true;
-    this.shutdownSystray();
     cam.unregister(this);
     cam.notify(this, ClientAppState.STOPPED,
                "Shutting down up profile manager systray", null);
@@ -84,7 +84,7 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
     }
   }
   public void startup() {
-
+    shutdown = false;
     cam.notify(this, ClientAppState.STARTING,
                "Starting up profile manager systray", null);
     Runnable r = new Runnable() {
@@ -171,15 +171,17 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
     return false;
   }
   public ClientAppState getState() {
+    if (shutdown && !systrayRunningExternally()) {
+      String msg = "Firefox profile manager systray is stopped";
+      logger.info(msg);
+      cam.notify(this, ClientAppState.STOPPED, msg, null);
+      return ClientAppState.STOPPED;
+    }
     if (systrayRunningExternally()) {
       String msg = "Firefox profile manager systray is running";
       logger.info(msg);
       cam.notify(this, ClientAppState.RUNNING, msg, null);
       return ClientAppState.RUNNING;
     }
-    String msg = "Firefox profile manager systray is stopped";
-    logger.info(msg);
-    cam.notify(this, ClientAppState.STOPPED, msg, null);
-    return ClientAppState.STOPPED;
   }
 }
