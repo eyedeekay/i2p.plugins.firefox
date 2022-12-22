@@ -46,7 +46,7 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
     cam.notify(this, ClientAppState.STOPPED,
                "Shutting down up profile manager systray", null);
   }
-  private void downloadInBackground() {
+  private void downloadInBackground() throws IOException {
     try {
       Logger threadLogger = Logger.getLogger("browserlauncherupdatethread");
       FileHandler fh = new FileHandler(threadLogFile().toString());
@@ -74,22 +74,31 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
             content.delete();
           }
         } catch (IOException err) {
-          logger.warning(err.toString());
+          threadLogger.warning(err.toString());
         }
       }
     } catch (IOException err) {
-      //
+      // just re-throw here
+      throw err;
     }
   }
   public void startup() {
     cam.notify(this, ClientAppState.STARTING,
                "Starting up profile manager systray", null);
+    IOException error = null;
     Runnable r = new Runnable() {
-      public void run() { downloadInBackground(); }
+      public void run() {
+        try {
+          downloadInBackground();
+        } catch (IOException err) {
+          error = err;
+        }
+      }
     };
     new Thread(r).start();
     try {
       this.startup(args);
+      logger.warning(error.toString());
       cam.notify(this, ClientAppState.RUNNING,
                  "Starting up profile manager systray", null);
     } catch (Exception e) {
