@@ -86,7 +86,7 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
   private boolean downloadTorrent() {
     try {
       EepGet eepGet = new EepGet​(
-          context, "127.0.0.1", 4444 5, torrentFile().getAbsolutePath(),
+          context, true, "127.0.0.1", 4444, 5, torrentFile().getAbsolutePath(),
           "http://idk.i2p/i2p.plugins.firefox/i2p.plugins.firefox.torrent");
       if (eepGet.getNotModified()) {
         return false;
