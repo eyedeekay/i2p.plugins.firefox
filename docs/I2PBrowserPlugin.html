@@ -38,15 +38,6 @@
               <a href=""></a>
             </li>
             <li>
-              <a href=""></a>
-            </li>
-            <li>
-              <a href=""></a>
-            </li>
-            <li>
-              <a href=""></a>
-            </li>
-            <li>
               <a href="I2PBrowser.html">
                 I2PBrowser
               </a>
@@ -106,6 +97,11 @@
                 I2PGenericUnsafeBrowser
               </a>
             </li>
+            <li>
+              <a href="I2PLibreWolf.html">
+                I2PLibreWolf
+              </a>
+            </li>
           </ul>
           <br>
           <a href="#hidenav">
@@ -151,6 +147,21 @@
         <ul>
           <br />
           <li>
+            java.io.File
+          </li>
+          <li>
+            java.io.IOException
+          </li>
+          <li>
+            java.util.logging.FileHandler
+          </li>
+          <li>
+            java.util.logging.Logger
+          </li>
+          <li>
+            java.util.logging.SimpleFormatter
+          </li>
+          <li>
             net.i2p.I2PAppContext
           </li>
           <li>
@@ -162,19 +173,128 @@
           <li>
             net.i2p.app.ClientAppState
           </li>
+          <li>
+            net.i2p.util.EepGet
+          </li>
         </ul>
         <br />
       </details>
     </p>
     <h2>
-      No member variables in this class
+      Member Variables
     </h2>
+    <h4>
+      I2PAppContext context
+      <a href="src/java/net/i2p/i2pfirefox/I2PBrowserPlugin.java#L">
+        [src]
+      </a>
+    </h4>
+    <blockquote></blockquote>
+    <ul>
+      <li>
+        Access: private
+        <br />
+      </li>
+      <li>
+        Modifiers: final
+      </li>
+    </ul>
+    <h4>
+      ClientAppManager cam
+      <a href="src/java/net/i2p/i2pfirefox/I2PBrowserPlugin.java#L">
+        [src]
+      </a>
+    </h4>
+    <blockquote></blockquote>
+    <ul>
+      <li>
+        Access: private
+        <br />
+      </li>
+      <li>
+        Modifiers: final
+      </li>
+    </ul>
+    <h4>
+      String[] args
+      <a href="src/java/net/i2p/i2pfirefox/I2PBrowserPlugin.java#L">
+        [src]
+      </a>
+    </h4>
+    <blockquote></blockquote>
+    <ul>
+      <li>
+        Access: private
+        <br />
+      </li>
+      <li>
+        Modifiers: final
+      </li>
+    </ul>
+    <h4>
+      boolean got
+      <a href="src/java/net/i2p/i2pfirefox/I2PBrowserPlugin.java#L">
+        [src]
+      </a>
+    </h4>
+    <blockquote></blockquote>
+    <ul>
+      <li>
+        Access: private
+        <br />
+      </li>
+      <li>
+        Modifiers: volatile
+      </li>
+    </ul>
+    <h4>
+      boolean shutdown
+      <a href="src/java/net/i2p/i2pfirefox/I2PBrowserPlugin.java#L">
+        [src]
+      </a>
+    </h4>
+    <blockquote></blockquote>
+    <ul>
+      <li>
+        Access: private
+        <br />
+      </li>
+      <li>
+        Modifiers: volatile
+      </li>
+    </ul>
     <h2>
       Methods
     </h2>
     <h3>
+      threadLogFile
+      <a href="src/java/net/i2p/i2pfirefox/I2PBrowserPlugin.java#L30">
+        [src]
+      </a>
+    </h3>
+    <ul>
+      <li>
+        Description:
+        <br />
+      </li>
+      <li>
+        Access: private
+        <br />
+      </li>
+      <li>
+        Modifiers: static
+      </li>
+      <li>
+        return: File
+        <br />
+      </li>
+    </ul>
+    <p>
+      This method has no parameters.
+    </p>
+    <h3>
       getDisplayName
-      <a href="src/java/net/i2p/i2pfirefox/I2PBrowserPlugin.java#L11">
+      <a href="src/java/net/i2p/i2pfirefox/I2PBrowserPlugin.java#L38">
         [src]
       </a>
     </h3>
@@ -197,7 +317,7 @@
     </p>
     <h3>
       getName
-      <a href="src/java/net/i2p/i2pfirefox/I2PBrowserPlugin.java#L12">
+      <a href="src/java/net/i2p/i2pfirefox/I2PBrowserPlugin.java#L39">
         [src]
       </a>
     </h3>
@@ -220,7 +340,7 @@
     </p>
     <h3>
       shutdown
-      <a href="src/java/net/i2p/i2pfirefox/I2PBrowserPlugin.java#L13">
+      <a href="src/java/net/i2p/i2pfirefox/I2PBrowserPlugin.java#L40">
         [src]
       </a>
     </h3>
@@ -246,8 +366,31 @@
       | args | String[] |  |
     </p>
     <h3>
+      downloadInBackground
+      <a href="src/java/net/i2p/i2pfirefox/I2PBrowserPlugin.java#L50">
+        [src]
+      </a>
+    </h3>
+    <ul>
+      <li>
+        Description:
+        <br />
+      </li>
+      <li>
+        Access: private
+        <br />
+      </li>
+      <li>
+        return: void
+        <br />
+      </li>
+    </ul>
+    <p>
+      This method has no parameters.
+    </p>
+    <h3>
       startup
-      <a href="src/java/net/i2p/i2pfirefox/I2PBrowserPlugin.java#L14">
+      <a href="src/java/net/i2p/i2pfirefox/I2PBrowserPlugin.java#L86">
         [src]
       </a>
     </h3>
@@ -269,8 +412,100 @@
       This method has no parameters.
     </p>
     <h3>
+      torrentDir
+      <a href="src/java/net/i2p/i2pfirefox/I2PBrowserPlugin.java#L113">
+        [src]
+      </a>
+    </h3>
+    <ul>
+      <li>
+        Description:
+        <br />
+      </li>
+      <li>
+        Access: private
+        <br />
+      </li>
+      <li>
+        return: File
+        <br />
+      </li>
+    </ul>
+    <p>
+      This method has no parameters.
+    </p>
+    <h3>
+      torrentFile
+      <a href="src/java/net/i2p/i2pfirefox/I2PBrowserPlugin.java#L130">
+        [src]
+      </a>
+    </h3>
+    <ul>
+      <li>
+        Description:
+        <br />
+      </li>
+      <li>
+        Access: private
+        <br />
+      </li>
+      <li>
+        return: File
+        <br />
+      </li>
+    </ul>
+    <p>
+      This method has no parameters.
+    </p>
+    <h3>
+      torrentFileContents
+      <a href="src/java/net/i2p/i2pfirefox/I2PBrowserPlugin.java#L143">
+        [src]
+      </a>
+    </h3>
+    <ul>
+      <li>
+        Description:
+        <br />
+      </li>
+      <li>
+        Access: private
+        <br />
+      </li>
+      <li>
+        return: File
+        <br />
+      </li>
+    </ul>
+    <p>
+      This method has no parameters.
+    </p>
+    <h3>
+      downloadTorrent
+      <a href="src/java/net/i2p/i2pfirefox/I2PBrowserPlugin.java#L156">
+        [src]
+      </a>
+    </h3>
+    <ul>
+      <li>
+        Description:
+        <br />
+      </li>
+      <li>
+        Access: private
+        <br />
+      </li>
+      <li>
+        return: boolean
+        <br />
+      </li>
+    </ul>
+    <p>
+      This method has no parameters.
+    </p>
+    <h3>
       getState
-      <a href="src/java/net/i2p/i2pfirefox/I2PBrowserPlugin.java#L22">
+      <a href="src/java/net/i2p/i2pfirefox/I2PBrowserPlugin.java#L173">
         [src]
       </a>
     </h3>

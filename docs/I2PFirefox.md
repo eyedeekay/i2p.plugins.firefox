@@ -41,7 +41,7 @@ package: net.i2p.i2pfirefox
 + Access: private  
 + Modifiers: final 
 
-####  Process p  [[src]](src/java/net/i2p/i2pfirefox/I2PFirefox.java#L)
+####  Process process  [[src]](src/java/net/i2p/i2pfirefox/I2PFirefox.java#L)
 
  >   
 

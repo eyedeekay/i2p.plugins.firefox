@@ -38,18 +38,13 @@
               <a href=""></a>
             </li>
             <li>
-              <a href="BUILD.html">
-                BUILD
-              </a>
-            </li>
-            <li>
               <a href="I2PBrowser.html">
                 I2PBrowser
               </a>
             </li>
             <li>
               <a href="I2PBrowserPlugin.html">
-                I2PBrowserPlugin.html
+                I2PBrowserPlugin
               </a>
             </li>
             <li>
@@ -103,18 +98,8 @@
               </a>
             </li>
             <li>
-              <a href="LINUX.html">
-                LINUX
-              </a>
-            </li>
-            <li>
-              <a href="OSX.html">
-                OSX
-              </a>
-            </li>
-            <li>
-              <a href="WINDOWS.html">
-                WINDOWS
+              <a href="I2PLibreWolf.html">
+                I2PLibreWolf
               </a>
             </li>
           </ul>
@@ -129,56 +114,56 @@
       /
     </a>
     <h1>
-      Using this on OSX
+      Class I2PLibreWolf
+      <a href="src/java/net/i2p/i2pfirefox/I2PLibreWolf.java">
+        [src]
+      </a>
     </h1>
+    <blockquote>
+      <p>
+        */
+      </p>
+    </blockquote>
     <p>
-      This code will launch an I2P-Configured Browser on OSX, but at this time
-      there are no packages for it because it&rsquo;s not possible for me to sign OSX
-      packages. You can use the
-      <code>
-        .jar
-      </code>
-      file with any Java greater than Java 8.
+      Access: public
+      <br />
+      Description:
+      <br />
+      &gt; I2PLibreWolf.java Copyright C 2022 idk
+      <a href="mailto:hankhill19580@gmail.com">
+        hankhill19580@gmail.com
+      </a>
+      This program is free software: you can redistribute it and/or modify it under the terms of the MIT License. See LICENSE.md for details. This program is distributed in the hope that it will be useful but WITHOUT ANY WARRANTY without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. I2PLibreWolf adds the LibreWolf Updater browser extension if the browser detected by the Firefox variant launcher is LibreWolf specifically.
     </p>
-    <pre><code class="language-sh">mkdir ~/tmp-i2pfirefox &amp;&amp; cd ~/tmp-i2pfirefox
-wget https://github.com/eyedeekay/i2p.plugins.firefox/releases/download/1.0.6/i2pfirefox.zip
-unzip i2pfirefox.zip
-./cmd/i2pfirefox.cmd
-
-#or if you want to use a Chromium
-
-./cmd/i2pchromium.cmd
-</code></pre>
+    <p>
+      Author: idk
+      <br />
+      package: net.i2p.i2pfirefox
+    </p>
     <h2>
-      Building a
-      <code>
-        jpackage
-      </code>
+      Dependencies
     </h2>
     <p>
-      In order to build a
-      <code>
-        jpackage
-      </code>
-      , install at least Java 17. To set up Java
-      17 and configure it to be the Java used by the system for the rest of the
-      session, use these commands:
+      <details>
+        <br />
+        <summary>
+          <br />
+          Show dependencies
+          <br />
+        </summary>
+        <br />
+        <ul>
+          <br />
+        </ul>
+        <br />
+      </details>
     </p>
-    <pre><code class="language-sh">brew install openjdk@17 
-sudo ln -sfn /usr/local/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk
-export JAVA_HOME=`/usr/libexec/java_home -v 17`
-</code></pre>
-    <p>
-      Once you&rsquo;re finished, run
-      <code>
-        ./osx-dmg.sh
-      </code>
-      in the repository root to produce a
-      <code>
-        .dmg
-      </code>
-      package.
-    </p>
+    <h2>
+      No member variables in this class
+    </h2>
+    <h2>
+      No methods in this class
+    </h2>
     <div id="sourcecode">
       <span id="sourcehead">
         <strong>
