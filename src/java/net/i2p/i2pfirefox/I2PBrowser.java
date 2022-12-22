@@ -307,7 +307,7 @@ public class I2PBrowser extends I2PCommonBrowser {
                 visitURL.toArray(new String[visitURL.size()]));
   }
   protected static boolean createSystrayRunningFile() {
-    if (systrayRunningExternally()) {
+    if (!systrayRunningExternally()) {
       try {
         File systrayIsRunningFile =
             new File(runtimeDirectory(""), "systray.running");
@@ -376,8 +376,8 @@ public class I2PBrowser extends I2PCommonBrowser {
     return icon;
   }
   protected void startupSystray() {
-    logger.info("Setting up systray");
-    if (systrayRunningExternally()) {
+    if (!systrayRunningExternally()) {
+      logger.info("Setting up systray");
       try {
         if (useSystray) {
           logger.info("Starting systray");
@@ -398,6 +398,8 @@ public class I2PBrowser extends I2PCommonBrowser {
       } catch (AWTException e) {
         logger.warning(e.toString());
       }
+    }else{
+      logger.warning("Systray is already running externally");
     }
   }
   protected void shutdownSystray() {
