@@ -38,6 +38,10 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
   }
   private void downloadInBackground() {
     Logger threadLogger = Logger.getLogger("browserlauncherupdatethread");
+    fh = new FileHandler(logFile().toString());
+    threadLogger.addHandler(fh);
+    SimpleFormatter formatter = new SimpleFormatter();
+    fh.setFormatter(formatter);
     got = downloadTorrent();
     while (!got) {
       threadLogger.info("Working to download updates in the background");
@@ -75,6 +79,8 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
                  "Starting up profile manager systray", null);
     } catch (Exception e) {
       logger.info(e.toString());
+      cam.notify(this, ClientAppState.START_FAILED,
+                 "Error starting profile manager systray", e);
     }
   }
 
