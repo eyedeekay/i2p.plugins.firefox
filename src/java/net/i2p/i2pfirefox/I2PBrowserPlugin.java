@@ -97,7 +97,8 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
       String url =
           "http://idk.i2p/i2p.plugins.firefox/i2p.plugins.firefox.torrent";
       String name = torrentFile().getAbsolutePath();
-      logger.info("Downloading " + url + " to " + name) EepGet eepGet =
+      logger.info("Downloading " + url + " to " + name);
+      EepGet eepGet =
           new EepGet​(context, true, "127.0.0.1", 4444, 5, name, url);
       if (eepGet.getNotModified()) {
         return false;
