@@ -309,19 +309,20 @@ public class I2PBrowser extends I2PCommonBrowser {
   protected static boolean createSystrayRunningFile() {
     File systrayIsRunningFile =
         new File(runtimeDirectory(""), "systray.running");
-    if (systrayIsRunningFile.exists()) {
+    if (!systrayIsRunningFile.exists()) {
       try {
         FileWriter myWriter = new FileWriter(systrayIsRunningFile);
-        myWriter.write("systray is running");
+        myWriter.write("systray.running file created");
         myWriter.close();
+        return true;
       } catch (IOException ioe) {
         logger.warning(ioe.toString());
-        return true;
       }
+      return false;
     }
     return false;
   }
-  protected static boolean systrayIsRunningExternally() {
+  protected static boolean systrayRunningExternally() {
     File systrayIsRunningFile =
         new File(runtimeDirectory(""), "systray.running");
     if (systrayIsRunningFile.exists()) {
