@@ -19,8 +19,8 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
                           String[] args) {
     this.cam = listener;
     cam.notify(this, ClientAppState.UNINITIALIZED,
-               "Initializing Profile Manager Systray Plugin",
-               null) this.context = context;
+               "Initializing Profile Manager Systray Plugin", null);
+    this.context = context;
     this.args = args;
     cam.notify(this, ClientAppState.INITIALIZED,
                "Profile Manager Systray Plugin Initialized", null);
