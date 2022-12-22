@@ -398,7 +398,7 @@ public class I2PBrowser extends I2PCommonBrowser {
       } catch (AWTException e) {
         logger.warning(e.toString());
       }
-    }else{
+    } else {
       logger.warning("Systray is already running externally");
     }
   }
