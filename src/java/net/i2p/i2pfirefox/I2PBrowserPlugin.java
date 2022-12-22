@@ -43,6 +43,7 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
     got = true;
     shutdown = true;
     this.shutdownSystray();
+    cam.unregister(this);
     cam.notify(this, ClientAppState.STOPPED,
                "Shutting down up profile manager systray", null);
   }
@@ -83,6 +84,7 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
     }
   }
   public void startup() {
+    cam.register(this);
     cam.notify(this, ClientAppState.STARTING,
                "Starting up profile manager systray", null);
     Runnable r = new Runnable() {
@@ -176,7 +178,7 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
     }
     String msg = "Firefox profile manager systray is stopped";
     logger.info(msg);
-    cam.notify(this, ClientAppState.stopped, msg, null);
+    cam.notify(this, ClientAppState.STOPPED, msg, null);
     return ClientAppState.STOPPED;
   }
 }
