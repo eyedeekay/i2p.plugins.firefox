@@ -17,18 +17,24 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
   private volatile boolean shutdown = false;
   public I2PBrowserPlugin(I2PAppContext context, ClientAppManager listener,
                           String[] args) {
-    this.context = context;
+    cam.notify(this, ClientAppState.UNINITIALIZED,
+               "Initializing Profile Manager Systray Plugin",
+               null) this.context = context;
     this.cam = listener;
     this.args = args;
+    cam.notify(this, ClientAppState.INITIALIZED,
+               "Profile Manager Systray Plugin Initialized", null);
   }
   public String getDisplayName() { return "Browser Profile Manager"; }
   public String getName() { return "browserProfileManager"; }
   public void shutdown(String[] args) {
+    cam.notify(this, ClientAppState.STOPPING,
+               "Shutting down up profile manager systray", null);
     got = true;
     shutdown = true;
-    cam.notify(this, this.getState(),
-               "Shutting down up profile manager systray", null);
     this.shutdownSystray();
+    cam.notify(this, ClientAppState.STOPPED,
+               "Shutting down up profile manager systray", null);
   }
   private void downloadInBackground() {
     Logger threadLogger = Logger.getLogger("browserlauncherupdatethread");
@@ -57,14 +63,16 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
     }
   }
   public void startup() {
-    cam.notify(this, this.getState(), "Starting up profile manager systray",
-               null);
+    cam.notify(this, ClientAppState.STARTING,
+               "Starting up profile manager systray", null);
     Runnable r = new Runnable() {
       public void run() { downloadInBackground(); }
     };
     new Thread(r).start();
     try {
       this.startup(args);
+      cam.notify(this, ClientAppState.RUNNING,
+                 "Starting up profile manager systray", null);
     } catch (Exception e) {
       logger.info(e.toString());
     }
