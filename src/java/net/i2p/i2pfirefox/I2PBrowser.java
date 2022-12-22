@@ -307,10 +307,10 @@ public class I2PBrowser extends I2PCommonBrowser {
                 visitURL.toArray(new String[visitURL.size()]));
   }
   protected static boolean createSystrayRunningFile() {
-    File systrayIsRunningFile =
-        new File(runtimeDirectory(""), "systray.running");
-    if (!systrayIsRunningFile.exists()) {
+    if (systrayRunningExternally()) {
       try {
+        File systrayIsRunningFile =
+            new File(runtimeDirectory(""), "systray.running");
         FileWriter myWriter = new FileWriter(systrayIsRunningFile);
         myWriter.write("systray.running file created");
         myWriter.close();
