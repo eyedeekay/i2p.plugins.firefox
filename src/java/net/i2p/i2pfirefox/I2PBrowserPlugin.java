@@ -183,5 +183,6 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
       cam.notify(this, ClientAppState.RUNNING, msg, null);
       return ClientAppState.RUNNING;
     }
+    return ClientAppState.FORKED; // Used as a euphemism for unknown here.
   }
 }
