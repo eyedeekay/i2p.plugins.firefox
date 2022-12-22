@@ -91,7 +91,7 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
       if (eepGet.getNotModified()) {
         return false;
       }
-      return eepGet.fetch();
+      return eepGet.fetch(60, 180, 60);
     } catch (IOException err) {
       logger.warning(err.toString());
     }
