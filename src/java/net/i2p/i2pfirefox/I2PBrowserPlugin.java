@@ -85,7 +85,7 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
   public void startup() {
     cam.notify(this, ClientAppState.STARTING,
                "Starting up profile manager systray", null);
-    IOException error = null;
+    final IOException error = null;
     Runnable r = new Runnable() {
       public void run() {
         try {
