@@ -329,6 +329,7 @@ public class I2PBrowser extends I2PCommonBrowser {
       logger.info("Systray is already running in another process");
       return true;
     }
+    logger.info("Systray does not appear to be running");
     return false;
   }
   private SystemTray initTray() {
