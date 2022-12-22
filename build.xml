@@ -353,9 +353,6 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
         <copy file="LICENSE.md" todir="plugin/" overwrite="true" />
         <copy file="README.md" todir="plugin/" overwrite="true" />
         <copy file="CHANGES.md" todir="plugin/" overwrite="true" />
-        <copy file="scripts/firefox.css" todir="plugin/eepsite/docroot/" overwrite="true" />
-        <copy file="scripts/firefox-purple.css" todir="plugin/eepsite/docroot/" overwrite="true" />
-        <copy file="scripts/favicon.png" todir="plugin/eepsite/docroot/" overwrite="true" />
         <copy file="scripts/plugin.config" todir="plugin/" overwrite="true" />
         <mkdir dir="plugin/lib/" />
         <copy file="src/build/i2pfirefox.jar" todir="plugin/lib/" overwrite="true" />
@@ -382,9 +379,6 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
         <copy file="scripts/plugin.config" todir="plugin/" overwrite="true" />
         <!-- Files in installer but not update. Be sure to Add to delete fileset above and clean target below -->
         <copy file="scripts/i2ptunnel.config" todir="plugin/" overwrite="true" />
-        <copy file="scripts/i2pfirefox.config" todir="plugin/" overwrite="true" />
-        <copy file="scripts/robots.txt" todir="plugin/eepsite/docroot/" overwrite="true" />
-        <mkdir dir="plugin/eepsite/docroot/torrents/" />
         <exec executable="echo" osfamily="unix" failonerror="true" output="plugin/plugin.config" append="true">
             <arg value="version=${release.number}-${build.number}" />
         </exec>
