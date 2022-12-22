@@ -392,7 +392,8 @@ public class I2PBrowser extends I2PCommonBrowser {
     }
   }
   protected void shutdownSystray() {
-    tray.remove(icon);
+    if (tray != null)
+      tray.remove(icon);
     File systrayIsRunningFile =
         new File(runtimeDirectory(""), "systray.running");
     if (systrayIsRunningFile.exists())
