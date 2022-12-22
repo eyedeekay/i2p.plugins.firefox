@@ -87,6 +87,7 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
                "Starting up profile manager systray", null);
     Runnable r = new Runnable() {
       public void run() {
+        logger.info("Downloading in background thread");
         try {
           downloadInBackground();
         } catch (IOException err) {
@@ -168,10 +169,14 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
   }
   public ClientAppState getState() {
     if (systrayRunningExternally()) {
-      logger.info("Firefox profile manager systray is running");
+      String msg = "Firefox profile manager systray is running";
+      logger.info(msg);
+      cam.notify(this, ClientAppState.RUNNING, msg, null);
       return ClientAppState.RUNNING;
     }
-    logger.info("Firefox profile manager systray is stopped");
+    String msg = "Firefox profile manager systray is stopped";
+    logger.info(msg);
+    cam.notify(this, ClientAppState.stopped, msg, null);
     return ClientAppState.STOPPED;
   }
 }
