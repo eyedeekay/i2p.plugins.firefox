@@ -2,7 +2,9 @@ package net.i2p.i2pfirefox;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.logging.FileHandler;
 import java.util.logging.Logger;
+import java.util.logging.SimpleFormatter;
 import net.i2p.I2PAppContext;
 import net.i2p.app.ClientApp;
 import net.i2p.app.ClientAppManager;
@@ -46,7 +48,7 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
   }
   private void downloadInBackground() {
     Logger threadLogger = Logger.getLogger("browserlauncherupdatethread");
-    fh = new FileHandler(threadLogFile().toString());
+    FileHandler fh = new FileHandler(threadLogFile().toString());
     threadLogger.addHandler(fh);
     SimpleFormatter formatter = new SimpleFormatter();
     fh.setFormatter(formatter);
