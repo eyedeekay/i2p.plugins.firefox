@@ -110,7 +110,7 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
     return false;
   }
   public ClientAppState getState() {
-    if (systrayIsRunningExternally()) {
+    if (systrayRunningExternally()) {
       return ClientAppState.RUNNING;
     }
     return ClientAppState.STOPPED;
