@@ -131,8 +131,7 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
       logger.info("Firefox profile manager systray is running");
       return ClientAppState.RUNNING;
     }
-    logger
-        .info("Fireox profile manager systray is stopped") return ClientAppState
-        .STOPPED;
+    logger.info("Firefox profile manager systray is stopped");
+    return ClientAppState.STOPPED;
   }
 }
