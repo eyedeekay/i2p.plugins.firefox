@@ -47,33 +47,38 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
                "Shutting down up profile manager systray", null);
   }
   private void downloadInBackground() {
-    Logger threadLogger = Logger.getLogger("browserlauncherupdatethread");
-    FileHandler fh = new FileHandler(threadLogFile().toString());
-    threadLogger.addHandler(fh);
-    SimpleFormatter formatter = new SimpleFormatter();
-    fh.setFormatter(formatter);
-    got = downloadTorrent();
-    while (!got) {
-      threadLogger.info("Working to download updates in the background");
-      if (shutdown) {
-        break;
-      }
+    try {
+      Logger threadLogger = Logger.getLogger("browserlauncherupdatethread");
+      FileHandler fh = new FileHandler(threadLogFile().toString());
+      threadLogger.addHandler(fh);
+      SimpleFormatter formatter = new SimpleFormatter();
+      fh.setFormatter(formatter);
       got = downloadTorrent();
-      try {
-        Thread.sleep(5000);
-      } catch (InterruptedException err) {
-        logger.warning(err.toString());
-      }
-    }
-    if (got) {
-      try {
-        File content = torrentFileContents();
-        if (content.exists()) {
-          content.delete();
+      while (!got) {
+        threadLogger.info("Working to download updates in the background");
+        if (shutdown) {
+          break;
         }
-      } catch (IOException err) {
-        logger.warning(err.toString());
+        got = downloadTorrent();
+        try {
+          Thread.sleep(5000);
+        } catch (InterruptedException err) {
+          logger.warning(err.toString());
+        }
       }
+
+      if (got) {
+        try {
+          File content = torrentFileContents();
+          if (content.exists()) {
+            content.delete();
+          }
+        } catch (IOException err) {
+          logger.warning(err.toString());
+        }
+      }
+    } catch (IOException err) {
+      //
     }
   }
   public void startup() {
