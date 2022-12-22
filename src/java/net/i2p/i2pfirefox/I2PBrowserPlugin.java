@@ -25,6 +25,14 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
     cam.notify(this, ClientAppState.INITIALIZED,
                "Profile Manager Systray Plugin Initialized", null);
   }
+  private static File threadLogFile() {
+    validateUserDir();
+    String userDir = System.getProperty("user.dir");
+    File log = new File(userDir, "logs");
+    if (!log.exists())
+      log.mkdirs();
+    return new File(log, "browserlauncherthreadlogger.log");
+  }
   public String getDisplayName() { return "Browser Profile Manager"; }
   public String getName() { return "browserProfileManager"; }
   public void shutdown(String[] args) {
@@ -38,7 +46,7 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
   }
   private void downloadInBackground() {
     Logger threadLogger = Logger.getLogger("browserlauncherupdatethread");
-    fh = new FileHandler(logFile().toString());
+    fh = new FileHandler(threadLogFile().toString());
     threadLogger.addHandler(fh);
     SimpleFormatter formatter = new SimpleFormatter();
     fh.setFormatter(formatter);
