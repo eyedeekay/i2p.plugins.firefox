@@ -609,7 +609,7 @@ public class I2PFirefox extends I2PCommonBrowser {
           String crashreporterFolder =
               new File(rtd.getAbsolutePath(), "crashreporter").toString();
           String pluginsFolder =
-              new File(rtd.getAbsolutePath(), "crashreporter").toString();
+              new File(rtd.getAbsolutePath(), "plugins").toString();
           pb.environment().put("MOZ_CRASHREPORTER", "0");
           pb.environment().put("MOZ_CRASHREPORTER_DATA_DIRECTORY",
                                crashreporterFolder);
