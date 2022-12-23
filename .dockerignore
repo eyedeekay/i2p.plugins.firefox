@@ -1,1 +1,4 @@
-.git
+/.git
+/plugin
+/i2pbrowser
+/i2p.plugins.firefox
