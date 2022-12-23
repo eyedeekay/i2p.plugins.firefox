@@ -242,14 +242,6 @@ public class I2PFirefox extends I2PCommonBrowser {
     // obtain the PLUGIN environment variable
     // crashreporterFolder := utl.CreateFolder(app.DataPath, "crashreporter")
     // pluginsFolder := utl.CreateFolder(app.DataPath, "plugins")
-    SystemUtil.setenv("MOZ_CRASHREPORTER", "0");
-    SystemUtil.setenv("MOZ_CRASHREPORTER_DATA_DIRECTORY", crashreporterFolder);
-    SystemUtil.setenv("MOZ_CRASHREPORTER_DISABLE", "1");
-    SystemUtil.setenv("MOZ_CRASHREPORTER_NO_REPORT", "1");
-    SystemUtil.setenv("MOZ_DATA_REPORTING", "0");
-    SystemUtil.setenv("MOZ_MAINTENANCE_SERVICE", "0");
-    SystemUtil.setenv("MOZ_PLUGIN_PATH", pluginsFolder);
-    SystemUtil.setenv("MOZ_UPDATER", "0");
     String plugin = System.getenv("PLUGIN");
     if (plugin != null && !plugin.isEmpty()) {
       File userDir = new File(plugin);
