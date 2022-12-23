@@ -7,6 +7,7 @@ github-release release --user "${GITHUB_USER}" \
     --name "${GITHUB_NAME}" \
     --description "${GITHUB_DESCRIPTION}" \
     --tag "${GITHUB_TAG}"; true
+sleep 2s
 ./profiles-upload.sh
 sleep 2s
 github-release edit --user "${GITHUB_USER}" \

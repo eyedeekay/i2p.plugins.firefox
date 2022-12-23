@@ -12,4 +12,4 @@ READMELINE=`grep 'i2p.plugins.firefox/releases/download' OSX.md | grep i2pfirefo
 sed -i "s|${READMELINE}|wget https://github.com/eyedeekay/i2p.plugins.firefox/releases/download/${GITHUB_TAG}/i2pfirefox.zip|g" OSX.md
 sed -i "s|${NUMLINE}|        <property name=\"release.number\" value=\"$GITHUB_TAG\" />|g" build.xml
 edgar && git push --all
-ant distclean tarball versionMd jar plugin freeZip jpackage debian fedora
+ant distclean versionMd tarball jar plugin freeZip jpackage debian fedora
