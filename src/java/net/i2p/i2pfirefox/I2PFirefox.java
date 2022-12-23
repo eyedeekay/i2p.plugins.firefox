@@ -610,6 +610,7 @@ public class I2PFirefox extends I2PCommonBrowser {
               new File(rtd.getAbsolutePath(), "crashreporter").toString();
           String pluginsFolder =
               new File(rtd.getAbsolutePath(), "plugins").toString();
+          pb.environment().put("HOME", rtd.getAbsolutePath());
           pb.environment().put("MOZ_CRASHREPORTER", "0");
           pb.environment().put("MOZ_CRASHREPORTER_DATA_DIRECTORY",
                                crashreporterFolder);
@@ -632,6 +633,7 @@ public class I2PFirefox extends I2PCommonBrowser {
             new File(rtd.getAbsolutePath(), "crashreporter").toString();
         String pluginsFolder =
             new File(rtd.getAbsolutePath(), "crashreporter").toString();
+        pb.environment().put("HOME", rtd.getAbsolutePath());
         pb.environment().put("MOZ_CRASHREPORTER", "0");
         pb.environment().put("MOZ_CRASHREPORTER_DATA_DIRECTORY",
                              crashreporterFolder);
@@ -653,6 +655,7 @@ public class I2PFirefox extends I2PCommonBrowser {
         new File(rtd.getAbsolutePath(), "crashreporter").toString();
     String pluginsFolder =
         new File(rtd.getAbsolutePath(), "crashreporter").toString();
+    pb.environment().put("HOME", rtd.getAbsolutePath());
     pb.environment().put("MOZ_CRASHREPORTER", "0");
     pb.environment().put("MOZ_CRASHREPORTER_DATA_DIRECTORY",
                          crashreporterFolder);
