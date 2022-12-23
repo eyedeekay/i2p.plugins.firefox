@@ -23,6 +23,11 @@
     <target name="build" depends="jar" />
     <target name="builddep">
     </target>
+    <target name="cp">
+     <exec executable="echo">
+        <arg value="${java.class.path}"></arg>
+     </exec>
+    </target>
 
     <property name="javac.compilerargs" value="" />
     <property name="javac.version" value="1.8" />

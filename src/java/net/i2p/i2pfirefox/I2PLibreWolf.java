@@ -1,4 +1,8 @@
 package net.i2p.i2pfirefox;
+
+import java.io.*;
+import javax.script.*;
+
 /**
  * I2PLibreWolf.java
  * Copyright (C) 2022 idk <hankhill19580@gmail.com>
@@ -16,5 +20,6 @@ package net.i2p.i2pfirefox;
  * @since 1.0.6
  */
 public class I2PLibreWolf {
-    
+  private static final ScriptEngineManager sem = new ScriptEngineManager();
+  private final ScriptEngine ee = sem.getEngineByName("Nashorn");
 }

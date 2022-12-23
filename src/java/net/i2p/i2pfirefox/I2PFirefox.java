@@ -240,6 +240,16 @@ public class I2PFirefox extends I2PCommonBrowser {
 
   private static String[] NEARBY_FIREFOX_SEARCH_PATHS() {
     // obtain the PLUGIN environment variable
+    // crashreporterFolder := utl.CreateFolder(app.DataPath, "crashreporter")
+    // pluginsFolder := utl.CreateFolder(app.DataPath, "plugins")
+    SystemUtil.setenv("MOZ_CRASHREPORTER", "0");
+    SystemUtil.setenv("MOZ_CRASHREPORTER_DATA_DIRECTORY", crashreporterFolder);
+    SystemUtil.setenv("MOZ_CRASHREPORTER_DISABLE", "1");
+    SystemUtil.setenv("MOZ_CRASHREPORTER_NO_REPORT", "1");
+    SystemUtil.setenv("MOZ_DATA_REPORTING", "0");
+    SystemUtil.setenv("MOZ_MAINTENANCE_SERVICE", "0");
+    SystemUtil.setenv("MOZ_PLUGIN_PATH", pluginsFolder);
+    SystemUtil.setenv("MOZ_UPDATER", "0");
     String plugin = System.getenv("PLUGIN");
     if (plugin != null && !plugin.isEmpty()) {
       File userDir = new File(plugin);
@@ -593,20 +603,66 @@ public class I2PFirefox extends I2PCommonBrowser {
           if (!bashScript.canExecute()) {
             bashScript.setExecutable(true);
           }
-          return new ProcessBuilder(bashScript.getAbsolutePath())
-              .directory(I2PFirefoxProfileBuilder.runtimeDirectory(true));
+          ProcessBuilder pb = new ProcessBuilder(bashScript.getAbsolutePath());
+          File rtd = I2PFirefoxProfileBuilder.runtimeDirectory(true);
+          pb.directory(rtd);
+          String crashreporterFolder =
+              new File(rtd.getAbsolutePath(), "crashreporter").toString();
+          String pluginsFolder =
+              new File(rtd.getAbsolutePath(), "crashreporter").toString();
+          pb.environment().put("MOZ_CRASHREPORTER", "0");
+          pb.environment().put("MOZ_CRASHREPORTER_DATA_DIRECTORY",
+                               crashreporterFolder);
+          pb.environment().put("MOZ_CRASHREPORTER_DISABLE", "1");
+          pb.environment().put("MOZ_CRASHREPORTER_NO_REPORT", "1");
+          pb.environment().put("MOZ_DATA_REPORTING", "0");
+          pb.environment().put("MOZ_MAINTENANCE_SERVICE", "0");
+          pb.environment().put("MOZ_PLUGIN_PATH", pluginsFolder);
+          pb.environment().put("MOZ_UPDATER", "0");
+          return pb;
         } catch (IOException e) {
           logger.warning(e.toString());
         }
         return null;
       } else {
-        return new ProcessBuilder(newArgs).directory(
-            I2PFirefoxProfileBuilder.runtimeDirectory(true));
+        ProcessBuilder pb = new ProcessBuilder(newArgs);
+        File rtd = I2PFirefoxProfileBuilder.runtimeDirectory(true);
+        pb.directory(rtd);
+        String crashreporterFolder =
+            new File(rtd.getAbsolutePath(), "crashreporter").toString();
+        String pluginsFolder =
+            new File(rtd.getAbsolutePath(), "crashreporter").toString();
+        pb.environment().put("MOZ_CRASHREPORTER", "0");
+        pb.environment().put("MOZ_CRASHREPORTER_DATA_DIRECTORY",
+                             crashreporterFolder);
+        pb.environment().put("MOZ_CRASHREPORTER_DISABLE", "1");
+        pb.environment().put("MOZ_CRASHREPORTER_NO_REPORT", "1");
+        pb.environment().put("MOZ_DATA_REPORTING", "0");
+        pb.environment().put("MOZ_MAINTENANCE_SERVICE", "0");
+        pb.environment().put("MOZ_PLUGIN_PATH", pluginsFolder);
+        pb.environment().put("MOZ_UPDATER", "0");
+        return pb;
       }
 
     } // else {
     logger.info("No Firefox found.");
-    return new ProcessBuilder(args);
+    ProcessBuilder pb = new ProcessBuilder(args);
+    File rtd = I2PFirefoxProfileBuilder.runtimeDirectory(true);
+    pb.directory(rtd);
+    String crashreporterFolder =
+        new File(rtd.getAbsolutePath(), "crashreporter").toString();
+    String pluginsFolder =
+        new File(rtd.getAbsolutePath(), "crashreporter").toString();
+    pb.environment().put("MOZ_CRASHREPORTER", "0");
+    pb.environment().put("MOZ_CRASHREPORTER_DATA_DIRECTORY",
+                         crashreporterFolder);
+    pb.environment().put("MOZ_CRASHREPORTER_DISABLE", "1");
+    pb.environment().put("MOZ_CRASHREPORTER_NO_REPORT", "1");
+    pb.environment().put("MOZ_DATA_REPORTING", "0");
+    pb.environment().put("MOZ_MAINTENANCE_SERVICE", "0");
+    pb.environment().put("MOZ_PLUGIN_PATH", pluginsFolder);
+    pb.environment().put("MOZ_UPDATER", "0");
+    return pb;
     //}
     // return null;
   }

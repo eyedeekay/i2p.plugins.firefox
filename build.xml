@@ -420,6 +420,7 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
             <arg value="src/java/net/i2p/i2pfirefox/I2PChromiumProfileChecker.java"/>
             <arg value="src/java/net/i2p/i2pfirefox/I2PChromiumProfileUnpacker.java"/>
             <arg value="src/java/net/i2p/i2pfirefox/I2PFirefox.java"/>
+            <arg value="src/java/net/i2p/i2pfirefox/I2PLibreWolf.java"/>
             <arg value="src/java/net/i2p/i2pfirefox/I2PFirefoxProfileBuilder.java"/>
             <arg value="src/java/net/i2p/i2pfirefox/I2PFirefoxProfileChecker.java"/>
             <arg value="src/java/net/i2p/i2pfirefox/I2PFirefoxProfileUnpacker.java"/>
