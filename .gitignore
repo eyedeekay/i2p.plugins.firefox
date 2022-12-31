@@ -33,3 +33,5 @@ arkenfoxnum
 i2p.plugins.firefox/
 /icon.png
 /systray.running
+/.cache
+/.mozilla
