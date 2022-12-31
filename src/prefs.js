@@ -64,3 +64,4 @@ user_pref("dom.image-lazy-loading.enabled", false);
 user_pref("extensions.autoDisableScopes", 0);
 user_pref("extensions.enabledScopes", 1);
 user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", false);
+user_pref("browser.fixup.domainsuffixwhitelist.i2p", true);

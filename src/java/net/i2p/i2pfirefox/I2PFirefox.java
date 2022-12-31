@@ -612,6 +612,11 @@ public class I2PFirefox extends I2PCommonBrowser {
           pb.environment().put("MOZ_MAINTENANCE_SERVICE", "0");
           pb.environment().put("MOZ_PLUGIN_PATH", pluginsFolder);
           pb.environment().put("MOZ_UPDATER", "0");
+          pb.environment().put("TB_CUSTOM_HOMEPAGE", newArgs[4]);
+          pb.environment().put("TOR_FORCE_NET_CONFIG", "0");
+          pb.environment().put("TOR_SKIP_LAUNCH", "1");
+          pb.environment().put("TOR_SKIP_CONTROLPORTTEST", "1");
+          pb.environment().put("TOR_NONTOR_PROXY", "1");
           return pb;
         } catch (IOException e) {
           logger.warning(e.toString());
@@ -635,6 +640,12 @@ public class I2PFirefox extends I2PCommonBrowser {
         pb.environment().put("MOZ_MAINTENANCE_SERVICE", "0");
         pb.environment().put("MOZ_PLUGIN_PATH", pluginsFolder);
         pb.environment().put("MOZ_UPDATER", "0");
+        if (args.length > 4)
+          pb.environment().put("TB_CUSTOM_HOMEPAGE", args[4]);
+        pb.environment().put("TOR_FORCE_NET_CONFIG", "0");
+        pb.environment().put("TOR_SKIP_LAUNCH", "1");
+        pb.environment().put("TOR_SKIP_CONTROLPORTTEST", "1");
+        pb.environment().put("TOR_NONTOR_PROXY", "1");
         return pb;
       }
 
@@ -657,6 +668,12 @@ public class I2PFirefox extends I2PCommonBrowser {
     pb.environment().put("MOZ_MAINTENANCE_SERVICE", "0");
     pb.environment().put("MOZ_PLUGIN_PATH", pluginsFolder);
     pb.environment().put("MOZ_UPDATER", "0");
+    if (args.length > 4)
+      pb.environment().put("TB_CUSTOM_HOMEPAGE", args[4]);
+    pb.environment().put("TOR_FORCE_NET_CONFIG", "0");
+    pb.environment().put("TOR_SKIP_LAUNCH", "1");
+    pb.environment().put("TOR_SKIP_CONTROLPORTTEST", "1");
+    pb.environment().put("TOR_NONTOR_PROXY", "1");
     return pb;
     //}
     // return null;

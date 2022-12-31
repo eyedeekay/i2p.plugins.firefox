@@ -5,11 +5,11 @@ TORSOCKS=$(which torsocks)
 #    . "${TORSOCKS}" on
 #fi
 
-version="$(curl -s https://aus1.torproject.org/torbrowser/update_3/release/downloads.json | jq -r ".version")"
-locale="en-US" # mention your locale. default = en-US
-if [ -d /etc/default/locale ]; then
-    . /etc/default/locale
-    locale=$(echo "${LANG}" | cut -d . -f1)
+if [ -z $version ]; then
+    version="$(curl -s https://aus1.torproject.org/torbrowser/update_3/release/downloads.json | jq -r ".version")"
+fi
+if [ -z $locale ]; then
+    locale="ALL" # mention your locale. default = ALL
 fi
 
 if [ ! -f ./tor.keyring ]; then
