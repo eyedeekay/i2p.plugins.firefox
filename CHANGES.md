@@ -1,3 +1,8 @@
+Sat, December 31
+----------------
+
+ - Add environment variables which customize behavior of Tor Browser
+
 Sun, December 18
 ----------------
 
