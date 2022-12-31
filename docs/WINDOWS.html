@@ -133,760 +133,130 @@
     <a id="returnhome" href="/">
       /
     </a>
-    <h1>
-      Class I2PCommonBrowser
-      <a href="src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java">
-        [src]
-      </a>
-    </h1>
-    <blockquote></blockquote>
+    <h3>
+      Windows Support
+    </h3>
     <p>
-      Access: public
-      <br />
-      Description:
-      <br />
-      &gt; I2PCommonBrowser.java Copyright C 2022 idk
-      <a href="mailto:hankhill19580@gmail.com">
-        hankhill19580@gmail.com
-      </a>
-      This program is free software: you can redistribute it and/or modify it under the terms of the MIT License. See LICENSE.md for details. This program is distributed in the hope that it will be useful but WITHOUT ANY WARRANTY without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+      It&rsquo;s possible to use this package on Windows, but it&rsquo;s recommended that
+      you get it through the Easy-Install bundle which includes this functionality
+      already. Use this only if you want to test new features or if you prefer
+      an unbundled I2P router with an external JVM.
     </p>
-    <p>
-      Author: idk
-      <br />
-      package: net.i2p.i2pfirefox
-    </p>
-    <h2>
-      Dependencies
-    </h2>
-    <p>
-      <details>
-        <br />
-        <summary>
-          <br />
-          Show dependencies
-          <br />
-        </summary>
-        <br />
-        <ul>
-          <br />
-          <li>
-            java.io.File
-          </li>
-          <li>
-            java.io.FileInputStream
-          </li>
-          <li>
-            java.io.FileOutputStream
-          </li>
-          <li>
-            java.io.IOException
-          </li>
-          <li>
-            java.io.InputStream
-          </li>
-          <li>
-            java.io.OutputStream
-          </li>
-          <li>
-            java.net.Socket
-          </li>
-          <li>
-            java.nio.file.Files
-          </li>
-          <li>
-            java.nio.file.StandardCopyOption
-          </li>
-          <li>
-            java.util.Arrays
-          </li>
-          <li>
-            java.util.Properties
-          </li>
-          <li>
-            java.util.logging.FileHandler
-          </li>
-          <li>
-            java.util.logging.Logger
-          </li>
-          <li>
-            java.util.logging.SimpleFormatter
-          </li>
-          <li>
-            java.util.zip.ZipEntry
-          </li>
-          <li>
-            java.util.zip.ZipInputStream
-          </li>
-        </ul>
-        <br />
-      </details>
-    </p>
-    <h2>
-      Member Variables
-    </h2>
     <h4>
-      Properties prop
-      <a href="src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L">
-        [src]
-      </a>
+      Windows Jpackage:
+      <code>
+        .zip
+      </code>
     </h4>
-    <blockquote></blockquote>
-    <ul>
+    <p>
+      <strong>
+        (Not Recommended! This functionality is already included in the Easy-Install Bundle for Windows)
+      </strong>
+    </p>
+    <ol>
       <li>
-        Access: public
-        <br />
+        Start your I2P Router
       </li>
       <li>
-        Modifiers: static
+        Download the latest release
+        <code>
+          .zip
+        </code>
+        from
+        <a href="https://github.com/eyedeekay/i2p.plugins.firefox/releases">
+          Github
+        </a>
+        and verify it&rsquo;s hash.
       </li>
-    </ul>
+      <li>
+        Unzip the
+        <code>
+          .zip
+        </code>
+        directory
+      </li>
+      <li>
+        run the
+        <code>
+          i2pbrowser.exe
+        </code>
+        file inside the unzipped directory.
+      </li>
+    </ol>
     <h4>
-      Logger logger
-      <a href="src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L">
-        [src]
-      </a>
+      Windows Jpackage:
+      <code>
+        .msi
+      </code>
     </h4>
-    <blockquote></blockquote>
-    <ul>
+    <p>
+      <strong>
+        (Not Recommended! This functionality is already included in the Easy-Install Bundle for Windows)
+      </strong>
+    </p>
+    <ol>
       <li>
-        Access: public
-        <br />
+        Start your I2P Router
       </li>
       <li>
-        Modifiers: static
+        Download the latest release
+        <code>
+          .msi
+        </code>
+        from
+        <a href="https://github.com/eyedeekay/i2p.plugins.firefox/releases">
+          Github
+        </a>
+        and verify it&rsquo;s hash.
       </li>
-    </ul>
+      <li>
+        Run the
+        <code>
+          .msi
+        </code>
+        installer(Only needs to be done once per update)
+      </li>
+      <li>
+        Use the start menu shortcut to launch the pre-configured I2P browser
+      </li>
+    </ol>
     <h4>
-      <a href="src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L39">
-        [src]
-      </a>
+      Windows Jpackage:
+      <code>
+        .exe
+      </code>
     </h4>
-    <blockquote>
-      <p>
-        static FileHandler fh;
-      </p>
-    </blockquote>
-    <ul>
-      <li>
-        Access: private
-        <br />
-      </li>
-      <li>
-        Modifiers: final
-      </li>
-    </ul>
-    <h4>
-      <a href="src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L40">
-        [src]
-      </a>
-    </h4>
-    <blockquote>
-      <p>
-        // private final int DEFAULT_TIMEOUT = 200;
-      </p>
-    </blockquote>
-    <ul>
-      <li>
-        Access: private
-        <br />
-      </li>
-      <li>
-        Modifiers: static
-      </li>
-    </ul>
-    <h2>
-      Methods
-    </h2>
-    <h3>
-      runtimeDirectory
-      <a href="src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L180">
-        [src]
-      </a>
-    </h3>
-    <ul>
-      <li>
-        Description: get the runtime directory creating it if create=true
-        <br />
-      </li>
-      <li>
-        Access: protected
-        <br />
-      </li>
-      <li>
-        Modifiers: static
-      </li>
-      <li>
-        return: the runtime directory or null if it could not be created
-        <br />
-      </li>
-    </ul>
     <p>
-      | Name | Type | Description |
-      <br />
-      | &mdash;&ndash; | &mdash;&ndash; | &mdash;&ndash; |
-      <br />
-      | create | boolean | if true create the runtime directory if it does not exist  |
-      <br />
-      | override | String |  |
+      <strong>
+        (Not Recommended! This functionality is already included in the Easy-Install Bundle for Windows)
+      </strong>
     </p>
-    <h3>
-      runtimeDirectory
-      <a href="src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L197">
-        [src]
-      </a>
-    </h3>
-    <ul>
+    <ol>
       <li>
-        Description: get the correct runtime directory
-        <br />
+        Start your I2P Router
       </li>
       <li>
-        Access: protected
-        <br />
+        Download the latest release
+        <code>
+          .exe
+        </code>
+        from
+        <a href="https://github.com/eyedeekay/i2p.plugins.firefox/releases">
+          Github
+        </a>
+        and verify it&rsquo;s hash.
       </li>
       <li>
-        Modifiers: static
+        Run the
+        <code>
+          .msi
+        </code>
+        installer(Only needs to be done once per update)
       </li>
       <li>
-        return: the runtime directory or null if it could not be created or found
-        <br />
+        Use the start menu shortcut to launch the pre-configured I2P browser
       </li>
-    </ul>
-    <p>
-      | Name | Type | Description |
-      <br />
-      | &mdash;&ndash; | &mdash;&ndash; | &mdash;&ndash; |
-      <br />
-      | override | String |  |
-    </p>
-    <h3>
-      profileDirectory
-      <a href="src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L245">
-        [src]
-      </a>
-    </h3>
-    <ul>
-      <li>
-        Description: get the profile directory creating it if necessary
-        <br />
-      </li>
-      <li>
-        Access: protected
-        <br />
-      </li>
-      <li>
-        Modifiers: static
-      </li>
-      <li>
-        return: the profile directory or null if it could not be created
-        <br />
-      </li>
-    </ul>
-    <p>
-      | Name | Type | Description |
-      <br />
-      | &mdash;&ndash; | &mdash;&ndash; | &mdash;&ndash; |
-      <br />
-      | envVar | String |  |
-      <br />
-      | browser | String |  |
-      <br />
-      | base | String |  |
-      <br />
-      | app | boolean |  |
-    </p>
-    <h3>
-      profileDir
-      <a href="src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L258">
-        [src]
-      </a>
-    </h3>
-    <ul>
-      <li>
-        Description:
-        <br />
-      </li>
-      <li>
-        Access: protected
-        <br />
-      </li>
-      <li>
-        Modifiers: static
-      </li>
-      <li>
-        return: String
-        <br />
-      </li>
-    </ul>
-    <p>
-      | Name | Type | Description |
-      <br />
-      | &mdash;&ndash; | &mdash;&ndash; | &mdash;&ndash; |
-      <br />
-      | file | String |  |
-      <br />
-      | browser | String |  |
-      <br />
-      | base | String |  |
-      <br />
-      | app | boolean |  |
-    </p>
-    <h3>
-      unpackProfile
-      <a href="src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L269">
-        [src]
-      </a>
-    </h3>
-    <ul>
-      <li>
-        Description:
-        <br />
-      </li>
-      <li>
-        Access: protected
-        <br />
-      </li>
-      <li>
-        return: boolean
-        <br />
-      </li>
-    </ul>
-    <p>
-      | Name | Type | Description |
-      <br />
-      | &mdash;&ndash; | &mdash;&ndash; | &mdash;&ndash; |
-      <br />
-      | profileDirectory | String |  |
-      <br />
-      | browser | String |  |
-      <br />
-      | base | String |  |
-    </p>
-    <h3>
-      copyDirectory
-      <a href="src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L315">
-        [src]
-      </a>
-    </h3>
-    <ul>
-      <li>
-        Description:
-        <br />
-      </li>
-      <li>
-        Access: protected
-        <br />
-      </li>
-      <li>
-        Modifiers: static
-      </li>
-      <li>
-        return: void
-        <br />
-      </li>
-    </ul>
-    <p>
-      | Name | Type | Description |
-      <br />
-      | &mdash;&ndash; | &mdash;&ndash; | &mdash;&ndash; |
-      <br />
-      | sourceDirectory | File |  |
-      <br />
-      | destinationDirectory | File |  |
-      <br />
-      | browser | String |  |
-      <br />
-      | base | String |  |
-    </p>
-    <h3>
-      copyDirectoryCompatibilityMode
-      <a href="src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L330">
-        [src]
-      </a>
-    </h3>
-    <ul>
-      <li>
-        Description:
-        <br />
-      </li>
-      <li>
-        Access: private
-        <br />
-      </li>
-      <li>
-        Modifiers: static
-      </li>
-      <li>
-        return: void
-        <br />
-      </li>
-    </ul>
-    <p>
-      | Name | Type | Description |
-      <br />
-      | &mdash;&ndash; | &mdash;&ndash; | &mdash;&ndash; |
-      <br />
-      | source | File |  |
-      <br />
-      | destination | File |  |
-      <br />
-      | browser | String |  |
-      <br />
-      | base | String |  |
-    </p>
-    <h3>
-      copy
-      <a href="src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L339">
-        [src]
-      </a>
-    </h3>
-    <ul>
-      <li>
-        Description:
-        <br />
-      </li>
-      <li>
-        Access: public
-        <br />
-      </li>
-      <li>
-        Modifiers: static
-      </li>
-      <li>
-        return: void
-        <br />
-      </li>
-    </ul>
-    <p>
-      | Name | Type | Description |
-      <br />
-      | &mdash;&ndash; | &mdash;&ndash; | &mdash;&ndash; |
-      <br />
-      | source | InputStream |  |
-      <br />
-      | target | OutputStream |  |
-    </p>
-    <h3>
-      copyFile
-      <a href="src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L348">
-        [src]
-      </a>
-    </h3>
-    <ul>
-      <li>
-        Description:
-        <br />
-      </li>
-      <li>
-        Access: private
-        <br />
-      </li>
-      <li>
-        Modifiers: static
-      </li>
-      <li>
-        return: void
-        <br />
-      </li>
-    </ul>
-    <p>
-      | Name | Type | Description |
-      <br />
-      | &mdash;&ndash; | &mdash;&ndash; | &mdash;&ndash; |
-      <br />
-      | sourceFile | File |  |
-      <br />
-      | destinationFile | File |  |
-    </p>
-    <h3>
-      validateProfileFirstRun
-      <a href="src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L359">
-        [src]
-      </a>
-    </h3>
-    <ul>
-      <li>
-        Description:
-        <br />
-      </li>
-      <li>
-        Access: public
-        <br />
-      </li>
-      <li>
-        Modifiers: static
-      </li>
-      <li>
-        return: boolean
-        <br />
-      </li>
-    </ul>
-    <p>
-      | Name | Type | Description |
-      <br />
-      | &mdash;&ndash; | &mdash;&ndash; | &mdash;&ndash; |
-      <br />
-      | profileDirectory | String |  |
-    </p>
-    <h3>
-      waitForProxy
-      <a href="src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L385">
-        [src]
-      </a>
-    </h3>
-    <ul>
-      <li>
-        Description: Waits for an HTTP proxy on port 4444 to be ready. Returns false on timeout of 200 seconds.
-        <br />
-      </li>
-      <li>
-        Access: public
-        <br />
-      </li>
-      <li>
-        return: true if the proxy is ready false if it is not.
-        <br />
-      </li>
-    </ul>
-    <p>
-      This method has no parameters.
-    </p>
-    <h3>
-      waitForProxy
-      <a href="src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L395">
-        [src]
-      </a>
-    </h3>
-    <ul>
-      <li>
-        Description: Waits for an HTTP proxy on port 4444 to be ready. Returns false on timeout of the specified number of seconds.
-        <br />
-      </li>
-      <li>
-        Access: public
-        <br />
-      </li>
-      <li>
-        return: true if the proxy is ready false if it is not.
-        <br />
-      </li>
-    </ul>
-    <p>
-      | Name | Type | Description |
-      <br />
-      | &mdash;&ndash; | &mdash;&ndash; | &mdash;&ndash; |
-      <br />
-      | timeout | int | the number of seconds to wait for the proxy to be ready.  |
-    </p>
-    <h3>
-      waitForProxy
-      <a href="src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L407">
-        [src]
-      </a>
-    </h3>
-    <ul>
-      <li>
-        Description: Waits for an HTTP proxy on the specified port to be ready. Returns false on timeout of the specified number of seconds.
-        <br />
-      </li>
-      <li>
-        Access: public
-        <br />
-      </li>
-      <li>
-        return: true if the proxy is ready false if it is not.
-        <br />
-      </li>
-    </ul>
-    <p>
-      | Name | Type | Description |
-      <br />
-      | &mdash;&ndash; | &mdash;&ndash; | &mdash;&ndash; |
-      <br />
-      | timeout | int | the number of seconds to wait for the proxy to be ready.  |
-      <br />
-      | port | int | the port to wait for the proxy to be ready on.  |
-    </p>
-    <h3>
-      waitForProxy
-      <a href="src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L422">
-        [src]
-      </a>
-    </h3>
-    <ul>
-      <li>
-        Description: Waits for an HTTP proxy on the specified port to be ready. Returns false on timeout of the specified number of seconds. If the timeout is zero or less the check is disabled and always returns true.
-        <br />
-      </li>
-      <li>
-        Access: public
-        <br />
-      </li>
-      <li>
-        return: true if the proxy is ready false if it is not.
-        <br />
-      </li>
-    </ul>
-    <p>
-      | Name | Type | Description |
-      <br />
-      | &mdash;&ndash; | &mdash;&ndash; | &mdash;&ndash; |
-      <br />
-      | timeout | int | the number of seconds to wait for the proxy to be ready.  |
-      <br />
-      | port | int | the port to wait for the proxy to be ready on.  |
-      <br />
-      | host | String | the host to wait for the proxy to be ready on.  |
-    </p>
-    <h3>
-      checkifPortIsOccupied
-      <a href="src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L440">
-        [src]
-      </a>
-    </h3>
-    <ul>
-      <li>
-        Description:
-        <br />
-      </li>
-      <li>
-        Access: public
-        <br />
-      </li>
-      <li>
-        return: boolean
-        <br />
-      </li>
-    </ul>
-    <p>
-      | Name | Type | Description |
-      <br />
-      | &mdash;&ndash; | &mdash;&ndash; | &mdash;&ndash; |
-      <br />
-      | port | int |  |
-      <br />
-      | host | String |  |
-    </p>
-    <h3>
-      setProxyTimeoutTime
-      <a href="src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L455">
-        [src]
-      </a>
-    </h3>
-    <ul>
-      <li>
-        Description: Alters the proxy timeout to customized value time in seconds. May be zero.
-        <br />
-      </li>
-      <li>
-        Access: public
-        <br />
-      </li>
-      <li>
-        return: void
-        <br />
-      </li>
-    </ul>
-    <p>
-      | Name | Type | Description |
-      <br />
-      | &mdash;&ndash; | &mdash;&ndash; | &mdash;&ndash; |
-      <br />
-      | time | int |  |
-    </p>
-    <h3>
-      join
-      <a href="src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L460">
-        [src]
-      </a>
-    </h3>
-    <ul>
-      <li>
-        Description:
-        <br />
-      </li>
-      <li>
-        Access: protected
-        <br />
-      </li>
-      <li>
-        Modifiers: static
-      </li>
-      <li>
-        return: String
-        <br />
-      </li>
-    </ul>
-    <p>
-      | Name | Type | Description |
-      <br />
-      | &mdash;&ndash; | &mdash;&ndash; | &mdash;&ndash; |
-      <br />
-      | arr | String[] |  |
-    </p>
-    <h3>
-      sleep
-      <a href="src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L469">
-        [src]
-      </a>
-    </h3>
-    <ul>
-      <li>
-        Description:
-        <br />
-      </li>
-      <li>
-        Access: public
-        <br />
-      </li>
-      <li>
-        Modifiers: static
-      </li>
-      <li>
-        return: void
-        <br />
-      </li>
-    </ul>
-    <p>
-      | Name | Type | Description |
-      <br />
-      | &mdash;&ndash; | &mdash;&ndash; | &mdash;&ndash; |
-      <br />
-      | millis | int |  |
-    </p>
-    <h3>
-      searchFile
-      <a href="src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L477">
-        [src]
-      </a>
-    </h3>
-    <ul>
-      <li>
-        Description:
-        <br />
-      </li>
-      <li>
-        Access: public
-        <br />
-      </li>
-      <li>
-        Modifiers: static
-      </li>
-      <li>
-        return: File
-        <br />
-      </li>
-    </ul>
-    <p>
-      | Name | Type | Description |
-      <br />
-      | &mdash;&ndash; | &mdash;&ndash; | &mdash;&ndash; |
-      <br />
-      | file | File |  |
-      <br />
-      | search | String |  |
-    </p>
+    </ol>
     <div id="sourcecode">
       <span id="sourcehead">
         <strong>
