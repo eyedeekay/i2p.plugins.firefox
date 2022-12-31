@@ -24,8 +24,8 @@ javascript-restrictor
 0.11.1
 https://addons.mozilla.org/firefox/downloads/file/3950710/javascript_restrictor-0.11.1.xpi
 ublock-origin
-1.45.2
-https://addons.mozilla.org/firefox/downloads/file/4028976/ublock_origin-1.45.2.xpi
+1.46.0
+https://addons.mozilla.org/firefox/downloads/file/4047353/ublock_origin-1.46.0.xpi
 ```
 
 ## Chromium
@@ -44,7 +44,7 @@ LocalCDN
 2.6.39
 https://clients2.google.com/service/update2/crx
 uBlock Origin
-1.45.2
+1.46.0
 https://clients2.google.com/service/update2/crx
 JShelter
 0.11.1
