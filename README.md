@@ -47,9 +47,9 @@ directory for Firefox, and the `src/i2p.chromium.*.profile/extensions/*.js/*` di
 
 For platform specific instructions, see
 
-- [LINUX.md](LINUX.md)/[LINUX.html](LINUX.html)
-- [OSX.md](OSX.md)/[OSX.html](OSX.html)
-- [WINDOWS.md](WINDOWS.md)/[WINDOWS.html](WINDOWS.html)
+- [LINUX.md](docs/LINUX.md)/[LINUX.html](docs/LINUX.html)
+- [OSX.md](docs/OSX.md)/[OSX.html](docs/OSX.html)
+- [WINDOWS.md](docs/WINDOWS.md)/[WINDOWS.html](docs/WINDOWS.html)
 
 #### All platforms, using a zip: `.zip` and a non-bundled Java
 
