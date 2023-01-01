@@ -35,3 +35,4 @@ i2p.plugins.firefox/
 /systray.running
 /.cache
 /.mozilla
+/i2p.plugins.firefox.torrent.zip

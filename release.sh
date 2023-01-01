@@ -86,6 +86,15 @@ github-release upload --user "${GITHUB_USER}" \
     --name "i2pfirefox-update.su3" \
     --file "i2pfirefox-update.su3"
 echo "Uploaded su3 package"
+torsum=$(sha256sum i2p.plugins.firefox.torrent.zip)
+github-release upload --user "${GITHUB_USER}" \
+    --replace \
+    --repo "${GITHUB_REPO}" \
+    --tag "${GITHUB_TAG}" \
+    --label "I2P Browser launcher as an I2P Console Plugin, release torrent. ${torsum}" \
+    --name "i2p.plugins.firefox.torrent.zip" \
+    --file "i2p.plugins.firefox.torrent.zip"
+echo "Uploaded torrent package"
 
 git pull github --tags
 git push --all

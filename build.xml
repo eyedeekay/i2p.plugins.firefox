@@ -407,10 +407,9 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
             <arg value="i2p.plugins.firefox" />
             <arg value="i2p.plugins.firefox.torrent" />
         </exec>
-        <exec executable="cp">
-            <arg value="-rv" />
-            <arg value="i2p.plugins.firefox" />
-            <arg value="i2p.plugins.firefox.torrent" />
+        <exec executable="unzip">
+            <arg value="i2p.plugins.firefox.torrent.zip" />
+            <arg value="-d" />
             <arg value="${user.home}/.i2p/i2psnark/" />
         </exec>
     </target>
