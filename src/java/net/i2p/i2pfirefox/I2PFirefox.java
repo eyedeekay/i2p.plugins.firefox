@@ -27,12 +27,12 @@ import java.util.stream.Stream;
  * @author idk
  * @since 0.0.1
  */
-public class I2PFirefox extends I2PCommonBrowser {
+public class I2PFirefox extends I2PFirefoxProfileUnpacker {
   private final String[] FIREFOX_SEARCH_PATHS = FIREFOX_FINDER();
   private Process process = null;
   public static boolean usability = false;
 
-  private static String baseMode() {
+  private String baseMode() {
     if (usability)
       return "usability";
     return "base";
@@ -55,7 +55,7 @@ public class I2PFirefox extends I2PCommonBrowser {
     }
   }
 
-  public static void storeFirefoxDefaults() {
+  public void storeFirefoxDefaults() {
     List<String> list = new ArrayList<String>();
     list = Arrays.asList(firefoxPathsWindows());
     prop.setProperty("firefox.paths.windows",
@@ -84,7 +84,7 @@ public class I2PFirefox extends I2PCommonBrowser {
     }
   }
 
-  public static String[] firefoxPathsUnix() {
+  public String[] firefoxPathsUnix() {
     String firefoxPathsProp = prop.getProperty("firefox.paths.unix");
     if (firefoxPathsProp != null)
       if (!firefoxPathsProp.equals(""))
@@ -93,7 +93,7 @@ public class I2PFirefox extends I2PCommonBrowser {
                          "/snap/bin"};
   }
 
-  public static String[] firefoxBinsUnix() {
+  public String[] firefoxBinsUnix() {
     String firefoxPathsProp;
     if (isOSX()) {
       firefoxPathsProp = prop.getProperty("firefox.bins.osx");
@@ -110,7 +110,7 @@ public class I2PFirefox extends I2PCommonBrowser {
                          "waterfox", "waterfox-bin", "librewolf"};
   }
 
-  private static String[] FIND_FIREFOX_SEARCH_PATHS_UNIX() {
+  private String[] FIND_FIREFOX_SEARCH_PATHS_UNIX() {
     String[] path = firefoxPathsUnix();
     String[] exes = firefoxBinsUnix();
     String[] exePath = new String[path.length * exes.length];
@@ -123,7 +123,7 @@ public class I2PFirefox extends I2PCommonBrowser {
     }
     return exePath;
   }
-  public static String[] firefoxPathsOSX() {
+  public String[] firefoxPathsOSX() {
     String firefoxPathsProp = prop.getProperty("firefox.paths.osx");
     if (firefoxPathsProp != null)
       if (!firefoxPathsProp.equals(""))
@@ -133,7 +133,7 @@ public class I2PFirefox extends I2PCommonBrowser {
                          "/Applications/Waterfox.app/Contents/MacOS",
                          "/Applications/Librewolf.app/Contents/MacOS"};
   }
-  private static String[] FIND_FIREFOX_SEARCH_PATHS_OSX() {
+  private String[] FIND_FIREFOX_SEARCH_PATHS_OSX() {
     String[] path = firefoxPathsOSX();
     String[] exes = firefoxBinsUnix();
     String[] exePath = new String[path.length * exes.length];
@@ -146,7 +146,7 @@ public class I2PFirefox extends I2PCommonBrowser {
     }
     return exePath;
   }
-  public static String[] firefoxPathsWindows() {
+  public String[] firefoxPathsWindows() {
     String firefoxPathsProp = prop.getProperty("firefox.paths.windows");
     if (firefoxPathsProp != null)
       if (!firefoxPathsProp.equals(""))
@@ -179,7 +179,7 @@ public class I2PFirefox extends I2PCommonBrowser {
         new File(programFiles, "Librewolf/").toString(),
     };
   }
-  private static String[] firefoxBinsWindows() {
+  private String[] firefoxBinsWindows() {
     String firefoxPathsProp = prop.getProperty("firefox.bins.windows");
     if (firefoxPathsProp != null)
       if (!firefoxPathsProp.equals(""))
@@ -189,7 +189,7 @@ public class I2PFirefox extends I2PCommonBrowser {
         "waterfox.exe", "waterfox-bin.exe", "librewolf.exe",
     };
   }
-  private static String[] FIND_FIREFOX_SEARCH_PATHS_WINDOWS() {
+  private String[] FIND_FIREFOX_SEARCH_PATHS_WINDOWS() {
     String[] path = firefoxPathsWindows();
     String[] exes = firefoxBinsWindows();
     String[] exePath = new String[path.length * exes.length];
@@ -203,7 +203,7 @@ public class I2PFirefox extends I2PCommonBrowser {
     return exePath;
   }
 
-  private static String[] FIND_ALL_FIREFOX_SEARCH_PATHS() {
+  private String[] FIND_ALL_FIREFOX_SEARCH_PATHS() {
     String[] Unix = FIND_FIREFOX_SEARCH_PATHS_UNIX();
     String[] Windows = FIND_FIREFOX_SEARCH_PATHS_WINDOWS();
     String[] Mac = FIND_FIREFOX_SEARCH_PATHS_OSX();
@@ -223,7 +223,7 @@ public class I2PFirefox extends I2PCommonBrowser {
     }
     return exePath;
   }
-  private static String[] FIND_FIREFOX_SEARCH_PATHS() {
+  private String[] FIND_FIREFOX_SEARCH_PATHS() {
     switch (getOperatingSystem()) {
     case "Windows":
       return FIND_FIREFOX_SEARCH_PATHS_WINDOWS();
@@ -238,7 +238,7 @@ public class I2PFirefox extends I2PCommonBrowser {
     }
   }
 
-  private static String[] NEARBY_FIREFOX_SEARCH_PATHS() {
+  private String[] NEARBY_FIREFOX_SEARCH_PATHS() {
     // obtain the PLUGIN environment variable
     // crashreporterFolder := utl.CreateFolder(app.DataPath, "crashreporter")
     // pluginsFolder := utl.CreateFolder(app.DataPath, "plugins")
@@ -334,7 +334,7 @@ public class I2PFirefox extends I2PCommonBrowser {
 
     return new String[] {};
   }
-  private static String[] FIREFOX_FINDER() {
+  private String[] FIREFOX_FINDER() {
     String[] nearby = NEARBY_FIREFOX_SEARCH_PATHS();
     String[] all = FIND_FIREFOX_SEARCH_PATHS();
 
@@ -558,7 +558,7 @@ public class I2PFirefox extends I2PCommonBrowser {
       newArgs[0] = firefox;
       newArgs[1] = "--new-instance";
       newArgs[2] = "--profile";
-      newArgs[3] = I2PFirefoxProfileBuilder.profileDirectory(app, baseMode());
+      newArgs[3] = this.profileDirectory(app, baseMode());
       if (args != null) {
         if (arglength > 0) {
           for (int i = 0; i < arglength; i++) {
@@ -596,7 +596,7 @@ public class I2PFirefox extends I2PCommonBrowser {
             bashScript.setExecutable(true);
           }
           ProcessBuilder pb = new ProcessBuilder(bashScript.getAbsolutePath());
-          File rtd = I2PFirefoxProfileBuilder.runtimeDirectory(true);
+          File rtd = this.runtimeDirectory(true);
           pb.directory(rtd);
           String crashreporterFolder =
               new File(rtd.getAbsolutePath(), "crashreporter").toString();
@@ -624,7 +624,7 @@ public class I2PFirefox extends I2PCommonBrowser {
         return null;
       } else {
         ProcessBuilder pb = new ProcessBuilder(newArgs);
-        File rtd = I2PFirefoxProfileBuilder.runtimeDirectory(true);
+        File rtd = this.runtimeDirectory(true);
         pb.directory(rtd);
         String crashreporterFolder =
             new File(rtd.getAbsolutePath(), "crashreporter").toString();
@@ -652,7 +652,7 @@ public class I2PFirefox extends I2PCommonBrowser {
     } // else {
     logger.info("No Firefox found.");
     ProcessBuilder pb = new ProcessBuilder(args);
-    File rtd = I2PFirefoxProfileBuilder.runtimeDirectory(true);
+    File rtd = this.runtimeDirectory(true);
     pb.directory(rtd);
     String crashreporterFolder =
         new File(rtd.getAbsolutePath(), "crashreporter").toString();
@@ -697,15 +697,13 @@ public class I2PFirefox extends I2PCommonBrowser {
     if (privateWindow == 2)
       app = true;
     if (waitForProxy()) {
-      String profileDirectory =
-          I2PFirefoxProfileBuilder.profileDirectory(app, baseMode());
-      if (I2PFirefoxProfileChecker.validateProfileDirectory(profileDirectory)) {
+      String profileDirectory = this.profileDirectory(app, baseMode());
+      if (this.validateProfileDirectory(profileDirectory)) {
         logger.info("Valid profile directory: " + profileDirectory);
       } else {
         logger.info("Invalid profile directory: " + profileDirectory +
                     " rebuilding...");
-        if (!I2PFirefoxProfileBuilder.copyBaseProfiletoProfile(usabilityMode(),
-                                                               app)) {
+        if (!this.copyBaseProfiletoProfile(usabilityMode(), app)) {
           logger.info("Failed to rebuild profile directory: " +
                       profileDirectory);
           return null;
@@ -829,7 +827,7 @@ public class I2PFirefox extends I2PCommonBrowser {
    */
   public void launch() { launch(false); }
 
-  private static String ValidURL(String inUrl) {
+  private String ValidURL(String inUrl) {
     String[] schemes = {"http", "https"};
     for (String scheme : schemes) {
       if (inUrl.startsWith(scheme)) {
@@ -841,18 +839,18 @@ public class I2PFirefox extends I2PCommonBrowser {
   }
 
   public static void main(String[] args) {
-    validateUserDir();
     int privateBrowsing = 0;
-    logger.info("checking for private browsing");
-    logger.info("I2PFirefox");
     I2PFirefox i2pFirefox = new I2PFirefox();
+    i2pFirefox.validateUserDir();
+    i2pFirefox.logger.info("checking for private browsing");
+    i2pFirefox.logger.info("I2PFirefox");
     ArrayList<String> visitURL = new ArrayList<String>();
     if (args != null) {
       if (args.length > 0) {
         for (String arg : args) {
           if (arg.equals("-private")) {
             privateBrowsing = 1;
-            logger.info(
+            i2pFirefox.logger.info(
                 "private browsing is true, profile will be discarded at end of session");
           }
           if (arg.equals("-usability")) {
@@ -863,12 +861,12 @@ public class I2PFirefox extends I2PCommonBrowser {
             privateBrowsing = 2;
           }
           if (arg.equals("-noproxycheck")) {
-            logger.info("zeroing out proxy check");
+            i2pFirefox.logger.info("zeroing out proxy check");
             i2pFirefox.setProxyTimeoutTime(0);
           }
           if (!arg.startsWith("-")) {
             // check if it's a URL
-            visitURL.add(ValidURL(arg));
+            visitURL.add(i2pFirefox.ValidURL(arg));
           }
         }
       }
@@ -877,7 +875,7 @@ public class I2PFirefox extends I2PCommonBrowser {
                       visitURL.toArray(new String[visitURL.size()]));
   }
 
-  /*private static void sleep(int millis) {
+  /*private void sleep(int millis) {
     try {
       Thread.sleep(millis);
     } catch (InterruptedException bad) {

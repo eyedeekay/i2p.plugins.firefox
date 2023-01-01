@@ -41,7 +41,7 @@ import java.util.Arrays;
  * @author idk
  * @since 0.0.16
  */
-public class I2PBrowser extends I2PCommonBrowser {
+public class I2PBrowser extends I2PGenericUnsafeBrowser {
   private final I2PFirefox i2pFirefox = new I2PFirefox();
   private final I2PChromium i2pChromium = new I2PChromium();
   private final I2PGenericUnsafeBrowser i2pGeneral =
@@ -72,8 +72,8 @@ public class I2PBrowser extends I2PCommonBrowser {
   public boolean chromiumFirst = false;
   public boolean usability = false;
   public int privateBrowsing = 0;
-  static private boolean outputConfig = false;
-  static private boolean useSystray = true;
+  private boolean outputConfig = false;
+  private boolean useSystray = true;
 
   private void launchFirefox(int privateWindow, String[] url) {
     logger.info("I2PFirefox" + privateWindow);
@@ -84,7 +84,7 @@ public class I2PBrowser extends I2PCommonBrowser {
   }
   private void launchChromium(int privateWindow, String[] url) {
     logger.info("I2PChromium" + privateWindow);
-    I2PChromiumProfileBuilder.usability = usability;
+    i2pChromium.usability = usability;
     if (outputConfig)
       i2pChromium.storeChromiumDefaults();
     i2pChromium.launch(privateWindow, url);
@@ -114,13 +114,11 @@ public class I2PBrowser extends I2PCommonBrowser {
    * @since 0.0.18
    */
   public I2PBrowser(String browserPath) {
-    I2PGenericUnsafeBrowser.BROWSER = browserPath;
+    this.BROWSER = browserPath;
     initIconFile();
   }
 
-  public void setBrowser(String browserPath) {
-    I2PGenericUnsafeBrowser.BROWSER = browserPath;
-  }
+  public void setBrowser(String browserPath) { this.BROWSER = browserPath; }
 
   /**
    * Return true if there is a Chromium available
@@ -226,7 +224,7 @@ public class I2PBrowser extends I2PCommonBrowser {
    */
   public void launch() { launch(false); }
 
-  private static String ValidURL(String inUrl) {
+  private String ValidURL(String inUrl) {
     String[] schemes = {"http", "https"};
     for (String scheme : schemes) {
       if (inUrl.startsWith(scheme)) {
@@ -306,7 +304,7 @@ public class I2PBrowser extends I2PCommonBrowser {
     this.launch(this.privateBrowsing,
                 visitURL.toArray(new String[visitURL.size()]));
   }
-  protected static boolean createSystrayRunningFile() {
+  protected boolean createSystrayRunningFile() {
     if (!systrayRunningExternally()) {
       try {
         File systrayIsRunningFile =
@@ -322,7 +320,7 @@ public class I2PBrowser extends I2PCommonBrowser {
     }
     return false;
   }
-  protected static boolean systrayRunningExternally() {
+  protected boolean systrayRunningExternally() {
     File systrayIsRunningFile =
         new File(runtimeDirectory(""), "systray.running");
     if (systrayIsRunningFile.exists()) {

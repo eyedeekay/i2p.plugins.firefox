@@ -23,9 +23,9 @@ import java.nio.file.StandardCopyOption;
  * @author idk
  * @since 0.0.1
  */
-public class I2PFirefoxProfileBuilder extends I2PCommonBrowser {
-  private static boolean strict;
-  private static String userChromeCSS() {
+public class I2PFirefoxProfileBuilder extends I2PFirefoxProfileChecker {
+  private boolean strict;
+  private String userChromeCSS() {
     String ret =
         "@namespace url(\"http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul\")\n";
 
@@ -98,20 +98,11 @@ public class I2PFirefoxProfileBuilder extends I2PCommonBrowser {
    *
    * @return the profile directory, or null if it could not be created
    */
-  // public static String profileDirectory() {
+  // public String profileDirectory() {
   //   return profileDirectory("I2P_FIREFOX_PROFILE", "firefox", false);
   // }
 
-  /**
-   * get the profile directory, creating it if necessary
-   *
-   * @return the profile directory, or null if it could not be created
-   */
-  public static String profileDirectory(boolean app, String base) {
-    return profileDirectory("I2P_FIREFOX_PROFILE", "firefox", base, app);
-  }
-
-  private static String baseProfileDir(String file, String base) {
+  private String baseProfileDir(String file, String base) {
     File profileDir = new File(file, "i2p.firefox." + base + ".profile");
     // make sure the directory exists
     if (profileDir.exists()) {
@@ -131,7 +122,7 @@ public class I2PFirefoxProfileBuilder extends I2PCommonBrowser {
    *
    * @return the base profile directory, or null if it could not be created
    */
-  public static String baseProfileDirectory(String base) {
+  public String baseProfileDirectory(String base) {
     String pd = System.getenv("I2P_FIREFOX_BASE_PROFILE");
     if (pd != null && !pd.isEmpty()) {
       File pdf = new File(pd);
@@ -155,7 +146,7 @@ public class I2PFirefoxProfileBuilder extends I2PCommonBrowser {
    * @return the runtime directory, or null if it could not be created
    * @since 0.0.1
    */
-  public static File runtimeDirectory(boolean create) {
+  public File runtimeDirectory(boolean create) {
     String rtd = runtimeDirectory();
     return runtimeDirectory(create, rtd);
   }
@@ -166,7 +157,7 @@ public class I2PFirefoxProfileBuilder extends I2PCommonBrowser {
    * @return the runtime directory, or null if it could not be created or found
    * @since 0.0.1
    */
-  public static String runtimeDirectory() {
+  public String runtimeDirectory() {
     // get the I2P_FIREFOX_DIR environment variable
     String rtd = System.getenv("I2P_FIREFOX_DIR");
     // if it is not null and not empty
@@ -186,7 +177,7 @@ public class I2PFirefoxProfileBuilder extends I2PCommonBrowser {
    *
    * @since 0.0.1
    */
-  public static boolean copyBaseProfiletoProfile(String base, boolean app) {
+  public boolean copyBaseProfiletoProfile(String base, boolean app) {
     String baseProfile = baseProfileDirectory(base);
     String profile = profileDirectory(app, base);
     logger.info("Copying base profile to profile directory: " + baseProfile +
@@ -219,7 +210,7 @@ public class I2PFirefoxProfileBuilder extends I2PCommonBrowser {
     return copyStrictOptions(base, app);
   }
 
-  protected static boolean writeAppChrome(String profile) {
+  protected boolean writeAppChrome(String profile) {
     File dir = new File(profile, "chrome");
     if (!dir.exists())
       dir.mkdirs();
@@ -232,7 +223,7 @@ public class I2PFirefoxProfileBuilder extends I2PCommonBrowser {
     }
     return true;
   }
-  protected static boolean deleteAppChrome(String profile) {
+  protected boolean deleteAppChrome(String profile) {
     File dir = new File(profile, "chrome");
     if (!dir.exists())
       return true;
@@ -247,7 +238,7 @@ public class I2PFirefoxProfileBuilder extends I2PCommonBrowser {
    * @return true if successful, false otherwise
    * @since 0.0.1
    */
-  public static boolean copyStrictOptions(String base, boolean app) {
+  public boolean copyStrictOptions(String base, boolean app) {
     logger.info("Checking strict options");
     String baseProfile = baseProfileDirectory(base);
     String profile = profileDirectory(app, base);
@@ -282,21 +273,21 @@ public class I2PFirefoxProfileBuilder extends I2PCommonBrowser {
     return true;
   }
 
-  public static void setupUserChrome(File profileDir, boolean app) {
+  public void setupUserChrome(File profileDir, boolean app) {
     File workingUserOverrides = new File(profileDir, "user-overrides.js");
     logger.info(workingUserOverrides.getAbsolutePath());
     if (workingUserOverrides.exists()) {
       logger.info("Checking app mode settings");
       if (app) {
         logger.info("Setting profile to app mode");
-        I2PFirefoxProfileChecker.undoValue(
+        this.undoValue(
             "toolkit.legacyUserProfileCustomizations.stylesheets\", false",
             "toolkit.legacyUserProfileCustomizations.stylesheets\", true",
             workingUserOverrides);
         writeAppChrome(profileDir.toString());
       } else {
         logger.info("Taking profile out of app mode");
-        I2PFirefoxProfileChecker.undoValue(
+        this.undoValue(
             "toolkit.legacyUserProfileCustomizations.stylesheets\", true",
             "toolkit.legacyUserProfileCustomizations.stylesheets\", false",
             workingUserOverrides);
@@ -310,14 +301,14 @@ public class I2PFirefoxProfileBuilder extends I2PCommonBrowser {
       logger.info("Checking app mode settings");
       if (app) {
         logger.info("Setting profile to app mode");
-        I2PFirefoxProfileChecker.undoValue(
+        this.undoValue(
             "toolkit.legacyUserProfileCustomizations.stylesheets\", false",
             "toolkit.legacyUserProfileCustomizations.stylesheets\", true",
             workingPrefOverrides);
         writeAppChrome(profileDir.toString());
       } else {
         logger.info("Taking profile out of app mode");
-        I2PFirefoxProfileChecker.undoValue(
+        this.undoValue(
             "toolkit.legacyUserProfileCustomizations.stylesheets\", true",
             "toolkit.legacyUserProfileCustomizations.stylesheets\", false",
             workingPrefOverrides);
@@ -331,7 +322,7 @@ public class I2PFirefoxProfileBuilder extends I2PCommonBrowser {
    *
    * @since 0.0.1
    */
-  public I2PFirefoxProfileBuilder() { I2PFirefoxProfileBuilder.strict = false; }
+  public I2PFirefoxProfileBuilder() { this.strict = false; }
 
   /**
    * Construct a new Profile Builder
@@ -339,7 +330,5 @@ public class I2PFirefoxProfileBuilder extends I2PCommonBrowser {
    *
    * @since 0.0.1
    */
-  public I2PFirefoxProfileBuilder(boolean strict) {
-    I2PFirefoxProfileBuilder.strict = strict;
-  }
+  public I2PFirefoxProfileBuilder(boolean strict) { this.strict = strict; }
 }

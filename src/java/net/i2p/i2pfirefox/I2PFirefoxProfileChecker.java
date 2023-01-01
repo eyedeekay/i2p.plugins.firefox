@@ -30,20 +30,30 @@ public class I2PFirefoxProfileChecker extends I2PCommonBrowser {
    * @param args unused
    */
   public static void main(String[] args) {
-    String profileDirectory =
-        I2PFirefoxProfileBuilder.profileDirectory(false, "base");
+    I2PFirefoxProfileChecker pc = new I2PFirefoxProfileChecker();
+    String profileDirectory = pc.profileDirectory(false, "base");
     if (profileDirectory == null) {
-      logger.info("No profile directory found");
+      pc.logger.info("No profile directory found");
       return;
     }
-    logger.info("Profile directory: " + profileDirectory);
-    boolean ok = validateProfileDirectory(profileDirectory);
+    pc.logger.info("Profile directory: " + profileDirectory);
+    boolean ok = pc.validateProfileDirectory(profileDirectory);
     if (ok) {
-      logger.info("Profile directory is valid");
+      pc.logger.info("Profile directory is valid");
     } else {
-      logger.info("Profile directory is invalid");
+      pc.logger.info("Profile directory is invalid");
     }
   }
+
+  /**
+   * get the profile directory, creating it if necessary
+   *
+   * @return the profile directory, or null if it could not be created
+   */
+  public String profileDirectory(boolean app, String base) {
+    return profileDirectory("I2P_FIREFOX_PROFILE", "firefox", base, app);
+  }
+
   /**
    * Return true if the profile directory is valid.
    *
@@ -51,7 +61,7 @@ public class I2PFirefoxProfileChecker extends I2PCommonBrowser {
    * @return true if the profile directory is valid, false otherwise
    * @since 0.0.1
    */
-  public static boolean validateProfileDirectory(String profileDirectory) {
+  public boolean validateProfileDirectory(String profileDirectory) {
     File profileDir = new File(profileDirectory);
     if (!profileDir.exists()) {
       logger.info("Profile directory does not exist");
@@ -84,7 +94,7 @@ public class I2PFirefoxProfileChecker extends I2PCommonBrowser {
     return deRestrictHTTPSAndSetupHomepage(profileDir.toString());
   }
 
-  private static boolean deRestrictHTTPSAndSetupHomepage(String profile) {
+  private boolean deRestrictHTTPSAndSetupHomepage(String profile) {
     // String profile = profileDirectory();
     File profileDir = new File(profile);
     if (profileDir.exists()) {
@@ -107,13 +117,13 @@ public class I2PFirefoxProfileChecker extends I2PCommonBrowser {
     return false;
   }
 
-  private static boolean undoHttpsOnlyMode(File fileToBeModified) {
+  private boolean undoHttpsOnlyMode(File fileToBeModified) {
     String oldString = "\"dom.security.https_only_mode\", true";
     String newString = "\"dom.security.https_only_mode\", false";
     return undoValue(oldString, newString, fileToBeModified);
   }
 
-  private static boolean undoHomepage(File fileToBeModified) {
+  private boolean undoHomepage(File fileToBeModified) {
     String oldString = "\"browser.startup.homepage\", true";
     File file = new File("Student.txt");
     String newString =
@@ -135,8 +145,8 @@ public class I2PFirefoxProfileChecker extends I2PCommonBrowser {
     return true;
   }
 
-  public static boolean undoValue(String oldString, String newString,
-                                  File fileToBeModified) {
+  public boolean undoValue(String oldString, String newString,
+                           File fileToBeModified) {
     String oldContent = "";
     BufferedReader reader = null;
     FileWriter writer = null;
@@ -170,7 +180,7 @@ public class I2PFirefoxProfileChecker extends I2PCommonBrowser {
    * @return true if the file is valid, false otherwise
    * @since 0.0.1
    */
-  public static boolean validateFile(String file) {
+  public boolean validateFile(String file) {
     File f = new File(file);
     if (!f.exists()) {
       logger.info("User JavaScript file does not exist");
@@ -197,7 +207,7 @@ public class I2PFirefoxProfileChecker extends I2PCommonBrowser {
    * @return true if the extension directory is valid, false otherwise
    * @since 0.0.1
    */
-  public static boolean validateExtensionDirectory(String extensionDirectory) {
+  public boolean validateExtensionDirectory(String extensionDirectory) {
     File extensionDir = new File(extensionDirectory);
     if (!extensionDir.exists()) {
       logger.info("Extension directory does not exist");

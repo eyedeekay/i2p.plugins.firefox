@@ -33,11 +33,10 @@ import java.util.zip.ZipInputStream;
  */
 
 public class I2PCommonBrowser {
-  static public Properties prop = new Properties();
-  static public Logger logger = Logger.getLogger("browserlauncher");
-  static FileHandler fh;
-  // private final int DEFAULT_TIMEOUT = 200;
-  private static int CONFIGURED_TIMEOUT = 200;
+  public Properties prop = new Properties();
+  public Logger logger = Logger.getLogger("browserlauncher");
+  private FileHandler fh;
+  static int CONFIGURED_TIMEOUT = 200;
 
   public I2PCommonBrowser() {
     try {
@@ -56,7 +55,7 @@ public class I2PCommonBrowser {
     loadPropertiesFile(new File(runtimeDirectory(""), "browser.config"));
   }
 
-  public static void loadPropertiesFile(File props) {
+  public void loadPropertiesFile(File props) {
     try (InputStream propsInput = new FileInputStream(props)) {
       prop = new Properties();
       prop.load(propsInput);
@@ -66,7 +65,7 @@ public class I2PCommonBrowser {
     }
   }
 
-  public static void validateUserDir() {
+  public void validateUserDir() {
     logger.info("Validating user directory");
     String userDir = System.getProperty("user.dir");
     String userHome = System.getProperty("user.home");
@@ -111,7 +110,7 @@ public class I2PCommonBrowser {
     }
     System.setProperty("user.dir", defaultPathFile.getAbsolutePath());
   }
-  public static String getOperatingSystem() {
+  public String getOperatingSystem() {
     String os = System.getProperty("os.name");
     if (os.startsWith("Windows")) {
       return "Windows";
@@ -125,7 +124,7 @@ public class I2PCommonBrowser {
     return "Unknown";
   }
 
-  protected static boolean isWindows() {
+  protected boolean isWindows() {
     String osName = System.getProperty("os.name");
     logger.info("os.name" + osName);
     if (osName.contains("windows"))
@@ -137,7 +136,7 @@ public class I2PCommonBrowser {
     return false;
   }
 
-  protected static boolean isOSX() {
+  protected boolean isOSX() {
     String osName = System.getProperty("os.name");
     logger.info("os.name" + osName);
     if (osName.contains("OSX"))
@@ -159,9 +158,9 @@ public class I2PCommonBrowser {
     return false;
   }
 
-  //  public static void logger.info(String line) { logger.info(line); }
+  //  public void logger.info(String line) { logger.info(line); }
 
-  private static File logFile() {
+  private File logFile() {
     validateUserDir();
     String userDir = System.getProperty("user.dir");
     File log = new File(userDir, "logs");
@@ -177,7 +176,7 @@ public class I2PCommonBrowser {
    * @return the runtime directory, or null if it could not be created
    * @since 0.0.19
    */
-  protected static File runtimeDirectory(boolean create, String override) {
+  protected File runtimeDirectory(boolean create, String override) {
     String rtd = runtimeDirectory(override);
     File rtdFile = new File(rtd);
     if (create) {
@@ -194,7 +193,7 @@ public class I2PCommonBrowser {
    * @return the runtime directory, or null if it could not be created or found
    * @since 0.0.19
    */
-  protected static String runtimeDirectory(String override) {
+  protected String runtimeDirectory(String override) {
     // get the I2P_BROWSER_DIR environment variable
     String rtd = System.getenv(override);
     // if it is not null and not empty
@@ -241,8 +240,8 @@ public class I2PCommonBrowser {
    * @return the profile directory, or null if it could not be created
    * @since 0.0.19
    */
-  protected static String profileDirectory(String envVar, String browser,
-                                           String base, boolean app) {
+  protected String profileDirectory(String envVar, String browser, String base,
+                                    boolean app) {
     String pd = System.getenv(envVar);
     if (pd != null && !pd.isEmpty()) {
       File pdf = new File(pd);
@@ -254,8 +253,8 @@ public class I2PCommonBrowser {
     return profileDir(rtd, browser, base, app);
   }
 
-  protected static String profileDir(String file, String browser, String base,
-                                     boolean app) {
+  protected String profileDir(String file, String browser, String base,
+                              boolean app) {
     String appString = "";
     if (app) {
       appString = ".app";
@@ -310,9 +309,8 @@ public class I2PCommonBrowser {
     return true;
   }
 
-  protected static void copyDirectory(File sourceDirectory,
-                                      File destinationDirectory, String browser,
-                                      String base) throws IOException {
+  protected void copyDirectory(File sourceDirectory, File destinationDirectory,
+                               String browser, String base) throws IOException {
     destinationDirectory = new File(destinationDirectory.toString().replace(
         "i2p." + browser + "." + base + ".profile", ""));
     if (!destinationDirectory.exists()) {
@@ -325,9 +323,9 @@ public class I2PCommonBrowser {
     }
   }
 
-  private static void
-  copyDirectoryCompatibilityMode(File source, File destination, String browser,
-                                 String base) throws IOException {
+  private void copyDirectoryCompatibilityMode(File source, File destination,
+                                              String browser, String base)
+      throws IOException {
     if (source.isDirectory()) {
       copyDirectory(source, destination, browser, base);
     } else {
@@ -335,8 +333,7 @@ public class I2PCommonBrowser {
     }
   }
 
-  public static void copy(InputStream source, OutputStream target)
-      throws IOException {
+  public void copy(InputStream source, OutputStream target) throws IOException {
     byte[] buf = new byte[8192];
     int length;
     while ((length = source.read(buf)) != -1) {
@@ -344,7 +341,7 @@ public class I2PCommonBrowser {
     }
   }
 
-  private static void copyFile(File sourceFile, File destinationFile)
+  private void copyFile(File sourceFile, File destinationFile)
       throws IOException {
     try (InputStream in = new FileInputStream(sourceFile);
          OutputStream out = new FileOutputStream(destinationFile)) {
@@ -356,7 +353,7 @@ public class I2PCommonBrowser {
     }
   }
 
-  public static boolean validateProfileFirstRun(String profileDirectory) {
+  public boolean validateProfileFirstRun(String profileDirectory) {
     File profileDir = new File(profileDirectory);
     if (!profileDir.exists()) {
       logger.info("Profile directory does not exist");
@@ -457,7 +454,7 @@ public class I2PCommonBrowser {
   /**
    *
    */
-  protected static String join(String[] arr) {
+  protected String join(String[] arr) {
     StringBuilder val = new StringBuilder("");
     for (int x = 0; x < arr.length; x++) {
       val.append(" \"");
@@ -466,7 +463,7 @@ public class I2PCommonBrowser {
     }
     return val.toString();
   }
-  public static void sleep(int millis) {
+  public void sleep(int millis) {
     try {
       Thread.sleep(millis);
     } catch (InterruptedException bad) {
@@ -474,7 +471,7 @@ public class I2PCommonBrowser {
       throw new RuntimeException(bad);
     }
   }
-  public static File searchFile(File file, String search) {
+  public File searchFile(File file, String search) {
     if (file.isDirectory()) {
       File[] arr = file.listFiles();
       for (File f : arr) {

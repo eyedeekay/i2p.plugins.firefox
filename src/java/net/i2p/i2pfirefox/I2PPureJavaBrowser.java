@@ -6,7 +6,7 @@ import java.io.File;
 
 public class I2PPureJavaBrowser extends I2PCommonBrowser {
     private final int DEFAULT_TIMEOUT = 200;
-    public static String BROWSER = "";
+    public String BROWSER = "";
 
     //
     public ProcessBuilder baseProcessBuilder(String[] args) {
@@ -18,7 +18,7 @@ public class I2PPureJavaBrowser extends I2PCommonBrowser {
      *
      * @return true if successful, false if not
      */
-    public static boolean deleteRuntimeDirectory() {
+    public boolean deleteRuntimeDirectory() {
       File rtd = runtimeDirectory(true);
       if (rtd.exists()) {
         rtd.delete();
@@ -34,7 +34,7 @@ public class I2PPureJavaBrowser extends I2PCommonBrowser {
      * @return the runtime directory, or null if it could not be created
      * @since 0.0.18
      */
-    public static File runtimeDirectory(boolean create) {
+    public File runtimeDirectory(boolean create) {
       String rtd = runtimeDirectory();
       return runtimeDirectory(create, rtd);
     }
@@ -46,7 +46,7 @@ public class I2PPureJavaBrowser extends I2PCommonBrowser {
      *     found
      * @since 0.0.18
      */
-    public static String runtimeDirectory() {
+    public String runtimeDirectory() {
       // get the I2P_BROWSER_DIR environment variable
       String rtd = System.getenv("I2P_BROWSER_DIR");
       // if it is not null and not empty

@@ -27,7 +27,7 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
     cam.notify(this, ClientAppState.INITIALIZED,
                "Profile Manager Systray Plugin Initialized", null);
   }
-  private static File threadLogFile() {
+  private File threadLogFile() {
     validateUserDir();
     String userDir = System.getProperty("user.dir");
     File log = new File(userDir, "logs");

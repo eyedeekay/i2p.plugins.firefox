@@ -26,7 +26,7 @@ import java.util.stream.Stream;
  * @author idk
  * @since 0.0.1
  */
-public class I2PChromium extends I2PCommonBrowser {
+public class I2PChromium extends I2PChromiumProfileUnpacker {
   private final String[] CHROMIUM_SEARCH_PATHS = CHROMIUM_FINDER();
   private Process p = null;
 
@@ -54,10 +54,10 @@ public class I2PChromium extends I2PCommonBrowser {
         return;
       }
     }
-    I2PChromiumProfileBuilder.usability = true;
+    this.usability = true;
   }
 
-  public static void storeChromiumDefaults() {
+  public void storeChromiumDefaults() {
     List<String> list = new ArrayList<String>();
     list = Arrays.asList(chromiumPathsWindows());
     prop.setProperty("chromium.paths.windows",
@@ -86,7 +86,7 @@ public class I2PChromium extends I2PCommonBrowser {
     }
   }
 
-  private static String[] chromiumPathsUnix() {
+  private String[] chromiumPathsUnix() {
     String chromiumPathsProp = prop.getProperty("chromium.paths.unix");
     if (chromiumPathsProp != null)
       if (!chromiumPathsProp.equals(""))
@@ -95,7 +95,7 @@ public class I2PChromium extends I2PCommonBrowser {
                          "/snap/bin"};
   }
 
-  private static String[] chromiumBinsUnix() {
+  private String[] chromiumBinsUnix() {
     String chromiumPathsProp;
     if (isOSX()) {
       chromiumPathsProp = prop.getProperty("chromium.bins.osx");
@@ -111,7 +111,7 @@ public class I2PChromium extends I2PCommonBrowser {
         "ungoogled-chromium", "chromium", "brave", "edge", "msedge", "chrome"};
   }
 
-  private static String[] FIND_CHROMIUM_SEARCH_PATHS_UNIX() {
+  private String[] FIND_CHROMIUM_SEARCH_PATHS_UNIX() {
     String[] path = chromiumPathsUnix();
     String[] exes = chromiumBinsUnix();
 
@@ -125,7 +125,7 @@ public class I2PChromium extends I2PCommonBrowser {
     }
     return exePath;
   }
-  private static String[] chromiumPathsOSX() {
+  private String[] chromiumPathsOSX() {
     String chromiumPathsProp = prop.getProperty("chromium.paths.osx");
     if (chromiumPathsProp != null)
       if (!chromiumPathsProp.equals(""))
@@ -134,7 +134,7 @@ public class I2PChromium extends I2PCommonBrowser {
                          "/Applications/Chrome.app/Contents/MacOS",
                          "/Applications/Brave.app/Contents/MacOS"};
   }
-  private static String[] FIND_CHROMIUM_SEARCH_PATHS_OSX() {
+  private String[] FIND_CHROMIUM_SEARCH_PATHS_OSX() {
     String[] path = chromiumPathsOSX();
     String[] exes = chromiumBinsUnix();
     String[] exePath = new String[path.length * exes.length];
@@ -148,7 +148,7 @@ public class I2PChromium extends I2PCommonBrowser {
     return exePath;
   }
 
-  private static String[] chromiumPathsWindows() {
+  private String[] chromiumPathsWindows() {
     String chromiumPathsProp = prop.getProperty("chromium.paths.windows");
     if (chromiumPathsProp != null)
       if (!chromiumPathsProp.equals(""))
@@ -181,7 +181,7 @@ public class I2PChromium extends I2PCommonBrowser {
         new File(programFiles, "/Microsoft/Edge/Application/").toString(),
     };
   }
-  private static String[] chromiumBinsWindows() {
+  private String[] chromiumBinsWindows() {
     String chromiumPathsProp = prop.getProperty("chromium.bins.windows");
     if (chromiumPathsProp != null)
       if (!chromiumPathsProp.equals(""))
@@ -193,7 +193,7 @@ public class I2PChromium extends I2PCommonBrowser {
                          "msedge.exe",
                          "chrome.exe"};
   }
-  private static String[] FIND_CHROMIUM_SEARCH_PATHS_WINDOWS() {
+  private String[] FIND_CHROMIUM_SEARCH_PATHS_WINDOWS() {
     String[] path = chromiumPathsWindows();
     String[] exes = chromiumBinsWindows();
     String[] exePath = new String[path.length * exes.length];
@@ -207,7 +207,7 @@ public class I2PChromium extends I2PCommonBrowser {
     return exePath;
   }
 
-  private static String[] FIND_ALL_CHROMIUM_SEARCH_PATHS() {
+  private String[] FIND_ALL_CHROMIUM_SEARCH_PATHS() {
     String[] Unix = FIND_CHROMIUM_SEARCH_PATHS_UNIX();
     String[] Windows = FIND_CHROMIUM_SEARCH_PATHS_WINDOWS();
     String[] Mac = FIND_CHROMIUM_SEARCH_PATHS_OSX();
@@ -227,7 +227,7 @@ public class I2PChromium extends I2PCommonBrowser {
     }
     return exePath;
   }
-  private static String[] FIND_CHROMIUM_SEARCH_PATHS() {
+  private String[] FIND_CHROMIUM_SEARCH_PATHS() {
     switch (getOperatingSystem()) {
     case "Windows":
       return FIND_CHROMIUM_SEARCH_PATHS_WINDOWS();
@@ -241,7 +241,7 @@ public class I2PChromium extends I2PCommonBrowser {
       return FIND_ALL_CHROMIUM_SEARCH_PATHS();
     }
   }
-  private static String[] NEARBY_CHROMIUM_SEARCH_PATHS() {
+  private String[] NEARBY_CHROMIUM_SEARCH_PATHS() {
     // obtain the PLUGIN environment variable
     String plugin = System.getenv("PLUGIN");
     if (plugin != null && !plugin.isEmpty()) {
@@ -334,7 +334,7 @@ public class I2PChromium extends I2PCommonBrowser {
     }
     return new String[] {};
   }
-  private static String[] CHROMIUM_FINDER() {
+  private String[] CHROMIUM_FINDER() {
     String[] nearby = NEARBY_CHROMIUM_SEARCH_PATHS();
     String[] all = FIND_CHROMIUM_SEARCH_PATHS();
 
@@ -551,8 +551,7 @@ public class I2PChromium extends I2PCommonBrowser {
       String[] newArgs = new String[arglength + 32];
       newArgs[0] = chrome;
       newArgs[1] =
-          "--user-data-dir=" + I2PChromiumProfileBuilder.profileDirectory(
-                                   I2PChromiumProfileBuilder.usabilityMode());
+          "--user-data-dir=" + this.profileDirectory(this.usabilityMode());
       newArgs[2] = "--proxy-server=http://127.0.0.1:4444";
       newArgs[3] =
           "--proxy-bypass-list=http://localhost:7657,http://127.0.0.1:7657";
@@ -583,42 +582,39 @@ public class I2PChromium extends I2PCommonBrowser {
       newArgs[28] = "--referrer-directive=noreferrers";
       newArgs[29] = "--force-punycode-hostnames";
       newArgs[30] = "--disable-sharing-hub";
-      if (!I2PChromiumProfileBuilder.usability) {
+      if (!this.usability) {
         newArgs[31] =
             "--load-extension=" +
-            new File(I2PChromiumProfileBuilder.profileDirectory("base"),
-                     "extensions/i2pchrome.js")
+            new File(this.profileDirectory("base"), "extensions/i2pchrome.js")
                 .getAbsolutePath() +
             "," +
-            new File(I2PChromiumProfileBuilder.profileDirectory("base"),
+            new File(this.profileDirectory("base"),
                      "extensions/https-everywhere.js")
                 .getAbsolutePath() +
             "," +
-            new File(I2PChromiumProfileBuilder.profileDirectory("base"),
-                     "extensions/noscript.js")
+            new File(this.profileDirectory("base"), "extensions/noscript.js")
                 .getAbsolutePath();
 
       } else {
         newArgs[31] =
             "--load-extension=" +
-            new File(I2PChromiumProfileBuilder.profileDirectory("usability"),
+            new File(this.profileDirectory("usability"),
                      "extensions/i2pchrome.js")
                 .getAbsolutePath() +
             "," +
-            new File(I2PChromiumProfileBuilder.profileDirectory("usability"),
+            new File(this.profileDirectory("usability"),
                      "extensions/https-everywhere.js")
                 .getAbsolutePath() +
             "," +
-            new File(I2PChromiumProfileBuilder.profileDirectory("usability"),
+            new File(this.profileDirectory("usability"),
                      "extensions/jshelter.js")
                 .getAbsolutePath() +
             "," +
-            new File(I2PChromiumProfileBuilder.profileDirectory("usability"),
+            new File(this.profileDirectory("usability"),
                      "extensions/localcdn.js")
                 .getAbsolutePath() +
             "," +
-            new File(I2PChromiumProfileBuilder.profileDirectory("usability"),
-                     "extensions/ublock.js")
+            new File(this.profileDirectory("usability"), "extensions/ublock.js")
                 .getAbsolutePath();
       }
       if (args != null) {
@@ -650,13 +646,13 @@ public class I2PChromium extends I2PCommonBrowser {
             bashScript.setExecutable(true);
           }
           return new ProcessBuilder(bashScript.getAbsolutePath())
-              .directory(I2PChromiumProfileBuilder.runtimeDirectory(true));
+              .directory(this.runtimeDirectory(true));
         } catch (IOException e) {
           logger.warning(e.toString());
         }
       } else {
         return new ProcessBuilder(newArgs).directory(
-            I2PChromiumProfileBuilder.runtimeDirectory(true));
+            this.runtimeDirectory(true));
       }
     }
     logger.info("No Chromium found.");
@@ -673,15 +669,13 @@ public class I2PChromium extends I2PCommonBrowser {
   public Process launchAndDetatch(int privateWindow, String[] url) {
     validateUserDir();
     if (waitForProxy()) {
-      String profileDirectory = I2PChromiumProfileBuilder.profileDirectory(
-          I2PChromiumProfileBuilder.usabilityMode());
-      if (I2PChromiumProfileChecker.validateProfileDirectory(
-              profileDirectory)) {
+      String profileDirectory = this.profileDirectory(this.usabilityMode());
+      if (this.validateProfileDirectory(profileDirectory)) {
         logger.info("Valid profile directory: " + profileDirectory);
       } else {
         logger.info("Invalid profile directory: " + profileDirectory +
                     " rebuilding...");
-        if (!I2PChromiumProfileBuilder.copyBaseProfiletoProfile()) {
+        if (!this.copyBaseProfiletoProfile()) {
           logger.info("Failed to rebuild profile directory: " +
                       profileDirectory);
           return null;
@@ -770,7 +764,7 @@ public class I2PChromium extends I2PCommonBrowser {
    */
   public void launch() { launch(false); }
 
-  private static String ValidURL(String inUrl) {
+  private String ValidURL(String inUrl) {
     String[] schemes = {"http", "https"};
     for (String scheme : schemes) {
       if (inUrl.startsWith(scheme)) {
@@ -781,37 +775,37 @@ public class I2PChromium extends I2PCommonBrowser {
   }
 
   public static void main(String[] args) {
-    validateUserDir();
     int privateBrowsing = 0;
-    logger.info("I2PChromium");
     I2PChromium i2pChromium = new I2PChromium();
-    logger.info("checking for private browsing");
+    i2pChromium.validateUserDir();
+    i2pChromium.logger.info("I2PChromium");
+    i2pChromium.logger.info("checking for private browsing");
     ArrayList<String> visitURL = new ArrayList<String>();
     if (args != null) {
       if (args.length > 0) {
         for (String arg : args) {
           if (arg.equals("-private")) {
             privateBrowsing = 1;
-            logger.info(
+            i2pChromium.logger.info(
                 "private browsing is true, profile will be discarded at end of session");
           }
           if (arg.equals("-usability")) {
-            I2PChromiumProfileBuilder.usability = true;
+            i2pChromium.usability = true;
           }
           if (arg.equals("-app")) {
             privateBrowsing = 2;
-            I2PChromiumProfileBuilder.usability = true;
+            i2pChromium.usability = true;
           }
           if (arg.equals("-noproxycheck")) {
-            logger.info("zeroing out proxy check");
+            i2pChromium.logger.info("zeroing out proxy check");
             i2pChromium.setProxyTimeoutTime(0);
           }
           if (!arg.startsWith("-")) {
             // check if it's a URL
             if (privateBrowsing == 2)
-              visitURL.add("--app=" + ValidURL(arg));
+              visitURL.add("--app=" + i2pChromium.ValidURL(arg));
             else
-              visitURL.add(ValidURL(arg));
+              visitURL.add(i2pChromium.ValidURL(arg));
           }
         }
       }

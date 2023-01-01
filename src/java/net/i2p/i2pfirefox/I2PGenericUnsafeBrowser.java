@@ -33,13 +33,13 @@ import java.util.stream.Collectors;
 
 public class I2PGenericUnsafeBrowser extends I2PCommonBrowser {
   private final int DEFAULT_TIMEOUT = 200;
-  public static String BROWSER = "";
+  public String BROWSER = "";
   private Process p = null;
   // Ideally, EVERY browser in this list should honor http_proxy, https_proxy,
   // ftp_proxy and no_proxy. in practice, this is going to be hard to guarantee.
   // For now, we're just assuming. So don't use this until I understand the
   // situation better, unless you think you know better.
-  private static String[] browsers() {
+  private String[] browsers() {
     String genericPathsProp = prop.getProperty("generic.bins.unix");
     if (genericPathsProp != null)
       return genericPathsProp.split(",");
@@ -62,7 +62,7 @@ public class I2PGenericUnsafeBrowser extends I2PCommonBrowser {
         "www-browser", "links", "lynx"};
   }
 
-  public static void storeGenericDefaults() {
+  public void storeGenericDefaults() {
     List<String> list = new ArrayList<String>();
 
     list = Arrays.asList(browsers());
@@ -98,7 +98,7 @@ public class I2PGenericUnsafeBrowser extends I2PCommonBrowser {
    *     for execution, or null if not found
    * @since 2.0.0
    */
-  static public String getDefaultWindowsBrowser() {
+  public String getDefaultWindowsBrowser() {
     String defaultBrowser;
     String key;
     // User-Configured HTTPS Browser
@@ -139,7 +139,7 @@ public class I2PGenericUnsafeBrowser extends I2PCommonBrowser {
    *     exist/is empty
    * @since 2.0.0
    */
-  private static String registryQuery(String hkeyquery, String key) {
+  private String registryQuery(String hkeyquery, String key) {
     try {
       // Get registry where we find the default browser
       String[] cmd = {"REG", "QUERY", hkeyquery};
@@ -177,7 +177,7 @@ public class I2PGenericUnsafeBrowser extends I2PCommonBrowser {
    *     hkeyquery, or null
    * @since 2.0.0
    */
-  private static String followUserConfiguredBrowserToCommand(String hkeyquery) {
+  private String followUserConfiguredBrowserToCommand(String hkeyquery) {
     String progIdValue = registryQuery(hkeyquery, "ProgId");
     return followProgIdToCommand(progIdValue);
   }
@@ -193,7 +193,7 @@ public class I2PGenericUnsafeBrowser extends I2PCommonBrowser {
    *     hkeyquery, or null
    * @since 2.0.0
    */
-  private static String followProgIdToCommand(String progid) {
+  private String followProgIdToCommand(String progid) {
     String hkeyquery =
         "HKEY_CLASSES_ROOT\\" + progid + "\\shell\\open\\command";
     String finalValue = registryQuery(hkeyquery, "(Default)");
@@ -212,7 +212,7 @@ public class I2PGenericUnsafeBrowser extends I2PCommonBrowser {
    *     exist/is empty
    * @since 2.0.0
    */
-  private static String getDefaultOutOfRegistry(String hkeyquery) {
+  private String getDefaultOutOfRegistry(String hkeyquery) {
     String defaultValue = registryQuery(hkeyquery, "(Default)");
     if (defaultValue != null) {
       if (!defaultValue.equals(""))
@@ -227,7 +227,7 @@ public class I2PGenericUnsafeBrowser extends I2PCommonBrowser {
     return null;
   }
 
-  private static String scanAPath(String dir) {
+  private String scanAPath(String dir) {
     for (String browser : browsers()) {
       File test = new File(dir, browser);
       if (test.exists()) {
@@ -242,7 +242,7 @@ public class I2PGenericUnsafeBrowser extends I2PCommonBrowser {
    *
    * @return
    */
-  public static String getAnyUnixBrowser() {
+  public String getAnyUnixBrowser() {
     // read the PATH environment variable and split it by ":"
     String[] path = System.getenv("PATH").split(":");
     if (path != null && path.length > 0) {
@@ -261,7 +261,7 @@ public class I2PGenericUnsafeBrowser extends I2PCommonBrowser {
    *
    * @return
    */
-  public static String findUnsafeBrowserAnywhere() {
+  public String findUnsafeBrowserAnywhere() {
     if (BROWSER != "") {
       File f = new File(BROWSER);
       if (f.exists())
@@ -322,7 +322,7 @@ public class I2PGenericUnsafeBrowser extends I2PCommonBrowser {
    *
    * @return true if successful, false if not
    */
-  public static boolean deleteRuntimeDirectory() {
+  public boolean deleteRuntimeDirectory() {
     File rtd = runtimeDirectory(true);
     if (rtd.exists()) {
       rtd.delete();
@@ -338,7 +338,7 @@ public class I2PGenericUnsafeBrowser extends I2PCommonBrowser {
    * @return the runtime directory, or null if it could not be created
    * @since 0.0.18
    */
-  public static File runtimeDirectory(boolean create) {
+  public File runtimeDirectory(boolean create) {
     String rtd = runtimeDirectory();
     return runtimeDirectory(create, rtd);
   }
@@ -350,7 +350,7 @@ public class I2PGenericUnsafeBrowser extends I2PCommonBrowser {
    *     found
    * @since 0.0.18
    */
-  public static String runtimeDirectory() {
+  public String runtimeDirectory() {
     // get the I2P_BROWSER_DIR environment variable
     String rtd = System.getenv("I2P_BROWSER_DIR");
     // if it is not null and not empty
@@ -405,7 +405,7 @@ public class I2PGenericUnsafeBrowser extends I2PCommonBrowser {
     }
   }
 
-  private static String ValidURL(String inUrl) {
+  private String ValidURL(String inUrl) {
     String[] schemes = {"http", "https"};
     for (String scheme : schemes) {
       if (inUrl.startsWith(scheme)) {
@@ -416,7 +416,7 @@ public class I2PGenericUnsafeBrowser extends I2PCommonBrowser {
     return "";
   }
 
-  //
+  /*
   public static void main(String[] args) {
     validateUserDir();
     boolean privateBrowsing = false;
@@ -428,7 +428,8 @@ public class I2PGenericUnsafeBrowser extends I2PCommonBrowser {
           if (arg.equals("-private")) {
             privateBrowsing = true;
             logger.info(
-                "private browsing is true, profile will be discarded at end of session");
+                "private browsing is true, profile will be discarded at end of
+  session");
           }
           if (!arg.startsWith("-")) {
             // check if it's a URL
@@ -441,5 +442,5 @@ public class I2PGenericUnsafeBrowser extends I2PCommonBrowser {
     I2PGenericUnsafeBrowser i2pBrowser = new I2PGenericUnsafeBrowser();
     i2pBrowser.launch(privateBrowsing,
                       visitURL.toArray(new String[visitURL.size()]));
-  }
+  }*/
 }

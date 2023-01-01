@@ -20,19 +20,10 @@ import java.io.File;
  * @author idk
  * @since 0.0.1
  */
-public class I2PChromiumProfileBuilder extends I2PCommonBrowser {
-  public static boolean usability;
+public class I2PChromiumProfileBuilder extends I2PChromiumProfileChecker {
+  public boolean usability;
 
-  /**
-   * get the profile directory, creating it if necessary
-   *
-   * @return the profile directory, or null if it could not be created
-   */
-  public static String profileDirectory(String base) {
-    return profileDirectory("I2P_CHROMIUM_PROFILE", "chromium", base, false);
-  }
-
-  private static String baseProfileDir(String file, String mode) {
+  private String baseProfileDir(String file, String mode) {
     File profileDir = new File(file, "i2p.chromium." + mode + ".profile");
     // make sure the directory exists
     if (profileDir.exists()) {
@@ -52,11 +43,11 @@ public class I2PChromiumProfileBuilder extends I2PCommonBrowser {
    *
    * @return the base profile directory, or null if it could not be created
    */
-  /*public static String baseProfileDirectory() {
+  /*public String baseProfileDirectory() {
     return baseProfileDirectory("base");
   }*/
 
-  public static String baseProfileDirectory(String mode) {
+  public String baseProfileDirectory(String mode) {
     String pd = System.getenv("I2P_CHROMIUM_BASE_PROFILE");
     if (pd != null && !pd.isEmpty()) {
       File pdf = new File(pd);
@@ -80,7 +71,7 @@ public class I2PChromiumProfileBuilder extends I2PCommonBrowser {
    * @return the runtime directory, or null if it could not be created
    * @since 0.0.1
    */
-  public static File runtimeDirectory(boolean create) {
+  public File runtimeDirectory(boolean create) {
     String rtd = runtimeDirectory();
     return runtimeDirectory(create, rtd);
   }
@@ -91,7 +82,7 @@ public class I2PChromiumProfileBuilder extends I2PCommonBrowser {
    * @return the runtime directory, or null if it could not be created or found
    * @since 0.0.1
    */
-  public static String runtimeDirectory() {
+  public String runtimeDirectory() {
     // get the I2P_CHROMIUM_DIR environment variable
     String rtd = System.getenv("I2P_CHROMIUM_DIR");
     // if it is not null and not empty
@@ -106,7 +97,7 @@ public class I2PChromiumProfileBuilder extends I2PCommonBrowser {
     return runtimeDirectory("");
   }
 
-  public static String usabilityMode() {
+  public String usabilityMode() {
     if (usability)
       return "usability";
     return "base";
@@ -117,7 +108,7 @@ public class I2PChromiumProfileBuilder extends I2PCommonBrowser {
    *
    * @since 0.0.1
    */
-  public static boolean copyBaseProfiletoProfile() {
+  public boolean copyBaseProfiletoProfile() {
     String baseProfile = baseProfileDirectory(usabilityMode());
     String profile = profileDirectory(usabilityMode());
     logger.info("Copying base profile to profile directory: " + baseProfile +
