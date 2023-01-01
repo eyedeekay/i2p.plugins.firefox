@@ -401,6 +401,12 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
             <arg value='--output=i2p.plugins.firefox.torrent' />
             <arg value='i2p.plugins.firefox' />
         </exec>
+        <exec executable="zip">
+            <arg value="-r" />
+            <arg value="i2p.plugins.firefox.torrent.zip" />
+            <arg value="i2p.plugins.firefox" />
+            <arg value="i2p.plugins.firefox.torrent" />
+        </exec>
         <exec executable="cp">
             <arg value="-rv" />
             <arg value="i2p.plugins.firefox" />
