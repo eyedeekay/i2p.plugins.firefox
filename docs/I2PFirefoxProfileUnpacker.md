@@ -7,7 +7,7 @@ Description:
  > I2PFirefoxProfileUnpacker.java Copyright C 2022 idk <hankhill19580@gmail.com> This program is free software: you can redistribute it and/or modify it under the terms of the MIT License. See LICENSE.md for details. This program is distributed in the hope that it will be useful but WITHOUT ANY WARRANTY without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. I2PFirefoxProfileUnpacker is a that unpacks the I2P Firefox profile from a zip file embedded in the `jar` file. The zip is unpacked to a base directory where it is left untouched and the base profile is copied to the active profile directory.  
 
 Author: idk   
-Parent class: I2PCommonBrowser  
+Parent class: I2PFirefoxProfileBuilder  
 package: net.i2p.i2pfirefox  
 
 ## Dependencies

@@ -44,7 +44,6 @@ package: net.i2p.i2pfirefox
  >   
 
 + Access: public  
-+ Modifiers: static 
 
 ####  Process p  [[src]](src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L)
 
@@ -58,7 +57,6 @@ package: net.i2p.i2pfirefox
 
 + Description: Obtains the default browser for the Windows platform which by now should be Edgium in the worst-case scenario but in case it isn't we can use this function to figure it out. It can find: 1. The current user's HTTPS default browser if they configured it to be non-default 2. The current user's HTTP default browser if they configured it to be non-default 3. Edgium if it's available 4. iexplore if it's not and it will return the first one we find in exactly that order. Adapted from:   
 + Access: public  
-+ Modifiers: static 
 + return: path to command[0] and target URL[1] to the default browser ready for execution or null if not found   
 
 This method has no parameters.  
@@ -68,7 +66,6 @@ This method has no parameters.
 
 + Description: obtains a value matching a key contained in the windows registry at a path represented by hkeyquery   
 + Access: private  
-+ Modifiers: static 
 + return: either a registry "Default" value or null if one does not exist/is empty   
 
 | Name | Type | Description |  
@@ -81,7 +78,6 @@ This method has no parameters.
 
 + Description: If following a query back to the Default value doesn't work then what we have is a "ProgID" which will be registered in \HKEY_CLASSES_ROOT\%ProgId% and will have an entry \shell\open\command where \shell\open\command yields the value that contains the command it needs. This function takes a registry query in the same format as getDefaultOutOfRegistry but instead of looking for the default entry   
 + Access: private  
-+ Modifiers: static 
 + return: the command required to run the application referenced in hkeyquery or null   
 
 | Name | Type | Description |  
@@ -93,7 +89,6 @@ This method has no parameters.
 
 + Description: Cross-references a progId obtained by followUserConfiguredBrowserToCommand against HKEY_CLASSES_ROOT\%ProgId%\shell\open\command which holds the value of the command which we need to run to launch the default browser.   
 + Access: private  
-+ Modifiers: static 
 + return: the command required to run the application referenced in hkeyquery or null   
 
 | Name | Type | Description |  
@@ -105,7 +100,6 @@ This method has no parameters.
 
 + Description: obtains a default browsing command out of the Windows registry.   
 + Access: private  
-+ Modifiers: static 
 + return: either a registry "Default" value or null if one does not exist/is empty   
 
 | Name | Type | Description |  
@@ -117,7 +111,6 @@ This method has no parameters.
 
 + Description:   
 + Access: private  
-+ Modifiers: static 
 + return: String  
 
 | Name | Type | Description |  
@@ -129,7 +122,6 @@ This method has no parameters.
 
 + Description: Find any browser in our list within a UNIX path   
 + Access: public  
-+ Modifiers: static 
 + return: String  
 
 This method has no parameters.  
@@ -139,7 +131,6 @@ This method has no parameters.
 
 + Description: Find any usable browser and output the whole path   
 + Access: public  
-+ Modifiers: static 
 + return: String  
 
 This method has no parameters.  
@@ -149,7 +140,6 @@ This method has no parameters.
 
 + Description: delete the runtime directory   
 + Access: public  
-+ Modifiers: static 
 + return: boolean  
 
 This method has no parameters.  
@@ -159,7 +149,6 @@ This method has no parameters.
 
 + Description: get the runtime directory creating it if create=true   
 + Access: public  
-+ Modifiers: static 
 + return: the runtime directory or null if it could not be created   
 
 | Name | Type | Description |  
@@ -171,7 +160,6 @@ This method has no parameters.
 
 + Description: get the correct runtime directory   
 + Access: public  
-+ Modifiers: static 
 + return: the runtime directory or null if it could not be created or found   
 
 This method has no parameters.  
@@ -205,11 +193,22 @@ This method has no parameters.
 
 + Description:   
 + Access: private  
-+ Modifiers: static 
 + return: String  
 
 | Name | Type | Description |  
 | ----- | ----- | ----- |  
 | inUrl | String |  |  
+
+
+### main [[src]](src/java/net/i2p/i2pfirefox/I2PGenericUnsafeBrowser.java#L419)
+
++ Description:   
++ Access: public  
++ Modifiers: static 
++ return: void  
+
+| Name | Type | Description |  
+| ----- | ----- | ----- |  
+| args | String[] |  |  
 
 

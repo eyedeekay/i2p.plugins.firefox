@@ -7,7 +7,7 @@ Description:
  > I2PChromium.java Copyright C 2022 idk <hankhill19580@gmail.com> This program is free software: you can redistribute it and/or modify it under the terms of the MIT License. See LICENSE.md for details. This program is distributed in the hope that it will be useful but WITHOUT ANY WARRANTY without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
 
 Author: idk   
-Parent class: I2PCommonBrowser  
+Parent class: I2PChromiumProfileUnpacker  
 package: net.i2p.i2pfirefox  
 
 ## Dependencies
@@ -52,7 +52,6 @@ package: net.i2p.i2pfirefox
 
 + Description:   
 + Access: public  
-+ Modifiers: static 
 + return: void  
 
 This method has no parameters.  
@@ -62,7 +61,6 @@ This method has no parameters.
 
 + Description:   
 + Access: private  
-+ Modifiers: static 
 + return: String[]  
 
 This method has no parameters.  
@@ -72,7 +70,6 @@ This method has no parameters.
 
 + Description:   
 + Access: private  
-+ Modifiers: static 
 + return: String[]  
 
 This method has no parameters.  
@@ -82,7 +79,6 @@ This method has no parameters.
 
 + Description:   
 + Access: private  
-+ Modifiers: static 
 + return: String[]  
 
 This method has no parameters.  
@@ -92,7 +88,6 @@ This method has no parameters.
 
 + Description:   
 + Access: private  
-+ Modifiers: static 
 + return: String[]  
 
 This method has no parameters.  
@@ -102,7 +97,6 @@ This method has no parameters.
 
 + Description:   
 + Access: private  
-+ Modifiers: static 
 + return: String[]  
 
 This method has no parameters.  
@@ -112,7 +106,6 @@ This method has no parameters.
 
 + Description:   
 + Access: private  
-+ Modifiers: static 
 + return: String[]  
 
 This method has no parameters.  
@@ -122,7 +115,6 @@ This method has no parameters.
 
 + Description:   
 + Access: private  
-+ Modifiers: static 
 + return: String[]  
 
 This method has no parameters.  
@@ -132,7 +124,6 @@ This method has no parameters.
 
 + Description:   
 + Access: private  
-+ Modifiers: static 
 + return: String[]  
 
 This method has no parameters.  
@@ -142,7 +133,6 @@ This method has no parameters.
 
 + Description:   
 + Access: private  
-+ Modifiers: static 
 + return: String[]  
 
 This method has no parameters.  
@@ -152,7 +142,6 @@ This method has no parameters.
 
 + Description:   
 + Access: private  
-+ Modifiers: static 
 + return: String[]  
 
 This method has no parameters.  
@@ -162,7 +151,6 @@ This method has no parameters.
 
 + Description:   
 + Access: private  
-+ Modifiers: static 
 + return: String[]  
 
 This method has no parameters.  
@@ -172,7 +160,6 @@ This method has no parameters.
 
 + Description:   
 + Access: private  
-+ Modifiers: static 
 + return: String[]  
 
 This method has no parameters.  
@@ -278,7 +265,7 @@ This method has no parameters.
 | args | String[] | the extended arguments to pass to the Chromium binary.  |  
 
 
-### launchAndDetatch [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L666)
+### launchAndDetatch [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L662)
 
 + Description:   
 + Access: public  
@@ -290,7 +277,7 @@ This method has no parameters.
 | url | String[] |  |  
 
 
-### launchAndDetatch [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L673)
+### launchAndDetatch [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L669)
 
 + Description:   
 + Access: public  
@@ -299,23 +286,23 @@ This method has no parameters.
 | Name | Type | Description |  
 | ----- | ----- | ----- |  
 | privateWindow | int |  |  
+| url | String[] |  |  
+
+
+### launch [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L725)
+
++ Description: Populates a profile directory with a proxy configuration. Waits for an HTTP proxy on the port 4444 to be ready. Launches Chromium with the profile directory.   
++ Access: public  
++ return: void  
+
+| Name | Type | Description |  
+| ----- | ----- | ----- |  
+| privateWindow | boolean |  |  
 | url | String[] |  |  
 
 
 ### launch [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L731)
 
-+ Description: Populates a profile directory with a proxy configuration. Waits for an HTTP proxy on the port 4444 to be ready. Launches Chromium with the profile directory.   
-+ Access: public  
-+ return: void  
-
-| Name | Type | Description |  
-| ----- | ----- | ----- |  
-| privateWindow | boolean |  |  
-| url | String[] |  |  
-
-
-### launch [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L737)
-
 + Description:   
 + Access: public  
 + return: void  
@@ -326,7 +313,7 @@ This method has no parameters.
 | url | String[] |  |  
 
 
-### launch [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L762)
+### launch [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L756)
 
 + Description: Populates a profile directory with a proxy configuration. Waits for an HTTP proxy on the port 4444 to be ready. Launches Chromium with the profile directory.   
 + Access: public  
@@ -337,7 +324,7 @@ This method has no parameters.
 | privateWindow | boolean |  |  
 
 
-### launch [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L771)
+### launch [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L765)
 
 + Description: Populates a profile directory with a proxy configuration. Waits for an HTTP proxy on the port 4444 to be ready. Launches Chromium with the profile directory.   
 + Access: public  
@@ -346,11 +333,10 @@ This method has no parameters.
 This method has no parameters.  
 
 
-### ValidURL [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L773)
+### ValidURL [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L767)
 
 + Description:   
 + Access: private  
-+ Modifiers: static 
 + return: String  
 
 | Name | Type | Description |  
@@ -358,7 +344,7 @@ This method has no parameters.
 | inUrl | String |  |  
 
 
-### main [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L783)
+### main [[src]](src/java/net/i2p/i2pfirefox/I2PChromium.java#L777)
 
 + Description:   
 + Access: public  

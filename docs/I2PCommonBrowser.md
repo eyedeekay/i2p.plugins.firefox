@@ -42,36 +42,72 @@ package: net.i2p.i2pfirefox
  >   
 
 + Access: public  
-+ Modifiers: static 
 
 ####  Logger logger  [[src]](src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L)
 
  >   
 
 + Access: public  
-+ Modifiers: static 
 
-####   [[src]](src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L39)
+#### FileHandler fh [[src]](src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L)
 
- > static FileHandler fh;  
-
-+ Access: private  
-+ Modifiers: final 
-
-####   [[src]](src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L40)
-
- > // private final int DEFAULT_TIMEOUT = 200;  
+ >   
 
 + Access: private  
-+ Modifiers: static 
 
 ## Methods
 
-### runtimeDirectory [[src]](src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L180)
+### loadPropertiesFile [[src]](src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L58)
+
++ Description:   
++ Access: public  
++ return: void  
+
+| Name | Type | Description |  
+| ----- | ----- | ----- |  
+| props | File |  |  
+
+
+### validateUserDir [[src]](src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L68)
+
++ Description:   
++ Access: public  
++ return: void  
+
+This method has no parameters.  
+
+
+### getOperatingSystem [[src]](src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L113)
+
++ Description:   
++ Access: public  
++ return: String  
+
+This method has no parameters.  
+
+
+### isWindows [[src]](src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L127)
+
++ Description:   
++ Access: protected  
++ return: boolean  
+
+This method has no parameters.  
+
+
+### isOSX [[src]](src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L139)
+
++ Description:   
++ Access: protected  
++ return: boolean  
+
+This method has no parameters.  
+
+
+### runtimeDirectory [[src]](src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L179)
 
 + Description: get the runtime directory creating it if create=true   
 + Access: protected  
-+ Modifiers: static 
 + return: the runtime directory or null if it could not be created   
 
 | Name | Type | Description |  
@@ -80,11 +116,10 @@ package: net.i2p.i2pfirefox
 | override | String |  |  
 
 
-### runtimeDirectory [[src]](src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L197)
+### runtimeDirectory [[src]](src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L196)
 
 + Description: get the correct runtime directory   
 + Access: protected  
-+ Modifiers: static 
 + return: the runtime directory or null if it could not be created or found   
 
 | Name | Type | Description |  
@@ -92,11 +127,10 @@ package: net.i2p.i2pfirefox
 | override | String |  |  
 
 
-### profileDirectory [[src]](src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L245)
+### profileDirectory [[src]](src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L244)
 
 + Description: get the profile directory creating it if necessary   
 + Access: protected  
-+ Modifiers: static 
 + return: the profile directory or null if it could not be created   
 
 | Name | Type | Description |  
@@ -107,11 +141,10 @@ package: net.i2p.i2pfirefox
 | app | boolean |  |  
 
 
-### profileDir [[src]](src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L258)
+### profileDir [[src]](src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L257)
 
 + Description:   
 + Access: protected  
-+ Modifiers: static 
 + return: String  
 
 | Name | Type | Description |  
@@ -122,7 +155,7 @@ package: net.i2p.i2pfirefox
 | app | boolean |  |  
 
 
-### unpackProfile [[src]](src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L269)
+### unpackProfile [[src]](src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L268)
 
 + Description:   
 + Access: protected  
@@ -135,11 +168,10 @@ package: net.i2p.i2pfirefox
 | base | String |  |  
 
 
-### copyDirectory [[src]](src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L315)
+### copyDirectory [[src]](src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L313)
 
 + Description:   
 + Access: protected  
-+ Modifiers: static 
 + return: void  
 
 | Name | Type | Description |  
@@ -150,11 +182,10 @@ package: net.i2p.i2pfirefox
 | base | String |  |  
 
 
-### copyDirectoryCompatibilityMode [[src]](src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L330)
+### copyDirectoryCompatibilityMode [[src]](src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L328)
 
 + Description:   
 + Access: private  
-+ Modifiers: static 
 + return: void  
 
 | Name | Type | Description |  
@@ -165,11 +196,10 @@ package: net.i2p.i2pfirefox
 | base | String |  |  
 
 
-### copy [[src]](src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L339)
+### copy [[src]](src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L336)
 
 + Description:   
 + Access: public  
-+ Modifiers: static 
 + return: void  
 
 | Name | Type | Description |  
@@ -178,11 +208,10 @@ package: net.i2p.i2pfirefox
 | target | OutputStream |  |  
 
 
-### copyFile [[src]](src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L348)
+### copyFile [[src]](src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L345)
 
 + Description:   
 + Access: private  
-+ Modifiers: static 
 + return: void  
 
 | Name | Type | Description |  
@@ -191,11 +220,10 @@ package: net.i2p.i2pfirefox
 | destinationFile | File |  |  
 
 
-### validateProfileFirstRun [[src]](src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L359)
+### validateProfileFirstRun [[src]](src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L356)
 
 + Description:   
 + Access: public  
-+ Modifiers: static 
 + return: boolean  
 
 | Name | Type | Description |  
@@ -203,7 +231,7 @@ package: net.i2p.i2pfirefox
 | profileDirectory | String |  |  
 
 
-### waitForProxy [[src]](src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L385)
+### waitForProxy [[src]](src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L382)
 
 + Description: Waits for an HTTP proxy on port 4444 to be ready. Returns false on timeout of 200 seconds.   
 + Access: public  
@@ -212,7 +240,7 @@ package: net.i2p.i2pfirefox
 This method has no parameters.  
 
 
-### waitForProxy [[src]](src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L395)
+### waitForProxy [[src]](src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L392)
 
 + Description: Waits for an HTTP proxy on port 4444 to be ready. Returns false on timeout of the specified number of seconds.   
 + Access: public  
@@ -223,7 +251,7 @@ This method has no parameters.
 | timeout | int | the number of seconds to wait for the proxy to be ready.  |  
 
 
-### waitForProxy [[src]](src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L407)
+### waitForProxy [[src]](src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L404)
 
 + Description: Waits for an HTTP proxy on the specified port to be ready. Returns false on timeout of the specified number of seconds.   
 + Access: public  
@@ -235,7 +263,7 @@ This method has no parameters.
 | port | int | the port to wait for the proxy to be ready on.  |  
 
 
-### waitForProxy [[src]](src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L422)
+### waitForProxy [[src]](src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L419)
 
 + Description: Waits for an HTTP proxy on the specified port to be ready. Returns false on timeout of the specified number of seconds. If the timeout is zero or less the check is disabled and always returns true.   
 + Access: public  
@@ -248,7 +276,7 @@ This method has no parameters.
 | host | String | the host to wait for the proxy to be ready on.  |  
 
 
-### checkifPortIsOccupied [[src]](src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L440)
+### checkifPortIsOccupied [[src]](src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L437)
 
 + Description:   
 + Access: public  
@@ -260,7 +288,7 @@ This method has no parameters.
 | host | String |  |  
 
 
-### setProxyTimeoutTime [[src]](src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L455)
+### setProxyTimeoutTime [[src]](src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L452)
 
 + Description: Alters the proxy timeout to customized value time in seconds. May be zero.   
 + Access: public  
@@ -271,11 +299,10 @@ This method has no parameters.
 | time | int |  |  
 
 
-### join [[src]](src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L460)
+### join [[src]](src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L457)
 
 + Description:   
 + Access: protected  
-+ Modifiers: static 
 + return: String  
 
 | Name | Type | Description |  
@@ -283,11 +310,10 @@ This method has no parameters.
 | arr | String[] |  |  
 
 
-### sleep [[src]](src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L469)
+### sleep [[src]](src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L466)
 
 + Description:   
 + Access: public  
-+ Modifiers: static 
 + return: void  
 
 | Name | Type | Description |  
@@ -295,11 +321,10 @@ This method has no parameters.
 | millis | int |  |  
 
 
-### searchFile [[src]](src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L477)
+### searchFile [[src]](src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java#L474)
 
 + Description:   
 + Access: public  
-+ Modifiers: static 
 + return: File  
 
 | Name | Type | Description |  

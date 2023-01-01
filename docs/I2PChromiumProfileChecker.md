@@ -37,11 +37,21 @@ package: net.i2p.i2pfirefox
 | args | String[] |  |  
 
 
-### validateProfileDirectory [[src]](src/java/net/i2p/i2pfirefox/I2PChromiumProfileChecker.java#L51)
+### profileDirectory [[src]](src/java/net/i2p/i2pfirefox/I2PChromiumProfileChecker.java#L50)
+
++ Description: get the profile directory creating it if necessary   
++ Access: public  
++ return: String  
+
+| Name | Type | Description |  
+| ----- | ----- | ----- |  
+| base | String |  |  
+
+
+### validateProfileDirectory [[src]](src/java/net/i2p/i2pfirefox/I2PChromiumProfileChecker.java#L61)
 
 + Description: Return true if the profile directory is valid.   
 + Access: public  
-+ Modifiers: static 
 + return: true if the profile directory is valid false otherwise   
 
 | Name | Type | Description |  
@@ -49,11 +59,10 @@ package: net.i2p.i2pfirefox
 | profileDirectory | String | the profile directory to check  |  
 
 
-### validateFile [[src]](src/java/net/i2p/i2pfirefox/I2PChromiumProfileChecker.java#L82)
+### validateFile [[src]](src/java/net/i2p/i2pfirefox/I2PChromiumProfileChecker.java#L92)
 
 + Description: Return true if the file is valid.   
 + Access: public  
-+ Modifiers: static 
 + return: true if the file is valid false otherwise   
 
 | Name | Type | Description |  
@@ -61,11 +70,10 @@ package: net.i2p.i2pfirefox
 | file | String | the file to check  |  
 
 
-### validateExtensionDirectory [[src]](src/java/net/i2p/i2pfirefox/I2PChromiumProfileChecker.java#L109)
+### validateExtensionDirectory [[src]](src/java/net/i2p/i2pfirefox/I2PChromiumProfileChecker.java#L119)
 
 + Description: Return true if the extension directory is valid.   
 + Access: public  
-+ Modifiers: static 
 + return: true if the extension directory is valid false otherwise   
 
 | Name | Type | Description |  
