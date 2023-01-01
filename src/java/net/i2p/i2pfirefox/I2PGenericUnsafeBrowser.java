@@ -416,31 +416,29 @@ public class I2PGenericUnsafeBrowser extends I2PCommonBrowser {
     return "";
   }
 
-  /*
   public static void main(String[] args) {
-    validateUserDir();
+    I2PGenericUnsafeBrowser i2pBrowser = new I2PGenericUnsafeBrowser();
+    i2pBrowser.validateUserDir();
     boolean privateBrowsing = false;
-    logger.info("checking for private browsing");
+    i2pBrowser.logger.info("checking for private browsing");
     ArrayList<String> visitURL = new ArrayList<String>();
     if (args != null) {
       if (args.length > 0) {
         for (String arg : args) {
           if (arg.equals("-private")) {
             privateBrowsing = true;
-            logger.info(
-                "private browsing is true, profile will be discarded at end of
-  session");
+            i2pBrowser.logger.info(
+                "private browsing is true, profile will be discarded at end of session");
           }
           if (!arg.startsWith("-")) {
             // check if it's a URL
-            visitURL.add(ValidURL(arg));
+            visitURL.add(i2pBrowser.ValidURL(arg));
           }
         }
       }
     }
-    logger.info("I2PGenericUnsafeBrowser");
-    I2PGenericUnsafeBrowser i2pBrowser = new I2PGenericUnsafeBrowser();
+    i2pBrowser.logger.info("I2PGenericUnsafeBrowser");
     i2pBrowser.launch(privateBrowsing,
                       visitURL.toArray(new String[visitURL.size()]));
-  }*/
+  }
 }

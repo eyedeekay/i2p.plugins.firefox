@@ -30,7 +30,7 @@ import java.util.stream.Stream;
 public class I2PFirefox extends I2PFirefoxProfileUnpacker {
   private final String[] FIREFOX_SEARCH_PATHS = FIREFOX_FINDER();
   private Process process = null;
-  public static boolean usability = false;
+  public boolean usability = false;
 
   private String baseMode() {
     if (usability)
@@ -854,10 +854,10 @@ public class I2PFirefox extends I2PFirefoxProfileUnpacker {
                 "private browsing is true, profile will be discarded at end of session");
           }
           if (arg.equals("-usability")) {
-            usability = true;
+            i2pFirefox.usability = true;
           }
           if (arg.equals("-app")) {
-            usability = true;
+            i2pFirefox.usability = true;
             privateBrowsing = 2;
           }
           if (arg.equals("-noproxycheck")) {

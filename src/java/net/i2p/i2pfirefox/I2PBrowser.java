@@ -77,7 +77,7 @@ public class I2PBrowser extends I2PGenericUnsafeBrowser {
 
   private void launchFirefox(int privateWindow, String[] url) {
     logger.info("I2PFirefox" + privateWindow);
-    I2PFirefox.usability = usability;
+    i2pFirefox.usability = usability;
     if (outputConfig)
       i2pFirefox.storeFirefoxDefaults();
     i2pFirefox.launch(privateWindow, url);
