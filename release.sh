@@ -42,14 +42,14 @@ github-release upload --user "${GITHUB_USER}" \
     --name "i2pfirefox.zip" \
     --file "i2pfirefox.zip" 
 echo "Uploaded freestanding zip"
-jvmsum=$(sha256sum "i2pbrowser.zip")
+jvmsum=$(sha256sum "i2pbrowser.tar.gz")
 github-release upload --user "${GITHUB_USER}" \
     --replace \
     --repo "${GITHUB_REPO}" \
     --tag "${GITHUB_TAG}" \
     --label "I2P Browser launcher as a Jpackage, does not require a JVM. ${jvmsum}" \
-    --name "i2pbrowser.zip" \
-    --file "i2pbrowser.zip" 
+    --name "i2pbrowser.tar.gz" \
+    --file "i2pbrowser.tar.gz" 
 echo "Uploaded jpackage zip"
 debsum=$(sha256sum "i2pbrowser_${GITHUB_TAG}_amd64.deb")
 github-release upload --user "${GITHUB_USER}" \

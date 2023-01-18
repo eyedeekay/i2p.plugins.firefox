@@ -491,15 +491,26 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
             <arg value="--main-jar"/> <arg value="i2pfirefox.jar"/>
             <arg value="--main-class"/> <arg value="net.i2p.i2pfirefox.I2PBrowser"/>
         </exec>
-        <exec executable="rm" failonerror="true">
+        <exec executable="rm" failonerror="true" osfamily="windows">
             <arg value="-rf" />
             <arg value="i2pbrowser.zip" />
         </exec>
-        <exec executable="dzip" failonerror="true">
+        <exec executable="dzip" failonerror="true" osfamily="windows">
             <arg value="-O"/>
             <arg value="i2pbrowser.zip"/>
             <arg value="i2pbrowser"/>
-        </exec>        
+        </exec>
+        <exec executable="rm" failonerror="true" osfamily="unix">
+            <arg value="-rf" />
+            <arg value="i2pbrowser.tar.gz" />
+        </exec>
+        <exec executable="./lib/torbrowser.sh" failonerror="true" osfamily="unix" dir="i2pbrowser">
+        </exec>
+        <exec executable="tar" failonerror="true" osfamily="unix">
+            <arg value="cvzf"/>
+            <arg value="i2pbrowser.tar.gz"/>
+            <arg value="i2pbrowser"/>
+        </exec>
     </target>
     <target name="debian" depends="jar">
         <exec executable="bash" failonerror="true">
@@ -564,11 +575,6 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
         <exec executable="amo-version" failonerror="true">
             <redirector output="VERSION.md" error="VERSION.md" alwayslog="true" append="true"></redirector>
             <arg value="-n"/>
-            <arg value="https-everywhere"/>
-        </exec>
-        <exec executable="amo-version" failonerror="true">
-            <redirector output="VERSION.md" error="VERSION.md" alwayslog="true" append="true"></redirector>
-            <arg value="-n"/>
             <arg value="onion-in-container-browsing"/>
         </exec>
         <exec executable="amo-version" failonerror="true">
@@ -614,11 +620,6 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
         <exec executable="manifest-json-version" failonerror="true">
             <redirector output="VERSION.md" error="VERSION.md" alwayslog="true" append="true"></redirector>
             <arg value="-mf"/>
-            <arg value="src/i2p.chromium.base.profile/extensions/https-everywhere.js/manifest.json"/>
-        </exec>
-        <exec executable="manifest-json-version" failonerror="true">
-            <redirector output="VERSION.md" error="VERSION.md" alwayslog="true" append="true"></redirector>
-            <arg value="-mf"/>
             <arg value="src/i2p.chromium.usability.profile/extensions/localcdn.js/manifest.json"/>
         </exec>
         <exec executable="manifest-json-version" failonerror="true">
@@ -652,13 +653,6 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
             <arg value="-u=true"/>
             <arg value="-o" />
             <arg value="src/i2p.chromium.base.profile/extensions/noscript.js.crx" />
-        </exec>
-        <exec executable="crx3" failonerror="true">
-            <arg value="download"/>
-            <arg value="gcbommkclmclpchllfjekcdonpmejbdp" />
-            <arg value="-u=true"/>
-            <arg value="-o" />
-            <arg value="src/i2p.chromium.base.profile/extensions/https-everywhere.js.crx" />
         </exec>
         <exec executable="echo" failonerror="true" append="false" output="src/i2p.chromium.base.profile/version.md">
             <arg value="Profile Version" />
@@ -707,13 +701,6 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
             <arg value="-o" />
             <arg value="src/i2p.chromium.usability.profile/extensions/localcdn.js.crx" />
         </exec>
-        <exec executable="crx3" failonerror="true">
-            <arg value="download"/>
-            <arg value="gcbommkclmclpchllfjekcdonpmejbdp" />
-            <arg value="-u=true"/>
-            <arg value="-o" />
-            <arg value="src/i2p.chromium.usability.profile/extensions/https-everywhere.js.crx" />
-        </exec>
         <exec executable="echo" failonerror="true" append="false" output="src/i2p.chromium.usability.profile/version.md">
             <arg value="Profile Version" />
         </exec>
@@ -748,13 +735,6 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
             <arg value="-d"/>
             <arg value="-o" />
             <arg value="src/i2p.firefox.base.profile/extensions/{73a6fe31-595d-460b-a920-fcc0f8843232}.xpi" />
-        </exec>
-        <exec executable="amo-version" failonerror="true">
-            <arg value="-n"/>
-            <arg value="https-everywhere"/>
-            <arg value="-d"/>
-            <arg value="-o" />
-            <arg value="src/i2p.firefox.base.profile/extensions/https-everywhere-eff@eff.org.xpi" />
         </exec>
         <exec executable="echo" failonerror="true" append="false" output="src/i2p.firefox.base.profile/version.md">
             <arg value="Profile Version" />
@@ -791,13 +771,6 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
             <arg value="-d"/>
             <arg value="-o" />
             <arg value="./src/i2p.firefox.usability.profile/extensions/{b86e4813-687a-43e6-ab65-0bde4ab75758}.xpi" />
-        </exec>
-        <exec executable="amo-version" failonerror="true">
-            <arg value="-n"/>
-            <arg value="https-everywhere"/>
-            <arg value="-d"/>
-            <arg value="-o" />
-            <arg value="src/i2p.firefox.usability.profile/extensions/https-everywhere-eff@eff.org.xpi" />
         </exec>
         <exec executable="amo-version" failonerror="true">
             <arg value="-n"/>
