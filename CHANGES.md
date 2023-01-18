@@ -1,3 +1,9 @@
+Tue, January 17
+---------------
+
+ - Remove HTTPS everywhere from all profiles
+ - Generate a Tor Browser install to go inside Linux jpackage portables
+
 Sat, December 31
 ----------------
 
