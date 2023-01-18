@@ -3,12 +3,12 @@
 It's possible to use this package in the following binary formats on
 Linux. These packages are for the **`amd64`** architecture.
 
-#### Linux jpackage: `.zip`
+#### Linux jpackage: `.tar.gz`
 
 ```sh
 mkdir ~/tmp-i2pbrowser && cd ~/tmp-i2pbrowser
-wget https://github.com/eyedeekay/i2p.plugins.firefox/releases/download/1.0.6/i2pbrowser.zip
-unzip i2pbrowser.zip && cd i2pbrowser
+wget https://github.com/eyedeekay/i2p.plugins.firefox/releases/download/1.0.6/i2pbrowser.tar.gz
+tar xvzf i2pbrowser.tar.gz && cd i2pbrowser
 ## THIS STEP IS OPTIONAL but it will force the system to use Tor Browser from within the i2pbrowser directory.
 # This probably offers better security than vanilla Firefox.
 # This will also make the directory the launcher is in relocatable to a flash drive, for instance.
