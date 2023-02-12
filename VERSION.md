@@ -9,11 +9,11 @@ i2p-in-private-browsing
 1.44
 https://addons.mozilla.org/firefox/downloads/file/4020669/i2p_in_private_browsing-1.44.xpi
 noscript
-11.4.14
-https://addons.mozilla.org/firefox/downloads/file/4050735/noscript-11.4.14.xpi
+11.4.16
+https://addons.mozilla.org/firefox/downloads/file/4067473/noscript-11.4.16.xpi
 localcdn-fork-of-decentraleyes
-2.6.44
-https://addons.mozilla.org/firefox/downloads/file/4052425/localcdn_fork_of_decentraleyes-2.6.44.xpi
+2.6.46
+https://addons.mozilla.org/firefox/downloads/file/4066709/localcdn_fork_of_decentraleyes-2.6.46.xpi
 onion-in-container-browsing
 0.82
 https://addons.mozilla.org/firefox/downloads/file/3904685/onion_in_container_browsing-0.82.xpi
@@ -32,10 +32,10 @@ __MSG_extensionName__
 1.29
 https://clients2.google.com/service/update2/crx
 NoScript
-11.4.13
+11.4.16
 https://clients2.google.com/service/update2/crx
 LocalCDN
-2.6.43
+2.6.45
 https://clients2.google.com/service/update2/crx
 uBlock Origin
 1.46.0
