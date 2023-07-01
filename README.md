@@ -55,7 +55,7 @@ For platform specific instructions, see
 
 ```sh
 mkdir ~/tmp-i2pfirefox && cd ~/tmp-i2pfirefox
-wget https://github.com/eyedeekay/i2p.plugins.firefox/releases/download/1.0.9/i2pfirefox.zip
+wget https://github.com/eyedeekay/i2p.plugins.firefox/releases/download/1.1.0/i2pfirefox.zip
 unzip i2pfirefox.zip
 ./i2pfirefox.cmd
 
