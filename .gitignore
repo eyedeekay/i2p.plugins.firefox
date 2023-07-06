@@ -36,3 +36,4 @@ i2p.plugins.firefox/
 /.cache
 /.mozilla
 /i2p.plugins.firefox.torrent.zip
+/plugin
