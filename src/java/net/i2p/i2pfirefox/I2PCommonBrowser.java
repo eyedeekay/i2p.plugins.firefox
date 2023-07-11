@@ -55,27 +55,27 @@ public class I2PCommonBrowser {
     loadPropertiesFile(new File(runtimeDirectory(""), "browser.config"));
   }
 
-  public void loadPropertiesFile(File props) {
-    try (InputStream propsInput = new FileInputStream(props)) {
-      prop = new Properties();
-      prop.load(propsInput);
-      System.out.println(prop);
-    } catch (IOException io) {
-      logger.warning(io.toString());
+  public void loadPropertiesFile(File propertiesFile) {
+    try (InputStream inputStream = new FileInputStream(propertiesFile)) {
+      properties = new Properties();
+      properties.load(inputStream);
+    } catch (IOException exception) {
+      logger.warning(exception.toString());
     }
   }
 
-  public void validateUserDir() {
+  public void validateUserDirectory() {
     logger.info("Validating user directory");
     String userDir = System.getProperty("user.dir");
     String userHome = System.getProperty("user.home");
     File userDirFile = new File(userDir);
     File userHomeFile = new File(userHome);
-    logger.info("user.dir testing !" + userHomeFile.getAbsolutePath() +
-                ".equals(" + userDirFile.getAbsolutePath() + ")");
+
+    logger.info("user.dir: " + userDirFile.getAbsolutePath());
+    logger.info("user.home: " + userHomeFile.getAbsolutePath());
+
     if (!userDirFile.getAbsolutePath().contains("Program Files")) {
-      if (!userDirFile.getAbsolutePath().equals(
-              userHomeFile.getAbsolutePath())) {
+      if (!userDirFile.getAbsolutePath().equals(userHomeFile.getAbsolutePath())) {
         logger.info("user.dir is not inconvenient");
         if (userDirFile.exists()) {
           logger.info("user.dir exists");
@@ -87,8 +87,9 @@ public class I2PCommonBrowser {
             } else {
               logger.info("user.dir is not writable");
             }
+          } else {
+            logger.info("user.dir is not actually a directory");
           }
-          { logger.info("user.dir is not actually a directory"); }
         } else {
           logger.info("user.dir does not exist");
         }
@@ -98,179 +99,154 @@ public class I2PCommonBrowser {
     } else {
       logger.info("user.dir cannot run from inside Program Files");
     }
-    if (isWindows())
+    if (isWindows()) {
       userHome = new File(userHome, "AppData/Local/I2P").getAbsolutePath();
+    }
     File defaultPathFile = new File(userHome, "i2p/i2pbrowser");
-    if (!defaultPathFile.exists())
+    if (!defaultPathFile.exists()) {
       defaultPathFile.mkdirs();
+    }
     if (!defaultPathFile.isDirectory()) {
-      logger.info(
-          "default path exists and is not a directory, get it out of the way");
+      logger.info("default path exists and is not a directory, get it out of the way");
       logger.info(defaultPathFile.getAbsolutePath());
     }
     System.setProperty("user.dir", defaultPathFile.getAbsolutePath());
   }
+
   public String getOperatingSystem() {
     String os = System.getProperty("os.name");
-    if (os.startsWith("Windows")) {
+    if (isWindows()) {
       return "Windows";
-    } else if (os.contains("Linux")) {
+    } else if (isLinux()) {
       return "Linux";
-    } else if (os.contains("BSD")) {
+    } else if (isBSD()) {
       return "BSD";
-    } else if (os.contains("Mac")) {
+    } else if (isOSX()) {
       return "Mac";
     }
     return "Unknown";
   }
 
   protected boolean isWindows() {
-    String osName = System.getProperty("os.name");
-    logger.info("os.name" + osName);
-    if (osName.contains("windows"))
-      return true;
-    if (osName.contains("Windows"))
-      return true;
-    if (osName.contains("WINDOWS"))
-      return true;
-    return false;
+    String osName = System.getProperty("os.name").toLowerCase();
+    return osName.contains("windows");
   }
 
   protected boolean isOSX() {
-    String osName = System.getProperty("os.name");
-    logger.info("os.name" + osName);
-    if (osName.contains("OSX"))
-      return true;
-    if (osName.contains("osx"))
-      return true;
-    if (osName.contains("mac"))
-      return true;
-    if (osName.contains("Mac"))
-      return true;
-    if (osName.contains("apple"))
-      return true;
-    if (osName.contains("Apple"))
-      return true;
-    if (osName.contains("Darwin"))
-      return true;
-    if (osName.contains("darwin"))
-      return true;
-    return false;
+    String osName = System.getProperty("os.name").toLowerCase();
+    return osName.contains("osx") || osName.contains("mac") || osName.contains("apple") || osName.contains("darwin");
   }
 
-  //  public void logger.info(String line) { logger.info(line); }
+  protected boolean isLinux() {
+    String osName = System.getProperty("os.name").toLowerCase();
+    return osName.contains("linux");
+  }
+
+  protected boolean isBSD() {
+    String osName = System.getProperty("os.name").toLowerCase();
+    return osName.contains("bsd");
+  }
+
+  // public void logger.info(String line) { logger.info(line); }
 
   private File logFile() {
-    validateUserDir();
-    String userDir = System.getProperty("user.dir");
-    File log = new File(userDir, "logs");
-    if (!log.exists())
-      log.mkdirs();
-    return new File(log, "browserlauncher.log");
+    validateUserDirectory();
+    String userDirectory = System.getProperty("user.dir");
+    File logDirectory = new File(userDirectory, "logs");
+    if (!logDirectory.exists()) {
+      logDirectory.mkdirs();
+    }
+    return new File(logDirectory, "browserlauncher.log");
   }
 
   /**
-   * get the runtime directory, creating it if create=true
+   * Get the runtime directory, creating it if create=true.
    *
-   * @param create if true, create the runtime directory if it does not exist
-   * @return the runtime directory, or null if it could not be created
+   * @param create   If true, create the runtime directory if it does not exist.
+   * @param override The runtime directory override.
+   * @return The runtime directory, or null if it could not be created.
    * @since 0.0.19
    */
   protected File runtimeDirectory(boolean create, String override) {
-    String rtd = runtimeDirectory(override);
-    File rtdFile = new File(rtd);
-    if (create) {
-      if (!rtdFile.exists()) {
-        rtdFile.mkdir();
-      }
+    String runtimeDir = runtimeDirectory(override);
+    File runtimeDirFile = new File(runtimeDir);
+    if (create && !runtimeDirFile.exists()) {
+      runtimeDirFile.mkdir();
     }
-    return new File(rtd);
+    return runtimeDirFile;
   }
 
-  /**
-   * get the correct runtime directory
-   *
-   * @return the runtime directory, or null if it could not be created or found
-   * @since 0.0.19
-   */
   protected String runtimeDirectory(String override) {
-    // get the I2P_BROWSER_DIR environment variable
-    String rtd = System.getenv(override);
-    // if it is not null and not empty
-    if (rtd != null && !rtd.isEmpty()) {
-      // check if the file exists
-      File rtdFile = new File(rtd);
-      if (rtdFile.exists()) {
-        // if it does, return it
-        return rtd;
-      }
+    String runtimeDir = System.getenv(override);
+    if (isDirectoryValid(runtimeDir)) {
+      return runtimeDir;
     }
-    // obtain the PLUGIN environment variable
-    String plugin = System.getenv("PLUGIN");
-    if (plugin != null && !plugin.isEmpty()) {
-      File pluginDir = new File(plugin);
-      if (pluginDir.exists()) {
-        return pluginDir.toString();
-      }
+
+    String pluginDir = System.getenv("PLUGIN");
+    if (isDirectoryValid(pluginDir)) {
+      return pluginDir;
     }
+
     String userDir = System.getProperty("user.dir");
-    if (userDir != null && !userDir.isEmpty()) {
-      File userDir1 = new File(userDir);
-      if (userDir1.exists()) {
-        return userDir1.toString();
-      }
+    if (isDirectoryValid(userDir)) {
+      return userDir;
     }
+
     String homeDir = System.getProperty("user.home");
-    if (homeDir != null && !homeDir.isEmpty()) {
-      File homeDir1 = new File(homeDir + "/.i2p");
-      if (homeDir1.exists()) {
-        return homeDir.toString();
+    if (isDirectoryValid(homeDir)) {
+      String i2pDir = homeDir + "/.i2p";
+      if (isDirectoryValid(i2pDir)) {
+        return homeDir;
       }
-      File homeDir2 = new File(homeDir + "/i2p");
-      if (homeDir2.exists()) {
-        return homeDir2.toString();
+
+      String altI2pDir = homeDir + "/i2p";
+      if (isDirectoryValid(altI2pDir)) {
+        return altI2pDir;
       }
     }
+
     return "";
   }
 
+  private boolean isDirectoryValid(String directory) {
+    return directory != null && !directory.isEmpty() && new File(directory).exists();
+  }
+
   /**
-   * get the profile directory, creating it if necessary
+   * Retrieves the profile directory, creating it if necessary.
    *
+   * @param envVar  the environment variable name
+   * @param browser the browser name
+   * @param base    the base directory
+   * @param app     indicates if it is an app directory
    * @return the profile directory, or null if it could not be created
    * @since 0.0.19
    */
-  protected String profileDirectory(String envVar, String browser, String base,
-                                    boolean app) {
-    String pd = System.getenv(envVar);
-    if (pd != null && !pd.isEmpty()) {
-      File pdf = new File(pd);
-      if (pdf.exists() && pdf.isDirectory()) {
-        return pd;
+  protected String profileDirectory(String envVar, String browser, String base, boolean app) {
+    String profileDir = System.getenv(envVar);
+    if (profileDir != null && !profileDir.isEmpty()) {
+      File profileDirFile = new File(profileDir);
+      if (profileDirFile.exists() && profileDirFile.isDirectory()) {
+        return profileDir;
       }
     }
-    String rtd = runtimeDirectory("");
-    return profileDir(rtd, browser, base, app);
+    String runtimeDir = runtimeDirectory("");
+    return profileDir(runtimeDir, browser, base, app);
   }
 
-  protected String profileDir(String file, String browser, String base,
-                              boolean app) {
-    String appString = "";
-    if (app) {
-      appString = ".app";
-    }
-    File profileDir =
-        new File(file, "i2p." + browser + ".profile." + base + appString);
+  protected String profileDir(String file, String browser, String base, boolean app) {
+    String appString = app ? ".app" : "";
+    String profileDirName = String.format("i2p.%s.profile.%s%s", browser, base, appString);
+    File profileDir = new File(file, profileDirName);
     return profileDir.getAbsolutePath();
   }
 
   protected boolean unpackProfile(String profileDirectory, String browser,
-                                  String base) {
+      String base) {
     logger.info("Unpacking base profile to " + profileDirectory);
     try {
-      final InputStream resources =
-          this.getClass().getClassLoader().getResourceAsStream(
-              "i2p." + browser + "." + base + ".profile.zip");
+      final InputStream resources = this.getClass().getClassLoader().getResourceAsStream(
+          "i2p." + browser + "." + base + ".profile.zip");
       if (resources == null) {
         logger.info("Could not find resources");
         return false;
@@ -309,46 +285,40 @@ public class I2PCommonBrowser {
     return true;
   }
 
-  protected void copyDirectory(File sourceDirectory, File destinationDirectory,
-                               String browser, String base) throws IOException {
-    destinationDirectory = new File(destinationDirectory.toString().replace(
-        "i2p." + browser + "." + base + ".profile", ""));
-    if (!destinationDirectory.exists()) {
-      destinationDirectory.mkdir();
+  protected void copyDirectory(File sourceDir, File destDir, String browser, String base) throws IOException {
+    destDir = new File(destDir.toString().replace("i2p." + browser + "." + base + ".profile", ""));
+    if (!destDir.exists()) {
+      destDir.mkdir();
     }
-    for (String f : sourceDirectory.list()) {
-      copyDirectoryCompatibilityMode(new File(sourceDirectory, f),
-                                     new File(destinationDirectory, f), browser,
-                                     base);
+    for (String file : sourceDir.list()) {
+      copyDirectoryCompatibilityMode(new File(sourceDir, file), new File(destDir, file), browser, base);
     }
   }
 
-  private void copyDirectoryCompatibilityMode(File source, File destination,
-                                              String browser, String base)
-      throws IOException {
-    if (source.isDirectory()) {
-      copyDirectory(source, destination, browser, base);
+  private void copyDirectoryCompatibilityMode(File sourceDirectory, File destinationDirectory, String browser,
+      String base) throws IOException {
+    if (sourceDirectory.isDirectory()) {
+      copyDirectory(sourceDirectory, destinationDirectory, browser, base);
     } else {
-      copyFile(source, destination);
+      copyFile(sourceDirectory, destinationDirectory);
     }
   }
 
   public void copy(InputStream source, OutputStream target) throws IOException {
-    byte[] buf = new byte[8192];
-    int length;
-    while ((length = source.read(buf)) != -1) {
-      target.write(buf, 0, length);
+    byte[] buffer = new byte[8192];
+    int bytesRead;
+    while ((bytesRead = source.read(buffer)) != -1) {
+      target.write(buffer, 0, bytesRead);
     }
   }
 
-  private void copyFile(File sourceFile, File destinationFile)
-      throws IOException {
+  private void copyFile(File sourceFile, File destinationFile) throws IOException {
     try (InputStream in = new FileInputStream(sourceFile);
-         OutputStream out = new FileOutputStream(destinationFile)) {
-      byte[] buf = new byte[1024];
+        OutputStream out = new FileOutputStream(destinationFile)) {
+      byte[] buffer = new byte[1024];
       int length;
-      while ((length = in.read(buf)) > 0) {
-        out.write(buf, 0, length);
+      while ((length = in.read(buffer)) > 0) {
+        out.write(buffer, 0, length);
       }
     }
   }
@@ -356,17 +326,14 @@ public class I2PCommonBrowser {
   public boolean validateProfileFirstRun(String profileDirectory) {
     File profileDir = new File(profileDirectory);
     if (!profileDir.exists()) {
-      logger.info("Profile directory does not exist");
       return false;
     }
     if (!profileDir.isDirectory()) {
-      logger.info("Profile directory is not a directory");
       return false;
     }
-    File frf = new File(profileDir, "first-run");
-    if (frf.exists()) {
-      frf.delete();
-      // is a first run
+    File firstRunFile = new File(profileDir, "first-run");
+    if (firstRunFile.exists()) {
+      firstRunFile.delete();
       return true;
     }
     return false;
@@ -379,7 +346,9 @@ public class I2PCommonBrowser {
    * @return true if the proxy is ready, false if it is not.
    * @since 0.0.1
    */
-  public boolean waitForProxy() { return waitForProxy(CONFIGURED_TIMEOUT); }
+  public boolean waitForProxy() {
+    return waitForProxy(CONFIGURED_TIMEOUT);
+  }
 
   /**
    * Waits for an HTTP proxy on port 4444 to be ready.
@@ -392,18 +361,20 @@ public class I2PCommonBrowser {
   public boolean waitForProxy(int timeout) {
     return waitForProxy(timeout, 4444);
   }
+
   /**
    * Waits for an HTTP proxy on the specified port to be ready.
    * Returns false on timeout of the specified number of seconds.
    *
    * @param timeout the number of seconds to wait for the proxy to be ready.
-   * @param port the port to wait for the proxy to be ready on.
+   * @param port    the port to wait for the proxy to be ready on.
    * @return true if the proxy is ready, false if it is not.
    * @since 0.0.1
    */
   public boolean waitForProxy(int timeout, int port) {
     return waitForProxy(timeout, port, "localhost");
   }
+
   /**
    * Waits for an HTTP proxy on the specified port to be ready.
    * Returns false on timeout of the specified number of seconds.
@@ -411,19 +382,17 @@ public class I2PCommonBrowser {
    * returns true.
    *
    * @param timeout the number of seconds to wait for the proxy to be ready.
-   * @param port the port to wait for the proxy to be ready on.
-   * @param host the host to wait for the proxy to be ready on.
+   * @param port    the port to wait for the proxy to be ready on.
+   * @param host    the host to wait for the proxy to be ready on.
    * @return true if the proxy is ready, false if it is not.
    * @since 0.0.1
    */
   public boolean waitForProxy(int timeout, int port, String host) {
-    logger.info("waiting up to " + timeout + "seconds for a proxy");
     if (timeout <= 0) {
       return true;
     }
     for (int i = 0; i < timeout; i++) {
-      logger.info("Waiting for proxy");
-      if (checkifPortIsOccupied(port, host)) {
+      if (isPortOccupied(port, host)) {
         return true;
       }
       try {
@@ -434,54 +403,53 @@ public class I2PCommonBrowser {
     }
     return false;
   }
-  public boolean checkifPortIsOccupied(int port, String host) {
+
+  public boolean isPortOccupied(int port, String host) {
     try {
-      Socket socket = new Socket(host, port);
-      socket.close();
+      new Socket(host, port).close();
       return true;
     } catch (IOException e) {
       return false;
     }
   }
+
   /**
    * Alters the proxy timeout to customized value time, in seconds.
    * May be zero.
    *
    * @param time
    */
-  public void setProxyTimeoutTime(int time) { CONFIGURED_TIMEOUT = time; }
-
-  /**
-   *
-   */
-  protected String join(String[] arr) {
-    StringBuilder val = new StringBuilder("");
-    for (int x = 0; x < arr.length; x++) {
-      val.append(" \"");
-      val.append(arr[x]);
-      val.append("\"");
-    }
-    return val.toString();
+  public void setProxyTimeoutTime(int time) {
+    CONFIGURED_TIMEOUT = time;
   }
+
+  protected String join(String[] arr) {
+    StringBuilder result = new StringBuilder();
+    for (String item : arr) {
+      result.append(" \"").append(item).append("\"");
+    }
+    return result.toString();
+  }
+
   public void sleep(int millis) {
     try {
       Thread.sleep(millis);
-    } catch (InterruptedException bad) {
-      bad.printStackTrace();
-      throw new RuntimeException(bad);
+    } catch (InterruptedException e) {
+      throw new RuntimeException(e);
     }
   }
-  public File searchFile(File file, String search) {
-    if (file.isDirectory()) {
-      File[] arr = file.listFiles();
-      for (File f : arr) {
-        File found = searchFile(f, search);
-        if (found != null)
-          return found;
+
+  public File searchFile(File directory, String search) {
+    if (directory.isDirectory()) {
+      File[] files = directory.listFiles();
+      for (File file : files) {
+        File foundFile = searchFile(file, search);
+        if (foundFile != null)
+          return foundFile;
       }
     } else {
-      if (file.getName().equals(search)) {
-        return file;
+      if (directory.getName().equals(search)) {
+        return directory;
       }
     }
     return null;
