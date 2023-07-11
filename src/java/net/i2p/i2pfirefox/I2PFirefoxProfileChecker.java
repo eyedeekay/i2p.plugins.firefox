@@ -80,12 +80,19 @@ public class I2PFirefoxProfileChecker extends I2PCommonBrowser {
     return deRestrictHTTPSAndSetupHomepage(profileDir.toString());
   }
 
+  /**
+   * Verify essential values in prefs.js, user.js, and user-overrides.js
+   *
+   * @param profile profile
+   * @return true if successful
+   */
   private boolean deRestrictHTTPSAndSetupHomepage(String profile) {
     File profileDir = new File(profile);
     if (profileDir.exists()) {
       cleanUpFile(new File(profile, "prefs.js"));
       cleanUpFile(new File(profile, "user.js"));
       cleanUpFile(new File(profile, "user-overrides.js"));
+      return true;
     }
     return false;
   }
