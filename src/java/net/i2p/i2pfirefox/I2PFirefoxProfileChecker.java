@@ -27,21 +27,23 @@ import java.util.Scanner;
 public class I2PFirefoxProfileChecker extends I2PCommonBrowser {
 
   /**
-   * @param args unused
+   * The main method for executing the Java program.
+   *
+   * @param args the command line arguments
    */
   public static void main(String[] args) {
-    I2PFirefoxProfileChecker pc = new I2PFirefoxProfileChecker();
-    String profileDirectory = pc.profileDirectory(false, "base");
+    I2PFirefoxProfileChecker profileChecker = new I2PFirefoxProfileChecker();
+    String profileDirectory = profileChecker.profileDirectory(false, "base");
     if (profileDirectory == null) {
-      pc.logger.info("No profile directory found");
+      profileChecker.logger.info("No profile directory found");
       return;
     }
-    pc.logger.info("Profile directory: " + profileDirectory);
-    boolean ok = pc.validateProfileDirectory(profileDirectory);
-    if (ok) {
-      pc.logger.info("Profile directory is valid");
+    profileChecker.logger.info("Profile directory: " + profileDirectory);
+    boolean isProfileValid = profileChecker.validateProfileDirectory(profileDirectory);
+    if (isProfileValid) {
+      profileChecker.logger.info("Profile directory is valid");
     } else {
-      pc.logger.info("Profile directory is invalid");
+      profileChecker.logger.info("Profile directory is invalid");
     }
   }
 
@@ -63,90 +65,90 @@ public class I2PFirefoxProfileChecker extends I2PCommonBrowser {
    */
   public boolean validateProfileDirectory(String profileDirectory) {
     File profileDir = new File(profileDirectory);
-    if (!profileDir.exists()) {
-      logger.info("Profile directory does not exist");
-      return false;
-    }
-    if (!profileDir.isDirectory()) {
-      logger.info("Profile directory is not a directory");
-      return false;
-    }
-    if (!profileDir.canRead()) {
-      logger.info("Profile directory is not readable");
-      return false;
-    }
-    if (!profileDir.canWrite()) {
-      logger.info("Profile directory is not writable");
+    if (!profileDir.exists() || !profileDir.isDirectory() || !profileDir.canRead() || !profileDir.canWrite()) {
       return false;
     }
     if (!validateFile(profileDir + "/prefs.js")) {
-      logger.info("prefs.js is not valid");
       return false;
     }
     if (!validateFile(profileDir + "/user.js")) {
-      logger.info("user.js is not valid");
       return false;
     }
     if (!validateExtensionDirectory(profileDir + "/extensions")) {
-      logger.info("extensions directory is invalid");
       return false;
     }
     return deRestrictHTTPSAndSetupHomepage(profileDir.toString());
   }
 
   private boolean deRestrictHTTPSAndSetupHomepage(String profile) {
-    // String profile = profileDirectory();
     File profileDir = new File(profile);
     if (profileDir.exists()) {
-      File prefOverrides = new File(profile, "prefs.js");
-      if (prefOverrides.exists()) {
-        undoHttpsOnlyMode(prefOverrides);
-        undoHomepage(prefOverrides);
-      }
-      File userSettings = new File(profile, "user.js");
-      if (userSettings.exists()) {
-        undoHttpsOnlyMode(userSettings);
-        undoHomepage(userSettings);
-      }
-      File userOverrides = new File(profile, "user-overrides.js");
-      if (userOverrides.exists()) {
-        undoHttpsOnlyMode(userOverrides);
-        undoHomepage(userOverrides);
-      }
+      cleanUpFile(new File(profile, "prefs.js"));
+      cleanUpFile(new File(profile, "user.js"));
+      cleanUpFile(new File(profile, "user-overrides.js"));
     }
     return false;
   }
 
+  /**
+   * Cleans up a file by undoing specific modifications if the file exists.
+   *
+   * @param file the file to be cleaned up
+   */
+  private void cleanUpFile(File file) {
+    if (file.exists()) {
+      undoHttpsOnlyMode(file);
+      undoHomepage(file);
+    }
+  }
+
+  /**
+   * Undo the HTTPS-only mode by modifying a file.
+   *
+   * @param fileToBeModified the file to be modified
+   * @return true if the undo operation is successful, false otherwise
+   */
   private boolean undoHttpsOnlyMode(File fileToBeModified) {
     String oldString = "\"dom.security.https_only_mode\", true";
     String newString = "\"dom.security.https_only_mode\", false";
     return undoValue(oldString, newString, fileToBeModified);
   }
 
+  /**
+   * Undo the modification of the homepage in a file.
+   *
+   * @param fileToBeModified the file to be modified
+   * @return true if the modification was successful, otherwise false
+   */
   private boolean undoHomepage(File fileToBeModified) {
-    String oldString = "\"browser.startup.homepage\", true";
-    File file = new File("Student.txt");
-    String newString =
-        "\"browser.startup.homepage\", \"http://127.0.0.1:7657\"";
-    try {
-      try (Scanner scanner = new Scanner(file)) {
-        // now read the file line by line...
-        while (scanner.hasNextLine()) {
-          String line = scanner.nextLine();
-          if (line.contains("browser.startup.homepage")) {
-            oldString = line.toString();
-            return undoValue(oldString, newString, fileToBeModified);
-          }
+    String oldStringToFind = "\"browser.startup.homepage\", true";
+    String newStringToReplace = "\"browser.startup.homepage\", \"http://127.0.0.1:7657\"";
+
+    try (Scanner scanner = new Scanner(fileToBeModified)) {
+      while (scanner.hasNextLine()) {
+        String line = scanner.nextLine();
+        if (line.contains(oldStringToFind)) {
+          return undoValue(line, newStringToReplace, fileToBeModified);
         }
       }
     } catch (FileNotFoundException e) {
       // handle this
     }
+
     return true;
   }
 
+  /**
+   * Undo the value by replacing the occurrences of the old string with the new
+   * string in the given file.
+   *
+   * @param oldString        the string to be replaced
+   * @param newString        the string to replace the old string with
+   * @param fileToBeModified the file to be modified
+   * @return true if the value was successfully undone, false otherwise
+   */
   public boolean undoValue(String oldString, String newString,
-                           File fileToBeModified) {
+      File fileToBeModified) {
     String oldContent = "";
     BufferedReader reader = null;
     FileWriter writer = null;
@@ -173,58 +175,37 @@ public class I2PFirefoxProfileChecker extends I2PCommonBrowser {
     }
     return false;
   }
+
   /**
    * Return true if the file is valid.
    *
-   * @param file the file to check
+   * @param filePath the path of the file to check
    * @return true if the file is valid, false otherwise
    * @since 0.0.1
    */
-  public boolean validateFile(String file) {
-    File f = new File(file);
-    if (!f.exists()) {
-      logger.info("User JavaScript file does not exist");
-      return false;
-    }
-    if (!f.isFile()) {
-      logger.info("User JavaScript file is not a file");
-      return false;
-    }
-    if (!f.canRead()) {
-      logger.info("User JavaScript file is not readable");
-      return false;
-    }
-    if (!f.canWrite()) {
-      logger.info("User JavaScript file is not writable");
+  public boolean validateFile(String filePath) {
+    File file = new File(filePath);
+    if (!file.exists() || !file.isFile() || !file.canRead() || !file.canWrite()) {
       return false;
     }
     return true;
   }
+
   /**
-   * Return true if the extension directory is valid.
+   * Validates the extension directory.
    *
-   * @param extensionDirectory the extension directory to check
+   * @param extensionDirectory the extension directory to validate
    * @return true if the extension directory is valid, false otherwise
    * @since 0.0.1
    */
   public boolean validateExtensionDirectory(String extensionDirectory) {
     File extensionDir = new File(extensionDirectory);
-    if (!extensionDir.exists()) {
-      logger.info("Extension directory does not exist");
+
+    if (!extensionDir.exists() || !extensionDir.isDirectory() ||
+        !extensionDir.canRead() || !extensionDir.canWrite()) {
       return false;
     }
-    if (!extensionDir.isDirectory()) {
-      logger.info("Extension directory is not a directory");
-      return false;
-    }
-    if (!extensionDir.canRead()) {
-      logger.info("Extension directory is not readable");
-      return false;
-    }
-    if (!extensionDir.canWrite()) {
-      logger.info("Extension directory is not writable");
-      return false;
-    }
+
     return true;
   }
 }
