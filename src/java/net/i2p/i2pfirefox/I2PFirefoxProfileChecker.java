@@ -130,7 +130,6 @@ public class I2PFirefoxProfileChecker extends I2PCommonBrowser {
   private boolean undoHomepage(File fileToBeModified) {
     String oldStringToFind = "\"browser.startup.homepage\", true";
     String newStringToReplace = "\"browser.startup.homepage\", \"http://127.0.0.1:7657\"";
-
     try (Scanner scanner = new Scanner(fileToBeModified)) {
       while (scanner.hasNextLine()) {
         String line = scanner.nextLine();
@@ -141,7 +140,6 @@ public class I2PFirefoxProfileChecker extends I2PCommonBrowser {
     } catch (FileNotFoundException e) {
       // handle this
     }
-
     return true;
   }
 
