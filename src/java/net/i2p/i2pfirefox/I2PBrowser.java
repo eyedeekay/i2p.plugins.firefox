@@ -164,7 +164,7 @@ public class I2PBrowser extends I2PGenericUnsafeBrowser {
    * @since 0.0.17
    */
   public void launch(int privateWindow, String[] url) {
-    validateUserDir();
+    validateUserDirectory();
     if (generic) {
       this.launchGeneric(privateWindow, url);
       return;
@@ -239,7 +239,7 @@ public class I2PBrowser extends I2PGenericUnsafeBrowser {
     i2pBrowser.startup(args);
   }
   public ArrayList<String> parseArgs(String[] args) {
-    validateUserDir();
+    validateUserDirectory();
     logger.info("I2PBrowser");
     ArrayList<String> visitURL = new ArrayList<String>();
     if (args != null) {

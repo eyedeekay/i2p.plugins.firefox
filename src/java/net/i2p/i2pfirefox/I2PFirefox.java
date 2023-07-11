@@ -58,34 +58,34 @@ public class I2PFirefox extends I2PFirefoxProfileUnpacker {
   public void storeFirefoxDefaults() {
     List<String> list = new ArrayList<String>();
     list = Arrays.asList(firefoxPathsWindows());
-    prop.setProperty("firefox.paths.windows",
+    getProperties().setProperty("firefox.paths.windows",
                      list.stream().collect(Collectors.joining(",")));
     list = Arrays.asList(firefoxPathsUnix());
-    prop.setProperty("firefox.paths.linux",
+    getProperties().setProperty("firefox.paths.linux",
                      list.stream().collect(Collectors.joining(",")));
     list = Arrays.asList(firefoxPathsOSX());
-    prop.setProperty("firefox.paths.osx",
+    getProperties().setProperty("firefox.paths.osx",
                      list.stream().collect(Collectors.joining(",")));
 
     list = Arrays.asList(firefoxBinsWindows());
-    prop.setProperty("firefox.bins.windows",
+    getProperties().setProperty("firefox.bins.windows",
                      list.stream().collect(Collectors.joining(",")));
     list = Arrays.asList(firefoxBinsUnix());
-    prop.setProperty("firefox.bins.linux",
+    getProperties().setProperty("firefox.bins.linux",
                      list.stream().collect(Collectors.joining(",")));
     list = Arrays.asList(firefoxBinsUnix());
-    prop.setProperty("firefox.bins.osx",
+    getProperties().setProperty("firefox.bins.osx",
                      list.stream().collect(Collectors.joining(",")));
     try (OutputStream fos = new FileOutputStream(
              new File(runtimeDirectory(""), "browser.config"))) {
-      prop.store(fos, "Firefox Configuration Section");
+      getProperties().store(fos, "Firefox Configuration Section");
     } catch (IOException ioe) {
       logger.warning(ioe.toString());
     }
   }
 
   public String[] firefoxPathsUnix() {
-    String firefoxPathsProp = prop.getProperty("firefox.paths.unix");
+    String firefoxPathsProp = getProperties().getProperty("firefox.paths.unix");
     if (firefoxPathsProp != null)
       if (!firefoxPathsProp.equals(""))
         return firefoxPathsProp.split(",");
@@ -96,12 +96,12 @@ public class I2PFirefox extends I2PFirefoxProfileUnpacker {
   public String[] firefoxBinsUnix() {
     String firefoxPathsProp;
     if (isOSX()) {
-      firefoxPathsProp = prop.getProperty("firefox.bins.osx");
+      firefoxPathsProp = getProperties().getProperty("firefox.bins.osx");
       if (firefoxPathsProp != null)
         if (!firefoxPathsProp.equals(""))
           return firefoxPathsProp.split(",");
     }
-    firefoxPathsProp = prop.getProperty("firefox.bins.unix");
+    firefoxPathsProp = getProperties().getProperty("firefox.bins.unix");
     if (firefoxPathsProp != null)
       if (!firefoxPathsProp.equals(""))
         return firefoxPathsProp.split(",");
@@ -124,7 +124,7 @@ public class I2PFirefox extends I2PFirefoxProfileUnpacker {
     return exePath;
   }
   public String[] firefoxPathsOSX() {
-    String firefoxPathsProp = prop.getProperty("firefox.paths.osx");
+    String firefoxPathsProp = getProperties().getProperty("firefox.paths.osx");
     if (firefoxPathsProp != null)
       if (!firefoxPathsProp.equals(""))
         return firefoxPathsProp.split(",");
@@ -147,7 +147,7 @@ public class I2PFirefox extends I2PFirefoxProfileUnpacker {
     return exePath;
   }
   public String[] firefoxPathsWindows() {
-    String firefoxPathsProp = prop.getProperty("firefox.paths.windows");
+    String firefoxPathsProp = getProperties().getProperty("firefox.paths.windows");
     if (firefoxPathsProp != null)
       if (!firefoxPathsProp.equals(""))
         return firefoxPathsProp.split(",");
@@ -180,7 +180,7 @@ public class I2PFirefox extends I2PFirefoxProfileUnpacker {
     };
   }
   private String[] firefoxBinsWindows() {
-    String firefoxPathsProp = prop.getProperty("firefox.bins.windows");
+    String firefoxPathsProp = getProperties().getProperty("firefox.bins.windows");
     if (firefoxPathsProp != null)
       if (!firefoxPathsProp.equals(""))
         return firefoxPathsProp.split(",");
@@ -692,7 +692,7 @@ public class I2PFirefox extends I2PFirefoxProfileUnpacker {
     return launchAndDetatch(privateWindowInt, url);
   }
   public Process launchAndDetatch(int privateWindow, String[] url) {
-    validateUserDir();
+    validateUserDirectory();
     boolean app = false;
     if (privateWindow == 2)
       app = true;
@@ -841,7 +841,7 @@ public class I2PFirefox extends I2PFirefoxProfileUnpacker {
   public static void main(String[] args) {
     int privateBrowsing = 0;
     I2PFirefox i2pFirefox = new I2PFirefox();
-    i2pFirefox.validateUserDir();
+    i2pFirefox.validateUserDirectory();
     i2pFirefox.logger.info("checking for private browsing");
     i2pFirefox.logger.info("I2PFirefox");
     ArrayList<String> visitURL = new ArrayList<String>();

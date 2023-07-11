@@ -40,7 +40,7 @@ public class I2PGenericUnsafeBrowser extends I2PCommonBrowser {
   // For now, we're just assuming. So don't use this until I understand the
   // situation better, unless you think you know better.
   private String[] browsers() {
-    String genericPathsProp = prop.getProperty("generic.bins.unix");
+    String genericPathsProp = getProperties().getProperty("generic.bins.unix");
     if (genericPathsProp != null)
       return genericPathsProp.split(",");
     return new String[] {
@@ -66,11 +66,11 @@ public class I2PGenericUnsafeBrowser extends I2PCommonBrowser {
     List<String> list = new ArrayList<String>();
 
     list = Arrays.asList(browsers());
-    prop.setProperty("generic.bins.unix",
+    getProperties().setProperty("generic.bins.unix",
                      list.stream().collect(Collectors.joining(",")));
     try (OutputStream fos = new FileOutputStream(
              new File(runtimeDirectory(""), "browser.config"))) {
-      prop.store(fos, "Chromium Configuration Section");
+      getProperties().store(fos, "Chromium Configuration Section");
     } catch (IOException ioe) {
       logger.warning(ioe.toString());
     }
@@ -366,7 +366,7 @@ public class I2PGenericUnsafeBrowser extends I2PCommonBrowser {
   }
 
   public Process launchAndDetatch(boolean privateWindow, String[] url) {
-    validateUserDir();
+    validateUserDirectory();
     if (waitForProxy()) {
       ProcessBuilder pb;
       if (privateWindow) {
@@ -418,7 +418,7 @@ public class I2PGenericUnsafeBrowser extends I2PCommonBrowser {
 
   public static void main(String[] args) {
     I2PGenericUnsafeBrowser i2pBrowser = new I2PGenericUnsafeBrowser();
-    i2pBrowser.validateUserDir();
+    i2pBrowser.validateUserDirectory();
     boolean privateBrowsing = false;
     i2pBrowser.logger.info("checking for private browsing");
     ArrayList<String> visitURL = new ArrayList<String>();
