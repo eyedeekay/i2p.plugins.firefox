@@ -1,7 +1,7 @@
 #! /usr/bin/env sh
 
 ant distclean
-cd src && ant jar && cd ..
+ant jar
 
 rm -rf i2p.chromium.base.profile i2p.chromium.profile i2p.firefox.base.profile i2p.firefox.profile i2p.firefox.usability.profile
 

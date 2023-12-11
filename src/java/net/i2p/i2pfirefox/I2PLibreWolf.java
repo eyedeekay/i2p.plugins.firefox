@@ -20,6 +20,5 @@ import javax.script.*;
  * @since 1.0.6
  */
 public class I2PLibreWolf {
-  private static final ScriptEngineManager sem = new ScriptEngineManager();
-  private final ScriptEngine ee = sem.getEngineByName("Nashorn");
+  //TODO: provide a librewolf updater here.
 }

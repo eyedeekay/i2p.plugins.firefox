@@ -36,7 +36,7 @@ public class I2PCommonBrowser {
   private Properties prop = new Properties();
   public Logger logger = Logger.getLogger("browserlauncher");
   private FileHandler fh;
-  static int CONFIGURED_TIMEOUT = 200;
+  int CONFIGURED_TIMEOUT = 200;
 
   public I2PCommonBrowser() {
     try {

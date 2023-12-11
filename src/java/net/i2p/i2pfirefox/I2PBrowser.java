@@ -1,6 +1,6 @@
 package net.i2p.i2pfirefox;
 
-import java.awt.AWTException;
+/*import java.awt.AWTException;
 import java.awt.Component;
 import java.awt.Image;
 import java.awt.Menu;
@@ -13,7 +13,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+import java.awt.event.MouseListener;*/
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
@@ -46,26 +46,6 @@ public class I2PBrowser extends I2PGenericUnsafeBrowser {
   private final I2PChromium i2pChromium = new I2PChromium();
   private final I2PGenericUnsafeBrowser i2pGeneral =
       new I2PGenericUnsafeBrowser();
-  private final Toolkit toolkit = Toolkit.getDefaultToolkit();
-  private final SystemTray tray = initTray();
-  private final Image image = toolkit.getImage("icon.png");
-  private final TrayIcon icon = initIcon();
-  private final PopupMenu menu = initMenu();
-
-  private final Menu submenuStrict = new Menu("Strict Mode");
-  private final MenuItem launchRegularBrowserStrict =
-      new MenuItem("Launch I2P Browser");
-  private final MenuItem launchPrivateBrowserStrict =
-      new MenuItem("Launch I2P Browser - Throwaway Session");
-  private final Menu submenuUsability = new Menu("Usability Mode");
-  private final MenuItem launchRegularBrowserUsability =
-      new MenuItem("Launch I2P Browser");
-  private final MenuItem launchPrivateBrowserUsability =
-      new MenuItem("Launch I2P Browser - Throwaway Session");
-  private final MenuItem launchConfigBrowserUsability =
-      new MenuItem("Launch I2P Console");
-  private final MenuItem closeItem = new MenuItem("Close");
-
   public boolean firefox = false;
   public boolean chromium = false;
   public boolean generic = false;
@@ -105,7 +85,7 @@ public class I2PBrowser extends I2PGenericUnsafeBrowser {
    *
    * @since 0.0.16
    */
-  public I2PBrowser() { initIconFile(); }
+  public I2PBrowser() { }
 
   /**
    * Construct an I2PBrowser class which automatically determines which browser
@@ -115,7 +95,6 @@ public class I2PBrowser extends I2PGenericUnsafeBrowser {
    */
   public I2PBrowser(String browserPath) {
     this.BROWSER = browserPath;
-    initIconFile();
   }
 
   public void setBrowser(String browserPath) { this.BROWSER = browserPath; }
@@ -289,12 +268,9 @@ public class I2PBrowser extends I2PGenericUnsafeBrowser {
     ArrayList<String> visitURL = parseArgs(args);
     try {
       if (useSystray) {
-        startupSystray();
-
         Runtime.getRuntime().addShutdownHook(new Thread() {
           @Override
           public void run() {
-            shutdownSystray();
           }
         });
       }
@@ -330,139 +306,5 @@ public class I2PBrowser extends I2PGenericUnsafeBrowser {
     }
     logger.info("Systray does not appear to be running");
     return false;
-  }
-  private SystemTray initTray() {
-    if (systrayRunningExternally()) {
-      return null;
-    }
-    if (!SystemTray.isSupported()) {
-      logger.warning("SystemTray is not supported");
-      return null;
-    }
-    return SystemTray.getSystemTray();
-  }
-
-  private PopupMenu initMenu() {
-    PopupMenu menu = new PopupMenu();
-    return menu;
-  }
-
-  private File initIconFile() {
-    File iconFile = new File(runtimeDirectory(""), "icon.png");
-    if (!iconFile.exists()) {
-      InputStream resources =
-          I2PBrowser.class.getClassLoader().getResourceAsStream("icon.png");
-      try {
-        OutputStream fos = new FileOutputStream(iconFile);
-        copy(resources, fos);
-      } catch (IOException e) {
-        logger.warning(e.toString());
-      }
-    }
-    return iconFile;
-  }
-  private TrayIcon initIcon() {
-    TrayIcon icon = new TrayIcon(image, "I2P Browser Profile Controller", menu);
-    icon.addMouseListener(new MouseAdapter() {
-      public void mouseClicked(MouseEvent e) {
-        if (e.getClickCount() == 2) {
-          String[] args = {"-usability", "-app", "http://127.0.0.1:7657"};
-          main(args);
-        }
-      }
-    });
-    icon.setImageAutoSize(true);
-    return icon;
-  }
-  protected void startupSystray() {
-    if (!systrayRunningExternally()) {
-      logger.info("Setting up systray");
-      try {
-        if (useSystray) {
-          logger.info("Starting systray");
-          try {
-            if (systray()) {
-              logger.info("Systray started");
-            }
-          } catch (Exception e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-          }
-          if (!createSystrayRunningFile()) {
-            logger.warning("Failed to create systray running file");
-          }
-        }
-        logger.info("Adding icon to systray");
-        tray.add(icon);
-      } catch (AWTException e) {
-        logger.warning(e.toString());
-      }
-    } else {
-      logger.warning("Systray is already running externally");
-    }
-  }
-  protected void shutdownSystray() {
-    if (tray != null)
-      tray.remove(icon);
-    if (systrayRunningExternally()) {
-      File systrayIsRunningFile =
-          new File(runtimeDirectory(""), "systray.running");
-      systrayIsRunningFile.delete();
-    }
-  }
-  public boolean systray() throws Exception {
-    if (tray == null)
-      throw new Exception("System Tray is Null Exception");
-    launchRegularBrowserStrict.addActionListener(new ActionListener() {
-      public void actionPerformed(ActionEvent e) {
-        String[] args = {"-strict"};
-        main(args);
-      }
-    });
-    submenuStrict.add(launchRegularBrowserStrict);
-    logger.info("Added strict mode browser");
-    launchPrivateBrowserStrict.addActionListener(new ActionListener() {
-      public void actionPerformed(ActionEvent e) {
-        String[] args = {"-private", "-strict"};
-        main(args);
-      }
-    });
-    submenuStrict.add(launchPrivateBrowserStrict);
-    logger.info("Added strict+private mode browser");
-    menu.add(submenuStrict);
-    logger.info("Added strict mode submenu");
-    launchRegularBrowserUsability.addActionListener(new ActionListener() {
-      public void actionPerformed(ActionEvent e) {
-        String[] args = {"-usability"};
-        main(args);
-      }
-    });
-    submenuUsability.add(launchRegularBrowserUsability);
-    logger.info("Added usability mode browser");
-    launchPrivateBrowserUsability.addActionListener(new ActionListener() {
-      public void actionPerformed(ActionEvent e) {
-        String[] args = {"-private", "-strict"};
-        main(args);
-      }
-    });
-    submenuUsability.add(launchPrivateBrowserUsability);
-    logger.info("Added usability+private mode browser");
-    launchConfigBrowserUsability.addActionListener(new ActionListener() {
-      public void actionPerformed(ActionEvent e) {
-        String[] args = {"-usability", "-app", "http://127.0.0.1:7657"};
-        main(args);
-      }
-    });
-    menu.add(submenuUsability);
-    menu.add(launchConfigBrowserUsability);
-    logger.info("Added config-only browser");
-    logger.info("Added usability mode submenu");
-    closeItem.addActionListener(new ActionListener() {
-      public void actionPerformed(ActionEvent e) { shutdownSystray(); }
-    });
-    menu.add(closeItem);
-    icon.setPopupMenu(menu);
-    logger.info("Added close menu item");
-    return true;
   }
 }

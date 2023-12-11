@@ -10,6 +10,12 @@ import net.i2p.app.ClientApp;
 import net.i2p.app.ClientAppManager;
 import net.i2p.app.ClientAppState;
 import net.i2p.util.EepGet;
+import net.i2p.app.MenuCallback;
+import net.i2p.app.MenuHandle;
+import net.i2p.app.MenuService;
+import net.i2p.util.I2PAppThread;
+import net.i2p.desktopgui.ExternalMain;
+
 
 public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
   private final I2PAppContext context;
@@ -27,6 +33,23 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
     cam.notify(this, ClientAppState.INITIALIZED,
                "Profile Manager Systray Plugin Initialized", null);
   }
+  
+  private MenuService startTrayApp() {
+    try {
+        //if (isSystrayEnabled(context)) {
+            System.setProperty("java.awt.headless", "false");
+            ExternalMain dtg = new ExternalMain(context, cam, null);
+            //MenuService dtg = new MenuService(context, cam, null);
+            dtg.startup();
+            return dtg;
+        //}
+    } catch (Throwable t) {
+        t.printStackTrace();
+    }
+    return null;
+  }
+
+
   private File threadLogFile() {
     validateUserDirectory();
     String userDir = System.getProperty("user.dir");
@@ -38,7 +61,7 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
   public String getDisplayName() { return "Browser Profile Manager"; }
   public String getName() { return "browserProfileManager"; }
   public void shutdown(String[] args) {
-    this.shutdownSystray();
+    //this.shutdownSystray();
     cam.notify(this, ClientAppState.STOPPING,
                "Shutting down up profile manager systray", null);
     got = true;
@@ -85,6 +108,7 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
   }
   public void startup() {
     shutdown = false;
+    MenuService dtg = startTrayApp();
     cam.notify(this, ClientAppState.STARTING,
                "Starting up profile manager systray", null);
     Runnable r = new Runnable() {
@@ -98,16 +122,8 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
       }
     };
     new Thread(r).start();
-    try {
-      this.startup(args);
-      cam.register(this);
-      cam.notify(this, ClientAppState.RUNNING,
-                 "Starting up profile manager systray", null);
-    } catch (Exception e) {
-      logger.info(e.toString());
-      cam.notify(this, ClientAppState.START_FAILED,
-                 "Error starting profile manager systray", e);
-    }
+    if (dtg != null)
+      dtg.addMenu("Shutdown I2PBrowser", new StandaloneStopper(dtg));
   }
 
   private File torrentDir() throws IOException {
@@ -185,4 +201,32 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
     }
     return ClientAppState.FORKED; // Used as a euphemism for unknown here.
   }
+
+    /**
+     *  Callback when shutdown is clicked in systray
+     *  @since 0.9.60
+     */
+    public class StandaloneStopper implements MenuCallback {
+      private final MenuService _ms;
+
+      public StandaloneStopper(MenuService ms) { _ms = ms; }
+
+      public void clicked(MenuHandle menu) {
+          _ms.disableMenu(menu);
+          _ms.updateMenu("I2P Browser shutting down", menu);
+          Thread t = new I2PAppThread(new StopperThread(), "Browser Stopper", true);
+          t.start();
+      }
+  }
+
+  /**
+   *  Threaded shutdown
+   *  @since 0.9.60
+   */
+  public class StopperThread implements Runnable {
+      public void run() {
+          //shutdown(null);
+      }
+  }
+
 }
