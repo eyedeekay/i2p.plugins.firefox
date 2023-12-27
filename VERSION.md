@@ -6,8 +6,8 @@ Extension Versions
 
 ```md
 i2p-in-private-browsing
-1.48
-https://addons.mozilla.org/firefox/downloads/file/4123613/i2p_in_private_browsing-1.48.xpi
+1.50
+https://addons.mozilla.org/firefox/downloads/file/4213716/i2p_in_private_browsing-1.50.xpi
 noscript
 11.4.29
 https://addons.mozilla.org/firefox/downloads/file/4206186/noscript-11.4.29.xpi
