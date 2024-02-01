@@ -34,7 +34,7 @@ jobs:
       - name: build with Ant
         run: |
           export PATH=$PATH:$(go env GOPATH)/bin
-          ant distclean debian
+          ant distclean jpackage debian
       - name: Upload Firefox Profile Strict
         uses: actions/upload-artifact@v4
         with:
