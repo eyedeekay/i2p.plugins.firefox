@@ -60,3 +60,8 @@ jobs:
         with:
           name: i2pfirefox-${{ github.sha }}.zip
           path: ./src/build/i2pfirefox.jar
+      - name: Upload i2pbrowser.tar.gz
+        uses: actions/upload-artifact@v4
+        with:
+          name: i2pbrowser-${{ github.sha }}.tar.gz
+          path: ./i2pbrowser.tar.gz
