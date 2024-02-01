@@ -12,8 +12,8 @@ noscript
 11.4.29
 https://addons.mozilla.org/firefox/downloads/file/4206186/noscript-11.4.29.xpi
 localcdn-fork-of-decentraleyes
-2.6.60
-https://addons.mozilla.org/firefox/downloads/file/4208268/localcdn_fork_of_decentraleyes-2.6.60.xpi
+2.6.62
+https://addons.mozilla.org/firefox/downloads/file/4221333/localcdn_fork_of_decentraleyes-2.6.62.xpi
 onion-in-container-browsing
 0.82
 https://addons.mozilla.org/firefox/downloads/file/3904685/onion_in_container_browsing-0.82.xpi
@@ -21,8 +21,8 @@ javascript-restrictor
 0.17
 https://addons.mozilla.org/firefox/downloads/file/4190089/javascript_restrictor-0.17.xpi
 ublock-origin
-1.54.0
-https://addons.mozilla.org/firefox/downloads/file/4198829/ublock_origin-1.54.0.xpi
+1.55.0
+https://addons.mozilla.org/firefox/downloads/file/4216633/ublock_origin-1.55.0.xpi
 ```
 
 ## Chromium
@@ -35,10 +35,10 @@ NoScript
 11.4.18
 https://clients2.google.com/service/update2/crx
 LocalCDN
-2.6.60
+2.6.61
 https://clients2.google.com/service/update2/crx
 uBlock Origin
-1.54.0
+1.55.0
 https://clients2.google.com/service/update2/crx
 __MSG_extensionName__
 0.17
