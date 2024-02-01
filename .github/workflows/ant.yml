@@ -28,7 +28,7 @@ jobs:
       - name: install dzip
         run: go install github.com/delicb/dzip@latest
       - name: install amo-version
-        run: go install github.com/eyedeekay/amo-version@latest
+        run: go install github.com/eyedeekay/amo-version@a4f4119eac453a14d6b6184b656320eb72b5da3c
       - name: build with Ant
         run: |
           export PATH=$PATH:$(go env GOPATH)/bin
