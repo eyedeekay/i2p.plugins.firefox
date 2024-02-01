@@ -12,9 +12,9 @@ jobs:
     steps:
       - name: dependencies
         run: sudo apt install gettext golang-go git ant && \
-          go install github.com/mediabuyerbot/go-crx3/crx3@latest && \
-          go install github.com/eyedeekay/amo-version@latest && \
-          go install github.com/delicb/dzip@latest \ 
+          /usr/bin/go install github.com/mediabuyerbot/go-crx3/crx3@latest && \
+          /usr/bin/go install github.com/eyedeekay/amo-version@latest && \
+          /usr/bin/go install github.com/delicb/dzip@latest \ 
           install -m755 ~/go/bin/crx3 /usr/bin/crx3 \
           install -m755 ~/go/bin/amo-version /usr/bin/amo-version \
           install -m755 ~/go/bin/dzip /usr/bin/dzip \
