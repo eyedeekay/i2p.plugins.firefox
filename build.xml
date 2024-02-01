@@ -513,10 +513,20 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
         </exec>
     </target>
     <target name="debian" depends="jar">
-        <exec executable="bash" failonerror="true">
-            <arg value="--verbose"/>
-            <arg value="-c"/>
-            <arg value="./debian.sh"/>
+        <exec executable="jpackage" failonerror="true">
+            <arg value="--type"/> <arg value="deb"/>
+            <arg value="--linux-deb-maintainer"/> <arg value="hankhill19580@gmail.com"/>
+            <arg value="--linux-menu-group"/> <arg value="Network;WebBrowser;P2P"/>
+            <arg value="--linux-app-category"/> <arg value="Network"/>
+            <arg value="--linux-package-deps"/> <arg value="firefox|chromium|brave|firefox-esr|librewolf|icecat"/>
+            <arg value="--linux-shortcut"/>
+            <arg value="--license-file"/> <arg value="LICENSE.md"/>
+            <arg value="--name"/> <arg value="i2pbrowser"/>
+            <arg value="--icon"/> <arg value="src/icon.png"/>
+            <arg value="--app-version"/> <arg value="${release.number}"/>
+            <arg value="--input"/> <arg value="src/build"/>
+            <arg value="--main-jar"/> <arg value="i2pfirefox.jar"/>
+            <arg value="--main-class"/> <arg value="net.i2p.i2pfirefox.I2PBrowser"/>
         </exec>
     </target>
     <target name="fedora" depends="jar">
