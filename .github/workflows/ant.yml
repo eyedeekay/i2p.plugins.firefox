@@ -29,6 +29,8 @@ jobs:
         run: go install github.com/delicb/dzip@latest
       - name: install amo-version
         run: go install github.com/eyedeekay/amo-version@a4f4119eac453a14d6b6184b656320eb72b5da3c
+      - name: install manifest-json-version
+        run: go install github.com/eyedeekay/manifest-json-version@latest
       - name: build with Ant
         run: |
           export PATH=$PATH:$(go env GOPATH)/bin
