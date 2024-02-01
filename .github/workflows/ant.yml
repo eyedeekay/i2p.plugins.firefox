@@ -24,19 +24,15 @@ jobs:
           echo "build.built-by=GitHub Actions" >> override.properties
           echo "noExe=true" >> override.properties
       - name: install crx3
-        run: go install github.com/mediabuyerbot/go-crx3/crx3@latest && \
-          cp -v ~/go/bin/crx3 /usr/bin/crx3 && \
-          chmod +x /usr/bin/crx3
+        run: go install github.com/mediabuyerbot/go-crx3/crx3@latest
       - name: install amo-version
-        run: go install github.com/eyedeekay/amo-version@latest && \
-          cp -v ~/go/bin/amo-version /usr/bin/amo-version && \
-          chmod +x /usr/bin/amo-version
+        run: go install github.com/eyedeekay/amo-version@latest
       - name: install dzip
-        run: go install github.com/delicb/dzip@latest && \ 
-          cp -v ~/go/bin/dzip /usr/bin/dzip && \
-          chmod +x /usr/bin/dzip
+        run: go install github.com/delicb/dzip@latest
       - name: build with Ant
-        run: ant distclean jar
+        run: |
+          export PATH=$PATH:$(go env GOPATH)/bin
+          ant distclean jar
       - name: Upload Firefox Profile Strict
         uses: actions/upload-artifact@v2
         with:
