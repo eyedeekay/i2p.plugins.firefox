@@ -12,9 +12,9 @@ jobs:
     steps:
       - name: dependencies
         run: sudo apt install gettext golang-go git ant
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Set up JDK 21
-        uses: actions/setup-java@v2
+        uses: actions/setup-java@v4
         with:
           java-version: '21'
           distribution: 'temurin'
@@ -36,12 +36,12 @@ jobs:
           export PATH=$PATH:$(go env GOPATH)/bin
           ant distclean jar
       - name: Upload Firefox Profile Strict
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: i2p.firefox.base.profile.zip-${{ github.sha }}
           path: ./src/i2p.firefox.base.profile.zip
       - name: Upload Firefox Profile Usability
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: i2p.firefox.usability.profile.zip-${{ github.sha }}
           path: ./src/i2p.firefox.usability.profile.zip
