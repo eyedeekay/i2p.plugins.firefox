@@ -1,7 +1,7 @@
 #! /usr/bin/env sh
 
 . ./config.sh
-./preprelease.sh
+#./preprelease.sh
 github-release release --user "${GITHUB_USER}" \
     --repo "${GITHUB_REPO}" \
     --name "${GITHUB_NAME}" \
