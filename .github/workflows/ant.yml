@@ -1,5 +1,5 @@
-# Mostly copied from https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-java-with-ant
-# zlatinb
+# Mostly copied from i2p.i2p, by way of: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-java-with-ant
+# zlatinb did it originally, now I maintain it(idk)
 
 name: Java CI
 
@@ -26,10 +26,10 @@ jobs:
       - name: build with Ant
         run: go install github.com/mediabuyerbot/go-crx3/crx3@latest && \
           go install github.com/eyedeekay/amo-version@latest && \
-          go install github.com/delicb/dzip@latest \ 
-          install -m755 ~/go/bin/crx3 /usr/bin/crx3 \
-          install -m755 ~/go/bin/amo-version /usr/bin/amo-version \
-          install -m755 ~/go/bin/dzip /usr/bin/dzip \
+          go install github.com/delicb/dzip@latest && \ 
+          install -m755 ~/go/bin/crx3 /usr/bin/crx3 && \
+          install -m755 ~/go/bin/amo-version /usr/bin/amo-version && \
+          install -m755 ~/go/bin/dzip /usr/bin/dzip && \
           ant distclean jar
       - name: Upload Firefox Profile Strict
         uses: actions/upload-artifact@v2
