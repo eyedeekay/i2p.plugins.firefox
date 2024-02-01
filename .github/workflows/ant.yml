@@ -23,6 +23,15 @@ jobs:
           rm -f override.properties
           echo "build.built-by=GitHub Actions" >> override.properties
           echo "noExe=true" >> override.properties
+      - name: install crx3
+        run: go install github.com/mediabuyerbot/go-crx3/crx3@latest && \
+          install -m755 ~/go/bin/crx3 /usr/bin/crx3
+      - name: install amo-version
+        run: go install github.com/eyedeekay/amo-version@latest && \
+          install -m755 ~/go/bin/amo-version /usr/bin/amo-version
+      - name: install dzip
+        run: go install github.com/delicb/dzip@latest && \ 
+          install -m755 ~/go/bin/dzip /usr/bin/dzip
       - name: build with Ant
         run: go install github.com/mediabuyerbot/go-crx3/crx3@latest && \
           go install github.com/eyedeekay/amo-version@latest && \
