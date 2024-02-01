@@ -26,7 +26,7 @@ jobs:
       - name: install crx3
         run: go install github.com/mediabuyerbot/go-crx3/crx3@latest
       - name: install amo-version
-        run: go install github.com/eyedeekay/amo-version@04ab3b0b0d46512b7a65fee54108862f57ce968d
+        run: go install github.com/eyedeekay/amo-version@latest
       - name: install dzip
         run: go install github.com/delicb/dzip@latest
       - name: build with Ant
