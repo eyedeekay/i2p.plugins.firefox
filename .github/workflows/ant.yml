@@ -87,9 +87,9 @@ jobs:
           go-version: '1.21'
       - name : Generate override.properties
         run: |
-          rm -f override.properties
-          echo "build.built-by=GitHub Actions" >> override.properties
-          echo "noExe=true" >> override.properties
+          bash -c 'rm -f override.properties'
+          bash -c 'echo "build.built-by=GitHub Actions" >> override.properties'
+          bash -c 'echo "noExe=true" >> override.properties'
       - name: install crx3
         run: go install github.com/mediabuyerbot/go-crx3/crx3@latest
       - name: install dzip
@@ -102,8 +102,8 @@ jobs:
         run: |
           export PATH=$PATH:$(go env GOPATH)/bin
           ant
-          ./windows-exe.sh
-          ls *.exe
+          bash -c './windows-exe.sh'
+          bash -c 'ls *.exe'
       - name: Upload Firefox Profile Strict
         uses: actions/upload-artifact@v4
         with:
