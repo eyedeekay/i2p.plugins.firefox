@@ -1,5 +1,6 @@
 #! /usr/bin/env sh
 . ./config.sh
+export PATH=$PATH:$(go env GOPATH)/bin
 mkdir -p tmp
 cp -v LICENSE.md tmp/LICENSE.md
 rm -rf i2pbrowser-portable

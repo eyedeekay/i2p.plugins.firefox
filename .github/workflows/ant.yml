@@ -100,7 +100,6 @@ jobs:
         run: go install github.com/eyedeekay/manifest-json-version@latest
       - name: build with Ant
         run: |
-          export PATH=$PATH:$(go env GOPATH)/bin
           ant
           bash -c './windows-exe.sh'
           bash -c 'ls *.exe'

@@ -1,5 +1,6 @@
 #! /usr/bin/env sh
 . ./config.sh
+export PATH=$PATH:$(go env GOPATH)/bin
 jpackage \
     --verbose \
     --type exe \
