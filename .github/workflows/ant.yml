@@ -70,3 +70,42 @@ jobs:
         with:
           name: i2pbrowser_${{ github.sha }}_amd64.deb
           path: ./i2pbrowser_1.0.0_amd64.deb
+
+
+  buildwin:
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '1.21'
+      - name : Generate override.properties
+        run: |
+          rm -f override.properties
+          echo "build.built-by=GitHub Actions" >> override.properties
+          echo "noExe=true" >> override.properties
+      - name: install crx3
+        run: go install github.com/mediabuyerbot/go-crx3/crx3@latest
+      - name: install dzip
+        run: go install github.com/delicb/dzip@latest
+      - name: install amo-version
+        run: go install github.com/eyedeekay/amo-version@a4f4119eac453a14d6b6184b656320eb72b5da3c
+      - name: install manifest-json-version
+        run: go install github.com/eyedeekay/manifest-json-version@latest
+      - name: build with Ant
+        run: |
+          export PATH=$PATH:$(go env GOPATH)/bin
+          ant
+          ./windows-exe.sh
+          ls *.exe
+      - name: Upload Firefox Profile Strict
+        uses: actions/upload-artifact@v4
+        with:
+          name: i2p.firefox.base.profile-${{ github.sha }}.zip
+          path: ./src/i2p.firefox.base.profile.zip
