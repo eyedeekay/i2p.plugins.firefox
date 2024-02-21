@@ -633,6 +633,46 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
             <arg value="--main-class"/> <arg value="net.i2p.i2pfirefox.I2PBrowser"/>
         </exec>
     </target>
+    <target name="windows-portable" depends="jar">
+        <exec executable="jpackage" failonerror="true">
+            <arg value="--verbose"/>
+            <arg value="--type"/> <arg value="app-image"/>
+            <arg value="--license-file"/> <arg value="LICENSE.md"/>
+            <arg value="--name"/> <arg value="i2pbrowser-portable"/>
+            <arg value="--icon"/> <arg value="src/icon.png"/>
+            <arg value="--app-version"/> <arg value="1.0.0"/>
+            <arg value="--input"/> <arg value="src/build"/>
+            <arg value="--main-jar"/> <arg value="i2pfirefox.jar"/>
+            <arg value="--main-class"/> <arg value="net.i2p.i2pfirefox.I2PBrowser"/>
+        </exec>
+        <copy file="LICENSE.md" todir="i2pbrowser-portable" overwrite="true"/>
+        <delete file="i2pbrowser-portable.zip"/>
+        <exec executable="zip" failonerror="true">
+            <arg value="-r"/>
+            <arg value="i2pbrowser-portable-1.0.0.zip"/>
+            <arg value="i2pbrowser-portable"/>
+        </exec>
+    </target>
+    <target name="windows-portable-release" depends="jar">
+        <exec executable="jpackage" failonerror="true">
+            <arg value="--verbose"/>
+            <arg value="--type"/> <arg value="app-image"/>
+            <arg value="--license-file"/> <arg value="LICENSE.md"/>
+            <arg value="--name"/> <arg value="i2pbrowser-portable"/>
+            <arg value="--icon"/> <arg value="src/icon.png"/>
+            <arg value="--app-version"/> <arg value="${release.number}"/>
+            <arg value="--input"/> <arg value="src/build"/>
+            <arg value="--main-jar"/> <arg value="i2pfirefox.jar"/>
+            <arg value="--main-class"/> <arg value="net.i2p.i2pfirefox.I2PBrowser"/>
+        </exec>
+        <copy file="LICENSE.md" todir="i2pbrowser-portable" overwrite="true"/>
+        <delete file="i2pbrowser-portable.zip"/>
+        <exec executable="zip" failonerror="true">
+            <arg value="-r"/>
+            <arg value="i2pbrowser-portable-${release.number}.zip"/>
+            <arg value="i2pbrowser-portable"/>
+        </exec>
+    </target>
 
     <target name="versionMd" depends="i2pFirefoxBaseProfile, i2pFirefoxUsabilityProfile, i2pChromiumBaseProfile, i2pChromiumUsabilityProfile">
         <delete file="VERSION.md"></delete>

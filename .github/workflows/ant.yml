@@ -116,3 +116,12 @@ jobs:
         with:
           name: i2pbrowser-1.2.0-${{ github.sha }}.msi
           path: ./i2pbrowser-1.2.0.msi
+      - name: build msi with Ant
+        run: |
+          ant windows-portable
+          bash -c 'ls *.zip'
+      - name: Upload Firefox Profile Portable Zip
+        uses: actions/upload-artifact@v4
+        with:
+          name: i2pbrowser-portable-${{ github.sha }}.zip
+          path: ./i2pbrowser-portable.zip
