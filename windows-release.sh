@@ -4,9 +4,7 @@ git pull --all
 . ./config.sh
 . "${HOME}/github-release-config.sh"
 ant distclean jar
-./windows.sh
-./windows-exe.sh
-./windows-portable.sh
+ant windows-msi-release
 msisum=$(sha256sum "i2pbrowser-${GITHUB_TAG}.msi")
 github-release upload --user "${GITHUB_USER}" \
     --repo "${GITHUB_REPO}" \
@@ -16,6 +14,7 @@ github-release upload --user "${GITHUB_USER}" \
     --file "i2pbrowser-${GITHUB_TAG}.msi" \
     --replace
 echo "Uploaded MSI package"
+ant windows-exe-release
 exesum=$(sha256sum "i2pbrowser-${GITHUB_TAG}.exe")
 github-release upload --user "${GITHUB_USER}" \
     --repo "${GITHUB_REPO}" \
@@ -25,6 +24,7 @@ github-release upload --user "${GITHUB_USER}" \
     --file "i2pbrowser-${GITHUB_TAG}.exe" \
     --replace
 echo "Uploaded EXE package"
+ant windows-portable-release
 zipsum=$(sha256sum "i2pbrowser-portable-${GITHUB_TAG}.zip")
 github-release upload --user "${GITHUB_USER}" \
     --repo "${GITHUB_REPO}" \
