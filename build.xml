@@ -646,10 +646,10 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
         </exec>
         <copy file="LICENSE.md" todir="i2pbrowser-portable" overwrite="true"/>
         <delete file="i2pbrowser-portable.zip"/>
-        <exec executable="zip" failonerror="true">
-            <arg value="-r"/>
-            <arg value="i2pbrowser-portable-1.0.0.zip"/>
-            <arg value="i2pbrowser-portable"/>
+        <exec executable="powershell" failonerror="false">
+            <arg value="Compress-Archive"/>
+            <arg value="-LiteralPath"/> <arg value="i2pbrowser-portable"/>
+            <arg value="-DestinationPath"/> <arg value="i2pbrowser-portable.zip"/>
         </exec>
     </target>
     <target name="windows-portable-release" depends="jar">
@@ -666,10 +666,9 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
         <copy file="LICENSE.md" todir="i2pbrowser-portable" overwrite="true"/>
         <delete file="i2pbrowser-portable.zip"/>
         <exec executable="powershell" failonerror="false">
-            <arg value="zip"/>
-            <arg value="-r"/>
-            <arg value="i2pbrowser-portable-${release.number}.zip"/>
-            <arg value="i2pbrowser-portable"/>
+            <arg value="Compress-Archive"/>
+            <arg value="-LiteralPath"/> <arg value="i2pbrowser-portable"/>
+            <arg value="-DestinationPath"/> <arg value="i2pbrowser-portable-${release.number}.zip"/>
         </exec>
     </target>
 
