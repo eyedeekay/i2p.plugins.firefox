@@ -105,8 +105,8 @@ jobs:
       - name: Upload Firefox Profile EXE Installer
         uses: actions/upload-artifact@v4
         with:
-          name: i2pbrowser-1.2.0-${{ github.sha }}.exe
-          path: ./i2pbrowser-1.2.0.exe
+          name: i2pbrowser-1.0.0-${{ github.sha }}.exe
+          path: ./i2pbrowser-1.0.0.exe
       - name: build msi with Ant
         run: |
           ant windows-msi
@@ -114,8 +114,8 @@ jobs:
       - name: Upload Firefox Profile MSI Installer
         uses: actions/upload-artifact@v4
         with:
-          name: i2pbrowser-1.2.0-${{ github.sha }}.msi
-          path: ./i2pbrowser-1.2.0.msi
+          name: i2pbrowser-1.0.0-${{ github.sha }}.msi
+          path: ./i2pbrowser-1.0.0.msi
       - name: build portable zip with Ant
         run: |
           ant windows-portable
