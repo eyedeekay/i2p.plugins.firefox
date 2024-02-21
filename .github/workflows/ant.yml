@@ -98,12 +98,21 @@ jobs:
         run: go install github.com/eyedeekay/amo-version@a4f4119eac453a14d6b6184b656320eb72b5da3c
       - name: install manifest-json-version
         run: go install github.com/eyedeekay/manifest-json-version@latest
-      - name: build with Ant
+      - name: build exe with Ant
         run: |
           ant windows
           bash -c 'ls *.exe'
-      - name: Upload Firefox Profile Strict
+      - name: Upload Firefox Profile EXE Installer
         uses: actions/upload-artifact@v4
         with:
-          name: i2p.firefox.base.profile-${{ github.sha }}.zip
-          path: ./src/i2p.firefox.base.profile.zip
+          name: i2pbrowser-1.2.0-${{ github.sha }}.exe
+          path: ./i2pbrowser-1.2.0.exe
+      - name: build msi with Ant
+        run: |
+          ant windows-msi
+          bash -c 'ls *.msi'
+      - name: Upload Firefox Profile MSI Installer
+        uses: actions/upload-artifact@v4
+        with:
+          name: i2pbrowser-1.2.0-${{ github.sha }}.msi
+          path: ./i2pbrowser-1.2.0.msi
