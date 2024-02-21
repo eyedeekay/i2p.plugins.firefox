@@ -119,6 +119,7 @@ jobs:
       - name: build portable zip with Ant
         run: |
           ant windows-portable
+          zip -r i2pbrowser-portable-${GITHUB_TAG}.zip i2pbrowser-portable
           bash -c 'ls *.zip'
       - name: Upload Firefox Profile Portable Zip
         uses: actions/upload-artifact@v4
