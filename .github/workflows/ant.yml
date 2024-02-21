@@ -100,8 +100,7 @@ jobs:
         run: go install github.com/eyedeekay/manifest-json-version@latest
       - name: build with Ant
         run: |
-          ant
-          bash -c './windows-exe.sh'
+          ant windows
           bash -c 'ls *.exe'
       - name: Upload Firefox Profile Strict
         uses: actions/upload-artifact@v4
