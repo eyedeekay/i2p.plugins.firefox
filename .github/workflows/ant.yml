@@ -116,7 +116,7 @@ jobs:
         with:
           name: i2pbrowser-1.2.0-${{ github.sha }}.msi
           path: ./i2pbrowser-1.2.0.msi
-      - name: build msi with Ant
+      - name: build portable zip with Ant
         run: |
           ant windows-portable
           bash -c 'ls *.zip'

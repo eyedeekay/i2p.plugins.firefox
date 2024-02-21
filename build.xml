@@ -637,7 +637,6 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
         <exec executable="jpackage" failonerror="true">
             <arg value="--verbose"/>
             <arg value="--type"/> <arg value="app-image"/>
-            <arg value="--license-file"/> <arg value="LICENSE.md"/>
             <arg value="--name"/> <arg value="i2pbrowser-portable"/>
             <arg value="--icon"/> <arg value="src/icon.png"/>
             <arg value="--app-version"/> <arg value="1.0.0"/>
@@ -657,7 +656,6 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
         <exec executable="jpackage" failonerror="true">
             <arg value="--verbose"/>
             <arg value="--type"/> <arg value="app-image"/>
-            <arg value="--license-file"/> <arg value="LICENSE.md"/>
             <arg value="--name"/> <arg value="i2pbrowser-portable"/>
             <arg value="--icon"/> <arg value="src/icon.png"/>
             <arg value="--app-version"/> <arg value="${release.number}"/>
