@@ -593,6 +593,46 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
             <arg value="--main-class"/> <arg value="net.i2p.i2pfirefox.I2PBrowser"/>
         </exec>
     </target>
+    <target name="windows-msi" depends="jar">
+        <exec executable="jpackage" failonerror="true">
+            <arg value="--verbose"/>
+            <arg value="--type"/> <arg value="msi"/>
+            <arg value="--win-dir-chooser"/>
+            <arg value="--win-help-url"/> <arg value="https://geti2p.net"/>
+            <arg value="--win-menu"/>
+            <arg value="--win-menu-group"/> <arg value="I2P Browser Configurer"/>
+            <arg value="--win-shortcut"/>
+            <arg value="--win-shortcut-prompt"/>
+            <arg value="--win-per-user-install"/>
+            <arg value="--license-file"/> <arg value="LICENSE.md"/>
+            <arg value="--name"/> <arg value="i2pbrowser"/>
+            <arg value="--icon"/> <arg value="src/icon.png"/>
+            <arg value="--app-version"/> <arg value="1.0.0"/>
+            <arg value="--input"/> <arg value="src/build"/>
+            <arg value="--main-jar"/> <arg value="i2pfirefox.jar"/>
+            <arg value="--main-class"/> <arg value="net.i2p.i2pfirefox.I2PBrowser"/>
+        </exec>
+    </target>
+    <target name="windows-msi-release" depends="jar">
+        <exec executable="jpackage" failonerror="true">
+            <arg value="--verbose"/>
+            <arg value="--type"/> <arg value="msi"/>
+            <arg value="--win-dir-chooser"/>
+            <arg value="--win-help-url"/> <arg value="https://geti2p.net"/>
+            <arg value="--win-menu"/>
+            <arg value="--win-menu-group"/> <arg value="I2P Browser Configurer"/>
+            <arg value="--win-shortcut"/>
+            <arg value="--win-shortcut-prompt"/>
+            <arg value="--win-per-user-install"/>
+            <arg value="--license-file"/> <arg value="LICENSE.md"/>
+            <arg value="--name"/> <arg value="i2pbrowser"/>
+            <arg value="--icon"/> <arg value="src/icon.png"/>
+            <arg value="--app-version"/> <arg value="${release.number}"/>
+            <arg value="--input"/> <arg value="src/build"/>
+            <arg value="--main-jar"/> <arg value="i2pfirefox.jar"/>
+            <arg value="--main-class"/> <arg value="net.i2p.i2pfirefox.I2PBrowser"/>
+        </exec>
+    </target>
 
     <target name="versionMd" depends="i2pFirefoxBaseProfile, i2pFirefoxUsabilityProfile, i2pChromiumBaseProfile, i2pChromiumUsabilityProfile">
         <delete file="VERSION.md"></delete>
