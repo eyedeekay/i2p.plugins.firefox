@@ -46,6 +46,19 @@
         </javac>
     </target>
 
+    <target name="pluginjar" depends="jar">
+        <mkdir dir="./build" />
+        <mkdir dir="./build/obj" />
+        <javac 
+            srcdir="./plugin" 
+            debug="true" deprecation="on" source="${javac.version}" target="${javac.version}" 
+            destdir="./build/obj" 
+            includeAntRuntime="false"
+            classpath="${i2plib}/i2p.jar:${i2plib}/i2ptunnel.jar:${i2plib}/i2psnark.jar:${i2plib}/mstreaming.jar:${i2plib}/systray.jar:${i2plib}/desktopgui.jar:${jettylib}/org.mortbay.jetty.jar:${jettylib}/jetty-util.jar:${jettylib}/jetty-xml.jar:./build/i2pfirefox.jar" >
+            <compilerarg line="${javac.compilerargs}" />
+        </javac>
+    </target>
+
     <target name="jar" depends="builddep, compile">
         <jar destfile="build/i2pfirefox.jar" basedir="./build/obj" includes="**/*.class" >
             <fileset file="i2p.firefox.base.profile.zip" />
