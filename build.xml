@@ -665,7 +665,8 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
         </exec>
         <copy file="LICENSE.md" todir="i2pbrowser-portable" overwrite="true"/>
         <delete file="i2pbrowser-portable.zip"/>
-        <exec executable="zip" failonerror="true">
+        <exec executable="powershell" failonerror="true">
+            <arg value="zip"/>
             <arg value="-r"/>
             <arg value="i2pbrowser-portable-${release.number}.zip"/>
             <arg value="i2pbrowser-portable"/>
