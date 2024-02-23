@@ -115,7 +115,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: i2pbrowser_${{ github.sha }}_amd64.rpm
-          path: ./i2pbrowser_1.0.0_amd64.rpm
+          path: ./i2pbrowser-1.0.0-1.x86_64.rpm
 
 
   buildwin:
