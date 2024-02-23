@@ -78,7 +78,7 @@ jobs:
 
     steps:
       - name: dependencies
-        run: sudo yum install -y gettext golang-go git ant jq wget curl gpg xz java-latest-openjdk
+        run: sudo yum install -y gettext golang-go git ant jq wget curl gpg xz ca-certificates
       - uses: actions/checkout@v4
       - name: Set up JDK 21
         uses: actions/setup-java@v4
@@ -91,7 +91,8 @@ jobs:
       - run: echo enabled=1 >> /etc/yum.repos.d/adoptium.repo
       - run: echo gpgcheck=1 >> /etc/yum.repos.d/adoptium.repo
       - run: echo gpgkey=https://packages.adoptium.net/artifactory/api/gpg/key/public >> /etc/yum.repos.d/adoptium.repo
-      - run: dnf clean all && rm -r /var/cache/dnf  && dnf upgrade -y && dnf update -y # dnf install -y temurin-21-jdk
+      - run: dnf clean all && rm -r /var/cache/dnf  && dnf upgrade -y && dnf update -y
+      - run: dnf install -y temurin-21-jdk
       - name: Generate override.properties
         run: |
           rm -f override.properties
