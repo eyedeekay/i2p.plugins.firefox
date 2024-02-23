@@ -78,7 +78,7 @@ jobs:
 
     steps:
       - name: dependencies
-        run: sudo yum install gettext golang-go git ant
+        run: sudo yum install -y gettext golang-go git ant
       - uses: actions/checkout@v4
       - name: Set up JDK 21
         uses: actions/setup-java@v4
