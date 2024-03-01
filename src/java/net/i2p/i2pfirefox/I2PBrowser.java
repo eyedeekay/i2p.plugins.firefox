@@ -203,6 +203,22 @@ public class I2PBrowser extends I2PGenericUnsafeBrowser {
    */
   public void launch() { launch(false); }
 
+  /**
+   * Stop all running processes managed by the browser manager.
+   * 
+   * @return true if successful, false if not
+   */
+  public boolean stop() {
+    boolean r = true;
+    if (i2pFirefox != null)
+      r = i2pFirefox.stop();
+    if (i2pChromium != null)
+      r = i2pChromium.stop();
+    if (i2pGeneral != null)
+      r = i2pGeneral.stop();
+    return r;
+  }
+
   private String ValidURL(String inUrl) {
     String[] schemes = {"http", "https"};
     for (String scheme : schemes) {

@@ -404,6 +404,18 @@ public class I2PGenericUnsafeBrowser extends I2PCommonBrowser {
       }
     }
   }
+  /**
+   * Stop all running processes managed by the browser manager.
+   * 
+   * @return true if successful, false if not
+   */
+  public boolean stop() {
+    if (p != null) {
+      p.destroy();
+      return true;
+    }
+    return false;
+  }
 
   private String ValidURL(String inUrl) {
     String[] schemes = {"http", "https"};

@@ -827,6 +827,19 @@ public class I2PFirefox extends I2PFirefoxProfileUnpacker {
    */
   public void launch() { launch(false); }
 
+  /**
+   * Stop all running processes managed by the browser manager.
+   * 
+   * @return true if successful, false if not
+   */
+  public boolean stop() {
+    if (process != null) {
+      process.destroy();
+      return true;
+    }
+    return false;
+  }
+
   private String ValidURL(String inUrl) {
     String[] schemes = {"http", "https"};
     for (String scheme : schemes) {
