@@ -35,10 +35,10 @@ NoScript
 11.4.18
 https://clients2.google.com/service/update2/crx
 LocalCDN
-2.6.63
+2.6.64
 https://clients2.google.com/service/update2/crx
 uBlock Origin
-1.55.0
+1.56.0
 https://clients2.google.com/service/update2/crx
 __MSG_extensionName__
 0.17

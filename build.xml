@@ -175,6 +175,7 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
 
     <target name="jar" depends="versionMd,i2pFirefoxBaseProfileZip,i2pFirefoxUsabilityProfileZip,i2pChromiumBaseProfileZip,i2pChromiumUsabilityProfileZip">
         <ant dir="src" target="jar" />
+        <ant dir="src" target="pluginjar" />
     </target>
 
     <target name="i2pFirefoxBaseProfileZip">
@@ -356,6 +357,7 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
         <copy file="scripts/plugin.config" todir="plugin/" overwrite="true" />
         <mkdir dir="plugin/lib/" />
         <copy file="src/build/i2pfirefox.jar" todir="plugin/lib/" overwrite="true" />
+        <copy file="plugin/build/i2pfirefox.jar" todir="plugin/lib/" tofile="i2pfirefox-plugin.jar" overwrite="true" />
         <exec executable="echo" osfamily="unix" failonerror="true" output="plugin/plugin.config" append="true">
             <arg value="update-only=true" />
         </exec>
