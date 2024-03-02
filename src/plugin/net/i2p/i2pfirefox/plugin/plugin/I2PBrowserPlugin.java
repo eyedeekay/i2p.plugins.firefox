@@ -113,9 +113,7 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
    *  @since 0.9.61
    */
   public class StarterThread implements Runnable {
-    public void run() {
-      i2pBrowser.launch(false);
-    }
+    public void run() { i2pBrowser.launch(false); }
   }
 
   /**
@@ -139,8 +137,6 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
    *  @since 0.9.61
    */
   public class StopperThread implements Runnable {
-    public void run() {
-      //i2pBrowser
-    }
+    public void run() { i2pBrowser.stop(); }
   }
 }
