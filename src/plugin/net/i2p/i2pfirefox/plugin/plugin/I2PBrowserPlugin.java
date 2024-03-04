@@ -55,11 +55,15 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
   public String getDisplayName() { return "I2P Browser"; }
   public String getName() { return "I2P Browser"; }
   public ClientAppState getState() {
+    if (i2pBrowser == null)
+      return ClientAppState.STOPPED;
+    if (!isSystrayEnabled())
+      return ClientAppState.STOPPED;
     if (i2pBrowser.running())
       return ClientAppState.RUNNING;
     if (!i2pBrowser.running())
       return ClientAppState.STOPPED;
-    return ClientAppState.UNKNOWN;
+    return ClientAppState.STOPPED;
   }
   public void shutdown(String[] args) {
     if (!isSystrayEnabled()) {
