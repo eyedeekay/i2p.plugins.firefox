@@ -59,10 +59,10 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
       return ClientAppState.STOPPED;
     if (!isSystrayEnabled())
       return ClientAppState.STOPPED;
-    if (i2pBrowser.running())
-      return ClientAppState.RUNNING;
     if (!i2pBrowser.running())
       return ClientAppState.STOPPED;
+    if (i2pBrowser.running())
+      return ClientAppState.RUNNING;
     return ClientAppState.STOPPED;
   }
   public void shutdown(String[] args) {
