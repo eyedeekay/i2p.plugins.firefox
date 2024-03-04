@@ -139,4 +139,11 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
   public class StopperThread implements Runnable {
     public void run() { i2pBrowser.stop(); }
   }
+  void main() {
+    try {
+      startup();
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+  }
 }
