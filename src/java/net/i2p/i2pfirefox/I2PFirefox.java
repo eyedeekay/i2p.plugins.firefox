@@ -840,6 +840,12 @@ public class I2PFirefox extends I2PFirefoxProfileUnpacker {
     return false;
   }
 
+  public boolean running() {
+    if (process != null)
+      return process.isAlive();
+    return false;
+  }
+
   private String ValidURL(String inUrl) {
     String[] schemes = {"http", "https"};
     for (String scheme : schemes) {

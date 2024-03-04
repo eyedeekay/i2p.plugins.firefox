@@ -219,6 +219,16 @@ public class I2PBrowser extends I2PGenericUnsafeBrowser {
     return r;
   }
 
+  public boolean running() {
+    if (i2pFirefox != null)
+      return i2pFirefox.running();
+    if (i2pChromium != null)
+      return i2pChromium.running();
+    if (i2pGeneral != null)
+      return i2pGeneral.running();
+    return false;
+  }
+
   private String ValidURL(String inUrl) {
     String[] schemes = {"http", "https"};
     for (String scheme : schemes) {

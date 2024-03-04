@@ -3,6 +3,7 @@ package net.i2p.i2pfirefox.plugin;
 import java.awt.GraphicsEnvironment;
 import net.i2p.I2PAppContext;
 import net.i2p.app.ClientApp;
+import net.i2p.app.ClientAppManager;
 import net.i2p.app.ClientAppState;
 import net.i2p.app.MenuCallback;
 import net.i2p.app.MenuHandle;
@@ -10,7 +11,9 @@ import net.i2p.app.MenuService;
 import net.i2p.desktopgui.ExternalMain;
 import net.i2p.i2pfirefox.I2PBrowser;
 import net.i2p.util.I2PAppThread;
+import net.i2p.util.Log;
 import net.i2p.util.SystemVersion;
+
 /**
  * I2PBrowserPlugin.java
  * Copyright (C) 2022 idk <hankhill19580@gmail.com>
@@ -30,14 +33,52 @@ import net.i2p.util.SystemVersion;
  * @since 0.0.16
  */
 public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
-  private final I2PAppContext _context = new I2PAppContext();
+  private final I2PAppContext _context;
+  private final Log _log;
+  private final ClientAppManager _mgr;
+  private final String _args[];
   private static final String PROP_DTG_ENABLED = "desktopgui.enabled";
   private final I2PBrowser i2pBrowser = new I2PBrowser();
+  public I2PBrowserPlugin() {
+    _context = new I2PAppContext();
+    _mgr = null;
+    _args = new String[] {};
+    _log = _context.logManager().getLog(I2PBrowserPlugin.class);
+  }
+  public I2PBrowserPlugin(I2PAppContext ctx, ClientAppManager mgr,
+                          String args[]) {
+    _context = ctx;
+    _mgr = mgr;
+    _args = args;
+    _log = ctx.logManager().getLog(I2PBrowserPlugin.class);
+  }
   public String getDisplayName() { return "I2P Browser"; }
   public String getName() { return "I2P Browser"; }
-  public ClientAppState getState() { return ClientAppState.RUNNING; }
-  public void shutdown(String[] args) {}
+  public ClientAppState getState() {
+    if (i2pBrowser.running())
+      return ClientAppState.RUNNING;
+    if (!i2pBrowser.running())
+      return ClientAppState.STOPPED;
+    return ClientAppState.UNKNOWN;
+  }
+  public void shutdown(String[] args) {
+    if (!isSystrayEnabled()) {
+      System.out.println("I2P Browser tray manager not supported");
+      i2pBrowser.stop();
+      return;
+    }
+  }
   public void startup() {
+    if (!isSystrayEnabled()) {
+      System.out.println("I2P Browser tray manager not supported");
+      try {
+        String url = "http://proxy.i2p";
+        i2pBrowser.launch(false, new String[] {url});
+      } catch (Exception e) {
+        e.printStackTrace();
+      }
+      return;
+    }
     try {
       String url = "http://proxy.i2p";
       System.out.println(
@@ -60,7 +101,7 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
   // Copied directly from I2PSnark-standalone
   private MenuService startTrayApp() {
     try {
-      if (isSystrayEnabled(_context)) {
+      if (isSystrayEnabled()) {
         System.setProperty("java.awt.headless", "false");
         ExternalMain dtg =
             new ExternalMain(_context, _context.clientAppManager(), null);
@@ -77,7 +118,7 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
   // whether to launch the tray app Our environment should basically never be
   // headless, that doesn't make any sense, but something tells me I should
   // leave that check in.
-  private static boolean isSystrayEnabled(I2PAppContext context) {
+  private boolean isSystrayEnabled() {
     if (GraphicsEnvironment.isHeadless())
       return false;
     // default false except on OSX and Windows,
@@ -89,7 +130,7 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
     boolean dflt = SystemVersion.isWindows() || SystemVersion.isMac() ||
                    //"XFCE".equals(xdg) ||
                    "KDE".equals(xdg) || "LXDE".equals(xdg);
-    return context.getProperty(PROP_DTG_ENABLED, dflt);
+    return _context.getProperty(PROP_DTG_ENABLED, dflt);
   }
 
   /**

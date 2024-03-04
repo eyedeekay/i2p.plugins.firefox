@@ -417,6 +417,12 @@ public class I2PGenericUnsafeBrowser extends I2PCommonBrowser {
     return false;
   }
 
+  public boolean running() {
+    if (p != null)
+      return p.isAlive();
+    return false;
+  }
+
   private String ValidURL(String inUrl) {
     String[] schemes = {"http", "https"};
     for (String scheme : schemes) {

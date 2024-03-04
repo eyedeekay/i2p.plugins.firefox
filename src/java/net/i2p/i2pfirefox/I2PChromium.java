@@ -777,6 +777,12 @@ public class I2PChromium extends I2PChromiumProfileUnpacker {
     return false;
   }
 
+  public boolean running() {
+    if (p != null)
+      return p.isAlive();
+    return false;
+  }
+
   private String ValidURL(String inUrl) {
     String[] schemes = {"http", "https"};
     for (String scheme : schemes) {
