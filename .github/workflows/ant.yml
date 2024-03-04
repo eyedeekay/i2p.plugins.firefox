@@ -31,6 +31,8 @@ jobs:
         run: go install github.com/eyedeekay/amo-version@a4f4119eac453a14d6b6184b656320eb72b5da3c
       - name: install manifest-json-version
         run: go install github.com/eyedeekay/manifest-json-version@latest
+      - run: git clone https://github.com/i2p/i2p.i2p ../i2p.i2p
+      - run: cd ../i2p.i2p && ant builddep
       - name: build with Ant
         run: |
           export PATH=$PATH:$(go env GOPATH)/bin
@@ -106,6 +108,8 @@ jobs:
         run: go install github.com/eyedeekay/amo-version@a4f4119eac453a14d6b6184b656320eb72b5da3c
       - name: install manifest-json-version
         run: go install github.com/eyedeekay/manifest-json-version@latest
+      - run: git clone https://github.com/i2p/i2p.i2p ../i2p.i2p
+      - run: cd ../i2p.i2p && ant builddep
       - name: build with Ant
         run: |
           export PATH=$PATH:$(go env GOPATH)/bin
@@ -144,6 +148,8 @@ jobs:
         run: go install github.com/eyedeekay/amo-version@a4f4119eac453a14d6b6184b656320eb72b5da3c
       - name: install manifest-json-version
         run: go install github.com/eyedeekay/manifest-json-version@latest
+      - run: git clone https://github.com/i2p/i2p.i2p ../i2p.i2p
+      - run: cd ../i2p.i2p && ant builddep
       - name: build exe with Ant
         run: |
           ant windows
@@ -198,6 +204,8 @@ jobs:
         run: go install github.com/eyedeekay/amo-version@a4f4119eac453a14d6b6184b656320eb72b5da3c
       - name: install manifest-json-version
         run: go install github.com/eyedeekay/manifest-json-version@latest
+      - run: git clone https://github.com/i2p/i2p.i2p ../i2p.i2p
+      - run: cd ../i2p.i2p && ant builddep
       - name: build dmg with Ant
         run: |
           ant macos
