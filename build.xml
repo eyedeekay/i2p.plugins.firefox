@@ -357,7 +357,7 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
         <copy file="scripts/plugin.config" todir="plugin/" overwrite="true" />
         <mkdir dir="plugin/lib/" />
         <copy file="src/build/i2pfirefox.jar" todir="plugin/lib/" overwrite="true" />
-        <copy file="plugin/lib/i2pfirefox.jar" tofile="plugin/lib/i2pfirefox-plugin.jar" overwrite="true" />
+        <copy file="src/build/i2pfirefox-plugin.jar" todir="plugin/lib/" overwrite="true" />
         <exec executable="echo" osfamily="unix" failonerror="true" output="plugin/plugin.config" append="true">
             <arg value="update-only=true" />
         </exec>

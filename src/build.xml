@@ -57,6 +57,13 @@
             classpath="${i2plib}/i2p.jar:${i2plib}/i2ptunnel.jar:${i2plib}/i2psnark.jar:${i2plib}/mstreaming.jar:${i2plib}/systray.jar:${i2plib}/desktopgui.jar:${jettylib}/org.mortbay.jetty.jar:${jettylib}/jetty-util.jar:${jettylib}/jetty-xml.jar:./build/i2pfirefox.jar" >
             <compilerarg line="${javac.compilerargs}" />
         </javac>
+        <jar destfile="build/i2pfirefox-plugin.jar" basedir="./build/obj" includes="**/*.class" >
+            <fileset file="i2p.firefox.base.profile.zip" />
+            <fileset file="i2p.firefox.usability.profile.zip" />
+            <fileset file="i2p.chromium.base.profile.zip" />
+            <fileset file="i2p.chromium.usability.profile.zip" />
+            <fileset file="icon.png" />
+        </jar>
     </target>
 
     <target name="jar" depends="builddep, compile">
