@@ -140,8 +140,7 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
     public void run() { i2pBrowser.stop(); }
   }
   static void main() {
-    I2PAppContext context = new I2PAppContext();
-    I2PBrowserPlugin plugin = new I2PBrowserPlugin(context);
+    I2PBrowserPlugin plugin = new I2PBrowserPlugin();
     try {
       plugin.startup();
     } catch (Exception e) {
