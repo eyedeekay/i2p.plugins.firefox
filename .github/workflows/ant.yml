@@ -36,7 +36,7 @@ jobs:
       - name: build with Ant
         run: |
           export PATH=$PATH:$(go env GOPATH)/bin
-          ant distclean jpackage debian pluginzip
+          ant distclean jpackage debian
       - name: Upload Firefox Profile Strict
         uses: actions/upload-artifact@v4
         with:
@@ -77,6 +77,10 @@ jobs:
         with:
           name: i2pbrowser_${{ github.sha }}_amd64.deb
           path: ./i2pbrowser_1.0.0_amd64.deb
+      - name: build plugin with Ant
+        run: |
+          export PATH=$PATH:$(go env GOPATH)/bin
+          ant distclean pluginzip
       - name: Upload i2pfirefox.zip (unsigned plugin)
         uses: actions/upload-artifact@v4
         with:
