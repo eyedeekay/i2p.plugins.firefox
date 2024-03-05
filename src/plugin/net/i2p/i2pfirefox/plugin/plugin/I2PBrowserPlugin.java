@@ -1,6 +1,8 @@
 package net.i2p.i2pfirefox.plugin;
 
 import java.awt.GraphicsEnvironment;
+import java.io.File;
+
 import net.i2p.I2PAppContext;
 import net.i2p.app.ClientApp;
 import net.i2p.app.ClientAppManager;
@@ -10,6 +12,7 @@ import net.i2p.app.MenuHandle;
 import net.i2p.app.MenuService;
 import net.i2p.desktopgui.ExternalMain;
 import net.i2p.i2pfirefox.I2PBrowser;
+import net.i2p.i2pfirefox.I2PFirefox;
 import net.i2p.util.I2PAppThread;
 import net.i2p.util.Log;
 import net.i2p.util.SystemVersion;
@@ -38,12 +41,17 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
   private final ClientAppManager _mgr;
   private final String _args[];
   private static final String PROP_DTG_ENABLED = "desktopgui.enabled";
-  private final I2PBrowser i2pBrowser = new I2PBrowser();
+  private final I2PBrowser i2pBrowser;
+  private final File pluginDir;
+  private final File profileDir;
   public I2PBrowserPlugin() {
     _context = new I2PAppContext();
     _mgr = null;
     _args = new String[] {};
     _log = _context.logManager().getLog(I2PBrowserPlugin.class);
+    pluginDir = new File(_context.getAppDir(), "plugins/i2pfirefox/");
+    profileDir = new File(pluginDir, "profile/");
+    i2pBrowser = new I2PBrowser(profileDir.getAbsolutePath());
   }
   public I2PBrowserPlugin(I2PAppContext ctx, ClientAppManager mgr,
                           String args[]) {
@@ -51,6 +59,9 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
     _mgr = mgr;
     _args = args;
     _log = ctx.logManager().getLog(I2PBrowserPlugin.class);
+    pluginDir = new File(_context.getAppDir(), "plugins/i2pfirefox/");
+    profileDir = new File(pluginDir, "profile/");
+    i2pBrowser = new I2PBrowser(profileDir.getAbsolutePath());
   }
   public String getDisplayName() { return "I2P Browser"; }
   public String getName() { return "I2P Browser"; }
@@ -69,6 +80,7 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
     if (!isSystrayEnabled()) {
       System.out.println("I2P Browser tray manager not supported");
       i2pBrowser.stop();
+      changeState(ClientAppState.STOPPED);
       return;
     }
   }
@@ -158,7 +170,10 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
    *  @since 0.9.61
    */
   public class StarterThread implements Runnable {
-    public void run() { i2pBrowser.launch(false); }
+    public void run() {
+      i2pBrowser.launch(false); 
+      changeState(ClientAppState.RUNNING);
+    }
   }
 
   /**
@@ -182,8 +197,16 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
    *  @since 0.9.61
    */
   public class StopperThread implements Runnable {
-    public void run() { i2pBrowser.stop(); }
+    public void run() { 
+      i2pBrowser.stop(); 
+      changeState(ClientAppState.STOPPED);
+    }
   }
+
+  private synchronized void changeState(ClientAppState state) {
+    if (_mgr != null)
+        _mgr.notify(this, state, null, null);
+}
   public static void main(String[] args) {
     I2PBrowserPlugin plugin = new I2PBrowserPlugin();
     try {

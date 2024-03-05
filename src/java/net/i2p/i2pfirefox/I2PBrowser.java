@@ -144,20 +144,6 @@ public class I2PBrowser extends I2PGenericUnsafeBrowser {
    */
   public void launch(int privateWindow, String[] url) {
     validateUserDirectory();
-    if (generic) {
-      this.launchGeneric(privateWindow, url);
-      return;
-    }
-    if ((chromium && firefox) || (!chromium && !firefox)) {
-      if (this.hasFirefox()) {
-        this.launchFirefox(privateWindow, url);
-      } else if (this.hasChromium()) {
-        this.launchChromium(privateWindow, url);
-      } else {
-        this.launchGeneric(privateWindow, url);
-      }
-      return;
-    }
     if (chromiumFirst) {
       if (chromium) {
         this.launchChromium(privateWindow, url);
