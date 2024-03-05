@@ -421,9 +421,7 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
         </exec>
         <mkdir dir="i2p.plugins.firefox" />
         <copy file="i2pfirefox.su3" todir="i2p.plugins.firefox" overwrite="true" />
-        <copy file="i2pfirefox-update.su3" todir="i2p.plugins.firefox" overwrite="true" />
         <copy file="i2pfirefox.xpi2p" todir="i2p.plugins.firefox" overwrite="true" />
-        <copy file="i2pfirefox-update.xpi2p" todir="i2p.plugins.firefox" overwrite="true" />
     </target>
     <target name="torrent">
         <delete file="i2p.plugins.firefox.torrent" failonerror="false" />
