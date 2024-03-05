@@ -39,7 +39,8 @@ public class I2PFirefoxProfileChecker extends I2PCommonBrowser {
       return;
     }
     profileChecker.logger.info("Profile directory: " + profileDirectory);
-    boolean isProfileValid = profileChecker.validateProfileDirectory(profileDirectory);
+    boolean isProfileValid =
+        profileChecker.validateProfileDirectory(profileDirectory);
     if (isProfileValid) {
       profileChecker.logger.info("Profile directory is valid");
     } else {
@@ -65,7 +66,8 @@ public class I2PFirefoxProfileChecker extends I2PCommonBrowser {
    */
   public boolean validateProfileDirectory(String profileDirectory) {
     File profileDir = new File(profileDirectory);
-    if (!profileDir.exists() || !profileDir.isDirectory() || !profileDir.canRead() || !profileDir.canWrite()) {
+    if (!profileDir.exists() || !profileDir.isDirectory() ||
+        !profileDir.canRead() || !profileDir.canWrite()) {
       return false;
     }
     if (!validateFile(profileDir + "/prefs.js")) {
@@ -129,7 +131,8 @@ public class I2PFirefoxProfileChecker extends I2PCommonBrowser {
    */
   private boolean undoHomepage(File fileToBeModified) {
     String oldStringToFind = "\"browser.startup.homepage\", true";
-    String newStringToReplace = "\"browser.startup.homepage\", \"http://127.0.0.1:7657\"";
+    String newStringToReplace =
+        "\"browser.startup.homepage\", \"http://127.0.0.1:7657\"";
     try (Scanner scanner = new Scanner(fileToBeModified)) {
       while (scanner.hasNextLine()) {
         String line = scanner.nextLine();
@@ -153,7 +156,7 @@ public class I2PFirefoxProfileChecker extends I2PCommonBrowser {
    * @return true if the value was successfully undone, false otherwise
    */
   public boolean undoValue(String oldString, String newString,
-      File fileToBeModified) {
+                           File fileToBeModified) {
     String oldContent = "";
     BufferedReader reader = null;
     FileWriter writer = null;
@@ -190,7 +193,8 @@ public class I2PFirefoxProfileChecker extends I2PCommonBrowser {
    */
   public boolean validateFile(String filePath) {
     File file = new File(filePath);
-    if (!file.exists() || !file.isFile() || !file.canRead() || !file.canWrite()) {
+    if (!file.exists() || !file.isFile() || !file.canRead() ||
+        !file.canWrite()) {
       return false;
     }
     return true;

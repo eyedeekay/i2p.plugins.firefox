@@ -61,23 +61,23 @@ public class I2PChromium extends I2PChromiumProfileUnpacker {
     List<String> list = new ArrayList<String>();
     list = Arrays.asList(chromiumPathsWindows());
     getProperties().setProperty("chromium.paths.windows",
-                     list.stream().collect(Collectors.joining(",")));
+                                list.stream().collect(Collectors.joining(",")));
     list = Arrays.asList(chromiumPathsUnix());
     getProperties().setProperty("chromium.paths.linux",
-                     list.stream().collect(Collectors.joining(",")));
+                                list.stream().collect(Collectors.joining(",")));
     list = Arrays.asList(chromiumPathsOSX());
     getProperties().setProperty("chromium.paths.osx",
-                     list.stream().collect(Collectors.joining(",")));
+                                list.stream().collect(Collectors.joining(",")));
 
     list = Arrays.asList(chromiumBinsWindows());
     getProperties().setProperty("chromium.bins.windows",
-                     list.stream().collect(Collectors.joining(",")));
+                                list.stream().collect(Collectors.joining(",")));
     list = Arrays.asList(chromiumBinsUnix());
     getProperties().setProperty("chromium.bins.linux",
-                     list.stream().collect(Collectors.joining(",")));
+                                list.stream().collect(Collectors.joining(",")));
     list = Arrays.asList(chromiumBinsUnix());
     getProperties().setProperty("chromium.bins.osx",
-                     list.stream().collect(Collectors.joining(",")));
+                                list.stream().collect(Collectors.joining(",")));
     try (OutputStream fos = new FileOutputStream(
              new File(runtimeDirectory(""), "browser.config"))) {
       getProperties().store(fos, "Chromium Configuration Section");
@@ -87,7 +87,8 @@ public class I2PChromium extends I2PChromiumProfileUnpacker {
   }
 
   private String[] chromiumPathsUnix() {
-    String chromiumPathsProp = getProperties().getProperty("chromium.paths.unix");
+    String chromiumPathsProp =
+        getProperties().getProperty("chromium.paths.unix");
     if (chromiumPathsProp != null)
       if (!chromiumPathsProp.equals(""))
         return chromiumPathsProp.split(",");
@@ -126,7 +127,8 @@ public class I2PChromium extends I2PChromiumProfileUnpacker {
     return exePath;
   }
   private String[] chromiumPathsOSX() {
-    String chromiumPathsProp = getProperties().getProperty("chromium.paths.osx");
+    String chromiumPathsProp =
+        getProperties().getProperty("chromium.paths.osx");
     if (chromiumPathsProp != null)
       if (!chromiumPathsProp.equals(""))
         return chromiumPathsProp.split(",");
@@ -149,7 +151,8 @@ public class I2PChromium extends I2PChromiumProfileUnpacker {
   }
 
   private String[] chromiumPathsWindows() {
-    String chromiumPathsProp = getProperties().getProperty("chromium.paths.windows");
+    String chromiumPathsProp =
+        getProperties().getProperty("chromium.paths.windows");
     if (chromiumPathsProp != null)
       if (!chromiumPathsProp.equals(""))
         return chromiumPathsProp.split(",");
@@ -182,7 +185,8 @@ public class I2PChromium extends I2PChromiumProfileUnpacker {
     };
   }
   private String[] chromiumBinsWindows() {
-    String chromiumPathsProp = getProperties().getProperty("chromium.bins.windows");
+    String chromiumPathsProp =
+        getProperties().getProperty("chromium.bins.windows");
     if (chromiumPathsProp != null)
       if (!chromiumPathsProp.equals(""))
         return chromiumPathsProp.split(",");
@@ -766,7 +770,7 @@ public class I2PChromium extends I2PChromiumProfileUnpacker {
 
   /**
    * Stop all running processes managed by the browser manager.
-   * 
+   *
    * @return true if successful, false if not
    */
   public boolean stop() {

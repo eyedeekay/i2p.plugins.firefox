@@ -88,7 +88,7 @@ public class I2PBrowser extends I2PGenericUnsafeBrowser {
    *
    * @since 0.0.16
    */
-  public I2PBrowser() { }
+  public I2PBrowser() {}
 
   /**
    * Construct an I2PBrowser class which automatically determines which browser
@@ -96,9 +96,7 @@ public class I2PBrowser extends I2PGenericUnsafeBrowser {
    *
    * @since 0.0.18
    */
-  public I2PBrowser(String browserPath) {
-    this.BROWSER = browserPath;
-  }
+  public I2PBrowser(String browserPath) { this.BROWSER = browserPath; }
 
   public void setBrowser(String browserPath) { this.BROWSER = browserPath; }
 
@@ -194,7 +192,7 @@ public class I2PBrowser extends I2PGenericUnsafeBrowser {
 
   /**
    * Stop all running processes managed by the browser manager.
-   * 
+   *
    * @return true if successful, false if not
    */
   public boolean stop() {
@@ -285,8 +283,7 @@ public class I2PBrowser extends I2PGenericUnsafeBrowser {
       if (useSystray) {
         Runtime.getRuntime().addShutdownHook(new Thread() {
           @Override
-          public void run() {
-          }
+          public void run() {}
         });
       }
     } catch (Exception e) {

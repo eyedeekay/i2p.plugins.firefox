@@ -59,23 +59,23 @@ public class I2PFirefox extends I2PFirefoxProfileUnpacker {
     List<String> list = new ArrayList<String>();
     list = Arrays.asList(firefoxPathsWindows());
     getProperties().setProperty("firefox.paths.windows",
-                     list.stream().collect(Collectors.joining(",")));
+                                list.stream().collect(Collectors.joining(",")));
     list = Arrays.asList(firefoxPathsUnix());
     getProperties().setProperty("firefox.paths.linux",
-                     list.stream().collect(Collectors.joining(",")));
+                                list.stream().collect(Collectors.joining(",")));
     list = Arrays.asList(firefoxPathsOSX());
     getProperties().setProperty("firefox.paths.osx",
-                     list.stream().collect(Collectors.joining(",")));
+                                list.stream().collect(Collectors.joining(",")));
 
     list = Arrays.asList(firefoxBinsWindows());
     getProperties().setProperty("firefox.bins.windows",
-                     list.stream().collect(Collectors.joining(",")));
+                                list.stream().collect(Collectors.joining(",")));
     list = Arrays.asList(firefoxBinsUnix());
     getProperties().setProperty("firefox.bins.linux",
-                     list.stream().collect(Collectors.joining(",")));
+                                list.stream().collect(Collectors.joining(",")));
     list = Arrays.asList(firefoxBinsUnix());
     getProperties().setProperty("firefox.bins.osx",
-                     list.stream().collect(Collectors.joining(",")));
+                                list.stream().collect(Collectors.joining(",")));
     try (OutputStream fos = new FileOutputStream(
              new File(runtimeDirectory(""), "browser.config"))) {
       getProperties().store(fos, "Firefox Configuration Section");
@@ -147,7 +147,8 @@ public class I2PFirefox extends I2PFirefoxProfileUnpacker {
     return exePath;
   }
   public String[] firefoxPathsWindows() {
-    String firefoxPathsProp = getProperties().getProperty("firefox.paths.windows");
+    String firefoxPathsProp =
+        getProperties().getProperty("firefox.paths.windows");
     if (firefoxPathsProp != null)
       if (!firefoxPathsProp.equals(""))
         return firefoxPathsProp.split(",");
@@ -180,7 +181,8 @@ public class I2PFirefox extends I2PFirefoxProfileUnpacker {
     };
   }
   private String[] firefoxBinsWindows() {
-    String firefoxPathsProp = getProperties().getProperty("firefox.bins.windows");
+    String firefoxPathsProp =
+        getProperties().getProperty("firefox.bins.windows");
     if (firefoxPathsProp != null)
       if (!firefoxPathsProp.equals(""))
         return firefoxPathsProp.split(",");
@@ -829,7 +831,7 @@ public class I2PFirefox extends I2PFirefoxProfileUnpacker {
 
   /**
    * Stop all running processes managed by the browser manager.
-   * 
+   *
    * @return true if successful, false if not
    */
   public boolean stop() {

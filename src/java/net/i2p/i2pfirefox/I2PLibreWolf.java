@@ -20,5 +20,5 @@ import javax.script.*;
  * @since 1.0.6
  */
 public class I2PLibreWolf {
-  //TODO: provide a librewolf updater here.
+  // TODO: provide a librewolf updater here.
 }

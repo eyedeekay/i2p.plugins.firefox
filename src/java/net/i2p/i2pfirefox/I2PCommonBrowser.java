@@ -74,9 +74,7 @@ public class I2PCommonBrowser {
    *
    * @return the properties of the object
    */
-  public Properties getProperties() {
-    return prop;
-  }
+  public Properties getProperties() { return prop; }
 
   /**
    * Validates the user directory.
@@ -95,7 +93,8 @@ public class I2PCommonBrowser {
     logger.info("user.home: " + userHomeFile.getAbsolutePath());
 
     if (!userDirFile.getAbsolutePath().contains("Program Files")) {
-      if (!userDirFile.getAbsolutePath().equals(userHomeFile.getAbsolutePath())) {
+      if (!userDirFile.getAbsolutePath().equals(
+              userHomeFile.getAbsolutePath())) {
         logger.info("user.dir is not inconvenient");
         if (userDirFile.exists()) {
           logger.info("user.dir exists");
@@ -127,7 +126,8 @@ public class I2PCommonBrowser {
       defaultPathFile.mkdirs();
     }
     if (!defaultPathFile.isDirectory()) {
-      logger.info("default path exists and is not a directory, get it out of the way");
+      logger.info(
+          "default path exists and is not a directory, get it out of the way");
       logger.info(defaultPathFile.getAbsolutePath());
     }
     System.setProperty("user.dir", defaultPathFile.getAbsolutePath());
@@ -169,7 +169,8 @@ public class I2PCommonBrowser {
    */
   protected boolean isOSX() {
     String osName = System.getProperty("os.name").toLowerCase();
-    return osName.contains("osx") || osName.contains("mac") || osName.contains("apple") || osName.contains("darwin");
+    return osName.contains("osx") || osName.contains("mac") ||
+        osName.contains("apple") || osName.contains("darwin");
   }
 
   /**
@@ -229,7 +230,8 @@ public class I2PCommonBrowser {
   /**
    * Returns the runtime directory path based on the given override parameter.
    *
-   * @param override the name of the environment variable to override the runtime
+   * @param override the name of the environment variable to override the
+   *     runtime
    *                 directory
    * @return the runtime directory path as a string
    */
@@ -272,7 +274,8 @@ public class I2PCommonBrowser {
    * @return true if the directory is valid, false otherwise
    */
   private boolean isDirectoryValid(String directory) {
-    return directory != null && !directory.isEmpty() && new File(directory).exists();
+    return directory != null && !directory.isEmpty() &&
+        new File(directory).exists();
   }
 
   /**
@@ -285,7 +288,8 @@ public class I2PCommonBrowser {
    * @return the profile directory, or null if it could not be created
    * @since 0.0.19
    */
-  protected String profileDirectory(String envVar, String browser, String base, boolean app) {
+  protected String profileDirectory(String envVar, String browser, String base,
+                                    boolean app) {
     String profileDir = System.getenv(envVar);
     if (profileDir != null && !profileDir.isEmpty()) {
       File profileDirFile = new File(profileDir);
@@ -306,9 +310,11 @@ public class I2PCommonBrowser {
    * @param app     description of parameter
    * @return description of return value
    */
-  protected String profileDir(String file, String browser, String base, boolean app) {
+  protected String profileDir(String file, String browser, String base,
+                              boolean app) {
     String appString = app ? ".app" : "";
-    String profileDirName = String.format("i2p.%s.profile.%s%s", browser, base, appString);
+    String profileDirName =
+        String.format("i2p.%s.profile.%s%s", browser, base, appString);
     File profileDir = new File(file, profileDirName);
     return profileDir.getAbsolutePath();
   }
@@ -322,11 +328,12 @@ public class I2PCommonBrowser {
    * @return true if the profile was successfully unpacked, false otherwise
    */
   protected boolean unpackProfile(String profileDirectory, String browser,
-      String base) {
+                                  String base) {
     logger.info("Unpacking base profile to " + profileDirectory);
     try {
-      final InputStream resources = this.getClass().getClassLoader().getResourceAsStream(
-          "i2p." + browser + "." + base + ".profile.zip");
+      final InputStream resources =
+          this.getClass().getClassLoader().getResourceAsStream(
+              "i2p." + browser + "." + base + ".profile.zip");
       if (resources == null) {
         logger.info("Could not find resources");
         return false;
@@ -366,8 +373,8 @@ public class I2PCommonBrowser {
   }
 
   /**
-   * Copy a directory from sourceDir to destDir, excluding certain files based on
-   * browser and base.
+   * Copy a directory from sourceDir to destDir, excluding certain files based
+   * on browser and base.
    *
    * @param sourceDir directory to be copied from
    * @param destDir   directory to be copied to
@@ -375,13 +382,16 @@ public class I2PCommonBrowser {
    * @param base      the base name
    * @throws IOException if an I/O error occurs during copying
    */
-  protected void copyDirectory(File sourceDir, File destDir, String browser, String base) throws IOException {
-    destDir = new File(destDir.toString().replace("i2p." + browser + "." + base + ".profile", ""));
+  protected void copyDirectory(File sourceDir, File destDir, String browser,
+                               String base) throws IOException {
+    destDir = new File(destDir.toString().replace(
+        "i2p." + browser + "." + base + ".profile", ""));
     if (!destDir.exists()) {
       destDir.mkdir();
     }
     for (String file : sourceDir.list()) {
-      copyDirectoryCompatibilityMode(new File(sourceDir, file), new File(destDir, file), browser, base);
+      copyDirectoryCompatibilityMode(new File(sourceDir, file),
+                                     new File(destDir, file), browser, base);
     }
   }
 
@@ -394,8 +404,10 @@ public class I2PCommonBrowser {
    * @param base                 the base
    * @throws IOException if an I/O error occurs
    */
-  private void copyDirectoryCompatibilityMode(File sourceDirectory, File destinationDirectory, String browser,
-      String base) throws IOException {
+  private void copyDirectoryCompatibilityMode(File sourceDirectory,
+                                              File destinationDirectory,
+                                              String browser, String base)
+      throws IOException {
     if (sourceDirectory.isDirectory()) {
       copyDirectory(sourceDirectory, destinationDirectory, browser, base);
     } else {
@@ -426,9 +438,10 @@ public class I2PCommonBrowser {
    *                        copied to
    * @throws IOException if an I/O error occurs during the file copy process
    */
-  private void copyFile(File sourceFile, File destinationFile) throws IOException {
+  private void copyFile(File sourceFile, File destinationFile)
+      throws IOException {
     try (InputStream in = new FileInputStream(sourceFile);
-        OutputStream out = new FileOutputStream(destinationFile)) {
+         OutputStream out = new FileOutputStream(destinationFile)) {
       byte[] buffer = new byte[1024];
       int length;
       while ((length = in.read(buffer)) > 0) {
@@ -466,9 +479,7 @@ public class I2PCommonBrowser {
    * @return true if the proxy is ready, false if it is not.
    * @since 0.0.1
    */
-  public boolean waitForProxy() {
-    return waitForProxy(CONFIGURED_TIMEOUT);
-  }
+  public boolean waitForProxy() { return waitForProxy(CONFIGURED_TIMEOUT); }
 
   /**
    * Waits for an HTTP proxy on port 4444 to be ready.
@@ -546,9 +557,7 @@ public class I2PCommonBrowser {
    *
    * @param time
    */
-  public void setProxyTimeoutTime(int time) {
-    CONFIGURED_TIMEOUT = time;
-  }
+  public void setProxyTimeoutTime(int time) { CONFIGURED_TIMEOUT = time; }
 
   /**
    * Joins the elements of the given string array into a single string.

@@ -67,7 +67,7 @@ public class I2PGenericUnsafeBrowser extends I2PCommonBrowser {
 
     list = Arrays.asList(browsers());
     getProperties().setProperty("generic.bins.unix",
-                     list.stream().collect(Collectors.joining(",")));
+                                list.stream().collect(Collectors.joining(",")));
     try (OutputStream fos = new FileOutputStream(
              new File(runtimeDirectory(""), "browser.config"))) {
       getProperties().store(fos, "Chromium Configuration Section");
@@ -406,7 +406,7 @@ public class I2PGenericUnsafeBrowser extends I2PCommonBrowser {
   }
   /**
    * Stop all running processes managed by the browser manager.
-   * 
+   *
    * @return true if successful, false if not
    */
   public boolean stop() {
