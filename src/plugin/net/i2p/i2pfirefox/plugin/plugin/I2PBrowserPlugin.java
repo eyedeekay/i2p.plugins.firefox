@@ -52,6 +52,9 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
     pluginDir = new File(_context.getAppDir(), "plugins/i2pfirefox/");
     profileDir = new File(pluginDir, "profile/");
     i2pBrowser = new I2PBrowser(profileDir.getAbsolutePath());
+    i2pBrowser.firefox = true;
+    i2pBrowser.chromiumFirst = false;
+    i2pBrowser.generic = false;
   }
   public I2PBrowserPlugin(I2PAppContext ctx, ClientAppManager mgr,
                           String args[]) {
@@ -62,6 +65,9 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
     pluginDir = new File(_context.getAppDir(), "plugins/i2pfirefox/");
     profileDir = new File(pluginDir, "profile/");
     i2pBrowser = new I2PBrowser(profileDir.getAbsolutePath());
+    i2pBrowser.firefox = true;
+    i2pBrowser.chromiumFirst = false;
+    i2pBrowser.generic = false;
   }
   public String getDisplayName() { return "I2P Browser"; }
   public String getName() { return "I2P Browser"; }
@@ -69,16 +75,15 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
     if (i2pBrowser == null)
       return ClientAppState.STOPPED;
     if (!isSystrayEnabled())
-      return ClientAppState.STOPPED;
-    if (!i2pBrowser.running())
-      return ClientAppState.STOPPED;
+      if (!i2pBrowser.running())
+        return ClientAppState.STOPPED;
     if (i2pBrowser.running())
       return ClientAppState.RUNNING;
     return ClientAppState.STOPPED;
   }
   public void shutdown(String[] args) {
     if (!isSystrayEnabled()) {
-      System.out.println("I2P Browser tray manager not supported");
+      i2pBrowser.logger.info("I2P Browser tray manager not supported");
       i2pBrowser.stop();
       changeState(ClientAppState.STOPPED);
       return;
@@ -86,10 +91,10 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
   }
   public void startup() {
     if (!isSystrayEnabled()) {
-      System.out.println("I2P Browser tray manager not supported");
+      i2pBrowser.logger.info("I2P Browser tray manager not supported");
       try {
         String url = "http://proxy.i2p";
-        i2pBrowser.launch(false, new String[] {url});
+        i2pBrowser.launchFirefox(0, new String[] {url});
       } catch (Exception e) {
         e.printStackTrace();
       }
@@ -97,14 +102,14 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
     }
     try {
       String url = "http://proxy.i2p";
-      System.out.println(
+      i2pBrowser.logger.info(
           "Starting I2P Browser tray manager by testing http://proxy.i2p");
       MenuService dtg = startTrayApp();
       try {
         Thread.sleep(1000);
       } catch (InterruptedException ie) {
       }
-      i2pBrowser.launch(false, new String[] {url});
+      i2pBrowser.launchFirefox(0, new String[] {url});
       if (dtg != null) {
         dtg.addMenu("Launch I2P Browser", new Starter(dtg));
         dtg.addMenu("Quit I2P Browser", new Stopper(dtg));
@@ -131,7 +136,7 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
   }
 
   // Copied directly from I2PSnark-standalone where it is used to determine
-  // whether to launch the tray app Our environment should basically never be
+  // whether to launchFirefox the tray app Our environment should basically never be
   // headless, that doesn't make any sense, but something tells me I should
   // leave that check in.
   private boolean isSystrayEnabled() {
@@ -171,7 +176,7 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
    */
   public class StarterThread implements Runnable {
     public void run() {
-      i2pBrowser.launch(false); 
+      i2pBrowser.launchFirefox(0, null); 
       changeState(ClientAppState.RUNNING);
     }
   }

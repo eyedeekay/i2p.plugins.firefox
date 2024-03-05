@@ -340,6 +340,51 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
         </exec>
     </target>
 
+    <target name="pluginzip" depends="all, buildNum">
+        <delete>
+           <!-- in installer but not update -->
+           <fileset dir="plugin/" includes="i2ptunnel.config i2pfirefox.config eepsite/docroot/index.html eepsite/docroot/robots.txt" />
+        </delete>
+        <delete dir="plugin/eepsite/docroot/torrents/" />
+        <!-- get version number -->
+
+
+        <!-- make the update xpi2p -->
+        <!-- this contains everything except i2ptunnel.config -->
+        <copy file="LICENSE.md" todir="plugin/" overwrite="true" />
+        <copy file="README.md" todir="plugin/" overwrite="true" />
+        <copy file="CHANGES.md" todir="plugin/" overwrite="true" />
+        <copy file="scripts/plugin.config" todir="plugin/" overwrite="true" />
+        <mkdir dir="plugin/lib/" />
+        <copy file="src/build/i2pfirefox.jar" todir="plugin/lib/" overwrite="true" />
+        <copy file="src/build/i2pfirefox-plugin.jar" todir="plugin/lib/" overwrite="true" />
+        <exec executable="echo" osfamily="unix" failonerror="true" output="plugin/plugin.config" append="true">
+            <arg value="update-only=true" />
+        </exec>
+        <exec executable="echo" osfamily="unix" failonerror="true" output="plugin/plugin.config" append="true">
+            <arg value="version=${release.number}-${build.number}" />
+        </exec>
+        <input message="Enter su3 signing key password:" addproperty="release.password.su3" />
+        <fail message="You must enter a password." >
+            <condition>
+                <equals arg1="${release.password.su3}" arg2=""/>
+            </condition>
+        </fail>
+
+        <!-- make the install xpi2p -->
+        <copy file="scripts/plugin.config" todir="plugin/" overwrite="true" />
+        <!-- Files in installer but not update. Be sure to Add to delete fileset above and clean target below -->
+        <copy file="scripts/i2ptunnel.config" todir="plugin/" overwrite="true" />
+        <exec executable="echo" osfamily="unix" failonerror="true" output="plugin/plugin.config" append="true">
+            <arg value="version=${release.number}-${build.number}" />
+        </exec>
+        <exec executable="zip">
+            <arg value="-r"/>
+            <arg value="plugin.zip"/>
+            <arg value="plugin"/>
+        </exec>
+    </target>
+
     <target name="plugin" depends="all, buildNum">
         <delete>
            <!-- in installer but not update -->
@@ -370,12 +415,6 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
                 <equals arg1="${release.password.su3}" arg2=""/>
             </condition>
         </fail>
-        <!-- this will fail if no su3 keys exist, as it needs the password twice -->
-        <exec executable="scripts/makeplugin.sh" inputstring="${release.password.su3}" failonerror="true" >
-            <arg value="plugin" />
-        </exec>
-        <move file="i2pfirefox.xpi2p" tofile="i2pfirefox-update.xpi2p" overwrite="true" />
-        <move file="i2pfirefox.su3" tofile="i2pfirefox-update.su3" overwrite="true" />
 
         <!-- make the install xpi2p -->
         <copy file="scripts/plugin.config" todir="plugin/" overwrite="true" />
@@ -384,6 +423,7 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
         <exec executable="echo" osfamily="unix" failonerror="true" output="plugin/plugin.config" append="true">
             <arg value="version=${release.number}-${build.number}" />
         </exec>
+
         <exec executable="scripts/makeplugin.sh" inputstring="${release.password.su3}" failonerror="true" >
             <arg value="plugin" />
         </exec>

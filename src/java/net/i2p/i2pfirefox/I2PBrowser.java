@@ -55,27 +55,30 @@ public class I2PBrowser extends I2PGenericUnsafeBrowser {
   private boolean outputConfig = false;
   private boolean useSystray = true;
 
-  private void launchFirefox(int privateWindow, String[] url) {
-    logger.info("I2PFirefox" + privateWindow);
+  public void launchFirefox(int privateWindow, String[] url) {
+    String priv = privateWindow == 1 ? "private-window" : "long-profile";
+    logger.info("I2PFirefox" + priv);
     i2pFirefox.usability = usability;
     if (outputConfig)
       i2pFirefox.storeFirefoxDefaults();
     i2pFirefox.launch(privateWindow, url);
   }
-  private void launchChromium(int privateWindow, String[] url) {
-    logger.info("I2PChromium" + privateWindow);
+  public void launchChromium(int privateWindow, String[] url) {
+    String priv = privateWindow == 1 ? "private-window" : "long-profile";
+    logger.info("I2PChromium" + priv);
     i2pChromium.usability = usability;
     if (outputConfig)
       i2pChromium.storeChromiumDefaults();
     i2pChromium.launch(privateWindow, url);
   }
   private void launchGeneric(int privateWindowInt, String[] url) {
+    String priv = privateWindowInt == 1 ? "private-window" : "long-profile";
     boolean privateWindow = false;
     if (privateWindowInt == 1)
       privateWindow = true;
     if (outputConfig)
       i2pGeneral.storeGenericDefaults();
-    logger.info("I2PGeneric" + privateWindowInt);
+    logger.info("I2PGeneric" + priv);
     i2pGeneral.launch(privateWindow, url);
   }
 
