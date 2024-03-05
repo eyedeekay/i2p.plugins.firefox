@@ -461,7 +461,7 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
         <exec executable="clang-format">
             <arg value="-i"/>
             <arg value="src/java/net/i2p/i2pfirefox/I2PBrowser.java"/>
-            <arg value="src/java/net/i2p/i2pfirefox/I2PBrowserPlugin.java"/>
+            <arg value="src/plugin/net/i2p/i2pfirefox/plugin/plugin/I2PBrowserPlugin.java"/>
             <arg value="src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java"/>
             <arg value="src/java/net/i2p/i2pfirefox/I2PChromium.java"/>
             <arg value="src/java/net/i2p/i2pfirefox/I2PChromiumProfileBuilder.java"/>

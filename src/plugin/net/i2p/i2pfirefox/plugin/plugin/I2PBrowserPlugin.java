@@ -2,7 +2,6 @@ package net.i2p.i2pfirefox.plugin;
 
 import java.awt.GraphicsEnvironment;
 import java.io.File;
-
 import net.i2p.I2PAppContext;
 import net.i2p.app.ClientApp;
 import net.i2p.app.ClientAppManager;
@@ -83,15 +82,16 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
   }
   public void shutdown(String[] args) {
     if (!isSystrayEnabled()) {
-      i2pBrowser.logger.info("I2P Browser tray manager not supported");
+      _log.info("I2P Browser tray manager not supported");
       i2pBrowser.stop();
       changeState(ClientAppState.STOPPED);
       return;
+    } else {
     }
   }
   public void startup() {
     if (!isSystrayEnabled()) {
-      i2pBrowser.logger.info("I2P Browser tray manager not supported");
+      _log.info("I2P Browser tray manager not supported");
       try {
         String url = "http://proxy.i2p";
         i2pBrowser.launchFirefox(0, new String[] {url});
@@ -99,23 +99,24 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
         e.printStackTrace();
       }
       return;
-    }
-    try {
-      String url = "http://proxy.i2p";
-      i2pBrowser.logger.info(
-          "Starting I2P Browser tray manager by testing http://proxy.i2p");
-      MenuService dtg = startTrayApp();
+    } else {
       try {
-        Thread.sleep(1000);
-      } catch (InterruptedException ie) {
+        String url = "http://proxy.i2p";
+        _log.info(
+            "Starting I2P Browser tray manager by testing http://proxy.i2p");
+        MenuService dtg = startTrayApp();
+        try {
+          Thread.sleep(1000);
+        } catch (InterruptedException ie) {
+        }
+        i2pBrowser.launchFirefox(0, new String[] {url});
+        if (dtg != null) {
+          dtg.addMenu("Launch I2P Browser", new Starter(dtg));
+          dtg.addMenu("Quit I2P Browser", new Stopper(dtg));
+        }
+      } catch (Exception e) {
+        e.printStackTrace();
       }
-      i2pBrowser.launchFirefox(0, new String[] {url});
-      if (dtg != null) {
-        dtg.addMenu("Launch I2P Browser", new Starter(dtg));
-        dtg.addMenu("Quit I2P Browser", new Stopper(dtg));
-      }
-    } catch (Exception e) {
-      e.printStackTrace();
     }
   }
 
@@ -136,9 +137,9 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
   }
 
   // Copied directly from I2PSnark-standalone where it is used to determine
-  // whether to launchFirefox the tray app Our environment should basically never be
-  // headless, that doesn't make any sense, but something tells me I should
-  // leave that check in.
+  // whether to launchFirefox the tray app Our environment should basically
+  // never be headless, that doesn't make any sense, but something tells me I
+  // should leave that check in.
   private boolean isSystrayEnabled() {
     if (GraphicsEnvironment.isHeadless())
       return false;
@@ -176,7 +177,7 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
    */
   public class StarterThread implements Runnable {
     public void run() {
-      i2pBrowser.launchFirefox(0, null); 
+      i2pBrowser.launchFirefox(0, null);
       changeState(ClientAppState.RUNNING);
     }
   }
@@ -202,16 +203,16 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
    *  @since 0.9.61
    */
   public class StopperThread implements Runnable {
-    public void run() { 
-      i2pBrowser.stop(); 
+    public void run() {
+      i2pBrowser.stop();
       changeState(ClientAppState.STOPPED);
     }
   }
 
   private synchronized void changeState(ClientAppState state) {
     if (_mgr != null)
-        _mgr.notify(this, state, null, null);
-}
+      _mgr.notify(this, state, null, null);
+  }
   public static void main(String[] args) {
     I2PBrowserPlugin plugin = new I2PBrowserPlugin();
     try {
