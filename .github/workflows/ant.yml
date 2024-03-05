@@ -80,7 +80,7 @@ jobs:
       - name: Upload i2pfirefox.zip (unsigned plugin)
         uses: actions/upload-artifact@v4
         with:
-          name: i2pfirefox-${{ github.sha }}_amd64.zip
+          name: i2pfirefox-${{ github.sha }}.zip
           path: ./plugin.zip
 
 
