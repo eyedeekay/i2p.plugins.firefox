@@ -364,12 +364,6 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
         <exec executable="echo" osfamily="unix" failonerror="true" output="plugin/plugin.config" append="true">
             <arg value="version=${release.number}-${build.number}" />
         </exec>
-        <input message="Enter su3 signing key password:" addproperty="release.password.su3" />
-        <fail message="You must enter a password." >
-            <condition>
-                <equals arg1="${release.password.su3}" arg2=""/>
-            </condition>
-        </fail>
 
         <!-- make the install xpi2p -->
         <copy file="scripts/plugin.config" todir="plugin/" overwrite="true" />
