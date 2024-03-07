@@ -50,13 +50,13 @@ jobs:
           if_no_artifact_found: fail
       - name: List artifacts
         run: |
-          echo "" >> CHANGES.md
-          echo "## Checksums" >> CHANGES.md
-          echo "" >> CHANGES.md
-          echo "```" >> CHANGES.md
-          sha256sum *.* >> CHANGES.md
-          echo "```" >> CHANGES.md
-          echo "" >> CHANGES.md
+          echo "" | tee -a CHANGES.md;
+          echo "## Checksums" | tee -a CHANGES.md;
+          echo "" | tee -a CHANGES.md;
+          echo "```" | tee -a CHANGES.md;
+          sha256sum *.* | tee -a CHANGES.md;
+          echo "```" | tee -a CHANGES.md;
+          echo "" | tee -a CHANGES.md;
       - name: Upload artifacts
         uses: ncipollo/release-action@v1
         with:
