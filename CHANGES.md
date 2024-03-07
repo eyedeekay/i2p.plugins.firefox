@@ -1,3 +1,11 @@
+Thu, March 7
+------------
+
+ - re-implement Plugin functions with Destop GUI API.
+ - Fix several NPE's
+ - Delete redundant code
+ - CI/CD improvements, packaging improvements
+
 Tue, January 17
 ---------------
 
