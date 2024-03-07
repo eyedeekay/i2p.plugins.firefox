@@ -21,6 +21,16 @@ jobs:
           sparse-checkout-cone-mode: false
       - name: sleep 5 minutes
         run: |
+          echo "sleeping 10 minutes to wait for artifacts"
+          sleep 1m
+          echo "sleeping 9 minutes to wait for artifacts"
+          sleep 1m
+          echo "sleeping 8 minutes to wait for artifacts"
+          sleep 1m
+          echo "sleeping 7 minutes to wait for artifacts"
+          sleep 1m
+          echo "sleeping 6 minutes to wait for artifacts"
+          sleep 1m
           echo "sleeping 5 minutes to wait for artifacts"
           sleep 1m
           echo "sleeping 4 minutes to wait for artifacts"
