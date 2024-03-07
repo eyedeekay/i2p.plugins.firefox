@@ -19,6 +19,18 @@ jobs:
           sparse-checkout: |
             CHANGES.md
           sparse-checkout-cone-mode: false
+      - name: sleep 5 minutes
+        run: |
+          echo "sleeping 5 minutes to wait for artifacts"
+          sleep 1m
+          echo "sleeping 4 minutes to wait for artifacts"
+          sleep 1m
+          echo "sleeping 3 minutes to wait for artifacts"
+          sleep 1m
+          echo "sleeping 2 minutes to wait for artifacts"
+          sleep 1m
+          echo "sleeping 1 minutes to wait for artifacts"
+          sleep 1m
       - name: Download artifacts
         id: download-artifact
         uses: dawidd6/action-download-artifact@v3
@@ -32,7 +44,7 @@ jobs:
           echo "## Checksums" >> CHANGES.md
           echo "" >> CHANGES.md
           echo "```" >> CHANGES.md
-          sha256sum * >> CHANGES.md
+          sha256sum *.* >> CHANGES.md
           echo "```" >> CHANGES.md
           echo "" >> CHANGES.md
       - name: Upload artifacts
