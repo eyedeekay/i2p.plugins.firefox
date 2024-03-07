@@ -31,7 +31,10 @@ jobs:
           echo "" >> CHANGES.md
           echo "## Checksums" >> CHANGES.md
           echo "" >> CHANGES.md
+          echo "```" >> CHANGES.md
           sha256sum * >> CHANGES.md
+          echo "```" >> CHANGES.md
+          echo "" >> CHANGES.md
       - name: Upload artifacts
         uses: ncipollo/release-action@v1
         with:
