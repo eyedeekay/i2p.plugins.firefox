@@ -29,6 +29,7 @@ import java.util.stream.Stream;
 public class I2PChromium extends I2PChromiumProfileUnpacker {
   private final String[] CHROMIUM_SEARCH_PATHS = CHROMIUM_FINDER();
   private Process p = null;
+  private String chromePath;
 
   /**
    * Construct an I2PChromium class which manages an instance of Chromium and
@@ -388,11 +389,13 @@ public class I2PChromium extends I2PChromiumProfileUnpacker {
       File chromeFile = new File(chrome);
       if (chromeFile.exists()) {
         // if it does, return it
+        chromePath = chrome;
         return chrome;
       }
     }
     String[] chromees = onlyValidChromiums();
     if (chromees.length > 0) {
+      chromePath = chromees[0];
       return chromees[0];
     } else {
       return "";

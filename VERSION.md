@@ -12,8 +12,8 @@ noscript
 11.4.29
 https://addons.mozilla.org/firefox/downloads/file/4206186/noscript-11.4.29.xpi
 localcdn-fork-of-decentraleyes
-2.6.63
-https://addons.mozilla.org/firefox/downloads/file/4231487/localcdn_fork_of_decentraleyes-2.6.63.xpi
+2.6.64
+https://addons.mozilla.org/firefox/downloads/file/4243456/localcdn_fork_of_decentraleyes-2.6.64.xpi
 onion-in-container-browsing
 0.82
 https://addons.mozilla.org/firefox/downloads/file/3904685/onion_in_container_browsing-0.82.xpi

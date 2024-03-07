@@ -40,16 +40,8 @@ public class I2PCommonBrowser {
 
   public I2PCommonBrowser() {
     try {
-      // This block configure the logger with handler and formatter
-      fh = new FileHandler(logFile().toString());
-      logger.addHandler(fh);
-      SimpleFormatter formatter = new SimpleFormatter();
-      fh.setFormatter(formatter);
-      // the following statement is used to log any messages
       logger.info("Browser log");
     } catch (SecurityException e) {
-      e.printStackTrace();
-    } catch (IOException e) {
       e.printStackTrace();
     }
     loadPropertiesFile(new File(runtimeDirectory(""), "browser.config"));
@@ -200,15 +192,15 @@ public class I2PCommonBrowser {
    *
    * @return the log file for the browser launcher
    */
-  private File logFile() {
-    validateUserDirectory();
+  /*private File logFile() {
+    // validateUserDirectory();
     String userDirectory = System.getProperty("user.dir");
     File logDirectory = new File(userDirectory, "logs");
     if (!logDirectory.exists()) {
       logDirectory.mkdirs();
     }
     return new File(logDirectory, "browserlauncher.log");
-  }
+  }*/
 
   /**
    * Get the runtime directory, creating it if create=true.

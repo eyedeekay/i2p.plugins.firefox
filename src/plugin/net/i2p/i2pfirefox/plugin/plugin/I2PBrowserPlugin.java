@@ -40,9 +40,9 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
   private final ClientAppManager _mgr;
   private final String _args[];
   private static final String PROP_DTG_ENABLED = "desktopgui.enabled";
-  private final I2PBrowser i2pBrowser;
   private final File pluginDir;
   private final File profileDir;
+  private MenuHandle lmh;
   public I2PBrowserPlugin() {
     _context = new I2PAppContext();
     _mgr = null;
@@ -50,10 +50,6 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
     _log = _context.logManager().getLog(I2PBrowserPlugin.class);
     pluginDir = new File(_context.getAppDir(), "plugins/i2pfirefox/");
     profileDir = new File(pluginDir, "profile/");
-    i2pBrowser = new I2PBrowser(profileDir.getAbsolutePath());
-    i2pBrowser.firefox = true;
-    i2pBrowser.chromiumFirst = false;
-    i2pBrowser.generic = false;
   }
   public I2PBrowserPlugin(I2PAppContext ctx, ClientAppManager mgr,
                           String args[]) {
@@ -63,45 +59,39 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
     _log = ctx.logManager().getLog(I2PBrowserPlugin.class);
     pluginDir = new File(_context.getAppDir(), "plugins/i2pfirefox/");
     profileDir = new File(pluginDir, "profile/");
-    i2pBrowser = new I2PBrowser(profileDir.getAbsolutePath());
-    i2pBrowser.firefox = true;
-    i2pBrowser.chromiumFirst = false;
-    i2pBrowser.generic = false;
   }
   public String getDisplayName() { return "I2P Browser"; }
   public String getName() { return "I2P Browser"; }
-  public ClientAppState getState() {
-    if (i2pBrowser == null)
-      return ClientAppState.STOPPED;
-    if (!isSystrayEnabled())
-      if (!i2pBrowser.running())
-        return ClientAppState.STOPPED;
-    if (i2pBrowser.running())
-      return ClientAppState.RUNNING;
-    return ClientAppState.STOPPED;
-  }
+  public ClientAppState getState() { return ClientAppState.STOPPED; }
   public void shutdown(String[] args) {
     if (!isSystrayEnabled()) {
       _log.info("I2P Browser tray manager not supported");
-      i2pBrowser.stop();
-      changeState(ClientAppState.STOPPED);
-      return;
     } else {
+      _log.info("I2P Browser tray manager shutting down");
+      MenuService dtg = startTrayApp();
+      try {
+        Thread.sleep(1000);
+      } catch (InterruptedException ie) {
+      }
+      if (dtg != null) {
+        dtg.removeMenu(lmh);
+      }
     }
+    changeState(ClientAppState.STOPPED);
   }
   public void startup() {
+    changeState(ClientAppState.STOPPED);
     if (!isSystrayEnabled()) {
       _log.info("I2P Browser tray manager not supported");
       try {
-        String url = "http://proxy.i2p";
-        i2pBrowser.launchFirefox(0, new String[] {url});
+        I2PBrowser i2pBrowser = new I2PBrowser(profileDir.getAbsolutePath());
+        String[] args = {"http://proxy.i2p"};
+        i2pBrowser.launchFirefox(0, args);
       } catch (Exception e) {
-        e.printStackTrace();
+        _log.error("Error starting I2P Browser", e);
       }
-      return;
     } else {
       try {
-        String url = "http://proxy.i2p";
         _log.info(
             "Starting I2P Browser tray manager by testing http://proxy.i2p");
         MenuService dtg = startTrayApp();
@@ -109,13 +99,19 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
           Thread.sleep(1000);
         } catch (InterruptedException ie) {
         }
-        i2pBrowser.launchFirefox(0, new String[] {url});
         if (dtg != null) {
-          dtg.addMenu("Launch I2P Browser", new Starter(dtg));
-          dtg.addMenu("Quit I2P Browser", new Stopper(dtg));
+          _log.info("I2P Browser integrating with I2P tray manager");
+          lmh = dtg.addMenu("Launch I2P Browser", new Starter(dtg));
+          dtg.showMenu(lmh);
+          dtg.enableMenu(lmh);
+        } else {
+          _log.info("I2P Browser tray manager not found");
         }
+        I2PBrowser i2pBrowser = new I2PBrowser(profileDir.getAbsolutePath());
+        String[] args = {"http://proxy.i2p"};
+        i2pBrowser.launchFirefox(0, args);
       } catch (Exception e) {
-        e.printStackTrace();
+        _log.error("Error starting I2P Browser tray manager", e);
       }
     }
   }
@@ -163,49 +159,32 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
     private final MenuService _ms;
     public Starter(MenuService ms) { _ms = ms; }
     public void clicked(MenuHandle menu) {
-      _ms.disableMenu(menu);
-      _ms.updateMenu("I2PBrowser-Launcher starting", menu);
-      Thread t = new I2PAppThread(new StarterThread(),
-                                  "I2PBrowser-Launcher start", true);
-      t.start();
+      // Thread t = new I2PAppThread(new StarterThread(),
+      //"I2PBrowser-Launcher start", true);
+      // t.start();
+      _log.info("I2P Browser starting up");
+      try {
+        I2PBrowser i2pBrowser = new I2PBrowser(profileDir.getAbsolutePath());
+        String[] args = {"http://proxy.i2p"};
+        i2pBrowser.launchFirefox(0, args);
+      } catch (Exception e) {
+        _log.error("Error starting I2P Browser", e);
+      }
+      _log.info("I2P Browser ran");
     }
   }
 
-  /**
-   *  Threaded startup
-   *  @since 0.9.61
-   */
   public class StarterThread implements Runnable {
     public void run() {
-      i2pBrowser.launchFirefox(0, null);
-      changeState(ClientAppState.RUNNING);
-    }
-  }
-
-  /**
-   *  Callback when Stop I2PBrowser is clicked in systray
-   *  @since 0.9.61
-   */
-  public class Stopper implements MenuCallback {
-    private final MenuService _ms;
-    public Stopper(MenuService ms) { _ms = ms; }
-    public void clicked(MenuHandle menu) {
-      _ms.disableMenu(menu);
-      _ms.updateMenu("I2PBrowser-Launcher stopping", menu);
-      Thread t = new I2PAppThread(new StopperThread(),
-                                  "I2PBrowser-Launcher stop", true);
-      t.start();
-    }
-  }
-
-  /**
-   *  Threaded startup
-   *  @since 0.9.61
-   */
-  public class StopperThread implements Runnable {
-    public void run() {
-      i2pBrowser.stop();
-      changeState(ClientAppState.STOPPED);
+      _log.info("I2P Browser starting up");
+      try {
+        I2PBrowser i2pBrowser = new I2PBrowser(profileDir.getAbsolutePath());
+        String[] args = {"http://proxy.i2p"};
+        i2pBrowser.launchFirefox(0, args);
+      } catch (Exception e) {
+        _log.error("Error starting I2P Browser", e);
+      }
+      _log.info("I2P Browser ran");
     }
   }
 

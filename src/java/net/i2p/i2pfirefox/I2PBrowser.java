@@ -53,12 +53,13 @@ public class I2PBrowser extends I2PGenericUnsafeBrowser {
   public boolean usability = false;
   public int privateBrowsing = 0;
   private boolean outputConfig = false;
-  private boolean useSystray = true;
 
   public void launchFirefox(int privateWindow, String[] url) {
     String priv = privateWindow == 1 ? "private-window" : "long-profile";
     logger.info("I2PFirefox" + priv);
     i2pFirefox.usability = usability;
+    if (url == null)
+      url = new String[] { "about:blank" };
     if (outputConfig)
       i2pFirefox.storeFirefoxDefaults();
     i2pFirefox.launch(privateWindow, url);
@@ -67,6 +68,8 @@ public class I2PBrowser extends I2PGenericUnsafeBrowser {
     String priv = privateWindow == 1 ? "private-window" : "long-profile";
     logger.info("I2PChromium" + priv);
     i2pChromium.usability = usability;
+    if (url == null)
+      url = new String[] { "about:blank" };
     if (outputConfig)
       i2pChromium.storeChromiumDefaults();
     i2pChromium.launch(privateWindow, url);
@@ -74,6 +77,8 @@ public class I2PBrowser extends I2PGenericUnsafeBrowser {
   private void launchGeneric(int privateWindowInt, String[] url) {
     String priv = privateWindowInt == 1 ? "private-window" : "long-profile";
     boolean privateWindow = false;
+    if (url == null)
+      url = new String[] { "about:blank" };
     if (privateWindowInt == 1)
       privateWindow = true;
     if (outputConfig)
@@ -144,7 +149,6 @@ public class I2PBrowser extends I2PGenericUnsafeBrowser {
    * @since 0.0.17
    */
   public void launch(int privateWindow, String[] url) {
-    validateUserDirectory();
     if (chromiumFirst) {
       if (chromium) {
         this.launchChromium(privateWindow, url);
@@ -231,7 +235,6 @@ public class I2PBrowser extends I2PGenericUnsafeBrowser {
     i2pBrowser.startup(args);
   }
   public ArrayList<String> parseArgs(String[] args) {
-    validateUserDirectory();
     logger.info("I2PBrowser");
     ArrayList<String> visitURL = new ArrayList<String>();
     if (args != null) {
@@ -262,9 +265,6 @@ public class I2PBrowser extends I2PGenericUnsafeBrowser {
           if (arg.equals("-outputconfig")) {
             outputConfig = true;
           }
-          if (arg.equals("-nosystray")) {
-            useSystray = false;
-          }
           if (arg.equals("-noproxycheck")) {
             logger.info("zeroing out proxy check");
             this.setProxyTimeoutTime(0);
@@ -280,43 +280,14 @@ public class I2PBrowser extends I2PGenericUnsafeBrowser {
   public void startup(String[] args) {
     ArrayList<String> visitURL = parseArgs(args);
     try {
-      if (useSystray) {
-        Runtime.getRuntime().addShutdownHook(new Thread() {
-          @Override
-          public void run() {}
-        });
-      }
+      Runtime.getRuntime().addShutdownHook(new Thread() {
+        @Override
+        public void run() {}
+      });
     } catch (Exception e) {
       logger.warning(e.toString());
     }
     this.launch(this.privateBrowsing,
                 visitURL.toArray(new String[visitURL.size()]));
-  }
-  protected boolean createSystrayRunningFile() {
-    if (!systrayRunningExternally()) {
-      try {
-        File systrayIsRunningFile =
-            new File(runtimeDirectory(""), "systray.running");
-        FileWriter myWriter = new FileWriter(systrayIsRunningFile);
-        myWriter.write("systray.running file created");
-        myWriter.close();
-        return true;
-      } catch (IOException ioe) {
-        logger.warning(ioe.toString());
-      }
-      return false;
-    }
-    return false;
-  }
-  protected boolean systrayRunningExternally() {
-    File systrayIsRunningFile =
-        new File(runtimeDirectory(""), "systray.running");
-    if (systrayIsRunningFile.exists()) {
-      logger.info("Systray is already running in another process: " +
-                  systrayIsRunningFile.toString());
-      return true;
-    }
-    logger.info("Systray does not appear to be running");
-    return false;
   }
 }

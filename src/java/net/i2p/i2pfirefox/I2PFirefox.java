@@ -30,6 +30,7 @@ import java.util.stream.Stream;
 public class I2PFirefox extends I2PFirefoxProfileUnpacker {
   private final String[] FIREFOX_SEARCH_PATHS = FIREFOX_FINDER();
   private Process process = null;
+  private String firefoxPath;
   public boolean usability = false;
 
   private String baseMode() {
@@ -379,6 +380,9 @@ public class I2PFirefox extends I2PFirefoxProfileUnpacker {
    * @since 0.0.1
    */
   public String topFirefox() {
+    if (firefoxPath != null) {
+      return firefoxPath;
+    }
     // get the FIREFOX environment variable
     String firefox = System.getenv("FIREFOX");
     // if it is not null and not empty
@@ -387,11 +391,13 @@ public class I2PFirefox extends I2PFirefoxProfileUnpacker {
       File firefoxFile = new File(firefox);
       if (firefoxFile.exists()) {
         // if it does, return it
+        firefoxPath = firefox;
         return firefox;
       }
     }
     String[] firefoxes = onlyValidFirefoxes();
     if (firefoxes.length > 0) {
+      firefoxPath = firefoxes[0];
       return firefoxes[0];
     } else {
       return "";
