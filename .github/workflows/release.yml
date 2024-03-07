@@ -58,15 +58,13 @@ jobs:
           skip_unpack: true
           workflow: ant.yml
           if_no_artifact_found: fail
-      - name: List artifacts
-        run: |
-          echo "" | tee -a CHANGES.md
-          echo "## Checksums" | tee -a CHANGES.md
-          echo "" | tee -a CHANGES.md
-          echo "```" | tee -a CHANGES.md
-          sha256sum * | tee -a CHANGES.md
-          echo "```" | tee -a CHANGES.md
-          echo "" | tee -a CHANGES.md
+      - run: echo "" | tee -a CHANGES.md
+      - run: echo "## Checksums" | tee -a CHANGES.md
+      - run: echo "" | tee -a CHANGES.md
+      - run: echo "```" | tee -a CHANGES.md
+      - run: sha256sum * | tee -a CHANGES.md
+      - run: echo "```" | tee -a CHANGES.md
+      - run: echo "" | tee -a CHANGES.md
       - name: Upload artifacts
         uses: ncipollo/release-action@v1
         with:
