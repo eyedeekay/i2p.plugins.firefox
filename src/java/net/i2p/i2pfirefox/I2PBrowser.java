@@ -59,7 +59,7 @@ public class I2PBrowser extends I2PGenericUnsafeBrowser {
     logger.info("I2PFirefox" + priv);
     i2pFirefox.usability = usability;
     if (url == null)
-      url = new String[] { "about:blank" };
+      url = new String[] {"about:blank"};
     if (outputConfig)
       i2pFirefox.storeFirefoxDefaults();
     i2pFirefox.launch(privateWindow, url);
@@ -69,7 +69,7 @@ public class I2PBrowser extends I2PGenericUnsafeBrowser {
     logger.info("I2PChromium" + priv);
     i2pChromium.usability = usability;
     if (url == null)
-      url = new String[] { "about:blank" };
+      url = new String[] {"about:blank"};
     if (outputConfig)
       i2pChromium.storeChromiumDefaults();
     i2pChromium.launch(privateWindow, url);
@@ -78,7 +78,7 @@ public class I2PBrowser extends I2PGenericUnsafeBrowser {
     String priv = privateWindowInt == 1 ? "private-window" : "long-profile";
     boolean privateWindow = false;
     if (url == null)
-      url = new String[] { "about:blank" };
+      url = new String[] {"about:blank"};
     if (privateWindowInt == 1)
       privateWindow = true;
     if (outputConfig)
