@@ -27,7 +27,11 @@ jobs:
           workflow: ant.yml
           if_no_artifact_found: fail
       - name: List artifacts
-        run: ls
+        run: |
+          echo "" >> CHANGES.md
+          echo "## Checksums" >> CHANGES.md
+          echo "" >> CHANGES.md
+          sha256sum * >> CHANGES.md
       - name: Upload artifacts
         uses: ncipollo/release-action@v1
         with:
