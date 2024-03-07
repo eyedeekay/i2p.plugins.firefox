@@ -23,6 +23,7 @@ jobs:
         id: download-artifact
         uses: dawidd6/action-download-artifact@v3
         with:
+          skip_unpack: false
           workflow: ant.yml
           if_no_artifact_found: fail
       - name: List artifacts
@@ -30,6 +31,5 @@ jobs:
       - name: Upload artifacts
         uses: ncipollo/release-action@v1
         with:
-          skip_unpack: true
           artifacts: "*"
           bodyFile: "CHANGES.md"
