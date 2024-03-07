@@ -103,10 +103,12 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
         }
         if (dtg != null) {
           _log.info("I2P Browser integrating with I2P tray manager");
-          lmhs = dtg.addMenu("Launch I2P Browser (Safe Mode)", new Starter(dtg));
+          lmhs =
+              dtg.addMenu("Launch I2P Browser (Safe Mode)", new Starter(dtg));
           dtg.showMenu(lmhs);
           dtg.enableMenu(lmhs);
-          lmhf = dtg.addMenu("Launch I2P Browser (Flexible Mode)", new FlexStarter(dtg));
+          lmhf = dtg.addMenu("Launch I2P Browser (Flexible Mode)",
+                             new FlexStarter(dtg));
           dtg.showMenu(lmhf);
           dtg.enableMenu(lmhf);
         } else {
@@ -181,7 +183,7 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
 
   public class FlexStarter implements MenuCallback {
     private final MenuService _ms;
-    public Starter(MenuService ms) { _ms = ms; }
+    public FlexStarter(MenuService ms) { _ms = ms; }
     public void clicked(MenuHandle menu) {
       // Thread t = new I2PAppThread(new StarterThread(),
       //"I2PBrowser-Launcher start", true);
@@ -190,20 +192,6 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
       try {
         I2PBrowser i2pBrowser = new I2PBrowser(profileDir.getAbsolutePath());
         i2pBrowser.usability = true;
-        String[] args = {"http://proxy.i2p"};
-        i2pBrowser.launchFirefox(0, args);
-      } catch (Exception e) {
-        _log.error("Error starting I2P Browser", e);
-      }
-      _log.info("I2P Browser ran");
-    }
-  }
-
-  public class StarterThread implements Runnable {
-    public void run() {
-      _log.info("I2P Browser starting up");
-      try {
-        I2PBrowser i2pBrowser = new I2PBrowser(profileDir.getAbsolutePath());
         String[] args = {"http://proxy.i2p"};
         i2pBrowser.launchFirefox(0, args);
       } catch (Exception e) {
