@@ -15,6 +15,10 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            CHANGES.md
+          sparse-checkout-cone-mode: false
       - name: Download artifacts
         id: download-artifact
         uses: dawidd6/action-download-artifact@v3
@@ -26,5 +30,6 @@ jobs:
       - name: Upload artifacts
         uses: ncipollo/release-action@v1
         with:
+          skip_unpack: true
           artifacts: "*"
           bodyFile: "CHANGES.md"
