@@ -1,17 +1,18 @@
 name: Release
 
-on: [push]
+#on: [push]
 
-#on:
-  #push:
+on:
+  push:
     # Sequence of patterns matched against refs/tags
-    # tags:
-      #- '*.*.*' # Release 1.2.3
+    tags:
+      - '*.*.*' # Release 1.2.3
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
+    permissions:
+      contents: write
     steps:
       - name: Download artifacts
         id: download-artifact
@@ -21,3 +22,8 @@ jobs:
           if_no_artifact_found: fail
       - name: List artifacts
         run: ls -lah
+      - name: Upload artifacts
+        uses: ncipollo/release-action@v1
+        with:
+          artifacts: "*"
+          bodyFile: "CHANGES.md"
