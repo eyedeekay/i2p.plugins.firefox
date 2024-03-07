@@ -19,8 +19,18 @@ jobs:
           sparse-checkout: |
             CHANGES.md
           sparse-checkout-cone-mode: false
-      - name: sleep 5 minutes
+      - name: sleep 15 minutes
         run: |
+          echo "sleeping 15 minutes to wait for artifacts"
+          sleep 1m
+          echo "sleeping 14 minutes to wait for artifacts"
+          sleep 1m
+          echo "sleeping 13 minutes to wait for artifacts"
+          sleep 1m
+          echo "sleeping 12 minutes to wait for artifacts"
+          sleep 1m
+          echo "sleeping 11 minutes to wait for artifacts"
+          sleep 1m
           echo "sleeping 10 minutes to wait for artifacts"
           sleep 1m
           echo "sleeping 9 minutes to wait for artifacts"
@@ -60,5 +70,5 @@ jobs:
       - name: Upload artifacts
         uses: ncipollo/release-action@v1
         with:
-          artifacts: "*.*"
+          artifacts: "*"
           bodyFile: "CHANGES.md"
