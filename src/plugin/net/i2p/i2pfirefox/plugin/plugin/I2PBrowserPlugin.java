@@ -44,6 +44,10 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
   private final File profileDir;
   private MenuHandle lmhs;
   private MenuHandle lmhf;
+  /**
+   * @since 1.4.0
+   * @return
+   */
   public I2PBrowserPlugin() {
     _context = new I2PAppContext();
     _mgr = null;
@@ -52,6 +56,10 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
     pluginDir = new File(_context.getAppDir(), "plugins/i2pfirefox/");
     profileDir = new File(pluginDir, "profile/");
   }
+  /**
+   * @since 1.4.0
+   * @return
+   */
   public I2PBrowserPlugin(I2PAppContext ctx, ClientAppManager mgr,
                           String args[]) {
     _context = ctx;
@@ -61,9 +69,26 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
     pluginDir = new File(_context.getAppDir(), "plugins/i2pfirefox/");
     profileDir = new File(pluginDir, "profile/");
   }
+
+  /**
+   * @since 1.4.0
+   * @return
+   */
   public String getDisplayName() { return "I2P Browser"; }
+  /**
+   * @since 1.4.0
+   * @return
+   */
   public String getName() { return "I2P Browser"; }
+  /**
+   * @since 1.4.0
+   * @return
+   */
   public ClientAppState getState() { return ClientAppState.STOPPED; }
+  /**
+   * @since 1.4.0
+   * @return
+   */
   public void shutdown(String[] args) {
     if (!isSystrayEnabled()) {
       _log.info("I2P Browser tray manager not supported");
@@ -81,6 +106,10 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
     }
     changeState(ClientAppState.STOPPED);
   }
+  /**
+   * @since 1.4.0
+   * @return
+   */
   public void startup() {
     changeState(ClientAppState.STOPPED);
     if (!isSystrayEnabled()) {
@@ -124,6 +153,10 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
   }
 
   // Copied directly from I2PSnark-standalone
+  /**
+   * @since 1.4.0
+   * @return
+   */
   private MenuService startTrayApp() {
     try {
       if (isSystrayEnabled()) {
@@ -143,6 +176,10 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
   // whether to launchFirefox the tray app Our environment should basically
   // never be headless, that doesn't make any sense, but something tells me I
   // should leave that check in.
+  /**
+   * @since 1.4.0
+   * @return
+   */
   private boolean isSystrayEnabled() {
     if (GraphicsEnvironment.isHeadless())
       return false;
@@ -159,8 +196,10 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
   }
 
   /**
-   *  Callback when Start I2PBrowser is clicked in systray
-   *  @since 0.9.61
+   * Callback when Start I2PBrowser is clicked in systray
+   *
+   * @since 1.4.0
+   * @return
    */
   public class Starter implements MenuCallback {
     private final MenuService _ms;
@@ -181,6 +220,10 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
     }
   }
 
+  /**
+   * @since 1.4.0
+   * @return
+   */
   public class FlexStarter implements MenuCallback {
     private final MenuService _ms;
     public FlexStarter(MenuService ms) { _ms = ms; }
@@ -201,6 +244,10 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
     }
   }
 
+  /**
+   * @since 1.4.0
+   * @return
+   */
   private synchronized void changeState(ClientAppState state) {
     if (_mgr != null)
       _mgr.notify(this, state, null, null);

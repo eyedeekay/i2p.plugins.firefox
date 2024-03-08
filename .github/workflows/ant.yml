@@ -40,42 +40,42 @@ jobs:
       - name: Upload Firefox Profile Strict
         uses: actions/upload-artifact@v4
         with:
-          name: i2p.firefox.base.profile-${{ github.sha }}.zip
+          name: i2p.firefox.base.profile.zip
           path: ./src/i2p.firefox.base.profile.zip
       - name: Upload Firefox Profile Usability
         uses: actions/upload-artifact@v4
         with:
-          name: i2p.firefox.usability.profile-${{ github.sha }}.zip
+          name: i2p.firefox.usability.profile.zip
           path: ./src/i2p.firefox.usability.profile.zip
       - name: Upload Chromium Profile Strict
         uses: actions/upload-artifact@v4
         with:
-          name: i2p.chromium.base.profile-${{ github.sha }}.zip
+          name: i2p.chromium.base.profile.zip
           path: ./src/i2p.chromium.base.profile.zip
       - name: Upload Chromium Profile Usability
         uses: actions/upload-artifact@v4
         with:
-          name: i2p.chromium.usability.profile-${{ github.sha }}.zip
+          name: i2p.chromium.usability.profile.zip
           path: ./src/i2p.chromium.usability.profile.zip
       - name: Upload i2pfirefox.jar
         uses: actions/upload-artifact@v4
         with:
-          name: i2pfirefox-${{ github.sha }}.jar
+          name: i2pfirefox.jar
           path: ./src/build/i2pfirefox.jar
       - name: Upload i2pfirefox-plugin.jar
         uses: actions/upload-artifact@v4
         with:
-          name: i2pfirefox-plugin-${{ github.sha }}.jar
+          name: i2pfirefox-plugin.jar
           path: ./src/build/i2pfirefox-plugin.jar
       - name: Upload i2pbrowser.tar.gz
         uses: actions/upload-artifact@v4
         with:
-          name: i2pbrowser-${{ github.sha }}.tar.gz
+          name: i2pbrowser.tar.gz
           path: ./i2pbrowser.tar.gz
       - name: Upload i2pbrowser.deb
         uses: actions/upload-artifact@v4
         with:
-          name: i2pbrowser_${{ github.sha }}_amd64.deb
+          name: i2pbrowser_amd64.deb
           path: ./i2pbrowser_1.0.0_amd64.deb
       - name: build plugin with Ant
         run: |
@@ -84,7 +84,7 @@ jobs:
       - name: Upload i2pfirefox.zip (unsigned plugin)
         uses: actions/upload-artifact@v4
         with:
-          name: i2pfirefox-${{ github.sha }}.zip
+          name: i2pfirefox.zip
           path: ./plugin.zip
 
 
@@ -132,7 +132,7 @@ jobs:
       - name: Upload i2pbrowser.rpm
         uses: actions/upload-artifact@v4
         with:
-          name: i2pbrowser-${{ github.sha }}.x86_64.rpm
+          name: i2pbrowser.x86_64.rpm
           path: ./i2pbrowser-1.0.0-1.x86_64.rpm
 
 
@@ -171,7 +171,7 @@ jobs:
       - name: Upload Firefox Profile EXE Installer
         uses: actions/upload-artifact@v4
         with:
-          name: i2pbrowser-1.0.0-${{ github.sha }}.exe
+          name: i2pbrowser-1.0.0.exe
           path: ./i2pbrowser-1.0.0.exe
       - name: build msi with Ant
         run: |
@@ -180,7 +180,7 @@ jobs:
       - name: Upload Firefox Profile MSI Installer
         uses: actions/upload-artifact@v4
         with:
-          name: i2pbrowser-1.0.0-${{ github.sha }}.msi
+          name: i2pbrowser-1.0.0.msi
           path: ./i2pbrowser-1.0.0.msi
       - name: build portable zip with Ant
         run: |
@@ -189,7 +189,7 @@ jobs:
       - name: Upload Firefox Profile Portable Zip
         uses: actions/upload-artifact@v4
         with:
-          name: i2pbrowser-portable-${{ github.sha }}.zip
+          name: i2pbrowser-portable.zip
           path: ./i2pbrowser-portable.zip
 
   buildmac:
@@ -227,7 +227,7 @@ jobs:
       - name: Upload Firefox Profile DMG Installer
         uses: actions/upload-artifact@v4
         with:
-          name: i2pbrowser-1.0.0-${{ github.sha }}.dmg
+          name: i2pbrowser-1.0.0.dmg
           path: ./i2pbrowser-1.0.0.dmg
       - name: build pkg with Ant
         run: |
@@ -236,5 +236,5 @@ jobs:
       - name: Upload Firefox Profile PKG Installer
         uses: actions/upload-artifact@v4
         with:
-          name: i2pbrowser-1.0.0-${{ github.sha }}.pkg
+          name: i2pbrowser-1.0.0.pkg
           path: ./i2pbrowser-1.0.0.pkg
