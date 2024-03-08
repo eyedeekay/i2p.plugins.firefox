@@ -36,6 +36,7 @@ public class I2PCommonBrowser {
   private Properties prop = new Properties();
   public Logger logger = Logger.getLogger("browserlauncher");
   private FileHandler fh;
+  private boolean validated = false;
   int CONFIGURED_TIMEOUT = 200;
 
   public I2PCommonBrowser() {
@@ -75,6 +76,8 @@ public class I2PCommonBrowser {
    * @return None No return value.
    */
   public void validateUserDirectory() {
+    if (validated)
+      return;
     logger.info("Validating user directory");
     String userDir = System.getProperty("user.dir");
     String userHome = System.getProperty("user.home");
@@ -123,6 +126,7 @@ public class I2PCommonBrowser {
       logger.info(defaultPathFile.getAbsolutePath());
     }
     System.setProperty("user.dir", defaultPathFile.getAbsolutePath());
+    validated = true;
   }
 
   /**
