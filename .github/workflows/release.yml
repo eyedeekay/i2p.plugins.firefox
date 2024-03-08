@@ -55,7 +55,7 @@ jobs:
         id: download-artifact
         uses: dawidd6/action-download-artifact@v3
         with:
-          skip_unpack: true
+          skip_unpack: false
           workflow: ant.yml
           if_no_artifact_found: fail
       # remove .zip file extension
