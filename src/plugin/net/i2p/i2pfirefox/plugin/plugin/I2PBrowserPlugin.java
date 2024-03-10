@@ -127,7 +127,7 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
             "Starting I2P Browser tray manager by testing http://proxy.i2p");
         MenuService dtg = startTrayApp();
         try {
-          Thread.sleep(1000);
+          Thread.sleep(5000);
         } catch (InterruptedException ie) {
         }
         if (dtg != null) {
