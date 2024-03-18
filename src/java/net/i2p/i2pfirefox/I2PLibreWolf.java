@@ -1,8 +1,5 @@
 package net.i2p.i2pfirefox;
 
-import java.io.*;
-import javax.script.*;
-
 /**
  * I2PLibreWolf.java
  * Copyright (C) 2022 idk <hankhill19580@gmail.com>

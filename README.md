@@ -11,6 +11,28 @@ trackers, and jerks using off-the-shelf techniques and exploits. It is fundament
 to make changes which un-trust your browser vendor, your OS, your package manager or any
 other system that exists underneath it. **It is just a profile manager.**
 
+**What is this?**
+
+This is a browser profile manager which pre-configures a browser on the host system, usually
+Firefox or Tor Browser, for browsing I2P. When acting as an I2P Plugin, it adds GUI elements to
+I2P for launching the browser in a highly restricted "Safe" mode(the default) or a more permissive
+"Usability" mode.
+
+This package expresses functionality that has existed in many places at many times, sometimes
+bundled with other software. As it has developed here, the border of where the Easy-Install
+ends and Firefox Profile Manager begins has become clearer. This repository contains the profile
+manager and it's buildsystem, the whole profile manager, and nothing but the profile manager.
+It can be used independently of other software, provided an I2P proxy on the host system somewhere.
+
+However, in practice, most people probably get it alongside an I2P router, through the **I2P Easy-Install Bundle for Windows**.
+
+**What version numbers should I pay attention to?**
+When I decided to port the `.bat` launcher scripts from the Easy-Install bundle to Java, this project
+was created and started using it's own version numbers. This was the practice up until version 1.5.0,
+which was the last version to use a different version number than I2P itself. Starting in April 2024,
+`i2p.plugins.firefox` will follow along with the Java I2P major and minor version numbers. Incremental
+changes may become differing point releases.
+
 **All packages require a running I2P router.**
 
 **[Windows users should see the Easy-Install Bundle](https://i2pgit.org/i2p-hackers/i2p.firefox)**
