@@ -69,6 +69,7 @@ directory for Firefox, and the `src/i2p.chromium.*.profile/extensions/*.js/*` di
 
 For platform specific instructions, see
 
+- [I2P-PLUGIN.md](docs/I2P-PLUGIN.md)/[I2P-PLUGIN.html](docs/I2P-PLUGIN.html)
 - [LINUX.md](docs/LINUX.md)/[LINUX.html](docs/LINUX.html)
 - [OSX.md](docs/OSX.md)/[OSX.html](docs/OSX.html)
 - [WINDOWS.md](docs/WINDOWS.md)/[WINDOWS.html](docs/WINDOWS.html)
