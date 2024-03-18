@@ -7,7 +7,7 @@ an unbundled I2P router with an external JVM.
 
 #### Windows Jpackage: `.zip`
 
-**(Not Recommended! This functionality is already included in the Easy-Install Bundle for Windows)**
+**(Recommended for advanced users ONLY. Most people should be using Easy-Install Bundle for Windows)**
 
 1. Start your I2P Router
 2. Download the latest release `.zip` from [Github](https://github.com/eyedeekay/i2p.plugins.firefox/releases) and verify it's hash.

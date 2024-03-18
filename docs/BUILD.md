@@ -2,6 +2,14 @@
 
 ## Build Dependencies
 
+**SHORTCUT:** All the build artifacts can be produced by the description in the `.yaml` files in `.github/workflows`.
+These can be run on Github's infrastructure, or on a local PC using https://github.com/nektos/act.
+Windows targets will require a Windows PC!
+Doing things this way deals with all the dependency issues that Windows doesn't really give you a good way to deal with automatically.
+It also guarantees that the same base container and environment gets used for every build no matter what machine it runs on.
+I highly recommend you use either Github CI or `nektos/act` for dev builds of this software, as it **automates literally every one of the steps**.
+CI-based builds follow the `WSL` version of the instructions.
+
 You will need `ant` and java `java` and for building the jar. You will need
 `jpackage` for many of the potential build targets. I've been using Java 18
 on Debian mostly, on Debian and Ubuntu, install the dependencies with:
