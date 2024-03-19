@@ -10,3 +10,6 @@ Uninstalling I2P will also uninstall the profile manager.
 #### Downloading the Plugin
 
 Right now, the best way to download the plugin is from the Github releases page.
+First, download the `i2pfirefox.su3` file from [the latest release](https://github.com/eyedeekay/i2p.plugins.firefox/releases).
+Versions ending in `0` will always have a plugin release, starting with `1.5.0`.
+Dev builds will not have a usable plugin release.

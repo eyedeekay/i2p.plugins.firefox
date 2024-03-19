@@ -35,7 +35,7 @@ NoScript
 11.4.18
 https://clients2.google.com/service/update2/crx
 LocalCDN
-2.6.64
+2.6.65
 https://clients2.google.com/service/update2/crx
 uBlock Origin
 1.56.0
