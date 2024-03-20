@@ -56,6 +56,11 @@
                 </a>
               </li>
               <li>
+                <a href="I2P-PLUGIN.html">
+                  I2P-PLUGIN
+                </a>
+              </li>
+              <li>
                 <a href="I2PBrowser.html">
                   I2PBrowser
                 </a>
@@ -152,6 +157,42 @@
       <h2>
         Build Dependencies
       </h2>
+      <p>
+        <strong>
+          SHORTCUT:
+        </strong>
+        All the build artifacts can be produced by the description in the
+        <code>
+          .yaml
+        </code>
+        files in
+        <code>
+          .github/workflows
+        </code>
+        .
+        These can be run on Github&rsquo;s infrastructure, or on a local PC using
+        <a href="https://github.com/nektos/act">
+          https://github.com/nektos/act
+        </a>
+        .
+        Windows targets will require a Windows PC!
+        Doing things this way deals with all the dependency issues that Windows doesn&rsquo;t really give you a good way to deal with automatically.
+        It also guarantees that the same base container and environment gets used for every build no matter what machine it runs on.
+        I highly recommend you use either Github CI or
+        <code>
+          nektos/act
+        </code>
+        for dev builds of this software, as it
+        <strong>
+          automates literally every one of the steps
+        </strong>
+        .
+        CI-based builds follow the
+        <code>
+          WSL
+        </code>
+        version of the instructions.
+      </p>
       <p>
         You will need
         <code>

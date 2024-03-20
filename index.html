@@ -56,6 +56,11 @@
                 </a>
               </li>
               <li>
+                <a href="docs/I2P-PLUGIN.html">
+                  docs/I2P-PLUGIN
+                </a>
+              </li>
+              <li>
                 <a href="docs/I2PBrowser.html">
                   docs/I2PBrowser
                 </a>
@@ -174,6 +179,48 @@
       </p>
       <p>
         <strong>
+          What is this?
+        </strong>
+      </p>
+      <p>
+        This is a browser profile manager which pre-configures a browser on the host system, usually
+        Firefox or Tor Browser, for browsing I2P. When acting as an I2P Plugin, it adds GUI elements to
+        I2P for launching the browser in a highly restricted &ldquo;Safe&rdquo; mode(the default) or a more permissive
+        &ldquo;Usability&rdquo; mode.
+      </p>
+      <p>
+        This package expresses functionality that has existed in many places at many times, sometimes
+        bundled with other software. As it has developed here, the border of where the Easy-Install
+        ends and Firefox Profile Manager begins has become clearer. This repository contains the profile
+        manager and it&rsquo;s buildsystem, the whole profile manager, and nothing but the profile manager.
+        It can be used independently of other software, provided an I2P proxy on the host system somewhere.
+      </p>
+      <p>
+        However, in practice, most people probably get it alongside an I2P router, through the
+        <strong>
+          I2P Easy-Install Bundle for Windows
+        </strong>
+        .
+      </p>
+      <p>
+        <strong>
+          What version numbers should I pay attention to?
+        </strong>
+        When I decided to port the
+        <code>
+          .bat
+        </code>
+        launcher scripts from the Easy-Install bundle to Java, this project
+        was created and started using it&rsquo;s own version numbers. This was the practice up until version 1.5.0,
+        which was the last version to use a different version number than I2P itself. Starting in April 2024,
+        <code>
+          i2p.plugins.firefox
+        </code>
+        will follow along with the Java I2P major and minor version numbers. Incremental
+        changes may become differing point releases.
+      </p>
+      <p>
+        <strong>
           All packages require a running I2P router.
         </strong>
       </p>
@@ -269,6 +316,15 @@
         For platform specific instructions, see
       </p>
       <ul>
+        <li>
+          <a href="docs/I2P-PLUGIN.md">
+            I2P-PLUGIN.md
+          </a>
+          /
+          <a href="docs/I2P-PLUGIN.html">
+            I2P-PLUGIN.html
+          </a>
+        </li>
         <li>
           <a href="docs/LINUX.md">
             LINUX.md
