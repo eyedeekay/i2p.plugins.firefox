@@ -42,8 +42,13 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
   private static final String PROP_DTG_ENABLED = "desktopgui.enabled";
   private final File pluginDir;
   private final File profileDir;
-  private MenuHandle lmhs;
-  private MenuHandle lmhf;
+  private MenuHandle SafeHandleLauncher;
+  private MenuHandle FlexibleHandleLauncher;
+  // MenuHandles for app-mode launchers
+  private MenuHandle ConsoleHandleLauncher;
+  private MenuHandle SnarkHandleLauncher;
+  private MenuHandle SusimailHandleLauncher;
+  private MenuHandle TunnelHanleLauncher;
   /**
    * @since 1.4.0
    * @return
@@ -100,8 +105,8 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
       } catch (InterruptedException ie) {
       }
       if (dtg != null) {
-        dtg.removeMenu(lmhs);
-        dtg.removeMenu(lmhf);
+        dtg.removeMenu(SafeHandleLauncher);
+        dtg.removeMenu(FlexibleHandleLauncher);
       }
     }
     changeState(ClientAppState.STOPPED);
@@ -132,14 +137,14 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
         }
         if (dtg != null) {
           _log.info("I2P Browser integrating with I2P tray manager");
-          lmhs =
+          SafeHandleLauncher =
               dtg.addMenu("Launch I2P Browser (Safe Mode)", new Starter(dtg));
-          dtg.showMenu(lmhs);
-          dtg.enableMenu(lmhs);
-          lmhf = dtg.addMenu("Launch I2P Browser (Flexible Mode)",
+          dtg.showMenu(SafeHandleLauncher);
+          dtg.enableMenu(SafeHandleLauncher);
+          FlexibleHandleLauncher = dtg.addMenu("Launch I2P Browser (Flexible Mode)",
                              new FlexStarter(dtg));
-          dtg.showMenu(lmhf);
-          dtg.enableMenu(lmhf);
+          dtg.showMenu(FlexibleHandleLauncher);
+          dtg.enableMenu(FlexibleHandleLauncher);
         } else {
           _log.info("I2P Browser tray manager not found");
         }
@@ -149,6 +154,26 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
       } catch (Exception e) {
         _log.error("Error starting I2P Browser tray manager", e);
       }
+    }
+  }
+
+  public MenuHandle addMenuHandle(String launchMessage){
+    try {
+      _log.info(
+          "Starting I2P Browser tray manager by testing http://proxy.i2p");
+      MenuService dtg = startTrayApp();
+      if (dtg != null) {
+        _log.info("I2P Browser integrating with I2P tray manager");
+        MenuHandle handle =
+            dtg.addMenu(launchMesssage, new Starter(dtg));
+        dtg.showMenu(SafeHandleLauncher);
+        dtg.enableMenu(SafeHandleLauncher);
+        return handle;
+      } else {
+        _log.info("I2P Browser tray manager not found");
+      }
+    } catch (Exception e) {
+      _log.error("Error starting I2P Browser tray manager", e);
     }
   }
 
