@@ -608,11 +608,16 @@ public class I2PCommonBrowser {
   }
 
   public File userHomeDir() {
-    File hd = new File(System.getProperty("user.dir"));
-    if (hd == null || !hd.exists()) {
-      hd = new File(System.getProperty("user.home"));
+    File rd = new File(System.getProperty("user.dir"));
+    File hd = new File(System.getProperty("user.home"));
+    if (rd == null || !rd.exists()) {
+      if (hd == null || !hd.exists()) {
+        if (rd.getAbsolutePath().equals(hd.getAbsolutePath()))
+          return null;
+      }
+      return rd;
     }
-    logger.info("Runtime directory discovered at: " + hd);
-    return hd;
+    logger.info("Runtime directory discovered at: " + rd);
+    return rd;
   }
 }
