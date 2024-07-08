@@ -3,6 +3,7 @@ Mon, July 8
 
  - Fix a bug which caused the profile manager to fail to detect Firefox on some systems
  - Fix a bug which caused the profile manager to use an unwritable directory on some systems
+ - Fix a bug where if user tried to run it from the home directory, the application would make sure that no firefoxes existed in any subdirectory before running
 
 Thu, March 7
 ------------
