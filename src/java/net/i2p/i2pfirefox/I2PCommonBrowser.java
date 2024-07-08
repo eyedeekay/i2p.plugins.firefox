@@ -590,6 +590,11 @@ public class I2PCommonBrowser {
    * @return the found file or null if not found
    */
   public File searchFile(File directory, String search) {
+    File hd = new File(System.getProperty("user.home"));
+    if (hd != null) {
+      if (directory.getAbsolutePath().equals(hd.getAbsolutePath()))
+        return null;
+    }
     if (directory == null || !directory.exists() || !directory.canRead())
       return null;
     if (directory.isDirectory()) {
