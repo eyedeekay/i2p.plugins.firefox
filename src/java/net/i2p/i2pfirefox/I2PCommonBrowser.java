@@ -594,6 +594,8 @@ public class I2PCommonBrowser {
    * @return the found file or null if not found
    */
   public File searchFile(File directory, String search) {
+    if (directory == null || !directory.exists() || !directory.canRead())
+      return null;
     if (directory.isDirectory()) {
       File[] files = directory.listFiles();
       for (File file : files) {
