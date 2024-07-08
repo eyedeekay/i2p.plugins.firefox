@@ -253,6 +253,8 @@ public class I2PBrowser extends I2PGenericUnsafeBrowser {
           }
         }
       }
+      if (!this.chromium) 
+        this.firefox = true;
     }
     return visitURL;
   }
