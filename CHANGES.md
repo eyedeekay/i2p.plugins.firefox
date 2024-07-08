@@ -1,3 +1,9 @@
+Mon, July 8
+-----------
+
+ - Fix a bug which caused the profile manager to fail to detect Firefox on some systems
+ - Fix a bug which caused the profile manager to use an unwritable directory on some systems
+
 Thu, March 7
 ------------
 
