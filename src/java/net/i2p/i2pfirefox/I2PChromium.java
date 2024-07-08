@@ -295,7 +295,7 @@ public class I2PChromium extends I2PChromiumProfileUnpacker {
     }
     // now, do the same thing, but with user.dir instead of plugin
     // list the directories in the user.dir directory
-    File userDir = new File(System.getProperty("user.dir"));
+    File userDir = userHomeDir();
     if (userDir.exists()) {
       if (isWindows()) {
         File searchResult = searchFile(userDir, "ungoogled-chromium.exe");

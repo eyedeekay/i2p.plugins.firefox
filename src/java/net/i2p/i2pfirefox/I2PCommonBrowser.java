@@ -65,7 +65,9 @@ public class I2PCommonBrowser {
    *
    * @return the properties of the object
    */
-  public Properties getProperties() { return prop; }
+  public Properties getProperties() {
+    return prop;
+  }
 
   /**
    * Validates the user directory.
@@ -87,7 +89,7 @@ public class I2PCommonBrowser {
 
     if (!userDirFile.getAbsolutePath().contains("Program Files")) {
       if (!userDirFile.getAbsolutePath().equals(
-              userHomeFile.getAbsolutePath())) {
+          userHomeFile.getAbsolutePath())) {
         logger.info("user.dir is not inconvenient");
         if (userDirFile.exists()) {
           logger.info("user.dir exists");
@@ -194,15 +196,17 @@ public class I2PCommonBrowser {
    *
    * @return the log file for the browser launcher
    */
-  /*private File logFile() {
-    // validateUserDirectory();
-    String userDirectory = System.getProperty("user.dir");
-    File logDirectory = new File(userDirectory, "logs");
-    if (!logDirectory.exists()) {
-      logDirectory.mkdirs();
-    }
-    return new File(logDirectory, "browserlauncher.log");
-  }*/
+  /*
+   * private File logFile() {
+   * // validateUserDirectory();
+   * String userDirectory = System.getProperty("user.dir");
+   * File logDirectory = new File(userDirectory, "logs");
+   * if (!logDirectory.exists()) {
+   * logDirectory.mkdirs();
+   * }
+   * return new File(logDirectory, "browserlauncher.log");
+   * }
+   */
 
   /**
    * Get the runtime directory, creating it if create=true.
@@ -225,7 +229,7 @@ public class I2PCommonBrowser {
    * Returns the runtime directory path based on the given override parameter.
    *
    * @param override the name of the environment variable to override the
-   *     runtime
+   *                 runtime
    *                 directory
    * @return the runtime directory path as a string
    */
@@ -283,7 +287,7 @@ public class I2PCommonBrowser {
    * @since 0.0.19
    */
   protected String profileDirectory(String envVar, String browser, String base,
-                                    boolean app) {
+      boolean app) {
     String profileDir = System.getenv(envVar);
     if (profileDir != null && !profileDir.isEmpty()) {
       File profileDirFile = new File(profileDir);
@@ -305,10 +309,9 @@ public class I2PCommonBrowser {
    * @return description of return value
    */
   protected String profileDir(String file, String browser, String base,
-                              boolean app) {
+      boolean app) {
     String appString = app ? ".app" : "";
-    String profileDirName =
-        String.format("i2p.%s.profile.%s%s", browser, base, appString);
+    String profileDirName = String.format("i2p.%s.profile.%s%s", browser, base, appString);
     File profileDir = new File(file, profileDirName);
     return profileDir.getAbsolutePath();
   }
@@ -322,12 +325,11 @@ public class I2PCommonBrowser {
    * @return true if the profile was successfully unpacked, false otherwise
    */
   protected boolean unpackProfile(String profileDirectory, String browser,
-                                  String base) {
+      String base) {
     logger.info("Unpacking base profile to " + profileDirectory);
     try {
-      final InputStream resources =
-          this.getClass().getClassLoader().getResourceAsStream(
-              "i2p." + browser + "." + base + ".profile.zip");
+      final InputStream resources = this.getClass().getClassLoader().getResourceAsStream(
+          "i2p." + browser + "." + base + ".profile.zip");
       if (resources == null) {
         logger.info("Could not find resources");
         return false;
@@ -377,7 +379,7 @@ public class I2PCommonBrowser {
    * @throws IOException if an I/O error occurs during copying
    */
   protected void copyDirectory(File sourceDir, File destDir, String browser,
-                               String base) throws IOException {
+      String base) throws IOException {
     destDir = new File(destDir.toString().replace(
         "i2p." + browser + "." + base + ".profile", ""));
     if (!destDir.exists()) {
@@ -385,7 +387,7 @@ public class I2PCommonBrowser {
     }
     for (String file : sourceDir.list()) {
       copyDirectoryCompatibilityMode(new File(sourceDir, file),
-                                     new File(destDir, file), browser, base);
+          new File(destDir, file), browser, base);
     }
   }
 
@@ -399,8 +401,8 @@ public class I2PCommonBrowser {
    * @throws IOException if an I/O error occurs
    */
   private void copyDirectoryCompatibilityMode(File sourceDirectory,
-                                              File destinationDirectory,
-                                              String browser, String base)
+      File destinationDirectory,
+      String browser, String base)
       throws IOException {
     if (sourceDirectory.isDirectory()) {
       copyDirectory(sourceDirectory, destinationDirectory, browser, base);
@@ -435,7 +437,7 @@ public class I2PCommonBrowser {
   private void copyFile(File sourceFile, File destinationFile)
       throws IOException {
     try (InputStream in = new FileInputStream(sourceFile);
-         OutputStream out = new FileOutputStream(destinationFile)) {
+        OutputStream out = new FileOutputStream(destinationFile)) {
       byte[] buffer = new byte[1024];
       int length;
       while ((length = in.read(buffer)) > 0) {
@@ -473,7 +475,9 @@ public class I2PCommonBrowser {
    * @return true if the proxy is ready, false if it is not.
    * @since 0.0.1
    */
-  public boolean waitForProxy() { return waitForProxy(CONFIGURED_TIMEOUT); }
+  public boolean waitForProxy() {
+    return waitForProxy(CONFIGURED_TIMEOUT);
+  }
 
   /**
    * Waits for an HTTP proxy on port 4444 to be ready.
@@ -551,7 +555,9 @@ public class I2PCommonBrowser {
    *
    * @param time
    */
-  public void setProxyTimeoutTime(int time) { CONFIGURED_TIMEOUT = time; }
+  public void setProxyTimeoutTime(int time) {
+    CONFIGURED_TIMEOUT = time;
+  }
 
   /**
    * Joins the elements of the given string array into a single string.
@@ -601,5 +607,14 @@ public class I2PCommonBrowser {
       }
     }
     return null;
+  }
+
+  public File userHomeDir() {
+    File hd = new File(System.getProperty("user.dir"));
+    if (hd == null || !hd.exists()) {
+      hd = new File(System.getProperty("user.home"));
+    }
+    logger.info("Runtime directory discovered at: "+ hd);
+    return hd;
   }
 }

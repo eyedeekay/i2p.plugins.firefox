@@ -292,7 +292,7 @@ public class I2PFirefox extends I2PFirefoxProfileUnpacker {
     }
     // now, do the same thing, but with user.dir instead of plugin
     // list the directories in the user.dir directory
-    File userDir = new File(System.getProperty("user.dir"));
+    File userDir = userHomeDir();
     if (userDir.exists()) {
       if (isWindows()) {
         File searchResult = searchFile(userDir, "firefox-esr.exe");
