@@ -190,7 +190,7 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
     // Ubuntu GNOME does not work, SystemTray.isSupported() returns false
     String xdg = System.getenv("XDG_CURRENT_DESKTOP");
     boolean dflt = SystemVersion.isWindows() || SystemVersion.isMac() ||
-                   //"XFCE".equals(xdg) ||
+                   "XFCE".equals(xdg) ||
                    "KDE".equals(xdg) || "LXDE".equals(xdg);
     return _context.getProperty(PROP_DTG_ENABLED, dflt);
   }
