@@ -24,7 +24,7 @@ jobs:
           echo "build.built-by=GitHub Actions" >> override.properties
           echo "noExe=true" >> override.properties
       - name: install crx3
-        run: wget -O $(go env GOPATH)/bin/crx3 https://github.com/eyedeekay/i2p.plugins.firefox/releases/download/build-tools/crx3-linux
+        run: mkdir -p $(go env GOPATH)/bin; wget -O $(go env GOPATH)/bin/crx3 https://github.com/eyedeekay/i2p.plugins.firefox/releases/download/build-tools/crx3-linux; chmod +x $(go env GOPATH)/bin/crx3
       - name: install dzip
         run: go install github.com/delicb/dzip@latest
       - name: install amo-version
@@ -115,7 +115,7 @@ jobs:
           echo "build.built-by=GitHub Actions" >> override.properties
           echo "noExe=true" >> override.properties
       - name: install crx3
-        run: wget -O $(go env GOPATH)/bin/crx3 https://github.com/eyedeekay/i2p.plugins.firefox/releases/download/build-tools/crx3-linux
+        run: mkdir -p $(go env GOPATH)/bin; wget -O $(go env GOPATH)/bin/crx3 https://github.com/eyedeekay/i2p.plugins.firefox/releases/download/build-tools/crx3-linux; chmod +x $(go env GOPATH)/bin/crx3
       - name: install dzip
         run: go install github.com/delicb/dzip@latest
       - name: install amo-version
@@ -155,7 +155,7 @@ jobs:
           bash -c 'echo "build.built-by=GitHub Actions" >> override.properties'
           bash -c 'echo "noExe=true" >> override.properties'
       - name: install crx3
-        run: wget -O $(go env GOPATH)/bin/crx3.exe https://github.com/eyedeekay/i2p.plugins.firefox/releases/download/build-tools/crx3-windows
+        run: go install github.com/mediabuyerbot/go-crx3/crx3@latest
       - name: install dzip
         run: go install github.com/delicb/dzip@latest
       - name: install amo-version
@@ -211,7 +211,7 @@ jobs:
           bash -c 'echo "build.built-by=GitHub Actions" >> override.properties'
           bash -c 'echo "noExe=true" >> override.properties'
       - name: install crx3
-        run: wget -O $(go env GOPATH)/bin/crx3 https://github.com/eyedeekay/i2p.plugins.firefox/releases/download/build-tools/crx3-osx
+        run: mkdir -p $(go env GOPATH)/bin; wget -O $(go env GOPATH)/bin/crx3 https://github.com/eyedeekay/i2p.plugins.firefox/releases/download/build-tools/crx3-osx; chmod +x $(go env GOPATH)/bin/crx3
       - name: install dzip
         run: go install github.com/delicb/dzip@latest
       - name: install amo-version
