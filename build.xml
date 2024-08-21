@@ -522,6 +522,7 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
             <arg value="--input"/> <arg value="src/build"/>
             <arg value="--main-jar"/> <arg value="i2pfirefox.jar"/>
             <arg value="--main-class"/> <arg value="net.i2p.i2pfirefox.I2PBrowser"/>
+            <arg value="--add-launcher"/> <arg value="i2pbrowser-usability=src/usability.properties"/>
         </exec>
         <exec executable="rm" failonerror="true" osfamily="windows">
             <arg value="-rf" />
@@ -557,6 +558,7 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
             <arg value="--icon"/> <arg value="src/icon.png"/>
             <arg value="--app-version"/> <arg value="1.0.0"/>
             <arg value="--input"/> <arg value="src/build"/>
+            <arg value="--add-launcher"/> <arg value="i2pbrowser-usability=src/usability.properties"/>
             <arg value="--main-jar"/> <arg value="i2pfirefox.jar"/>
             <arg value="--main-class"/> <arg value="net.i2p.i2pfirefox.I2PBrowser"/>
         </exec>
@@ -574,6 +576,7 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
             <arg value="--icon"/> <arg value="src/icon.png"/>
             <arg value="--app-version"/> <arg value="${release.number}"/>
             <arg value="--input"/> <arg value="src/build"/>
+            <arg value="--add-launcher"/> <arg value="i2pbrowser-usability=src/usability.properties"/>
             <arg value="--main-jar"/> <arg value="i2pfirefox.jar"/>
             <arg value="--main-class"/> <arg value="net.i2p.i2pfirefox.I2PBrowser"/>
         </exec>
@@ -592,6 +595,7 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
             <arg value="--input"/> <arg value="src/build"/>
             <arg value="--main-jar"/> <arg value="i2pfirefox.jar"/>
             <arg value="--main-class"/> <arg value="net.i2p.i2pfirefox.I2PBrowser"/>
+            <arg value="--add-launcher"/> <arg value="i2pbrowser-usability=src/usability.properties"/>
         </exec>
     </target>
     <target name="fedora-release" depends="jar">
@@ -608,6 +612,7 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
             <arg value="--input"/> <arg value="src/build"/>
             <arg value="--main-jar"/> <arg value="i2pfirefox.jar"/>
             <arg value="--main-class"/> <arg value="net.i2p.i2pfirefox.I2PBrowser"/>
+            <arg value="--add-launcher"/> <arg value="i2pbrowser-usability=src/usability.properties"/>
         </exec>
     </target>
     <target name="windows" depends="jar">
@@ -628,6 +633,7 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
             <arg value="--input"/> <arg value="src/build"/>
             <arg value="--main-jar"/> <arg value="i2pfirefox.jar"/>
             <arg value="--main-class"/> <arg value="net.i2p.i2pfirefox.I2PBrowser"/>
+            <arg value="--add-launcher"/> <arg value="i2pbrowser-usability=src/usability.properties"/>
         </exec>
     </target>
     <target name="windows-release" depends="jar">
@@ -648,6 +654,7 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
             <arg value="--input"/> <arg value="src/build"/>
             <arg value="--main-jar"/> <arg value="i2pfirefox.jar"/>
             <arg value="--main-class"/> <arg value="net.i2p.i2pfirefox.I2PBrowser"/>
+            <arg value="--add-launcher"/> <arg value="i2pbrowser-usability=src/usability.properties"/>
         </exec>
     </target>
     <target name="windows-msi" depends="jar">
@@ -668,6 +675,7 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
             <arg value="--input"/> <arg value="src/build"/>
             <arg value="--main-jar"/> <arg value="i2pfirefox.jar"/>
             <arg value="--main-class"/> <arg value="net.i2p.i2pfirefox.I2PBrowser"/>
+            <arg value="--add-launcher"/> <arg value="i2pbrowser-usability=src/usability.properties"/>
         </exec>
     </target>
     <target name="windows-msi-release" depends="jar">
@@ -688,6 +696,7 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
             <arg value="--input"/> <arg value="src/build"/>
             <arg value="--main-jar"/> <arg value="i2pfirefox.jar"/>
             <arg value="--main-class"/> <arg value="net.i2p.i2pfirefox.I2PBrowser"/>
+            <arg value="--add-launcher"/> <arg value="i2pbrowser-usability=src/usability.properties"/>
         </exec>
     </target>
     <target name="windows-portable" depends="jar">
@@ -700,6 +709,7 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
             <arg value="--input"/> <arg value="src/build"/>
             <arg value="--main-jar"/> <arg value="i2pfirefox.jar"/>
             <arg value="--main-class"/> <arg value="net.i2p.i2pfirefox.I2PBrowser"/>
+            <arg value="--add-launcher"/> <arg value="i2pbrowser-usability=src/usability.properties"/>
         </exec>
         <copy file="LICENSE.md" todir="i2pbrowser-portable" overwrite="true"/>
         <delete file="i2pbrowser-portable.zip"/>
@@ -719,6 +729,7 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
             <arg value="--input"/> <arg value="src/build"/>
             <arg value="--main-jar"/> <arg value="i2pfirefox.jar"/>
             <arg value="--main-class"/> <arg value="net.i2p.i2pfirefox.I2PBrowser"/>
+            <arg value="--add-launcher"/> <arg value="i2pbrowser-usability=src/usability.properties"/>
         </exec>
         <copy file="LICENSE.md" todir="i2pbrowser-portable" overwrite="true"/>
         <delete file="i2pbrowser-portable.zip"/>
@@ -742,6 +753,7 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
             <arg value="--input"/> <arg value="src/build"/>
             <arg value="--main-jar"/> <arg value="i2pfirefox.jar"/>
             <arg value="--main-class"/> <arg value="net.i2p.i2pfirefox.I2PBrowser"/>
+            <arg value="--add-launcher"/> <arg value="i2pbrowser-usability=src/usability.properties"/>
         </exec>
     </target>
     <target name="macos-release" depends="jar">
@@ -757,6 +769,7 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
             <arg value="--input"/> <arg value="src/build"/>
             <arg value="--main-jar"/> <arg value="i2pfirefox.jar"/>
             <arg value="--main-class"/> <arg value="net.i2p.i2pfirefox.I2PBrowser"/>
+            <arg value="--add-launcher"/> <arg value="i2pbrowser-usability=src/usability.properties"/>
         </exec>
     </target>
     <target name="macos-pkg" depends="jar">
@@ -772,6 +785,7 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
             <arg value="--input"/> <arg value="src/build"/>
             <arg value="--main-jar"/> <arg value="i2pfirefox.jar"/>
             <arg value="--main-class"/> <arg value="net.i2p.i2pfirefox.I2PBrowser"/>
+            <arg value="--add-launcher"/> <arg value="i2pbrowser-usability=src/usability.properties"/>
         </exec>
     </target>
     <target name="macos-pkg-release" depends="jar">
@@ -787,6 +801,7 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
             <arg value="--input"/> <arg value="src/build"/>
             <arg value="--main-jar"/> <arg value="i2pfirefox.jar"/>
             <arg value="--main-class"/> <arg value="net.i2p.i2pfirefox.I2PBrowser"/>
+            <arg value="--add-launcher"/> <arg value="i2pbrowser-usability=src/usability.properties"/>
         </exec>
     </target>
 
