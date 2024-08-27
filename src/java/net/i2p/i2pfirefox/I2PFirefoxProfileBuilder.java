@@ -109,8 +109,7 @@ public class I2PFirefoxProfileBuilder extends I2PFirefoxProfileChecker {
       return profileDir.getAbsolutePath();
     } else {
       // create the directory
-      I2PFirefoxProfileUnpacker unpacker = new I2PFirefoxProfileUnpacker();
-      if (!unpacker.unpackProfile(profileDir.getAbsolutePath(), base)) {
+      if (!this.unpackProfile(profileDir.getAbsolutePath(), "firefox", base)) {
         return null;
       }
       return profileDir.getAbsolutePath();
@@ -129,8 +128,7 @@ public class I2PFirefoxProfileBuilder extends I2PFirefoxProfileChecker {
       if (pdf.exists() && pdf.isDirectory()) {
         return pd;
       } else {
-        I2PFirefoxProfileUnpacker unpacker = new I2PFirefoxProfileUnpacker();
-        if (!unpacker.unpackProfile(pdf.getAbsolutePath(), base)) {
+        if (!this.unpackProfile(pdf.getAbsolutePath(), "firefox", base)) {
           return null;
         }
       }

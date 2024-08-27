@@ -27,7 +27,7 @@ import java.util.stream.Stream;
  * @author idk
  * @since 0.0.1
  */
-public class I2PFirefox extends I2PFirefoxProfileUnpacker {
+public class I2PFirefox extends I2PFirefoxProfileBuilder {
   private final String[] FIREFOX_SEARCH_PATHS = FIREFOX_FINDER();
   private Process process = null;
   private String firefoxPath;

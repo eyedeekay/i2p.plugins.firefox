@@ -26,7 +26,7 @@ import java.util.stream.Stream;
  * @author idk
  * @since 0.0.1
  */
-public class I2PChromium extends I2PChromiumProfileUnpacker {
+public class I2PChromium extends I2PChromiumProfileBuilder {
   private final String[] CHROMIUM_SEARCH_PATHS = CHROMIUM_FINDER();
   private Process p = null;
   private String chromePath;

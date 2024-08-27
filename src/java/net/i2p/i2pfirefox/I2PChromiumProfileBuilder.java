@@ -30,8 +30,7 @@ public class I2PChromiumProfileBuilder extends I2PChromiumProfileChecker {
       return profileDir.getAbsolutePath();
     } else {
       // create the directory
-      I2PChromiumProfileUnpacker unpacker = new I2PChromiumProfileUnpacker();
-      if (!unpacker.unpackProfile(profileDir.getAbsolutePath(), mode)) {
+      if (!this.unpackProfile(profileDir.getAbsolutePath(), "chromium", mode)) {
         return null;
       }
       return profileDir.getAbsolutePath();
@@ -54,8 +53,7 @@ public class I2PChromiumProfileBuilder extends I2PChromiumProfileChecker {
       if (pdf.exists() && pdf.isDirectory()) {
         return pd;
       } else {
-        I2PChromiumProfileUnpacker unpacker = new I2PChromiumProfileUnpacker();
-        if (!unpacker.unpackProfile(pdf.getAbsolutePath(), mode)) {
+        if (!this.unpackProfile(pdf.getAbsolutePath(), "chromium", mode)) {
           return null;
         }
       }
