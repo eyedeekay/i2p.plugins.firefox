@@ -391,6 +391,12 @@ public class I2PCommonBrowser {
     }
   }
 
+  protected void makeDirectory(File destDir) {
+    logger.info("creating directory");
+    if (!destDir.exists())
+      destDir.mkdir();
+  }
+
   /**
    * Copy a directory in compatibility mode.
    *

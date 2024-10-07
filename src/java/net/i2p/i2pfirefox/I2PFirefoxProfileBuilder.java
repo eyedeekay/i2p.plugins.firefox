@@ -25,6 +25,7 @@ import java.nio.file.StandardCopyOption;
  */
 public class I2PFirefoxProfileBuilder extends I2PFirefoxProfileChecker {
   private boolean strict;
+
   private String userChromeCSS() {
     String ret =
         "@namespace url(\"http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul\")\n";
@@ -99,18 +100,22 @@ public class I2PFirefoxProfileBuilder extends I2PFirefoxProfileChecker {
    * @return the profile directory, or null if it could not be created
    */
   // public String profileDirectory() {
-  //   return profileDirectory("I2P_FIREFOX_PROFILE", "firefox", false);
+  // return profileDirectory("I2P_FIREFOX_PROFILE", "firefox", false);
   // }
 
-  private String baseProfileDir(String file, String base) {
+  private String baseProfileDir(String file, String base,
+                                boolean isTorBrowser) {
     File profileDir = new File(file, "i2p.firefox." + base + ".profile");
     // make sure the directory exists
     if (profileDir.exists()) {
       return profileDir.getAbsolutePath();
     } else {
       // create the directory
-      if (!this.unpackProfile(profileDir.getAbsolutePath(), "firefox", base)) {
-        return null;
+      if (!isTorBrowser) {
+        if (!this.unpackProfile(profileDir.getAbsolutePath(), "firefox",
+                                base)) {
+          return null;
+        }
       }
       return profileDir.getAbsolutePath();
     }
@@ -121,7 +126,7 @@ public class I2PFirefoxProfileBuilder extends I2PFirefoxProfileChecker {
    *
    * @return the base profile directory, or null if it could not be created
    */
-  public String baseProfileDirectory(String base) {
+  public String baseProfileDirectory(String base, boolean isTorBrowser) {
     String pd = System.getenv("I2P_FIREFOX_BASE_PROFILE");
     if (pd != null && !pd.isEmpty()) {
       File pdf = new File(pd);
@@ -134,7 +139,7 @@ public class I2PFirefoxProfileBuilder extends I2PFirefoxProfileChecker {
       }
     }
     String rtd = runtimeDirectory();
-    return baseProfileDir(rtd, base);
+    return baseProfileDir(rtd, base, isTorBrowser);
   }
 
   /**
@@ -175,11 +180,10 @@ public class I2PFirefoxProfileBuilder extends I2PFirefoxProfileChecker {
    *
    * @since 0.0.1
    */
-  public boolean copyBaseProfiletoProfile(String base, boolean app) {
-    String baseProfile = baseProfileDirectory(base);
+  public boolean copyBaseProfiletoProfile(String base, boolean app,
+                                          boolean isTorBrowser) {
+    String baseProfile = baseProfileDirectory(base, isTorBrowser);
     String profile = profileDirectory(app, base);
-    logger.info("Copying base profile to profile directory: " + baseProfile +
-                " -> " + profile);
     if (baseProfile.isEmpty() || profile.isEmpty()) {
       return false;
     }
@@ -188,24 +192,31 @@ public class I2PFirefoxProfileBuilder extends I2PFirefoxProfileChecker {
 
     if (!profileDir.exists()) {
       try {
-        logger.info("Copying base profile to profile directory");
-        copyDirectory(baseProfileDir, profileDir, "firefox", base);
+        if (!isTorBrowser) {
+          logger.info("Copying base profile to profile directory: " +
+                      baseProfile + " -> " + profile);
+          copyDirectory(baseProfileDir, profileDir, "firefox", base);
+        } else {
+          logger.info("Creating base directory for use with Tor Browser");
+          makeDirectory(profileDir);
+        }
+        logger.info("Copied base profile to profile directory");
+        return true;
       } catch (Exception e) {
         logger.info("Error copying base profile to profile" + e);
         return false;
       }
-      logger.info("Copied base profile to profile directory");
     }
     // if user.js does not exist yet, make an empty one.
     // if (!touch(profileDir.toString(), "user.js")) {
     // return false;
-    //}
+    // }
     // if extensions does not exist yet, make an empty one.
     // if (!mkExtensionsDir(profileDir.toString())){
     // return false;
-    //}
+    // }
 
-    return copyStrictOptions(base, app);
+    return copyStrictOptions(base, app, isTorBrowser);
   }
 
   protected boolean writeAppChrome(String profile) {
@@ -221,6 +232,7 @@ public class I2PFirefoxProfileBuilder extends I2PFirefoxProfileChecker {
     }
     return true;
   }
+
   protected boolean deleteAppChrome(String profile) {
     File dir = new File(profile, "chrome");
     if (!dir.exists())
@@ -230,15 +242,17 @@ public class I2PFirefoxProfileBuilder extends I2PFirefoxProfileChecker {
       f.delete();
     return true;
   }
+
   /**
    * Copy the strict options from the base profile to the profile
    *
    * @return true if successful, false otherwise
    * @since 0.0.1
    */
-  public boolean copyStrictOptions(String base, boolean app) {
+  public boolean copyStrictOptions(String base, boolean app,
+                                   boolean isTorBrowser) {
     logger.info("Checking strict options");
-    String baseProfile = baseProfileDirectory(base);
+    String baseProfile = baseProfileDirectory(base, isTorBrowser);
     String profile = profileDirectory(app, base);
     if (baseProfile.isEmpty() || profile.isEmpty()) {
       logger.info("Empty paths");
@@ -324,6 +338,7 @@ public class I2PFirefoxProfileBuilder extends I2PFirefoxProfileChecker {
 
   /**
    * Construct a new Profile Builder
+   *
    * @param strict if true, the strict overrides will be copied to the profile
    *
    * @since 0.0.1

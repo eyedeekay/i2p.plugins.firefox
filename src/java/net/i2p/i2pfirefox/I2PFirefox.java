@@ -1,9 +1,11 @@
 package net.i2p.i2pfirefox;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -124,6 +126,7 @@ public class I2PFirefox extends I2PFirefoxProfileBuilder {
     }
     return exePath;
   }
+
   public String[] firefoxPathsOSX() {
     String firefoxPathsProp = getProperties().getProperty("firefox.paths.osx");
     if (firefoxPathsProp != null)
@@ -134,6 +137,7 @@ public class I2PFirefox extends I2PFirefoxProfileBuilder {
                          "/Applications/Waterfox.app/Contents/MacOS",
                          "/Applications/Librewolf.app/Contents/MacOS"};
   }
+
   private String[] FIND_FIREFOX_SEARCH_PATHS_OSX() {
     String[] path = firefoxPathsOSX();
     String[] exes = firefoxBinsUnix();
@@ -147,6 +151,7 @@ public class I2PFirefox extends I2PFirefoxProfileBuilder {
     }
     return exePath;
   }
+
   public String[] firefoxPathsWindows() {
     String firefoxPathsProp =
         getProperties().getProperty("firefox.paths.windows");
@@ -181,6 +186,7 @@ public class I2PFirefox extends I2PFirefoxProfileBuilder {
         new File(programFiles, "Librewolf/").toString(),
     };
   }
+
   private String[] firefoxBinsWindows() {
     String firefoxPathsProp =
         getProperties().getProperty("firefox.bins.windows");
@@ -192,6 +198,7 @@ public class I2PFirefox extends I2PFirefoxProfileBuilder {
         "waterfox.exe", "waterfox-bin.exe", "librewolf.exe",
     };
   }
+
   private String[] FIND_FIREFOX_SEARCH_PATHS_WINDOWS() {
     String[] path = firefoxPathsWindows();
     String[] exes = firefoxBinsWindows();
@@ -226,6 +233,7 @@ public class I2PFirefox extends I2PFirefoxProfileBuilder {
     }
     return exePath;
   }
+
   private String[] FIND_FIREFOX_SEARCH_PATHS() {
     switch (getOperatingSystem()) {
     case "Windows":
@@ -337,6 +345,7 @@ public class I2PFirefox extends I2PFirefoxProfileBuilder {
 
     return new String[] {};
   }
+
   private String[] FIREFOX_FINDER() {
     String[] nearby = NEARBY_FIREFOX_SEARCH_PATHS();
     String[] all = FIND_FIREFOX_SEARCH_PATHS();
@@ -366,8 +375,9 @@ public class I2PFirefox extends I2PFirefoxProfileBuilder {
       if (firefoxFile.exists()) {
         logger.info("Found valid firefox at " + firefox);
         validFirefoxes.add(firefox);
+      }else{
+        logger.info("firefox at " + firefox + "does not exist");
       }
-      logger.info("firefox at " + firefox + "does not exist");
     }
     return validFirefoxes.toArray(new String[validFirefoxes.size()]);
   }
@@ -376,7 +386,7 @@ public class I2PFirefox extends I2PFirefoxProfileBuilder {
    * Return the best available Firefox from the list of Firefoxes we have.
    *
    * @return the path to the best available Firefox, or null if none are
-   *     found.
+   *         found.
    * @since 0.0.1
    */
   public String topFirefox() {
@@ -411,7 +421,7 @@ public class I2PFirefox extends I2PFirefoxProfileBuilder {
    *
    * @param override the path to a valid Firefox binary to use.
    * @return the path to the best available Firefox, or null if none are
-   *     found.
+   *         found.
    * @since 0.0.1
    */
   public String topFirefox(String overrideFirefox) {
@@ -429,7 +439,7 @@ public class I2PFirefox extends I2PFirefoxProfileBuilder {
    * the default profile.
    *
    * @return a ProcessBuilder for the top Firefox binary and
-   * the default profile.
+   *         the default profile.
    * @since 0.0.1
    */
   public ProcessBuilder defaultProcessBuilder() {
@@ -442,7 +452,7 @@ public class I2PFirefox extends I2PFirefoxProfileBuilder {
    *
    * @param args the args to pass to the Firefox binary
    * @return a ProcessBuilder for the top Firefox binary and
-   * the default profile.
+   *         the default profile.
    */
   public ProcessBuilder defaultProcessBuilder(String[] args) {
     return processBuilder(args, false);
@@ -455,7 +465,7 @@ public class I2PFirefox extends I2PFirefoxProfileBuilder {
    *
    * @param args the arguments to pass to the Firefox binary.
    * @return a ProcessBuilder for the top Firefox binary and
-   * the default profile.
+   *         the default profile.
    * @since 0.0.1
    */
   public ProcessBuilder privateProcessBuilder() {
@@ -469,7 +479,7 @@ public class I2PFirefox extends I2PFirefoxProfileBuilder {
    *
    * @param args the arguments to pass to the Firefox binary
    * @return a ProcessBuilder for the top Firefox binary and
-   * the default profile.
+   *         the default profile.
    */
   public ProcessBuilder privateProcessBuilder(String[] args) {
     ArrayList<String> argList = new ArrayList<String>();
@@ -491,7 +501,7 @@ public class I2PFirefox extends I2PFirefoxProfileBuilder {
    *
    * @param args the arguments to pass to the Firefox binary.
    * @return a ProcessBuilder for the top Firefox binary and
-   * the default profile.
+   *         the default profile.
    * @since 0.0.1
    */
   public ProcessBuilder appProcessBuilder() {
@@ -505,7 +515,7 @@ public class I2PFirefox extends I2PFirefoxProfileBuilder {
    *
    * @param args the arguments to pass to the Firefox binary
    * @return a ProcessBuilder for the top Firefox binary and
-   * the default profile.
+   *         the default profile.
    */
   public ProcessBuilder appProcessBuilder(String[] args) {
     ArrayList<String> argList = new ArrayList<String>();
@@ -526,7 +536,7 @@ public class I2PFirefox extends I2PFirefoxProfileBuilder {
    *
    * @param args the arguments to pass to the Firefox binary
    * @return a ProcessBuilder for the top Firefox binary and
-   * the default profile.
+   *         the default profile.
    */
   public ProcessBuilder headlessProcessBuilder(String[] args) {
     ArrayList<String> argList = new ArrayList<String>();
@@ -548,14 +558,14 @@ public class I2PFirefox extends I2PFirefoxProfileBuilder {
    *
    * @param args the extended arguments to pass to the Firefox binary.
    * @return a ProcessBuilder for the top Firefox binary and
-   * default profile, with a specific set of extended arguments.
+   *         default profile, with a specific set of extended arguments.
    * @since 0.0.1
    */
   /*
-  public ProcessBuilder processBuilder(String[] args ) {
-    return processBuilder(args, false);
-  }
-    */
+   * public ProcessBuilder processBuilder(String[] args ) {
+   * return processBuilder(args, false);
+   * }
+   */
   public ProcessBuilder processBuilder(String[] args, boolean app) {
     String firefox = topFirefox();
     if (!firefox.isEmpty()) {
@@ -683,7 +693,7 @@ public class I2PFirefox extends I2PFirefoxProfileBuilder {
     pb.environment().put("TOR_SKIP_CONTROLPORTTEST", "1");
     pb.environment().put("TOR_NONTOR_PROXY", "1");
     return pb;
-    //}
+    // }
     // return null;
   }
 
@@ -693,12 +703,14 @@ public class I2PFirefox extends I2PFirefoxProfileBuilder {
     }
     return "base";
   }
+
   public Process launchAndDetatch(boolean privateWindow, String[] url) {
     int privateWindowInt = 0;
     if (privateWindow)
       privateWindowInt = 1;
     return launchAndDetatch(privateWindowInt, url);
   }
+
   public Process launchAndDetatch(int privateWindow, String[] url) {
     validateUserDirectory();
     boolean app = false;
@@ -706,12 +718,13 @@ public class I2PFirefox extends I2PFirefoxProfileBuilder {
       app = true;
     if (waitForProxy()) {
       String profileDirectory = this.profileDirectory(app, baseMode());
-      if (this.validateProfileDirectory(profileDirectory)) {
+      if (this.validateProfileDirectory(profileDirectory) && !isTorBrowser()) {
         logger.info("Valid profile directory: " + profileDirectory);
       } else {
         logger.info("Invalid profile directory: " + profileDirectory +
                     " rebuilding...");
-        if (!this.copyBaseProfiletoProfile(usabilityMode(), app)) {
+        if (!this.copyBaseProfiletoProfile(usabilityMode(), app,
+                                           isTorBrowser())) {
           logger.info("Failed to rebuild profile directory: " +
                       profileDirectory);
           return null;
@@ -720,7 +733,7 @@ public class I2PFirefox extends I2PFirefoxProfileBuilder {
         }
       }
       if (validateProfileFirstRun(profileDirectory)) {
-        if (isWindows()) {
+        if (isWindows() && !isTorBrowser()) {
           ProcessBuilder hpb = headlessProcessBuilder(url);
           try {
             Process hp = hpb.start();
@@ -786,8 +799,8 @@ public class I2PFirefox extends I2PFirefoxProfileBuilder {
    * Waits for an HTTP proxy on the port 4444 to be ready.
    * Launches Firefox with the profile directory.
    *
-   * @param bool if true, the profile will be ephemeral(i.e. a
-   *     --private-window profile).
+   * @param bool     if true, the profile will be ephemeral(i.e. a
+   *                 --private-window profile).
    * @param String[] a list of URL's to pass to the browser window
    * @since 0.0.17
    */
@@ -797,6 +810,7 @@ public class I2PFirefox extends I2PFirefoxProfileBuilder {
       priv = 1;
     launch(priv, url);
   }
+
   public void launch(int privateWindow, String[] url) {
     if (waitForProxy()) {
       process = launchAndDetatch(privateWindow, url);
@@ -820,7 +834,7 @@ public class I2PFirefox extends I2PFirefoxProfileBuilder {
    * Launches Firefox with the profile directory.
    *
    * @param bool if true, the profile will be ephemeral(i.e. a
-   *     --private-window profile).
+   *             --private-window profile).
    * @since 0.0.1
    */
   public void launch(boolean privateWindow) { launch(privateWindow, null); }
@@ -902,12 +916,40 @@ public class I2PFirefox extends I2PFirefoxProfileBuilder {
                       visitURL.toArray(new String[visitURL.size()]));
   }
 
-  /*private void sleep(int millis) {
+  public boolean isTorBrowser() {
+    String[] args = {"--version"};
+    ProcessBuilder tpb = defaultProcessBuilder(args);
     try {
-      Thread.sleep(millis);
-    } catch (InterruptedException bad) {
-      bad.printStackTrace();
-      throw new RuntimeException(bad);
+      Process tp = tpb.start();
+      BufferedReader reader =
+          new BufferedReader(new InputStreamReader(tp.getInputStream()));
+      StringBuilder builder = new StringBuilder();
+      String line = null;
+      while ((line = reader.readLine()) != null) {
+        builder.append(line);
+        builder.append(System.getProperty("line.separator"));
+      }
+      String result = builder.toString().toLowerCase();
+      if (result.contains("tor ")) {
+        logger.info("running in Tor Browser, modifying only required config");
+        return true;
+      } else {
+        logger.info("running in regular Firefox, using extended config");
+        return false;
+      }
+    } catch (Exception e) {
+      return false;
     }
-  }*/
+  }
+
+  /*
+   * private void sleep(int millis) {s
+   * try {
+   * Thread.sleep(millis);
+   * } catch (InterruptedException bad) {
+   * bad.printStackTrace();
+   * throw new RuntimeException(bad);
+   * }
+   * }
+   */
 }

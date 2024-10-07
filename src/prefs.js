@@ -19,11 +19,6 @@ user_pref("extensions.torlauncher.start_tor", false);
 //user_pref("extensions.torlauncher.default_bridge_type", "");
 user_pref("extensions.torlauncher.prompt_at_startup", false);
 
-// Resist-fingerprinting and first-party isolation enable
-
-user_pref("privacy.resistFingerprinting", true);
-user_pref("privacy.firstparty.isolate", true);
-
 // Use i2p http proxy for all connections and set homepage to safe local form.
 
 // DON'T allow access to the admin panel from the profile we browse i2p with.
@@ -39,7 +34,6 @@ user_pref("network.proxy.socks", "127.0.0.1");
 user_pref("network.proxy.socks_port", 4444);
 user_pref("network.proxy.share_proxy_settings", true);
 user_pref("browser.startup.homepage", "about:blank");
-user_pref("dom.security.https_only_mode", false);
 user_pref("keyword.enabled", false);
 user_pref("extensions.allowPrivateBrowsingByDefault", true);
 user_pref("extensions.PrivateBrowsing.notification", false);
@@ -51,17 +45,4 @@ user_pref("browser.newtabpage.activity-stream.feeds.section.highlights", false);
 user_pref("browser.newtabpage.activity-stream.feeds.section.topstories", false);
 user_pref("browser.newtabpage.activity-stream.default.sites", "http://planet.i2p/,http://legwork.i2p/,http://i2pwiki.i2p/,http://i2pforums.i2p/,http://zzz.i2p/");
 user_pref("browser.newtabpage.activity-stream.feeds.topsites", true);
-user_pref("ui.use_standins_for_native_colors", true);
-user_pref("webgl.disable-extensions", true);
-user_pref("webgl.min_capability_mode", true);
-user_pref("webgl.disable-fail-if-major-performance-caveat", true);
-user_pref("webgl.enable-webgl2", false);
-user_pref("media.navigator.enabled", false);
-user_pref("dom.w3c_touch_events.enabled", false);
-user_pref("browser.privatebrowsing.autostart", false);
-user_pref("browser.display.use_system_colors", false);
-user_pref("dom.image-lazy-loading.enabled", false);
-user_pref("extensions.autoDisableScopes", 0);
-user_pref("extensions.enabledScopes", 1);
-user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", false);
 user_pref("browser.fixup.domainsuffixwhitelist.i2p", true);
