@@ -375,7 +375,7 @@ public class I2PFirefox extends I2PFirefoxProfileBuilder {
       if (firefoxFile.exists()) {
         logger.info("Found valid firefox at " + firefox);
         validFirefoxes.add(firefox);
-      }else{
+      } else {
         logger.info("firefox at " + firefox + "does not exist");
       }
     }

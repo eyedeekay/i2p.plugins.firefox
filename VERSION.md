@@ -9,11 +9,11 @@ i2p-in-private-browsing
 2.7.0
 https://addons.mozilla.org/firefox/downloads/file/4364373/i2p_in_private_browsing-2.7.0.xpi
 noscript
-11.4.40
-https://addons.mozilla.org/firefox/downloads/file/4357325/noscript-11.4.40.xpi
+11.4.42
+https://addons.mozilla.org/firefox/downloads/file/4363712/noscript-11.4.42.xpi
 localcdn-fork-of-decentraleyes
-2.6.73
-https://addons.mozilla.org/firefox/downloads/file/4349721/localcdn_fork_of_decentraleyes-2.6.73.xpi
+2.6.74
+https://addons.mozilla.org/firefox/downloads/file/4364493/localcdn_fork_of_decentraleyes-2.6.74.xpi
 onion-in-container-browsing
 0.82
 https://addons.mozilla.org/firefox/downloads/file/3904685/onion_in_container_browsing-0.82.xpi

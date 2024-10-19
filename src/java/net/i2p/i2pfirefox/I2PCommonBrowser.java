@@ -391,12 +391,6 @@ public class I2PCommonBrowser {
     }
   }
 
-  protected void makeDirectory(File destDir) {
-    logger.info("creating directory");
-    if (!destDir.exists())
-      destDir.mkdir();
-  }
-
   /**
    * Copy a directory in compatibility mode.
    *
@@ -440,7 +434,7 @@ public class I2PCommonBrowser {
    *                        copied to
    * @throws IOException if an I/O error occurs during the file copy process
    */
-  private void copyFile(File sourceFile, File destinationFile)
+  public void copyFile(File sourceFile, File destinationFile)
       throws IOException {
     try (InputStream in = new FileInputStream(sourceFile);
          OutputStream out = new FileOutputStream(destinationFile)) {
