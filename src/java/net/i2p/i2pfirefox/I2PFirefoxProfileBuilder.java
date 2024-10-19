@@ -27,36 +27,46 @@ import java.nio.file.StandardCopyOption;
 public class I2PFirefoxProfileBuilder extends I2PFirefoxProfileChecker {
   private boolean strict;
 
-  private String TBB_BASE = "user_pref(\"extensions.torbutton.use_nontor_proxy\", true);\n"
-+ "user_pref(\"extensions.torlauncher.start_tor\", false);\n"
-+ "user_pref(\"extensions.torlauncher.prompt_at_startup\", false);\n"
-+ "user_pref(\"network.proxy.no_proxies_on\", \"127.0.0.1:7657,localhost:7657,127.0.0.1:7662,localhost:7662,127.0.0.1:7669,localhost:7669\");\n"
-+ "user_pref(\"network.proxy.type\", 1);\n"
-+ "user_pref(\"network.proxy.http\", \"127.0.0.1\");\n"
-+ "user_pref(\"network.proxy.http_port\", 4444);\n"
-+ "user_pref(\"network.proxy.ssl\", \"127.0.0.1\");\n"
-+ "user_pref(\"network.proxy.ssl_port\", 4444);\n"
-+ "user_pref(\"network.proxy.ftp\", \"127.0.0.1\");"
-+ "user_pref(\"network.proxy.ftp_port\", 4444);\n"
-+ "user_pref(\"network.proxy.socks\", \"127.0.0.1\");\n"
-+ "user_pref(\"network.proxy.socks_port\", 4444);\n"
-+ "user_pref(\"network.proxy.share_proxy_settings\", true);\n"
-+ "user_pref(\"browser.startup.homepage\", \"about:blank\");\n"
-+ "user_pref(\"keyword.enabled\", false);\n"
-+ "user_pref(\"extensions.allowPrivateBrowsingByDefault\", true);\n"
-+ "user_pref(\"extensions.PrivateBrowsing.notification\", false);\n"
-+ "user_pref(\"extensions.pocket.enabled\", false);\n"
-+ "user_pref(\"browser.newtabpage.activity-stream.showSponsoredTopSites\", false);\n"
-+ "user_pref(\"browser.newtabpage.activity-stream.showSponsored\", false);\n"
-+ "user_pref(\"services.sync.prefs.sync.browser.newtabpage.activity-stream.showSponsored\", false);\n"
-+ "user_pref(\"browser.newtabpage.activity-stream.feeds.section.highlights\", false);\n"
-+ "user_pref(\"browser.newtabpage.activity-stream.feeds.section.topstories\", false);\n"
-+ "user_pref(\"browser.newtabpage.activity-stream.default.sites\", \"http://planet.i2p/,http://legwork.i2p/,http://i2pwiki.i2p/,http://i2pforums.i2p/,http://zzz.i2p/\");\n"
-+ "user_pref(\"browser.newtabpage.activity-stream.feeds.topsites\", true);\n"
-+ "user_pref(\"browser.fixup.domainsuffixwhitelist.i2p\", true);\n";
+  private String TBB_BASE =
+      "user_pref(\"extensions.torbutton.use_nontor_proxy\", true);\n"
+      + "user_pref(\"extensions.torlauncher.start_tor\", false);\n"
+      + "user_pref(\"extensions.torlauncher.prompt_at_startup\", false);\n"
+      +
+      "user_pref(\"network.proxy.no_proxies_on\", \"127.0.0.1:7657,localhost:7657,127.0.0.1:7662,localhost:7662,127.0.0.1:7669,localhost:7669\");\n"
+      + "user_pref(\"network.proxy.type\", 1);\n"
+      + "user_pref(\"network.proxy.http\", \"127.0.0.1\");\n"
+      + "user_pref(\"network.proxy.http_port\", 4444);\n"
+      + "user_pref(\"network.proxy.ssl\", \"127.0.0.1\");\n"
+      + "user_pref(\"network.proxy.ssl_port\", 4444);\n"
+      + "user_pref(\"network.proxy.ftp\", \"127.0.0.1\");"
+      + "user_pref(\"network.proxy.ftp_port\", 4444);\n"
+      + "user_pref(\"network.proxy.socks\", \"127.0.0.1\");\n"
+      + "user_pref(\"network.proxy.socks_port\", 4444);\n"
+      + "user_pref(\"network.proxy.share_proxy_settings\", true);\n"
+      + "user_pref(\"browser.startup.homepage\", \"about:blank\");\n"
+      + "user_pref(\"keyword.enabled\", false);\n"
+      + "user_pref(\"extensions.allowPrivateBrowsingByDefault\", true);\n"
+      + "user_pref(\"extensions.PrivateBrowsing.notification\", false);\n"
+      + "user_pref(\"extensions.pocket.enabled\", false);\n"
+      +
+      "user_pref(\"browser.newtabpage.activity-stream.showSponsoredTopSites\", false);\n"
+      +
+      "user_pref(\"browser.newtabpage.activity-stream.showSponsored\", false);\n"
+      +
+      "user_pref(\"services.sync.prefs.sync.browser.newtabpage.activity-stream.showSponsored\", false);\n"
+      +
+      "user_pref(\"browser.newtabpage.activity-stream.feeds.section.highlights\", false);\n"
+      +
+      "user_pref(\"browser.newtabpage.activity-stream.feeds.section.topstories\", false);\n"
+      +
+      "user_pref(\"browser.newtabpage.activity-stream.default.sites\", \"http://planet.i2p/,http://legwork.i2p/,http://i2pwiki.i2p/,http://i2pforums.i2p/,http://zzz.i2p/\");\n"
+      +
+      "user_pref(\"browser.newtabpage.activity-stream.feeds.topsites\", true);\n"
+      + "user_pref(\"browser.fixup.domainsuffixwhitelist.i2p\", true);\n";
 
   private String userChromeCSS() {
-    String ret = "@namespace url(\"http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul\")\n";
+    String ret =
+        "@namespace url(\"http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul\")\n";
 
     /* only needed once */
 
@@ -132,7 +142,7 @@ public class I2PFirefoxProfileBuilder extends I2PFirefoxProfileChecker {
   // }
 
   private String baseProfileDir(String file, String base,
-      boolean isTorBrowser) {
+                                boolean isTorBrowser) {
     File profileDir = new File(file, "i2p.firefox." + base + ".profile");
     // make sure the directory exists
     if (profileDir.exists()) {
@@ -141,7 +151,7 @@ public class I2PFirefoxProfileBuilder extends I2PFirefoxProfileChecker {
       // create the directory
       if (!isTorBrowser) {
         if (!this.unpackProfile(profileDir.getAbsolutePath(), "firefox",
-            base)) {
+                                base)) {
           return null;
         }
       } else {
@@ -211,7 +221,7 @@ public class I2PFirefoxProfileBuilder extends I2PFirefoxProfileChecker {
    * @since 0.0.1
    */
   public boolean copyBaseProfiletoProfile(String base, boolean app,
-      boolean isTorBrowser) {
+                                          boolean isTorBrowser) {
     String baseProfile = baseProfileDirectory(base, isTorBrowser);
     String profile = profileDirectory(app, base);
     if (baseProfile.isEmpty() || profile.isEmpty()) {
@@ -224,7 +234,7 @@ public class I2PFirefoxProfileBuilder extends I2PFirefoxProfileChecker {
       try {
         if (!isTorBrowser) {
           logger.info("Copying base profile to profile directory: " +
-              baseProfile + " -> " + profile);
+                      baseProfile + " -> " + profile);
           copyDirectory(baseProfileDir, profileDir, "firefox", base);
         } else {
           logger.info("Creating base directory for use with Tor Browser");
@@ -280,7 +290,7 @@ public class I2PFirefoxProfileBuilder extends I2PFirefoxProfileChecker {
    * @since 0.0.1
    */
   public boolean copyStrictOptions(String base, boolean app,
-      boolean isTorBrowser) {
+                                   boolean isTorBrowser) {
     logger.info("Checking strict options");
     String baseProfile = baseProfileDirectory(base, isTorBrowser);
     String profile = profileDirectory(app, base);
@@ -302,7 +312,7 @@ public class I2PFirefoxProfileBuilder extends I2PFirefoxProfileChecker {
         if (strict) {
           logger.info("Enabling strict options");
           Files.copy(baseOverrides.toPath(), userOverrides.toPath(),
-              StandardCopyOption.REPLACE_EXISTING);
+                     StandardCopyOption.REPLACE_EXISTING);
           return true;
         }
       }
@@ -369,7 +379,7 @@ public class I2PFirefoxProfileBuilder extends I2PFirefoxProfileChecker {
       logger.info("writing TBB user.js");
       writer.write(TBB_BASE);
     } catch (IOException e) {
-       logger.info("Error writing to file: " + e.getMessage());
+      logger.info("Error writing to file: " + e.getMessage());
     }
   }
 
@@ -378,9 +388,7 @@ public class I2PFirefoxProfileBuilder extends I2PFirefoxProfileChecker {
    *
    * @since 0.0.1
    */
-  public I2PFirefoxProfileBuilder() {
-    this.strict = false;
-  }
+  public I2PFirefoxProfileBuilder() { this.strict = false; }
 
   /**
    * Construct a new Profile Builder
@@ -389,7 +397,5 @@ public class I2PFirefoxProfileBuilder extends I2PFirefoxProfileChecker {
    *
    * @since 0.0.1
    */
-  public I2PFirefoxProfileBuilder(boolean strict) {
-    this.strict = strict;
-  }
+  public I2PFirefoxProfileBuilder(boolean strict) { this.strict = strict; }
 }
