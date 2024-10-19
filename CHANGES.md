@@ -1,3 +1,9 @@
+Sat, October 19
+---------------
+
+ - Ignore most changes when running in Tor Browser, only set the proxy
+ - 2.7.0 release
+
 Mon, July 8
 -----------
 
