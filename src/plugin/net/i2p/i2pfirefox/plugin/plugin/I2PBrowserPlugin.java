@@ -116,7 +116,7 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
       _log.info("I2P Browser tray manager not supported");
       try {
         I2PBrowser i2pBrowser = new I2PBrowser(profileDir.getAbsolutePath());
-        String[] args = {"http://proxy.i2p"};
+        String[] args = {"http://127.0.0.1:7657"};
         i2pBrowser.launchFirefox(0, args);
       } catch (Exception e) {
         _log.error("Error starting I2P Browser", e);
@@ -124,7 +124,7 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
     } else {
       try {
         _log.info(
-            "Starting I2P Browser tray manager by testing http://proxy.i2p");
+            "Starting I2P Browser tray manager by testing http://127.0.0.1:7657");
         MenuService dtg = startTrayApp();
         try {
           Thread.sleep(5000);
@@ -144,7 +144,7 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
           _log.info("I2P Browser tray manager not found");
         }
         I2PBrowser i2pBrowser = new I2PBrowser(profileDir.getAbsolutePath());
-        String[] args = {"http://proxy.i2p"};
+        String[] args = {"http://127.0.0.1:7657"};
         i2pBrowser.launchFirefox(0, args);
       } catch (Exception e) {
         _log.error("Error starting I2P Browser tray manager", e);
@@ -211,7 +211,7 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
       _log.info("I2P Browser starting up");
       try {
         I2PBrowser i2pBrowser = new I2PBrowser(profileDir.getAbsolutePath());
-        String[] args = {"http://proxy.i2p"};
+        String[] args = {"http://127.0.0.1:7657"};
         i2pBrowser.launchFirefox(0, args);
       } catch (Exception e) {
         _log.error("Error starting I2P Browser", e);
@@ -235,7 +235,7 @@ public class I2PBrowserPlugin extends I2PBrowser implements ClientApp {
       try {
         I2PBrowser i2pBrowser = new I2PBrowser(profileDir.getAbsolutePath());
         i2pBrowser.usability = true;
-        String[] args = {"http://proxy.i2p"};
+        String[] args = {"http://127.0.0.1:7657"};
         i2pBrowser.launchFirefox(0, args);
       } catch (Exception e) {
         _log.error("Error starting I2P Browser", e);
