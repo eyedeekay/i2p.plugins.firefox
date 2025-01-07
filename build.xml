@@ -885,7 +885,7 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
             <redirector output="VERSION.md" error="VERSION.md" alwayslog="true" append="true"></redirector>
             <arg value="```md"/>
         </exec>
-        <exec executable="manifest-json-version" failonerror="true">
+        <!--<exec executable="manifest-json-version" failonerror="true">
             <redirector output="VERSION.md" error="VERSION.md" alwayslog="true" append="true"></redirector>
             <arg value="-mf"/>
             <arg value="src/i2p.chromium.base.profile/extensions/i2pchrome.js/manifest.json"/>
@@ -909,7 +909,7 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
             <redirector output="VERSION.md" error="VERSION.md" alwayslog="true" append="true"></redirector>
             <arg value="-mf"/>
             <arg value="src/i2p.chromium.usability.profile/extensions/jshelter.js/manifest.json"/>
-        </exec>
+        </exec>-->
         <exec executable="echo" failonerror="true">
             <redirector output="VERSION.md" error="VERSION.md" alwayslog="true" append="true"></redirector>
             <arg value="```"/>
@@ -918,20 +918,20 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
     
     <target name="i2pChromiumBaseProfile">
         <mkdir dir="src/i2p.chromium.base.profile/extensions/" />
-        <exec executable="crx3" failonerror="true">
+        <!--<exec executable="crx3" failonerror="true">
             <arg value="download"/>
             <arg value="ikdjcmomgldfciocnpekfndklkfgglpe" />
             <arg value="-u=true"/>
             <arg value="-o" />
             <arg value="src/i2p.chromium.base.profile/extensions/i2pchrome.js.crx" />
-        </exec>
-        <exec executable="crx3" failonerror="true">
+        </exec>-->
+        <!--<exec executable="crx3" failonerror="true">
             <arg value="download"/>
             <arg value="doojmbjmlfjjnbmnoijecmcbfeoakpjm" />
             <arg value="-u=true"/>
             <arg value="-o" />
             <arg value="src/i2p.chromium.base.profile/extensions/noscript.js.crx" />
-        </exec>
+        </exec>-->
         <exec executable="echo" failonerror="true" append="false" output="src/i2p.chromium.base.profile/version.md">
             <arg value="Profile Version" />
         </exec>
@@ -951,7 +951,7 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
 
     <target name="i2pChromiumUsabilityProfile">
         <mkdir dir="src/i2p.chromium.usability.profile/extensions/" />
-        <exec executable="crx3" failonerror="true">
+        <!--<exec executable="crx3" failonerror="true">
             <arg value="download"/>
             <arg value="ikdjcmomgldfciocnpekfndklkfgglpe" />
             <arg value="-u=true"/>
@@ -978,7 +978,7 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
             <arg value="-u=true"/>
             <arg value="-o" />
             <arg value="src/i2p.chromium.usability.profile/extensions/localcdn.js.crx" />
-        </exec>
+        </exec>-->
         <exec executable="echo" failonerror="true" append="false" output="src/i2p.chromium.usability.profile/version.md">
             <arg value="Profile Version" />
         </exec>
