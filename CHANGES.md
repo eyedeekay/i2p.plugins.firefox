@@ -1,3 +1,8 @@
+2025 Tue, January 7
+-------------------
+
+ - Disable downloading Chrome extensions, begin phasing out Chrome support
+
 Sat, October 19
 ---------------
 
