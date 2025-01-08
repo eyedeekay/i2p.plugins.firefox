@@ -73,7 +73,10 @@ jobs:
       - name: Upload artifacts
         uses: ncipollo/release-action@v1
         with:
+          commit: $GITHUB_SHA
           name: nightly
+          prerelease: true
           makeLatest: true
+          allowUpdates: true
           artifacts: "*"
           bodyFile: "CHANGES.md"
