@@ -7,7 +7,7 @@ RUN echo enabled=1 >> /etc/yum.repos.d/adoptium.repo
 RUN echo gpgcheck=1 >> /etc/yum.repos.d/adoptium.repo
 RUN echo gpgkey=https://packages.adoptium.net/artifactory/api/gpg/key/public >> /etc/yum.repos.d/adoptium.repo
 RUN cat /etc/yum.repos.d/adoptium.repo
-RUN dnf clean all && rm -r /var/cache/dnf  && dnf upgrade -y && dnf update -y
+RUN dnf clean all && rm -rf /var/cache/dnf  && dnf upgrade -y && dnf update -y
 RUN dnf -y install rpm-build temurin-19-jdk
 ADD . /src/i2p.plugins.firefox
 WORKDIR /src/i2p.plugins.firefox
