@@ -4,8 +4,8 @@ name: Nightly
 
 on:
   push:
-    branches:
-      - main
+    tags:
+      - nightly-*
 
 jobs:
   build:
