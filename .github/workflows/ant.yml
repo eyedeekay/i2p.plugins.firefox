@@ -107,7 +107,7 @@ jobs:
       - run: echo enabled=1 >> /etc/yum.repos.d/adoptium.repo
       - run: echo gpgcheck=1 >> /etc/yum.repos.d/adoptium.repo
       - run: echo gpgkey=https://packages.adoptium.net/artifactory/api/gpg/key/public >> /etc/yum.repos.d/adoptium.repo
-      - run: dnf clean all && rm -r /var/cache/dnf  && dnf upgrade -y && dnf update -y
+      - run: dnf clean all && rm -rf /var/cache/dnf  && dnf upgrade -y && dnf update -y
       - run: dnf install -y temurin-21-jdk
       - name: Generate override.properties
         run: |
