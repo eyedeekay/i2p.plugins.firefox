@@ -76,7 +76,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: i2pbrowser_amd64.deb
-          path: ./i2pbrowser_${{ github.ref_name }}_amd64.deb
+          path: ./i2pbrowser_*_amd64.deb
       - name: build plugin with Ant
         run: |
           export PATH=$PATH:$(go env GOPATH)/bin
@@ -133,7 +133,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: i2pbrowser.x86_64.rpm
-          path: ./i2pbrowser-${{ github.ref_name }}-1.x86_64.rpm
+          path: ./i2pbrowser-*-1.x86_64.rpm
 
 
   buildwin:
@@ -172,7 +172,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: i2pbrowser-${{ github.ref_name }}.exe
-          path: ./i2pbrowser-${{ github.ref_name }}.exe
+          path: ./i2pbrowser-*.exe
       - name: build msi with Ant
         run: |
           ant windows-msi
@@ -181,7 +181,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: i2pbrowser-${{ github.ref_name }}.msi
-          path: ./i2pbrowser-${{ github.ref_name }}.msi
+          path: ./i2pbrowser-*.msi
       - name: build portable zip with Ant
         run: |
           ant windows-portable
@@ -228,7 +228,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: i2pbrowser-${{ github.ref_name }}.dmg
-          path: ./i2pbrowser-${{ github.ref_name }}.dmg
+          path: ./i2pbrowser-*.dmg
       - name: build pkg with Ant
         run: |
           ant macos-pkg
@@ -237,4 +237,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: i2pbrowser-${{ github.ref_name }}.pkg
-          path: ./i2pbrowser-${{ github.ref_name }}.pkg
+          path: ./i2pbrowser-*.pkg
