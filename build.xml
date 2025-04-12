@@ -285,13 +285,34 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
             <arg value="checkout" />
             <arg value="${arkenfox.number}" />
         </exec>
+        <exec executable="grep" osfamily="unix" output="user.js/tmp.user.js">
+            <arg value="-v" />
+            <arg value="autoDisableScopes" />
+            <arg value="user.js/user.js" />
+        </exec>
+        <exec executable="grep" osfamily="unix" output="user.js/user.js">
+            <arg value="-v" />
+            <arg value="enabledScopes" />
+            <arg value="user.js/tmp.user.js" />
+        </exec>
+        <copy file="user.js/user.js" tofile="src/i2p.firefox.usability.profile/user.js"/>
     </target>
 
     <target name="userJs" depends="i2pFirefoxBaseUserJs,i2pFirefoxUsabilityUserJs">
     </target>
     <target name="i2pFirefoxBaseUserJs" depends="arkenfoxCheckout">
+        <exec executable="grep" osfamily="unix" output="user.js/user.js">
+            <arg value="-v" />
+            <arg value="autoDisableScopes" />
+            <arg value="user.js/user.js" />
+        </exec>
+        <exec executable="grep" osfamily="unix" output="user.js/user.js">
+            <arg value="-v" />
+            <arg value="enabledScopes" />
+            <arg value="user.js/user.js" />
+        </exec>
         <copy file="user.js/user.js" tofile="src/i2p.firefox.base.profile/user.js"/>
-        <exec executable="sed" osfamily="unix">
+        <!--<exec executable="sed" osfamily="unix">
             <arg value="-i" />
             <arg value='s|user_pref("extensions.autoDisableScopes", 15);|user_pref("extensions.autoDisableScopes", 0);|g' />
             <arg value="src/i2p.firefox.base.profile/user.js" />
@@ -300,7 +321,7 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
             <arg value="-i" />
             <arg value='s|user_pref("extensions.enabledScopes", 5);|user_pref("extensions.enabledScopes", 1);|g' />
             <arg value="src/i2p.firefox.base.profile/user.js" />
-        </exec>
+        </exec>-->
         <exec executable="sed" osfamily="unix">
             <arg value="-i" />
             <arg value='s|user_pref("dom.security.https_only_mode", true);|user_pref("dom.security.https_only_mode", false);|g' />
@@ -308,8 +329,18 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
         </exec>
     </target>
     <target name="i2pFirefoxUsabilityUserJs" depends="arkenfoxCheckout">
+        <exec executable="grep" osfamily="unix" output="user.js/tmp.user.js">
+            <arg value="-v" />
+            <arg value="autoDisableScopes" />
+            <arg value="user.js/user.js" />
+        </exec>
+        <exec executable="grep" osfamily="unix" output="user.js/user.js">
+            <arg value="-v" />
+            <arg value="enabledScopes" />
+            <arg value="user.js/tmp.user.js" />
+        </exec>
         <copy file="user.js/user.js" tofile="src/i2p.firefox.usability.profile/user.js"/>
-        <exec executable="sed" osfamily="unix">
+        <!--<exec executable="sed" osfamily="unix">
             <arg value="-i" />
             <arg value='s|user_pref("extensions.autoDisableScopes", 15);|user_pref("extensions.autoDisableScopes", 0);|g' />
             <arg value="src/i2p.firefox.usability.profile/user.js" />
@@ -318,7 +349,7 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
             <arg value="-i" />
             <arg value='s|user_pref("extensions.enabledScopes", 5);|user_pref("extensions.enabledScopes", 1);|g' />
             <arg value="src/i2p.firefox.usability.profile/user.js" />
-        </exec>
+        </exec>-->
         <exec executable="sed" osfamily="unix">
             <arg value="-i" />
             <arg value='s|user_pref("dom.security.https_only_mode", true);|user_pref("dom.security.https_only_mode", false);|g' />
@@ -995,7 +1026,7 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
             <arg value="" />
         </exec>
     </target>
-    <target name="i2pFirefoxBaseProfile" depends="buildNum">
+    <target name="i2pFirefoxBaseProfile" depends="buildNum,i2pFirefoxBaseUserJs">
         <mkdir dir="src/i2p.firefox.base.profile/extensions/" />
         <copy file="src/prefs.js" tofile="src/i2p.firefox.base.profile/prefs.js" />
         <copy file="src/user-overrides.js" tofile="src/i2p.firefox.base.profile/user-overrides.js" />
@@ -1031,7 +1062,7 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
         </exec>
     </target>
 
-    <target name="i2pFirefoxUsabilityProfile" depends="buildNum">
+    <target name="i2pFirefoxUsabilityProfile" depends="buildNum, i2pFirefoxUsabilityUserJs">
         <mkdir dir="src/i2p.firefox.usability.profile/extensions/" />
         <copy file="src/prefs.js" tofile="src/i2p.firefox.usability.profile/prefs.js" />
         <copy file="src/user-overrides.js" tofile="src/i2p.firefox.usability.profile/user-overrides.js" />

@@ -46,3 +46,7 @@ user_pref("browser.newtabpage.activity-stream.feeds.section.topstories", false);
 user_pref("browser.newtabpage.activity-stream.default.sites", "http://planet.i2p/,http://legwork.i2p/,http://i2pwiki.i2p/,http://i2pforums.i2p/,http://zzz.i2p/");
 user_pref("browser.newtabpage.activity-stream.feeds.topsites", true);
 user_pref("browser.fixup.domainsuffixwhitelist.i2p", true);
+
+// Allow extensions ONLY from the profile directory
+user_pref("extensions.enabledScopes", 1); // [HIDDEN PREF]
+user_pref("extensions.autoDisableScopes", 0); // [HIDDEN PREF]

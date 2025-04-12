@@ -172,8 +172,6 @@ user_pref("dom.serviceWorkers.enabled", false);
 user_pref("dom.serviceWorkers.interception.enabled", false);
 user_pref("dom.storage.enabled", false);
 user_pref("dom.webaudio.enabled", false);
-user_pref("extensions.autoDisableScopes", 0);
-user_pref("extensions.enabledScopes", 1);
 user_pref("extensions.getAddons.cache.enabled", false);
 user_pref("extensions.getAddons.showPane", false);
 user_pref("extensions.pocket.enabled", false);
@@ -240,8 +238,6 @@ user_pref("dom.w3c_touch_events.enabled", false);
 user_pref("browser.privatebrowsing.autostart", false);
 user_pref("browser.display.use_system_colors", false);
 user_pref("dom.image-lazy-loading.enabled", false);
-user_pref("extensions.autoDisableScopes", 0);
-user_pref("extensions.enabledScopes", 1);
 user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", false);
 user_pref("dom.security.https_only_mode", false);
 
