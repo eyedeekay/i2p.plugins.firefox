@@ -22,7 +22,6 @@ import java.util.ArrayList;
  */
 public class I2PBrowser extends I2PGenericUnsafeBrowser {
   private final I2PFirefox i2pFirefox = new I2PFirefox();
-  private final I2PChromium i2pChromium = new I2PChromium();
   private final I2PGenericUnsafeBrowser i2pGeneral =
       new I2PGenericUnsafeBrowser();
   public boolean firefox = false;
@@ -42,16 +41,6 @@ public class I2PBrowser extends I2PGenericUnsafeBrowser {
     if (outputConfig)
       i2pFirefox.storeFirefoxDefaults();
     i2pFirefox.launch(privateWindow, url);
-  }
-  public void launchChromium(int privateWindow, String[] url) {
-    String priv = privateWindow == 1 ? "private-window" : "long-profile";
-    logger.info("I2PChromium" + priv);
-    i2pChromium.usability = usability;
-    if (url == null)
-      url = new String[] {"about:blank"};
-    if (outputConfig)
-      i2pChromium.storeChromiumDefaults();
-    i2pChromium.launch(privateWindow, url);
   }
   private void launchGeneric(int privateWindowInt, String[] url) {
     String priv = privateWindowInt == 1 ? "private-window" : "long-profile";
@@ -85,23 +74,6 @@ public class I2PBrowser extends I2PGenericUnsafeBrowser {
   public void setBrowser(String browserPath) { this.BROWSER = browserPath; }
 
   /**
-   * Return true if there is a Chromium available
-   *
-   * @return true if Chromium is available, false otherwise
-   * @since 0.0.16
-   */
-  public boolean hasChromium() {
-    String chrome = i2pChromium.topChromium();
-    if (chrome == null) {
-      return false;
-    }
-    if (chrome.isEmpty()) {
-      return false;
-    }
-    return true;
-  }
-
-  /**
    * Return true if there is a Firefox variant available
    *
    * @return true if Firefox variant is available, false otherwise
@@ -128,20 +100,8 @@ public class I2PBrowser extends I2PGenericUnsafeBrowser {
    * @since 0.0.17
    */
   public void launch(int privateWindow, String[] url) {
-    if (chromiumFirst) {
-      if (chromium) {
-        this.launchChromium(privateWindow, url);
-      } else if (firefox) {
-        this.launchFirefox(privateWindow, url);
-      } else {
-        this.launchGeneric(privateWindow, url);
-      }
-      return;
-    }
     if (firefox) {
       this.launchFirefox(privateWindow, url);
-    } else if (chromium) {
-      this.launchChromium(privateWindow, url);
     } else {
       this.launchGeneric(privateWindow, url);
     }
@@ -182,8 +142,6 @@ public class I2PBrowser extends I2PGenericUnsafeBrowser {
     boolean r = true;
     if (i2pFirefox != null)
       r = i2pFirefox.stop();
-    if (i2pChromium != null)
-      r = i2pChromium.stop();
     if (i2pGeneral != null)
       r = i2pGeneral.stop();
     return r;
@@ -192,8 +150,6 @@ public class I2PBrowser extends I2PGenericUnsafeBrowser {
   public boolean running() {
     if (i2pFirefox != null)
       return i2pFirefox.running();
-    if (i2pChromium != null)
-      return i2pChromium.running();
     if (i2pGeneral != null)
       return i2pGeneral.running();
     return false;
