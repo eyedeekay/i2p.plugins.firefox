@@ -47,16 +47,6 @@ jobs:
         with:
           name: i2p.firefox.usability.profile.zip
           path: ./src/i2p.firefox.usability.profile.zip
-      - name: Upload Chromium Profile Strict
-        uses: actions/upload-artifact@v4
-        with:
-          name: i2p.chromium.base.profile.zip
-          path: ./src/i2p.chromium.base.profile.zip
-      - name: Upload Chromium Profile Usability
-        uses: actions/upload-artifact@v4
-        with:
-          name: i2p.chromium.usability.profile.zip
-          path: ./src/i2p.chromium.usability.profile.zip
       - name: Upload i2pfirefox.jar
         uses: actions/upload-artifact@v4
         with:
