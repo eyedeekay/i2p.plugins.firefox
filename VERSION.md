@@ -25,7 +25,3 @@ ublock-origin
 https://addons.mozilla.org/firefox/downloads/file/4492375/ublock_origin-1.64.0.xpi
 ```
 
-## Chromium
-
-```md
-```

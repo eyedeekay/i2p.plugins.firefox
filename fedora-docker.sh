@@ -9,7 +9,7 @@ jpackage --verbose \
     --type rpm \
     --linux-menu-group "Network;WebBrowser;P2P" \
     --linux-app-category "Network" \
-    --linux-package-deps "firefox|chromium|brave|firefox-esr|librewolf|icecat" \
+    --linux-package-deps "firefox|firefox-esr|librewolf|icecat" \
     --linux-shortcut \
     --license-file LICENSE.md \
     --name i2pbrowser \

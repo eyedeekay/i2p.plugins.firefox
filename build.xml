@@ -127,50 +127,6 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
             <redirector output="USAGE.md" append="true"/>
             <arg value="" />
         </exec>
-        <exec executable="echo">
-            <redirector output="USAGE.md" append="true"/>
-            <arg value="Chromium in Persistent Mode" />
-        </exec>
-        <exec executable="echo">
-            <redirector output="USAGE.md" append="true"/>
-            <arg value="" />
-        </exec>
-        <exec executable="echo">
-            <redirector output="USAGE.md" append="true"/>
-            <arg value="```sh" />
-        </exec>
-        <exec executable="cat">
-            <redirector output="USAGE.md" append="true"/>
-            <arg value="i2pchromium.cmd" />
-        </exec>
-        <exec executable="echo">
-            <redirector output="USAGE.md" append="true"/>
-            <arg value="```" />
-        </exec>
-        <exec executable="echo">
-            <redirector output="USAGE.md" append="true"/>
-            <arg value="" />
-        </exec>
-        <exec executable="echo">
-            <redirector output="USAGE.md" append="true"/>
-            <arg value="Chromium in Private Browsing Mode" />
-        </exec>
-        <exec executable="echo">
-            <redirector output="USAGE.md" append="true"/>
-            <arg value="" />
-        </exec>
-        <exec executable="echo">
-            <redirector output="USAGE.md" append="true"/>
-            <arg value="```sh" />
-        </exec>
-        <exec executable="cat">
-            <redirector output="USAGE.md" append="true"/>
-            <arg value="i2pchromium-private.cmd" />
-        </exec>
-        <exec executable="echo">
-            <redirector output="USAGE.md" append="true"/>
-            <arg value="```" />
-        </exec>
     </target>
 
     <target name="jar" depends="versionMd,i2pFirefoxBaseProfileZip,i2pFirefoxUsabilityProfileZip">
@@ -199,30 +155,6 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
             <arg value="-O"/>
             <arg value="i2p.firefox.usability.profile.zip"/>
             <arg value="i2p.firefox.usability.profile"/>
-        </exec>
-    </target>
-
-    <target name="i2pChromiumBaseProfileZip">
-        <exec executable="rm" failonerror="false" dir="src">
-            <arg value="-rf" />
-            <arg value="i2p.chromium.base.profile.zip" />
-        </exec>
-        <exec executable="dzip" failonerror="true" dir="src">
-            <arg value="-O"/>
-            <arg value="i2p.chromium.base.profile.zip"/>
-            <arg value="i2p.chromium.base.profile"/>
-        </exec>
-    </target>
-
-    <target name="i2pChromiumUsabilityProfileZip">
-        <exec executable="rm" failonerror="false" dir="src">
-            <arg value="-rf" />
-            <arg value="i2p.chromium.usability.profile.zip" />
-        </exec>
-        <exec executable="dzip" failonerror="true" dir="src">
-            <arg value="-O"/>
-            <arg value="i2p.chromium.usability.profile.zip"/>
-            <arg value="i2p.chromium.usability.profile"/>
         </exec>
     </target>
 
@@ -492,10 +424,6 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
             <arg value="src/java/net/i2p/i2pfirefox/I2PBrowser.java"/>
             <arg value="src/plugin/net/i2p/i2pfirefox/plugin/plugin/I2PBrowserPlugin.java"/>
             <arg value="src/java/net/i2p/i2pfirefox/I2PCommonBrowser.java"/>
-            <arg value="src/java/net/i2p/i2pfirefox/I2PChromium.java"/>
-            <arg value="src/java/net/i2p/i2pfirefox/I2PChromiumProfileBuilder.java"/>
-            <arg value="src/java/net/i2p/i2pfirefox/I2PChromiumProfileChecker.java"/>
-            <arg value="src/java/net/i2p/i2pfirefox/I2PChromiumProfileUnpacker.java"/>
             <arg value="src/java/net/i2p/i2pfirefox/I2PFirefox.java"/>
             <arg value="src/java/net/i2p/i2pfirefox/I2PLibreWolf.java"/>
             <arg value="src/java/net/i2p/i2pfirefox/I2PFirefoxProfileBuilder.java"/>
@@ -516,10 +444,6 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
         <delete dir="i2p.firefox.usability.profile" />
         <delete dir="i2p.firefox.profile" />
         <delete dir="src/i2p.firefox.profile.zip" />
-        <delete dir="i2p.chromium.base.profile" />
-        <delete dir="i2p.chromium.usability.profile" />
-        <delete dir="i2p.chromium.profile" />
-        <delete dir="src/i2p.chromium.profile.zip" />
         <delete file="plugin/i2ptunnel.config" />
         <delete file="plugin/plugin.config" />
         <delete file="plugin/i2pfirefox.config" />
@@ -582,7 +506,7 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
             <arg value="--linux-deb-maintainer"/> <arg value="hankhill19580@gmail.com"/>
             <arg value="--linux-menu-group"/> <arg value="Network;WebBrowser;P2P"/>
             <arg value="--linux-app-category"/> <arg value="Network"/>
-            <arg value="--linux-package-deps"/> <arg value="firefox|chromium|brave|firefox-esr|librewolf|icecat"/>
+            <arg value="--linux-package-deps"/> <arg value="firefox|firefox-esr|librewolf|icecat"/>
             <arg value="--linux-shortcut"/>
             <arg value="--license-file"/> <arg value="LICENSE.md"/>
             <arg value="--name"/> <arg value="i2pbrowser"/>
@@ -600,7 +524,7 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
             <arg value="--linux-deb-maintainer"/> <arg value="hankhill19580@gmail.com"/>
             <arg value="--linux-menu-group"/> <arg value="Network;WebBrowser;P2P"/>
             <arg value="--linux-app-category"/> <arg value="Network"/>
-            <arg value="--linux-package-deps"/> <arg value="firefox|chromium|brave|firefox-esr|librewolf|icecat"/>
+            <arg value="--linux-package-deps"/> <arg value="firefox|firefox-esr|librewolf|icecat"/>
             <arg value="--linux-shortcut"/>
             <arg value="--license-file"/> <arg value="LICENSE.md"/>
             <arg value="--name"/> <arg value="i2pbrowser"/>
@@ -617,7 +541,7 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
             <arg value="--type"/> <arg value="rpm"/>
             <arg value="--linux-menu-group"/> <arg value="Network;WebBrowser;P2P"/>
             <arg value="--linux-app-category"/> <arg value="Network"/>
-            <arg value="--linux-package-deps"/> <arg value="firefox|chromium|brave|firefox-esr|librewolf|icecat"/>
+            <arg value="--linux-package-deps"/> <arg value="firefox|firefox-esr|librewolf|icecat"/>
             <arg value="--linux-shortcut"/>
             <arg value="--license-file"/> <arg value="LICENSE.md"/>
             <arg value="--name"/> <arg value="i2pbrowser"/>
@@ -634,7 +558,7 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
             <arg value="--type"/> <arg value="rpm"/>
             <arg value="--linux-menu-group"/> <arg value="Network;WebBrowser;P2P"/>
             <arg value="--linux-app-category"/> <arg value="Network"/>
-            <arg value="--linux-package-deps"/> <arg value="firefox|chromium|brave|firefox-esr|librewolf|icecat"/>
+            <arg value="--linux-package-deps"/> <arg value="firefox|firefox-esr|librewolf|icecat"/>
             <arg value="--linux-shortcut"/>
             <arg value="--license-file"/> <arg value="LICENSE.md"/>
             <arg value="--name"/> <arg value="i2pbrowser"/>
@@ -836,7 +760,7 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
         </exec>
     </target>
 
-    <target name="versionMd" depends="i2pFirefoxBaseProfile, i2pFirefoxUsabilityProfile, i2pChromiumBaseProfile, i2pChromiumUsabilityProfile">
+    <target name="versionMd" depends="i2pFirefoxBaseProfile, i2pFirefoxUsabilityProfile">
         <delete file="VERSION.md"></delete>
         <exec executable="echo" failonerror="true">
             <redirector output="VERSION.md" error="VERSION.md" alwayslog="true" append="true"></redirector>
@@ -904,128 +828,8 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
             <redirector output="VERSION.md" error="VERSION.md" alwayslog="true" append="true"></redirector>
             <arg value=""/>
         </exec>
-        <exec executable="echo" failonerror="true">
-            <redirector output="VERSION.md" error="VERSION.md" alwayslog="true" append="true"></redirector>
-            <arg value="## Chromium"/>
-        </exec>
-        <exec executable="echo" failonerror="true">
-            <redirector output="VERSION.md" error="VERSION.md" alwayslog="true" append="true"></redirector>
-            <arg value=""/>
-        </exec>
-        <exec executable="echo" failonerror="true">
-            <redirector output="VERSION.md" error="VERSION.md" alwayslog="true" append="true"></redirector>
-            <arg value="```md"/>
-        </exec>
-        <!--<exec executable="manifest-json-version" failonerror="true">
-            <redirector output="VERSION.md" error="VERSION.md" alwayslog="true" append="true"></redirector>
-            <arg value="-mf"/>
-            <arg value="src/i2p.chromium.base.profile/extensions/i2pchrome.js/manifest.json"/>
-        </exec>
-        <exec executable="manifest-json-version" failonerror="true">
-            <redirector output="VERSION.md" error="VERSION.md" alwayslog="true" append="true"></redirector>
-            <arg value="-mf"/>
-            <arg value="src/i2p.chromium.base.profile/extensions/noscript.js/manifest.json"/>
-        </exec>
-        <exec executable="manifest-json-version" failonerror="true">
-            <redirector output="VERSION.md" error="VERSION.md" alwayslog="true" append="true"></redirector>
-            <arg value="-mf"/>
-            <arg value="src/i2p.chromium.usability.profile/extensions/localcdn.js/manifest.json"/>
-        </exec>
-        <exec executable="manifest-json-version" failonerror="true">
-            <redirector output="VERSION.md" error="VERSION.md" alwayslog="true" append="true"></redirector>
-            <arg value="-mf"/>
-            <arg value="src/i2p.chromium.usability.profile/extensions/ublock.js/manifest.json"/>
-        </exec>
-        <exec executable="manifest-json-version" failonerror="true">
-            <redirector output="VERSION.md" error="VERSION.md" alwayslog="true" append="true"></redirector>
-            <arg value="-mf"/>
-            <arg value="src/i2p.chromium.usability.profile/extensions/jshelter.js/manifest.json"/>
-        </exec>-->
-        <exec executable="echo" failonerror="true">
-            <redirector output="VERSION.md" error="VERSION.md" alwayslog="true" append="true"></redirector>
-            <arg value="```"/>
-        </exec>
     </target>
     
-    <target name="i2pChromiumBaseProfile">
-        <mkdir dir="src/i2p.chromium.base.profile/extensions/" />
-        <!--<exec executable="crx3" failonerror="true">
-            <arg value="download"/>
-            <arg value="ikdjcmomgldfciocnpekfndklkfgglpe" />
-            <arg value="-u=true"/>
-            <arg value="-o" />
-            <arg value="src/i2p.chromium.base.profile/extensions/i2pchrome.js.crx" />
-        </exec>-->
-        <!--<exec executable="crx3" failonerror="true">
-            <arg value="download"/>
-            <arg value="doojmbjmlfjjnbmnoijecmcbfeoakpjm" />
-            <arg value="-u=true"/>
-            <arg value="-o" />
-            <arg value="src/i2p.chromium.base.profile/extensions/noscript.js.crx" />
-        </exec>-->
-        <exec executable="echo" failonerror="true" append="false" output="src/i2p.chromium.base.profile/version.md">
-            <arg value="Profile Version" />
-        </exec>
-        <exec executable="echo" failonerror="true" append="true" output="src/i2p.chromium.base.profile/version.md">
-            <arg value="===============" />
-        </exec>
-        <exec executable="echo" failonerror="true" append="true" output="src/i2p.chromium.base.profile/version.md">
-            <arg value="" />
-        </exec>
-        <exec executable="echo" failonerror="true" append="true" output="src/i2p.chromium.base.profile/version.md">
-            <arg value="${release.number}-${build.number}" />
-        </exec>
-        <exec executable="echo" failonerror="true" append="true" output="src/i2p.chromium.base.profile/version.md">
-            <arg value="" />
-        </exec>
-    </target>
-
-    <target name="i2pChromiumUsabilityProfile">
-        <mkdir dir="src/i2p.chromium.usability.profile/extensions/" />
-        <!--<exec executable="crx3" failonerror="true">
-            <arg value="download"/>
-            <arg value="ikdjcmomgldfciocnpekfndklkfgglpe" />
-            <arg value="-u=true"/>
-            <arg value="-o" />
-            <arg value="src/i2p.chromium.usability.profile/extensions/i2pchrome.js.crx" />
-        </exec>
-        <exec executable="crx3" failonerror="true">
-            <arg value="download"/>
-            <arg value="cjpalhdlnbpafiamejdnhcphjbkeiagm" />
-            <arg value="-u=true"/>
-            <arg value="-o" />
-            <arg value="src/i2p.chromium.usability.profile/extensions/ublock.js.crx" />
-        </exec>
-        <exec executable="crx3" failonerror="true">
-            <arg value="download"/>
-            <arg value="ammoloihpcbognfddfjcljgembpibcmb" />
-            <arg value="-u=true"/>
-            <arg value="-o" />
-            <arg value="src/i2p.chromium.usability.profile/extensions/jshelter.js.crx" />
-        </exec>
-        <exec executable="crx3" failonerror="true">
-            <arg value="download"/>
-            <arg value="njdfdhgcmkocbgbhcioffdbicglldapd" />
-            <arg value="-u=true"/>
-            <arg value="-o" />
-            <arg value="src/i2p.chromium.usability.profile/extensions/localcdn.js.crx" />
-        </exec>-->
-        <exec executable="echo" failonerror="true" append="false" output="src/i2p.chromium.usability.profile/version.md">
-            <arg value="Profile Version" />
-        </exec>
-        <exec executable="echo" failonerror="true" append="true" output="src/i2p.chromium.usability.profile/version.md">
-            <arg value="===============" />
-        </exec>
-        <exec executable="echo" failonerror="true" append="true" output="src/i2p.chromium.usability.profile/version.md">
-            <arg value="" />
-        </exec>
-        <exec executable="echo" failonerror="true" append="true" output="src/i2p.chromium.usability.profile/version.md">
-            <arg value="${release.number}-${build.number}" />
-        </exec>
-        <exec executable="echo" failonerror="true" append="true" output="src/i2p.chromium.usability.profile/version.md">
-            <arg value="" />
-        </exec>
-    </target>
     <target name="i2pFirefoxBaseProfile" depends="buildNum,i2pFirefoxBaseUserJs">
         <mkdir dir="src/i2p.firefox.base.profile/extensions/" />
         <copy file="src/prefs.js" tofile="src/i2p.firefox.base.profile/prefs.js" />

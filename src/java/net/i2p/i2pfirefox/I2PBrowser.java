@@ -24,10 +24,8 @@ public class I2PBrowser extends I2PGenericUnsafeBrowser {
   private final I2PFirefox i2pFirefox = new I2PFirefox();
   private final I2PGenericUnsafeBrowser i2pGeneral =
       new I2PGenericUnsafeBrowser();
-  public boolean firefox = false;
-  public boolean chromium = false;
+  public boolean firefox = true;
   public boolean generic = false;
-  public boolean chromiumFirst = false;
   public boolean usability = false;
   public int privateBrowsing = 0;
   private boolean outputConfig = false;
@@ -178,9 +176,6 @@ public class I2PBrowser extends I2PGenericUnsafeBrowser {
           if (arg.equals("-private")) {
             this.privateBrowsing = 1;
           }
-          if (arg.equals("-chromium")) {
-            this.chromium = true;
-          }
           if (arg.equals("-firefox")) {
             this.firefox = true;
           }
@@ -209,8 +204,6 @@ public class I2PBrowser extends I2PGenericUnsafeBrowser {
           }
         }
       }
-      if (!this.chromium)
-        this.firefox = true;
     }
     return visitURL;
   }
