@@ -32,7 +32,8 @@ jobs:
       - name: install manifest-json-version
         run: go install github.com/eyedeekay/manifest-json-version@latest
       - run: git clone https://github.com/i2p/i2p.i2p ../i2p.i2p
-      - run: cd ../i2p.i2p && ant pkg; true
+      - run: cd ../i2p.i2p && ant pkg
+        continue-on-error: true
       - name: build with Ant
         run: |
           export PATH=$PATH:$(go env GOPATH)/bin
