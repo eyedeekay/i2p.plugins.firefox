@@ -173,7 +173,7 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
     </target>
 
     <target name="arkenfoxUpdateUserJs">
-        <exec executable="git" osfamily="unix">
+        <exec executable="git">
             <arg value="clone" />
             <arg value="https://github.com/arkenfox/user.js" />
         </exec>
