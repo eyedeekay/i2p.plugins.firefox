@@ -570,7 +570,7 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
             <arg value="--add-launcher"/> <arg value="i2pbrowser-usability=src/usability.properties"/>
         </exec>
     </target>
-    <target name="windows" depends="all,jar">
+    <target name="windows" depends="all,jar,userJs">
         <exec executable="jpackage" failonerror="true">
             <arg value="--verbose"/>
             <arg value="--type"/> <arg value="exe"/>
@@ -591,7 +591,7 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
             <arg value="--add-launcher"/> <arg value="i2pbrowser-usability=src/usability.properties"/>
         </exec>
     </target>
-    <target name="windows-release" depends="all,jar">
+    <target name="windows-release" depends="all,jar,userJs">
         <exec executable="jpackage" failonerror="true">
             <arg value="--verbose"/>
             <arg value="--type"/> <arg value="exe"/>
@@ -612,7 +612,7 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
             <arg value="--add-launcher"/> <arg value="i2pbrowser-usability=src/usability.properties"/>
         </exec>
     </target>
-    <target name="windows-msi" depends="all,jar">
+    <target name="windows-msi" depends="all,jar,userJs">
         <exec executable="jpackage" failonerror="true">
             <arg value="--verbose"/>
             <arg value="--type"/> <arg value="msi"/>
@@ -633,7 +633,7 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
             <arg value="--add-launcher"/> <arg value="i2pbrowser-usability=src/usability.properties"/>
         </exec>
     </target>
-    <target name="windows-msi-release" depends="all,jar">
+    <target name="windows-msi-release" depends="all,jar,userJs">
         <exec executable="jpackage" failonerror="true">
             <arg value="--verbose"/>
             <arg value="--type"/> <arg value="msi"/>
@@ -654,7 +654,7 @@ Linux(because the top command will be run and the script will exit).\n\nBoth det
             <arg value="--add-launcher"/> <arg value="i2pbrowser-usability=src/usability.properties"/>
         </exec>
     </target>
-    <target name="windows-portable" depends="jar">
+    <target name="windows-portable" depends="jar,userJs">
         <exec executable="jpackage" failonerror="true">
             <arg value="--verbose"/>
             <arg value="--type"/> <arg value="app-image"/>
