@@ -7,7 +7,7 @@ Linux. These packages are for the **`amd64`** architecture.
 
 ```sh
 mkdir ~/tmp-i2pbrowser && cd ~/tmp-i2pbrowser
-wget https://github.com/eyedeekay/i2p.plugins.firefox/releases/download/1.3.0/i2pbrowser.tar.gz
+wget https://github.com/eyedeekay/i2p.plugins.firefox/releases/download/2.9.0/i2pbrowser.tar.gz
 tar xvzf i2pbrowser.tar.gz && cd i2pbrowser
 ## THIS STEP IS OPTIONAL but it will force the system to use Tor Browser from within the i2pbrowser directory.
 # This probably offers better security than vanilla Firefox.
@@ -25,6 +25,12 @@ tar xvzf i2pbrowser.tar.gz && cd i2pbrowser
 2. Download the latest release `.deb` from [Github](https://github.com/eyedeekay/i2p.plugins.firefox/releases) and verify it's hash.
 3. Run `sudo apt-get install ./i2pbrowser*.deb`(Only needs to be done once per update)
 4. Use the applications menu shortcut to launch the pre-configured I2P browser
+
+```sh
+# Example
+wget 'https://github.com/eyedeekay/i2p.plugins.firefox/releases/download/2.9.0/i2pbrowser_1.0.0_amd64.deb'
+sudo apt-get install ./i2pbrowser_1.0.0_amd64.deb
+```
 
 #### Fedora and variants Jpackage: `.rpm`
 

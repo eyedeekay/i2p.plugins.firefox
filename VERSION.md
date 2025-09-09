@@ -9,8 +9,8 @@ i2p-in-private-browsing
 2.8.2
 https://addons.mozilla.org/firefox/downloads/file/4441161/i2p_in_private_browsing-2.8.2.xpi
 noscript
-13.0.6
-https://addons.mozilla.org/firefox/downloads/file/4495120/noscript-13.0.6.xpi
+13.0.8
+https://addons.mozilla.org/firefox/downloads/file/4497468/noscript-13.0.8.xpi
 localcdn-fork-of-decentraleyes
 2.6.79
 https://addons.mozilla.org/firefox/downloads/file/4464649/localcdn_fork_of_decentraleyes-2.6.79.xpi
