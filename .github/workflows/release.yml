@@ -76,3 +76,4 @@ jobs:
         with:
           artifacts: "*"
           bodyFile: "CHANGES.md"
+          allowUpdates: true

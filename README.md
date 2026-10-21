@@ -1,4 +1,4 @@
-# i2p.plugins.firefox(2.13.0)
+# i2p.plugins.firefox(2.14.0)
 
 A port of the batch scripts from `i2p.firefox` to Java.
 
